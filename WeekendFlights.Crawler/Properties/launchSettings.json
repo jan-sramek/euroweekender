@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "WeekendFlights_Crawler": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7050",
+      "launchBrowser": false
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "weekend_flights": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7201",
+      "launchBrowser": false
+    }
+  }
+}

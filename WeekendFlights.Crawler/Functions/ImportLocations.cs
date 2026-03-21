@@ -20,7 +20,8 @@ public class ImportLocations
     }
 
     [Function("ImportLocations")]
-    public async Task Run([TimerTrigger("0 0 1 1 *")] TimerInfo myTimer)
+    public async Task Run([TimerTrigger("0 */10 * * * *")] TimerInfo myTimer)
+    // public async Task Run([TimerTrigger("0 0 1 1 *")] TimerInfo myTimer)
     {
         await RunCore();
         if (myTimer.ScheduleStatus is not null)

@@ -51,6 +51,8 @@ public class TequilaApiSearchSearchClient : ITequilaApiSearchClient
                      $"return_to={returnTo:dd/MM/yyyy}&" +
                      $"nights_in_dst_from={nightsInDstFrom}&" +
                      $"nights_in_dst_to={nightsInDstTo}&" +
+                     $"ret_from_diff_city=false&" +
+                     $"ret_to_diff_city=false&" +
                      $"max_fly_duration={maxFlyDuration}&" +
                      $"adults={adults}&" +
                      $"children={children}&" +
@@ -64,7 +66,7 @@ public class TequilaApiSearchSearchClient : ITequilaApiSearchClient
                      $"price_to={priceTo}&" +
                      $"curr={currency}&" +
                      $"max_stopovers={maxStopOvers}&" +
-                     $"sort=price&" +
+                     $"sort=quality&" +
                      $"limit={limit}";
 
             var response = await _httpClient.GetAsync(url);
@@ -111,14 +113,15 @@ public class TequilaApiSearchSearchClient : ITequilaApiSearchClient
                 AvailabilitySeats = d.Availability?.Seats ?? 0,
                 VirtualInterlining = d.VirtualInterlining,
                 UtcArrival = d.UtcArrival,
-                UtcDeparture = d.UtcDeparture
+                UtcDeparture = d.UtcDeparture,
+                DeepLink = d.DeepLink
             }).ToList();
 
             return flights;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error searching flights from {From} to {To}", from, "destination unknown");
+            _logger.LogError(ex, "Error searching flights from {From}.", from, "destination unknown");
             return new List<Flight>();
         }
     }
@@ -225,6 +228,9 @@ public class KiwiFlightData
 
     [JsonPropertyName("utc_departure")]
     public DateTime UtcDeparture { get; set; }
+    
+    [JsonPropertyName("deep_link")]
+    public string? DeepLink { get; set; }
 }
 
 public class KiwiCountry

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Infrastructure.Persistence;
@@ -33,7 +33,7 @@ public class WeekendFlightsDbContext : DbContext
 
             entity.Property(c => c.KiwiId)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(200);
 
             entity.Property(c => c.Name)
                 .IsRequired()
@@ -45,10 +45,10 @@ public class WeekendFlightsDbContext : DbContext
 
             entity.Property(c => c.Country)
                 .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(200);
 
             entity.Property(c => c.Region)
-                .HasMaxLength(100);
+                .HasMaxLength(200);
 
             entity.Property(c => c.Continent)
                 .IsRequired()
@@ -98,7 +98,7 @@ public class WeekendFlightsDbContext : DbContext
                 .HasMaxLength(200);
 
             entity.Property(a => a.TimeZone)
-                .HasMaxLength(100);
+                .HasMaxLength(200);
 
             entity.Property(a => a.Latitude)
                 .HasPrecision(9, 6);
@@ -146,20 +146,20 @@ public class WeekendFlightsDbContext : DbContext
         // Properties
         entity.Property(f => f.KiwiId)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(200);
 
         entity.Property(f => f.BookingToken)
             .IsRequired()
-            .HasMaxLength(500);
+            .HasMaxLength(2000);
 
         entity.Property(f => f.CountryFrom)
-            .HasMaxLength(100);
+            .HasMaxLength(200);
 
         entity.Property(f => f.CountryTo)
-            .HasMaxLength(100);
+            .HasMaxLength(200);
 
         entity.Property(f => f.DeepLink)
-            .HasMaxLength(1000);
+            .HasMaxLength(2000);
 
         entity.Property(f => f.Distance)
             .HasColumnType("float");
@@ -183,10 +183,10 @@ public class WeekendFlightsDbContext : DbContext
             .HasColumnType("decimal(10,2)");
 
         entity.Property(f => f.LocalArrival)
-            .HasColumnType("datetime2");
+            .HasColumnType("timestamp with time zone");
 
         entity.Property(f => f.LocalDeparture)
-            .HasColumnType("datetime2");
+            .HasColumnType("timestamp with time zone");
 
         entity.Property(f => f.NightsInDest)
             .HasDefaultValue(0);
@@ -210,10 +210,10 @@ public class WeekendFlightsDbContext : DbContext
             .HasMaxLength(10);
 
         entity.Property(f => f.CityFrom)
-            .HasMaxLength(100);
+            .HasMaxLength(200);
 
         entity.Property(f => f.CityTo)
-            .HasMaxLength(100);
+            .HasMaxLength(200);
 
         entity.Property(f => f.CityCodeFrom)
             .HasMaxLength(10);
@@ -222,10 +222,10 @@ public class WeekendFlightsDbContext : DbContext
             .HasMaxLength(10);
 
         entity.Property(f => f.UtcArrival)
-            .HasColumnType("datetime2");
+            .HasColumnType("timestamp with time zone");
 
         entity.Property(f => f.UtcDeparture)
-            .HasColumnType("datetime2");
+            .HasColumnType("timestamp with time zone");
 
         // Boolean defaults
         entity.Property(f => f.FacilitatedBookingAvailable).HasDefaultValue(false);

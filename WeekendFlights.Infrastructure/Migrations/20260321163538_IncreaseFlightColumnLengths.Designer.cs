@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WeekendFlights.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using WeekendFlights.Infrastructure.Persistence;
 namespace WeekendFlights.Infrastructure.Migrations
 {
     [DbContext(typeof(WeekendFlightsDbContext))]
-    partial class WeekendFlightsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260321163538_IncreaseFlightColumnLengths")]
+    partial class IncreaseFlightColumnLengths
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,12 +34,8 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.Property<Guid>("CityId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("CityKiwiId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("DestinationPopularityScore")
-                        .HasColumnType("double precision");
+                    b.Property<int>("DestinationPopularityScore")
+                        .HasColumnType("integer");
 
                     b.Property<int>("GlobalRankDestination")
                         .HasColumnType("integer");
@@ -59,21 +58,21 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.Property<int>("KiwiId")
                         .HasColumnType("integer");
 
-                    b.Property<double>("Latitude")
+                    b.Property<decimal>("Latitude")
                         .HasPrecision(9, 6)
-                        .HasColumnType("double precision");
+                        .HasColumnType("numeric(9,6)");
 
-                    b.Property<double>("Longitude")
+                    b.Property<decimal>("Longitude")
                         .HasPrecision(9, 6)
-                        .HasColumnType("double precision");
+                        .HasColumnType("numeric(9,6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<decimal>("Rank")
-                        .HasColumnType("numeric");
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TimeZone")
                         .IsRequired()

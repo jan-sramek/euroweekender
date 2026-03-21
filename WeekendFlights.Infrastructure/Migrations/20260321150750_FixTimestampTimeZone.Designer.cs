@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WeekendFlights.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using WeekendFlights.Infrastructure.Persistence;
 namespace WeekendFlights.Infrastructure.Migrations
 {
     [DbContext(typeof(WeekendFlightsDbContext))]
-    partial class WeekendFlightsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260321150750_FixTimestampTimeZone")]
+    partial class FixTimestampTimeZone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,12 +34,8 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.Property<Guid>("CityId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("CityKiwiId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("DestinationPopularityScore")
-                        .HasColumnType("double precision");
+                    b.Property<int>("DestinationPopularityScore")
+                        .HasColumnType("integer");
 
                     b.Property<int>("GlobalRankDestination")
                         .HasColumnType("integer");
@@ -59,26 +58,26 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.Property<int>("KiwiId")
                         .HasColumnType("integer");
 
-                    b.Property<double>("Latitude")
+                    b.Property<decimal>("Latitude")
                         .HasPrecision(9, 6)
-                        .HasColumnType("double precision");
+                        .HasColumnType("numeric(9,6)");
 
-                    b.Property<double>("Longitude")
+                    b.Property<decimal>("Longitude")
                         .HasPrecision(9, 6)
-                        .HasColumnType("double precision");
+                        .HasColumnType("numeric(9,6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<decimal>("Rank")
-                        .HasColumnType("numeric");
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TimeZone")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -114,8 +113,8 @@ namespace WeekendFlights.Infrastructure.Migrations
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -124,8 +123,8 @@ namespace WeekendFlights.Infrastructure.Migrations
 
                     b.Property<string>("KiwiId")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal>("Latitude")
                         .HasPrecision(9, 6)
@@ -141,8 +140,8 @@ namespace WeekendFlights.Infrastructure.Migrations
                         .HasColumnType("character varying(200)");
 
                     b.Property<string>("Region")
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -174,8 +173,8 @@ namespace WeekendFlights.Infrastructure.Migrations
 
                     b.Property<string>("BookingToken")
                         .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("CityCodeFrom")
                         .IsRequired()
@@ -189,27 +188,28 @@ namespace WeekendFlights.Infrastructure.Migrations
 
                     b.Property<string>("CityFrom")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("CityTo")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("CountryFrom")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("CountryTo")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("DeepLink")
-                        .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)");
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
 
                     b.Property<double>("Distance")
                         .HasColumnType("float");
@@ -259,8 +259,8 @@ namespace WeekendFlights.Infrastructure.Migrations
 
                     b.Property<string>("KiwiId")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<DateTime>("LocalArrival")
                         .HasColumnType("timestamp with time zone");

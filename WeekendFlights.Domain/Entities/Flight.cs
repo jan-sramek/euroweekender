@@ -11,7 +11,7 @@ public class Flight
     // public ConversionDto Conversion { get; set; }
     public string CountryFrom { get; set; }
     public string CountryTo { get; set; }
-    public string DeepLink { get; set; }
+    public string? DeepLink { get; set; }
     public double Distance { get; set; }
     public decimal DurationDeparture { get; set; }
     public decimal DurationReturn { get; set; }

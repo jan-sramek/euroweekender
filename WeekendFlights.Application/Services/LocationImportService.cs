@@ -8,9 +8,11 @@ public class LocationImportService(
 {
     public async Task ImportLocationsAsync(string apiKey)
     {
-        var cities = await kiwi.LoadCitiesAsync(apiKey);
-        await repository.SaveCitiesAsync(cities);
+        // var cities = await kiwi.LoadCitiesAsync(apiKey);
+        // await repository.SaveCitiesAsync(cities);
         
         //TODO: Airports
+        var airports = await kiwi.LoadAirportsAsync(apiKey);
+        await repository.SaveAirports(airports);
     }
 }

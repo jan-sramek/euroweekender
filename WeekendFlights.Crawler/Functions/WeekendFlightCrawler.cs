@@ -33,8 +33,8 @@ public class WeekendFlightCrawler
     }
 
     [Function("WeekendFlightCrawler")]
-    // public async Task RunAsync([TimerTrigger("0 */6 * * * *")] TimerInfo timerInfo, FunctionContext context)
-    public async Task RunAsync([TimerTrigger("*/30 * * * * *")] TimerInfo timerInfo, FunctionContext context)
+    public async Task RunAsync([TimerTrigger("0 0 */2 * * *")] TimerInfo timerInfo, FunctionContext context)
+    // public async Task RunAsync([TimerTrigger("*/30 * * * * *")] TimerInfo timerInfo, FunctionContext context)
     {
         _logger.LogInformation("Weekend flight crawler function executed at: {Timestamp}", DateTime.UtcNow);
 
@@ -50,7 +50,7 @@ public class WeekendFlightCrawler
                     await ProcessCityForWeekendAsync(city, weekend);
                     
                     // Add delay to respect API rate limits
-                    await Task.Delay(1000);
+                    await Task.Delay(2000);
                 }
             }
 
@@ -124,9 +124,11 @@ public class WeekendFlightCrawler
             // Calculate days until Thursday and Friday of current week
             int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)currentWeek.DayOfWeek + 7) % 7;
             int daysUntilFriday = ((int)DayOfWeek.Friday - (int)currentWeek.DayOfWeek + 7) % 7;
+            int daysUntilSaturday = ((int)DayOfWeek.Saturday - (int)currentWeek.DayOfWeek + 7) % 7;
 
             var thursday = currentWeek.AddDays(daysUntilThursday);
-            var friday = currentWeek.AddDays(daysUntilFriday);
+            var friday = thursday.AddDays(1);
+            var saturday = friday.AddDays(1);
             
             // Calculate Sunday and Monday of the following week (after the weekend)
             var sunday = thursday.AddDays(3); // Thursday + 3 days = Sunday
@@ -143,7 +145,7 @@ public class WeekendFlightCrawler
             weekends.Add(new WeekendDates
             {
                 DepartureFrom = thursday,
-                DepartureTo = friday,
+                DepartureTo = saturday,
                 ReturnFrom = sunday,
                 ReturnTo = monday
             });
@@ -199,7 +201,7 @@ public class WeekendFlightCrawler
                 weekend.ReturnTo,
                 0,
                 4,
-                20,
+                8,
                 1,
                 0,
                 0,
@@ -208,6 +210,8 @@ public class WeekendFlightCrawler
                 "EUR",
                 200
                 );
+            
+            await _flightRepository.UpsertFlightsAsync(flights);
         }
         catch (Exception ex)
         {

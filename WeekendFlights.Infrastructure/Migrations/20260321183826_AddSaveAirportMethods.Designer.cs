@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WeekendFlights.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using WeekendFlights.Infrastructure.Persistence;
 namespace WeekendFlights.Infrastructure.Migrations
 {
     [DbContext(typeof(WeekendFlightsDbContext))]
-    partial class WeekendFlightsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260321183826_AddSaveAirportMethods")]
+    partial class AddSaveAirportMethods
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -6,12 +6,19 @@ public class LocationImportService(
     ILocationRepository repository,
     IKiwiApiClient kiwi) : ILocationImportService
 {
-    public async Task ImportLocationsAsync(string apiKey)
+    public async Task ImportCitiesAsync(string apiKey, CancellationToken cancellationToken = default)
     {
-        var cities = await kiwi.LoadCitiesAsync(apiKey);
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var cities = await kiwi.LoadCitiesAsync(apiKey, cancellationToken);
         await repository.SaveCitiesAsync(cities);
-        
-        var airports = await kiwi.LoadAirportsAsync(apiKey);
+    }
+
+    public async Task ImportAirportsAsync(string apiKey, CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var airports = await kiwi.LoadAirportsAsync(apiKey, cancellationToken);
         await repository.SaveAirports(airports);
     }
 }

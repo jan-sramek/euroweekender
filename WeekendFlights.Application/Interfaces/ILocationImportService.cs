@@ -2,5 +2,6 @@
 
 public interface ILocationImportService
 {
-    Task ImportLocationsAsync(string apiKey);
+    Task ImportCitiesAsync(string apiKey, CancellationToken cancellationToken = default);
+    Task ImportAirportsAsync(string apiKey, CancellationToken cancellationToken = default);
 }

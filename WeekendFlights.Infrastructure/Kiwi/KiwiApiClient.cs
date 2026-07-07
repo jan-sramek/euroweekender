@@ -7,7 +7,7 @@ namespace WeekendFlights.Infrastructure.Kiwi;
 
 public class KiwiApiClient(HttpClient httpClient) : IKiwiApiClient
 {
-    public async Task<List<City>> LoadCitiesAsync(string apiKey)
+    public async Task<List<City>> LoadCitiesAsync(string apiKey, CancellationToken cancellationToken = default)
     {
         var cities = new List<City>();
         var addedCities = new HashSet<string>();
@@ -28,11 +28,11 @@ public class KiwiApiClient(HttpClient httpClient) : IKiwiApiClient
                 url += $"&search_after={Uri.EscapeDataString(searchAfter1)}";
                 url += $"&search_after={Uri.EscapeDataString(searchAfter2)}";
             }
-            var response = await httpClient.GetAsync(url);
+            var response = await httpClient.GetAsync(url, cancellationToken);
             
             if (response.StatusCode == HttpStatusCode.TooManyRequests)
             {
-                await Task.Delay(1000 * (++i)); // exponential backoff
+                await Task.Delay(1000 * (++i), cancellationToken); // exponential backoff
 
                 if (i == 10)
                 {
@@ -78,13 +78,13 @@ public class KiwiApiClient(HttpClient httpClient) : IKiwiApiClient
             searchAfter1 = searchAfter[0].GetRawText();
             searchAfter2 = searchAfter[1].GetRawText();
             
-            await Task.Delay(200);
+            await Task.Delay(200, cancellationToken);
         }
 
         return cities;
     }
     
-    public async Task<List<Airport>> LoadAirportsAsync(string apiKey)
+    public async Task<List<Airport>> LoadAirportsAsync(string apiKey, CancellationToken cancellationToken = default)
     {
         var airports = new List<Airport>();
 
@@ -106,11 +106,11 @@ public class KiwiApiClient(HttpClient httpClient) : IKiwiApiClient
                 url += $"&search_after={Uri.EscapeDataString(searchAfter2)}";
             }
             
-            var response = await httpClient.GetAsync(url);
+            var response = await httpClient.GetAsync(url, cancellationToken);
             
             if (response.StatusCode == HttpStatusCode.TooManyRequests)
             {
-                await Task.Delay(1000 * (++i)); // exponential backoff
+                await Task.Delay(1000 * (++i), cancellationToken); // exponential backoff
 
                 if (i == 10)
                 {
@@ -198,7 +198,7 @@ public class KiwiApiClient(HttpClient httpClient) : IKiwiApiClient
             searchAfter1 = searchAfter[0].GetRawText();
             searchAfter2 = searchAfter[1].GetRawText();
             
-            await Task.Delay(500);
+            await Task.Delay(500, cancellationToken);
 
             offset += limit;
         }

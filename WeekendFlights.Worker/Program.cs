@@ -10,7 +10,7 @@ builder.Services.AddWorkerJobs();
 
 var command = args.FirstOrDefault()?.ToLowerInvariant();
 
-if (command is "crawl" or "import-locations" or "cleanup" or "backfill-return-times")
+if (command is "crawl" or "import-cities" or "import-airports" or "cleanup" or "backfill-return-times")
 {
     var host = builder.Build();
 
@@ -22,8 +22,11 @@ if (command is "crawl" or "import-locations" or "cleanup" or "backfill-return-ti
         case "crawl":
             await scope.ServiceProvider.GetRequiredService<WeekendFlightCrawlJob>().RunAsync(cancellationToken);
             break;
-        case "import-locations":
-            await scope.ServiceProvider.GetRequiredService<LocationImportJob>().RunAsync(cancellationToken);
+        case "import-cities":
+            await scope.ServiceProvider.GetRequiredService<ImportCitiesJob>().RunAsync(cancellationToken);
+            break;
+        case "import-airports":
+            await scope.ServiceProvider.GetRequiredService<ImportAirportsJob>().RunAsync(cancellationToken);
             break;
         case "cleanup":
             await scope.ServiceProvider.GetRequiredService<OldFlightsCleanupJob>().RunAsync(cancellationToken);
@@ -40,6 +43,5 @@ if (command is "crawl" or "import-locations" or "cleanup" or "backfill-return-ti
 
 builder.Services.AddHostedService<WeekendFlightCrawlerBackgroundService>();
 builder.Services.AddHostedService<RemoveOldFlightsBackgroundService>();
-builder.Services.AddHostedService<LocationImportBackgroundService>();
 
 await builder.Build().RunAsync();

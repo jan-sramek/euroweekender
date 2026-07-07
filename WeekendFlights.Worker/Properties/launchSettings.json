@@ -16,9 +16,17 @@
         "DOTNET_ENVIRONMENT": "Development"
       }
     },
-    "Job: import-locations": {
+    "Job: import-cities": {
       "commandName": "Project",
-      "commandLineArgs": "import-locations",
+      "commandLineArgs": "import-cities",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Job: import-airports": {
+      "commandName": "Project",
+      "commandLineArgs": "import-airports",
       "dotnetRunMessages": true,
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"

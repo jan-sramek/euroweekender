@@ -9,7 +9,8 @@ public static class WorkerServiceCollectionExtensions
     {
         services.AddTransient<WeekendFlightCrawlJob>();
         services.AddTransient<FlightReturnTimesBackfillJob>();
-        services.AddTransient<LocationImportJob>();
+        services.AddTransient<ImportCitiesJob>();
+        services.AddTransient<ImportAirportsJob>();
         services.AddTransient<OldFlightsCleanupJob>();
         return services;
     }

@@ -7,5 +7,5 @@ public sealed class CrawlOptions
     public int UpcomingWeeks { get; init; } = 4;
     public int MaxCitiesPerRun { get; init; } = 25;
     public int RequestDelayMs { get; init; } = 2000;
-    public int IntervalMinutes { get; init; } = 20;
+    public int IntervalMinutes { get; init; } = 10;
 }

@@ -1,0 +1,191 @@
+.home-intro {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(25, 44, 57, 0.35), rgba(25, 44, 57, 0.85)),
+    radial-gradient(circle at 20% 20%, rgba(34, 139, 209, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(4, 191, 171, 0.35), transparent 40%),
+    #192c39;
+  color: #fff;
+}
+
+.intro-overlay {
+  padding: 2rem 0 2.25rem;
+}
+
+.intro-copy {
+  margin-bottom: 1.5rem;
+  max-width: 42rem;
+}
+
+.intro-eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #04bfab;
+}
+
+.intro-copy h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  color: #fff;
+}
+
+.intro-lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.search-home {
+  width: 100%;
+}
+
+.searchbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+  gap: 0;
+  min-height: 5rem;
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 15px rgba(25, 44, 57, 0.12);
+  overflow: hidden;
+}
+
+.search-field {
+  padding: 1.1rem 1.25rem;
+  border-left: 1px solid #e8edf1;
+  min-width: 0;
+}
+
+.search-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.search-field:first-child {
+  border-left: 0;
+}
+
+.flights-counter {
+  margin-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(4, 191, 171, 0.18);
+  border: 1px solid rgba(4, 191, 171, 0.45);
+  color: #e8fffb;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.flights-counter-loading {
+  animation: flights-counter-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes flights-counter-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.offers-home {
+  padding: 2rem 0 4rem;
+}
+
+.offers-header {
+  margin-bottom: 1.5rem;
+}
+
+.offers-subtitle {
+  margin: 0;
+  color: #8c959c;
+}
+
+.results-count {
+  margin: 0;
+  color: #8c959c;
+  font-size: 0.9rem;
+}
+
+.results-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.link-button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #228bd1;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.flight-list,
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.state-box,
+.alert {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.25rem;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(25, 44, 57, 0.12);
+  text-align: center;
+  color: #8c959c;
+}
+
+.alert-error {
+  color: #842029;
+  background: #f8d7da;
+}
+
+.alert-warning {
+  color: #664d03;
+  background: #fff3cd;
+}
+
+@media (max-width: 991px) {
+  .searchbar {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .search-field {
+    border-left: 0;
+    border-top: 1px solid #e8edf1;
+  }
+
+  .search-field:first-child {
+    border-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro-overlay {
+    padding: 1.5rem 0 1.75rem;
+  }
+
+  .intro-copy h1 {
+    font-size: 1.65rem;
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "home": {
+      "title": "Olcsó európai hétvégi járatok",
+      "description": "Keress és hasonlíts össze olcsó hétvégi járatokat Európában. Keresés péntek–vasárnap, csütörtök–vasárnap és más időszakokra a közeledben lévő repülőterekről."
+    },
+    "about": {
+      "title": "Az EuroWeekenderről",
+      "description": "Hétvégi járatok Európában szabadság nélkül. Tudj meg többet arról, hogyan segít az euroweekender.com péntek esti indulással és vasárnapi visszatéréssel, biztonságos Kiwi.com foglalással."
+    },
+    "faq": {
+      "title": "Hétvégi járatok – GYIK",
+      "description": "Válaszok a gyakori kérdésekre az európai hétvégi járatok kereséséről az euroweekender.com oldalon."
+    },
+    "contact": {
+      "title": "Kapcsolat",
+      "description": "Lépj kapcsolatba az euroweekender.com csapatával visszajelzés, partnerség vagy támogatás ügyében."
+    },
+    "howItWorks": {
+      "title": "Hogyan működik",
+      "description": "Találj péntek esti–vasárnapi hétvégi járatokat Európában. Hasonlítsd össze az ajánlatokat az euroweekender.com-on, és foglalj biztonságosan a Kiwi.com-on keresztül."
+    },
+    "privacy": {
+      "title": "Adatvédelmi irányelvek",
+      "description": "Az euroweekender.com adatvédelmi irányelvei — milyen adatokat gyűjtünk és hogyan használjuk fel őket."
+    },
+    "terms": {
+      "title": "Felhasználási feltételek",
+      "description": "Az euroweekender.com felhasználási feltételei — szabályok a hétvégi járatkereső szolgáltatás használatához."
+    }
+  },
+  "nav": {
+    "home": "Főoldal",
+    "howItWorks": "Hogyan működik",
+    "about": "Rólunk",
+    "faq": "GYIK",
+    "contact": "Kapcsolat"
+  },
+  "footer": {
+    "tagline": "Európai hétvégi repülőjárat-ajánlatok",
+    "explore": "Felfedezés",
+    "support": "Támogatás",
+    "searchFlights": "Járatok keresése",
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Felhasználási feltételek",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Európai hétvégi repülőjárat-ajánlatok",
+    "title": "A következő városlátogatásod péntek estén kezdődik",
+    "lead": "Hasonlítsd össze a hétvégi oda-vissza járatokat Európában — indulás munka után, visszatérés vasárnap, szabadság nélkül.",
+    "fromSelectedAirports": "Innen: {{airports}}",
+    "person": "fő",
+    "persons": "fő",
+    "allTripTypes": "minden utazástípus",
+    "thereEvening": "oda esti",
+    "backEvening": "vissza esti",
+    "hubRankingWarning": "Az ajánlatok rangsorolása nem elérhető — a közeli repülőterek csak távolság szerint vannak rendezve.",
+    "apiError": "Nem sikerült betölteni a repülőtereket. Fut az API?",
+    "flightLoadError": "Nem sikerült betölteni a járatokat a kiválasztott hétvégékre.",
+    "tryAgain": "Próbáld újra",
+    "loading": "A legjobb ajánlatok keresése…",
+    "noFlights": "Még nincs járat a kiválasztott hétvégékre. Próbálj más dátumokat, utazástípusokat, vagy adj hozzá több indulási repülőteret.",
+    "noLegMatch": "Nincs a kiválasztott indulási és visszatérési szakaszoknak megfelelő járat.",
+    "clearLegFilters": "Szakaszszűrők törlése",
+    "dealsShown": "{{shown}} / {{total}} ajánlat megjelenítve",
+    "dealsFound": "{{count}} ajánlat található",
+    "clearLegFiltersBtn": "Szakaszszűrők törlése",
+    "selectedAirports": "kiválasztott repülőterek",
+    "moreAirports_one": "{{name}} + {{count}} további repülőtér",
+    "moreAirports_other": "{{name}} + {{count}} további repülőtér",
+    "weekendsCount": "{{count}} hétvége"
+  },
+  "search": {
+    "travelWeekend": "Utazási hétvége",
+    "travelWeekendHint": "Válassz egy vagy több dátumtartományt",
+    "tripType": "Utazástípus",
+    "tripTypeHint": "Opcionális tartózkodási minta",
+    "departureTime": "Indulási idő",
+    "departureTimeHint": "Opcionális esti szűrők",
+    "travelers": "utas",
+    "travelersHint": "Utasszám az árazáshoz",
+    "thereEvening": "Oda · este",
+    "thereEveningTitle": "Odaúti indulás 17:00-kor vagy később",
+    "backEvening": "Vissza · este",
+    "backEveningTitle": "Visszaúti indulás 17:00-kor vagy később",
+    "prevWeekends": "Előző hétvégék",
+    "nextWeekends": "Következő hétvégék",
+    "selectWeekends": "Hétvégék kiválasztása",
+    "selectTripType": "Utazástípus (opcionális)",
+    "eveningDepartures": "Esti indulások (opcionális)",
+    "detectingLocation": "Helymeghatározás…",
+    "fromLocationAdd": "Innen: {{location}} — adj hozzá még egy repülőteret…",
+    "addAirport": "Indulási repülőtér hozzáadása…",
+    "searchAirports": "Repülőterek keresése hozzáadáshoz",
+    "noAirportsFound": "Nem található repülőtér",
+    "selectedAirports": "Kiválasztott repülőterek",
+    "nearbyAirports": "Közeli repülőterek",
+    "removeAirport": "{{name}} eltávolítása",
+    "traveler": "utas",
+    "fewerTravelers": "Kevesebb utas",
+    "moreTravelers": "Több utas",
+    "travelersGroup": "Utasok száma"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Péntek – vasárnap",
+      "short": "P–V"
+    },
+    "thu-sun": {
+      "label": "Csütörtök – vasárnap",
+      "short": "Cs–V"
+    },
+    "wed-sun": {
+      "label": "Szerda – vasárnap",
+      "short": "Sze–V"
+    },
+    "fri-mon": {
+      "label": "Péntek – hétfő",
+      "short": "P–H"
+    },
+    "fri-tue": {
+      "label": "Péntek – kedd",
+      "short": "P–K"
+    }
+  },
+  "flights": {
+    "destination": "Úticél",
+    "perPerson": "{{price}} főnként",
+    "forDaysTrip": "{{days}} napos utazásra",
+    "detail": "Részletek",
+    "changes_zero": "0 átszállás",
+    "changes_one": "1 átszállás",
+    "changes_other": "{{count}} átszállás"
+  },
+  "about": {
+    "heroTitle": "Az euroweekender.com-ról",
+    "heroSubtitle": "Megfizethető európai városlátogatások a munkaheteidhez igazítva — péntek esti indulás, vasárnapi visszatérés.",
+    "lead": "Segítünk az európaiaknak megfizethető rövid utakat felfedezni — péntek esti indulás, vasárnapi visszatérés, és egy teljes városlátogatás szabadság felhasználása nélkül.",
+    "sections": {
+      "weekendTitle": "Hétvégi utak szabadság nélkül",
+      "weekendP1": "A legtöbbünknek csak szombat és vasárnap szabad — de ez elég egy európai kiruccanáshoz. Az euroweekender.com rövid oda-vissza utakra épül: pénteken munka után repülsz ki, szombaton felfedezed az új várost, vasárnap estére pedig hazaérsz.",
+      "weekendP2": "Használd a P–V utazástípust és az esti indulás szűrőt, hogy a valódi munkaheti ritmusnak megfelelő járatokat találj, ne csak hétközi nyaralásokat.",
+      "whatTitle": "Mit csinálunk",
+      "whatP": "Az euroweekender.com a Kiwi.com-ról begyűjtött hétvégi repülőjárat-ajánlatokat gyűjt össze, és egyszerű keresőfelületen mutatja be. Válaszd ki az indulási repülőtereket, egy vagy több utazási hétvégét, szűrj utazástípus szerint, és hasonlítsd össze az oda-vissza árakat egy pillantással.",
+      "whoTitle": "Kinek szól",
+      "whoP": "Az oldal városlátogatóknak, pároknak és baráti társaságoknak készült, akik inspirációt keresnek anélkül, hogy órákat töltenének repülőjárat-összehasonlító oldalakon. Akár Prágából, Bécsből, Barcelonából vagy bármely más európai központból indulsz, áttekintheted a közelgő hétvégéket, és közvetlenül a légitársaságnál vagy utazási partnernél foglalhatsz.",
+      "rankTitle": "Hogyan rangsoroljuk az eredményeket",
+      "rankP": "Az ajánlatokat az utazás teljes ára szerint rendezzük az utasszámod alapján. Központi pontszámokat is használunk az ajánlatok mennyisége, az árszint és az úticélok változatossága alapján, hogy erős indulási repülőtereket javasoljunk a közeledben.",
+      "affiliateTitle": "Partnerprogram közzététele",
+      "affiliateP": "Ha rákattintasz egy járat foglalására, átirányíthatunk a Kiwi.com-ra vagy más foglalási partnerhez. Jutalékot kaphatunk, extra költség nélkül számodra. Az árak és a rendelkezésre állás mindig a partner oldalán kerülnek megerősítésre fizetés előtt.",
+      "kiwiTitle": "Biztonságos foglalás a Kiwi.com-on",
+      "kiwiP1": "A Kiwi.com-ra irányítunk — egy jól bevált európai repülőjárat-foglalási platformra, amelyet évente milliók használnak. A fizetés a Kiwi biztonságos pénztárán történik iparági szabványú titkosítással, és a jegyet a foglalási rendszerükön keresztül állítják ki ügyfélszolgálattal, ha változnak a tervek.",
+      "kiwiP2": "A Kiwi.com foglalásvédelmet és zavaráskezelést is kínál a jogosult tarifákhoz, így nem maradsz magadra, ha a légitársaságok átütemezik vagy törlik a járatot. Mindig a Kiwi.com-on ellenőrzöd a végleges árat, a poggyászszabályokat és a feltételeket fizetés előtt."
+    },
+    "cta": "Készen állsz a következő kiruccanás tervezésére?",
+    "heroImageAlt": "Madártávlatú kilátás egy európai városra naplementekor",
+    "eveningImageAlt": "Repülőgépszárny a felhők felett naplementekor",
+    "cityImageAlt": "Csatornamenti utca egy európai városban"
+  },
+  "howItWorks": {
+    "heroTitle": "Hogyan működik",
+    "heroSubtitle": "Négy egyszerű lépés a péntek esti járatról a vasárnapi visszatérésig — szabadság nélkül.",
+    "lead": "Találj olcsó európai hétvégi utat négy lépésben — péntek esti indulás, vasárnapi visszatérés, szabadság felhasználása nélkül.",
+    "builtTitle": "Valódi hétvégékre tervezve",
+    "builtP1": "Az euroweekender.com a munka köré illeszkedő rövid oda-vissza utakra fókuszál. Fogd el az utolsó megbeszélés után a péntek esti járatot, töltsd a szombatot egy új városban, és vasárnap estére repülj haza — két éjszaka távol, nulla szabadságnap.",
+    "builtP2": "Válaszd a P–V utazástípust, és kapcsold be az esti indulás szűrőt, hogy olyan járatokat láss, amelyek ehhez a ritmushoz illenek, nem pedig általános hetes kereséseket más oldalakon.",
+    "stepsTitle": "A négy lépés",
+    "step1title": "Válassz repülőtereket",
+    "step1text": "Engedélyezd a helymeghatározást, vagy válaszd ki kézzel az indulási központokat. Keress egyszerre több városból.",
+    "step2title": "Válassz hétvégéket",
+    "step2text": "Jelölj ki egy vagy több utazási hétvégét. Minden címke az adott utazás odaúti dátumtartományát mutatja.",
+    "step3title": "Finomítsd a szűrőket",
+    "step3text": "Válaszd a P–V mintákat, az esti indulásokat és az utasszámot. Az eredmények automatikusan frissülnek.",
+    "step4title": "Hasonlítsd össze és foglalj",
+    "step4text": "Rendezés ár szerint, oda- és visszaúti szakaszok áttekintése, majd biztonságos foglalás a Kiwi.com-on.",
+    "kiwiTitle": "Miért foglalj a Kiwi.com-on keresztül?",
+    "kiwiP": "A Kiwi.com Európa egyik legnagyobb repülőjárat-kereső és foglalási platformja. Ha az euroweekender.com-ról kattintasz át, a Kiwi saját biztonságos pénztárán fizetsz (nem az oldalunkon). Ez titkosított kártyakezelést, rendes foglalási nyilvántartást és hozzáférést a Kiwi ügyfélszolgálatához jelent, ha valami nem stimmel az utaddal.",
+    "tipsTitle": "Tippek jobb ajánlatokhoz",
+    "tip1": "Próbálj több közeli repülőteret — a kisebb központok néha olcsóbbak, mint a nagyvárosok.",
+    "tip2": "Válassz több hétvégét, hogy megtaláld a legolcsóbb indulási napot egy hónapon belül.",
+    "tip3": "Használd az esti szűrőket, ha pénteken munka után szeretnél indulni.",
+    "tip4": "Foglalj hamar a talált tarifa után — a hétvégi olcsó helyek gyorsan elfogynak.",
+    "cta": "Kezdd el a keresést",
+    "heroImageAlt": "Utazó csomaggal, készen a hétvégi útra",
+    "weekendImageAlt": "Európai macskaköves utca meleg esti fényben"
+  },
+  "faq": {
+    "heroTitle": "Gyakran ismételt kérdések",
+    "heroSubtitle": "Minden, amit tudnod kell az olcsó európai hétvégi járatok kereséséről.",
+    "lead": "Minden, amit tudnod kell az olcsó európai hétvégi járatok kereséséről.",
+    "items": [
+      {
+        "q": "Utazhatok szabadság felhasználása nélkül?",
+        "a": "Igen — pont erre valók a hétvégi utak. Válaszd a P–V mintát, és szűrj péntek esti indulásra, hogy munka után indulj, szombatot az úticélen töltsd, és vasárnap estére térj vissza. Teljes városlátogatást kapsz a szokásos hétvégédből."
+      },
+      {
+        "q": "Biztonságos a Kiwi.com-on keresztül foglalni?",
+        "a": "A Kiwi.com egy nagy európai repülőjárat-foglalási platform, amelyet évente milliók használnak. A fizetés a Kiwi biztonságos pénztárán történik szabványos titkosítással, és megfelelő foglalási visszaigazolást kapsz ügyfélszolgálattal. Sok tarifa Kiwi.com foglalásvédelmet is tartalmaz menetrendváltozásokra és zavarásokra — mindig ellenőrizd a tarifafeltételeket fizetés előtt."
+      },
+      {
+        "q": "Mi az euroweekender.com?",
+        "a": "Egy keresőeszköz olcsó európai hétvégi járatokhoz. Rövid tartózkodásra szóló oda-vissza ajánlatokat gyűjtünk, és szűrhetsz hétvégi dátumok, utazás hossza és indulási idő szerint."
+      },
+      {
+        "q": "Mely repülőterekről kereshetek?",
+        "a": "Egy vagy több indulási repülőteret választhatsz Európa-szerte. Az oldal a helyzeted alapján javasolhat közeli központokat, és ahol van adat, az ajánlatok minősége szerint rangsorolja őket."
+      },
+      {
+        "q": "Kiválaszthatok egyszerre több hétvégét?",
+        "a": "Igen. Kattints több dátumcímkére az utazási hétvége sorban, hogy összevonhasd az egyes hétvégék ajánlatait. Az eredmények nőnek, ahogy több hétvégét adsz hozzá."
+      },
+      {
+        "q": "Mit jelentenek a P–V vagy P–H utazástípusok?",
+        "a": "Az utazástípusok konkrét indulási napokra és tartózkodási hosszra szűrnek. Például a P–V pénteki indulást és vasárnapi visszatérést jelent két éjszaka az úticélen."
+      },
+      {
+        "q": "Honnan származnak az árak?",
+        "a": "Az árak a Kiwi.com repülőjárat-keresési adataiból származnak, és az adatbázisunkban tárolódnak. A végleges tarifa, a poggyászszabályok és a helyek rendelkezésre állása a foglalási link megnyitásakor kerülnek megerősítésre."
+      },
+      {
+        "q": "Közvetlenül értékesítitek a jegyeket?",
+        "a": "Nem. Ajánlatokat mutatunk, és a foglalási partnerhez irányítunk. A vásárlást az ő weboldalukon fejezed be."
+      },
+      {
+        "q": "Milyen gyakran frissülnek a járatok?",
+        "a": "A crawlerünk rendszeresen frissíti az ajánlatokat európai indulási városokból. Nagyon friss ajánlatok órákon belül megjelenhetnek; a régebbi sorokat új feltérképezések váltják fel."
+      },
+      {
+        "q": "Miért jelenik meg néha kötőjel a visszatérési időnél?",
+        "a": "A visszatérési indulási idők részletes útvonaladatokból származnak. Ha egy régebbi ajánlathoz hiányoznak, a visszatérési dátumot idő nélkül mutatjuk, amíg a lista meg nem frissül."
+      },
+      {
+        "q": "Tároljátok a helyzetemet?",
+        "a": "A geolokációt csak a böngésződben használjuk a közeli repülőterek javaslásához. Nem tároljuk a GPS-koordinátáidat a szervereinken. Részletekért lásd az adatvédelmi irányelveinket."
+      }
+    ],
+    "heroImageAlt": "Utazási térkép és tervezési jegyzetek egy asztalon",
+    "ctaStill": "Még mindig van kérdésed?"
+  },
+  "contact": {
+    "heroTitle": "Kapcsolat",
+    "heroSubtitle": "Kérdések, visszajelzés vagy partnerségi ötletek? Szívesen hallunk rólad.",
+    "lead": "Kérdések, visszajelzés vagy partnerségi ötletek? Szívesen hallunk rólad.",
+    "email": "E-mail",
+    "emailBody": "Általában néhány munkanapon belül válaszolunk. Konkrét járat foglalási problémáknál kérjük, fordulj a visszaigazoláson szereplő légitársasághoz vagy utazási partnerhez.",
+    "beforeTitle": "Mielőtt írsz",
+    "before1": "Nézd meg a GYIK-et a keresésről, utazástípusokról és foglalásról.",
+    "before2": "Add meg az indulási repülőteret és az utazási hétvégét, ha hiányzó ajánlatot jelentesz.",
+    "before3": "Nem tudjuk módosítani a Kiwi.com-on vagy más partneroldalakon történt foglalásokat.",
+    "heroImageAlt": "Laptop és jegyzetfüzet egy asztalon"
+  },
+  "privacy": {
+    "title": "Adatvédelmi irányelvek",
+    "lead": "Utolsó frissítés: 2026. július",
+    "intro": "Ez az irányelv elmagyarázza, hogyan kezeli az euroweekender.com („mi”, „minket”) az információkat, amikor használod a weboldalunkat.",
+    "infoCollect": "Általunk gyűjtött információk",
+    "analyticsLabel": "Analitika:",
+    "analytics": "Saját üzemeltetésű Umami Analytics-et használunk oldalmegtekintések és alapvető használat (böngészőtípus, ország, hivatkozó) számolására. Az Umami nem használ sütiket, és nem profiloz téged más weboldalakon. Az IP-címeket nem tároljuk.",
+    "usageLabel": "Használati adatok:",
+    "usage": "A szabványos szervernaplók (IP-cím, böngészőtípus, megtekintett oldalak) a tárhelyszolgáltatónk által biztonsági és teljesítménybeli okokból gyűjthetők.",
+    "locationLabel": "Helyzet:",
+    "location": "Ha engedélyezed a böngésző geolokációját, a koordinátákat helyben használjuk a közeli repülőterek javaslásához. Nem tároljuk a GPS-adatokat a szervereinken.",
+    "searchPrefsLabel": "Keresési beállítások:",
+    "searchPrefs": "A repülőtér- és hétvégekiválasztások csak a böngésző munkamenetében maradnak, és nincsenek felhasználói fiókhoz kötve.",
+    "thirdPartyTitle": "Harmadik fél szolgáltatásai",
+    "thirdParty": "A foglalási linkek a Kiwi.com-ra és más utazási partnerekhez irányítanak. Az ő adatvédelmi irányelveik érvényesek, amikor elhagyod az oldalunkat. Kiwi.com API-adatokat használunk a repülőjárat-ajánlatok megjelenítéséhez.",
+    "cookiesTitle": "Sütik",
+    "cookies": "Nem használunk reklámsütiket. Az Umami Analytics sütik nélkül működik. Alapvető technikai sütiket állíthat be a tárhelyinfrastruktúránk. A partneroldalak saját sütiket állíthatnak be, miután rákattintasz egy foglalási linkre.",
+    "rightsTitle": "Jogaid",
+    "rights": "Tartózkodási helyedtől függően (beleértve az EU/EGT-t a GDPR alapján) jogod lehet hozzáférni, helyesbíteni vagy törölni az általunk tárolt személyes adatokat. Lépj kapcsolatba velünk e jogok gyakorlásához.",
+    "contactTitle": "Kapcsolat",
+    "contact": "Adatvédelmi kérdések: {{email}}",
+    "seeAlso": "Lásd még a felhasználási feltételeinket is."
+  },
+  "terms": {
+    "title": "Felhasználási feltételek",
+    "lead": "Utolsó frissítés: 2026. július",
+    "intro": "Az euroweekender.com használatával elfogadod ezeket a feltételeket. Ha nem értesz egyet, kérjük, ne használd az oldalt.",
+    "serviceTitle": "Szolgáltatás leírása",
+    "service": "Repülőjárat-ajánlat kereső és összehasonlító felületet biztosítunk. Nem vagyunk utazási iroda, és nem állítunk ki jegyeket. A szállítási szerződések közötted és a légitársaság vagy foglalási partner között jönnek létre.",
+    "accuracyTitle": "Az információk pontossága",
+    "accuracy": "Az árak, időpontok és rendelkezésre állás harmadik féltől származnak, és foglalás előtt változhatnak. Mindig ellenőrizd a részleteket a partner weboldalán fizetés előtt. Nem vállalunk felelősséget a megjelenített tarifák vagy menetrendek hibáiért.",
+    "affiliateTitle": "Partnerlinkek",
+    "affiliate": "Egyes kimenő linkek partnerlinkek. Jutalékot kaphatunk, ha rajtuk keresztül foglalsz. Ez nem befolyásolja a partner oldalán fizetett árat.",
+    "acceptableTitle": "Elfogadható használat",
+    "acceptableIntro": "Elfogadod, hogy nem:",
+    "acceptable1": "Scrapelsz vagy túlterheled API-nkat vagy weboldalunkat automatizált kérésekkel.",
+    "acceptable2": "Próbálod megzavarni a szolgáltatást vagy hozzáférni nem nyilvános rendszerekhez.",
+    "acceptable3": "Használod az oldalt jogellenes célokra.",
+    "liabilityTitle": "Felelősség korlátozása",
+    "liability": "Az oldal „ahogy van” alapon érhető el garancia nélkül. A törvény által megengedett legteljesebb mértékben nem vállalunk felelősséget közvetett vagy következményes károkért, amelyek az oldal használatából vagy harmadik féltől származó foglalásokból erednek.",
+    "changesTitle": "Változások",
+    "changes": "Bármikor frissíthetjük ezeket a feltételeket vagy megszüntethetünk funkciókat. A változások utáni további használat elfogadást jelent.",
+    "contactTitle": "Kapcsolat",
+    "law": "Ezeket a feltételeket az Európai Unióban alkalmazandó jog szabályozza. Minden vitát az euroweekender.com üzemeltetőjének székhelye szerinti bíróságok illetékessége alá tartozik, a lakóhelyed országában érvényes kötelező fogyasztóvédelmi jogok sérelme nélkül.",
+    "contact": "Kérdések a feltételekről: {{email}}",
+    "seeAlso": "Olvasd el az adatvédelmi irányelveinket.",
+    "lawTitle": "Irányadó jog"
+  },
+  "common": {
+    "seeAlsoTerms": "felhasználási feltételek",
+    "seeAlsoPrivacy": "adatvédelmi irányelvek",
+    "searchWeekendFlights": "Hétvégi járatok keresése",
+    "howItWorks": "hogyan működik",
+    "newSearch": "új keresés",
+    "contactUs": "Kapcsolatfelvétel",
+    "startSearching": "Kezdd el a keresést",
+    "readFaq": "GYIK",
+    "language": "Nyelv",
+    "stillHaveQuestion": "Még mindig van kérdésed?",
+    "orStart": "vagy indíts egy",
+    "orRead": "vagy olvasd el a",
+    "readyToPlan": "Készen állsz a következő kiruccanás tervezésére?",
+    "seeAlsoOur": "Lásd még a"
+  }
+}

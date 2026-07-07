@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Zboruri de weekend ieftine în Europa",
+      "description": "Găsiți și comparați zboruri de weekend ieftine în toată Europa. Căutați vin–dum, joi–dum și altele de la aeroporturile din apropierea dvs."
+    },
+    "about": {
+      "title": "Despre EuroWeekender",
+      "description": "Zboruri de weekend în Europa fără zile de concediu. Aflați cum euroweekender.com vă ajută să plecați vineri seara și să vă întoarceți duminică prin rezervare securizată pe Kiwi.com."
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre zborurile de weekend",
+      "description": "Răspunsuri la întrebările frecvente despre căutarea zborurilor de weekend în Europa pe euroweekender.com."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contactați echipa euroweekender.com pentru feedback, parteneriate sau asistență."
+    },
+    "howItWorks": {
+      "title": "Cum funcționează",
+      "description": "Găsiți zboruri de weekend de vineri seara până duminică în toată Europa. Comparați ofertele pe euroweekender.com și rezervați în siguranță prin Kiwi.com."
+    },
+    "privacy": {
+      "title": "Politica de confidențialitate",
+      "description": "Politica de confidențialitate pentru euroweekender.com — ce date colectăm și cum le folosim."
+    },
+    "terms": {
+      "title": "Termeni de utilizare",
+      "description": "Termeni de utilizare pentru euroweekender.com — reguli pentru utilizarea serviciului nostru de căutare zboruri de weekend."
+    }
+  },
+  "nav": {
+    "home": "Acasă",
+    "howItWorks": "Cum funcționează",
+    "about": "Despre noi",
+    "faq": "Întrebări frecvente",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Oferte de zboruri de weekend în Europa",
+    "explore": "Explorează",
+    "support": "Asistență",
+    "searchFlights": "Caută zboruri",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni de utilizare",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Oferte de zboruri de weekend în Europa",
+    "title": "Următoarea dvs. escapadă urbană începe vineri seara",
+    "lead": "Comparați zboruri dus-întors de weekend în toată Europa — plecați după serviciu, reveniți duminică, fără zile de concediu.",
+    "fromSelectedAirports": "De la {{airports}}",
+    "person": "persoană",
+    "persons": "persoane",
+    "allTripTypes": "toate tipurile de călătorie",
+    "thereEvening": "dus seara",
+    "backEvening": "întors seara",
+    "hubRankingWarning": "Clasamentul ofertelor indisponibil — aeroporturile din apropiere sortate doar după distanță.",
+    "apiError": "Nu s-au putut încărca aeroporturile. API-ul rulează?",
+    "flightLoadError": "Nu s-au putut încărca zborurile pentru weekendurile selectate.",
+    "tryAgain": "Încearcă din nou",
+    "loading": "Se caută cele mai bune oferte…",
+    "noFlights": "Nu s-au găsit zboruri pentru weekendurile selectate. Încercați alte date, tipuri de călătorie sau adăugați mai multe aeroporturi de plecare.",
+    "noLegMatch": "Niciun zbor nu corespunde segmentelor de plecare și întoarcere selectate.",
+    "clearLegFilters": "Șterge filtrele de segment",
+    "dealsShown": "{{shown}} din {{total}} oferte afișate",
+    "dealsFound": "{{count}} oferte găsite",
+    "clearLegFiltersBtn": "Șterge filtrele de segment",
+    "selectedAirports": "aeroporturi selectate",
+    "moreAirports_one": "{{name}} + {{count}} alt aeroport",
+    "moreAirports_other": "{{name}} + {{count}} alte aeroporturi",
+    "weekendsCount": "{{count}} weekenduri"
+  },
+  "search": {
+    "travelWeekend": "Weekend de călătorie",
+    "travelWeekendHint": "Alegeți unul sau mai multe intervale de date",
+    "tripType": "Tip de călătorie",
+    "tripTypeHint": "Model de ședere opțional",
+    "departureTime": "Ora plecării",
+    "departureTimeHint": "Filtre opționale doar pentru plecări de seară",
+    "travelers": "Călători",
+    "travelersHint": "Număr de pasageri pentru preț",
+    "thereEvening": "Dus · seară",
+    "thereEveningTitle": "Plecarea dus la ora 17:00 sau mai târziu",
+    "backEvening": "Întors · seară",
+    "backEveningTitle": "Plecarea întors la ora 17:00 sau mai târziu",
+    "prevWeekends": "Weekendurile anterioare",
+    "nextWeekends": "Weekendurile următoare",
+    "selectWeekends": "Selectează weekenduri",
+    "selectTripType": "Tip de călătorie (opțional)",
+    "eveningDepartures": "Plecări de seară (opțional)",
+    "detectingLocation": "Se detectează locația dvs.…",
+    "fromLocationAdd": "De la {{location}} — adaugă alt aeroport…",
+    "addAirport": "Adaugă aeroport de plecare…",
+    "searchAirports": "Caută aeroporturi de adăugat",
+    "noAirportsFound": "Niciun aeroport găsit",
+    "selectedAirports": "Aeroporturi selectate",
+    "nearbyAirports": "Aeroporturi din apropiere",
+    "removeAirport": "Elimină {{name}}",
+    "traveler": "călător",
+    "travelers": "călători",
+    "fewerTravelers": "Mai puțini călători",
+    "moreTravelers": "Mai mulți călători",
+    "travelersGroup": "Număr de călători"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Vineri – duminică",
+      "short": "vin–dum"
+    },
+    "thu-sun": {
+      "label": "Joi – duminică",
+      "short": "joi–dum"
+    },
+    "wed-sun": {
+      "label": "Miercuri – duminică",
+      "short": "mie–dum"
+    },
+    "fri-mon": {
+      "label": "Vineri – luni",
+      "short": "vin–lun"
+    },
+    "fri-tue": {
+      "label": "Vineri – marți",
+      "short": "vin–mar"
+    }
+  },
+  "flights": {
+    "destination": "Destinație",
+    "perPerson": "{{price}} per persoană",
+    "forDaysTrip": "pentru o călătorie de {{days}} zile",
+    "detail": "Detalii",
+    "changes_zero": "0 escale",
+    "changes_one": "1 escală",
+    "changes_other": "{{count}} escale"
+  },
+  "about": {
+    "heroTitle": "Despre euroweekender.com",
+    "heroSubtitle": "Escapade urbane europene accesibile care se potrivesc săptămânii de lucru — plecare vineri seara, întoarcere duminică.",
+    "lead": "Vă ajutăm să descoperiți călătorii scurte accesibile — plecați vineri seara, reveniți duminică și bucurați-vă de o escapadă urbană completă fără a consuma zile de concediu.",
+    "sections": {
+      "weekendTitle": "Călătorii de weekend fără concediu",
+      "weekendP1": "Majoritatea dintre noi avem liber doar sâmbăta și duminica — dar asta e suficient pentru o escapadă europeană. euroweekender.com este construit în jurul călătoriilor scurte dus-întors: zburați după serviciu vineri, explorați sâmbăta și fiți acasă duminică seara.",
+      "weekendP2": "Folosiți tipuri de călătorie precum vin–dum și filtrul de plecare de seară pentru a găsi zboruri care se potrivesc unui program real de lucru, nu doar vacanțelor din mijlocul săptămânii.",
+      "whatTitle": "Ce facem",
+      "whatP": "euroweekender.com agregă oferte de zboruri de weekend preluate de pe Kiwi.com și le prezintă într-o experiență de căutare simplă. Alegeți aeroporturile de plecare, selectați unul sau mai multe weekenduri de călătorie, filtrați după tip de călătorie și comparați prețurile dus-întors dintr-o privire.",
+      "whoTitle": "Pentru cine este",
+      "whoP": "Site-ul este creat pentru călătorii în escapade urbane, cupluri și prieteni care vor inspirație fără să petreacă ore pe site-uri de comparare zboruri. Fie că plecați din Praga, Viena, Barcelona sau orice alt hub european, puteți scana weekendurile viitoare și rezerva direct la compania aeriană sau partenerul de călătorie.",
+      "rankTitle": "Cum clasificăm rezultatele",
+      "rankP": "Ofertele sunt sortate după prețul total al călătoriei pentru numărul dvs. de pasageri. Folosim și scoruri de hub bazate pe volumul ofertelor, nivelurile de preț și varietatea destinațiilor pentru a sugera aeroporturi de plecare puternice din apropierea dvs.",
+      "affiliateTitle": "Declarație de afiliere",
+      "affiliateP": "Când dați clic pentru a rezerva un zbor, puteți fi redirecționat către Kiwi.com sau alt partener de rezervare. Putem câștiga un comision fără costuri suplimentare pentru dvs. Prețurile și disponibilitatea sunt întotdeauna confirmate pe site-ul partenerului înainte de plată.",
+      "kiwiTitle": "Rezervare în siguranță prin Kiwi.com",
+      "kiwiP1": "Vă trimitem către Kiwi.com, o platformă europeană consacrată de rezervare zboruri folosită de milioane de călători în fiecare an. Plata se face prin checkout-ul securizat Kiwi cu criptare standard în industrie, iar biletul dvs. este emis prin sistemul lor de rezervare cu asistență pentru clienți dacă planurile se schimbă.",
+      "kiwiP2": "Kiwi.com oferă și protecție la rezervare și asistență în caz de perturbări pentru tarifele eligibile, astfel încât nu rămâneți singur când companiile aeriene reprogramează sau anulează. Revizuiți întotdeauna prețul final, regulile de bagaj și condițiile pe Kiwi.com înainte de a confirma plata."
+    },
+    "cta": "Gata să vă planificați următoarea escapadă?",
+    "heroImageAlt": "Vedere aeriană a unui oraș european la apus",
+    "eveningImageAlt": "Aripă de avion deasupra norilor la apus",
+    "cityImageAlt": "Stradă de-a lungul unui canal într-un oraș european"
+  },
+  "howItWorks": {
+    "heroTitle": "Cum funcționează",
+    "heroSubtitle": "Patru pași simpli de la zborul de vineri seara la întoarcerea de duminică — fără zile de concediu.",
+    "lead": "Găsiți o călătorie de weekend europeană ieftină în patru pași — plecați vineri seara, reveniți duminică și evitați zilele de concediu.",
+    "builtTitle": "Construit pentru weekenduri reale",
+    "builtP1": "euroweekender.com se concentrează pe călătorii scurte dus-întors care se potrivesc muncii. Prindeți un zbor vineri seara după ultima ședință, petreceți sâmbăta într-un oraș nou și zburați acasă duminică seara — două nopți departe, zero zile de concediu.",
+    "builtP2": "Alegeți un tip de călătorie vin–dum și activați filtrul de plecare de seară pentru a afișa zboruri care se potrivesc acestui ritm, în loc de căutări generice de o săptămână pe alte site-uri.",
+    "stepsTitle": "Cei patru pași",
+    "step1title": "Alegeți aeroporturile",
+    "step1text": "Permiteți accesul la locație sau alegeți manual hub-urile de plecare. Căutați din mai multe orașe simultan.",
+    "step2title": "Alegeți weekendurile",
+    "step2text": "Selectați unul sau mai multe weekenduri de călătorie. Fiecare etichetă arată intervalul de date al plecării dus pentru acea călătorie.",
+    "step3title": "Rafinați filtrele",
+    "step3text": "Alegeți modele vin–dum, plecări de seară și numărul de pasageri. Rezultatele se actualizează automat.",
+    "step4title": "Comparați și rezervați",
+    "step4text": "Sortați după preț, revizuiți segmentele dus și întors, apoi rezervați în siguranță pe Kiwi.com.",
+    "kiwiTitle": "De ce să rezervați prin Kiwi.com?",
+    "kiwiP": "Kiwi.com este una dintre cele mai mari platforme europene de căutare și rezervare zboruri. Când dați clic de pe euroweekender.com, plătiți prin checkout-ul securizat propriu Kiwi (nu pe site-ul nostru). Asta înseamnă procesare criptată a cardului, un înregistrare corectă a rezervării și acces la echipa de asistență Kiwi dacă ceva merge greșit cu călătoria dvs.",
+    "tipsTitle": "Sfaturi pentru oferte mai bune",
+    "tip1": "Încercați mai multe aeroporturi din apropiere — hub-urile mai mici uneori bat orașele mari la preț.",
+    "tip2": "Selectați mai multe weekenduri pentru a identifica cea mai ieftină zi de plecare dintr-o lună.",
+    "tip3": "Folosiți filtrele de seară dacă vreți să plecați după serviciu vineri.",
+    "tip4": "Rezervați curând după ce găsiți un tarif; locurile de weekend la prețuri mici se epuizează rapid.",
+    "cta": "Începeți căutarea",
+    "heroImageAlt": "Călător cu bagaje pregătit pentru o escapadă de weekend",
+    "weekendImageAlt": "Stradă cu pavaj din piatră într-un oraș european, în lumina caldă a serii"
+  },
+  "faq": {
+    "heroTitle": "Întrebări frecvente",
+    "heroSubtitle": "Tot ce trebuie să știți despre găsirea zborurilor de weekend ieftine în Europa.",
+    "lead": "Tot ce trebuie să știți despre găsirea zborurilor de weekend ieftine în Europa.",
+    "items": [
+      {
+        "q": "Pot călători fără să folosesc zile de concediu?",
+        "a": "Da — exact pentru asta sunt călătoriile de weekend. Alegeți un model vin–dum și filtrați plecările de vineri seara ca să plecați după serviciu, să petreceți sâmbăta la destinație și să reveniți duminică seara. Obțineți o escapadă urbană completă folosind doar weekendul obișnuit."
+      },
+      {
+        "q": "Este sigur să rezerv prin Kiwi.com?",
+        "a": "Kiwi.com este o platformă majoră europeană de rezervare zboruri folosită de milioane de călători. Plata se face prin checkout-ul securizat Kiwi cu criptare standard, iar dvs. primiți o confirmare corectă a rezervării cu asistență pentru clienți. Multe tarife includ și protecție la rezervare Kiwi.com pentru schimbări de program și perturbări — verificați întotdeauna condițiile tarifului înainte de plată."
+      },
+      {
+        "q": "Ce este euroweekender.com?",
+        "a": "Un instrument de căutare pentru zboruri de weekend ieftine în Europa. Colectăm oferte dus-întors pentru șederi scurte și vă permitem să filtrați după date de weekend, durata călătoriei și ora plecării."
+      },
+      {
+        "q": "De la ce aeroporturi pot căuta?",
+        "a": "Puteți selecta unul sau mai multe aeroporturi de plecare în Europa. Site-ul poate sugera hub-uri din apropiere pe baza locației dvs. și le clasifică după calitatea ofertelor acolo unde datele sunt disponibile."
+      },
+      {
+        "q": "Pot selecta mai multe weekenduri simultan?",
+        "a": "Da. Dați clic pe mai multe etichete de date din rândul weekendului de călătorie pentru a combina ofertele din fiecare weekend. Rezultatele cresc pe măsură ce adăugați mai multe weekenduri."
+      },
+      {
+        "q": "Ce înseamnă tipuri de călătorie precum vin–dum sau vin–lun?",
+        "a": "Tipurile de călătorie filtrează zborurile după zile specifice de plecare și durata șederii. De exemplu, vin–dum înseamnă plecare vineri și întoarcere duminică după două nopți la destinație."
+      },
+      {
+        "q": "De unde provin prețurile?",
+        "a": "Prețurile provin din datele de căutare zboruri Kiwi.com și sunt stocate în baza noastră de date. Tariful final, regulile de bagaj și disponibilitatea locurilor sunt confirmate când deschideți linkul de rezervare."
+      },
+      {
+        "q": "Vindeți bilete direct?",
+        "a": "Nu. Afișăm oferte și vă trimitem către partenerul de rezervare. Finalizați achiziția pe site-ul lor."
+      },
+      {
+        "q": "Cât de des sunt actualizate zborurile?",
+        "a": "Crawler-ul nostru reîmprospătează ofertele regulat din orașele europene de plecare. Ofertele foarte proaspete pot apărea în câteva ore; rândurile mai vechi sunt înlocuite pe măsură ce se finalizează noi crawl-uri."
+      },
+      {
+        "q": "De ce uneori ora întoarcerii apare ca o liniuță?",
+        "a": "Orele plecării întors provin din date detaliate despre rută. Dacă aceste date lipsesc pentru o ofertă mai veche, afișăm data întoarcerii fără oră până când înregistrarea este reîmprospătată."
+      },
+      {
+        "q": "Este stocată locația mea?",
+        "a": "Geolocația este folosită doar în browserul dvs. pentru a sugera aeroporturi din apropiere. Nu stocăm coordonatele GPS pe serverele noastre. Consultați politica noastră de confidențialitate pentru detalii."
+      }
+    ],
+    "heroImageAlt": "Hartă de călătorie și note de planificare pe un birou",
+    "ctaStill": "Mai aveți o întrebare?"
+  },
+  "contact": {
+    "heroTitle": "Contact",
+    "heroSubtitle": "Întrebări, feedback sau idei de parteneriat? Ne-ar face plăcere să auzim de la dvs.",
+    "lead": "Întrebări, feedback sau idei de parteneriat? Ne-ar face plăcere să auzim de la dvs.",
+    "email": "E-mail",
+    "emailBody": "De obicei răspundem în câteva zile lucrătoare. Pentru probleme de rezervare cu un zbor specific, contactați compania aeriană sau partenerul de călătorie indicat pe confirmarea dvs.",
+    "beforeTitle": "Înainte să scrieți",
+    "before1": "Consultați întrebările frecvente pentru răspunsuri despre căutare, tipuri de călătorie și rezervare.",
+    "before2": "Includeți aeroportul de plecare și weekendul de călătorie dacă raportați o ofertă lipsă.",
+    "before3": "Nu putem modifica rezervările făcute pe Kiwi.com sau alte site-uri partenere.",
+    "heroImageAlt": "Laptop și caiet pe un birou"
+  },
+  "privacy": {
+    "title": "Politica de confidențialitate",
+    "lead": "Ultima actualizare: iulie 2026",
+    "intro": "Această politică explică cum euroweekender.com (\"noi\") gestionează informațiile când utilizați site-ul nostru.",
+    "infoCollect": "Informații pe care le colectăm",
+    "analyticsLabel": "Analiză:",
+    "analytics": "Folosim Umami Analytics auto-găzduit pentru a număra vizualizările de pagină și utilizarea de bază (tip browser, țară, referent). Umami nu folosește cookie-uri și nu vă profilează pe alte site-uri. Adresele IP nu sunt stocate.",
+    "usageLabel": "Date de utilizare:",
+    "usage": "Jurnalele standard ale serverului (adresă IP, tip browser, pagini vizualizate) pot fi colectate de furnizorul nostru de hosting pentru securitate și performanță.",
+    "locationLabel": "Locație:",
+    "location": "Dacă permiteți geolocația din browser, coordonatele sunt folosite local pentru a sugera aeroporturi din apropiere. Nu păstrăm date GPS pe serverele noastre.",
+    "searchPrefsLabel": "Preferințe de căutare:",
+    "searchPrefs": "Selecțiile de aeroport și weekend sunt păstrate doar în sesiunea browserului dvs. și nu sunt legate de un cont de utilizator.",
+    "thirdPartyTitle": "Servicii terțe",
+    "thirdParty": "Linkurile de rezervare redirecționează către Kiwi.com și alți parteneri de călătorie. Politicile lor de confidențialitate se aplică când părăsiți site-ul nostru. Folosim date API Kiwi.com pentru a afișa ofertele de zbor.",
+    "cookiesTitle": "Cookie-uri",
+    "cookies": "Nu folosim cookie-uri publicitare. Umami Analytics funcționează fără cookie-uri. Cookie-uri tehnice esențiale pot fi setate de infrastructura noastră de hosting. Site-urile partenere pot seta propriile cookie-uri după ce dați clic pe un link de rezervare.",
+    "rightsTitle": "Drepturile dvs.",
+    "rights": "În funcție de locația dvs. (inclusiv UE/SEE conform GDPR), puteți avea dreptul de acces, rectificare sau ștergere a datelor personale pe care le deținem. Contactați-ne pentru a exercita aceste drepturi.",
+    "contactTitle": "Contact",
+    "contact": "Întrebări despre confidențialitate: {{email}}",
+    "seeAlso": "Consultați și termenii noștri de utilizare."
+  },
+  "terms": {
+    "title": "Termeni de utilizare",
+    "lead": "Ultima actualizare: iulie 2026",
+    "intro": "Prin utilizarea euroweekender.com sunteți de acord cu acești termeni. Dacă nu sunteți de acord, vă rugăm să nu utilizați site-ul.",
+    "serviceTitle": "Descrierea serviciului",
+    "service": "Oferim o interfață de căutare și comparare a ofertelor de zbor. Nu suntem agenție de turism și nu emitem bilete. Contractele de transport sunt între dvs. și compania aeriană sau partenerul de rezervare.",
+    "accuracyTitle": "Acuratețea informațiilor",
+    "accuracy": "Prețurile, orele și disponibilitatea provin din surse terțe și se pot schimba înainte de rezervare. Verificați întotdeauna detaliile pe site-ul partenerului înainte de plată. Nu suntem răspunzători pentru erori în tarifele sau programele afișate.",
+    "affiliateTitle": "Linkuri de afiliere",
+    "affiliate": "Unele linkuri externe sunt linkuri de afiliere. Putem primi compensații când rezervați prin ele. Acest lucru nu afectează prețul pe care îl plătiți pe site-ul partenerului.",
+    "acceptableTitle": "Utilizare acceptabilă",
+    "acceptableIntro": "Sunteți de acord să nu:",
+    "acceptable1": "Scrapați sau supraîncărcați API-ul sau site-ul nostru cu cereri automate.",
+    "acceptable2": "Încercați să perturbați serviciul sau să accesați sisteme nepublice.",
+    "acceptable3": "Folosiți site-ul în scopuri ilegale.",
+    "liabilityTitle": "Limitarea răspunderii",
+    "liability": "Site-ul este furnizat \"ca atare\" fără garanții. În măsura maximă permisă de lege, nu suntem răspunzători pentru daune indirecte sau consecvente rezultate din utilizarea site-ului sau rezervările la terți.",
+    "changesTitle": "Modificări",
+    "changes": "Putem actualiza acești termeni sau întrerupe funcții în orice moment. Utilizarea continuă după modificări constituie acceptare.",
+    "lawTitle": "Legea aplicabilă",
+    "law": "Acești termeni sunt guvernați de legile aplicabile în Uniunea Europeană. Orice litigii vor fi supuse jurisdicției instanțelor unde este stabilit operatorul euroweekender.com, fără a aduce atingere drepturilor obligatorii de protecție a consumatorilor din țara dvs. de reședință.",
+    "contactTitle": "Contact",
+    "contact": "Întrebări despre acești termeni: {{email}}",
+    "seeAlso": "Citiți politica noastră de confidențialitate."
+  },
+  "common": {
+    "seeAlsoTerms": "termeni de utilizare",
+    "seeAlsoPrivacy": "politica de confidențialitate",
+    "searchWeekendFlights": "Caută zboruri de weekend",
+    "howItWorks": "cum funcționează",
+    "newSearch": "căutare nouă",
+    "contactUs": "Contactați-ne",
+    "startSearching": "Începeți căutarea",
+    "readFaq": "Întrebări frecvente",
+    "language": "Limbă",
+    "stillHaveQuestion": "Mai aveți o întrebare?",
+    "orStart": "sau începeți o",
+    "orRead": "sau citiți",
+    "readyToPlan": "Gata să vă planificați următoarea escapadă?",
+    "seeAlsoOur": "Consultați și"
+  }
+}

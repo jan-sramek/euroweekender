@@ -1,35 +1,5 @@
-version: '3.8'
-
 services:
-  # .NET Web API
-  api:
-    build:
-      context: ..
-      dockerfile: flight-search/api/Dockerfile
-    ports:
-      - "5001:80"
-    environment:
-      - ASPNETCORE_URLS=http://+:80
-      - ConnectionStrings__DefaultConnection=Host=db;Database=WeekendFlights;Username=postgres;Password=password
-    depends_on:
-      - db
-
-  # .NET Worker Service (Crawler)
-  worker:
-    build:
-      context: ..
-      dockerfile: flight-search/worker/Dockerfile
-    environment:
-      - KiwiApiKey=${KIWI_API_KEY}
-      - ConnectionStrings__DefaultConnection=Host=db;Database=WeekendFlights;Username=postgres;Password=password
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "dotnet", "version"]
-      interval: 5m
-      timeout: 3s
-      retries: 3
-
-  # PostgreSQL Database
+  # PostgreSQL Database - Shared by all services
   db:
     image: postgres:16-alpine
     ports:
@@ -40,6 +10,80 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - ./db-data:/var/lib/postgresql/data
+
+  # .NET Web API (WeekendFlights.Api)
+  api:
+    build:
+      context: ..
+      dockerfile: WeekendFlights.Api/Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__Postgres=${ConnectionStrings__DefaultConnection:-Host=db;Port=5432;Database=WeekendFlights;Username=postgres;Password=password}
+      - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
+    depends_on:
+      - db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  # Background Worker Service (WeekendFlights.Worker)
+  worker:
+    build:
+      context: ..
+      dockerfile: WeekendFlights.Worker/Dockerfile
+    environment:
+      - ConnectionStrings__Postgres=${ConnectionStrings__DefaultConnection:-Host=db;Port=5432;Database=WeekendFlights;Username=postgres;Password=password}
+      - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_UMAMI_SCRIPT_URL: ${VITE_UMAMI_SCRIPT_URL:-/umami/script.js}
+        VITE_UMAMI_WEBSITE_ID: ${VITE_UMAMI_WEBSITE_ID:-9b63db18-fc14-4972-9cd4-022e4621d053}
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+      - umami
+    restart: unless-stopped
+
+  umami-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD:-umami}
+    volumes:
+      - ./umami-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U umami -d umami']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD:-umami}@umami-db:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET:-change-me-to-a-long-random-string}
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    restart: unless-stopped
 
 networks:
   default:

@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Halvat viikonloppulennot Euroopassa",
+      "description": "Etsi ja vertaile halpoja viikonloppulentoja ympäri Eurooppaa. Hae pe–su, to–su ja muita matkoja lähellä olevilta lentokentiltä."
+    },
+    "about": {
+      "title": "Tietoa EuroWeekenderistä",
+      "description": "Viikonloppulennot Euroopassa ilman lomapäiviä. Katso, miten euroweekender.com auttaa sinua lähtemään perjantai-iltana ja palaamaan sunnuntaina turvallisen Kiwi.com-varauksen kautta."
+    },
+    "faq": {
+      "title": "Viikonloppulentojen UKK",
+      "description": "Vastauksia yleisiin kysymyksiin eurooppalaisten viikonloppulentojen etsimisestä euroweekender.comissa."
+    },
+    "contact": {
+      "title": "Yhteystiedot",
+      "description": "Ota yhteyttä euroweekender.com-tiimiin palautetta, kumppanuuksia tai tukea varten."
+    },
+    "howItWorks": {
+      "title": "Näin se toimii",
+      "description": "Löydä perjantai-illasta sunnuntaihin ulottuvat viikonloppulennot ympäri Eurooppaa. Vertaile tarjouksia euroweekender.comissa ja varaa turvallisesti Kiwi.comin kautta."
+    },
+    "privacy": {
+      "title": "Tietosuojakäytäntö",
+      "description": "euroweekender.comin tietosuojakäytäntö — mitä tietoja keräämme ja miten käytämme niitä."
+    },
+    "terms": {
+      "title": "Käyttöehdot",
+      "description": "euroweekender.comin käyttöehdot — säännöt viikonloppulentojen hakupalvelun käyttöön."
+    }
+  },
+  "nav": {
+    "home": "Etusivu",
+    "howItWorks": "Näin se toimii",
+    "about": "Tietoa",
+    "faq": "UKK",
+    "contact": "Yhteystiedot"
+  },
+  "footer": {
+    "tagline": "Eurooppalaiset viikonloppulentotarjoukset",
+    "explore": "Selaa",
+    "support": "Tuki",
+    "searchFlights": "Hae lentoja",
+    "privacy": "Tietosuojakäytäntö",
+    "terms": "Käyttöehdot",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Eurooppalaiset viikonloppulentotarjoukset",
+    "title": "Seuraava kaupunkiloma alkaa perjantai-iltana",
+    "lead": "Vertaile meno-paluuviikonloppulentoja ympäri Eurooppaa — lähtö työn jälkeen, paluu sunnuntaina, lomapäiviä ei tarvita.",
+    "fromSelectedAirports": "Lähtö: {{airports}}",
+    "person": "henkilö",
+    "persons": "henkilöä",
+    "allTripTypes": "kaikki matkatyypit",
+    "thereEvening": "meno illalla",
+    "backEvening": "paluu illalla",
+    "hubRankingWarning": "Tarjousten järjestys ei ole käytettävissä — lähellä olevat lentokentät on järjestetty vain etäisyyden mukaan.",
+    "apiError": "Lentokenttiä ei voitu ladata. Onko API käynnissä?",
+    "flightLoadError": "Valittujen viikonloppujen lentoja ei voitu ladata.",
+    "tryAgain": "Yritä uudelleen",
+    "loading": "Etsitään parhaita tarjouksia…",
+    "noFlights": "Valituille viikonlopuille ei löytynyt lentoja. Kokeile muita päivämääriä, matkatyyppejä tai lisää lähtölentokenttiä.",
+    "noLegMatch": "Yksikään lento ei vastaa valittuja lähtö- ja paluuvaiheita.",
+    "clearLegFilters": "Tyhjennä vaihesuodattimet",
+    "dealsShown": "{{shown}} / {{total}} tarjousta näytetään",
+    "dealsFound": "{{count}} tarjousta löytyi",
+    "clearLegFiltersBtn": "Tyhjennä vaihesuodattimet",
+    "selectedAirports": "valitut lentokentät",
+    "moreAirports_one": "{{name}} + {{count}} muu lentokenttä",
+    "moreAirports_other": "{{name}} + {{count}} muuta lentokenttää",
+    "weekendsCount": "{{count}} viikonloppua"
+  },
+  "search": {
+    "travelWeekend": "Matkaviikonloppu",
+    "travelWeekendHint": "Valitse yksi tai useampi ajanjakso",
+    "tripType": "Matkatyyppi",
+    "tripTypeHint": "Valinnainen oleskelumalli",
+    "departureTime": "Lähtöaika",
+    "departureTimeHint": "Valinnaiset vain-iltalähdöt-suodattimet",
+    "travelers": "Matkustajat",
+    "travelersHint": "Matkustajamäärä hinnoittelua varten",
+    "thereEvening": "Meno · ilta",
+    "thereEveningTitle": "Menolento lähtee klo 17:00 tai myöhemmin",
+    "backEvening": "Paluu · ilta",
+    "backEveningTitle": "Paluulento lähtee klo 17:00 tai myöhemmin",
+    "prevWeekends": "Edelliset viikonloput",
+    "nextWeekends": "Seuraavat viikonloput",
+    "selectWeekends": "Valitse viikonloput",
+    "selectTripType": "Matkatyyppi (valinnainen)",
+    "eveningDepartures": "Iltalähdöt (valinnainen)",
+    "detectingLocation": "Tunnistetaan sijaintiasi…",
+    "fromLocationAdd": "Lähtö: {{location}} — lisää toinen lentokenttä…",
+    "addAirport": "Lisää lähtölentokenttä…",
+    "searchAirports": "Hae lisättäviä lentokenttiä",
+    "noAirportsFound": "Lentokenttiä ei löytynyt",
+    "selectedAirports": "Valitut lentokentät",
+    "nearbyAirports": "Lähellä olevat lentokentät",
+    "removeAirport": "Poista {{name}}",
+    "traveler": "matkustaja",
+    "travelers": "matkustajaa",
+    "fewerTravelers": "Vähemmän matkustajia",
+    "moreTravelers": "Enemmän matkustajia",
+    "travelersGroup": "Matkustajien määrä"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Perjantai – sunnuntai",
+      "short": "pe–su"
+    },
+    "thu-sun": {
+      "label": "Torstai – sunnuntai",
+      "short": "to–su"
+    },
+    "wed-sun": {
+      "label": "Keskiviikko – sunnuntai",
+      "short": "ke–su"
+    },
+    "fri-mon": {
+      "label": "Perjantai – maanantai",
+      "short": "pe–ma"
+    },
+    "fri-tue": {
+      "label": "Perjantai – tiistai",
+      "short": "pe–ti"
+    }
+  },
+  "flights": {
+    "destination": "Kohde",
+    "perPerson": "{{price}} / henkilö",
+    "forDaysTrip": "{{days}} päivän matka",
+    "detail": "Tiedot",
+    "changes_zero": "0 vaihtoa",
+    "changes_one": "1 vaihto",
+    "changes_other": "{{count}} vaihtoa"
+  },
+  "about": {
+    "heroTitle": "Tietoa euroweekender.comista",
+    "heroSubtitle": "Edulliset eurooppalaiset kaupunkilomat, jotka sopivat työviikon ympärille — perjantai-ilta lähtö, sunnuntai paluu.",
+    "lead": "Autamme eurooppalaisia löytämään edullisia lyhyitä matkoja — lähtö perjantai-iltana, paluu sunnuntaina, ja täysi kaupunkiloma ilman lomapäiviä.",
+    "sections": {
+      "weekendTitle": "Viikonloppumatkat ilman lomaa",
+      "weekendP1": "Useimmilla meistä on vapaa vain lauantai ja sunnuntai — mutta se riittää eurooppalaiseen lomaan. euroweekender.com on rakennettu lyhyille meno-paluumatkoille: lento työn jälkeen perjantaina, tutustuminen lauantaina ja kotiin sunnuntai-iltana.",
+      "weekendP2": "Käytä matkatyyppejä kuten pe–su ja iltalähtösuodatinta löytääksesi lennot, jotka sopivat oikeaan työviikkorytmiin, eivät vain keskiviikon lomille.",
+      "whatTitle": "Mitä teemme",
+      "whatP": "euroweekender.com kokoaa Kiwi.comista haettuja viikonloppulentotarjouksia ja esittää ne yksinkertaisessa hakukokemuksessa. Valitse lähtölentokentät, yksi tai useampi matkaviikonloppu, suodata matkatyypin mukaan ja vertaile meno-paluhintoja yhdellä silmäyksellä.",
+      "whoTitle": "Kenelle se on",
+      "whoP": "Sivusto on rakennettu kaupunkilomailijoille, pareille ja ystäväporukoille, jotka haluavat inspiraatiota ilman tuntien viettämistä lentovertailusivustoilla. Lähditpä Prahasta, Wienistä, Barcelonasta tai mistä tahansa muusta eurooppalaisesta solmukohdasta, voit selata tulevia viikonloppuja ja varata suoraan lentoyhtiön tai matkakumppanin kautta.",
+      "rankTitle": "Miten järjestämme tulokset",
+      "rankP": "Tarjoukset järjestetään kokonaishinnan mukaan matkustajamäärällesi. Käytämme myös solmukohtapisteitä, jotka perustuvat tarjousten määrään, hintatasoon ja kohteiden vaihteluun, ehdottaaksemme vahvoja lähtölentokenttiä lähellä sijaintiasi.",
+      "affiliateTitle": "Kumppanuusilmoitus",
+      "affiliateP": "Kun klikkaat varataksesi lennon, sinut voidaan ohjata Kiwi.comiin tai toiselle varauskumppanille. Saatamme saada provisiota ilman lisäkustannuksia sinulle. Hinnat ja saatavuus vahvistetaan aina kumppanisivustolla ennen maksua.",
+      "kiwiTitle": "Turvallinen varaus Kiwi.comissa",
+      "kiwiP1": "Ohjaamme sinut Kiwi.comiin, vakiintuneeseen eurooppalaiseen lentovarausalustaan, jota miljoonat matkustajat käyttävät vuosittain. Maksu tapahtuu Kiwin turvallisessa kassassa alan standardisalauksella, ja lippu myönnetään heidän varausjärjestelmänsä kautta asiakastuen kera, jos suunnitelmat muuttuvat.",
+      "kiwiP2": "Kiwi.com tarjoaa myös varaussuojan ja häiriöavun kelvollisille hinnoille, joten et jää yksin, jos lentoyhtiöt muuttavat tai peruuttavat lentoja. Tarkistat aina lopullisen hinnan, matkatavarasäännöt ja ehdot Kiwi.comissa ennen maksun vahvistamista."
+    },
+    "cta": "Valmis suunnittelemaan seuraavaa lomaasi?",
+    "heroImageAlt": "Ilmakuva eurooppalaisesta kaupungista auringonlaskun aikaan",
+    "eveningImageAlt": "Lentokoneen siipi pilvien yllä auringonlaskussa",
+    "cityImageAlt": "Kanaalin varrella oleva katu eurooppalaisessa kaupungissa"
+  },
+  "howItWorks": {
+    "heroTitle": "Näin se toimii",
+    "heroSubtitle": "Neljä yksinkertaista vaihetta perjantai-illan lennosta sunnuntain paluuseen — lomapäiviä ei tarvita.",
+    "lead": "Löydä halpa eurooppalainen viikonloppumatka neljässä vaiheessa — lähtö perjantai-iltana, paluu sunnuntaina, ilman lomapäiviä.",
+    "builtTitle": "Rakennettu oikeille viikonlopuille",
+    "builtP1": "euroweekender.com keskittyy lyhyisiin meno-paluumatkoihin, jotka sopivat työn ympärille. Nappaa perjantai-iltalento viimeisen kokouksen jälkeen, vietä lauantai uudessa kaupungissa ja lennä kotiin sunnuntai-iltana — kaksi yötä poissa, nolla lomapäivää.",
+    "builtP2": "Valitse pe–su-matkatyyppi ja ota iltalähtösuodatin käyttöön löytääksesi lennot, jotka sopivat tähän rytmiin, eivät geneerisiin viikon mittaisiin hakuihin muilla sivustoilla.",
+    "stepsTitle": "Neljä vaihetta",
+    "step1title": "Valitse lentokentät",
+    "step1text": "Salli sijaintitiedot tai valitse lähtösolmukohdat käsin. Hae useista kaupungeista kerralla.",
+    "step2title": "Valitse viikonloput",
+    "step2text": "Valitse yksi tai useampi matkaviikonloppu. Jokainen merkki näyttää matkan lähtöaikavälin.",
+    "step3title": "Tarkenna suodattimia",
+    "step3text": "Valitse pe–su-mallit, iltalähdöt ja matkustajamäärä. Tulokset päivittyvät automaattisesti.",
+    "step4title": "Vertaile ja varaa",
+    "step4text": "Järjestä hinnan mukaan, tarkista meno- ja paluuvaiheet ja varaa turvallisesti Kiwi.comissa.",
+    "kiwiTitle": "Miksi varata Kiwi.comin kautta?",
+    "kiwiP": "Kiwi.com on yksi Euroopan suurimmista lentohaku- ja varausalustoista. Kun klikkaat euroweekender.comista, maksat Kiwin omassa turvallisessa kassassa (ei sivustollamme). Se tarkoittaa salattua korttimaksua, kunnollista varaustietuetta ja pääsyä Kiwin tukitiimiin, jos matkassa menee jotain pieleen.",
+    "tipsTitle": "Vinkkejä parempiin tarjouksiin",
+    "tip1": "Kokeile useita lähellä olevia lentokenttiä — pienemmät solmukohdat voivat joskus voittaa suurkaupungit hinnassa.",
+    "tip2": "Valitse useita viikonloppuja löytääksesi halvimman lähtöpäivän kuukaudelta.",
+    "tip3": "Käytä iltasuodattimia, jos haluat lähteä työn jälkeen perjantaina.",
+    "tip4": "Varaa pian löydettyäsi hinnan; halvat viikonloppupaikat myydään nopeasti loppuun.",
+    "cta": "Aloita haku",
+    "heroImageAlt": "Matkustaja matkatavaroiden kanssa valmiina viikonloppumatkalle",
+    "weekendImageAlt": "Eurooppalainen mukulakivikatu lämpimässä iltavalossa"
+  },
+  "faq": {
+    "heroTitle": "Usein kysytyt kysymykset",
+    "heroSubtitle": "Kaikki mitä sinun tarvitsee tietää halpojen viikonloppulentojen etsimisestä Euroopassa.",
+    "lead": "Kaikki mitä sinun tarvitsee tietää halpojen viikonloppulentojen etsimisestä Euroopassa.",
+    "items": [
+      {
+        "q": "Voinko matkustaa käyttämättä lomapäiviä?",
+        "a": "Kyllä — juuri siihen viikonloppumatkat on tarkoitettu. Valitse pe–su-malli ja suodata perjantai-iltalähdöt, jotta lähdet työn jälkeen, nautit lauantaina kohteessa ja palaat sunnuntai-iltana. Saat täyden kaupunkiloman käyttäen vain tavallista viikonloppuasi."
+      },
+      {
+        "q": "Onko turvallista varata Kiwi.comin kautta?",
+        "a": "Kiwi.com on merkittävä eurooppalainen lentovarausalusta, jota miljoonat matkustajat käyttävät. Maksu tapahtuu Kiwin turvallisessa kassassa standardisalauksella, ja saat kunnollisen varausvahvistuksen asiakastuen kera. Moniin hintoihin sisältyy myös Kiwi.comin varaussuoja aikataulumuutoksia ja häiriöitä varten — tarkista aina hintaehdot ennen maksua."
+      },
+      {
+        "q": "Mikä on euroweekender.com?",
+        "a": "Hakutyökalu halpojen eurooppalaisten viikonloppulentojen löytämiseen. Keräämme meno-palutarjouksia lyhyille matkoille ja voit suodattaa viikonloppupäivien, matkan pituuden ja lähtöajan mukaan."
+      },
+      {
+        "q": "Mistä lentokentiltä voin hakea?",
+        "a": "Voit valita yhden tai useamman lähtölentokentän ympäri Eurooppaa. Sivusto voi ehdottaa lähellä olevia solmukohtia sijaintisi perusteella ja järjestää ne tarjousten laadun mukaan, kun tietoja on saatavilla."
+      },
+      {
+        "q": "Voinko valita useita viikonloppuja kerralla?",
+        "a": "Kyllä. Klikkaa useita päivämerkkejä matkaviikonloppurivillä yhdistääksesi tarjouksia jokaiselta viikonlopulta. Tulokset kasvavat, kun lisäät viikonloppuja."
+      },
+      {
+        "q": "Mitä matkatyypit kuten pe–su tai pe–ma tarkoittavat?",
+        "a": "Matkatyypit suodattavat lennot tiettyihin lähtöpäiviin ja oleskelun pituuksiin. Esimerkiksi pe–su tarkoittaa lähtöä perjantaina ja paluuta sunnuntaina kahden yön jälkeen kohteessa."
+      },
+      {
+        "q": "Mistä hinnat tulevat?",
+        "a": "Hinnat ovat peräisin Kiwi.comin lentohakutiedoista ja tallennettu tietokantaamme. Lopullinen hinta, matkatavarasäännöt ja paikkasaatavuus vahvistetaan, kun avaat varauslinkin."
+      },
+      {
+        "q": "Myyttekö lippuja suoraan?",
+        "a": "Emme. Näytämme tarjouksia ja ohjaamme varauskumppanille. Suoritat ostoksen heidän verkkosivustollaan."
+      },
+      {
+        "q": "Kuinka usein lennot päivitetään?",
+        "a": "Hakurobotimme päivittää tarjouksia säännöllisesti eurooppalaisista lähtökaupungeista. Tuoreimmat tarjoukset voivat ilmestyä muutamassa tunnissa; vanhemmat rivit korvataan uusien hakujen valmistuessa."
+      },
+      {
+        "q": "Miksi paluuaika näkyy joskus viivana?",
+        "a": "Paluulähtöajat tulevat yksityiskohtaisista reittitiedoista. Jos tiedot puuttuvat vanhemmasta tarjouksesta, näytämme paluupäivän ilman aikaa, kunnes listaus päivitetään."
+      },
+      {
+        "q": "Tallennetaanko sijaintini?",
+        "a": "Sijaintitietoja käytetään vain selaimessasi lähellä olevien lentokenttien ehdottamiseen. Emme tallenna GPS-koordinaattejasi palvelimillemme. Katso tietosuojakäytäntömme lisätietoja varten."
+      }
+    ],
+    "heroImageAlt": "Matkakartta ja suunnittelumuistiinpanot pöydällä",
+    "ctaStill": "Onko sinulla vielä kysyttävää?"
+  },
+  "contact": {
+    "heroTitle": "Yhteystiedot",
+    "heroSubtitle": "Kysymyksiä, palautetta tai kumppanuusideoita? Kuulemme mielellämme sinusta.",
+    "lead": "Kysymyksiä, palautetta tai kumppanuusideoita? Kuulemme mielellämme sinusta.",
+    "email": "Sähköposti",
+    "emailBody": "Vastaamme yleensä muutamassa arkipäivässä. Tiettyä lentoa koskevissa varausasioissa ota yhteyttä lentoyhtiöön tai matkakumppaniin, joka näkyy vahvistuksessasi.",
+    "beforeTitle": "Ennen kuin kirjoitat",
+    "before1": "Tarkista UKK vastauksia hakuun, matkatyyppeihin ja varaukseen liittyen.",
+    "before2": "Mainitse lähtölentokenttäsi ja matkaviikonloppusi, jos ilmoitat puuttuvasta tarjouksesta.",
+    "before3": "Emme voi muuttaa Kiwi.comissa tai muilla kumppanisivustoilla tehtyjä varauksia.",
+    "heroImageAlt": "Kannettava tietokone ja muistikirja pöydällä"
+  },
+  "privacy": {
+    "title": "Tietosuojakäytäntö",
+    "lead": "Viimeksi päivitetty: heinäkuu 2026",
+    "intro": "Tämä käytäntö selittää, miten euroweekender.com (\"me\") käsittelee tietoja, kun käytät verkkosivustoamme.",
+    "infoCollect": "Keräämämme tiedot",
+    "analyticsLabel": "Analytiikka:",
+    "analytics": "Käytämme itse isännöityä Umami Analyticsia sivulatausten ja peruskäytön laskemiseen (selaintyyppi, maa, viittaaja). Umami ei käytä evästeitä eikä profiloi sinua muilla verkkosivustoilla. IP-osoitteita ei tallenneta.",
+    "usageLabel": "Käyttötiedot:",
+    "usage": "Isännöintipalveluntarjoajamme voi kerätä tavallisia palvelinlokeja (IP-osoite, selaintyyppi, katsotut sivut) turvallisuutta ja suorituskykyä varten.",
+    "locationLabel": "Sijainti:",
+    "location": "Jos sallit selaimen sijaintitiedot, koordinaatteja käytetään paikallisesti lähellä olevien lentokenttien ehdottamiseen. Emme tallenna GPS-tietoja palvelimillemme.",
+    "searchPrefsLabel": "Hakuasetukset:",
+    "searchPrefs": "Lentokenttä- ja viikonloppuvalinnat säilytetään vain selainistunnossasi eikä niitä linkitetä käyttäjätiliin.",
+    "thirdPartyTitle": "Kolmannen osapuolen palvelut",
+    "thirdParty": "Varauslinkit ohjaavat Kiwi.comiin ja muihin matkakumppaneihin. Heidän tietosuojakäytäntönsä koskevat, kun poistut sivustoltamme. Käytämme Kiwi.comin API-tietoja lentotarjousten näyttämiseen.",
+    "cookiesTitle": "Evästeet",
+    "cookies": "Emme käytä mainosevästeitä. Umami Analytics toimii ilman evästeitä. Isännöintirakenteemme voi asettaa välttämättömiä teknisiä evästeitä. Kumppanisivustot voivat asettaa omia evästeitään varauslinkkiä klikattuasi.",
+    "rightsTitle": "Oikeutesi",
+    "rights": "Sijainnistasi riippuen (mukaan lukien EU/ETA GDPR:n mukaan) sinulla voi olla oikeus käyttää, oikaista tai poistaa hallussamme olevia henkilötietoja. Ota yhteyttä käyttääksesi näitä oikeuksia.",
+    "contactTitle": "Yhteystiedot",
+    "contact": "Tietosuojakysymykset: {{email}}",
+    "seeAlso": "Katso myös käyttöehtomme."
+  },
+  "terms": {
+    "title": "Käyttöehdot",
+    "lead": "Viimeksi päivitetty: heinäkuu 2026",
+    "intro": "Käyttämällä euroweekender.comia hyväksyt nämä ehdot. Jos et hyväksy niitä, älä käytä sivustoa.",
+    "serviceTitle": "Palvelun kuvaus",
+    "service": "Tarjoamme lentotarjousten haku- ja vertailukäyttöliittymän. Emme ole matkatoimisto emmekä myönnä lippuja. Kuljetussopimukset ovat sinun ja lentoyhtiön tai varauskumppanin välillä.",
+    "accuracyTitle": "Tietojen paikkansapitävyys",
+    "accuracy": "Hinnat, ajat ja saatavuus tulevat kolmansien osapuolten lähteistä ja voivat muuttua ennen varausta. Tarkista aina tiedot kumppanisivustolta ennen maksua. Emme ole vastuussa näytetyissä hinnoissa tai aikatauluissa olevista virheistä.",
+    "affiliateTitle": "Kumppanuuslinkit",
+    "affiliate": "Jotkin ulkoiset linkit ovat kumppanuuslinkkejä. Saatamme saada korvauksen, kun varaat niiden kautta. Tämä ei vaikuta maksamaasi hintaan kumppanisivustolla.",
+    "acceptableTitle": "Hyväksyttävä käyttö",
+    "acceptableIntro": "Sitoudut olemaan:",
+    "acceptable1": "Kaapimatta tai ylikuormittamatta API:aamme tai verkkosivustoamme automaattisilla pyynnöillä.",
+    "acceptable2": "Yrittämättä häiritä palvelua tai käyttää julkisia järjestelmiä.",
+    "acceptable3": "Käyttämättä sivustoa laittomiin tarkoituksiin.",
+    "liabilityTitle": "Vastuun rajoitus",
+    "liability": "Sivusto tarjotaan \"sellaisenaan\" ilman takuita. Lain sallimassa laajuudessa emme ole vastuussa välillisistä tai seuraamuksellisista vahingoista, jotka johtuvat sivuston tai kolmansien osapuolten varausten käytöstä.",
+    "changesTitle": "Muutokset",
+    "changes": "Voimme päivittää näitä ehtoja tai lopettaa ominaisuuksia milloin tahansa. Jatkuva käyttö muutosten jälkeen merkitsee hyväksyntää.",
+    "lawTitle": "Sovellettava laki",
+    "law": "Näihin ehtoihin sovelletaan Euroopan unionin lakeja. Kaikki riidat ratkaistaan euroweekender.comin ylläpitäjän kotipaikan tuomioistuimissa, kuitenkin rajoittumatta pakollisiin kuluttajansuojaoikeuksiin asuinmaassasi.",
+    "contactTitle": "Yhteystiedot",
+    "contact": "Kysymykset näistä ehdoista: {{email}}",
+    "seeAlso": "Lue tietosuojakäytäntömme."
+  },
+  "common": {
+    "seeAlsoTerms": "käyttöehdot",
+    "seeAlsoPrivacy": "tietosuojakäytäntö",
+    "searchWeekendFlights": "Hae viikonloppulentoja",
+    "howItWorks": "näin se toimii",
+    "newSearch": "uusi haku",
+    "contactUs": "Ota yhteyttä",
+    "startSearching": "Aloita haku",
+    "readFaq": "UKK",
+    "language": "Kieli",
+    "stillHaveQuestion": "Onko sinulla vielä kysyttävää?",
+    "orStart": "tai aloita",
+    "orRead": "tai lue",
+    "readyToPlan": "Valmis suunnittelemaan seuraavaa lomaasi?",
+    "seeAlsoOur": "Katso myös"
+  }
+}

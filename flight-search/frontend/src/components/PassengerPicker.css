@@ -1,0 +1,29 @@
+.passenger-track {
+  align-items: center;
+}
+
+.passenger-stepper-btn {
+  min-width: 2.5rem;
+  padding-inline: 0.65rem;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.passenger-stepper-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.passenger-stepper-btn:disabled:hover {
+  border-color: #d6dee7;
+  background: linear-gradient(180deg, #fff, #f6f9fb);
+  box-shadow: none;
+}
+
+.passenger-count {
+  min-width: 6.5rem;
+  cursor: default;
+  pointer-events: none;
+}

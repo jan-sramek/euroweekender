@@ -1,0 +1,233 @@
+.block-result {
+  padding: 0.5rem 0.9rem 0.6rem;
+  margin-bottom: 0.2rem;
+  border: 1px solid #d3dadf;
+  background: #fff;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease;
+}
+
+.block-result:hover {
+  background: #f9fafb;
+}
+
+.result-destination-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #eff3f6;
+}
+
+.result-destination-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8c959c;
+}
+
+.result-destination-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #228bd1, #04bfab);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.destination-city {
+  font-weight: 700;
+  color: #04bfab;
+}
+
+.badge-destination {
+  color: #04bfab !important;
+  border-color: rgba(4, 191, 171, 0.45) !important;
+  background: rgba(4, 191, 171, 0.1) !important;
+  font-weight: 700;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7rem) 1fr auto;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.result-price {
+  text-align: center;
+}
+
+.result-price .price {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #8c959c;
+}
+
+.result-price .price strong {
+  color: #04bfab;
+  font-size: 1.15rem;
+}
+
+.result-legs {
+  min-width: 0;
+}
+
+.result-action {
+  justify-self: end;
+  align-self: center;
+}
+
+.block-result .badge {
+  display: inline-block;
+  padding: 1px 4px 2px;
+  margin-left: 0.15rem;
+  color: #8c959c;
+  font-weight: 400;
+  font-size: 0.7rem;
+  background: #e8edf1;
+  border: 1px solid #d3dadf;
+  border-radius: 0.15rem;
+  vertical-align: middle;
+}
+
+.block-result hr {
+  margin: 0.4rem 0 0.3rem;
+  border: 0;
+  border-top: 1px solid #eff3f6;
+}
+
+.result-leg-row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 9rem) 1fr 1fr minmax(5.5rem, 7rem);
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.result-leg-date {
+  min-width: 0;
+}
+
+.leg-date-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  cursor: default;
+  font-weight: 400;
+  color: #192c39;
+}
+
+.leg-date-checkbox {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0;
+  accent-color: #04bfab;
+  flex-shrink: 0;
+}
+
+.result-leg-segment {
+  min-width: 0;
+  color: #192c39;
+  line-height: 1.35;
+}
+
+.result-leg-segment strong {
+  font-weight: 700;
+}
+
+.result-leg-arrival {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+}
+
+.flight-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 10px;
+  margin-right: 0.15rem;
+  background: linear-gradient(to right, transparent 0%, transparent 35%, #8c959c 35%, #8c959c 65%, transparent 65%);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.flight-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -3px;
+  border: solid #8c959c;
+  border-width: 0 1.5px 1.5px 0;
+  padding: 2.5px;
+  transform: rotate(-45deg);
+}
+
+.result-leg-meta {
+  color: #8c959c;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.result-leg-meta-sep {
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  .result-grid {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .result-price {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .result-action {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .result-legs {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eff3f6;
+  }
+
+  .result-leg-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .result-leg-meta {
+    white-space: normal;
+  }
+
+  .result-leg-meta-sep {
+    display: none;
+  }
+
+  .result-leg-meta::before {
+    content: '/ ';
+    color: #8c959c;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .result-leg-row {
+    grid-template-columns: minmax(6.5rem, 8rem) 1fr 1fr;
+  }
+
+  .result-leg-meta {
+    grid-column: 2 / -1;
+    white-space: normal;
+  }
+}

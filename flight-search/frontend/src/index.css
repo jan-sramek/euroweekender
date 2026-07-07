@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', 'Segoe UI', sans-serif;
+  color: #192c39;
+  background: #f5f7f9;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #228bd1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-wide {
+  max-width: 1320px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem 0.45rem;
+  border: 0;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #04bfab;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #03a896;
+}
+
+.btn-secondary {
+  background: #e8edf1;
+  color: #192c39;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #d3dadf;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem 0.3rem;
+  font-size: 0.875rem;
+}
+
+.price {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #8c959c;
+}
+
+.price strong {
+  color: #04bfab;
+  font-size: 1.25rem;
+}

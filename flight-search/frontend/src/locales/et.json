@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Odavad nädalavahetuse lennud Euroopas",
+      "description": "Leia ja võrdle odavaid nädalavahetuse lende üle Euroopa. Otsi re–püh, nel–püh ja teisi variante sinu lähedal asuvatest lennujaamadest."
+    },
+    "about": {
+      "title": "EuroWeekenderist",
+      "description": "Nädalavahetuse lennud üle Euroopa ilma puhkepäevi kulutamata. Uuri, kuidas euroweekender.com aitab sul reedel õhtul välja ja pühapäeval tagasi sõita turvalise Kiwi.com broneeringu kaudu."
+    },
+    "faq": {
+      "title": "Nädalavahetuse lendude KKK",
+      "description": "Vastused levinud küsimustele Euroopa nädalavahetuse lendude otsimise kohta euroweekender.com-is."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Võta ühendust euroweekender.com meeskonnaga tagasiside, partnerluse või toe osas."
+    },
+    "howItWorks": {
+      "title": "Kuidas see töötab",
+      "description": "Leia reedest pühapäevani kestvad nädalavahetuse lennud üle Euroopa. Võrdle pakkumisi euroweekender.com-is ja broneeri turvaliselt Kiwi.com kaudu."
+    },
+    "privacy": {
+      "title": "Privaatsuspoliitika",
+      "description": "euroweekender.com privaatsuspoliitika — milliseid andmeid kogume ja kuidas neid kasutame."
+    },
+    "terms": {
+      "title": "Kasutustingimused",
+      "description": "euroweekender.com kasutustingimused — reeglid meie nädalavahetuse lendude otsingu teenuse kasutamiseks."
+    }
+  },
+  "nav": {
+    "home": "Avaleht",
+    "howItWorks": "Kuidas see töötab",
+    "about": "Meist",
+    "faq": "KKK",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Euroopa nädalavahetuse lennipakkumised",
+    "explore": "Avasta",
+    "support": "Tugi",
+    "searchFlights": "Otsi lende",
+    "privacy": "Privaatsuspoliitika",
+    "terms": "Kasutustingimused",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Euroopa nädalavahetuse lennipakkumised",
+    "title": "Sinu järgmine linnapuhkus algab reedel õhtul",
+    "lead": "Võrdle edasi-tagasi nädalavahetuse lende üle Euroopa — lahku pärast tööd, tule pühapäeval tagasi, puhkepäevi pole vaja.",
+    "fromSelectedAirports": "Lähtekoht: {{airports}}",
+    "person": "inimene",
+    "persons": "inimest",
+    "allTripTypes": "kõik reisitüübid",
+    "thereEvening": "sinna õhtul",
+    "backEvening": "tagasi õhtul",
+    "hubRankingWarning": "Pakkumiste järjestus pole saadaval — lähedased lennujaamad on sorteeritud ainult kauguse järgi.",
+    "apiError": "Lennujaamu ei õnnestunud laadida. Kas API töötab?",
+    "flightLoadError": "Valitud nädalavahetuste lende ei õnnestunud laadida.",
+    "tryAgain": "Proovi uuesti",
+    "loading": "Otsime parimaid pakkumisi…",
+    "noFlights": "Valitud nädalavahetuste jaoks lende veel ei leitud. Proovi teisi kuupäevi, reisitüüpe või lisa rohkem väljumislennujaamu.",
+    "noLegMatch": "Ükski lend ei vasta valitud väljumis- ja tagasilendudele.",
+    "clearLegFilters": "Tühista lendude filtrid",
+    "dealsShown": "Näidatud {{shown}} / {{total}} pakkumist",
+    "dealsFound": "Leitud {{count}} pakkumist",
+    "clearLegFiltersBtn": "Tühista lendude filtrid",
+    "selectedAirports": "valitud lennujaamad",
+    "moreAirports_one": "{{name}} + veel {{count}} lennujaam",
+    "moreAirports_other": "{{name}} + veel {{count}} lennujaama",
+    "weekendsCount": "{{count}} nädalavahetust"
+  },
+  "search": {
+    "travelWeekend": "Reisinädalavahetus",
+    "travelWeekendHint": "Vali üks või mitu kuupäevavahemikku",
+    "tripType": "Reisitüüp",
+    "tripTypeHint": "Valikuline viibimismuster",
+    "departureTime": "Väljumisaeg",
+    "departureTimeHint": "Valikulised filtrid ainult õhtuste lendude jaoks",
+    "travelers": "Reisijad",
+    "travelersHint": "Reisijate arv hinna arvutamiseks",
+    "thereEvening": "Sinna · õhtul",
+    "thereEveningTitle": "Väljumine kell 17:00 või hiljem",
+    "backEvening": "Tagasi · õhtul",
+    "backEveningTitle": "Tagasilend kell 17:00 või hiljem",
+    "prevWeekends": "Eelmised nädalavahetused",
+    "nextWeekends": "Järgmised nädalavahetused",
+    "selectWeekends": "Vali nädalavahetused",
+    "selectTripType": "Reisitüüp (valikuline)",
+    "eveningDepartures": "Õhtused väljumised (valikuline)",
+    "detectingLocation": "Tuvastame sinu asukohta…",
+    "fromLocationAdd": "Lähtekoht {{location}} — lisa veel üks lennujaam…",
+    "addAirport": "Lisa väljumislennujaam…",
+    "searchAirports": "Otsi lisatavaid lennujaamu",
+    "noAirportsFound": "Lennujaamu ei leitud",
+    "selectedAirports": "Valitud lennujaamad",
+    "nearbyAirports": "Lähedased lennujaamad",
+    "removeAirport": "Eemalda {{name}}",
+    "traveler": "reisija",
+    "travelers": "reisijat",
+    "fewerTravelers": "Vähem reisijaid",
+    "moreTravelers": "Rohkem reisijaid",
+    "travelersGroup": "Reisijate arv"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Reede – pühapäev",
+      "short": "R–P"
+    },
+    "thu-sun": {
+      "label": "Neljapäev – pühapäev",
+      "short": "N–P"
+    },
+    "wed-sun": {
+      "label": "Kolmapäev – pühapäev",
+      "short": "K–P"
+    },
+    "fri-mon": {
+      "label": "Reede – esmaspäev",
+      "short": "R–E"
+    },
+    "fri-tue": {
+      "label": "Reede – teisipäev",
+      "short": "R–T"
+    }
+  },
+  "flights": {
+    "destination": "Sihtkoht",
+    "perPerson": "{{price}} inimese kohta",
+    "forDaysTrip": "{{days}}-päevaseks reisiks",
+    "detail": "Detailid",
+    "changes_zero": "0 vahetust",
+    "changes_one": "1 vahetus",
+    "changes_other": "{{count}} vahetust"
+  },
+  "about": {
+    "heroTitle": "euroweekender.com-ist",
+    "heroSubtitle": "Taskukohased Euroopa linnapuhkused, mis mahuvad töönädalasse — reedel õhtul välja, pühapäeval tagasi.",
+    "lead": "Aitame eurooplastel avastada taskukohaseid lühireise — lahku reedel õhtul, tule pühapäeval tagasi ja naudi täisväärtuslikku linnapuhkust ilma puhkepäevi kulutamata.",
+    "sections": {
+      "weekendTitle": "Nädalavahetuse reisid ilma puhkepäevideta",
+      "weekendP1": "Enamikul meist on vabad ainult laupäev ja pühapäev — kuid see on piisav Euroopa reisiks. euroweekender.com on loodud lühikeste edasi-tagasi reiside jaoks: lenda pärast tööd reedel õhtul, avasta laupäeval ja ole pühapäeva õhtuks kodus.",
+      "weekendP2": "Kasuta reisitüüpe nagu R–P ja õhtuse väljumise filtrit, et leida lende, mis sobivad tõelise töönädala graafikuga, mitte ainult nädala keskel toimuvate puhkustega.",
+      "whatTitle": "Mida me teeme",
+      "whatP": "euroweekender.com koondab Kiwi.com-ist kogutud nädalavahetuse lennipakkumised ja esitab need lihtsas otsingukogemuses. Vali väljumislennujaamad, vali üks või mitu reisinädalavahetust, filtreeri reisitüübi järgi ja võrdle edasi-tagasi hindu ühe pilguga.",
+      "whoTitle": "Kellele see on mõeldud",
+      "whoP": "Sait on loodud linnapuhkuse reisijatele, paaridele ja sõpradele, kes soovivad inspiratsiooni ilma tundide kaupa lendude võrdluslehtedel veetmata. Olgu väljumiskoht Praha, Viin, Barcelona või mõni muu Euroopa keskus — saad sirvida eelseisvaid nädalavahetusi ja broneerida otse lennufirmast või reisipartnerilt.",
+      "rankTitle": "Kuidas tulemusi järjestame",
+      "rankP": "Pakkumised on sorteeritud kogu reisi hinna järgi sinu reisijate arvu põhjal. Kasutame ka keskuse skoore, mis põhinevad pakkumiste mahul, hinnatasemel ja sihtkohtade mitmekesisusel, et soovitada tugevaid väljumislennujaamu sinu asukoha lähedal.",
+      "affiliateTitle": "Partnerlinkide avalikustamine",
+      "affiliateP": "Kui klõpsad lennu broneerimiseks, võid suunata Kiwi.com-i või teise broneerimispartneri juurde. Võime teenida komisjonitasu ilma, et see sulle lisakulu tooks. Hinnad ja saadavus kinnitatakse alati partneri saidil enne maksmist.",
+      "kiwiTitle": "Turvaline broneerimine Kiwi.com kaudu",
+      "kiwiP1": "Suuname sind Kiwi.com-i, tuntud Euroopa lennubroneerimisplatvormile, mida kasutavad igal aastal miljonid reisijad. Makse toimub Kiwi turvalisel kassas tööstusstandardi krüpteeringuga ja pilet väljastatakse nende broneerimissüsteemi kaudu koos klienditoega, kui plaanid muutuvad.",
+      "kiwiP2": "Kiwi.com pakub ka broneerimiskaitset ja häirete korral abi sobivate piletihindade puhul, nii et sa ei jää üksi, kui lennufirmad graafikut muudavad või tühistavad. Enne makse kinnitamist vaatad alati Kiwi.com-is üle lõpliku hinna, pagasireeglid ja tingimused."
+    },
+    "cta": "Valmis järgmist puhkust planeerima?",
+    "heroImageAlt": "Euroopa linna vaade päikeseloojangul",
+    "eveningImageAlt": "Lennuki tiib pilvede kohal päikeseloojangul",
+    "cityImageAlt": "Kanaliäärne tänav Euroopa linnas"
+  },
+  "howItWorks": {
+    "heroTitle": "Kuidas see töötab",
+    "heroSubtitle": "Neli lihtsat sammu reedest õhtul lendamisest pühapäevase tagasitulekuni — puhkepäevi pole vaja.",
+    "lead": "Leia odav Euroopa nädalavahetuse reis nelja sammuga — lahku reedel õhtul, tule pühapäeval tagasi ja jäta puhkepäevad kasutamata.",
+    "builtTitle": "Loodud tõelisteks nädalavahetusteks",
+    "builtP1": "euroweekender.com keskendub lühikestele edasi-tagasi reisidele, mis mahuvad töö kõrvale. Püüa reedel õhtul pärast viimast koosolekut lendu, veeda laupäev uues linnas ja lennata pühapäeva õhtul koju — kaks ööd eemal, null puhkepäeva.",
+    "builtP2": "Vali R–P reisitüüp ja lülita sisse õhtuse väljumise filter, et näha lende, mis sobivad selle rütmiga, mitte teistel saitidel levinud üldisi nädalapikkuseid otsinguid.",
+    "stepsTitle": "Neli sammu",
+    "step1title": "Vali lennujaamad",
+    "step1text": "Luba asukoha juurdepääs või vali väljumiskeskused käsitsi. Otsi korraga mitmest linnast.",
+    "step2title": "Vali nädalavahetused",
+    "step2text": "Vali üks või mitu reisinädalavahetust. Iga silt näitab selle reisi väljumiskuupäevade vahemikku.",
+    "step3title": "Täpsusta filtreid",
+    "step3text": "Vali R–P mustrid, õhtused väljumised ja reisijate arv. Tulemused uuenevad automaatselt.",
+    "step4title": "Võrdle ja broneeri",
+    "step4text": "Sorteeri hinna järgi, vaata väljumis- ja tagasilende, seejärel broneeri turvaliselt Kiwi.com-is.",
+    "kiwiTitle": "Miks broneerida Kiwi.com kaudu?",
+    "kiwiP": "Kiwi.com on üks Euroopa suurimaid lendude otsingu- ja broneerimisplatvorme. Kui klõpsad euroweekender.com-ist edasi, maksad Kiwi enda turvalisel kassas (mitte meie saidil). See tähendab krüpteeritud kaardimakset, korralikku broneeringukirjet ja juurdepääsu Kiwi abitiimile, kui reisiga midagi valesti läheb.",
+    "tipsTitle": "Nõuanded paremate pakkumiste jaoks",
+    "tip1": "Proovi mitut lähedast lennujaama — väiksemad keskused võivad hinna poolest suurlinnadest paremad olla.",
+    "tip2": "Vali mitu nädalavahetust, et leida kuu odavaim väljumispäev.",
+    "tip3": "Kasuta õhtuseid filtreid, kui soovid reedel pärast tööd lahkuda.",
+    "tip4": "Broneeri peagi pärast sobiva hinna leidmist; odavad nädalavahetuse kohad müüakse kiiresti läbi.",
+    "cta": "Alusta otsimist",
+    "heroImageAlt": "Reisija pagasiga nädalavahetuse reisiks valmis",
+    "weekendImageAlt": "Euroopa munakivis tänav soojas õhtuvalguses"
+  },
+  "faq": {
+    "heroTitle": "Korduma kippuvad küsimused",
+    "heroSubtitle": "Kõik, mida pead teadma odavate nädalavahetuse lendude leidmise kohta üle Euroopa.",
+    "lead": "Kõik, mida pead teadma odavate nädalavahetuse lendude leidmise kohta üle Euroopa.",
+    "items": [
+      {
+        "q": "Kas saan reisida ilma puhkepäevi kasutamata?",
+        "a": "Jah — just selleks on nädalavahetuse reisid. Vali R–P muster ja filtreeri reedeseid õhtuseid väljumisi, et lahkuda pärast tööd, naudi laupäeva sihtkohas ja tule pühapäeva õhtul tagasi. Saad täisväärtusliku linnapuhkuse ainult tavalise nädalavahetuse arvel."
+      },
+      {
+        "q": "Kas Kiwi.com kaudu broneerimine on turvaline?",
+        "a": "Kiwi.com on suur Euroopa lennubroneerimisplatvorm, mida kasutavad miljonid reisijad. Makse toimub Kiwi turvalisel kassas standardkrüpteeringuga ja saad korraliku broneeringukinnituse koos klienditoega. Paljudel hindadel on ka Kiwi.com broneerimiskaitse graafikumuudatuste ja häirete korral — kontrolli alati enne maksmist pileti tingimusi."
+      },
+      {
+        "q": "Mis on euroweekender.com?",
+        "a": "Otsingutööriist odavate Euroopa nädalavahetuse lendude jaoks. Kogume lühikeste viibimiste edasi-tagasi pakkumisi ja võimaldame filtreerida nädalavahetuse kuupäevade, reisi pikkuse ja väljumisaja järgi."
+      },
+      {
+        "q": "Millistest lennujaamadest saan otsida?",
+        "a": "Saad valida ühe või mitu väljumislennujaama üle Euroopa. Sait võib sinu asukoha põhjal soovitada lähedasi keskusi ja järjestada neid pakkumiste kvaliteedi järgi, kui andmed on saadaval."
+      },
+      {
+        "q": "Kas saan valida korraga mitu nädalavahetust?",
+        "a": "Jah. Klõpsa reisinädalavahetuse real mitmel kuupäevasildil, et kombineerida iga nädalavahetuse pakkumisi. Tulemused kasvavad, kui lisad rohkem nädalavahetusi."
+      },
+      {
+        "q": "Mida tähendavad reisitüübid nagu R–P või R–E?",
+        "a": "Reisitüübid filtreerivad lende konkreetsete väljumispäevade ja viibimispikkuse järgi. Näiteks R–P tähendab väljumist reedel ja naasmist pühapäeval pärast kahte ööd sihtkohas."
+      },
+      {
+        "q": "Kust hinnad pärinevad?",
+        "a": "Hinnad pärinevad Kiwi.com lendude otsinguandmetest ja on salvestatud meie andmebaasis. Lõplik hind, pagasireeglid ja istekohtade saadavus kinnitatakse, kui avad broneerimislingi."
+      },
+      {
+        "q": "Kas müüte pileteid otse?",
+        "a": "Ei. Näitame pakkumisi ja suuname broneerimispartneri juurde. Ostu vormistad nende veebisaidil."
+      },
+      {
+        "q": "Kui sageli lende uuendatakse?",
+        "a": "Meie robot uuendab pakkumisi regulaarselt Euroopa väljumislinnadest. Väga värsked pakkumised võivad ilmuda mõne tunni jooksul; vanemad kirjed asendatakse uute otsingute käigus."
+      },
+      {
+        "q": "Miks tagasilennu aeg mõnikord kriipsuna kuvatakse?",
+        "a": "Tagasilennu väljumisajad pärinevad üksikasjalikest marsruudiandmetest. Kui need andmed puuduvad vanema pakkumise puhul, näitame tagasilennu kuupäeva ilma ajata, kuni kirje uuendatakse."
+      },
+      {
+        "q": "Kas minu asukoht salvestatakse?",
+        "a": "Geolokatsiooni kasutatakse ainult sinu brauseris lähedaste lennujaamade soovitamiseks. Me ei salvesta GPS-koordinaate oma serveritesse. Vaata üksikasju meie privaatsuspoliitikast."
+      }
+    ],
+    "heroImageAlt": "Reisikaart ja plaanid laual",
+    "ctaStill": "Kas sul on veel küsimus?"
+  },
+  "contact": {
+    "heroTitle": "Kontakt",
+    "heroSubtitle": "Küsimused, tagasiside või partnerluse ideed? Meil oleks hea meel sinust kuulda.",
+    "lead": "Küsimused, tagasiside või partnerluse ideed? Meil oleks hea meel sinust kuulda.",
+    "email": "E-post",
+    "emailBody": "Vastame tavaliselt mõne tööpäeva jooksul. Konkreetse lennu broneerimisprobleemide korral võta palun ühendust lennufirma või reisipartneriga, kes on kinnituses märgitud.",
+    "beforeTitle": "Enne kirjutamist",
+    "before1": "Vaata KKK-st vastuseid otsingu, reisitüüpide ja broneerimise kohta.",
+    "before2": "Lisa puuduva pakkumise teatamisel oma väljumislennujaam ja reisinädalavahetus.",
+    "before3": "Me ei saa muuta Kiwi.com-is või teistel partneri saitidel tehtud broneeringuid.",
+    "heroImageAlt": "Sülearvuti ja märkmik laual"
+  },
+  "privacy": {
+    "title": "Privaatsuspoliitika",
+    "lead": "Viimati uuendatud: juuli 2026",
+    "intro": "See poliitika selgitab, kuidas euroweekender.com (\"meie\") käsitleb teavet, kui kasutad meie veebisaiti.",
+    "infoCollect": "Milliseid andmeid kogume",
+    "analyticsLabel": "Analüütika:",
+    "analytics": "Kasutame ise majutatud Umami Analyticsit lehevaatamiste ja põhilise kasutuse (brauseritüüp, riik, viitaja) loendamiseks. Umami ei kasuta küpsiseid ega profiili sind teistel veebisaitidel. IP-aadresse ei salvestata.",
+    "usageLabel": "Kasutusandmed:",
+    "usage": "Standardsed serverilogid (IP-aadress, brauseritüüp, vaadatud lehed) võib meie hostinguteenuse pakkuja koguda turvalisuse ja jõudluse jaoks.",
+    "locationLabel": "Asukoht:",
+    "location": "Kui lubad brauseri geolokatsiooni, kasutatakse koordinaate kohapeal lähedaste lennujaamade soovitamiseks. Me ei salvesta GPS-andmeid oma serveritesse.",
+    "searchPrefsLabel": "Otsingueelistused:",
+    "searchPrefs": "Lennujaama ja nädalavahetuse valikud hoitakse ainult sinu brauseri sessioonis ega ole seotud kasutajakontoga.",
+    "thirdPartyTitle": "Kolmandate osapoolte teenused",
+    "thirdParty": "Broneerimislingid suunavad Kiwi.com-i ja teistele reisipartneritele. Nende privaatsuspoliitikad kehtivad, kui lahkud meie saidilt. Kasutame Kiwi.com API andmeid lendude pakkumiste kuvamiseks.",
+    "cookiesTitle": "Küpsised",
+    "cookies": "Me ei kasuta reklaamiküpsiseid. Umami Analytics töötab ilma küpsisteta. Meie hostingu infrastruktuur võib seada olulisi tehnilisi küpsiseid. Partneri saidid võivad pärast broneerimislingile klõpsamist seada oma küpsiseid.",
+    "rightsTitle": "Sinu õigused",
+    "rights": "Sõltuvalt sinu asukohast (sh EL/EMP GDPR-i alusel) võid omada õigust pääseda ligi, parandada või kustutada isikuandmeid, mida me hoiame. Nende õiguste kasutamiseks võta meiega ühendust.",
+    "contactTitle": "Kontakt",
+    "contact": "Privaatsusküsimused: {{email}}",
+    "seeAlso": "Vaata ka meie kasutustingimusi."
+  },
+  "terms": {
+    "title": "Kasutustingimused",
+    "lead": "Viimati uuendatud: juuli 2026",
+    "intro": "euroweekender.com kasutamisega nõustud nende tingimustega. Kui sa ei nõustu, palun ära kasuta saiti.",
+    "serviceTitle": "Teenuse kirjeldus",
+    "service": "Pakume lennipakkumiste otsingu- ja võrdlusliidest. Me ei ole reisibüroo ega väljasta pileteid. Transpordilepingud sõlmitakse sinu ja lennufirma või broneerimispartneri vahel.",
+    "accuracyTitle": "Teabe täpsus",
+    "accuracy": "Hinnad, ajad ja saadavus pärinevad kolmandate osapoolte allikatest ja võivad enne broneerimist muutuda. Kontrolli alati üksikasjad partneri veebisaidil enne maksmist. Me ei vastuta kuvatud hindade või graafikute vigade eest.",
+    "affiliateTitle": "Partnerlingid",
+    "affiliate": "Mõned väljuvad lingid on partnerlingid. Võime saada komisjonitasu, kui broneerid nende kaudu. See ei mõjuta hinda, mida partneri saidil maksad.",
+    "acceptableTitle": "Lubatav kasutus",
+    "acceptableIntro": "Nõustud mitte:",
+    "acceptable1": "Kraapima ega üle koormama meie API-d või veebisaiti automatiseeritud päringutega.",
+    "acceptable2": "Üritama teenust häirida või pääseda ligi mitteavalikele süsteemidele.",
+    "acceptable3": "Kasutama saiti ebaseaduslikel eesmärkidel.",
+    "liabilityTitle": "Vastutuse piirang",
+    "liability": "Sait on esitatud \"nagu on\" ilma garantiideta. Seadusega lubatud maksimaalses ulatuses ei vastuta me kaudsete ega järgnevate kahjude eest, mis tulenevad saidi või kolmandate osapoolte broneeringute kasutamisest.",
+    "changesTitle": "Muudatused",
+    "changes": "Võime neid tingimusi igal ajal uuendada või funktsioone lõpetada. Jätkuv kasutamine pärast muudatusi tähendab nõustumist.",
+    "lawTitle": "Kohaldatav õigus",
+    "law": "Neid tingimusi reguleerib Euroopa Liidu õigus. Vaidlused kuuluvad euroweekender.com operaatori asukohas asuvate kohtute jurisdiktsiooni alla, ilma et see piiraks sinu elukohariigi kohustuslikke tarbijakaitseõigusi.",
+    "contactTitle": "Kontakt",
+    "contact": "Küsimused nende tingimuste kohta: {{email}}",
+    "seeAlso": "Loe meie privaatsuspoliitikat."
+  },
+  "common": {
+    "seeAlsoTerms": "kasutustingimused",
+    "seeAlsoPrivacy": "privaatsuspoliitika",
+    "searchWeekendFlights": "Otsi nädalavahetuse lende",
+    "howItWorks": "kuidas see töötab",
+    "newSearch": "uus otsing",
+    "contactUs": "Võta meiega ühendust",
+    "startSearching": "Alusta otsimist",
+    "readFaq": "KKK",
+    "language": "Keel",
+    "stillHaveQuestion": "Kas sul on veel küsimus?",
+    "orStart": "või alusta",
+    "orRead": "või loe",
+    "readyToPlan": "Valmis järgmist puhkust planeerima?",
+    "seeAlsoOur": "Vaata ka meie"
+  }
+}

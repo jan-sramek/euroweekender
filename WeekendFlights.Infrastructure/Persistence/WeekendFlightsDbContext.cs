@@ -8,6 +8,7 @@ public class WeekendFlightsDbContext : DbContext
     public DbSet<City> Cities => Set<City>();
     public DbSet<Airport> Airports => Set<Airport>();
     public DbSet<Flight> Flights => Set<Flight>();
+    public DbSet<FlightsImport> FlightsImports => Set<FlightsImport>();
     
     public WeekendFlightsDbContext(DbContextOptions<WeekendFlightsDbContext> options)
         : base(options)
@@ -21,6 +22,7 @@ public class WeekendFlightsDbContext : DbContext
         ConfigureCities(modelBuilder);
         ConfigureAirports(modelBuilder);
         ConfigureFlights(modelBuilder);
+        ConfigureFlightsImports(modelBuilder);
     }
     
     private static void ConfigureCities(ModelBuilder modelBuilder)
@@ -134,7 +136,7 @@ public class WeekendFlightsDbContext : DbContext
     }
 
     private static void ConfigureFlights(ModelBuilder modelBuilder)
-{
+    {
     modelBuilder.Entity<Flight>(entity =>
     {
         // Table name
@@ -186,6 +188,12 @@ public class WeekendFlightsDbContext : DbContext
             .HasColumnType("timestamp with time zone");
 
         entity.Property(f => f.LocalDeparture)
+            .HasColumnType("timestamp with time zone");
+
+        entity.Property(f => f.LocalReturnDeparture)
+            .HasColumnType("timestamp with time zone");
+
+        entity.Property(f => f.LocalReturnArrival)
             .HasColumnType("timestamp with time zone");
 
         entity.Property(f => f.NightsInDest)
@@ -240,4 +248,28 @@ public class WeekendFlightsDbContext : DbContext
         entity.HasIndex(f => new { f.CityCodeFrom, f.CityCodeTo });
     });
 }
+    
+    private static void ConfigureFlightsImports(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<FlightsImport>(entity =>
+        {
+            entity.ToTable("flights_imports");
+
+            entity.HasKey(fi => fi.Id);
+
+            entity.Property(fi => fi.DateTimeUtc)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone");
+
+            entity.Property(fi => fi.LastCityCode)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            entity.HasIndex(fi => fi.DateTimeUtc)
+                .HasDatabaseName("idx_flights_imports_datetime");
+
+            entity.HasIndex(fi => fi.LastCityCode)
+                .HasDatabaseName("idx_flights_imports_last_city_code");
+        });
+    }
 }

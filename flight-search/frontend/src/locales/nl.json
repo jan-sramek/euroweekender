@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Goedkope Europese weekendvluchten",
+      "description": "Vind en vergelijk goedkope weekendvluchten door heel Europa. Zoek vr–zo, do–zo en meer vanaf luchthavens bij u in de buurt."
+    },
+    "about": {
+      "title": "Over EuroWeekender",
+      "description": "Weekendvluchten door Europa zonder vakantiedagen. Ontdek hoe euroweekender.com u helpt vrijdagavond te vertrekken en zondag terug te keren via een veilige boeking bij Kiwi.com."
+    },
+    "faq": {
+      "title": "FAQ weekendvluchten",
+      "description": "Antwoorden op veelgestelde vragen over het zoeken naar Europese weekendvluchten op euroweekender.com."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Neem contact op met het team van euroweekender.com voor feedback, samenwerkingen of ondersteuning."
+    },
+    "howItWorks": {
+      "title": "Hoe het werkt",
+      "description": "Vind weekendvluchten van vrijdagavond tot zondag door heel Europa. Vergelijk aanbiedingen op euroweekender.com en boek veilig via Kiwi.com."
+    },
+    "privacy": {
+      "title": "Privacybeleid",
+      "description": "Privacybeleid voor euroweekender.com — welke gegevens we verzamelen en hoe we die gebruiken."
+    },
+    "terms": {
+      "title": "Gebruiksvoorwaarden",
+      "description": "Gebruiksvoorwaarden voor euroweekender.com — regels voor het gebruik van onze weekendvlucht-zoekdienst."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "howItWorks": "Hoe het werkt",
+    "about": "Over ons",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Europese weekendvlucht-aanbiedingen",
+    "explore": "Ontdekken",
+    "support": "Ondersteuning",
+    "searchFlights": "Vluchten zoeken",
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Europese weekendvlucht-aanbiedingen",
+    "title": "Uw volgende citytrip begint vrijdagavond",
+    "lead": "Vergelijk retourweekendvluchten door heel Europa — vertrek na het werk, terug op zondag, zonder vakantiedagen.",
+    "fromSelectedAirports": "Vanaf {{airports}}",
+    "person": "persoon",
+    "persons": "personen",
+    "allTripTypes": "alle reistypes",
+    "thereEvening": "heen 's avonds",
+    "backEvening": "terug 's avonds",
+    "hubRankingWarning": "Aanbiedingsrangschikking niet beschikbaar — nabijgelegen luchthavens alleen op afstand gesorteerd.",
+    "apiError": "Luchthavens konden niet worden geladen. Draait de API?",
+    "flightLoadError": "Vluchten voor de geselecteerde weekenden konden niet worden geladen.",
+    "tryAgain": "Opnieuw proberen",
+    "loading": "De beste aanbiedingen worden gezocht…",
+    "noFlights": "Nog geen vluchten gevonden voor de geselecteerde weekenden. Probeer andere data, reistypes of voeg meer vertrekluchthavens toe.",
+    "noLegMatch": "Geen vluchten komen overeen met de geselecteerde heen- en terugvluchten.",
+    "clearLegFilters": "Trajectfilters wissen",
+    "dealsShown": "{{shown}} van {{total}} aanbiedingen getoond",
+    "dealsFound": "{{count}} aanbiedingen gevonden",
+    "clearLegFiltersBtn": "Trajectfilters wissen",
+    "selectedAirports": "geselecteerde luchthavens",
+    "moreAirports_one": "{{name}} + {{count}} andere luchthaven",
+    "moreAirports_other": "{{name}} + {{count}} andere luchthavens",
+    "weekendsCount": "{{count}} weekenden"
+  },
+  "search": {
+    "travelWeekend": "Reisweekend",
+    "travelWeekendHint": "Kies een of meer datumbereiken",
+    "tripType": "Reistype",
+    "tripTypeHint": "Optioneel verblijfspatroon",
+    "departureTime": "Vertrektijd",
+    "departureTimeHint": "Optionele filters alleen voor avondvluchten",
+    "travelers": "Reizigers",
+    "travelersHint": "Aantal passagiers voor de prijs",
+    "thereEvening": "Heen · avond",
+    "thereEveningTitle": "Heenvlucht vertrekt om 17:00 of later",
+    "backEvening": "Terug · avond",
+    "backEveningTitle": "Terugvlucht vertrekt om 17:00 of later",
+    "prevWeekends": "Vorige weekenden",
+    "nextWeekends": "Volgende weekenden",
+    "selectWeekends": "Weekenden selecteren",
+    "selectTripType": "Reistype (optioneel)",
+    "eveningDepartures": "Avondvluchten (optioneel)",
+    "detectingLocation": "Uw locatie wordt bepaald…",
+    "fromLocationAdd": "Vanaf {{location}} — nog een luchthaven toevoegen…",
+    "addAirport": "Vertrekluchthaven toevoegen…",
+    "searchAirports": "Luchthavens zoeken om toe te voegen",
+    "noAirportsFound": "Geen luchthavens gevonden",
+    "selectedAirports": "Geselecteerde luchthavens",
+    "nearbyAirports": "Luchthavens in de buurt",
+    "removeAirport": "{{name}} verwijderen",
+    "traveler": "reiziger",
+    "travelers": "reizigers",
+    "fewerTravelers": "Minder reizigers",
+    "moreTravelers": "Meer reizigers",
+    "travelersGroup": "Aantal reizigers"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Vrijdag – zondag",
+      "short": "vr–zo"
+    },
+    "thu-sun": {
+      "label": "Donderdag – zondag",
+      "short": "do–zo"
+    },
+    "wed-sun": {
+      "label": "Woensdag – zondag",
+      "short": "wo–zo"
+    },
+    "fri-mon": {
+      "label": "Vrijdag – maandag",
+      "short": "vr–ma"
+    },
+    "fri-tue": {
+      "label": "Vrijdag – dinsdag",
+      "short": "vr–di"
+    }
+  },
+  "flights": {
+    "destination": "Bestemming",
+    "perPerson": "{{price}} per persoon",
+    "forDaysTrip": "voor {{days}}-daagse reis",
+    "detail": "Details",
+    "changes_zero": "0 overstappen",
+    "changes_one": "1 overstap",
+    "changes_other": "{{count}} overstappen"
+  },
+  "about": {
+    "heroTitle": "Over euroweekender.com",
+    "heroSubtitle": "Betaalbare Europese citytrips die passen rond uw werkweek — vrijdagavond weg, zondag terug.",
+    "lead": "Wij helpen Europeanen betaalbare korte reizen te ontdekken — vertrek vrijdagavond, terug op zondag, en geniet van een volledige citytrip zonder vakantiedagen op te maken.",
+    "sections": {
+      "weekendTitle": "Weekendreizen zonder vakantie",
+      "weekendP1": "De meesten van ons hebben alleen zaterdag en zondag vrij — maar dat is genoeg voor een Europese uitstap. euroweekender.com is gebouwd rond korte retourreizen: vlieg vrijdag na het werk weg, verken zaterdag en wees zondagavond weer thuis.",
+      "weekendP2": "Gebruik reistypes zoals vr–zo en het avondvertrekfilter om vluchten te vinden die passen bij een echte werkweek, niet alleen midweek-vakanties.",
+      "whatTitle": "Wat we doen",
+      "whatP": "euroweekender.com verzamelt weekendvlucht-aanbiedingen van Kiwi.com en presenteert ze in een eenvoudige zoekervaring. Kies uw vertrekluchthavens, selecteer een of meer reisweekenden, filter op reistype en vergelijk retourprijzen in één oogopslag.",
+      "whoTitle": "Voor wie het is",
+      "whoP": "De site is gemaakt voor citytrip-reizigers, koppels en vrienden die inspiratie willen zonder urenlang vluchtvergelijkingssites te doorzoeken. Of u nu vertrekt vanuit Praag, Wenen, Barcelona of een andere Europese hub — u kunt komende weekenden scannen en direct boeken bij de luchtvaartmaatschappij of reispartner.",
+      "rankTitle": "Hoe we resultaten rangschikken",
+      "rankP": "Aanbiedingen worden gesorteerd op totale reisprijs voor uw aantal passagiers. We gebruiken ook hub-scores op basis van aanbodvolume, prijsniveaus en bestemmingsvariëteit om sterke vertrekluchthavens bij u in de buurt voor te stellen.",
+      "affiliateTitle": "Affiliate-verklaring",
+      "affiliateP": "Wanneer u doorklikt om een vlucht te boeken, wordt u mogelijk doorgestuurd naar Kiwi.com of een andere boekingspartner. Wij kunnen een commissie verdienen zonder extra kosten voor u. Prijzen en beschikbaarheid worden altijd bevestigd op de partnersite voordat u betaalt.",
+      "kiwiTitle": "Veilig boeken via Kiwi.com",
+      "kiwiP1": "Wij linken u naar Kiwi.com, een gevestigd Europees vluchtboekingsplatform dat jaarlijks door miljoenen reizigers wordt gebruikt. Betaling verloopt via Kiwi's beveiligde checkout met industriestandaard encryptie, en uw ticket wordt uitgegeven via hun boekingssysteem met klantenservice als plannen wijzigen.",
+      "kiwiP2": "Kiwi.com biedt ook boekingsbescherming en hulp bij verstoringen voor in aanmerking komende tarieven, zodat u niet alleen staat wanneer luchtvaartmaatschappijen herplannen of annuleren. U bekijkt altijd de definitieve prijs, bagageregels en voorwaarden op Kiwi.com voordat u de betaling bevestigt."
+    },
+    "cta": "Klaar om uw volgende uitstap te plannen?",
+    "heroImageAlt": "Luchtfoto van een Europese stad bij zonsondergang",
+    "eveningImageAlt": "Vleugel van een vliegtuig boven wolken bij zonsondergang",
+    "cityImageAlt": "Straat langs een gracht in een Europese stad"
+  },
+  "howItWorks": {
+    "heroTitle": "Hoe het werkt",
+    "heroSubtitle": "Vier eenvoudige stappen van vrijdagavondvlucht tot zondagse terugkeer — geen vakantiedagen nodig.",
+    "lead": "Vind een goedkope Europese weekendreis in vier stappen — vertrek vrijdagavond, terug op zondag en sla de vakantiedagen over.",
+    "builtTitle": "Gemaakt voor echte weekenden",
+    "builtP1": "euroweekender.com richt zich op korte retourreizen die passen rond het werk. Pak een vrijdagavondvlucht na uw laatste vergadering, breng zaterdag door in een nieuwe stad en vlieg zondagavond weer naar huis — twee nachten weg, nul dagen verlof.",
+    "builtP2": "Kies een vr–zo reistype en schakel het avondvertrekfilter in om vluchten te tonen die bij dat ritme passen, in plaats van generieke weeklange zoekopdrachten op andere sites.",
+    "stepsTitle": "De vier stappen",
+    "step1title": "Luchthavens kiezen",
+    "step1text": "Sta locatietoegang toe of kies vertrekhubs handmatig. Zoek vanuit meerdere steden tegelijk.",
+    "step2title": "Weekenden kiezen",
+    "step2text": "Selecteer een of meer reisweekenden. Elke pill toont het datumbereik van de heenvlucht voor die reis.",
+    "step3title": "Filters verfijnen",
+    "step3text": "Kies vr–zo patronen, avondvluchten en aantal passagiers. Resultaten worden automatisch bijgewerkt.",
+    "step4title": "Vergelijken en boeken",
+    "step4text": "Sorteer op prijs, bekijk heen- en terugvluchten en boek veilig op Kiwi.com.",
+    "kiwiTitle": "Waarom boeken via Kiwi.com?",
+    "kiwiP": "Kiwi.com is een van Europa's grootste vluchtzoek- en boekingsplatforms. Wanneer u doorklikt vanaf euroweekender.com, betaalt u via Kiwi's eigen beveiligde checkout (niet op onze site). Dat betekent versleutelde kaartverwerking, een correct boekingsrecord en toegang tot Kiwi's helpdesk als er iets misgaat met uw reis.",
+    "tipsTitle": "Tips voor betere aanbiedingen",
+    "tip1": "Probeer meerdere nabijgelegen luchthavens — kleinere hubs zijn soms goedkoper dan grote steden.",
+    "tip2": "Selecteer meerdere weekenden om de goedkoopste vertrekdag in een maand te spotten.",
+    "tip3": "Gebruik avondfilters als u vrijdag na het werk wilt vertrekken.",
+    "tip4": "Boek snel na het vinden van een tarief; weekendstoelen tegen lage prijzen zijn snel uitverkocht.",
+    "cta": "Begin met zoeken",
+    "heroImageAlt": "Reiziger met bagage klaar voor een weekendtrip",
+    "weekendImageAlt": "Europese kasseienstraat in warm avondlicht"
+  },
+  "faq": {
+    "heroTitle": "Veelgestelde vragen",
+    "heroSubtitle": "Alles wat u moet weten over het vinden van goedkope weekendvluchten door Europa.",
+    "lead": "Alles wat u moet weten over het vinden van goedkope weekendvluchten door Europa.",
+    "items": [
+      {
+        "q": "Kan ik reizen zonder vakantiedagen op te maken?",
+        "a": "Ja — daar zijn weekendreizen precies voor bedoeld. Kies een vr–zo patroon en filter op vrijdagavondvertrekken zodat u na het werk vertrekt, zaterdag op uw bestemming doorbrengt en zondagavond terugkeert. U krijgt een volledige citytrip met alleen uw reguliere weekend."
+      },
+      {
+        "q": "Is het veilig om te boeken via Kiwi.com?",
+        "a": "Kiwi.com is een groot Europees vluchtboekingsplatform dat door miljoenen reizigers wordt gebruikt. Betaling verloopt via Kiwi's beveiligde checkout met standaard encryptie, en u ontvangt een correcte boekingsbevestiging met klantenservice. Veel tarieven bevatten ook Kiwi.com boekingsbescherming bij roosterwijzigingen en verstoringen — controleer altijd de tariefvoorwaarden voordat u betaalt."
+      },
+      {
+        "q": "Wat is euroweekender.com?",
+        "a": "Een zoektool voor goedkope Europese weekendvluchten. We verzamelen retouraanbiedingen voor korte verblijven en laten u filteren op weekenddata, reisduur en vertrektijd."
+      },
+      {
+        "q": "Vanaf welke luchthavens kan ik zoeken?",
+        "a": "U kunt een of meer vertrekluchthavens in Europa selecteren. De site kan nabijgelegen hubs voorstellen op basis van uw locatie en rangschikt ze op aanbiedingskwaliteit waar gegevens beschikbaar zijn."
+      },
+      {
+        "q": "Kan ik meerdere weekenden tegelijk selecteren?",
+        "a": "Ja. Klik op meerdere datumpills in de reisweekendrij om aanbiedingen van elk weekend te combineren. Resultaten groeien naarmate u meer weekenden toevoegt."
+      },
+      {
+        "q": "Wat betekenen reistypes zoals vr–zo of vr–ma?",
+        "a": "Reistypes filteren vluchten op specifieke vertrekdagen en verblijfsduur. Bijvoorbeeld: vr–zo betekent vertrek op vrijdag en terugkeer op zondag na twee nachten op de bestemming."
+      },
+      {
+        "q": "Waar komen de prijzen vandaan?",
+        "a": "Prijzen komen uit Kiwi.com vluchtzoekgegevens en worden opgeslagen in onze database. Definitief tarief, bagageregels en stoelbeschikbaarheid worden bevestigd wanneer u de boekingslink opent."
+      },
+      {
+        "q": "Verkopen jullie tickets direct?",
+        "a": "Nee. We tonen aanbiedingen en linken u naar de boekingspartner. U rondt de aankoop af op hun website."
+      },
+      {
+        "q": "Hoe vaak worden vluchten bijgewerkt?",
+        "a": "Onze crawler vernieuwt aanbiedingen regelmatig vanuit Europese vertreksteden. Zeer verse aanbiedingen kunnen binnen enkele uren verschijnen; oudere rijen worden vervangen naarmate nieuwe crawls voltooid zijn."
+      },
+      {
+        "q": "Waarom toont een terugkeertijd soms een streepje?",
+        "a": "Terugvertrektijden komen uit gedetailleerde routegegevens. Als die gegevens ontbreken voor een oudere aanbieding, tonen we de terugkeerdatum zonder tijd totdat de vermelding is vernieuwd."
+      },
+      {
+        "q": "Wordt mijn locatie opgeslagen?",
+        "a": "Geolocatie wordt alleen in uw browser gebruikt om nabijgelegen luchthavens voor te stellen. We slaan uw GPS-coördinaten niet op onze servers op. Zie ons privacybeleid voor details."
+      }
+    ],
+    "heroImageAlt": "Reiskaart en planningsnotities op een bureau",
+    "ctaStill": "Nog een vraag?"
+  },
+  "contact": {
+    "heroTitle": "Contact",
+    "heroSubtitle": "Vragen, feedback of samenwerkingsideeën? We horen graag van u.",
+    "lead": "Vragen, feedback of samenwerkingsideeën? We horen graag van u.",
+    "email": "E-mail",
+    "emailBody": "We reageren meestal binnen enkele werkdagen. Voor boekingsproblemen met een specifieke vlucht, neem contact op met de luchtvaartmaatschappij of reispartner op uw bevestiging.",
+    "beforeTitle": "Voordat u schrijft",
+    "before1": "Bekijk de FAQ voor antwoorden over zoeken, reistypes en boeken.",
+    "before2": "Vermeld uw vertrekluchthaven en reisweekend als u een ontbrekende aanbieding meldt.",
+    "before3": "We kunnen boekingen gemaakt op Kiwi.com of andere partnersites niet wijzigen.",
+    "heroImageAlt": "Laptop en notitieboek op een bureau"
+  },
+  "privacy": {
+    "title": "Privacybeleid",
+    "lead": "Laatst bijgewerkt: juli 2026",
+    "intro": "Dit beleid legt uit hoe euroweekender.com (\"wij\", \"ons\") omgaat met informatie wanneer u onze website gebruikt.",
+    "infoCollect": "Informatie die we verzamelen",
+    "analyticsLabel": "Analytics:",
+    "analytics": "We gebruiken zelfgehoste Umami Analytics om paginaweergaven en basisgebruik te tellen (browsertype, land, verwijzer). Umami gebruikt geen cookies en profileert u niet op andere websites. IP-adressen worden niet opgeslagen.",
+    "usageLabel": "Gebruiksgegevens:",
+    "usage": "Standaard serverlogs (IP-adres, browsertype, bezochte pagina's) kunnen door onze hostingprovider worden verzameld voor beveiliging en prestaties.",
+    "locationLabel": "Locatie:",
+    "location": "Als u browsergeolocatie toestaat, worden coördinaten lokaal gebruikt om nabijgelegen luchthavens voor te stellen. We slaan GPS-gegevens niet op onze servers op.",
+    "searchPrefsLabel": "Zoekvoorkeuren:",
+    "searchPrefs": "Luchthaven- en weekendselecties worden alleen in uw browsersessie bewaard en zijn niet gekoppeld aan een gebruikersaccount.",
+    "thirdPartyTitle": "Diensten van derden",
+    "thirdParty": "Boekingslinks leiden door naar Kiwi.com en andere reispartners. Hun privacybeleid is van toepassing wanneer u onze site verlaat. We gebruiken Kiwi.com API-gegevens om vluchtaanbiedingen te tonen.",
+    "cookiesTitle": "Cookies",
+    "cookies": "We gebruiken geen advertentiecookies. Umami Analytics werkt zonder cookies. Essentiële technische cookies kunnen worden geplaatst door onze hostinginfrastructuur. Partnersites kunnen hun eigen cookies plaatsen nadat u op een boekingslink klikt.",
+    "rightsTitle": "Uw rechten",
+    "rights": "Afhankelijk van uw locatie (inclusief de EU/EER onder de AVG) heeft u mogelijk recht op inzage, correctie of verwijdering van persoonsgegevens die wij bewaren. Neem contact met ons op om deze rechten uit te oefenen.",
+    "contactTitle": "Contact",
+    "contact": "Privacyvragen: {{email}}",
+    "seeAlso": "Zie ook onze gebruiksvoorwaarden."
+  },
+  "terms": {
+    "title": "Gebruiksvoorwaarden",
+    "lead": "Laatst bijgewerkt: juli 2026",
+    "intro": "Door euroweekender.com te gebruiken, gaat u akkoord met deze voorwaarden. Als u niet akkoord gaat, gebruik de site dan niet.",
+    "serviceTitle": "Dienstbeschrijving",
+    "service": "Wij bieden een zoek- en vergelijkingsinterface voor vluchtaanbiedingen. Wij zijn geen reisbureau en geven geen tickets uit. Contracten voor vervoer zijn tussen u en de luchtvaartmaatschappij of boekingspartner.",
+    "accuracyTitle": "Nauwkeurigheid van informatie",
+    "accuracy": "Prijzen, tijden en beschikbaarheid komen van bronnen van derden en kunnen wijzigen vóór boeking. Controleer altijd details op de partnersite vóór betaling. Wij zijn niet aansprakelijk voor fouten in getoonde tarieven of dienstregelingen.",
+    "affiliateTitle": "Affiliate-links",
+    "affiliate": "Sommige uitgaande links zijn affiliate-links. Wij kunnen compensatie ontvangen wanneer u via hen boekt. Dit heeft geen invloed op de prijs die u op de partnersite betaalt.",
+    "acceptableTitle": "Aanvaardbaar gebruik",
+    "acceptableIntro": "U stemt ermee in om niet:",
+    "acceptable1": "Onze API of website te scrapen of te overbelasten met geautomatiseerde verzoeken.",
+    "acceptable2": "De dienst te verstoren of toegang te zoeken tot niet-openbare systemen.",
+    "acceptable3": "De site te gebruiken voor onwettige doeleinden.",
+    "liabilityTitle": "Beperking van aansprakelijkheid",
+    "liability": "De site wordt geleverd \"as is\" zonder garanties. Voor zover wettelijk toegestaan, zijn wij niet aansprakelijk voor indirecte of gevolgschade voortvloeiend uit het gebruik van de site of boekingen bij derden.",
+    "changesTitle": "Wijzigingen",
+    "changes": "We kunnen deze voorwaarden op elk moment bijwerken of functies stopzetten. Voortgezet gebruik na wijzigingen geldt als acceptatie.",
+    "lawTitle": "Toepasselijk recht",
+    "law": "Deze voorwaarden vallen onder het recht dat van toepassing is in de Europese Unie. Geschillen vallen onder de jurisdictie van de rechtbanken waar de exploitant van euroweekender.com is gevestigd, onverminderd verplichte consumentenbeschermingsrechten in uw land van verblijf.",
+    "contactTitle": "Contact",
+    "contact": "Vragen over deze voorwaarden: {{email}}",
+    "seeAlso": "Lees ons privacybeleid."
+  },
+  "common": {
+    "seeAlsoTerms": "gebruiksvoorwaarden",
+    "seeAlsoPrivacy": "privacybeleid",
+    "searchWeekendFlights": "Weekendvluchten zoeken",
+    "howItWorks": "hoe het werkt",
+    "newSearch": "nieuwe zoekopdracht",
+    "contactUs": "Neem contact op",
+    "startSearching": "Begin met zoeken",
+    "readFaq": "FAQ",
+    "language": "Taal",
+    "stillHaveQuestion": "Nog een vraag?",
+    "orStart": "of start een",
+    "orRead": "of lees de",
+    "readyToPlan": "Klaar om uw volgende uitstap te plannen?",
+    "seeAlsoOur": "Zie ook onze"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Lēti nedēļas nogales lidojumi Eiropā",
+      "description": "Atrodi un salīdzini lētus nedēļas nogales lidojumus visā Eiropā. Meklē piektd.–svētd., ceturtd.–svētd. un citus variantus no tuvākajām lidostām."
+    },
+    "about": {
+      "title": "Par EuroWeekender",
+      "description": "Nedēļas nogales lidojumi Eiropā bez atvaļinājuma dienām. Uzzini, kā euroweekender.com palīdz izlidot piektdienas vakarā un atgriezties svētdien, rezervējot droši caur Kiwi.com."
+    },
+    "faq": {
+      "title": "BUJ par nedēļas nogales lidojumiem",
+      "description": "Atbildes uz biežāk uzdotajiem jautājumiem par Eiropas nedēļas nogales lidojumu meklēšanu euroweekender.com."
+    },
+    "contact": {
+      "title": "Kontakti",
+      "description": "Sazinies ar euroweekender.com komandu par atsauksmēm, partnerību vai atbalstu."
+    },
+    "howItWorks": {
+      "title": "Kā tas darbojas",
+      "description": "Atrodi nedēļas nogales lidojumus no piektdienas vakara līdz svētdienai visā Eiropā. Salīdzini piedāvājumus euroweekender.com un rezervē droši caur Kiwi.com."
+    },
+    "privacy": {
+      "title": "Privātuma politika",
+      "description": "euroweekender.com privātuma politika — kādus datus mēs vācam un kā tos izmantojam."
+    },
+    "terms": {
+      "title": "Lietošanas noteikumi",
+      "description": "euroweekender.com lietošanas noteikumi — kā lietot mūsu nedēļas nogales lidojumu meklēšanas pakalpojumu."
+    }
+  },
+  "nav": {
+    "home": "Sākums",
+    "howItWorks": "Kā tas darbojas",
+    "about": "Par mums",
+    "faq": "BUJ",
+    "contact": "Kontakti"
+  },
+  "footer": {
+    "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
+    "explore": "Izpētīt",
+    "support": "Atbalsts",
+    "searchFlights": "Meklēt lidojumus",
+    "privacy": "Privātuma politika",
+    "terms": "Lietošanas noteikumi",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
+    "title": "Tava nākamā pilsētas brīvdiena sākas piektdienas vakarā",
+    "lead": "Salīdzini turp-atpakaļ nedēļas nogales lidojumus visā Eiropā — aizbrauc pēc darba, atgriezies svētdien, bez atvaļinājuma dienām.",
+    "fromSelectedAirports": "No {{airports}}",
+    "person": "persona",
+    "persons": "personas",
+    "allTripTypes": "visi ceļojumu veidi",
+    "thereEvening": "turp vakarā",
+    "backEvening": "atpakaļ vakarā",
+    "hubRankingWarning": "Piedāvājumu kārtošana nav pieejama — tuvējās lidostas sakārtotas tikai pēc attāluma.",
+    "apiError": "Neizdevās ielādēt lidostas. Vai API darbojas?",
+    "flightLoadError": "Neizdevās ielādēt lidojumus izvēlētajām nedēļas nogalēm.",
+    "tryAgain": "Mēģināt vēlreiz",
+    "loading": "Meklējam labākos piedāvājumus…",
+    "noFlights": "Izvēlētajām nedēļas nogalēm vēl nav atrasti lidojumi. Izmēģini citus datumus, ceļojumu veidus vai pievieno vairāk izlidošanas lidostu.",
+    "noLegMatch": "Neviens lidojums neatbilst izvēlētajiem izlidošanas un atgriešanās posmiem.",
+    "clearLegFilters": "Notīrīt posmu filtrus",
+    "dealsShown": "Rādīti {{shown}} no {{total}} piedāvājumiem",
+    "dealsFound": "Atrasti {{count}} piedāvājumi",
+    "clearLegFiltersBtn": "Notīrīt posmu filtrus",
+    "selectedAirports": "izvēlētās lidostas",
+    "moreAirports_one": "{{name}} + vēl {{count}} lidosta",
+    "moreAirports_other": "{{name}} + vēl {{count}} lidostas",
+    "weekendsCount": "{{count}} nedēļas nogales"
+  },
+  "search": {
+    "travelWeekend": "Ceļojuma nedēļas nogale",
+    "travelWeekendHint": "Izvēlies vienu vai vairākus datumu intervālus",
+    "tripType": "Ceļojuma veids",
+    "tripTypeHint": "Neobligāts uzturēšanās modelis",
+    "departureTime": "Izlidošanas laiks",
+    "departureTimeHint": "Neobligāti filtri tikai vakara lidojumiem",
+    "travelers": "Ceļotāji",
+    "travelersHint": "Pasažieru skaits cenas aprēķinam",
+    "thereEvening": "Turp · vakarā",
+    "thereEveningTitle": "Izlidošana turp plkst. 17:00 vai vēlāk",
+    "backEvening": "Atpakaļ · vakarā",
+    "backEveningTitle": "Atgriešanās plkst. 17:00 vai vēlāk",
+    "prevWeekends": "Iepriekšējās nedēļas nogales",
+    "nextWeekends": "Nākamās nedēļas nogales",
+    "selectWeekends": "Izvēlēties nedēļas nogales",
+    "selectTripType": "Ceļojuma veids (neobligāti)",
+    "eveningDepartures": "Vakara izlidošanas (neobligāti)",
+    "detectingLocation": "Nosakām tavu atrašanās vietu…",
+    "fromLocationAdd": "No {{location}} — pievienot vēl vienu lidostu…",
+    "addAirport": "Pievienot izlidošanas lidostu…",
+    "searchAirports": "Meklēt pievienojamās lidostas",
+    "noAirportsFound": "Lidostas nav atrastas",
+    "selectedAirports": "Izvēlētās lidostas",
+    "nearbyAirports": "Tuvējās lidostas",
+    "removeAirport": "Noņemt {{name}}",
+    "traveler": "ceļotājs",
+    "travelers": "ceļotāji",
+    "fewerTravelers": "Mazāk ceļotāju",
+    "moreTravelers": "Vairāk ceļotāju",
+    "travelersGroup": "Ceļotāju skaits"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Piektdiena – svētdiena",
+      "short": "Pk–Sv"
+    },
+    "thu-sun": {
+      "label": "Ceturtdiena – svētdiena",
+      "short": "C–Sv"
+    },
+    "wed-sun": {
+      "label": "Trešdiena – svētdiena",
+      "short": "T–Sv"
+    },
+    "fri-mon": {
+      "label": "Piektdiena – pirmdiena",
+      "short": "Pk–Pr"
+    },
+    "fri-tue": {
+      "label": "Piektdiena – otrdiena",
+      "short": "Pk–O"
+    }
+  },
+  "flights": {
+    "destination": "Galamērķis",
+    "perPerson": "{{price}} vienai personai",
+    "forDaysTrip": "{{days}} dienu ceļojumam",
+    "detail": "Detaļas",
+    "changes_zero": "0 pārsēšanās",
+    "changes_one": "1 pārsēšanās",
+    "changes_other": "{{count}} pārsēšanās"
+  },
+  "about": {
+    "heroTitle": "Par euroweekender.com",
+    "heroSubtitle": "Pieejamas Eiropas pilsētas brīvdienas, kas iederas darba nedēļā — izlidošana piektdienas vakarā, atgriešanās svētdien.",
+    "lead": "Mēs palīdzam eiropiešiem atrast pieejamus īsus ceļojumus — izlidošana piektdienas vakarā, atgriešanās svētdien un pilnvērtīga pilsētas brīvdiena bez atvaļinājuma dienām.",
+    "sections": {
+      "weekendTitle": "Nedēļas nogales ceļojumi bez atvaļinājuma",
+      "weekendP1": "Lielākajai daļai no mums brīvas ir tikai sestdiena un svētdiena — bet tas pietiek Eiropas ceļojumam. euroweekender.com ir veidots īsiem turp-atpakaļ ceļojumiem: lidojums pēc darba piektdienas vakarā, izpēte sestdien un mājās svētdienas vakarā.",
+      "weekendP2": "Izmanto ceļojumu veidus kā Pk–Sv un vakara izlidošanas filtru, lai atrastu lidojumus, kas atbilst īstam darba nedēļas grafikam, nevis tikai nedēļas vidus brīvdienām.",
+      "whatTitle": "Ko mēs darām",
+      "whatP": "euroweekender.com apkopo nedēļas nogales lidojumu piedāvājumus no Kiwi.com un parāda tos vienkāršā meklēšanas pieredzē. Izvēlies izlidošanas lidostas, vienu vai vairākas ceļojuma nedēļas nogales, filtrē pēc ceļojuma veida un salīdzini turp-atpakaļ cenas vienā skatā.",
+      "whoTitle": "Kam tas ir paredzēts",
+      "whoP": "Vietne ir veidota pilsētas brīvdību ceļotājiem, pāriem un draugiem, kuri vēlas iedvesmu, nevis stundām ilgu laiku lidojumu salīdzināšanas vietnēs. Neatkarīgi no tā, vai izlido no Prāgas, Vīnes, Barselonas vai cita Eiropas centra, vari pārlūkot gaidāmās nedēļas nogales un rezervēt tieši pie aviokompānijas vai ceļojumu partnera.",
+      "rankTitle": "Kā mēs kārtot rezultātus",
+      "rankP": "Piedāvājumi ir sakārtoti pēc kopējās ceļojuma cenas tavam pasažieru skaitam. Mēs arī izmantojam centru vērtējumus, kas balstīti uz piedāvājumu apjomu, cenu līmeni un galamērķu dažādību, lai ieteiktu labas izlidošanas lidostas tavas atrašanās vietas tuvumā.",
+      "affiliateTitle": "Partneru saišu atklāšana",
+      "affiliateP": "Kad noklikšķini, lai rezervētu lidojumu, vari tikt novirzīts uz Kiwi.com vai citu rezervēšanas partneri. Mēs varam saņemt komisiju bez papildu izmaksām tev. Cenas un pieejamība vienmēr tiek apstiprinātas partnera vietnē pirms maksājuma.",
+      "kiwiTitle": "Droša rezervēšana caur Kiwi.com",
+      "kiwiP1": "Mēs novirzām tevi uz Kiwi.com — pazīstamu Eiropas lidojumu rezervēšanas platformu, ko katru gadu izmanto miljoni ceļotāju. Maksājums notiek Kiwi drošajā kasē ar nozares standarta šifrēšanu, un biļete tiek izsniegta caur viņu rezervēšanas sistēmu ar klientu atbalstu, ja plāni mainās.",
+      "kiwiP2": "Kiwi.com piedāvā arī rezervēšanas aizsardzību un palīdzību traucējumu gadījumā atbilstošām cenām, lai tu nepaliktu viens, ja aviokompānijas pārplāno vai atceļ lidojumus. Pirms maksājuma apstiprināšanas vienmēr pārskati galīgo cenu, bagāžas noteikumus un nosacījumus Kiwi.com."
+    },
+    "cta": "Gatavs plānot nākamo brīvdību?",
+    "heroImageAlt": "Eiropas pilsētas skats no gaisa saulrietā",
+    "eveningImageAlt": "Lidmašīnas spārns virs mākoņiem saulrietā",
+    "cityImageAlt": "Iela pie kanāla Eiropas pilsētā"
+  },
+  "howItWorks": {
+    "heroTitle": "Kā tas darbojas",
+    "heroSubtitle": "Četri vienkārši soļi no piektdienas vakara lidojuma līdz svētdienas atgriešanai — bez atvaļinājuma dienām.",
+    "lead": "Atrodi lētu Eiropas nedēļas nogales ceļojumu četros soļos — izlido piektdienas vakarā, atgriezies svētdien un neizmanto atvaļinājuma dienas.",
+    "builtTitle": "Veidots īstām nedēļas nogalēm",
+    "builtP1": "euroweekender.com koncentrējas uz īsiem turp-atpakaļ ceļojumiem, kas iederas darbā. Noķer piektdienas vakara lidojumu pēc pēdējās sapulces, pavadi sestdienu jaunā pilsētā un lidoj mājās svētdienas vakarā — divas naktis prom, nulle atvaļinājuma dienu.",
+    "builtP2": "Izvēlies Pk–Sv ceļojuma veidu un ieslēdz vakara izlidošanas filtru, lai redzētu lidojumus, kas atbilst šim ritmam, nevis vispārīgus nedēļas garus meklējumus citās vietnēs.",
+    "stepsTitle": "Četri soļi",
+    "step1title": "Izvēlies lidostas",
+    "step1text": "Atļauj piekļuvi atrašanās vietai vai izvēlies izlidošanas centrus manuāli. Meklē no vairākām pilsētām vienlaikus.",
+    "step2title": "Izvēlies nedēļas nogales",
+    "step2text": "Izvēlies vienu vai vairākas ceļojuma nedēļas nogales. Katra zīme rāda izlidošanas datumu intervālu šim ceļojumam.",
+    "step3title": "Precizē filtrus",
+    "step3text": "Izvēlies Pk–Sv modeļus, vakara izlidošanas un pasažieru skaitu. Rezultāti atjauninās automātiski.",
+    "step4title": "Salīdzini un rezervē",
+    "step4text": "Kārto pēc cenas, pārskati izlidošanas un atgriešanās posmus, pēc tam rezervē droši Kiwi.com.",
+    "kiwiTitle": "Kāpēc rezervēt caur Kiwi.com?",
+    "kiwiP": "Kiwi.com ir viena no lielākajām Eiropas lidojumu meklēšanas un rezervēšanas platformām. Kad noklikšķini no euroweekender.com, maksā Kiwi paša drošajā kasē (ne mūsu vietnē). Tas nozīmē šifrētu karšu apstrādi, korektu rezervācijas ierakstu un piekļuvi Kiwi palīdzības komandai, ja ar ceļojumu kaut kas noiet greizi.",
+    "tipsTitle": "Padomi labākiem piedāvājumiem",
+    "tip1": "Izmēģini vairākas tuvējās lidostas — mazāki centri dažreiz ir lētāki par lielajām pilsētām.",
+    "tip2": "Izvēlies vairākas nedēļas nogales, lai atrastu lētāko izlidošanas dienu mēnesī.",
+    "tip3": "Izmanto vakara filtrus, ja vēlies aizbraukt pēc darba piektdien.",
+    "tip4": "Rezervē drīz pēc labas cenas atrašanas; lēti nedēļas nogales vietas ātri izpārdodas.",
+    "cta": "Sākt meklēt",
+    "heroImageAlt": "Ceļotājs ar bagāžu gatavs nedēļas nogales ceļojumam",
+    "weekendImageAlt": "Eiropas bruģēta iela siltā vakara gaismā"
+  },
+  "faq": {
+    "heroTitle": "Biežāk uzdotie jautājumi",
+    "heroSubtitle": "Viss, kas jāzina par lētu nedēļas nogales lidojumu meklēšanu Eiropā.",
+    "lead": "Viss, kas jāzina par lētu nedēļas nogales lidojumu meklēšanu Eiropā.",
+    "items": [
+      {
+        "q": "Vai varu ceļot bez atvaļinājuma dienām?",
+        "a": "Jā — tieši tam ir paredzēti nedēļas nogales ceļojumi. Izvēlies Pk–Sv modeli un filtrē piektdienas vakara izlidošanas, lai aizbrauktu pēc darba, baudītu sestdienu galamērķī un atgrieztos svētdienas vakarā. Tu iegūsti pilnvērtīgu pilsētas brīvdību, izmantojot tikai parasto nedēļas nogali."
+      },
+      {
+        "q": "Vai ir droši rezervēt caur Kiwi.com?",
+        "a": "Kiwi.com ir liela Eiropas lidojumu rezervēšanas platforma, ko izmanto miljoni ceļotāju. Maksājums notiek Kiwi drošajā kasē ar standarta šifrēšanu, un tu saņem korektu rezervācijas apstiprinājumu ar klientu atbalstu. Daudzām cenām ir arī Kiwi.com rezervēšanas aizsardzība grafika izmaiņu un traucējumu gadījumā — vienmēr pārbaudi tarifa nosacījumus pirms maksājuma."
+      },
+      {
+        "q": "Kas ir euroweekender.com?",
+        "a": "Meklēšanas rīks lētiem Eiropas nedēļas nogales lidojumiem. Mēs vācam turp-atpakaļ piedāvājumus īsiem uzturēšanās laikiem un ļaujam filtrēt pēc nedēļas nogales datumiem, ceļojuma ilguma un izlidošanas laika."
+      },
+      {
+        "q": "No kurām lidostām varu meklēt?",
+        "a": "Tu vari izvēlēties vienu vai vairākas izlidošanas lidostas visā Eiropā. Vietne var ieteikt tuvējās lidostas, balstoties uz tavu atrašanās vietu, un kārtot tās pēc piedāvājumu kvalitātes, ja dati ir pieejami."
+      },
+      {
+        "q": "Vai varu izvēlēties vairākas nedēļas nogales vienlaikus?",
+        "a": "Jā. Noklikšķini uz vairākām datumu zīmēm ceļojuma nedēļas nogales rindā, lai apvienotu piedāvājumus no katras nedēļas nogales. Rezultāti pieaug, pievienojot vairāk nedēļas nogalu."
+      },
+      {
+        "q": "Ko nozīmē ceļojumu veidi kā Pk–Sv vai Pk–Pr?",
+        "a": "Ceļojumu veidi filtrē lidojumus pēc konkrētām izlidošanas dienām un uzturēšanās ilguma. Piemēram, Pk–Sv nozīmē izlidošanu piektdien un atgriešanos svētdien pēc divām naktīm galamērķī."
+      },
+      {
+        "q": "No kurienes nāk cenas?",
+        "a": "Cenas nāk no Kiwi.com lidojumu meklēšanas datiem un tiek glabātas mūsu datubāzē. Galīgā cena, bagāžas noteikumi un vietu pieejamība tiek apstiprināta, kad atver rezervēšanas saiti."
+      },
+      {
+        "q": "Vai jūs pārdodat biļetes tieši?",
+        "a": "Nē. Mēs rādām piedāvājumus un novirzām uz rezervēšanas partneri. Pirkumu pabeidz viņu vietnē."
+      },
+      {
+        "q": "Cik bieži tiek atjaunināti lidojumi?",
+        "a": "Mūsu robots regulāri atjaunina piedāvājumus no Eiropas izlidošanas pilsētām. Ļoti svaigi piedāvājumi var parādīties dažu stundu laikā; vecāki ieraksti tiek aizstāti, kad pabeidzas jauni meklējumi."
+      },
+      {
+        "q": "Kāpēc atgriešanās laiks dažreiz rādās kā domuzīme?",
+        "a": "Atgriešanās izlidošanas laiki nāk no detalizētiem maršruta datiem. Ja šie dati trūkst vecākam piedāvājumam, mēs rādām atgriešanās datumu bez laika, līdz ieraksts tiek atjaunināts."
+      },
+      {
+        "q": "Vai mana atrašanās vieta tiek saglabāta?",
+        "a": "Ģeolokācija tiek izmantota tikai tavā pārlūkprogrammā, lai ieteiktu tuvējās lidostas. Mēs nesaglabājam GPS koordinātas savos serveros. Skatīt detaļas mūsu privātuma politikā."
+      }
+    ],
+    "heroImageAlt": "Ceļojumu karte un plānošanas piezīmes uz galda",
+    "ctaStill": "Vai tev joprojām ir jautājums?"
+  },
+  "contact": {
+    "heroTitle": "Kontakti",
+    "heroSubtitle": "Jautājumi, atsauksmes vai partnerības idejas? Mēs labprāt dzirdētu no tevis.",
+    "lead": "Jautājumi, atsauksmes vai partnerības idejas? Mēs labprāt dzirdētu no tevis.",
+    "email": "E-pasts",
+    "emailBody": "Parasti atbildam dažu darba dienu laikā. Konkrēta lidojuma rezervēšanas problēmām, lūdzu, sazinies ar aviokompāniju vai ceļojumu partneri, kas norādīts apstiprinājumā.",
+    "beforeTitle": "Pirms rakstīšanas",
+    "before1": "Pārbaudi BUJ par meklēšanu, ceļojumu veidiem un rezervēšanu.",
+    "before2": "Norādi savu izlidošanas lidostu un ceļojuma nedēļas nogali, ja ziņo par trūkstošu piedāvājumu.",
+    "before3": "Mēs nevaram mainīt rezervācijas, kas veiktas Kiwi.com vai citās partneru vietnēs.",
+    "heroImageAlt": "Klēpjdators un piezīmju grāmatiņa uz galda"
+  },
+  "privacy": {
+    "title": "Privātuma politika",
+    "lead": "Pēdējoreiz atjaunināts: 2026. gada jūlijā",
+    "intro": "Šī politika skaidro, kā euroweekender.com (\"mēs\") apstrādā informāciju, kad lieto mūsu vietni.",
+    "infoCollect": "Informācija, ko mēs vācam",
+    "analyticsLabel": "Analītika:",
+    "analytics": "Mēs izmantojam pašu mitinātu Umami Analytics, lai skaitītu lapu skatījumus un pamata lietojumu (pārlūkprogrammas veids, valsts, atsauces avots). Umami neizmanto sīkdatnes un neveido profilu tev citās vietnēs. IP adreses netiek glabātas.",
+    "usageLabel": "Lietojuma dati:",
+    "usage": "Standarta servera žurnālus (IP adrese, pārlūkprogrammas veids, skatītās lapas) var vākt mūsu mitināšanas pakalpojumu sniedzējs drošības un veiktspējas nolūkos.",
+    "locationLabel": "Atrašanās vieta:",
+    "location": "Ja atļauj pārlūkprogrammas ģeolokāciju, koordinātas tiek izmantotas lokāli, lai ieteiktu tuvējās lidostas. Mēs nesaglabājam GPS datus savos serveros.",
+    "searchPrefsLabel": "Meklēšanas preferences:",
+    "searchPrefs": "Lidostu un nedēļas nogales izvēles tiek glabātas tikai tavā pārlūkprogrammas sesijā un nav saistītas ar lietotāja kontu.",
+    "thirdPartyTitle": "Trešo pušu pakalpojumi",
+    "thirdParty": "Rezervēšanas saites novirza uz Kiwi.com un citiem ceļojumu partneriem. Viņu privātuma politikas attiecas, kad pameti mūsu vietni. Mēs izmantojam Kiwi.com API datus, lai parādītu lidojumu piedāvājumus.",
+    "cookiesTitle": "Sīkdatnes",
+    "cookies": "Mēs neizmantojam reklāmas sīkdatnes. Umami Analytics darbojas bez sīkdatnēm. Būtiskas tehniskas sīkdatnes var iestatīt mūsu mitināšanas infrastruktūra. Partneru vietnes var iestatīt savas sīkdatnes pēc rezervēšanas saites noklikšķināšanas.",
+    "rightsTitle": "Tavas tiesības",
+    "rights": "Atkarībā no tavas atrašanās vietas (tostarp ES/EEZ saskaņā ar GDPR) tev var būt tiesības piekļūt, labot vai dzēst personas datus, ko mēs glabājam. Sazinies ar mums, lai izmantotu šīs tiesības.",
+    "contactTitle": "Kontakti",
+    "contact": "Privātuma jautājumi: {{email}}",
+    "seeAlso": "Skatīt arī mūsu lietošanas noteikumus."
+  },
+  "terms": {
+    "title": "Lietošanas noteikumi",
+    "lead": "Pēdējoreiz atjaunināts: 2026. gada jūlijā",
+    "intro": "Lietojot euroweekender.com, tu piekrīti šiem noteikumiem. Ja nepiekrīti, lūdzu, neizmanto vietni.",
+    "serviceTitle": "Pakalpojuma apraksts",
+    "service": "Mēs nodrošinām lidojumu piedāvājumu meklēšanas un salīdzināšanas saskarni. Mēs neesam ceļojumu aģentūra un neizsniedzam biļetes. Transporta līgumi tiek noslēgti starp tevi un aviokompāniju vai rezervēšanas partneri.",
+    "accuracyTitle": "Informācijas precizitāte",
+    "accuracy": "Cenas, laiki un pieejamība nāk no trešo pušu avotiem un var mainīties pirms rezervēšanas. Vienmēr pārbaudi detaļas partnera vietnē pirms maksājuma. Mēs neatbildam par kļūdām parādītajās cenās vai grafikos.",
+    "affiliateTitle": "Partneru saites",
+    "affiliate": "Dažas izejošās saites ir partneru saites. Mēs varam saņemt atlīdzību, ja rezervē caur tām. Tas neietekmē cenu, ko maksā partnera vietnē.",
+    "acceptableTitle": "Pieņemama lietošana",
+    "acceptableIntro": "Tu piekrīti ne:",
+    "acceptable1": "Skrāpēt vai pārslodzēt mūsu API vai vietni ar automatizētiem pieprasījumiem.",
+    "acceptable2": "Mēģināt traucēt pakalpojumu vai piekļūt nepubliskām sistēmām.",
+    "acceptable3": "Izmantot vietni nelikumīgiem mērķiem.",
+    "liabilityTitle": "Atbildības ierobežojums",
+    "liability": "Vietne tiek nodrošināta \"kā ir\" bez garantijām. Pilnā likumā atļautajā apjomā mēs neatbildam par netiešiem vai izrietošiem zaudējumiem, kas rodas vietnes vai trešo pušu rezervāciju lietošanas rezultātā.",
+    "changesTitle": "Izmaiņas",
+    "changes": "Mēs varam jebkurā laikā atjaunināt šos noteikumus vai pārtraukt funkcijas. Turpināta lietošana pēc izmaiņām nozīmē piekrišanu.",
+    "lawTitle": "Piemērojamie tiesību akti",
+    "law": "Šos noteikumus reglamentē Eiropas Savienībā piemērojamie tiesību akti. Strīdi ir pakļauti tiesu jurisdikcijai, kurā reģistrēts euroweekender.com operators, neierobežojot obligātās patērētāju aizsardzības tiesības tavā dzīvesvietas valstī.",
+    "contactTitle": "Kontakti",
+    "contact": "Jautājumi par šiem noteikumiem: {{email}}",
+    "seeAlso": "Izlasi mūsu privātuma politiku."
+  },
+  "common": {
+    "seeAlsoTerms": "lietošanas noteikumi",
+    "seeAlsoPrivacy": "privātuma politika",
+    "searchWeekendFlights": "Meklēt nedēļas nogales lidojumus",
+    "howItWorks": "kā tas darbojas",
+    "newSearch": "jauna meklēšana",
+    "contactUs": "Sazinies ar mums",
+    "startSearching": "Sākt meklēt",
+    "readFaq": "BUJ",
+    "language": "Valoda",
+    "stillHaveQuestion": "Vai tev joprojām ir jautājums?",
+    "orStart": "vai sāc",
+    "orRead": "vai izlasi",
+    "readyToPlan": "Gatavs plānot nākamo brīvdību?",
+    "seeAlsoOur": "Skatīt arī mūsu"
+  }
+}

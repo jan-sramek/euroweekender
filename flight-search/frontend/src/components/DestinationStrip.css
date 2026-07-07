@@ -1,0 +1,85 @@
+.destination-strip {
+  padding: 3rem 0 3.5rem;
+  background: linear-gradient(180deg, #fff 0%, #f4f7f9 100%);
+}
+
+.destination-strip-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.destination-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #04bfab;
+}
+
+.destination-strip-header h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #192c39;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.destination-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(25, 44, 57, 0.12);
+}
+
+.destination-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.destination-card:hover img {
+  transform: scale(1.05);
+}
+
+.destination-card figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0.85rem;
+  background: linear-gradient(180deg, transparent, rgba(25, 44, 57, 0.88));
+  color: #fff;
+}
+
+.destination-name {
+  font-weight: 700;
+}
+
+.destination-code {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #04bfab;
+}
+
+@media (max-width: 991px) {
+  .destination-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .destination-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

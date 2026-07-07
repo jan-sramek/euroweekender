@@ -9,6 +9,7 @@ public interface ICityRepository
     Task<List<City>> GetCitiesByCodesAsync(List<string> cityCodes);
     Task<City?> GetCityByCodeAsync(string code);
     Task<City?> GetCityByKiwiIdAsync(string kiwiId);
+    Task<Dictionary<string, decimal>> GetBestAirportRankByCityCodeAsync(CancellationToken cancellationToken = default);
     Task AddCityAsync(City city);
     Task AddCitiesAsync(List<City> cities);
     Task UpdateCityAsync(City city);

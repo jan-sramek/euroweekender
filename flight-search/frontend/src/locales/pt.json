@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "home": {
+      "title": "Voos baratos de fim de semana na Europa",
+      "description": "Encontre e compare voos baratos de fim de semana pela Europa. Pesquise sex.–dom., qui.–dom. e mais, a partir de aeroportos perto de si."
+    },
+    "about": {
+      "title": "Sobre o EuroWeekender",
+      "description": "Voos de fim de semana pela Europa sem dias de férias. Saiba como o euroweekender.com o ajuda a partir na sexta à noite e regressar no domingo com reserva segura na Kiwi.com."
+    },
+    "faq": {
+      "title": "FAQ — voos de fim de semana",
+      "description": "Respostas a perguntas frequentes sobre a pesquisa de voos europeus de fim de semana no euroweekender.com."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Contacte a equipa do euroweekender.com para feedback, parcerias ou apoio."
+    },
+    "howItWorks": {
+      "title": "Como funciona",
+      "description": "Encontre voos de fim de semana de sexta à noite a domingo pela Europa. Compare ofertas no euroweekender.com e reserve em segurança na Kiwi.com."
+    },
+    "privacy": {
+      "title": "Política de privacidade",
+      "description": "Política de privacidade do euroweekender.com — que dados recolhemos e como os utilizamos."
+    },
+    "terms": {
+      "title": "Termos de utilização",
+      "description": "Termos de utilização do euroweekender.com — regras para usar o nosso serviço de pesquisa de voos de fim de semana."
+    }
+  },
+  "nav": {
+    "home": "Início",
+    "howItWorks": "Como funciona",
+    "about": "Sobre",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "tagline": "Ofertas europeias de voos de fim de semana",
+    "explore": "Explorar",
+    "support": "Apoio",
+    "searchFlights": "Pesquisar voos",
+    "privacy": "Política de privacidade",
+    "terms": "Termos de utilização",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Ofertas europeias de voos de fim de semana",
+    "title": "A sua próxima escapadinha começa na sexta à noite",
+    "lead": "Compare voos de ida e volta de fim de semana pela Europa — partida depois do trabalho, regresso no domingo, sem precisar de férias.",
+    "fromSelectedAirports": "De {{airports}}",
+    "person": "pessoa",
+    "persons": "pessoas",
+    "allTripTypes": "todos os tipos de viagem",
+    "thereEvening": "ida à noite",
+    "backEvening": "volta à noite",
+    "hubRankingWarning": "Classificação de ofertas indisponível — aeroportos próximos ordenados apenas por distância.",
+    "apiError": "Não foi possível carregar os aeroportos. A API está a correr?",
+    "flightLoadError": "Não foi possível carregar voos para os fins de semana selecionados.",
+    "tryAgain": "Tentar novamente",
+    "loading": "A encontrar as melhores ofertas…",
+    "noFlights": "Ainda não foram encontrados voos para os fins de semana selecionados. Experimente outras datas, tipos de viagem ou adicione mais aeroportos de partida.",
+    "noLegMatch": "Nenhum voo corresponde aos trechos de ida e volta selecionados.",
+    "clearLegFilters": "Limpar filtros de trecho",
+    "dealsShown": "{{shown}} de {{total}} ofertas mostradas",
+    "dealsFound": "{{count}} ofertas encontradas",
+    "clearLegFiltersBtn": "Limpar filtros de trecho",
+    "selectedAirports": "aeroportos selecionados",
+    "moreAirports_one": "{{name}} + {{count}} aeroporto",
+    "moreAirports_other": "{{name}} + {{count}} aeroportos",
+    "weekendsCount": "{{count}} fins de semana"
+  },
+  "search": {
+    "travelWeekend": "Fim de semana de viagem",
+    "travelWeekendHint": "Escolha um ou mais intervalos de datas",
+    "tripType": "Tipo de viagem",
+    "tripTypeHint": "Padrão de estadia opcional",
+    "departureTime": "Hora de partida",
+    "departureTimeHint": "Filtros opcionais só à noite",
+    "travelers": "viajantes",
+    "travelersHint": "Número de passageiros para preços",
+    "thereEvening": "Ida · noite",
+    "thereEveningTitle": "Partida de ida às 17:00 ou depois",
+    "backEvening": "Volta · noite",
+    "backEveningTitle": "Partida de volta às 17:00 ou depois",
+    "prevWeekends": "Fins de semana anteriores",
+    "nextWeekends": "Próximos fins de semana",
+    "selectWeekends": "Selecionar fins de semana",
+    "selectTripType": "Tipo de viagem (opcional)",
+    "eveningDepartures": "Partidas à noite (opcional)",
+    "detectingLocation": "A detetar a sua localização…",
+    "fromLocationAdd": "De {{location}} — adicionar outro aeroporto…",
+    "addAirport": "Adicionar aeroporto de partida…",
+    "searchAirports": "Pesquisar aeroportos para adicionar",
+    "noAirportsFound": "Nenhum aeroporto encontrado",
+    "selectedAirports": "Aeroportos selecionados",
+    "nearbyAirports": "Aeroportos próximos",
+    "removeAirport": "Remover {{name}}",
+    "traveler": "viajante",
+    "fewerTravelers": "Menos viajantes",
+    "moreTravelers": "Mais viajantes",
+    "travelersGroup": "Número de viajantes"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Sexta – domingo",
+      "short": "Sex.–Dom."
+    },
+    "thu-sun": {
+      "label": "Quinta – domingo",
+      "short": "Qui.–Dom."
+    },
+    "wed-sun": {
+      "label": "Quarta – domingo",
+      "short": "Qua.–Dom."
+    },
+    "fri-mon": {
+      "label": "Sexta – segunda",
+      "short": "Sex.–Seg."
+    },
+    "fri-tue": {
+      "label": "Sexta – terça",
+      "short": "Sex.–Ter."
+    }
+  },
+  "flights": {
+    "destination": "Destino",
+    "perPerson": "{{price}} por pessoa",
+    "forDaysTrip": "para viagem de {{days}} dias",
+    "detail": "Detalhe",
+    "changes_zero": "0 escalas",
+    "changes_one": "1 escala",
+    "changes_other": "{{count}} escalas"
+  },
+  "about": {
+    "heroTitle": "Sobre o euroweekender.com",
+    "heroSubtitle": "Escapadinhas europeias acessíveis que se adaptam à sua semana de trabalho — partida na sexta à noite, regresso no domingo.",
+    "lead": "Ajudamos europeus a descobrir viagens curtas acessíveis — partida na sexta à noite, regresso no domingo, e uma escapadinha completa sem gastar dias de férias.",
+    "sections": {
+      "weekendTitle": "Viagens de fim de semana sem férias",
+      "weekendP1": "A maioria de nós só tem sábado e domingo livres — mas isso chega para uma escapadinha europeia. O euroweekender.com foi criado para viagens curtas de ida e volta: voe depois do trabalho na sexta, explore no sábado e esteja em casa no domingo à noite.",
+      "weekendP2": "Use tipos de viagem como Sex.–Dom. e o filtro de partidas à noite para encontrar voos que se adequam a um horário de trabalho real, não apenas a férias a meio da semana.",
+      "whatTitle": "O que fazemos",
+      "whatP": "O euroweekender.com agrega ofertas de voos de fim de semana recolhidas da Kiwi.com e apresenta-as numa experiência de pesquisa simples. Escolha os aeroportos de partida, um ou mais fins de semana de viagem, filtre por tipo de viagem e compare preços de ida e volta num relance.",
+      "whoTitle": "Para quem é",
+      "whoP": "O site foi criado para viajantes de escapadinhas, casais e amigos que querem inspiração sem passar horas em sites de comparação de voos. Quer parta de Praga, Viena, Barcelona ou qualquer outro hub europeu, pode percorrer os próximos fins de semana e reservar diretamente com a companhia aérea ou parceiro de viagens.",
+      "rankTitle": "Como classificamos os resultados",
+      "rankP": "As ofertas são ordenadas pelo preço total da viagem para o seu número de passageiros. Também usamos pontuações de hub com base no volume de ofertas, níveis de preço e variedade de destinos para sugerir bons aeroportos de partida perto da sua localização.",
+      "affiliateTitle": "Divulgação de afiliados",
+      "affiliateP": "Quando clica para reservar um voo, pode ser redirecionado para a Kiwi.com ou outro parceiro de reservas. Podemos receber uma comissão sem custo extra para si. Os preços e a disponibilidade são sempre confirmados no site do parceiro antes de pagar.",
+      "kiwiTitle": "Reserva segura com a Kiwi.com",
+      "kiwiP1": "Ligamo-lo à Kiwi.com, uma plataforma europeia de reserva de voos consolidada, usada por milhões de viajantes todos os anos. O pagamento é feito no checkout seguro da Kiwi com encriptação padrão do setor, e o bilhete é emitido através do sistema de reservas deles com apoio ao cliente se os planos mudarem.",
+      "kiwiP2": "A Kiwi.com também oferece proteção de reserva e assistência em perturbações em tarifas elegíveis, para que não fique sozinho quando as companhias aéreas reagendam ou cancelam. Reve sempre o preço final, as regras de bagagem e as condições na Kiwi.com antes de confirmar o pagamento."
+    },
+    "cta": "Pronto para planear a sua próxima escapadinha?",
+    "heroImageAlt": "Vista aérea de uma cidade europeia ao pôr do sol",
+    "eveningImageAlt": "Asa de avião acima das nuvens ao pôr do sol",
+    "cityImageAlt": "Rua junto a um canal numa cidade europeia"
+  },
+  "howItWorks": {
+    "heroTitle": "Como funciona",
+    "heroSubtitle": "Quatro passos simples do voo de sexta à noite ao regresso de domingo — sem dias de férias.",
+    "lead": "Encontre uma viagem europeia barata de fim de semana em quatro passos — partida na sexta à noite, regresso no domingo, sem gastar férias.",
+    "builtTitle": "Feito para fins de semana reais",
+    "builtP1": "O euroweekender.com foca-se em viagens curtas de ida e volta que se adaptam ao trabalho. Apanhe um voo de sexta à noite depois da última reunião, passe o sábado numa cidade nova e voe para casa no domingo à noite — duas noites fora, zero dias de férias.",
+    "builtP2": "Escolha um tipo de viagem Sex.–Dom. e ative o filtro de partidas à noite para mostrar voos que seguem esse ritmo em vez de pesquisas genéricas de uma semana noutros sites.",
+    "stepsTitle": "Os quatro passos",
+    "step1title": "Escolha aeroportos",
+    "step1text": "Permita o acesso à localização ou escolha hubs de partida manualmente. Pesquise a partir de várias cidades de uma vez.",
+    "step2title": "Escolha fins de semana",
+    "step2text": "Selecione um ou mais fins de semana de viagem. Cada etiqueta mostra o intervalo de datas de ida dessa viagem.",
+    "step3title": "Refine os filtros",
+    "step3text": "Escolha padrões Sex.–Dom., partidas à noite e número de passageiros. Os resultados atualizam-se automaticamente.",
+    "step4title": "Compare e reserve",
+    "step4text": "Ordene por preço, reveja os trechos de ida e volta e reserve em segurança na Kiwi.com.",
+    "kiwiTitle": "Porquê reservar através da Kiwi.com?",
+    "kiwiP": "A Kiwi.com é uma das maiores plataformas europeias de pesquisa e reserva de voos. Quando clica a partir do euroweekender.com, paga no checkout seguro da Kiwi (não no nosso site). Isso significa tratamento encriptado do cartão, um registo de reserva adequado e acesso à equipa de apoio da Kiwi se algo correr mal com a sua viagem.",
+    "tipsTitle": "Dicas para melhores ofertas",
+    "tip1": "Experimente vários aeroportos próximos — hubs menores por vezes vencem as grandes cidades no preço.",
+    "tip2": "Selecione vários fins de semana para encontrar o dia de partida mais barato num mês.",
+    "tip3": "Use filtros de noite se quiser partir depois do trabalho na sexta.",
+    "tip4": "Reserve logo após encontrar uma tarifa; os lugares de fim de semana a preços baixos esgotam rapidamente.",
+    "cta": "Começar a pesquisar",
+    "heroImageAlt": "Viajante com bagagem pronto para uma viagem de fim de semana",
+    "weekendImageAlt": "Rua de calçada europeia à luz quente da noite"
+  },
+  "faq": {
+    "heroTitle": "Perguntas frequentes",
+    "heroSubtitle": "Tudo o que precisa de saber sobre encontrar voos baratos de fim de semana pela Europa.",
+    "lead": "Tudo o que precisa de saber sobre encontrar voos baratos de fim de semana pela Europa.",
+    "items": [
+      {
+        "q": "Posso viajar sem usar dias de férias?",
+        "a": "Sim — é exatamente para isso que servem as viagens de fim de semana. Escolha um padrão Sex.–Dom. e filtre partidas de sexta à noite para partir depois do trabalho, passar o sábado no destino e regressar no domingo à noite. Tem uma escapadinha completa usando apenas o seu fim de semana habitual."
+      },
+      {
+        "q": "É seguro reservar através da Kiwi.com?",
+        "a": "A Kiwi.com é uma grande plataforma europeia de reserva de voos usada por milhões de viajantes. O pagamento é feito no checkout seguro da Kiwi com encriptação padrão, e recebe uma confirmação de reserva adequada com apoio ao cliente. Muitas tarifas incluem também proteção de reserva Kiwi.com para alterações de horário e perturbações — verifique sempre as condições da tarifa antes de pagar."
+      },
+      {
+        "q": "O que é o euroweekender.com?",
+        "a": "Uma ferramenta de pesquisa de voos europeus baratos de fim de semana. Recolhemos ofertas de ida e volta para estadias curtas e permite filtrar por datas de fim de semana, duração da viagem e hora de partida."
+      },
+      {
+        "q": "De que aeroportos posso pesquisar?",
+        "a": "Pode selecionar um ou mais aeroportos de partida em toda a Europa. O site pode sugerir hubs próximos com base na sua localização e classificá-los pela qualidade das ofertas quando os dados estão disponíveis."
+      },
+      {
+        "q": "Posso selecionar vários fins de semana de uma vez?",
+        "a": "Sim. Clique em várias etiquetas de data na linha de fim de semana de viagem para combinar ofertas de cada fim de semana. Os resultados aumentam à medida que adiciona mais fins de semana."
+      },
+      {
+        "q": "O que significam tipos de viagem como Sex.–Dom. ou Sex.–Seg.?",
+        "a": "Os tipos de viagem filtram voos para dias de partida e durações de estadia específicos. Por exemplo, Sex.–Dom. significa partir na sexta e regressar no domingo após duas noites no destino."
+      },
+      {
+        "q": "De onde vêm os preços?",
+        "a": "Os preços provêm de dados de pesquisa de voos da Kiwi.com e são armazenados na nossa base de dados. A tarifa final, as regras de bagagem e a disponibilidade de lugares são confirmadas quando abre o link de reserva."
+      },
+      {
+        "q": "Vendem bilhetes diretamente?",
+        "a": "Não. Mostramos ofertas e ligamo-lo ao parceiro de reservas. Conclui a compra no site deles."
+      },
+      {
+        "q": "Com que frequência são atualizados os voos?",
+        "a": "O nosso crawler atualiza ofertas regularmente a partir de cidades europeias de partida. Ofertas muito recentes podem aparecer em poucas horas; linhas mais antigas são substituídas à medida que novas recolhas são concluídas."
+      },
+      {
+        "q": "Porque é que a hora de regresso por vezes mostra um traço?",
+        "a": "As horas de partida de regresso vêm de dados detalhados da rota. Se esses dados faltam para uma oferta antiga, mostramos a data de regresso sem hora até a listagem ser atualizada."
+      },
+      {
+        "q": "A minha localização é armazenada?",
+        "a": "A geolocalização é usada apenas no seu navegador para sugerir aeroportos próximos. Não armazenamos as suas coordenadas GPS nos nossos servidores. Consulte a nossa política de privacidade para detalhes."
+      }
+    ],
+    "heroImageAlt": "Mapa de viagem e notas de planeamento numa secretária",
+    "ctaStill": "Ainda tem uma pergunta?"
+  },
+  "contact": {
+    "heroTitle": "Contacto",
+    "heroSubtitle": "Perguntas, feedback ou ideias de parceria? Gostaríamos de ouvir de si.",
+    "lead": "Perguntas, feedback ou ideias de parceria? Gostaríamos de ouvir de si.",
+    "email": "E-mail",
+    "emailBody": "Normalmente respondemos em alguns dias úteis. Para problemas de reserva de um voo específico, contacte a companhia aérea ou parceiro de viagens indicado na sua confirmação.",
+    "beforeTitle": "Antes de escrever",
+    "before1": "Consulte o FAQ para respostas sobre pesquisa, tipos de viagem e reservas.",
+    "before2": "Inclua o aeroporto de partida e o fim de semana de viagem se estiver a reportar uma oferta em falta.",
+    "before3": "Não podemos alterar reservas feitas na Kiwi.com ou noutros sites parceiros.",
+    "heroImageAlt": "Portátil e caderno numa secretária"
+  },
+  "privacy": {
+    "title": "Política de privacidade",
+    "lead": "Última atualização: julho de 2026",
+    "intro": "Esta política explica como o euroweekender.com («nós») trata as informações quando utiliza o nosso website.",
+    "infoCollect": "Informações que recolhemos",
+    "analyticsLabel": "Analítica:",
+    "analytics": "Usamos Umami Analytics auto-hospedado para contar visualizações de página e utilização básica (tipo de navegador, país, referenciador). O Umami não usa cookies e não cria o seu perfil noutros websites. Os endereços IP não são armazenados.",
+    "usageLabel": "Dados de utilização:",
+    "usage": "Registos padrão do servidor (endereço IP, tipo de navegador, páginas vistas) podem ser recolhidos pelo nosso fornecedor de alojamento para segurança e desempenho.",
+    "locationLabel": "Localização:",
+    "location": "Se permitir a geolocalização do navegador, as coordenadas são usadas localmente para sugerir aeroportos próximos. Não persistimos dados GPS nos nossos servidores.",
+    "searchPrefsLabel": "Preferências de pesquisa:",
+    "searchPrefs": "As seleções de aeroporto e fim de semana ficam apenas na sessão do navegador e não estão ligadas a uma conta de utilizador.",
+    "thirdPartyTitle": "Serviços de terceiros",
+    "thirdParty": "Os links de reserva redirecionam para a Kiwi.com e outros parceiros de viagens. As respetivas políticas de privacidade aplicam-se quando sai do nosso site. Usamos dados da API Kiwi.com para mostrar ofertas de voos.",
+    "cookiesTitle": "Cookies",
+    "cookies": "Não usamos cookies de publicidade. O Umami Analytics funciona sem cookies. Cookies técnicos essenciais podem ser definidos pela nossa infraestrutura de alojamento. Os sites parceiros podem definir os seus próprios cookies depois de clicar num link de reserva.",
+    "rightsTitle": "Os seus direitos",
+    "rights": "Dependendo da sua localização (incluindo a UE/EEE ao abrigo do RGPD), pode ter direito a aceder, corrigir ou eliminar dados pessoais que detemos. Contacte-nos para exercer estes direitos.",
+    "contactTitle": "Contacto",
+    "contact": "Questões de privacidade: {{email}}",
+    "seeAlso": "Consulte também os nossos termos de utilização."
+  },
+  "terms": {
+    "title": "Termos de utilização",
+    "lead": "Última atualização: julho de 2026",
+    "intro": "Ao utilizar o euroweekender.com, concorda com estes termos. Se não concordar, por favor não utilize o site.",
+    "serviceTitle": "Descrição do serviço",
+    "service": "Fornecemos uma interface de pesquisa e comparação de ofertas de voos. Não somos uma agência de viagens e não emitimos bilhetes. Os contratos de transporte são entre si e a companhia aérea ou parceiro de reservas.",
+    "accuracyTitle": "Exatidão das informações",
+    "accuracy": "Preços, horários e disponibilidade provêm de fontes terceiras e podem mudar antes da reserva. Verifique sempre os detalhes no site do parceiro antes de pagar. Não somos responsáveis por erros nas tarifas ou horários apresentados.",
+    "affiliateTitle": "Links de afiliados",
+    "affiliate": "Alguns links de saída são links de afiliados. Podemos receber compensação quando reserva através deles. Isso não afeta o preço que paga no site do parceiro.",
+    "acceptableTitle": "Utilização aceitável",
+    "acceptableIntro": "Concorda em não:",
+    "acceptable1": "Fazer scraping ou sobrecarregar a nossa API ou website com pedidos automatizados.",
+    "acceptable2": "Tentar perturbar o serviço ou aceder a sistemas não públicos.",
+    "acceptable3": "Usar o site para fins ilegais.",
+    "liabilityTitle": "Limitação de responsabilidade",
+    "liability": "O site é fornecido «tal como está», sem garantias. Na medida máxima permitida por lei, não somos responsáveis por danos indiretos ou consequenciais decorrentes da utilização do site ou de reservas de terceiros.",
+    "changesTitle": "Alterações",
+    "changes": "Podemos atualizar estes termos ou descontinuar funcionalidades a qualquer momento. A utilização continuada após alterações constitui aceitação.",
+    "contactTitle": "Contacto",
+    "law": "Estes termos regem-se pelas leis aplicáveis na União Europeia. Quaisquer litígios ficam sujeitos à jurisdição dos tribunais onde o operador do euroweekender.com está estabelecido, sem prejuízo dos direitos obrigatórios de proteção do consumidor no seu país de residência.",
+    "contact": "Questões sobre estes termos: {{email}}",
+    "seeAlso": "Leia a nossa política de privacidade.",
+    "lawTitle": "Lei aplicável"
+  },
+  "common": {
+    "seeAlsoTerms": "termos de utilização",
+    "seeAlsoPrivacy": "política de privacidade",
+    "searchWeekendFlights": "Pesquisar voos de fim de semana",
+    "howItWorks": "como funciona",
+    "newSearch": "nova pesquisa",
+    "contactUs": "Contacte-nos",
+    "startSearching": "Começar a pesquisar",
+    "readFaq": "FAQ",
+    "language": "Idioma",
+    "stillHaveQuestion": "Ainda tem uma pergunta?",
+    "orStart": "ou comece uma",
+    "orRead": "ou leia a",
+    "readyToPlan": "Pronto para planear a sua próxima escapadinha?",
+    "seeAlsoOur": "Consulte também a nossa"
+  }
+}

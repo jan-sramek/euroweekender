@@ -1,16 +1,16 @@
-# Build stage - build the Angular application
 FROM node:20-alpine AS builder
 WORKDIR /app
+ARG VITE_UMAMI_SCRIPT_URL=
+ARG VITE_UMAMI_WEBSITE_ID=
+ENV VITE_UMAMI_SCRIPT_URL=$VITE_UMAMI_SCRIPT_URL
+ENV VITE_UMAMI_WEBSITE_ID=$VITE_UMAMI_WEBSITE_ID
 COPY package*.json ./
 RUN npm ci
 COPY . .
-ARG API_URL=http://localhost:5001
-ENV API_URL=$API_URL
-RUN npm run build --configuration=Production
+RUN npm run build
 
-# Production stage - serve with nginx
 FROM nginx:alpine
-COPY --from=builder /app/dist/weekend-flights-frontend/browser/ /usr/share/nginx/html/
+COPY --from=builder /app/dist/ /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 4200
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

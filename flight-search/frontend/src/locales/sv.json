@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Billiga europeiska helgflyg",
+      "description": "Hitta och jämför billiga helgflyg i hela Europa. Sök fre–sön, tor–sön och mer från flygplatser nära dig."
+    },
+    "about": {
+      "title": "Om EuroWeekender",
+      "description": "Helgflyg i Europa utan semesterdagar. Lär dig hur euroweekender.com hjälper dig att åka på fredagskvällen och komma tillbaka på söndagen via säker bokning på Kiwi.com."
+    },
+    "faq": {
+      "title": "Vanliga frågor om helgflyg",
+      "description": "Svar på vanliga frågor om att söka europeiska helgflyg på euroweekender.com."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Kontakta teamet på euroweekender.com för feedback, partnerskap eller support."
+    },
+    "howItWorks": {
+      "title": "Så fungerar det",
+      "description": "Hitta helgflyg från fredagskväll till söndag i hela Europa. Jämför erbjudanden på euroweekender.com och boka säkert via Kiwi.com."
+    },
+    "privacy": {
+      "title": "Integritetspolicy",
+      "description": "Integritetspolicy för euroweekender.com — vilka uppgifter vi samlar in och hur vi använder dem."
+    },
+    "terms": {
+      "title": "Användarvillkor",
+      "description": "Användarvillkor för euroweekender.com — regler för att använda vår helgflygssökning."
+    }
+  },
+  "nav": {
+    "home": "Hem",
+    "howItWorks": "Så fungerar det",
+    "about": "Om oss",
+    "faq": "Vanliga frågor",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Europeiska helgflygserbjudanden",
+    "explore": "Utforska",
+    "support": "Support",
+    "searchFlights": "Sök flyg",
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Europeiska helgflygserbjudanden",
+    "title": "Din nästa storstadsresa börjar på fredagskvällen",
+    "lead": "Jämför tur-och-retur-helgflyg i hela Europa — åk efter jobbet, hem på söndagen, inga semesterdagar behövs.",
+    "fromSelectedAirports": "Från {{airports}}",
+    "person": "person",
+    "persons": "personer",
+    "allTripTypes": "alla resetyper",
+    "thereEvening": "dit kväll",
+    "backEvening": "tillbaka kväll",
+    "hubRankingWarning": "Erbjudanderankning otillgänglig — närliggande flygplatser sorterade endast efter avstånd.",
+    "apiError": "Kunde inte ladda flygplatser. Körs API:et?",
+    "flightLoadError": "Kunde inte ladda flyg för de valda helgerna.",
+    "tryAgain": "Försök igen",
+    "loading": "Söker efter de bästa erbjudandena…",
+    "noFlights": "Inga flyg hittades för de valda helgerna ännu. Prova andra datum, resetyper eller lägg till fler avgångsflygplatser.",
+    "noLegMatch": "Inga flyg matchar de valda ut- och hemresorna.",
+    "clearLegFilters": "Rensa sträckfilter",
+    "dealsShown": "{{shown}} av {{total}} erbjudanden visas",
+    "dealsFound": "{{count}} erbjudanden hittade",
+    "clearLegFiltersBtn": "Rensa sträckfilter",
+    "selectedAirports": "valda flygplatser",
+    "moreAirports_one": "{{name}} + {{count}} flygplats till",
+    "moreAirports_other": "{{name}} + {{count}} flygplatser till",
+    "weekendsCount": "{{count}} helger"
+  },
+  "search": {
+    "travelWeekend": "Reshelg",
+    "travelWeekendHint": "Välj ett eller flera datumintervall",
+    "tripType": "Resetyp",
+    "tripTypeHint": "Valfritt vistelsemönster",
+    "departureTime": "Avgångstid",
+    "departureTimeHint": "Valfria filter endast för kvällsavgångar",
+    "travelers": "Resenärer",
+    "travelersHint": "Antal passagerare för prissättning",
+    "thereEvening": "Dit · kväll",
+    "thereEveningTitle": "Utresa avgår kl. 17:00 eller senare",
+    "backEvening": "Tillbaka · kväll",
+    "backEveningTitle": "Hemresa avgår kl. 17:00 eller senare",
+    "prevWeekends": "Föregående helger",
+    "nextWeekends": "Nästa helger",
+    "selectWeekends": "Välj helger",
+    "selectTripType": "Resetyp (valfritt)",
+    "eveningDepartures": "Kvällsavgångar (valfritt)",
+    "detectingLocation": "Identifierar din plats…",
+    "fromLocationAdd": "Från {{location}} — lägg till en flygplats till…",
+    "addAirport": "Lägg till avgångsflygplats…",
+    "searchAirports": "Sök flygplatser att lägga till",
+    "noAirportsFound": "Inga flygplatser hittades",
+    "selectedAirports": "Valda flygplatser",
+    "nearbyAirports": "Närliggande flygplatser",
+    "removeAirport": "Ta bort {{name}}",
+    "traveler": "resenär",
+    "travelers": "resenärer",
+    "fewerTravelers": "Färre resenärer",
+    "moreTravelers": "Fler resenärer",
+    "travelersGroup": "Antal resenärer"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Fredag – söndag",
+      "short": "fre–sön"
+    },
+    "thu-sun": {
+      "label": "Torsdag – söndag",
+      "short": "tor–sön"
+    },
+    "wed-sun": {
+      "label": "Onsdag – söndag",
+      "short": "ons–sön"
+    },
+    "fri-mon": {
+      "label": "Fredag – måndag",
+      "short": "fre–mån"
+    },
+    "fri-tue": {
+      "label": "Fredag – tisdag",
+      "short": "fre–tis"
+    }
+  },
+  "flights": {
+    "destination": "Destination",
+    "perPerson": "{{price}} per person",
+    "forDaysTrip": "för {{days}}-dagarsresa",
+    "detail": "Detaljer",
+    "changes_zero": "0 byten",
+    "changes_one": "1 byte",
+    "changes_other": "{{count}} byten"
+  },
+  "about": {
+    "heroTitle": "Om euroweekender.com",
+    "heroSubtitle": "Prisvärda europeiska storstadsresor som passar runt arbetsveckan — bort på fredagskvällen, hem på söndagen.",
+    "lead": "Vi hjälper européer att upptäcka prisvärda kortare resor — åk på fredagskvällen, hem på söndagen och njut av en fullständig storstadsresa utan att använda semesterdagar.",
+    "sections": {
+      "weekendTitle": "Helgresor utan semester",
+      "weekendP1": "De flesta av oss har bara lördag och söndag ledigt — men det räcker för en europeisk utflykt. euroweekender.com är byggt kring korta tur-och-retur-resor: flyg efter jobbet på fredagen, utforska på lördagen och var hemma igen på söndagskvällen.",
+      "weekendP2": "Använd resetyper som fre–sön och kvällsavgångsfilter för att hitta flyg som passar ett riktigt arbetsveckoschema, inte bara semester mitt i veckan.",
+      "whatTitle": "Vad vi gör",
+      "whatP": "euroweekender.com samlar helgflygserbjudanden från Kiwi.com och presenterar dem i en enkel sökupplevelse. Välj dina avgångsflygplatser, välj en eller flera reshelger, filtrera på resetyp och jämför tur-och-retur-priser på ett ögonkast.",
+      "whoTitle": "Vem det är för",
+      "whoP": "Sajten är byggd för storstadsresenärer, par och vänner som vill ha inspiration utan att spendera timmar på flygjämförelsesajter. Oavsett om du åker från Prag, Wien, Barcelona eller någon annan europeisk hubb kan du skanna kommande helger och boka direkt hos flygbolaget eller resepartnern.",
+      "rankTitle": "Hur vi rankar resultat",
+      "rankP": "Erbjudanden sorteras efter total resepris för ditt antal passagerare. Vi använder också hubbpoäng baserade på erbjudandevolym, prisnivåer och destinationsvariation för att föreslå starka avgångsflygplatser nära din plats.",
+      "affiliateTitle": "Affiliate-information",
+      "affiliateP": "När du klickar vidare för att boka ett flyg kan du omdirigeras till Kiwi.com eller en annan bokningspartner. Vi kan tjäna en provision utan extra kostnad för dig. Priser och tillgänglighet bekräftas alltid på partnersajten innan du betalar.",
+      "kiwiTitle": "Säker bokning via Kiwi.com",
+      "kiwiP1": "Vi länkar dig till Kiwi.com, en etablerad europeisk flygbokningsplattform som används av miljontals resenärer varje år. Betalning sker via Kiwis säkra kassa med branschstandardkryptering, och din biljett utfärdas via deras bokningssystem med kundsupport om planerna ändras.",
+      "kiwiP2": "Kiwi.com erbjuder också bokningsskydd och stöd vid störningar för berättigade biljetter, så du inte står ensam när flygbolag ombokar eller ställer in. Du granskar alltid slutpriset, bagageregler och villkor på Kiwi.com innan du bekräftar betalningen."
+    },
+    "cta": "Redo att planera din nästa utflykt?",
+    "heroImageAlt": "Flygfoto av en europeisk stad i solnedgången",
+    "eveningImageAlt": "Flygplansvinge ovan moln i solnedgången",
+    "cityImageAlt": "Gata vid en kanal i en europeisk stad"
+  },
+  "howItWorks": {
+    "heroTitle": "Så fungerar det",
+    "heroSubtitle": "Fyra enkla steg från fredagskvällsflyg till söndagshemkomst — inga semesterdagar krävs.",
+    "lead": "Hitta en billig europeisk helgresa i fyra steg — åk på fredagskvällen, hem på söndagen och hoppa över semesterdagarna.",
+    "builtTitle": "Byggt för riktiga helger",
+    "builtP1": "euroweekender.com fokuserar på korta tur-och-retur-resor som passar runt jobbet. Ta ett fredagskvällsflyg efter ditt sista möte, tillbringa lördagen i en ny stad och flyg hem på söndagskvällen — två nätter borta, noll semesterdagar.",
+    "builtP2": "Välj en fre–sön-resetyp och aktivera kvällsavgångsfilter för att visa flyg som matchar den rytmen istället för generiska veckolånga sökningar på andra sajter.",
+    "stepsTitle": "De fyra stegen",
+    "step1title": "Välj flygplatser",
+    "step1text": "Tillåt platsåtkomst eller välj avgångshubbar manuellt. Sök från flera städer samtidigt.",
+    "step2title": "Välj helger",
+    "step2text": "Välj en eller flera reshelger. Varje etikett visar datumintervallet för utresan för den resan.",
+    "step3title": "Förfina filter",
+    "step3text": "Välj fre–sön-mönster, kvällsavgångar och antal passagerare. Resultaten uppdateras automatiskt.",
+    "step4title": "Jämför och boka",
+    "step4text": "Sortera efter pris, granska ut- och hemresor och boka säkert på Kiwi.com.",
+    "kiwiTitle": "Varför boka via Kiwi.com?",
+    "kiwiP": "Kiwi.com är en av Europas största plattformar för flygsökning och bokning. När du klickar vidare från euroweekender.com betalar du via Kiwis egen säkra kassa (inte på vår sajt). Det innebär krypterad korthantering, en korrekt bokningspost och tillgång till Kiwis supportteam om något går fel med din resa.",
+    "tipsTitle": "Tips för bättre erbjudanden",
+    "tip1": "Prova flera närliggande flygplatser — mindre hubbar slår ibland storstäder på pris.",
+    "tip2": "Välj flera helger för att hitta den billigaste avgångsdagen i en månad.",
+    "tip3": "Använd kvällsfilter om du vill åka efter jobbet på fredagen.",
+    "tip4": "Boka snart efter att du hittat ett pris; helgplatser till låga priser säljer slut snabbt.",
+    "cta": "Börja söka",
+    "heroImageAlt": "Resenär med bagage redo för en helgresa",
+    "weekendImageAlt": "Europeisk kullerstensgata i varmt kvällsljus"
+  },
+  "faq": {
+    "heroTitle": "Vanliga frågor",
+    "heroSubtitle": "Allt du behöver veta om att hitta billiga helgflyg i Europa.",
+    "lead": "Allt du behöver veta om att hitta billiga helgflyg i Europa.",
+    "items": [
+      {
+        "q": "Kan jag resa utan att använda semesterdagar?",
+        "a": "Ja — det är precis vad helgresor är till för. Välj ett fre–sön-mönster och filtrera på fredagskvällsavgångar så att du åker efter jobbet, tillbringar lördagen på destinationen och kommer hem på söndagskvällen. Du får en fullständig storstadsresa med bara din vanliga helg."
+      },
+      {
+        "q": "Är det säkert att boka via Kiwi.com?",
+        "a": "Kiwi.com är en stor europeisk flygbokningsplattform som används av miljontals resenärer. Betalning sker via Kiwis säkra kassa med standardkryptering, och du får en korrekt bokningsbekräftelse med kundsupport. Många biljetter inkluderar också Kiwi.com bokningsskydd vid schemaändringar och störningar — kontrollera alltid biljettvillkoren innan du betalar."
+      },
+      {
+        "q": "Vad är euroweekender.com?",
+        "a": "Ett sökverktyg för billiga europeiska helgflyg. Vi samlar tur-och-retur-erbjudanden för korta vistelser och låter dig filtrera på helgdatum, reslängd och avgångstid."
+      },
+      {
+        "q": "Vilka flygplatser kan jag söka från?",
+        "a": "Du kan välja en eller flera avgångsflygplatser i Europa. Sajten kan föreslå närliggande hubbar baserat på din plats och rankar dem efter erbjudandekvalitet där data finns tillgänglig."
+      },
+      {
+        "q": "Kan jag välja flera helger samtidigt?",
+        "a": "Ja. Klicka på flera datumetiketter i reshelgsraden för att kombinera erbjudanden från varje helg. Resultaten växer när du lägger till fler helger."
+      },
+      {
+        "q": "Vad betyder resetyper som fre–sön eller fre–mån?",
+        "a": "Resetyper filtrerar flyg till specifika avgångsdagar och vistelselängder. Till exempel betyder fre–sön att du åker på fredagen och kommer tillbaka på söndagen efter två nätter på destinationen."
+      },
+      {
+        "q": "Var kommer priserna ifrån?",
+        "a": "Priserna kommer från Kiwi.com flygsökdata och lagras i vår databas. Slutligt pris, bagageregler och platstillgänglighet bekräftas när du öppnar bokningslänken."
+      },
+      {
+        "q": "Säljer ni biljetter direkt?",
+        "a": "Nej. Vi visar erbjudanden och länkar dig till bokningspartnern. Du slutför köpet på deras webbplats."
+      },
+      {
+        "q": "Hur ofta uppdateras flygen?",
+        "a": "Vår crawler uppdaterar erbjudanden regelbundet från europeiska avgångsstäder. Mycket färska erbjudanden kan dyka upp inom några timmar; äldre rader ersätts när nya crawls slutförs."
+      },
+      {
+        "q": "Varför visas en hemresetid ibland som ett streck?",
+        "a": "Hemreseavgångstider kommer från detaljerad ruttdata. Om den datan saknas för ett äldre erbjudande visar vi hemresedatumet utan tid tills listningen uppdateras."
+      },
+      {
+        "q": "Lagras min plats?",
+        "a": "Geolokalisering används endast i din webbläsare för att föreslå närliggande flygplatser. Vi lagrar inte dina GPS-koordinater på våra servrar. Se vår integritetspolicy för detaljer."
+      }
+    ],
+    "heroImageAlt": "Resekarta och planeringsanteckningar på ett skrivbord",
+    "ctaStill": "Har du fortfarande en fråga?"
+  },
+  "contact": {
+    "heroTitle": "Kontakt",
+    "heroSubtitle": "Frågor, feedback eller partnerskapsidéer? Vi hör gärna från dig.",
+    "lead": "Frågor, feedback eller partnerskapsidéer? Vi hör gärna från dig.",
+    "email": "E-post",
+    "emailBody": "Vi svarar vanligtvis inom några arbetsdagar. För bokningsproblem med ett specifikt flyg, kontakta flygbolaget eller resepartnern som visas på din bekräftelse.",
+    "beforeTitle": "Innan du skriver",
+    "before1": "Kolla vanliga frågor för svar om sökning, resetyper och bokning.",
+    "before2": "Ange din avgångsflygplats och reshelg om du rapporterar ett saknat erbjudande.",
+    "before3": "Vi kan inte ändra bokningar gjorda på Kiwi.com eller andra partnersajter.",
+    "heroImageAlt": "Laptop och anteckningsbok på ett skrivbord"
+  },
+  "privacy": {
+    "title": "Integritetspolicy",
+    "lead": "Senast uppdaterad: juli 2026",
+    "intro": "Denna policy förklarar hur euroweekender.com (\"vi\", \"oss\") hanterar information när du använder vår webbplats.",
+    "infoCollect": "Information vi samlar in",
+    "analyticsLabel": "Analys:",
+    "analytics": "Vi använder egenhostad Umami Analytics för att räkna sidvisningar och grundläggande användning (webbläsartyp, land, hänvisare). Umami använder inte cookies och profilerar dig inte på andra webbplatser. IP-adresser lagras inte.",
+    "usageLabel": "Användningsdata:",
+    "usage": "Standardserverloggar (IP-adress, webbläsartyp, visade sidor) kan samlas in av vår hostingleverantör för säkerhet och prestanda.",
+    "locationLabel": "Plats:",
+    "location": "Om du tillåter webbläsargeolokalisering används koordinater lokalt för att föreslå närliggande flygplatser. Vi sparar inte GPS-data på våra servrar.",
+    "searchPrefsLabel": "Sökinställningar:",
+    "searchPrefs": "Flygplats- och helgval sparas endast i din webbläsarsession och är inte kopplade till ett användarkonto.",
+    "thirdPartyTitle": "Tredjepartstjänster",
+    "thirdParty": "Bokningslänkar omdirigerar till Kiwi.com och andra resepartners. Deras integritetspolicyer gäller när du lämnar vår sajt. Vi använder Kiwi.com API-data för att visa flygerbjudanden.",
+    "cookiesTitle": "Cookies",
+    "cookies": "Vi använder inga reklamcookies. Umami Analytics körs utan cookies. Väsentliga tekniska cookies kan sättas av vår hostinginfrastruktur. Partnersajter kan sätta egna cookies efter att du klickat på en bokningslänk.",
+    "rightsTitle": "Dina rättigheter",
+    "rights": "Beroende på var du befinner dig (inklusive EU/EES enligt GDPR) kan du ha rätt att få tillgång till, rätta eller radera personuppgifter vi innehar. Kontakta oss för att utöva dessa rättigheter.",
+    "contactTitle": "Kontakt",
+    "contact": "Integritetsfrågor: {{email}}",
+    "seeAlso": "Se även våra användarvillkor."
+  },
+  "terms": {
+    "title": "Användarvillkor",
+    "lead": "Senast uppdaterad: juli 2026",
+    "intro": "Genom att använda euroweekender.com godkänner du dessa villkor. Om du inte godkänner dem, använd inte sajten.",
+    "serviceTitle": "Tjänstebeskrivning",
+    "service": "Vi tillhandahåller ett sök- och jämförelseverktyg för flygerbjudanden. Vi är inte en resebyrå och utfärdar inga biljetter. Transportavtal är mellan dig och flygbolaget eller bokningspartnern.",
+    "accuracyTitle": "Informationens riktighet",
+    "accuracy": "Priser, tider och tillgänglighet kommer från tredjepartskällor och kan ändras före bokning. Verifiera alltid detaljer på partnersajten innan betalning. Vi ansvarar inte för fel i visade priser eller tidtabeller.",
+    "affiliateTitle": "Affiliatelänkar",
+    "affiliate": "Vissa utgående länkar är affiliatelänkar. Vi kan få ersättning när du bokar via dem. Det påverkar inte priset du betalar på partnersajten.",
+    "acceptableTitle": "Acceptabel användning",
+    "acceptableIntro": "Du samtycker till att inte:",
+    "acceptable1": "Skrapa eller överbelasta vårt API eller vår webbplats med automatiserade förfrågningar.",
+    "acceptable2": "Försöka störa tjänsten eller få åtkomst till icke-offentliga system.",
+    "acceptable3": "Använda sajten för olagliga ändamål.",
+    "liabilityTitle": "Ansvarsbegränsning",
+    "liability": "Sajten tillhandahålls \"i befintligt skick\" utan garantier. I den utsträckning lagen tillåter ansvarar vi inte för indirekta eller följdskador som uppstår från användning av sajten eller tredjepartsbokningar.",
+    "changesTitle": "Ändringar",
+    "changes": "Vi kan uppdatera dessa villkor eller avveckla funktioner när som helst. Fortsatt användning efter ändringar innebär acceptans.",
+    "lawTitle": "Tillämplig lag",
+    "law": "Dessa villkor regleras av lagar som gäller inom Europeiska unionen. Tvister ska prövas av domstolar där operatören av euroweekender.com är etablerad, utan att det påverkar obligatoriska konsumentskyddsrättigheter i ditt hemland.",
+    "contactTitle": "Kontakt",
+    "contact": "Frågor om dessa villkor: {{email}}",
+    "seeAlso": "Läs vår integritetspolicy."
+  },
+  "common": {
+    "seeAlsoTerms": "användarvillkor",
+    "seeAlsoPrivacy": "integritetspolicy",
+    "searchWeekendFlights": "Sök helgflyg",
+    "howItWorks": "så fungerar det",
+    "newSearch": "ny sökning",
+    "contactUs": "Kontakta oss",
+    "startSearching": "Börja söka",
+    "readFaq": "Vanliga frågor",
+    "language": "Språk",
+    "stillHaveQuestion": "Har du fortfarande en fråga?",
+    "orStart": "eller starta en",
+    "orRead": "eller läs",
+    "readyToPlan": "Redo att planera din nästa utflykt?",
+    "seeAlsoOur": "Se även våra"
+  }
+}

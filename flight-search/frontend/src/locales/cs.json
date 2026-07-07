@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "home": {
+      "title": "Levné víkendové lety po Evropě",
+      "description": "Najděte a porovnejte levné víkendové lety po celé Evropě. Hledejte pá–ne, čt–ne a další termíny z letišť ve vašem okolí."
+    },
+    "about": {
+      "title": "O EuroWeekender",
+      "description": "Víkendové lety po Evropě bez čerpání dovolené. Zjistěte, jak vám euroweekender.com pomůže odletět v pátek večer a vrátit se v neděli přes bezpečnou rezervaci na Kiwi.com."
+    },
+    "faq": {
+      "title": "Časté dotazy k víkendovým letům",
+      "description": "Odpovědi na běžné otázky o vyhledávání evropských víkendových letů na euroweekender.com."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Spojte se s týmem euroweekender.com ohledně zpětné vazby, partnerství nebo podpory."
+    },
+    "howItWorks": {
+      "title": "Jak to funguje",
+      "description": "Najděte víkendové lety od pátečního večera do neděle po celé Evropě. Porovnejte nabídky na euroweekender.com a rezervujte bezpečně přes Kiwi.com."
+    },
+    "privacy": {
+      "title": "Zásady ochrany osobních údajů",
+      "description": "Zásady ochrany osobních údajů pro euroweekender.com — jaká data shromažďujeme a jak je používáme."
+    },
+    "terms": {
+      "title": "Podmínky použití",
+      "description": "Podmínky použití euroweekender.com — pravidla pro používání naší služby vyhledávání víkendových letů."
+    }
+  },
+  "nav": {
+    "home": "Domů",
+    "howItWorks": "Jak to funguje",
+    "about": "O nás",
+    "faq": "Časté dotazy",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Evropské víkendové lety za skvělé ceny",
+    "explore": "Prozkoumat",
+    "support": "Podpora",
+    "searchFlights": "Hledat lety",
+    "privacy": "Zásady ochrany osobních údajů",
+    "terms": "Podmínky použití",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Evropské víkendové lety za skvělé ceny",
+    "title": "Vaše další city break začíná v pátek večer",
+    "lead": "Porovnejte zpáteční víkendové lety po celé Evropě — odjezd po práci, návrat v neděli, bez čerpání dovolené.",
+    "fromSelectedAirports": "Z {{airports}}",
+    "person": "osoba",
+    "persons": "osob",
+    "allTripTypes": "všechny typy cest",
+    "thereEvening": "tam večer",
+    "backEvening": "zpět večer",
+    "hubRankingWarning": "Řazení nabídek není k dispozici — blízká letiště jsou seřazena pouze podle vzdálenosti.",
+    "apiError": "Nepodařilo se načíst letiště. Běží API?",
+    "flightLoadError": "Nepodařilo se načíst lety pro vybrané víkendy.",
+    "tryAgain": "Zkusit znovu",
+    "loading": "Hledáme nejlepší nabídky…",
+    "noFlights": "Pro vybrané víkendy zatím nebyly nalezeny žádné lety. Zkuste jiná data, typy cest nebo přidejte další odletová letiště.",
+    "noLegMatch": "Žádné lety neodpovídají vybraným odletovým a zpátečním úsekům.",
+    "clearLegFilters": "Zrušit filtry úseků",
+    "dealsShown": "Zobrazeno {{shown}} z {{total}} nabídek",
+    "dealsFound": "Nalezeno {{count}} nabídek",
+    "clearLegFiltersBtn": "Zrušit filtry úseků",
+    "selectedAirports": "vybraná letiště",
+    "moreAirports_one": "{{name}} + {{count}} další letiště",
+    "moreAirports_other": "{{name}} + {{count}} dalších letišť",
+    "weekendsCount": "{{count}} víkendů"
+  },
+  "search": {
+    "travelWeekend": "Cestovní víkend",
+    "travelWeekendHint": "Vyberte jeden nebo více termínů",
+    "tripType": "Typ cesty",
+    "tripTypeHint": "Volitelný vzor pobytu",
+    "departureTime": "Čas odletu",
+    "departureTimeHint": "Volitelné filtry pouze pro večerní odlety",
+    "travelers": "cestujících",
+    "travelersHint": "Počet cestujících pro výpočet ceny",
+    "thereEvening": "Tam · večer",
+    "thereEveningTitle": "Odlet tam od 17:00 nebo později",
+    "backEvening": "Zpět · večer",
+    "backEveningTitle": "Zpáteční odlet od 17:00 nebo později",
+    "prevWeekends": "Předchozí víkendy",
+    "nextWeekends": "Další víkendy",
+    "selectWeekends": "Vybrat víkendy",
+    "selectTripType": "Typ cesty (volitelné)",
+    "eveningDepartures": "Večerní odlety (volitelné)",
+    "detectingLocation": "Zjišťujeme vaši polohu…",
+    "fromLocationAdd": "Z {{location}} — přidat další letiště…",
+    "addAirport": "Přidat odletové letiště…",
+    "searchAirports": "Hledat letiště k přidání",
+    "noAirportsFound": "Žádná letiště nenalezena",
+    "selectedAirports": "Vybraná letiště",
+    "nearbyAirports": "Blízká letiště",
+    "removeAirport": "Odebrat {{name}}",
+    "traveler": "cestující",
+    "fewerTravelers": "Méně cestujících",
+    "moreTravelers": "Více cestujících",
+    "travelersGroup": "Počet cestujících"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Pátek – neděle",
+      "short": "pá–ne"
+    },
+    "thu-sun": {
+      "label": "Čtvrtek – neděle",
+      "short": "čt–ne"
+    },
+    "wed-sun": {
+      "label": "Středa – neděle",
+      "short": "st–ne"
+    },
+    "fri-mon": {
+      "label": "Pátek – pondělí",
+      "short": "pá–po"
+    },
+    "fri-tue": {
+      "label": "Pátek – úterý",
+      "short": "pá–út"
+    }
+  },
+  "flights": {
+    "destination": "Destinace",
+    "perPerson": "{{price}} na osobu",
+    "forDaysTrip": "na {{days}}denní cestu",
+    "detail": "Detail",
+    "changes_zero": "0 přestupů",
+    "changes_one": "1 přestup",
+    "changes_other": "{{count}} přestupů"
+  },
+  "about": {
+    "heroTitle": "O euroweekender.com",
+    "heroSubtitle": "Dostupné evropské city breaky, které se vejdou do pracovního týdne — odjezd v pátek večer, návrat v neděli.",
+    "lead": "Pomáháme Evropanům objevovat dostupné krátké cesty — odlet v pátek večer, návrat v neděli a plnohodnotný city break bez čerpání dovolené.",
+    "sections": {
+      "weekendTitle": "Víkendové cesty bez dovolené",
+      "weekendP1": "Většina z nás má volno jen v sobotu a neděli — ale to stačí na evropský výlet. euroweekender.com je postavený kolem krátkých zpátečních cest: odlet po práci v pátek, průzkum v sobotu a návrat domů v neděli večer.",
+      "weekendP2": "Použijte typy cest jako pá–ne a filtr večerního odletu, abyste našli lety odpovídající skutečnému pracovnímu týdnu, ne jen dovolené uprostřed týdne.",
+      "whatTitle": "Co děláme",
+      "whatP": "euroweekender.com agreguje víkendové lety z Kiwi.com a prezentuje je v jednoduchém vyhledávacím rozhraní. Vyberte odletová letiště, zvolte jeden nebo více cestovních víkendů, filtrujte podle typu cesty a porovnejte zpáteční ceny na první pohled.",
+      "whoTitle": "Pro koho je to určeno",
+      "whoP": "Web je určen pro cestovatele na city breaky, páry a přátele, kteří chtějí inspiraci bez hodin strávených na srovnávacích portálech. Ať už odletíte z Prahy, Vídně, Barcelony nebo jiného evropského uzlu, můžete procházet nadcházející víkendy a rezervovat přímo u letecké společnosti nebo cestovního partnera.",
+      "rankTitle": "Jak řadíme výsledky",
+      "rankP": "Nabídky jsou seřazeny podle celkové ceny cesty pro váš počet cestujících. Také používáme skóre uzlů na základě objemu nabídek, cenové úrovně a rozmanitosti destinací, abychom navrhli silná odletová letiště ve vašem okolí.",
+      "affiliateTitle": "Upozornění na affiliate odkazy",
+      "affiliateP": "Když kliknete na rezervaci letu, můžete být přesměrováni na Kiwi.com nebo jiného rezervačního partnera. Můžeme získat provizi bez dalších nákladů pro vás. Ceny a dostupnost jsou vždy potvrzeny na stránkách partnera před zaplacením.",
+      "kiwiTitle": "Bezpečná rezervace přes Kiwi.com",
+      "kiwiP1": "Odkazujeme vás na Kiwi.com, zavedenou evropskou platformu pro rezervaci letů, kterou každý rok používají miliony cestujících. Platba probíhá na zabezpečené pokladně Kiwi se standardním šifrováním a vaše letenka je vystavena přes jejich rezervační systém se zákaznickou podporou, pokud se plány změní.",
+      "kiwiP2": "Kiwi.com také nabízí ochranu rezervace a asistenci při narušení u způsobilých tarifů, takže nejste sami, když letecké společnosti přeplánují nebo zruší let. Před potvrzením platby vždy zkontrolujete konečnou cenu, pravidla pro zavazadla a podmínky na Kiwi.com."
+    },
+    "cta": "Připraveni naplánovat další výlet?",
+    "heroImageAlt": "Pohled z výšky na evropské město při západu slunce",
+    "eveningImageAlt": "Křídlo letadla nad mraky při západu slunce",
+    "cityImageAlt": "Ulice u kanálu v evropském městě"
+  },
+  "howItWorks": {
+    "heroTitle": "Jak to funguje",
+    "heroSubtitle": "Čtyři jednoduché kroky od pátečního večerního letu po nedělní návrat — bez čerpání dovolené.",
+    "lead": "Najděte levný evropský víkendový výlet ve čtyřech krocích — odjezd v pátek večer, návrat v neděli a bez dovolené.",
+    "builtTitle": "Vytvořeno pro skutečné víkendy",
+    "builtP1": "euroweekender.com se zaměřuje na krátké zpáteční cesty, které se vejdou do práce. Stihněte páteční večerní let po poslední schůzce, strávte sobotu v novém městě a v neděli večer leťte domů — dvě noci pryč, nula dní dovolené.",
+    "builtP2": "Zvolte typ cesty pá–ne a zapněte filtr večerního odletu, abyste našli lety odpovídající tomuto rytmu místo obecných týdenních vyhledávání na jiných webech.",
+    "stepsTitle": "Čtyři kroky",
+    "step1title": "Vyberte letiště",
+    "step1text": "Povolte přístup k poloze nebo vyberte odletové uzly ručně. Hledejte z několika měst najednou.",
+    "step2title": "Vyberte víkendy",
+    "step2text": "Zvolte jeden nebo více cestovních víkendů. Každá pilulka zobrazuje rozsah odletových dat pro danou cestu.",
+    "step3title": "Upřesněte filtry",
+    "step3text": "Zvolte vzory pá–ne, večerní odlety a počet cestujících. Výsledky se aktualizují automaticky.",
+    "step4title": "Porovnejte a rezervujte",
+    "step4text": "Seřaďte podle ceny, zkontrolujte odletové a zpáteční úseky a rezervujte bezpečně na Kiwi.com.",
+    "kiwiTitle": "Proč rezervovat přes Kiwi.com?",
+    "kiwiP": "Kiwi.com je jedna z největších evropských platforem pro vyhledávání a rezervaci letů. Když přejdete z euroweekender.com, platíte na vlastní zabezpečené pokladně Kiwi (ne na našem webu). To znamená šifrované zpracování karty, řádný záznam rezervace a přístup k týmu podpory Kiwi, pokud se s cestou něco pokazí.",
+    "tipsTitle": "Tipy pro lepší nabídky",
+    "tip1": "Zkuste více blízkých letišť — menší uzly někdy překonají velká města cenou.",
+    "tip2": "Vyberte několik víkendů a najděte nejlevnější odletový den v měsíci.",
+    "tip3": "Použijte večerní filtry, pokud chcete odjet po práci v pátek.",
+    "tip4": "Rezervujte brzy po nalezení tarifu; víkendová místa za nízké ceny se rychle vyprodají.",
+    "cta": "Začít hledat",
+    "heroImageAlt": "Cestující se zavazadly připravený na víkendový výlet",
+    "weekendImageAlt": "Evropská dlážděná ulice v teplém večerním světle"
+  },
+  "faq": {
+    "heroTitle": "Často kladené otázky",
+    "heroSubtitle": "Vše, co potřebujete vědět o hledání levných víkendových letů po Evropě.",
+    "lead": "Vše, co potřebujete vědět o hledání levných víkendových letů po Evropě.",
+    "items": [
+      {
+        "q": "Mohu cestovat bez čerpání dovolené?",
+        "a": "Ano — přesně k tomu víkendové cesty slouží. Zvolte vzor pá–ne a filtrujte páteční večerní odlety, abyste odletěli po práci, užili si sobotu v destinaci a vrátili se v neděli večer. Získáte plnohodnotný city break pouze z běžného víkendu."
+      },
+      {
+        "q": "Je bezpečné rezervovat přes Kiwi.com?",
+        "a": "Kiwi.com je významná evropská platforma pro rezervaci letů, kterou používají miliony cestujících. Platba probíhá na zabezpečené pokladně Kiwi se standardním šifrováním a obdržíte řádné potvrzení rezervace se zákaznickou podporou. Mnoho tarifů také zahrnuje ochranu rezervace Kiwi.com při změnách rozvrhu a narušeních — vždy si před zaplacením zkontrolujte podmínky tarifu."
+      },
+      {
+        "q": "Co je euroweekender.com?",
+        "a": "Vyhledávací nástroj pro levné evropské víkendové lety. Shromažďujeme zpáteční nabídky pro krátké pobyty a umožňujeme filtrovat podle víkendových dat, délky cesty a času odletu."
+      },
+      {
+        "q": "Z jakých letišť mohu hledat?",
+        "a": "Můžete vybrat jedno nebo více odletových letišť po celé Evropě. Web může navrhnout blízké uzly podle vaší polohy a seřadit je podle kvality nabídek, pokud jsou data k dispozici."
+      },
+      {
+        "q": "Mohu vybrat více víkendů najednou?",
+        "a": "Ano. Klikněte na několik datových pilulek v řádku cestovního víkendu a zkombinujte nabídky z každého víkendu. Výsledky rostou s přidáváním dalších víkendů."
+      },
+      {
+        "q": "Co znamenají typy cest jako pá–ne nebo pá–po?",
+        "a": "Typy cest filtrují lety podle konkrétních dnů odletu a délky pobytu. Například pá–ne znamená odlet v pátek a návrat v neděli po dvou nocích v destinaci."
+      },
+      {
+        "q": "Odkud pocházejí ceny?",
+        "a": "Ceny pocházejí z vyhledávacích dat Kiwi.com a jsou uloženy v naší databázi. Konečný tarif, pravidla pro zavazadla a dostupnost míst jsou potvrzeny, když otevřete rezervační odkaz."
+      },
+      {
+        "q": "Prodáváte letenky přímo?",
+        "a": "Ne. Zobrazujeme nabídky a odkazujeme vás na rezervačního partnera. Nákup dokončíte na jeho webu."
+      },
+      {
+        "q": "Jak často se lety aktualizují?",
+        "a": "Náš crawler pravidelně obnovuje nabídky z evropských odletových měst. Velmi čerstvé nabídky se mohou objevit během hodin; starší záznamy jsou nahrazovány po dokončení nových procházení."
+      },
+      {
+        "q": "Proč se někdy u času návratu zobrazuje pomlčka?",
+        "a": "Časy zpátečního odletu pocházejí z podrobných dat trasy. Pokud u starší nabídky tato data chybí, zobrazíme datum návratu bez času, dokud se záznam neobnoví."
+      },
+      {
+        "q": "Ukládá se moje poloha?",
+        "a": "Geolokace se používá pouze ve vašem prohlížeči k navržení blízkých letišť. GPS souřadnice na našich serverech neukládáme. Podrobnosti najdete v našich zásadách ochrany osobních údajů."
+      }
+    ],
+    "heroImageAlt": "Cestovní mapa a poznámky k plánování na stole",
+    "ctaStill": "Stále máte otázku?"
+  },
+  "contact": {
+    "heroTitle": "Kontakt",
+    "heroSubtitle": "Otázky, zpětná vazba nebo nápady na partnerství? Rádi vás uslyšíme.",
+    "lead": "Otázky, zpětná vazba nebo nápady na partnerství? Rádi vás uslyšíme.",
+    "email": "E-mail",
+    "emailBody": "Obvykle odpovídáme během několika pracovních dnů. U problémů s konkrétní rezervací letu kontaktujte leteckou společnost nebo cestovního partnera uvedeného na potvrzení.",
+    "beforeTitle": "Než napíšete",
+    "before1": "Podívejte se do častých dotazů na odpovědi o vyhledávání, typech cest a rezervaci.",
+    "before2": "U nahlášení chybějící nabídky uveďte odletové letiště a cestovní víkend.",
+    "before3": "Nemůžeme měnit rezervace provedené na Kiwi.com nebo jiných partnerských webech.",
+    "heroImageAlt": "Notebook a zápisník na stole"
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobních údajů",
+    "lead": "Poslední aktualizace: červenec 2026",
+    "intro": "Tyto zásady vysvětlují, jak euroweekender.com („my“, „nás“) nakládá s informacemi při používání našeho webu.",
+    "infoCollect": "Informace, které shromažďujeme",
+    "analyticsLabel": "Analytika:",
+    "analytics": "Používáme vlastní Umami Analytics ke sledování zobrazení stránek a základního využití (typ prohlížeče, země, odkazující stránka). Umami nepoužívá cookies a neprofiluje vás napříč jinými weby. IP adresy se neukládají.",
+    "usageLabel": "Údaje o využití:",
+    "usage": "Standardní serverové logy (IP adresa, typ prohlížeče, zobrazené stránky) může shromažďovat náš hostingový poskytovatel kvůli bezpečnosti a výkonu.",
+    "locationLabel": "Poloha:",
+    "location": "Pokud povolíte geolokaci v prohlížeči, souřadnice se používají lokálně k navržení blízkých letišť. GPS data na našich serverech neukládáme.",
+    "searchPrefsLabel": "Předvolby vyhledávání:",
+    "searchPrefs": "Výběr letišť a víkendů je uchováván pouze v relaci prohlížeče a není propojen s uživatelským účtem.",
+    "thirdPartyTitle": "Služby třetích stran",
+    "thirdParty": "Rezervační odkazy přesměrovávají na Kiwi.com a další cestovní partnery. Po opuštění našeho webu platí jejich zásady ochrany osobních údajů. K zobrazení letových nabídek používáme data z API Kiwi.com.",
+    "cookiesTitle": "Cookies",
+    "cookies": "Nepoužíváme reklamní cookies. Umami Analytics běží bez cookies. Naše hostingová infrastruktura může nastavit nezbytné technické cookies. Partnerské weby mohou po kliknutí na rezervační odkaz nastavit vlastní cookies.",
+    "rightsTitle": "Vaše práva",
+    "rights": "V závislosti na vaší poloze (včetně EU/EHP podle GDPR) můžete mít právo na přístup, opravu nebo výmaz osobních údajů, které uchováváme. Kontaktujte nás pro uplatnění těchto práv.",
+    "contactTitle": "Kontakt",
+    "contact": "Dotazy k ochraně osobních údajů: {{email}}",
+    "seeAlso": "Viz také naše podmínky použití."
+  },
+  "terms": {
+    "title": "Podmínky použití",
+    "lead": "Poslední aktualizace: červenec 2026",
+    "intro": "Používáním euroweekender.com souhlasíte s těmito podmínkami. Pokud nesouhlasíte, web prosím nepoužívejte.",
+    "serviceTitle": "Popis služby",
+    "service": "Poskytujeme rozhraní pro vyhledávání a porovnávání letových nabídek. Nejsme cestovní kancelář a nevystavujeme letenky. Smlouvy o přepravě jsou mezi vámi a leteckou společností nebo rezervačním partnerem.",
+    "accuracyTitle": "Přesnost informací",
+    "accuracy": "Ceny, časy a dostupnost pocházejí ze zdrojů třetích stran a mohou se před rezervací změnit. Před platbou vždy ověřte údaje na webu partnera. Neneseme odpovědnost za chyby ve zobrazených tarifech nebo rozvrzích.",
+    "affiliateTitle": "Affiliate odkazy",
+    "affiliate": "Některé odchozí odkazy jsou affiliate odkazy. Můžeme obdržet odměnu, když přes ně rezervujete. To neovlivňuje cenu, kterou zaplatíte na webu partnera.",
+    "acceptableTitle": "Přijatelné použití",
+    "acceptableIntro": "Souhlasíte, že nebudete:",
+    "acceptable1": "Stahovat data nebo přetěžovat naše API či web automatizovanými požadavky.",
+    "acceptable2": "Pokoušet se narušit službu nebo přistupovat k neveřejným systémům.",
+    "acceptable3": "Používat web k nezákonným účelům.",
+    "liabilityTitle": "Omezení odpovědnosti",
+    "liability": "Web je poskytován „tak jak je“ bez záruk. V maximálním rozsahu povoleném zákonem neneseme odpovědnost za nepřímé nebo následné škody vzniklé používáním webu nebo rezervací u třetích stran.",
+    "changesTitle": "Změny",
+    "changes": "Tyto podmínky nebo funkce můžeme kdykoli aktualizovat nebo ukončit. Pokračující používání po změnách znamená souhlas.",
+    "contactTitle": "Kontakt",
+    "law": "Tyto podmínky se řídí právem platným v Evropské unii. Veškeré spory podléhají příslušnosti soudů, kde je provozovatel euroweekender.com usazen, bez újmy na povinných právech spotřebitelské ochrany ve vaší zemi pobytu.",
+    "contact": "Dotazy k těmto podmínkám: {{email}}",
+    "seeAlso": "Přečtěte si naše zásady ochrany osobních údajů.",
+    "lawTitle": "Rozhodné právo"
+  },
+  "common": {
+    "seeAlsoTerms": "podmínky použití",
+    "seeAlsoPrivacy": "zásady ochrany osobních údajů",
+    "searchWeekendFlights": "Hledat víkendové lety",
+    "howItWorks": "jak to funguje",
+    "newSearch": "nové hledání",
+    "contactUs": "Kontaktujte nás",
+    "startSearching": "Začít hledat",
+    "readFaq": "Časté dotazy",
+    "language": "Jazyk",
+    "stillHaveQuestion": "Stále máte otázku?",
+    "orStart": "nebo začněte",
+    "orRead": "nebo si přečtěte",
+    "readyToPlan": "Připraveni naplánovat další výlet?",
+    "seeAlsoOur": "Viz také naše"
+  }
+}

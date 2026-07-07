@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Ódýrir helgarflug í Evrópu",
+      "description": "Finndu og berðu saman ódýr helgarflug um alla Evrópu. Leitaðu Fös–Sun, Fim–Sun og fleira frá flugvöllum nálægt þér."
+    },
+    "about": {
+      "title": "Um EuroWeekender",
+      "description": "Helgarflug um Evrópu án frídaga. Lærðu hvernig euroweekender.com hjálpar þér að fara á föstudagskvöld og koma aftur á sunnudag með öruggri bókun í gegnum Kiwi.com."
+    },
+    "faq": {
+      "title": "Algengar spurningar um helgarflug",
+      "description": "Svör við algengum spurningum um að leita að helgarflugi í Evrópu á euroweekender.com."
+    },
+    "contact": {
+      "title": "Hafa samband",
+      "description": "Hafðu samband við teymi euroweekender.com með ábendingar, samstarf eða aðstoð."
+    },
+    "howItWorks": {
+      "title": "Hvernig það virkar",
+      "description": "Finndu helgarflug frá föstudagskvöldi til sunnudags um alla Evrópu. Berðu saman tilboð á euroweekender.com og bókaðu örugglega í gegnum Kiwi.com."
+    },
+    "privacy": {
+      "title": "Persónuverndarstefna",
+      "description": "Persónuverndarstefna euroweekender.com — hvaða gögn við söfnum og hvernig við notum þau."
+    },
+    "terms": {
+      "title": "Notkunarskilmálar",
+      "description": "Notkunarskilmálar euroweekender.com — reglur um notkun helgarflugleitarþjónustunnar okkar."
+    }
+  },
+  "nav": {
+    "home": "Heim",
+    "howItWorks": "Hvernig það virkar",
+    "about": "Um okkur",
+    "faq": "Algengar spurningar",
+    "contact": "Hafa samband"
+  },
+  "footer": {
+    "tagline": "Helgarflugtilboð í Evrópu",
+    "explore": "Kanna",
+    "support": "Aðstoð",
+    "searchFlights": "Leita að flugi",
+    "privacy": "Persónuverndarstefna",
+    "terms": "Notkunarskilmálar",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Helgarflugtilboð í Evrópu",
+    "title": "Næsta borgarferðalag þitt byrjar á föstudagskvöldi",
+    "lead": "Berðu saman heim-og-til-baka helgarflug um alla Evrópu — farðu eftir vinnu, komdu aftur á sunnudag, engir frídagar þarf.",
+    "fromSelectedAirports": "Frá {{airports}}",
+    "person": "manni",
+    "persons": "mönnum",
+    "allTripTypes": "öll ferðategund",
+    "thereEvening": "þangað kvöld",
+    "backEvening": "aftur kvöld",
+    "hubRankingWarning": "Tilboðaröðun ekki tiltæk — nálægir flugvellir raðaðir aðeins eftir fjarlægð.",
+    "apiError": "Gat ekki hlaðið flugvöllum. Er API-ið í gangi?",
+    "flightLoadError": "Gat ekki hlaðið flugi fyrir valdar helgar.",
+    "tryAgain": "Reyndu aftur",
+    "loading": "Leita að bestu tilboðunum…",
+    "noFlights": "Engin flug fundust fyrir valdar helgar ennþá. Prófaðu aðrar dagsetningar, ferðategundir eða bættu við fleiri brottfararflugvöllum.",
+    "noLegMatch": "Engin flug passa við valda brottfarar- og heimkomuleið.",
+    "clearLegFilters": "Hreinsa leiðasíur",
+    "dealsShown": "{{shown}} af {{total}} tilboðum sýnd",
+    "dealsFound": "{{count}} tilboð fundust",
+    "clearLegFiltersBtn": "Hreinsa leiðasíur",
+    "selectedAirports": "valdir flugvellir",
+    "moreAirports_one": "{{name}} + {{count}} flugvöllur til viðbótar",
+    "moreAirports_other": "{{name}} + {{count}} flugvellir til viðbótar",
+    "weekendsCount": "{{count}} helgar"
+  },
+  "search": {
+    "travelWeekend": "Ferðahelgi",
+    "travelWeekendHint": "Veldu eitt eða fleiri dagsetningabil",
+    "tripType": "Ferðategund",
+    "tripTypeHint": "Valfrjálst dvölarmynstur",
+    "departureTime": "Brottfarartími",
+    "departureTimeHint": "Valfrjálsar síur aðeins fyrir kvöld",
+    "travelers": "Ferðamenn",
+    "travelersHint": "Fjöldi farþega fyrir verðlagningu",
+    "thereEvening": "Þangað · kvöld",
+    "thereEveningTitle": "Brottfararflug fer kl. 17:00 eða síðar",
+    "backEvening": "Aftur · kvöld",
+    "backEveningTitle": "Heimkomuflug fer kl. 17:00 eða síðar",
+    "prevWeekends": "Fyrri helgar",
+    "nextWeekends": "Næstu helgar",
+    "selectWeekends": "Velja helgar",
+    "selectTripType": "Ferðategund (valfrjálst)",
+    "eveningDepartures": "Kvöldbrottfarir (valfrjálst)",
+    "detectingLocation": "Greini staðsetningu þína…",
+    "fromLocationAdd": "Frá {{location}} — bæta við öðrum flugvelli…",
+    "addAirport": "Bæta við brottfararflugvelli…",
+    "searchAirports": "Leita að flugvöllum til að bæta við",
+    "noAirportsFound": "Engir flugvellir fundust",
+    "selectedAirports": "Valdir flugvellir",
+    "nearbyAirports": "Nálægir flugvellir",
+    "removeAirport": "Fjarlægja {{name}}",
+    "traveler": "ferðamaður",
+    "travelers": "ferðamenn",
+    "fewerTravelers": "Færri ferðamenn",
+    "moreTravelers": "Fleiri ferðamenn",
+    "travelersGroup": "Fjöldi ferðamanna"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Föstudagur – sunnudagur",
+      "short": "Fös–Sun"
+    },
+    "thu-sun": {
+      "label": "Fimmtudagur – sunnudagur",
+      "short": "Fim–Sun"
+    },
+    "wed-sun": {
+      "label": "Miðvikudagur – sunnudagur",
+      "short": "Mið–Sun"
+    },
+    "fri-mon": {
+      "label": "Föstudagur – mánudagur",
+      "short": "Fös–Mán"
+    },
+    "fri-tue": {
+      "label": "Föstudagur – þriðjudagur",
+      "short": "Fös–Þri"
+    }
+  },
+  "flights": {
+    "destination": "Áfangastaður",
+    "perPerson": "{{price}} á mann",
+    "forDaysTrip": "fyrir {{days}} daga ferð",
+    "detail": "Nánar",
+    "changes_zero": "0 skipti",
+    "changes_one": "1 skipti",
+    "changes_other": "{{count}} skipti"
+  },
+  "about": {
+    "heroTitle": "Um euroweekender.com",
+    "heroSubtitle": "Aðgengilegar borgarferðir í Evrópu sem passa við vinnuvikuna — brott á föstudagskvöldi, heim á sunnudag.",
+    "lead": "Við hjálpum Evrópubúum að uppgötva hagkvæmar stuttar ferðir — farðu á föstudagskvöldi, komdu aftur á sunnudag og njóttu fullrar borgarferðar án þess að nota frídaga.",
+    "sections": {
+      "weekendTitle": "Helgarferðir án frídaga",
+      "weekendP1": "Flestir höfum aðeins laugardag og sunnudag lausan — en það nægir til Evrópuferðar. euroweekender.com er byggt upp í kringum stuttar heim-og-til-baka ferðir: fljúgðu út eftir vinnu á föstudegi, kannaðu á laugardag og vertu heima á sunnudagskvöldi.",
+      "weekendP2": "Notaðu ferðategundir eins og Fös–Sun og kvöldbrottfarasíuna til að finna flug sem passa við raunverulegt vinnuáætlun, ekki bara miðvikudagsfrí.",
+      "whatTitle": "Hvað við gerum",
+      "whatP": "euroweekender.com safnar saman helgarflugtilboðum sóttum frá Kiwi.com og birtir þau í einfaldri leitarupplifun. Veldu brottfararflugvelli, veldu eina eða fleiri ferðahelgar, síaðu eftir ferðategund og berðu saman heim-og-til-baka verð á einfaldan hátt.",
+      "whoTitle": "Fyrir hverja",
+      "whoP": "Síðan er gerð fyrir borgarferðalanga, pör og vini sem vilja innblástur án þess að eyða klukkustundum á flugsamanburðarsíðum. Hvort sem þú ferð frá Prag, Vín, Barcelona eða öðrum Evrópuhöfðborg geturðu skoðað komandi helgar og bókað beint hjá flugfélagi eða ferðasamstarfsaðila.",
+      "rankTitle": "Hvernig við raðum niðurstöðum",
+      "rankP": "Tilboð eru raðuð eftir heildarferðarverði fyrir fjölda farþega þinna. Við notum einnig miðapunkta byggða á tilboðamagni, verðstigi og fjölbreytni áfangastaða til að mæla með góðum brottfararflugvöllum nálægt þér.",
+      "affiliateTitle": "Tengiliðatilkynning",
+      "affiliateP": "Þegar þú smellir til að bóka flug gætirðu verið vísaður á Kiwi.com eða annan bókunaraðila. Við gætum fengið þóknun án aukakostnaðar fyrir þig. Verð og framboð eru alltaf staðfest á síðu samstarfsaðilans áður en þú greiðir.",
+      "kiwiTitle": "Örugg bókun með Kiwi.com",
+      "kiwiP1": "Við tengjum þig við Kiwi.com, vel þekkt Evrópuflugbókunarvettvang sem milljónir ferðamanna nota á hverju ári. Greiðsla fer fram á öruggu greiðslukerfi Kiwi með dulkóðun á iðnaðarstigi, og miðinn þinn er gefinn út í gegnum bókunarkerfi þeirra með þjónustuveri ef áætlanir breytast.",
+      "kiwiP2": "Kiwi.com býður einnig bókunarvernd og aðstoð við truflanir á gjaldgengum verðum, svo þú ert ekki einn þegar flugfélög endurskipuleggja eða hætta við. Þú ferð alltaf yfir endanlegt verð, farangursreglur og skilmála á Kiwi.com áður en þú staðfestir greiðslu."
+    },
+    "cta": "Tilbúinn að skipuleggja næstu ferð?",
+    "heroImageAlt": "Loftmynd af Evrópuborg við sólsetur",
+    "eveningImageAlt": "Flugvængur yfir skýjum við sólsetur",
+    "cityImageAlt": "Götusund við skurð í Evrópuborg"
+  },
+  "howItWorks": {
+    "heroTitle": "Hvernig það virkar",
+    "heroSubtitle": "Fjórir einfaldir þættir frá föstudagskvöldsflugi til heimkomu á sunnudag — engir frídagar þarf.",
+    "lead": "Finndu ódýra Evrópuhelgarferð í fjórum þáttum — farðu á föstudagskvöldi, komdu aftur á sunnudag og slepptu frídögum.",
+    "builtTitle": "Hannað fyrir raunverulegar helgar",
+    "builtP1": "euroweekender.com einbeitir sér að stuttum heim-og-til-baka ferðum sem passa við vinnu. Náðu föstudagskvöldsflugi eftir síðasta fund, eyddu laugardaginum í nýrri borg og fljúgðu heim á sunnudagskvöldi — tveir nætur í burtu, engir ársfrídagar.",
+    "builtP2": "Veldu Fös–Sun ferðategund og kveiktu á kvöldbrottfarasíunni til að sýna flug sem passa við þetta taktmynstur í stað almennra vikulegra leitanna á öðrum síðum.",
+    "stepsTitle": "Fjórir þættirnir",
+    "step1title": "Veldu flugvelli",
+    "step1text": "Leyfðu staðsetningaraðgang eða veldu brottfararmiðstöðvar handvirkt. Leitaðu frá mörgum borgum í einu.",
+    "step2title": "Veldu helgar",
+    "step2text": "Veldu eina eða fleiri ferðahelgar. Hver merki sýnir brottfarardagsetningabil fyrir þá ferð.",
+    "step3title": "Fínstilltu síur",
+    "step3text": "Veldu Fös–Sun mynstur, kvöldbrottfarir og farþegafjölda. Niðurstöður uppfærast sjálfkrafa.",
+    "step4title": "Berðu saman og bókaðu",
+    "step4text": "Raðaðu eftir verði, skoðaðu brottfarar- og heimkomuleiðir, bókaðu síðan örugglega á Kiwi.com.",
+    "kiwiTitle": "Af hverju að bóka í gegnum Kiwi.com?",
+    "kiwiP": "Kiwi.com er einn af stærstu flugleitar- og bókunarvettvöngum Evrópu. Þegar þú smellir frá euroweekender.com greiðir þú á eigin öruggu greiðslukerfi Kiwi (ekki á síðu okkar). Það þýðir dulkóðaða kortavinnslu, rétta bókunarskráningu og aðgang að aðstoðarteymi Kiwi ef eitthvað fer úrskeiðis með ferðina.",
+    "tipsTitle": "Ráð fyrir betri tilboð",
+    "tip1": "Prófaðu marga nálæga flugvelli — minni miðstöðvar sigra stundum stórborgir í verði.",
+    "tip2": "Veldu margar helgar til að finna ódýrusta brottfarardaginn í mánuði.",
+    "tip3": "Notaðu kvöldsíur ef þú vilt fara eftir vinnu á föstudegi.",
+    "tip4": "Bókaðu fljótlega eftir að þú finnur verð; helgarsæti á lágu verði seljast fljótt upp.",
+    "cta": "Byrja leit",
+    "heroImageAlt": "Ferðamaður með farangur tilbúinn í helgarferð",
+    "weekendImageAlt": "Evrópskur götusteinn í hlýju kvöldljósi"
+  },
+  "faq": {
+    "heroTitle": "Algengar spurningar",
+    "heroSubtitle": "Allt sem þú þarft að vita um að finna ódýr helgarflug um alla Evrópu.",
+    "lead": "Allt sem þú þarft að vita um að finna ódýr helgarflug um alla Evrópu.",
+    "items": [
+      {
+        "q": "Get ég ferðast án þess að nota frídaga?",
+        "a": "Já — einmitt þess vegna eru helgarferðir til. Veldu Fös–Sun mynstur og síaðu fyrir föstudagskvöldbrottfarir svo þú farir eftir vinnu, njótir laugardagsins á áfangastað og kemur aftur á sunnudagskvöldi. Þú færð fulla borgarferð með venjulegu helgina þína."
+      },
+      {
+        "q": "Er öruggt að bóka í gegnum Kiwi.com?",
+        "a": "Kiwi.com er stór Evrópuflugbókunarvettvangur sem milljónir ferðamanna nota. Greiðsla fer fram á öruggu greiðslukerfi Kiwi með venjulegri dulkóðun og þú færð rétta bókunarstaðfestingu með þjónustuveri. Margir verðflokkar innihalda einnig Kiwi.com bókunarvernd fyrir breytingar á áætlun og truflanir — athugaðu alltaf verðskilmála áður en þú greiðir."
+      },
+      {
+        "q": "Hvað er euroweekender.com?",
+        "a": "Leitartól fyrir ódýr helgarflug í Evrópu. Við söfnum heim-og-til-baka tilboðum fyrir stuttar dvölir og leyfa þér að sía eftir helgardagsetningum, ferðalengd og brottfarartíma."
+      },
+      {
+        "q": "Frá hvaða flugvöllum get ég leitað?",
+        "a": "Þú getur valið einn eða fleiri brottfararflugvelli um alla Evrópu. Síðan getur mælt með nálægum miðstöðvum út frá staðsetningu þinni og raðað þeim eftir gæðum tilboða þar sem gögn liggja fyrir."
+      },
+      {
+        "q": "Get ég valið margar helgar í einu?",
+        "a": "Já. Smelltu á margar dagsetningamerki í ferðahelgaröðinni til að sameina tilboð frá hverri helgi. Niðurstöður aukast þegar þú bætir við fleiri helgum."
+      },
+      {
+        "q": "Hvað þýða ferðategundir eins og Fös–Sun eða Fös–Mán?",
+        "a": "Ferðategundir sía flug að tilteknum brottfarardögum og dvöllengd. Til dæmis þýðir Fös–Sun brott á föstudegi og heimkomu á sunnudegi eftir tvo nætur á áfangastað."
+      },
+      {
+        "q": "Hvaðan koma verðin?",
+        "a": "Verð koma úr Kiwi.com flugleitargögnum og eru geymd í gagnagrunni okkar. Endanlegt verð, farangursreglur og sætisframboð eru staðfest þegar þú opnar bókunartengilinn."
+      },
+      {
+        "q": "Seljið þið miða beint?",
+        "a": "Nei. Við sýnum tilboð og tengjum þig við bókunaraðila. Þú lýkur kaupum á vefsíðu þeirra."
+      },
+      {
+        "q": "Hversu oft eru flug uppfærð?",
+        "a": "Vélmenni okkar endurnýjar tilboð reglulega frá Evrópuborgum. Mjög fersk tilboð geta birst innan klukkustunda; eldri færslur skiptast út þegar nýjar leitir ljúka."
+      },
+      {
+        "q": "Af hverju sýnist heimkomutími stundum sem bandstrik?",
+        "a": "Heimkomubrottfarartímar koma úr nákvæmum leiðagögnum. Ef þau vantar fyrir eldra tilboð sýnum við heimkomudagsetningu án tíma þar til færslan er endurnýjuð."
+      },
+      {
+        "q": "Er staðsetning mín vistuð?",
+        "a": "Staðsetning er aðeins notuð í vafranum þínum til að mæla með nálægum flugvöllum. Við geymum ekki GPS-hnit á netþjónum okkar. Sjá persónuverndarstefnu okkar fyrir nánari upplýsingar."
+      }
+    ],
+    "heroImageAlt": "Ferðakort og skipulagsskrif á skrifborði",
+    "ctaStill": "Ertu enn með spurningu?"
+  },
+  "contact": {
+    "heroTitle": "Hafa samband",
+    "heroSubtitle": "Spurningar, ábendingar eða samstarfshugmyndir? Við viljum gjarnan heyra í þér.",
+    "lead": "Spurningar, ábendingar eða samstarfshugmyndir? Við viljum gjarnan heyra í þér.",
+    "email": "Netfang",
+    "emailBody": "Við svörum venjulega innan nokkurra virkra daga. Fyrir bókunarvandamál með tilteknu flugi, hafðu samband við flugfélag eða ferðasamstarfsaðila sem birtist á staðfestingunni þinni.",
+    "beforeTitle": "Áður en þú skrifar",
+    "before1": "Skoðaðu algengar spurningar fyrir svör um leit, ferðategundir og bókun.",
+    "before2": "Taktu með brottfararflugvöll og ferðahelgi ef þú tilkynnir um vantar tilboð.",
+    "before3": "Við getum ekki breytt bókunum gerðum á Kiwi.com eða öðrum samstarfsvefsíðum.",
+    "heroImageAlt": "Fartölva og glósubók á skrifborði"
+  },
+  "privacy": {
+    "title": "Persónuverndarstefna",
+    "lead": "Síðast uppfært: júlí 2026",
+    "intro": "Þessi stefna útskýrir hvernig euroweekender.com («við») meðhöndlar upplýsingar þegar þú notar vefsíðu okkar.",
+    "infoCollect": "Upplýsingar sem við söfnum",
+    "analyticsLabel": "Greining:",
+    "analytics": "Við notum sjálfhýst Umami Analytics til að telja síðuflettingar og grunnnotkun (tegund vafra, land, tilvísandi). Umami notar ekki vafrakökur og gerir ekki prófíl á þér á öðrum vefsíðum. IP-tölur eru ekki geymdar.",
+    "usageLabel": "Notkunargögn:",
+    "usage": "Venjuleg netþjónaskrár (IP-tala, tegund vafra, skoðaðar síður) geta verið safnað af hýsingaraðila okkar vegna öryggis og afkasta.",
+    "locationLabel": "Staðsetning:",
+    "location": "Ef þú leyfir staðsetningu í vafra eru hnit notuð staðbundið til að mæla með nálægum flugvöllum. Við geymum ekki GPS-gögn á netþjónum okkar.",
+    "searchPrefsLabel": "Leitarstillingar:",
+    "searchPrefs": "Val á flugvöllum og helgum er aðeins haldið í vafralotu þinni og er ekki tengt notandareikningi.",
+    "thirdPartyTitle": "Þjónusta þriðja aðila",
+    "thirdParty": "Bókunartenglar vísa á Kiwi.com og aðra ferðasamstarfsaðila. Persónuverndarstefnur þeirra gilda þegar þú ferð af síðu okkar. Við notum Kiwi.com API-gögn til að birta flugtilboð.",
+    "cookiesTitle": "Vafrakökur",
+    "cookies": "Við notum ekki auglýsingavafrakökur. Umami Analytics keyrir án vafrakaka. Nauðsynlegar tæknivafrakökur geta verið settar af hýsingarinnviðum okkar. Samstarfsvefsíður geta sett sínar eigin vafrakökur eftir að þú smellir á bókunartengil.",
+    "rightsTitle": "Réttindi þín",
+    "rights": "Eftir staðsetningu þinni (þar á meðal ESB/EES samkvæmt GDPR) gætirðu átt rétt á aðgang, leiðréttingu eða eyðingu persónuupplýsinga sem við geymum. Hafðu samband til að nýta þessi réttindi.",
+    "contactTitle": "Hafa samband",
+    "contact": "Spurningar um persónuvernd: {{email}}",
+    "seeAlso": "Sjá einnig notkunarskilmála okkar."
+  },
+  "terms": {
+    "title": "Notkunarskilmálar",
+    "lead": "Síðast uppfært: júlí 2026",
+    "intro": "Með því að nota euroweekender.com samþykkir þú þessa skilmála. Ef þú samþykkir ekki, vinsamlegast ekki nota síðuna.",
+    "serviceTitle": "Lýsing þjónustu",
+    "service": "Við bjóðum upp á leit og samanburð á flugtilboðum. Við erum ekki ferðaskrifstofa og gefum ekki út miða. Samningar um flutning eru milli þín og flugfélags eða bókunaraðila.",
+    "accuracyTitle": "Nákvæmni upplýsinga",
+    "accuracy": "Verð, tímar og framboð koma frá þriðja aðila og geta breyst fyrir bókun. Staðfestu alltaf upplýsingar á vefsíðu samstarfsaðilans áður en þú greiðir. Við berum ekki ábyrgð á villum í sýndum verðum eða áætlunum.",
+    "affiliateTitle": "Tengiliðir",
+    "affiliate": "Sumir útflæðistenglar eru tengiliðir. Við gætum fengið þóknun þegar þú bókar í gegnum þá. Það hefur ekki áhrif á verðið sem þú greiðir á vefsíðu samstarfsaðilans.",
+    "acceptableTitle": "Viðunandi notkun",
+    "acceptableIntro": "Þú samþykkir að ekki:",
+    "acceptable1": "Skrapa eða ofhlaða API okkar eða vefsíðu með sjálfvirkum beiðnum.",
+    "acceptable2": "Reyna að trufla þjónustu eða nálgast kerfi sem eru ekki opinber.",
+    "acceptable3": "Nota síðuna í ólöglegum tilgangi.",
+    "liabilityTitle": "Takmörkun ábyrgðar",
+    "liability": "Síðan er veitt «eins og hún er» án ábyrgða. Að því marki sem lög leyfa berum við ekki ábyrgð á óbeinum eða afleiddum tjóni vegna notkunar á síðunni eða bókana hjá þriðja aðila.",
+    "changesTitle": "Breytingar",
+    "changes": "Við getum uppfært þessa skilmála eða hætt við eiginleika hvenær sem er. Áframhaldandi notkun eftir breytingar telst samþykki.",
+    "lawTitle": "Gildandi lög",
+    "law": "Þessir skilmálar lúta lögum sem gilda í Evrópusambandinu. Ágreiningur fellur undir lögsögu dómstóla þar sem rekstraraðili euroweekender.com er staðsettur, án þess að skerða skyldubundin neytendaverndarréttindi í búsetulandi þínu.",
+    "contactTitle": "Hafa samband",
+    "contact": "Spurningar um þessa skilmála: {{email}}",
+    "seeAlso": "Lestu persónuverndarstefnu okkar."
+  },
+  "common": {
+    "seeAlsoTerms": "notkunarskilmála",
+    "seeAlsoPrivacy": "persónuverndarstefnu",
+    "searchWeekendFlights": "Leita að helgarflugi",
+    "howItWorks": "hvernig það virkar",
+    "newSearch": "ný leit",
+    "contactUs": "Hafðu samband",
+    "startSearching": "Byrja leit",
+    "readFaq": "Algengar spurningar",
+    "language": "Tungumál",
+    "stillHaveQuestion": "Ertu enn með spurningu?",
+    "orStart": "eða byrjaðu",
+    "orRead": "eða lestu",
+    "readyToPlan": "Tilbúinn að skipuleggja næstu ferð?",
+    "seeAlsoOur": "Sjá einnig"
+  }
+}

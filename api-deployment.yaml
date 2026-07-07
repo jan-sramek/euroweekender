@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weekend-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: weekend-api
+  template:
+    metadata:
+      labels:
+        app: weekend-api
+    spec:
+      containers:
+        - name: api
+          image: weekendflights-api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080

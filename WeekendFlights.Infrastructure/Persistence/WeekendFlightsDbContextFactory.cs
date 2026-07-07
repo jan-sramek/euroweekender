@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
@@ -8,22 +8,30 @@ public class WeekendFlightsDbContextFactory : IDesignTimeDbContextFactory<Weeken
 {
     public WeekendFlightsDbContext CreateDbContext(string[] args)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<WeekendFlightsDbContext>();
-
-        // Build configuration from local.settings.json or environment
         var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory()) // folder of the Infrastructure project
+            .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../WeekendFlights.Api"))
             .AddJsonFile("appsettings.json", optional: true)
-            .AddJsonFile("local.settings.json", optional: true) // include local.settings for dev
+            .AddJsonFile("appsettings.Development.json", optional: true)
             .AddEnvironmentVariables()
             .Build();
 
-        // Read the connection string
-        var connectionString = configuration["Values:DbConnectionString"];
-        if (string.IsNullOrEmpty(connectionString))
-            throw new InvalidOperationException("Connection string 'DbConnectionString' not found.");
-        
+        var connectionString = GetConnectionString(args, configuration)
+            ?? throw new InvalidOperationException(
+                "Connection string not found. Set ConnectionStrings__Postgres or pass --connection.");
+
+        var optionsBuilder = new DbContextOptionsBuilder<WeekendFlightsDbContext>();
         optionsBuilder.UseNpgsql(connectionString);
         return new WeekendFlightsDbContext(optionsBuilder.Options);
     }
-} 
+
+    private static string? GetConnectionString(string[] args, IConfiguration configuration)
+    {
+        var connectionArgIndex = Array.IndexOf(args, "--connection");
+        if (connectionArgIndex >= 0 && connectionArgIndex + 1 < args.Length)
+            return args[connectionArgIndex + 1];
+
+        return configuration.GetConnectionString("Postgres")
+            ?? configuration["ConnectionStrings:DefaultConnection"]
+            ?? configuration["DbConnectionString"];
+    }
+}

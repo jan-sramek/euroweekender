@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Ucuz Avrupa Hafta Sonu Uçuşları",
+      "description": "Avrupa genelinde ucuz hafta sonu uçuşlarını bulun ve karşılaştırın. Yakınınızdaki havalimanlarından Cum–Paz, Per–Paz ve daha fazlasını arayın."
+    },
+    "about": {
+      "title": "EuroWeekender Hakkında",
+      "description": "İzin günü harcamadan Avrupa'da hafta sonu uçuşları. euroweekender.com'un Cuma akşamı kalkış ve Pazar dönüşü için Kiwi.com üzerinden güvenli rezervasyonla nasıl yardımcı olduğunu öğrenin."
+    },
+    "faq": {
+      "title": "Hafta Sonu Uçuşları SSS",
+      "description": "euroweekender.com'da Avrupa hafta sonu uçuşları arama hakkında sık sorulan soruların yanıtları."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Geri bildirim, iş birliği veya destek için euroweekender.com ekibiyle iletişime geçin."
+    },
+    "howItWorks": {
+      "title": "Nasıl Çalışır",
+      "description": "Avrupa genelinde Cuma akşamından Pazar'a hafta sonu uçuşları bulun. euroweekender.com'da fırsatları karşılaştırın ve Kiwi.com üzerinden güvenle rezervasyon yapın."
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "description": "euroweekender.com gizlilik politikası — hangi verileri topladığımız ve nasıl kullandığımız."
+    },
+    "terms": {
+      "title": "Kullanım Koşulları",
+      "description": "euroweekender.com kullanım koşulları — hafta sonu uçuş arama hizmetimizi kullanma kuralları."
+    }
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "howItWorks": "Nasıl çalışır",
+    "about": "Hakkında",
+    "faq": "SSS",
+    "contact": "İletişim"
+  },
+  "footer": {
+    "tagline": "Avrupa hafta sonu uçuş fırsatları",
+    "explore": "Keşfet",
+    "support": "Destek",
+    "searchFlights": "Uçuş ara",
+    "privacy": "Gizlilik politikası",
+    "terms": "Kullanım koşulları",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Avrupa hafta sonu uçuş fırsatları",
+    "title": "Bir sonraki şehir kaçamağınız Cuma akşamı başlıyor",
+    "lead": "Avrupa genelinde gidiş-dönüş hafta sonu uçuşlarını karşılaştırın — işten sonra kalkın, Pazar dönün, izin günü gerekmez.",
+    "fromSelectedAirports": "{{airports}} kalkışlı",
+    "person": "kişi",
+    "persons": "kişi",
+    "allTripTypes": "tüm seyahat türleri",
+    "thereEvening": "gidiş akşam",
+    "backEvening": "dönüş akşam",
+    "hubRankingWarning": "Fırsat sıralaması kullanılamıyor — yakındaki havalimanları yalnızca mesafeye göre sıralanıyor.",
+    "apiError": "Havalimanları yüklenemedi. API çalışıyor mu?",
+    "flightLoadError": "Seçilen hafta sonları için uçuşlar yüklenemedi.",
+    "tryAgain": "Tekrar dene",
+    "loading": "En iyi fırsatlar aranıyor…",
+    "noFlights": "Seçilen hafta sonları için henüz uçuş bulunamadı. Başka tarihler, seyahat türleri deneyin veya daha fazla kalkış havalimanı ekleyin.",
+    "noLegMatch": "Seçilen gidiş ve dönüş bacaklarıyla eşleşen uçuş yok.",
+    "clearLegFilters": "Bacak filtrelerini temizle",
+    "dealsShown": "{{total}} fırsattan {{shown}} tanesi gösteriliyor",
+    "dealsFound": "{{count}} fırsat bulundu",
+    "clearLegFiltersBtn": "Bacak filtrelerini temizle",
+    "selectedAirports": "seçili havalimanları",
+    "moreAirports_one": "{{name}} + {{count}} havalimanı daha",
+    "moreAirports_other": "{{name}} + {{count}} havalimanı daha",
+    "weekendsCount": "{{count}} hafta sonu"
+  },
+  "search": {
+    "travelWeekend": "Seyahat hafta sonu",
+    "travelWeekendHint": "Bir veya daha fazla tarih aralığı seçin",
+    "tripType": "Seyahat türü",
+    "tripTypeHint": "İsteğe bağlı konaklama deseni",
+    "departureTime": "Kalkış saati",
+    "departureTimeHint": "İsteğe bağlı yalnızca akşam filtreleri",
+    "travelers": "Yolcular",
+    "travelersHint": "Fiyatlandırma için yolcu sayısı",
+    "thereEvening": "Gidiş · akşam",
+    "thereEveningTitle": "Gidiş uçuşu 17:00 veya sonrasında kalkıyor",
+    "backEvening": "Dönüş · akşam",
+    "backEveningTitle": "Dönüş uçuşu 17:00 veya sonrasında kalkıyor",
+    "prevWeekends": "Önceki hafta sonları",
+    "nextWeekends": "Sonraki hafta sonları",
+    "selectWeekends": "Hafta sonlarını seç",
+    "selectTripType": "Seyahat türü (isteğe bağlı)",
+    "eveningDepartures": "Akşam kalkışları (isteğe bağlı)",
+    "detectingLocation": "Konumunuz algılanıyor…",
+    "fromLocationAdd": "{{location}} kalkışlı — başka havalimanı ekle…",
+    "addAirport": "Kalkış havalimanı ekle…",
+    "searchAirports": "Eklenecek havalimanlarını ara",
+    "noAirportsFound": "Havalimanı bulunamadı",
+    "selectedAirports": "Seçili havalimanları",
+    "nearbyAirports": "Yakındaki havalimanları",
+    "removeAirport": "{{name}} kaldır",
+    "traveler": "yolcu",
+    "travelers": "yolcu",
+    "fewerTravelers": "Daha az yolcu",
+    "moreTravelers": "Daha fazla yolcu",
+    "travelersGroup": "Yolcu sayısı"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Cuma – Pazar",
+      "short": "Cum–Paz"
+    },
+    "thu-sun": {
+      "label": "Perşembe – Pazar",
+      "short": "Per–Paz"
+    },
+    "wed-sun": {
+      "label": "Çarşamba – Pazar",
+      "short": "Çar–Paz"
+    },
+    "fri-mon": {
+      "label": "Cuma – Pazartesi",
+      "short": "Cum–Pzt"
+    },
+    "fri-tue": {
+      "label": "Cuma – Salı",
+      "short": "Cum–Sal"
+    }
+  },
+  "flights": {
+    "destination": "Varış noktası",
+    "perPerson": "Kişi başı {{price}}",
+    "forDaysTrip": "{{days}} günlük seyahat için",
+    "detail": "Detay",
+    "changes_zero": "0 aktarma",
+    "changes_one": "1 aktarma",
+    "changes_other": "{{count}} aktarma"
+  },
+  "about": {
+    "heroTitle": "euroweekender.com Hakkında",
+    "heroSubtitle": "Çalışma haftanıza uyan uygun fiyatlı Avrupa şehir kaçamakları — Cuma akşamı gidiş, Pazar dönüş.",
+    "lead": "Avrupalıların uygun fiyatlı kısa seyahatler keşfetmesine yardımcı oluyoruz — Cuma akşamı kalkın, Pazar dönün ve izin günü harcamadan tam bir şehir kaçamağının tadını çıkarın.",
+    "sections": {
+      "weekendTitle": "İzin günü olmadan hafta sonu seyahatleri",
+      "weekendP1": "Çoğumuzun yalnızca Cumartesi ve Pazar günü boş — ama bu Avrupa kaçamağı için yeterli. euroweekender.com kısa gidiş-dönüş seyahatlerine göre tasarlandı: Cuma işten sonra uçun, Cumartesi keşfedin ve Pazar akşamı eve dönün.",
+      "weekendP2": "Cum–Paz gibi seyahat türlerini ve akşam kalkış filtresini kullanarak hafta ortası tatilleri değil, gerçek çalışma haftası programına uyan uçuşları bulun.",
+      "whatTitle": "Ne yapıyoruz",
+      "whatP": "euroweekender.com, Kiwi.com'dan toplanan hafta sonu uçuş fırsatlarını bir araya getirir ve basit bir arama deneyiminde sunar. Kalkış havalimanlarınızı seçin, bir veya daha fazla seyahat hafta sonu belirleyin, seyahat türüne göre filtreleyin ve gidiş-dönüş fiyatlarını bir bakışta karşılaştırın.",
+      "whoTitle": "Kimler için",
+      "whoP": "Site, uçuş karşılaştırma sitelerinde saatler harcamadan ilham arayan şehir kaçamağı gezginleri, çiftler ve arkadaş grupları için tasarlandı. Prag, Viyana, Barselona veya başka bir Avrupa merkezinden kalkıyor olsanız da yaklaşan hafta sonlarını tarayabilir ve doğrudan havayolu veya seyahat ortağıyla rezervasyon yapabilirsiniz.",
+      "rankTitle": "Sonuçları nasıl sıralıyoruz",
+      "rankP": "Fırsatlar, yolcu sayınız için toplam seyahat fiyatına göre sıralanır. Konumunuza yakın güçlü kalkış havalimanları önermek için teklif hacmi, fiyat seviyeleri ve varış noktası çeşitliliğine dayalı merkez puanlarını da kullanıyoruz.",
+      "affiliateTitle": "Ortaklık açıklaması",
+      "affiliateP": "Bir uçuş rezervasyonu için tıkladığınızda Kiwi.com veya başka bir rezervasyon ortağına yönlendirilebilirsiniz. Size ek maliyet olmadan komisyon kazanabiliriz. Fiyatlar ve müsaitlik, ödeme yapmadan önce her zaman ortak sitede doğrulanır.",
+      "kiwiTitle": "Kiwi.com ile güvenli rezervasyon",
+      "kiwiP1": "Sizi her yıl milyonlarca gezginin kullandığı köklü bir Avrupa uçuş rezervasyon platformu olan Kiwi.com'a yönlendiriyoruz. Ödeme, endüstri standardı şifreleme ile Kiwi'nin güvenli ödeme sayfasında yapılır ve biletiniz planlar değişirse müşteri desteğiyle birlikte rezervasyon sistemleri üzerinden düzenlenir.",
+      "kiwiP2": "Kiwi.com ayrıca uygun tarifelerde rezervasyon koruması ve aksaklık desteği sunar; havayolları yeniden planlama veya iptal yaptığında yalnız kalmazsınız. Ödemeyi onaylamadan önce nihai fiyatı, bagaj kurallarını ve koşulları her zaman Kiwi.com'da incelersiniz."
+    },
+    "cta": "Bir sonraki kaçamağınızı planlamaya hazır mısınız?",
+    "heroImageAlt": "Gün batımında Avrupa şehrinin havadan görünümü",
+    "eveningImageAlt": "Gün batımında bulutların üzerinde uçak kanadı",
+    "cityImageAlt": "Avrupa şehrinde kanal kenarı sokak"
+  },
+  "howItWorks": {
+    "heroTitle": "Nasıl çalışır",
+    "heroSubtitle": "Cuma akşamı uçuşundan Pazar dönüşüne dört basit adım — izin günü gerekmez.",
+    "lead": "Dört adımda ucuz bir Avrupa hafta sonu seyahati bulun — Cuma akşamı kalkın, Pazar dönün ve izin günlerini kullanmayın.",
+    "builtTitle": "Gerçek hafta sonları için tasarlandı",
+    "builtP1": "euroweekender.com işe uyumlu kısa gidiş-dönüş seyahatlerine odaklanır. Son toplantınızdan sonra Cuma akşamı uçuşuna yetişin, Cumartesi yeni bir şehirde geçirin ve Pazar gecesi eve uçun — iki gece uzakta, sıfır yıllık izin günü.",
+    "builtP2": "Cum–Paz seyahat türünü seçin ve akşam kalkış filtresini açarak diğer sitelerdeki genel haftalık aramalar yerine bu ritme uyan uçuşları görün.",
+    "stepsTitle": "Dört adım",
+    "step1title": "Havalimanlarını seçin",
+    "step1text": "Konum erişimine izin verin veya kalkış merkezlerini manuel seçin. Birden fazla şehirden aynı anda arayın.",
+    "step2title": "Hafta sonlarını seçin",
+    "step2text": "Bir veya daha fazla seyahat hafta sonu seçin. Her etiket o seyahat için gidiş tarih aralığını gösterir.",
+    "step3title": "Filtreleri daraltın",
+    "step3text": "Cum–Paz desenleri, akşam kalkışları ve yolcu sayısını seçin. Sonuçlar otomatik güncellenir.",
+    "step4title": "Karşılaştırın ve rezervasyon yapın",
+    "step4text": "Fiyata göre sıralayın, gidiş ve dönüş bacaklarını inceleyin, ardından Kiwi.com'da güvenle rezervasyon yapın.",
+    "kiwiTitle": "Neden Kiwi.com üzerinden rezervasyon yapmalısınız?",
+    "kiwiP": "Kiwi.com Avrupa'nın en büyük uçuş arama ve rezervasyon platformlarından biridir. euroweekender.com'dan tıkladığınızda Kiwi'nin kendi güvenli ödeme sayfasında ödeme yaparsınız (sitemizde değil). Bu, şifreli kart işleme, düzgün bir rezervasyon kaydı ve seyahatinizde bir sorun çıkarsa Kiwi destek ekibine erişim anlamına gelir.",
+    "tipsTitle": "Daha iyi fırsatlar için ipuçları",
+    "tip1": "Birden fazla yakın havalimanı deneyin — küçük merkezler bazen büyük şehirlerden daha uygun fiyatlı olabilir.",
+    "tip2": "Bir ay içindeki en ucuz kalkış gününü görmek için birden fazla hafta sonu seçin.",
+    "tip3": "Cuma işten sonra kalkmak istiyorsanız akşam filtrelerini kullanın.",
+    "tip4": "Bir tarife bulduktan sonra kısa sürede rezervasyon yapın; düşük fiyatlı hafta sonu koltukları hızla tükenir.",
+    "cta": "Aramaya başla",
+    "heroImageAlt": "Hafta sonu seyahatine hazır bagajlı gezgin",
+    "weekendImageAlt": "Sıcak akşam ışığında Avrupa arnavut kaldırımlı sokak"
+  },
+  "faq": {
+    "heroTitle": "Sık sorulan sorular",
+    "heroSubtitle": "Avrupa genelinde ucuz hafta sonu uçuşları bulmak için bilmeniz gereken her şey.",
+    "lead": "Avrupa genelinde ucuz hafta sonu uçuşları bulmak için bilmeniz gereken her şey.",
+    "items": [
+      {
+        "q": "İzin günü kullanmadan seyahat edebilir miyim?",
+        "a": "Evet — hafta sonu seyahatleri tam da bunun için var. Cum–Paz desenini seçin ve Cuma akşamı kalkışları için filtreleyin; işten sonra kalkın, Cumartesi varış noktanızın tadını çıkarın ve Pazar akşamı dönün. Yalnızca normal hafta sonunuzu kullanarak tam bir şehir kaçamağı yaşarsınız."
+      },
+      {
+        "q": "Kiwi.com üzerinden rezervasyon yapmak güvenli mi?",
+        "a": "Kiwi.com, milyonlarca gezginin kullandığı büyük bir Avrupa uçuş rezervasyon platformudur. Ödeme, standart şifreleme ile Kiwi'nin güvenli ödeme sayfasında yapılır ve müşteri desteğiyle birlikte düzgün bir rezervasyon onayı alırsınız. Birçok tarife ayrıca program değişiklikleri ve aksaklıklar için Kiwi.com rezervasyon koruması içerir — ödeme yapmadan önce tarife koşullarını her zaman kontrol edin."
+      },
+      {
+        "q": "euroweekender.com nedir?",
+        "a": "Ucuz Avrupa hafta sonu uçuşları için bir arama aracı. Kısa konaklamalar için gidiş-dönüş fırsatlarını toplar ve hafta sonu tarihleri, seyahat süresi ve kalkış saatine göre filtrelemenizi sağlar."
+      },
+      {
+        "q": "Hangi havalimanlarından arama yapabilirim?",
+        "a": "Avrupa genelinde bir veya daha fazla kalkış havalimanı seçebilirsiniz. Site, konumunuza göre yakındaki merkezleri önerebilir ve veri mevcut olduğunda fırsat kalitesine göre sıralayabilir."
+      },
+      {
+        "q": "Birden fazla hafta sonunu aynı anda seçebilir miyim?",
+        "a": "Evet. Her hafta sonundan fırsatları birleştirmek için seyahat hafta sonu satırında birden fazla tarih etiketine tıklayın. Daha fazla hafta sonu ekledikçe sonuçlar artar."
+      },
+      {
+        "q": "Cum–Paz veya Cum–Pzt gibi seyahat türleri ne anlama geliyor?",
+        "a": "Seyahat türleri uçuşları belirli kalkış günlerine ve konaklama sürelerine göre filtreler. Örneğin Cum–Paz, Cuma kalkış ve varış noktasında iki gece sonra Pazar dönüş anlamına gelir."
+      },
+      {
+        "q": "Fiyatlar nereden geliyor?",
+        "a": "Fiyatlar Kiwi.com uçuş arama verilerinden alınır ve veritabanımızda saklanır. Nihai tarife, bagaj kuralları ve koltuk müsaitliği rezervasyon bağlantısını açtığınızda doğrulanır."
+      },
+      {
+        "q": "Biletleri doğrudan siz mi satıyorsunuz?",
+        "a": "Hayır. Fırsatları gösteriyor ve sizi rezervasyon ortağına yönlendiriyoruz. Satın almayı onların web sitesinde tamamlarsınız."
+      },
+      {
+        "q": "Uçuşlar ne sıklıkla güncelleniyor?",
+        "a": "Tarayıcımız Avrupa kalkış şehirlerinden düzenli olarak teklifleri yeniler. Çok taze fırsatlar saatler içinde görünebilir; eski kayıtlar yeni taramalar tamamlandıkça değiştirilir."
+      },
+      {
+        "q": "Dönüş saati neden bazen tire olarak görünüyor?",
+        "a": "Dönüş kalkış saatleri ayrıntılı rota verilerinden gelir. Eski bir teklif için bu veri eksikse, kayıt yenilenene kadar dönüş tarihini saat olmadan gösteririz."
+      },
+      {
+        "q": "Konumum kaydediliyor mu?",
+        "a": "Coğrafi konum yalnızca tarayıcınızda yakındaki havalimanlarını önermek için kullanılır. GPS koordinatlarınızı sunucularımızda saklamıyoruz. Ayrıntılar için gizlilik politikamıza bakın."
+      }
+    ],
+    "heroImageAlt": "Masada seyahat haritası ve planlama notları",
+    "ctaStill": "Hâlâ bir sorunuz mu var?"
+  },
+  "contact": {
+    "heroTitle": "İletişim",
+    "heroSubtitle": "Sorularınız, geri bildiriminiz veya iş birliği fikirleriniz mi var? Sizden haber almak isteriz.",
+    "lead": "Sorularınız, geri bildiriminiz veya iş birliği fikirleriniz mi var? Sizden haber almak isteriz.",
+    "email": "E-posta",
+    "emailBody": "Genellikle birkaç iş günü içinde yanıt veririz. Belirli bir uçuşla ilgili rezervasyon sorunları için lütfen onayınızda gösterilen havayolu veya seyahat ortağıyla iletişime geçin.",
+    "beforeTitle": "Yazmadan önce",
+    "before1": "Arama, seyahat türleri ve rezervasyon hakkında yanıtlar için SSS'ye bakın.",
+    "before2": "Eksik bir fırsat bildiriyorsanız kalkış havalimanınızı ve seyahat hafta sonunuzu belirtin.",
+    "before3": "Kiwi.com veya diğer ortak sitelerde yapılan rezervasyonları değiştiremeyiz.",
+    "heroImageAlt": "Masada dizüstü bilgisayar ve not defteri"
+  },
+  "privacy": {
+    "title": "Gizlilik politikası",
+    "lead": "Son güncelleme: Temmuz 2026",
+    "intro": "Bu politika, web sitemizi kullandığınızda euroweekender.com'un («biz») bilgileri nasıl işlediğini açıklar.",
+    "infoCollect": "Topladığımız bilgiler",
+    "analyticsLabel": "Analitik:",
+    "analytics": "Sayfa görüntülemelerini ve temel kullanımı (tarayıcı türü, ülke, yönlendiren) saymak için kendi sunucularımızda barındırılan Umami Analytics kullanıyoruz. Umami çerez kullanmaz ve sizi diğer web sitelerinde profillemez. IP adresleri saklanmaz.",
+    "usageLabel": "Kullanım verileri:",
+    "usage": "Standart sunucu günlükleri (IP adresi, tarayıcı türü, görüntülenen sayfalar) güvenlik ve performans için barındırma sağlayıcımız tarafından toplanabilir.",
+    "locationLabel": "Konum:",
+    "location": "Tarayıcı coğrafi konumuna izin verirseniz koordinatlar yakındaki havalimanlarını önermek için yerel olarak kullanılır. GPS verilerini sunucularımızda saklamıyoruz.",
+    "searchPrefsLabel": "Arama tercihleri:",
+    "searchPrefs": "Havalimanı ve hafta sonu seçimleri yalnızca tarayıcı oturumunuzda tutulur ve bir kullanıcı hesabıyla ilişkilendirilmez.",
+    "thirdPartyTitle": "Üçüncü taraf hizmetler",
+    "thirdParty": "Rezervasyon bağlantıları Kiwi.com ve diğer seyahat ortaklarına yönlendirir. Sitemizden ayrıldığınızda onların gizlilik politikaları geçerlidir. Uçuş tekliflerini göstermek için Kiwi.com API verilerini kullanıyoruz.",
+    "cookiesTitle": "Çerezler",
+    "cookies": "Reklam çerezleri kullanmıyoruz. Umami Analytics çerezsiz çalışır. Barındırma altyapımız temel teknik çerezler ayarlayabilir. Ortak siteler, rezervasyon bağlantısına tıkladıktan sonra kendi çerezlerini ayarlayabilir.",
+    "rightsTitle": "Haklarınız",
+    "rights": "Konumunuza bağlı olarak (GDPR kapsamında AB/AEA dahil) tuttuğumuz kişisel verilere erişme, düzeltme veya silme haklarınız olabilir. Bu hakları kullanmak için bizimle iletişime geçin.",
+    "contactTitle": "İletişim",
+    "contact": "Gizlilik soruları: {{email}}",
+    "seeAlso": "Kullanım koşullarımıza da bakın."
+  },
+  "terms": {
+    "title": "Kullanım koşulları",
+    "lead": "Son güncelleme: Temmuz 2026",
+    "intro": "euroweekender.com'u kullanarak bu koşulları kabul etmiş olursunuz. Kabul etmiyorsanız lütfen siteyi kullanmayın.",
+    "serviceTitle": "Hizmet açıklaması",
+    "service": "Uçuş fırsatı arama ve karşılaştırma arayüzü sunuyoruz. Seyahat acentesi değiliz ve bilet düzenlemiyoruz. Taşıma sözleşmeleri sizinle havayolu veya rezervasyon ortağı arasındadır.",
+    "accuracyTitle": "Bilgi doğruluğu",
+    "accuracy": "Fiyatlar, saatler ve müsaitlik üçüncü taraf kaynaklardan gelir ve rezervasyon öncesinde değişebilir. Ödeme yapmadan önce ayrıntıları her zaman ortak web sitesinde doğrulayın. Gösterilen tarifeler veya programlardaki hatalardan sorumlu değiliz.",
+    "affiliateTitle": "Ortaklık bağlantıları",
+    "affiliate": "Bazı giden bağlantılar ortaklık bağlantısıdır. Bunlar üzerinden rezervasyon yaptığınızda tazminat alabiliriz. Bu, ortak sitede ödediğiniz fiyatı etkilemez.",
+    "acceptableTitle": "Kabul edilebilir kullanım",
+    "acceptableIntro": "Şunları yapmamayı kabul edersiniz:",
+    "acceptable1": "API'mizi veya web sitemizi otomatik isteklerle kazımak veya aşırı yüklemek.",
+    "acceptable2": "Hizmeti aksatmaya veya herkese açık olmayan sistemlere erişmeye çalışmak.",
+    "acceptable3": "Siteyi yasadışı amaçlarla kullanmak.",
+    "liabilityTitle": "Sorumluluk sınırlaması",
+    "liability": "Site «olduğu gibi» ve garanti olmaksızın sunulur. Yasanın izin verdiği azami ölçüde, sitenin veya üçüncü taraf rezervasyonların kullanımından kaynaklanan dolaylı veya sonuç olarak ortaya çıkan zararlardan sorumlu değiliz.",
+    "changesTitle": "Değişiklikler",
+    "changes": "Bu koşulları istediğimiz zaman güncelleyebilir veya özellikleri durdurabiliriz. Değişikliklerden sonra kullanıma devam etmek kabul anlamına gelir.",
+    "lawTitle": "Uygulanacak hukuk",
+    "law": "Bu koşullar Avrupa Birliği'nde geçerli yasalara tabidir. Uyuşmazlıklar, ikamet ettiğiniz ülkedeki zorunlu tüketici koruma haklarına halel getirmeksizin, euroweekender.com işletmecisinin kurulu olduğu mahkemelerin yargı yetkisine tabidir.",
+    "contactTitle": "İletişim",
+    "contact": "Bu koşullar hakkında sorular: {{email}}",
+    "seeAlso": "Gizlilik politikamızı okuyun."
+  },
+  "common": {
+    "seeAlsoTerms": "kullanım koşulları",
+    "seeAlsoPrivacy": "gizlilik politikası",
+    "searchWeekendFlights": "Hafta sonu uçuşu ara",
+    "howItWorks": "nasıl çalışır",
+    "newSearch": "yeni arama",
+    "contactUs": "Bize ulaşın",
+    "startSearching": "Aramaya başla",
+    "readFaq": "SSS",
+    "language": "Dil",
+    "stillHaveQuestion": "Hâlâ bir sorunuz mu var?",
+    "orStart": "veya bir",
+    "orRead": "veya",
+    "readyToPlan": "Bir sonraki kaçamağınızı planlamaya hazır mısınız?",
+    "seeAlsoOur": "Ayrıca"
+  }
+}

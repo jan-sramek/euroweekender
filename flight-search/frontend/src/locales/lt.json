@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "home": {
+      "title": "Pigūs savaitgalio skrydžiai Europoje",
+      "description": "Raskite ir palyginkite pigius savaitgalio skrydžius visoje Europoje. Ieškokite pn.–sk., kt.–sk. ir kitų variantų iš artimiausių oro uostų."
+    },
+    "about": {
+      "title": "Apie EuroWeekender",
+      "description": "Savaitgalio skrydžiai po Europą be atostogų dienų. Sužinokite, kaip euroweekender.com padeda išskristi penktadienio vakarą ir grįžti sekmadienį, saugiai rezervuojant per Kiwi.com."
+    },
+    "faq": {
+      "title": "DUK apie savaitgalio skrydžius",
+      "description": "Atsakymai į dažniausiai užduodamus klausimus apie Europos savaitgalio skrydžių paiešką euroweekender.com."
+    },
+    "contact": {
+      "title": "Kontaktai",
+      "description": "Susisiekite su euroweekender.com komanda dėl atsiliepimų, partnerystės ar pagalbos."
+    },
+    "howItWorks": {
+      "title": "Kaip tai veikia",
+      "description": "Raskite savaitgalio skrydžius nuo penktadienio vakaro iki sekmadienio visoje Europoje. Palyginkite pasiūlymus euroweekender.com ir saugiai rezervuokite per Kiwi.com."
+    },
+    "privacy": {
+      "title": "Privatumo politika",
+      "description": "euroweekender.com privatumo politika — kokius duomenis renkame ir kaip juos naudojame."
+    },
+    "terms": {
+      "title": "Naudojimo sąlygos",
+      "description": "euroweekender.com naudojimo sąlygos — taisyklės naudojantis mūsų savaitgalio skrydžių paieškos paslauga."
+    }
+  },
+  "nav": {
+    "home": "Pradžia",
+    "howItWorks": "Kaip tai veikia",
+    "about": "Apie mus",
+    "faq": "DUK",
+    "contact": "Kontaktai"
+  },
+  "footer": {
+    "tagline": "Europos savaitgalio skrydžių pasiūlymai",
+    "explore": "Naršyti",
+    "support": "Pagalba",
+    "searchFlights": "Ieškoti skrydžių",
+    "privacy": "Privatumo politika",
+    "terms": "Naudojimo sąlygos",
+    "copyright": "© {{year}} euroweekender.com"
+  },
+  "home": {
+    "tagline": "Europos savaitgalio skrydžių pasiūlymai",
+    "title": "Jūsų kitas miesto savaitgalis prasideda penktadienio vakarą",
+    "lead": "Palyginkite pirmyn ir atgal savaitgalio skrydžius visoje Europoje — išvykite po darbo, grįžkite sekmadienį, be atostogų dienų.",
+    "fromSelectedAirports": "Iš {{airports}}",
+    "person": "asmuo",
+    "persons": "asmenys",
+    "allTripTypes": "visi kelionės tipai",
+    "thereEvening": "ten vakare",
+    "backEvening": "atgal vakare",
+    "hubRankingWarning": "Pasiūlymų rikiavimas nepasiekiamas — artimiausi oro uostai surūšiuoti tik pagal atstumą.",
+    "apiError": "Nepavyko įkelti oro uostų. Ar veikia API?",
+    "flightLoadError": "Nepavyko įkelti skrydžių pasirinktiems savaitgaliams.",
+    "tryAgain": "Bandyti dar kartą",
+    "loading": "Ieškome geriausių pasiūlymų…",
+    "noFlights": "Pasirinktiems savaitgaliams skrydžių dar nerasta. Pabandykite kitas datas, kelionės tipus arba pridėkite daugiau išvykimo oro uostų.",
+    "noLegMatch": "Nė vienas skrydis neatitinka pasirinktų išvykimo ir grįžimo etapų.",
+    "clearLegFilters": "Išvalyti etapų filtrus",
+    "dealsShown": "Rodoma {{shown}} iš {{total}} pasiūlymų",
+    "dealsFound": "Rasta {{count}} pasiūlymų",
+    "clearLegFiltersBtn": "Išvalyti etapų filtrus",
+    "selectedAirports": "pasirinkti oro uostai",
+    "moreAirports_one": "{{name}} + dar {{count}} oro uostas",
+    "moreAirports_other": "{{name}} + dar {{count}} oro uostų",
+    "weekendsCount": "{{count}} savaitgaliai"
+  },
+  "search": {
+    "travelWeekend": "Kelionės savaitgalis",
+    "travelWeekendHint": "Pasirinkite vieną ar daugiau datų intervalų",
+    "tripType": "Kelionės tipas",
+    "tripTypeHint": "Neprivalomas buvimo modelis",
+    "departureTime": "Išvykimo laikas",
+    "departureTimeHint": "Neprivalomi filtrai tik vakaro skrydžiams",
+    "travelers": "Keliautojai",
+    "travelersHint": "Keleivių skaičius kainai apskaičiuoti",
+    "thereEvening": "Ten · vakare",
+    "thereEveningTitle": "Išvykimas ten nuo 17:00 ar vėliau",
+    "backEvening": "Atgal · vakare",
+    "backEveningTitle": "Grįžimas nuo 17:00 ar vėliau",
+    "prevWeekends": "Ankstesni savaitgaliai",
+    "nextWeekends": "Kiti savaitgaliai",
+    "selectWeekends": "Pasirinkti savaitgalius",
+    "selectTripType": "Kelionės tipas (neprivaloma)",
+    "eveningDepartures": "Vakaro išvykimai (neprivaloma)",
+    "detectingLocation": "Nustatome jūsų vietą…",
+    "fromLocationAdd": "Iš {{location}} — pridėti dar vieną oro uostą…",
+    "addAirport": "Pridėti išvykimo oro uostą…",
+    "searchAirports": "Ieškoti pridėtinų oro uostų",
+    "noAirportsFound": "Oro uostų nerasta",
+    "selectedAirports": "Pasirinkti oro uostai",
+    "nearbyAirports": "Artimiausi oro uostai",
+    "removeAirport": "Pašalinti {{name}}",
+    "traveler": "keliautojas",
+    "travelers": "keliautojai",
+    "fewerTravelers": "Mažiau keliautojų",
+    "moreTravelers": "Daugiau keliautojų",
+    "travelersGroup": "Keliautojų skaičius"
+  },
+  "patterns": {
+    "fri-sun": {
+      "label": "Penktadienis – sekmadienis",
+      "short": "Pn–Sk"
+    },
+    "thu-sun": {
+      "label": "Ketvirtadienis – sekmadienis",
+      "short": "Kt–Sk"
+    },
+    "wed-sun": {
+      "label": "Trečiadienis – sekmadienis",
+      "short": "Tr–Sk"
+    },
+    "fri-mon": {
+      "label": "Penktadienis – pirmadienis",
+      "short": "Pn–Pr"
+    },
+    "fri-tue": {
+      "label": "Penktadienis – antradienis",
+      "short": "Pn–An"
+    }
+  },
+  "flights": {
+    "destination": "Kelionės tikslas",
+    "perPerson": "{{price}} vienam asmeniui",
+    "forDaysTrip": "{{days}} dienų kelionei",
+    "detail": "Detalės",
+    "changes_zero": "0 persėdimų",
+    "changes_one": "1 persėdimas",
+    "changes_other": "{{count}} persėdimų"
+  },
+  "about": {
+    "heroTitle": "Apie euroweekender.com",
+    "heroSubtitle": "Prieinami Europos miesto savaitgaliai, tinkantys darbo savaitei — išvykimas penktadienio vakarą, grįžimas sekmadienį.",
+    "lead": "Padedame europiečiams atrasti prieinamas trumpas keliones — išvykimas penktadienio vakarą, grįžimas sekmadienį ir pilnavertis miesto savaitgalis be atostogų dienų.",
+    "sections": {
+      "weekendTitle": "Savaitgalio kelionės be atostogų",
+      "weekendP1": "Daugumai mūsų laisvos tik šeštadienis ir sekmadienis — bet to pakanka Europos kelionei. euroweekender.com sukurtas trumpoms pirmyn ir atgal kelionėms: skrydis po darbo penktadienio vakarą, tyrinėjimas šeštadienį ir namuose sekmadienio vakarą.",
+      "weekendP2": "Naudokite kelionės tipus kaip Pn–Sk ir vakaro išvykimo filtrą, kad rastumėte skrydžius, atitinkančius tikrą darbo savaitės grafiką, o ne tik vidurio savaitės atostogas.",
+      "whatTitle": "Ką mes darome",
+      "whatP": "euroweekender.com renka savaitgalio skrydžių pasiūlymus iš Kiwi.com ir pateikia juos paprastoje paieškos patirtyje. Pasirinkite išvykimo oro uostus, vieną ar daugiau kelionės savaitgalių, filtruokite pagal kelionės tipą ir palyginkite pirmyn ir atgal kainas vienu žvilgsniu.",
+      "whoTitle": "Kam tai skirta",
+      "whoP": "Svetainė sukurta miesto savaitgalio keliautojams, poroms ir draugams, norintiems įkvėpimo be valandų praleidimo skrydžių palyginimo svetainėse. Nesvarbu, ar išskrendate iš Prahos, Vienos, Barselonos ar kito Europos centro — galite peržiūrėti artėjančius savaitgalius ir rezervuoti tiesiogiai pas oro liniją ar kelionių partnerį.",
+      "rankTitle": "Kaip rikiuojame rezultatus",
+      "rankP": "Pasiūlymai surūšiuoti pagal bendrą kelionės kainą jūsų keleivių skaičiui. Taip pat naudojame centrų įvertinimus, pagrįstus pasiūlymų apimtimi, kainų lygiu ir kelionės tikslų įvairove, kad pasiūlytume gerus išvykimo oro uostus netoli jūsų vietos.",
+      "affiliateTitle": "Partnerių nuorodų atskleidimas",
+      "affiliateP": "Kai spustelėjate rezervuoti skrydį, galite būti nukreipti į Kiwi.com ar kitą rezervavimo partnerį. Galime gauti komisinius be papildomų išlaidų jums. Kainos ir prieinamumas visada patvirtinami partnerio svetainėje prieš mokėjimą.",
+      "kiwiTitle": "Saugus rezervavimas per Kiwi.com",
+      "kiwiP1": "Nukreipiame jus į Kiwi.com — gerai žinomą Europos skrydžių rezervavimo platformą, kuria kasmet naudojasi milijonai keliautojų. Mokėjimas vyksta Kiwi saugioje kasoje su pramonės standarto šifravimu, o bilietas išduodamas per jų rezervavimo sistemą su klientų pagalba, jei planai pasikeičia.",
+      "kiwiP2": "Kiwi.com taip pat siūlo rezervavimo apsaugą ir pagalbą sutrikimų atveju tinkamiems tarifams, kad neliktumėte vieni, kai oro linijos perplanuoja ar atšaukia skrydžius. Prieš patvirtindami mokėjimą visada peržiūrėkite galutinę kainą, bagažo taisykles ir sąlygas Kiwi.com."
+    },
+    "cta": "Pasiruošę planuoti kitą savaitgalį?",
+    "heroImageAlt": "Europos miesto vaizdas iš viršaus saulėlydyje",
+    "eveningImageAlt": "Lėktuvo sparnas virš debesų saulėlydyje",
+    "cityImageAlt": "Gatvė prie kanalo Europos mieste"
+  },
+  "howItWorks": {
+    "heroTitle": "Kaip tai veikia",
+    "heroSubtitle": "Keturi paprasti žingsniai nuo penktadienio vakaro skrydžio iki sekmadienio grįžimo — be atostogų dienų.",
+    "lead": "Raskite pigų Europos savaitgalio kelionę keturiais žingsniais — išvykite penktadienio vakarą, grįžkite sekmadienį ir nenaudokite atostogų dienų.",
+    "builtTitle": "Sukurta tikriems savaitgaliams",
+    "builtP1": "euroweekender.com orientuojasi į trumpas pirmyn ir atgal keliones, tinkančias darbui. Pasivykite penktadienio vakaro skrydį po paskutinio susitikimo, praleiskite šeštadienį naujame mieste ir skriskite namo sekmadienio vakarą — dvi naktys išvykus, nulis atostogų dienų.",
+    "builtP2": "Pasirinkite Pn–Sk kelionės tipą ir įjunkite vakaro išvykimo filtrą, kad matytumėte skrydžius, atitinkančius šį ritmą, o ne bendras savaitės trukmės paieškas kitose svetainėse.",
+    "stepsTitle": "Keturi žingsniai",
+    "step1title": "Pasirinkite oro uostus",
+    "step1text": "Leiskite prieigą prie vietos arba pasirinkite išvykimo centrus rankiniu būdu. Ieškokite iš kelių miestų vienu metu.",
+    "step2title": "Pasirinkite savaitgalius",
+    "step2text": "Pasirinkite vieną ar daugiau kelionės savaitgalių. Kiekviena žymė rodo išvykimo datų intervalą šiai kelionei.",
+    "step3title": "Patikslinkite filtrus",
+    "step3text": "Pasirinkite Pn–Sk modelius, vakaro išvykimus ir keleivių skaičių. Rezultatai atnaujinami automatiškai.",
+    "step4title": "Palyginkite ir rezervuokite",
+    "step4text": "Rūšiuokite pagal kainą, peržiūrėkite išvykimo ir grįžimo etapus, tada saugiai rezervuokite Kiwi.com.",
+    "kiwiTitle": "Kodėl rezervuoti per Kiwi.com?",
+    "kiwiP": "Kiwi.com yra viena didžiausių Europos skrydžių paieškos ir rezervavimo platformų. Kai spustelėjate iš euroweekender.com, mokate Kiwi pačioje saugioje kasoje (ne mūsų svetainėje). Tai reiškia šifruotą kortelių apdorojimą, tinkamą rezervacijos įrašą ir prieigą prie Kiwi pagalbos komandos, jei su kelione kas nors negerai.",
+    "tipsTitle": "Patarimai geresniems pasiūlymams",
+    "tip1": "Išbandykite kelis artimiausius oro uostus — mažesni centrai kartais pigesni už didžiuosius miestus.",
+    "tip2": "Pasirinkite kelis savaitgalius, kad rastumėte pigiausią išvykimo dieną mėnesį.",
+    "tip3": "Naudokite vakaro filtrus, jei norite išvykti po darbo penktadienį.",
+    "tip4": "Rezervuokite greitai radę gerą kainą; pigios savaitgalio vietos greitai išsiparduoda.",
+    "cta": "Pradėti paiešką",
+    "heroImageAlt": "Keliautojas su bagažu pasiruošęs savaitgalio kelionei",
+    "weekendImageAlt": "Europos grįdintos akmenys gatvė šiltame vakaro šviesoje"
+  },
+  "faq": {
+    "heroTitle": "Dažniausiai užduodami klausimai",
+    "heroSubtitle": "Viskas, ką reikia žinoti apie pigų savaitgalio skrydžių paiešką Europoje.",
+    "lead": "Viskas, ką reikia žinoti apie pigų savaitgalio skrydžių paiešką Europoje.",
+    "items": [
+      {
+        "q": "Ar galiu keliauti nenaudodamas atostogų dienų?",
+        "a": "Taip — būtent tam skirtos savaitgalio kelionės. Pasirinkite Pn–Sk modelį ir filtruokite penktadienio vakaro išvykimus, kad išvyktumėte po darbo, mėgautumėtės šeštadienį kelionės tikslas ir grįžtumėte sekmadienio vakarą. Gaunate pilnavertį miesto savaitgalį naudodami tik įprastą savaitgalį."
+      },
+      {
+        "q": "Ar saugu rezervuoti per Kiwi.com?",
+        "a": "Kiwi.com yra didelė Europos skrydžių rezervavimo platforma, kuria naudojasi milijonai keliautojų. Mokėjimas vyksta Kiwi saugioje kasoje su standartiniu šifravimu, o gaunate tinkamą rezervacijos patvirtinimą su klientų pagalba. Daugeliui tarifų taip pat taikoma Kiwi.com rezervavimo apsauga grafiko pakeitimų ir sutrikimų atveju — visada patikrinkite tarifo sąlygas prieš mokant."
+      },
+      {
+        "q": "Kas yra euroweekender.com?",
+        "a": "Paieškos įrankis pigiems Europos savaitgalio skrydžiams. Renkame pirmyn ir atgal pasiūlymus trumpiems buvimams ir leidžiame filtruoti pagal savaitgalio datas, kelionės trukmę ir išvykimo laiką."
+      },
+      {
+        "q": "Iš kurių oro uostų galiu ieškoti?",
+        "a": "Galite pasirinkti vieną ar daugiau išvykimo oro uostų visoje Europoje. Svetainė gali pasiūlyti artimiausius centrus pagal jūsų vietą ir juos surūšiuoti pagal pasiūlymų kokybę, kai duomenys prieinami."
+      },
+      {
+        "q": "Ar galiu pasirinkti kelis savaitgalius vienu metu?",
+        "a": "Taip. Spustelėkite kelias datų žymes kelionės savaitgalio eilutėje, kad sujungtumėte pasiūlymus iš kiekvieno savaitgalio. Rezultatai auga pridedant daugiau savaitgalių."
+      },
+      {
+        "q": "Ką reiškia kelionės tipai kaip Pn–Sk ar Pn–Pr?",
+        "a": "Kelionės tipai filtruoja skrydžius pagal konkrečias išvykimo dienas ir buvimo trukmę. Pavyzdžiui, Pn–Sk reiškia išvykimą penktadienį ir grįžimą sekmadienį po dviejų naktų kelionės tikslas."
+      },
+      {
+        "q": "Iš kur kainos?",
+        "a": "Kainos gaunamos iš Kiwi.com skrydžių paieškos duomenų ir saugomos mūsų duomenų bazėje. Galutinė kaina, bagažo taisyklės ir vietų prieinamumas patvirtinami atidarius rezervavimo nuorodą."
+      },
+      {
+        "q": "Ar parduodate bilietus tiesiogiai?",
+        "a": "Ne. Rodome pasiūlymus ir nukreipiame į rezervavimo partnerį. Pirkimą užbaigiate jų svetainėje."
+      },
+      {
+        "q": "Kaip dažnai atnaujinami skrydžiai?",
+        "a": "Mūsų robotas reguliariai atnaujina pasiūlymus iš Europos išvykimo miestų. Labai šviežūs pasiūlymai gali pasirodyti per kelias valandas; senesni įrašai pakeičiami baigus naujas paieškas."
+      },
+      {
+        "q": "Kodėl grįžimo laikas kartais rodomas brūkšniu?",
+        "a": "Grįžimo išvykimo laikai gaunami iš detalių maršruto duomenų. Jei šie duomenys trūksta senesniam pasiūlymui, rodoma grįžimo data be laiko, kol įrašas atnaujinamas."
+      },
+      {
+        "q": "Ar mano vieta saugoma?",
+        "a": "Geolokacija naudojama tik jūsų naršyklėje, kad pasiūlytų artimiausius oro uostus. Nesaugome GPS koordinačių savo serveriuose. Daugiau informacijos rasite mūsų privatumo politikoje."
+      }
+    ],
+    "heroImageAlt": "Kelionės žemėlapis ir planavimo užrašai ant stalo",
+    "ctaStill": "Vis dar turite klausimą?"
+  },
+  "contact": {
+    "heroTitle": "Kontaktai",
+    "heroSubtitle": "Klausimai, atsiliepimai ar partnerystės idėjos? Mielai išgirsime iš jūsų.",
+    "lead": "Klausimai, atsiliepimai ar partnerystės idėjos? Mielai išgirsime iš jūsų.",
+    "email": "El. paštas",
+    "emailBody": "Paprastai atsakome per kelias darbo dienas. Dėl konkretaus skrydžio rezervavimo problemų kreipkitės į oro liniją ar kelionių partnerį, nurodytą patvirtinime.",
+    "beforeTitle": "Prieš rašant",
+    "before1": "Peržiūrėkite DUK dėl paieškos, kelionės tipų ir rezervavimo.",
+    "before2": "Nurodykite savo išvykimo oro uostą ir kelionės savaitgalį, jei pranešate apie trūkstamą pasiūlymą.",
+    "before3": "Negalime keisti rezervacijų, atliktų Kiwi.com ar kitose partnerių svetainėse.",
+    "heroImageAlt": "Nešiojamas kompiuteris ir užrašinė ant stalo"
+  },
+  "privacy": {
+    "title": "Privatumo politika",
+    "lead": "Paskutinį kartą atnaujinta: 2026 m. liepa",
+    "intro": "Ši politika paaiškina, kaip euroweekender.com (\"mes\") tvarko informaciją, kai naudojatės mūsų svetaine.",
+    "infoCollect": "Kokią informaciją renkame",
+    "analyticsLabel": "Analitika:",
+    "analytics": "Naudojame savo talpinamą Umami Analytics puslapių peržiūroms ir pagrindiniam naudojimui skaičiuoti (naršyklės tipas, šalis, nukreipėjas). Umami nenaudoja slapukų ir nekuria jūsų profilio kitose svetainėse. IP adresai nesaugomi.",
+    "usageLabel": "Naudojimo duomenys:",
+    "usage": "Standartiniai serverio žurnalai (IP adresas, naršyklės tipas, peržiūrėti puslapiai) gali būti renkami mūsų hostingo teikėjo saugumo ir našumo tikslais.",
+    "locationLabel": "Vieta:",
+    "location": "Jei leidžiate naršyklės geolokaciją, koordinatės naudojamos vietoje artimiausiems oro uostams pasiūlyti. Nesaugome GPS duomenų savo serveriuose.",
+    "searchPrefsLabel": "Paieškos nuostatos:",
+    "searchPrefs": "Oro uostų ir savaitgalio pasirinkimai saugomi tik jūsų naršyklės sesijoje ir nesusieti su vartotojo paskyra.",
+    "thirdPartyTitle": "Trečiųjų šalių paslaugos",
+    "thirdParty": "Rezervavimo nuorodos nukreipia į Kiwi.com ir kitus kelionių partnerius. Jų privatumo politikos taikomos, kai paliekate mūsų svetainę. Naudojame Kiwi.com API duomenis skrydžių pasiūlymams rodyti.",
+    "cookiesTitle": "Slapukai",
+    "cookies": "Nenaudojame reklamos slapukų. Umami Analytics veikia be slapukų. Esminius techninius slapukus gali nustatyti mūsų hostingo infrastruktūra. Partnerių svetainės gali nustatyti savo slapukus po rezervavimo nuorodos spustelėjimo.",
+    "rightsTitle": "Jūsų teisės",
+    "rights": "Priklausomai nuo jūsų vietos (įskaitant ES/EEE pagal BDAR) galite turėti teisę pasiekti, ištaisyti ar ištrinti mūsų saugomus asmens duomenis. Susisiekite su mumis, kad pasinaudotumėte šiomis teisėmis.",
+    "contactTitle": "Kontaktai",
+    "contact": "Privatumo klausimai: {{email}}",
+    "seeAlso": "Taip pat žiūrėkite mūsų naudojimo sąlygas."
+  },
+  "terms": {
+    "title": "Naudojimo sąlygos",
+    "lead": "Paskutinį kartą atnaujinta: 2026 m. liepa",
+    "intro": "Naudodamiesi euroweekender.com sutinkate su šiomis sąlygomis. Jei nesutinkate, prašome nenaudoti svetainės.",
+    "serviceTitle": "Paslaugos aprašymas",
+    "service": "Teikiame skrydžių pasiūlymų paieškos ir palyginimo sąsają. Nesame kelionių agentūra ir neišduodame bilietų. Transporto sutartys sudaromos tarp jūsų ir oro linijos ar rezervavimo partnerio.",
+    "accuracyTitle": "Informacijos tikslumas",
+    "accuracy": "Kainos, laikai ir prieinamumas gaunami iš trečiųjų šalių šaltinių ir gali pasikeisti prieš rezervuojant. Visada patikrinkite detales partnerio svetainėje prieš mokant. Neatsakome už klaidas rodomose kainose ar tvarkaraščiuose.",
+    "affiliateTitle": "Partnerių nuorodos",
+    "affiliate": "Kai kurios išorinės nuorodos yra partnerių nuorodos. Galime gauti komisinius, kai rezervuojate per jas. Tai neturi įtakos kainai, kurią mokate partnerio svetainėje.",
+    "acceptableTitle": "Priimtinas naudojimas",
+    "acceptableIntro": "Sutinkate ne:",
+    "acceptable1": "Nuskaityti ar perkrauti mūsų API ar svetainę automatizuotomis užklausomis.",
+    "acceptable2": "Bandyti trikdyti paslaugą ar pasiekti neviešas sistemas.",
+    "acceptable3": "Naudoti svetainę neteisėtais tikslais.",
+    "liabilityTitle": "Atsakomybės apribojimas",
+    "liability": "Svetainė teikiama \"kaip yra\" be garantijų. Maksimalia įstatymų leidžiama apimtimi neatsakome už netiesioginę ar pasekminę žalą, kylančią naudojantis svetaine ar trečiųjų šalių rezervacijomis.",
+    "changesTitle": "Pakeitimai",
+    "changes": "Galime bet kada atnaujinti šias sąlygas ar nutraukti funkcijas. Toliau naudojantis po pakeitimų reiškia sutikimą.",
+    "lawTitle": "Taikoma teisė",
+    "law": "Šias sąlygas reglamentuoja Europos Sąjungoje taikoma teisė. Ginčai priklauso teismų jurisdikcijai, kurioje registruotas euroweekender.com operatorius, nepažeidžiant privalomų vartotojų apsaugos teisių jūsų gyvenamosios šalies.",
+    "contactTitle": "Kontaktai",
+    "contact": "Klausimai apie šias sąlygas: {{email}}",
+    "seeAlso": "Skaitykite mūsų privatumo politiką."
+  },
+  "common": {
+    "seeAlsoTerms": "naudojimo sąlygos",
+    "seeAlsoPrivacy": "privatumo politika",
+    "searchWeekendFlights": "Ieškoti savaitgalio skrydžių",
+    "howItWorks": "kaip tai veikia",
+    "newSearch": "nauja paieška",
+    "contactUs": "Susisiekite su mumis",
+    "startSearching": "Pradėti paiešką",
+    "readFaq": "DUK",
+    "language": "Kalba",
+    "stillHaveQuestion": "Vis dar turite klausimą?",
+    "orStart": "arba pradėkite",
+    "orRead": "arba skaitykite",
+    "readyToPlan": "Pasiruošę planuoti kitą savaitgalį?",
+    "seeAlsoOur": "Taip pat žiūrėkite mūsų"
+  }
+}

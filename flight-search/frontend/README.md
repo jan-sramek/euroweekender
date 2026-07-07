@@ -1,12 +1,20 @@
-# Flight Search Frontend
+# EuroWeekender Frontend
 
-Angular application for flight search functionality.
+React + Vite web app for **[euroweekender.com](https://euroweekender.com)**.
 
-## Development Server
+## Development
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
-The app will be available at http://localhost:4200/
+The dev server proxies API requests to `http://localhost:5001`.
+
+## Production build
+
+```bash
+npm run build
+```
+
+Static assets are served from `dist/` (Docker/nginx in `flight-search/docker-compose.yml`).

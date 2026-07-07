@@ -1,0 +1,196 @@
+.departure-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.departure-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8c959c;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #192c39;
+  line-height: 1.35;
+}
+
+.value.muted {
+  font-weight: 400;
+  color: #8c959c;
+}
+
+.airport-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #d3dadf;
+  background: #fff;
+  color: #192c39;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem 0.3rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: #04bfab;
+}
+
+.chip-active {
+  background: #04bfab;
+  border-color: #04bfab;
+  color: #fff;
+}
+
+.chip-selected {
+  cursor: default;
+  padding-right: 0.45rem;
+}
+
+.chip-add {
+  font-weight: 600;
+  color: #228bd1;
+  border-style: dashed;
+}
+
+.chip-add:hover {
+  background: rgba(34, 139, 209, 0.08);
+  border-color: #228bd1;
+}
+
+.chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chip-remove:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.chip-remove:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.airport-search {
+  position: relative;
+}
+
+.airport-search-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #d3dadf;
+  border-radius: 0.35rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: #192c39;
+  background: #fff;
+}
+
+.airport-search-input:focus {
+  outline: none;
+  border-color: #04bfab;
+  box-shadow: 0 0 0 2px rgba(4, 191, 171, 0.15);
+}
+
+.airport-search-results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.25rem);
+  z-index: 20;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  max-height: 14rem;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  border-radius: 0.35rem;
+  box-shadow: 0 8px 24px rgba(25, 44, 57, 0.12);
+}
+
+.airport-search-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: #192c39;
+}
+
+.airport-search-item strong {
+  font-size: 0.9rem;
+}
+
+.airport-search-item span {
+  font-size: 0.78rem;
+  color: #8c959c;
+}
+
+.airport-search-item:hover,
+.airport-search-item:focus-visible {
+  background: #f0fbfb;
+  outline: none;
+}
+
+.airport-search-empty {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.85rem;
+  color: #8c959c;
+}
+
+.nearby-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nearby-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8c959c;
+}
+
+.airport-chips-scroll {
+  max-height: 9.5rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  scrollbar-width: thin;
+}

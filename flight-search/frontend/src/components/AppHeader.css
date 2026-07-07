@@ -1,0 +1,59 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 249, 250, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e8edf1;
+  box-shadow: 0 4px 20px rgba(25, 44, 57, 0.04);
+}
+
+.navbar {
+  padding: 0.75rem 0;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand:hover .site-brand-weekend {
+  filter: brightness(1.05);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #192c39;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #04bfab;
+}
+
+@media (max-width: 767px) {
+  .nav-links a:not(:first-child) {
+    display: none;
+  }
+
+  .nav-links .language-switcher {
+    margin-left: auto;
+  }
+}

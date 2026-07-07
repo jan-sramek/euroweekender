@@ -268,6 +268,12 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.Property<DateTime>("LocalDeparture")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<DateTime?>("LocalReturnArrival")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("LocalReturnDeparture")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("NightsInDest")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
@@ -313,6 +319,33 @@ namespace WeekendFlights.Infrastructure.Migrations
                     b.HasIndex("FlyFrom", "FlyTo");
 
                     b.ToTable("Flights", (string)null);
+                });
+
+            modelBuilder.Entity("WeekendFlights.Domain.Entities.FlightsImport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateTimeUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastCityCode")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DateTimeUtc")
+                        .HasDatabaseName("idx_flights_imports_datetime");
+
+                    b.HasIndex("LastCityCode")
+                        .HasDatabaseName("idx_flights_imports_last_city_code");
+
+                    b.ToTable("flights_imports", (string)null);
                 });
 
             modelBuilder.Entity("WeekendFlights.Domain.Entities.Airport", b =>

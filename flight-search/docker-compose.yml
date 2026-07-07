@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:16-alpine
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     environment:
       POSTGRES_DB: WeekendFlights
       POSTGRES_USER: postgres
@@ -17,11 +17,14 @@ services:
       context: ..
       dockerfile: WeekendFlights.Api/Dockerfile
     ports:
-      - "5001:80"
+      - "127.0.0.1:5001:80"
     environment:
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__Postgres=${ConnectionStrings__DefaultConnection:-Host=db;Port=5432;Database=WeekendFlights;Username=postgres;Password=password}
       - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
+      - Cors__AllowedOrigins__0=https://${SITE_DOMAIN:-euroweekender.com}
+      - Cors__AllowedOrigins__1=https://www.${SITE_DOMAIN:-euroweekender.com}
+      - Cors__AllowedOrigins__2=http://localhost:4200
     depends_on:
       - db
     restart: unless-stopped
@@ -52,10 +55,26 @@ services:
         VITE_UMAMI_SCRIPT_URL: ${VITE_UMAMI_SCRIPT_URL:-/umami/script.js}
         VITE_UMAMI_WEBSITE_ID: ${VITE_UMAMI_WEBSITE_ID:-9b63db18-fc14-4972-9cd4-022e4621d053}
     ports:
-      - "4200:80"
+      - "127.0.0.1:4200:80"
     depends_on:
       - api
       - umami
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - ACME_EMAIL=${ACME_EMAIL}
+      - SITE_DOMAIN=${SITE_DOMAIN:-euroweekender.com}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
     restart: unless-stopped
 
   umami-db:
@@ -76,7 +95,7 @@ services:
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     environment:
       DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD:-umami}@umami-db:5432/umami
       APP_SECRET: ${UMAMI_APP_SECRET:-change-me-to-a-long-random-string}
@@ -88,3 +107,7 @@ services:
 networks:
   default:
     driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

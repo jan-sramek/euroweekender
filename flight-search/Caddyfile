@@ -5,3 +5,7 @@
 {$SITE_DOMAIN}, www.{$SITE_DOMAIN} {
 	reverse_proxy frontend:80
 }
+
+analytics.{$SITE_DOMAIN} {
+	reverse_proxy umami:3000
+}

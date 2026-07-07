@@ -43,6 +43,7 @@ services:
     environment:
       - ConnectionStrings__Postgres=${ConnectionStrings__DefaultConnection:-Host=db;Port=5432;Database=WeekendFlights;Username=postgres;Password=password}
       - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
+      - Crawl__IntervalMinutes=${CRAWL_INTERVAL_MINUTES:-20}
     depends_on:
       - db
     restart: unless-stopped

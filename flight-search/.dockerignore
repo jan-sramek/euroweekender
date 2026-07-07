@@ -1,0 +1,13 @@
+# Ignore everything except source code and build artifacts
+!*.csproj
+!*.sln
+!*.slnx
+!*.cs
+!*.json
+!*.xml
+!.gitignore
+# Exclude node_modules, bin, obj, etc.
+node_modules/
+bin/
+obj/
+.DS_Store

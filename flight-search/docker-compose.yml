@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # .NET Web API
+  api:
+    build:
+      context: ..
+      dockerfile: flight-search/api/Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Host=db;Database=WeekendFlights;Username=postgres;Password=password
+    depends_on:
+      - db
+
+  # .NET Worker Service (Crawler)
+  worker:
+    build:
+      context: ..
+      dockerfile: flight-search/worker/Dockerfile
+    environment:
+      - KiwiApiKey=${KIWI_API_KEY}
+      - ConnectionStrings__DefaultConnection=Host=db;Database=WeekendFlights;Username=postgres;Password=password
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "dotnet", "version"]
+      interval: 5m
+      timeout: 3s
+      retries: 3
+
+  # PostgreSQL Database
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: WeekendFlights
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+
+networks:
+  default:
+    driver: bridge

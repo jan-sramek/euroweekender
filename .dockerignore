@@ -21,5 +21,10 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/db-data
+**/umami-db-data
+flight-search/frontend/node_modules
+flight-search/frontend/dist
 LICENSE
 README.md
+readme.md

@@ -38,9 +38,11 @@ dist/
 .env.*
 !.env.example
 
-# Docker runtime data
-flight-search/db-data/
-flight-search/umami-db-data/
+# Docker runtime data (PostgreSQL volumes)
+db-data/
+**/db-data/
+umami-db-data/
+**/umami-db-data/
 
 # OS
 .DS_Store

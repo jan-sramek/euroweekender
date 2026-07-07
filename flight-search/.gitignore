@@ -1,0 +1,8 @@
+# Docker Compose runtime volumes
+db-data/
+umami-db-data/
+
+# Local env (also ignored from repo root)
+.env
+.env.*
+!.env.example

@@ -246,6 +246,8 @@ public class WeekendFlightsDbContext : DbContext
         entity.HasIndex(f => f.KiwiId).IsUnique();
         entity.HasIndex(f => new { f.FlyFrom, f.FlyTo });
         entity.HasIndex(f => new { f.CityCodeFrom, f.CityCodeTo });
+        entity.HasIndex(f => f.UtcDeparture);
+        entity.HasIndex(f => new { f.CityCodeFrom, f.UtcDeparture });
     });
 }
     

@@ -33,6 +33,12 @@ export function useFlightSearch({
   const [returnLegFilter, setReturnLegFilter] = useState<string | null>(null);
   const [flightError, setFlightError] = useState('');
   const flightLoadGeneration = useRef(0);
+  const flightAbortController = useRef<AbortController | null>(null);
+
+  const selectedCodesKey = useMemo(
+    () => selectedCodes.slice().sort().join(','),
+    [selectedCodes]
+  );
 
   const selectedWeekends = useMemo(
     () =>
@@ -70,6 +76,10 @@ export function useFlightSearch({
 
     if (activeWeekends.length === 0 || selectedCodes.length === 0) return;
 
+    flightAbortController.current?.abort();
+    const controller = new AbortController();
+    flightAbortController.current = controller;
+
     const generation = ++flightLoadGeneration.current;
     setLoadingFlights(true);
     setFlightError('');
@@ -80,13 +90,15 @@ export function useFlightSearch({
         activeWeekends.map(weekend => ({
           departFrom: weekend.departFrom,
           departTo: weekend.departTo
-        }))
+        })),
+        controller.signal
       );
       if (generation !== flightLoadGeneration.current) return;
       setRawFlights(items);
       setDepartureLegFilter(null);
       setReturnLegFilter(null);
-    } catch {
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
       if (generation !== flightLoadGeneration.current) return;
       setRawFlights([]);
       setFlightError(t('home.flightLoadError'));
@@ -95,12 +107,19 @@ export function useFlightSearch({
         setLoadingFlights(false);
       }
     }
-  }, [weekends, selectedWeekendKey, selectedCodes, t]);
+  }, [weekends, selectedWeekendKey, selectedCodes, selectedCodesKey, t]);
 
   useEffect(() => {
-    if (!locating) {
+    if (locating) return;
+
+    const timer = window.setTimeout(() => {
       void loadFlights();
-    }
+    }, 400);
+
+    return () => {
+      window.clearTimeout(timer);
+      flightAbortController.current?.abort();
+    };
   }, [locating, loadFlights]);
 
   const handleDepartureLegSelect = (flight: Flight, selected: boolean) => {

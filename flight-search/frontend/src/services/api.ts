@@ -4,7 +4,7 @@ import { normalizeHubScore } from './hubScore';
 import { getWeekendSearchRange } from './weekend';
 
 const API_BASE = '/api';
-const SEARCH_PAGE_SIZE = 1000;
+const SEARCH_PAGE_SIZE = 500;
 
 export interface FlightSearchParams {
   cityCodeFrom: string[];
@@ -13,6 +13,7 @@ export interface FlightSearchParams {
   page?: number;
   pageSize?: number;
   includeTotal?: boolean;
+  signal?: AbortSignal;
 }
 
 export interface WeekendFlightSearchWindow {
@@ -22,7 +23,8 @@ export interface WeekendFlightSearchWindow {
 
 export async function searchFlightsForWeekends(
   cityCodeFrom: string[],
-  weekends: WeekendFlightSearchWindow[]
+  weekends: WeekendFlightSearchWindow[],
+  signal?: AbortSignal
 ): Promise<Flight[]> {
   if (weekends.length === 0 || cityCodeFrom.length === 0) {
     return [];
@@ -38,7 +40,8 @@ export async function searchFlightsForWeekends(
     departToUtc: range.departTo,
     page: 1,
     pageSize: SEARCH_PAGE_SIZE,
-    includeTotal: false
+    includeTotal: false,
+    signal
   });
 
   return page.items;
@@ -71,7 +74,7 @@ export async function searchFlights(params: FlightSearchParams): Promise<FlightP
     includeTotal: String(params.includeTotal ?? false)
   });
 
-  const response = await fetch(`${API_BASE}/flights?${query}`);
+  const response = await fetch(`${API_BASE}/flights?${query}`, { signal: params.signal });
   if (!response.ok) {
     throw new Error('Failed to load flights');
   }

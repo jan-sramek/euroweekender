@@ -66,29 +66,14 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         take = Math.Clamp(take, 1, 1000);
         skip = Math.Max(0, skip);
 
-        var query = db.Flights
-            .AsNoTracking()
-            .Where(f => f.UtcDeparture >= DateTime.UtcNow);
-
-        if (!string.IsNullOrWhiteSpace(cityCodeFrom))
+        var cityCodes = ParseCityCodes(cityCodeFrom);
+        if (cityCodes.Length > 1 && skip == 0)
         {
-            var codes = cityCodeFrom
-                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                .Select(c => c.ToUpperInvariant())
-                .Distinct()
-                .ToArray();
-
-            query = WhereCityCodeFromIn(query, codes);
+            return await GetFlightsPerCityAsync(
+                cityCodes, cityCodeTo, departFromUtc, departToUtc, take, cancellationToken);
         }
 
-        if (!string.IsNullOrWhiteSpace(cityCodeTo))
-            query = query.Where(f => f.CityCodeTo == cityCodeTo);
-
-        if (departFromUtc.HasValue)
-            query = query.Where(f => f.UtcDeparture >= departFromUtc.Value);
-
-        if (departToUtc.HasValue)
-            query = query.Where(f => f.UtcDeparture <= departToUtc.Value);
+        var query = BuildFlightSearchQuery(cityCodes, cityCodeTo, departFromUtc, departToUtc);
 
         var totalCount = includeTotal
             ? await query.CountAsync(cancellationToken)
@@ -102,6 +87,75 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
             .ToListAsync(cancellationToken);
 
         return (flights, totalCount);
+    }
+
+    private async Task<(IReadOnlyList<Flight> Flights, int TotalCount)> GetFlightsPerCityAsync(
+        string[] cityCodes,
+        string? cityCodeTo,
+        DateTime? departFromUtc,
+        DateTime? departToUtc,
+        int take,
+        CancellationToken cancellationToken)
+    {
+        var perCityTake = Math.Max(50, (int)Math.Ceiling((double)take / cityCodes.Length));
+        var byId = new Dictionary<int, Flight>();
+
+        foreach (var code in cityCodes)
+        {
+            var cityFlights = await BuildFlightSearchQuery([code], cityCodeTo, departFromUtc, departToUtc)
+                .OrderBy(f => f.Price)
+                .ThenBy(f => f.UtcDeparture)
+                .Take(perCityTake)
+                .ToListAsync(cancellationToken);
+
+            foreach (var flight in cityFlights)
+                byId.TryAdd(flight.Id, flight);
+        }
+
+        var merged = byId.Values
+            .OrderBy(f => f.Price)
+            .ThenBy(f => f.UtcDeparture)
+            .Take(take)
+            .ToList();
+
+        return (merged, 0);
+    }
+
+    private IQueryable<Flight> BuildFlightSearchQuery(
+        string[] cityCodes,
+        string? cityCodeTo,
+        DateTime? departFromUtc,
+        DateTime? departToUtc)
+    {
+        var query = db.Flights
+            .AsNoTracking()
+            .Where(f => f.UtcDeparture >= DateTime.UtcNow);
+
+        if (cityCodes.Length > 0)
+            query = WhereCityCodeFromIn(query, cityCodes);
+
+        if (!string.IsNullOrWhiteSpace(cityCodeTo))
+            query = query.Where(f => f.CityCodeTo == cityCodeTo);
+
+        if (departFromUtc.HasValue)
+            query = query.Where(f => f.UtcDeparture >= departFromUtc.Value);
+
+        if (departToUtc.HasValue)
+            query = query.Where(f => f.UtcDeparture <= departToUtc.Value);
+
+        return query;
+    }
+
+    private static string[] ParseCityCodes(string? cityCodeFrom)
+    {
+        if (string.IsNullOrWhiteSpace(cityCodeFrom))
+            return [];
+
+        return cityCodeFrom
+            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Select(c => c.ToUpperInvariant())
+            .Distinct()
+            .ToArray();
     }
 
     public async Task<IReadOnlyList<OriginHubStats>> GetOriginHubStatsAsync(

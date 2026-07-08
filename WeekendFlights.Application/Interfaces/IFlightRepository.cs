@@ -15,6 +15,7 @@ public interface IFlightRepository
         DateTime? departToUtc,
         int skip,
         int take,
+        bool includeTotal = true,
         CancellationToken cancellationToken = default);
 
     Task<IReadOnlyList<OriginHubStats>> GetOriginHubStatsAsync(

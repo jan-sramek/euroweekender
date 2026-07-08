@@ -18,10 +18,11 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
         [FromQuery] DateTime? departToUtc,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20,
+        [FromQuery] bool includeTotal = false,
         CancellationToken cancellationToken = default)
     {
         page = Math.Max(1, page);
-        pageSize = Math.Clamp(pageSize, 1, 100);
+        pageSize = Math.Clamp(pageSize, 1, 1000);
         var skip = (page - 1) * pageSize;
 
         var (items, total) = await flightRepository.GetFlightsAsync(
@@ -31,6 +32,7 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
             departToUtc,
             skip,
             pageSize,
+            includeTotal,
             cancellationToken);
 
         var dtos = items.Select(ToDto).ToList();

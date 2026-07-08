@@ -198,7 +198,7 @@ function isSameTravelWeek(a: Date, b: Date): boolean {
 
 /** Union date range covering all selected weekends (for API fetch). */
 export function getWeekendSearchRange(
-  weekends: WeekendOption[]
+  weekends: ReadonlyArray<Pick<WeekendOption, 'departFrom' | 'departTo'>>
 ): { departFrom: Date; departTo: Date } | null {
   if (weekends.length === 0) return null;
 

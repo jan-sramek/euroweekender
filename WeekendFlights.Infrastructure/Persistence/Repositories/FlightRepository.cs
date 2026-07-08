@@ -60,9 +60,10 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         DateTime? departToUtc,
         int skip,
         int take,
+        bool includeTotal = true,
         CancellationToken cancellationToken = default)
     {
-        take = Math.Clamp(take, 1, 100);
+        take = Math.Clamp(take, 1, 1000);
         skip = Math.Max(0, skip);
 
         var query = db.Flights
@@ -89,7 +90,9 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         if (departToUtc.HasValue)
             query = query.Where(f => f.UtcDeparture <= departToUtc.Value);
 
-        var totalCount = await query.CountAsync(cancellationToken);
+        var totalCount = includeTotal
+            ? await query.CountAsync(cancellationToken)
+            : 0;
 
         var flights = await query
             .OrderBy(f => f.Price)

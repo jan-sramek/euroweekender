@@ -10,6 +10,12 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - ./db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d WeekendFlights']
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   # .NET Web API (WeekendFlights.Api)
   api:
@@ -26,7 +32,8 @@ services:
       - Cors__AllowedOrigins__1=https://www.${SITE_DOMAIN:-euroweekender.com}
       - Cors__AllowedOrigins__2=http://localhost:4200
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/health"]
@@ -45,7 +52,8 @@ services:
       - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
       - Crawl__IntervalMinutes=${CRAWL_INTERVAL_MINUTES:-10}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   frontend:
@@ -58,8 +66,10 @@ services:
     ports:
       - "127.0.0.1:4200:80"
     depends_on:
-      - api
-      - umami
+      api:
+        condition: service_healthy
+      umami:
+        condition: service_started
     restart: unless-stopped
 
   caddy:

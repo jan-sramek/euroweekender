@@ -7,6 +7,8 @@ import { getTripPrice, hasEnoughSeats } from '../utils/flightPrice';
 import type { Flight } from '../types/flight';
 import type { WeekendOption, WeekendPattern } from '../types/weekend';
 
+const SEARCH_DEBOUNCE_MS = 800;
+
 interface UseFlightSearchOptions {
   selectedCodes: string[];
   weekends: WeekendOption[];
@@ -32,8 +34,7 @@ export function useFlightSearch({
   const [departureLegFilter, setDepartureLegFilter] = useState<string | null>(null);
   const [returnLegFilter, setReturnLegFilter] = useState<string | null>(null);
   const [flightError, setFlightError] = useState('');
-  const flightLoadGeneration = useRef(0);
-  const flightAbortController = useRef<AbortController | null>(null);
+  const searchGeneration = useRef(0);
 
   const selectedCodesKey = useMemo(
     () => selectedCodes.slice().sort().join(','),
@@ -53,6 +54,11 @@ export function useFlightSearch({
     [selectedWeekendIds]
   );
 
+  const searchKey = useMemo(() => {
+    if (!selectedCodesKey || !selectedWeekendKey) return '';
+    return `${selectedCodesKey}|${selectedWeekendKey}`;
+  }, [selectedCodesKey, selectedWeekendKey]);
+
   const flights = useMemo(() => {
     if (selectedWeekends.length === 0) return [];
     const matched = filterFlightsByWeekends(rawFlights, selectedWeekends, selectedPattern, eveningFilters);
@@ -68,59 +74,61 @@ export function useFlightSearch({
 
   const hasLegFilter = departureLegFilter !== null || returnLegFilter !== null;
 
-  const loadFlights = useCallback(async () => {
-    const activeWeekendIds = selectedWeekendKey ? selectedWeekendKey.split('|') : [];
-    const activeWeekends = weekends
-      .filter(weekend => activeWeekendIds.includes(weekend.id))
-      .sort((a, b) => a.departDate.getTime() - b.departDate.getTime());
+  const runSearch = useCallback(
+    async (codes: string[], activeWeekends: WeekendOption[], signal: AbortSignal) => {
+      const generation = ++searchGeneration.current;
+      setLoadingFlights(true);
+      setFlightError('');
 
-    if (activeWeekends.length === 0 || selectedCodes.length === 0) return;
-
-    flightAbortController.current?.abort();
-    const controller = new AbortController();
-    flightAbortController.current = controller;
-
-    const generation = ++flightLoadGeneration.current;
-    setLoadingFlights(true);
-    setFlightError('');
-
-    try {
-      const items = await searchFlightsForWeekends(
-        selectedCodes,
-        activeWeekends.map(weekend => ({
-          departFrom: weekend.departFrom,
-          departTo: weekend.departTo
-        })),
-        controller.signal
-      );
-      if (generation !== flightLoadGeneration.current) return;
-      setRawFlights(items);
-      setDepartureLegFilter(null);
-      setReturnLegFilter(null);
-    } catch (error) {
-      if (error instanceof DOMException && error.name === 'AbortError') return;
-      if (generation !== flightLoadGeneration.current) return;
-      setRawFlights([]);
-      setFlightError(t('home.flightLoadError'));
-    } finally {
-      if (generation === flightLoadGeneration.current) {
-        setLoadingFlights(false);
+      try {
+        const items = await searchFlightsForWeekends(
+          codes,
+          activeWeekends.map(weekend => ({
+            departFrom: weekend.departFrom,
+            departTo: weekend.departTo
+          })),
+          signal
+        );
+        if (generation !== searchGeneration.current) return;
+        setRawFlights(items);
+        setDepartureLegFilter(null);
+        setReturnLegFilter(null);
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        if (generation !== searchGeneration.current) return;
+        setRawFlights([]);
+        setFlightError(t('home.flightLoadError'));
+      } finally {
+        if (generation === searchGeneration.current) {
+          setLoadingFlights(false);
+        }
       }
-    }
-  }, [weekends, selectedWeekendKey, selectedCodes, selectedCodesKey, t]);
+    },
+    [t]
+  );
+
+  const loadFlights = useCallback(async () => {
+    if (!searchKey || selectedWeekends.length === 0) return;
+    await runSearch(selectedCodesKey.split(','), selectedWeekends, new AbortController().signal);
+  }, [runSearch, searchKey, selectedCodesKey, selectedWeekends]);
 
   useEffect(() => {
-    if (locating) return;
+    if (locating || !searchKey || selectedWeekends.length === 0) return;
+
+    const controller = new AbortController();
+    const codes = selectedCodesKey.split(',');
+    const activeWeekends = selectedWeekends;
 
     const timer = window.setTimeout(() => {
-      void loadFlights();
-    }, 400);
+      void runSearch(codes, activeWeekends, controller.signal);
+    }, SEARCH_DEBOUNCE_MS);
 
     return () => {
       window.clearTimeout(timer);
-      flightAbortController.current?.abort();
+      controller.abort();
+      searchGeneration.current += 1;
     };
-  }, [locating, loadFlights]);
+  }, [locating, searchKey, selectedCodesKey, selectedWeekends, runSearch]);
 
   const handleDepartureLegSelect = (flight: Flight, selected: boolean) => {
     setDepartureLegFilter(selected ? getDepartureLegKey(flight) : null);

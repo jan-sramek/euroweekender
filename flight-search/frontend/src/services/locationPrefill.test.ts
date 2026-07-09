@@ -16,6 +16,17 @@ const cities: City[] = [
   },
   {
     id: '2',
+    code: 'WAW',
+    name: 'Warsaw',
+    country: 'Poland',
+    region: null,
+    continent: 'EU',
+    latitude: 52.23,
+    longitude: 21.01,
+    isActive: true
+  },
+  {
+    id: '3',
     code: 'LON',
     name: 'London',
     country: 'United Kingdom',
@@ -24,34 +35,24 @@ const cities: City[] = [
     latitude: 51.5,
     longitude: -0.12,
     isActive: true
-  },
-  {
-    id: '3',
-    code: 'BCN',
-    name: 'Barcelona',
-    country: 'Spain',
-    region: null,
-    continent: 'EU',
-    latitude: 41.39,
-    longitude: 2.17,
-    isActive: true
   }
 ];
 
 const hubScores: HubScore[] = [
   { code: 'PRG', offerCount: 120, minPrice: 40, averageQuality: 70, destinationCount: 20, hubScore: 8 },
-  { code: 'LON', offerCount: 900, minPrice: 35, averageQuality: 75, destinationCount: 80, hubScore: 9 },
-  { code: 'BCN', offerCount: 650, minPrice: 30, averageQuality: 72, destinationCount: 60, hubScore: 8.5 }
+  { code: 'WAW', offerCount: 700, minPrice: 35, averageQuality: 75, destinationCount: 50, hubScore: 8.5 },
+  { code: 'LON', offerCount: 900, minPrice: 35, averageQuality: 75, destinationCount: 80, hubScore: 9 }
 ];
 
 describe('locationPrefill', () => {
-  it('ranks popular hubs outside nearby airports by offer count', () => {
+  it('ranks popular hubs outside nearby airports by offer count within max distance', () => {
     const anchor = { latitude: 50.1, longitude: 14.26 };
     const nearby = rankNearbyCities(cities, anchor, hubScores, 10, 350);
-    const popular = rankPopularHubCities(cities, anchor, hubScores, nearby, 10, 50);
+    const popular = rankPopularHubCities(cities, anchor, hubScores, nearby, 10, 50, 1000);
 
     expect(nearby.map(city => city.code)).toContain('PRG');
     expect(popular.map(city => city.code)).not.toContain('PRG');
-    expect(popular.map(city => city.code)).toEqual(['LON', 'BCN']);
+    expect(popular.map(city => city.code)).toEqual(['WAW']);
+    expect(popular.every(city => city.distanceKm <= 1000)).toBe(true);
   });
 });

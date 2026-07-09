@@ -6,6 +6,7 @@ const EARTH_RADIUS_KM = 6371;
 export const NEARBY_RADIUS_KM = 350;
 export const NEARBY_MAX_CITIES = 40;
 export const POPULAR_HUB_MAX_CITIES = 12;
+export const POPULAR_HUB_MAX_RADIUS_KM = 1000;
 export const MIN_POPULAR_HUB_OFFER_COUNT = 50;
 
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
@@ -65,7 +66,8 @@ export function rankPopularHubCities(
   hubScores: HubScore[],
   nearbyCities: CityWithDistance[],
   limit = POPULAR_HUB_MAX_CITIES,
-  minOfferCount = MIN_POPULAR_HUB_OFFER_COUNT
+  minOfferCount = MIN_POPULAR_HUB_OFFER_COUNT,
+  maxRadiusKm = POPULAR_HUB_MAX_RADIUS_KM
 ): CityWithDistance[] {
   const scores = hubScoresByCode(hubScores);
   const nearbyCodes = new Set(nearbyCities.map(city => city.code.toUpperCase()));
@@ -93,6 +95,7 @@ export function rankPopularHubCities(
       };
     })
     .filter(city => city.offerCount >= minOfferCount)
+    .filter(city => city.distanceKm <= maxRadiusKm)
     .sort((a, b) => {
       if (b.offerCount !== a.offerCount) {
         return b.offerCount - a.offerCount;

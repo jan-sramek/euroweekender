@@ -69,7 +69,10 @@
     "selectedAirports": "valdir flugvellir",
     "moreAirports_one": "{{name}} + {{count}} flugvöllur til viðbótar",
     "moreAirports_other": "{{name}} + {{count}} flugvellir til viðbótar",
-    "weekendsCount": "{{count}} helgar"
+    "weekendsCount": "{{count}} helgar",
+    "flightsCounter": "{{count}} flug fundust",
+    "flightsCounterFiltered": "{{shown}} af {{total}} flugum",
+    "flightsCounterSearching": "Leita að flugum…"
   },
   "search": {
     "travelWeekend": "Ferðahelgi",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valfrjálst dvölarmynstur",
     "departureTime": "Brottfarartími",
     "departureTimeHint": "Valfrjálsar síur aðeins fyrir kvöld",
-    "travelers": "Ferðamenn",
+    "travelers": "ferðamenn",
     "travelersHint": "Fjöldi farþega fyrir verðlagningu",
     "thereEvening": "Þangað · kvöld",
     "thereEveningTitle": "Brottfararflug fer kl. 17:00 eða síðar",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Nálægir flugvellir",
     "removeAirport": "Fjarlægja {{name}}",
     "traveler": "ferðamaður",
-    "travelers": "ferðamenn",
     "fewerTravelers": "Færri ferðamenn",
     "moreTravelers": "Fleiri ferðamenn",
-    "travelersGroup": "Fjöldi ferðamanna"
+    "travelersGroup": "Fjöldi ferðamanna",
+    "loadingAirports": "Hleð flugvöllum…",
+    "popularHubAirports": "Vinsælir flugmannastöðvar lengra í burtu",
+    "popularHubOffers": "{{count}} flug",
+    "addPopularHub": "Bæta við {{name}} ({{count}} flug)"
   },
   "patterns": {
     "fri-sun": {

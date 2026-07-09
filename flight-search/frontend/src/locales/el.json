@@ -69,7 +69,10 @@
     "selectedAirports": "επιλεγμένα αεροδρόμια",
     "moreAirports_one": "{{name}} + {{count}} ακόμη αεροδρόμιο",
     "moreAirports_other": "{{name}} + {{count}} ακόμη αεροδρόμια",
-    "weekendsCount": "{{count}} σαββατοκύριακα"
+    "weekendsCount": "{{count}} σαββατοκύριακα",
+    "flightsCounter": "{{count}} πτήσεις βρέθηκαν",
+    "flightsCounterFiltered": "{{shown}} από {{total}} πτήσεις",
+    "flightsCounterSearching": "Αναζήτηση πτήσεων…"
   },
   "search": {
     "travelWeekend": "Σαββατοκύριακο ταξιδιού",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Προαιρετικό μοτίβο διαμονής",
     "departureTime": "Ώρα αναχώρησης",
     "departureTimeHint": "Προαιρετικά φίλτρα μόνο για βραδινές αναχωρήσεις",
-    "travelers": "Ταξιδιώτες",
+    "travelers": "ταξιδιώτες",
     "travelersHint": "Αριθμός επιβατών για τιμολόγηση",
     "thereEvening": "Αναχώρηση · βράδυ",
     "thereEveningTitle": "Η εξερχόμενη πτήση αναχωρεί στις 17:00 ή αργότερα",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Κοντινά αεροδρόμια",
     "removeAirport": "Αφαίρεση {{name}}",
     "traveler": "ταξιδιώτης",
-    "travelers": "ταξιδιώτες",
     "fewerTravelers": "Λιγότεροι ταξιδιώτες",
     "moreTravelers": "Περισσότεροι ταξιδιώτες",
-    "travelersGroup": "Αριθμός ταξιδιωτών"
+    "travelersGroup": "Αριθμός ταξιδιωτών",
+    "loadingAirports": "Φόρτωση αεροδρομίων…",
+    "popularHubAirports": "Δημοφιλή κόμβοι πιο μακριά",
+    "popularHubOffers": "{{count}} πτήσεις",
+    "addPopularHub": "Προσθήκη {{name}} ({{count}} πτήσεις)"
   },
   "patterns": {
     "fri-sun": {

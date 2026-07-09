@@ -69,7 +69,10 @@
     "selectedAirports": "aeroporturi selectate",
     "moreAirports_one": "{{name}} + {{count}} alt aeroport",
     "moreAirports_other": "{{name}} + {{count}} alte aeroporturi",
-    "weekendsCount": "{{count}} weekenduri"
+    "weekendsCount": "{{count}} weekenduri",
+    "flightsCounter": "{{count}} zboruri găsite",
+    "flightsCounterFiltered": "{{shown}} din {{total}} zboruri",
+    "flightsCounterSearching": "Se caută zboruri…"
   },
   "search": {
     "travelWeekend": "Weekend de călătorie",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Model de ședere opțional",
     "departureTime": "Ora plecării",
     "departureTimeHint": "Filtre opționale doar pentru plecări de seară",
-    "travelers": "Călători",
+    "travelers": "călători",
     "travelersHint": "Număr de pasageri pentru preț",
     "thereEvening": "Dus · seară",
     "thereEveningTitle": "Plecarea dus la ora 17:00 sau mai târziu",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Aeroporturi din apropiere",
     "removeAirport": "Elimină {{name}}",
     "traveler": "călător",
-    "travelers": "călători",
     "fewerTravelers": "Mai puțini călători",
     "moreTravelers": "Mai mulți călători",
-    "travelersGroup": "Număr de călători"
+    "travelersGroup": "Număr de călători",
+    "loadingAirports": "Se încarcă aeroporturile…",
+    "popularHubAirports": "Huburi populare mai departe",
+    "popularHubOffers": "{{count}} zboruri",
+    "addPopularHub": "Adaugă {{name}} ({{count}} zboruri)"
   },
   "patterns": {
     "fri-sun": {

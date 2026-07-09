@@ -69,7 +69,10 @@
     "selectedAirports": "valgte lufthavne",
     "moreAirports_one": "{{name}} + {{count}} lufthavn mere",
     "moreAirports_other": "{{name}} + {{count}} lufthavne mere",
-    "weekendsCount": "{{count}} weekender"
+    "weekendsCount": "{{count}} weekender",
+    "flightsCounter": "{{count}} fly fundet",
+    "flightsCounterFiltered": "{{shown}} af {{total}} fly",
+    "flightsCounterSearching": "Søger fly…"
   },
   "search": {
     "travelWeekend": "Rejseweekend",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valgfrit opholdsmønster",
     "departureTime": "Afgangstid",
     "departureTimeHint": "Valgfrie filtre kun for aftenafgange",
-    "travelers": "Rejsende",
+    "travelers": "rejsende",
     "travelersHint": "Antal passagerer til prissætning",
     "thereEvening": "Derud · aften",
     "thereEveningTitle": "Udrejse afgår kl. 17:00 eller senere",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Nærliggende lufthavne",
     "removeAirport": "Fjern {{name}}",
     "traveler": "rejsende",
-    "travelers": "rejsende",
     "fewerTravelers": "Færre rejsende",
     "moreTravelers": "Flere rejsende",
-    "travelersGroup": "Antal rejsende"
+    "travelersGroup": "Antal rejsende",
+    "loadingAirports": "Indlæser lufthavne…",
+    "popularHubAirports": "Populære knudepunkter længere væk",
+    "popularHubOffers": "{{count}} fly",
+    "addPopularHub": "Tilføj {{name}} ({{count}} fly)"
   },
   "patterns": {
     "fri-sun": {

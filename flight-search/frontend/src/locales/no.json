@@ -69,7 +69,10 @@
     "selectedAirports": "valgte flyplasser",
     "moreAirports_one": "{{name}} + {{count}} flyplass til",
     "moreAirports_other": "{{name}} + {{count}} flyplasser til",
-    "weekendsCount": "{{count}} helger"
+    "weekendsCount": "{{count}} helger",
+    "flightsCounter": "{{count}} fly funnet",
+    "flightsCounterFiltered": "{{shown}} av {{total}} fly",
+    "flightsCounterSearching": "Søker etter fly…"
   },
   "search": {
     "travelWeekend": "Reisehelg",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valgfritt oppholdsmønster",
     "departureTime": "Avreisetid",
     "departureTimeHint": "Valgfrie filtre kun for kveldsavganger",
-    "travelers": "Reisende",
+    "travelers": "reisende",
     "travelersHint": "Antall passasjerer for prising",
     "thereEvening": "Dit · kveld",
     "thereEveningTitle": "Utreise avgår kl. 17:00 eller senere",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Nærliggende flyplasser",
     "removeAirport": "Fjern {{name}}",
     "traveler": "reisende",
-    "travelers": "reisende",
     "fewerTravelers": "Færre reisende",
     "moreTravelers": "Flere reisende",
-    "travelersGroup": "Antall reisende"
+    "travelersGroup": "Antall reisende",
+    "loadingAirports": "Laster flyplasser…",
+    "popularHubAirports": "Populære knutepunkter lenger unna",
+    "popularHubOffers": "{{count}} fly",
+    "addPopularHub": "Legg til {{name}} ({{count}} fly)"
   },
   "patterns": {
     "fri-sun": {

@@ -69,7 +69,10 @@
     "selectedAirports": "seçili havalimanları",
     "moreAirports_one": "{{name}} + {{count}} havalimanı daha",
     "moreAirports_other": "{{name}} + {{count}} havalimanı daha",
-    "weekendsCount": "{{count}} hafta sonu"
+    "weekendsCount": "{{count}} hafta sonu",
+    "flightsCounter": "{{count}} uçuş bulundu",
+    "flightsCounterFiltered": "{{total}} uçuştan {{shown}} tanesi",
+    "flightsCounterSearching": "Uçuşlar aranıyor…"
   },
   "search": {
     "travelWeekend": "Seyahat hafta sonu",
@@ -78,7 +81,7 @@
     "tripTypeHint": "İsteğe bağlı konaklama deseni",
     "departureTime": "Kalkış saati",
     "departureTimeHint": "İsteğe bağlı yalnızca akşam filtreleri",
-    "travelers": "Yolcular",
+    "travelers": "yolcu",
     "travelersHint": "Fiyatlandırma için yolcu sayısı",
     "thereEvening": "Gidiş · akşam",
     "thereEveningTitle": "Gidiş uçuşu 17:00 veya sonrasında kalkıyor",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Yakındaki havalimanları",
     "removeAirport": "{{name}} kaldır",
     "traveler": "yolcu",
-    "travelers": "yolcu",
     "fewerTravelers": "Daha az yolcu",
     "moreTravelers": "Daha fazla yolcu",
-    "travelersGroup": "Yolcu sayısı"
+    "travelersGroup": "Yolcu sayısı",
+    "loadingAirports": "Havalimanları yükleniyor…",
+    "popularHubAirports": "Daha uzaktaki popüler merkezler",
+    "popularHubOffers": "{{count}} uçuş",
+    "addPopularHub": "{{name}} ekle ({{count}} uçuş)"
   },
   "patterns": {
     "fri-sun": {

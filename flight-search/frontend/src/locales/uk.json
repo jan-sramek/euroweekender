@@ -69,7 +69,10 @@
     "selectedAirports": "обрані аеропорти",
     "moreAirports_one": "{{name}} + ще {{count}} аеропорт",
     "moreAirports_other": "{{name}} + ще {{count}} аеропортів",
-    "weekendsCount": "{{count}} вихідних"
+    "weekendsCount": "{{count}} вихідних",
+    "flightsCounter": "Знайдено {{count}} рейсів",
+    "flightsCounterFiltered": "{{shown}} з {{total}} рейсів",
+    "flightsCounterSearching": "Пошук рейсів…"
   },
   "search": {
     "travelWeekend": "Вихідні для подорожі",
@@ -100,7 +103,11 @@
     "traveler": "мандрівник",
     "fewerTravelers": "Менше мандрівників",
     "moreTravelers": "Більше мандрівників",
-    "travelersGroup": "Кількість мандрівників"
+    "travelersGroup": "Кількість мандрівників",
+    "loadingAirports": "Завантаження аеропортів…",
+    "popularHubAirports": "Популярні вузли далі",
+    "popularHubOffers": "{{count}} рейсів",
+    "addPopularHub": "Додати {{name}} ({{count}} рейсів)"
   },
   "patterns": {
     "fri-sun": {

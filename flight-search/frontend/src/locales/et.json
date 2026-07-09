@@ -69,7 +69,10 @@
     "selectedAirports": "valitud lennujaamad",
     "moreAirports_one": "{{name}} + veel {{count}} lennujaam",
     "moreAirports_other": "{{name}} + veel {{count}} lennujaama",
-    "weekendsCount": "{{count}} nädalavahetust"
+    "weekendsCount": "{{count}} nädalavahetust",
+    "flightsCounter": "{{count}} lendu leitud",
+    "flightsCounterFiltered": "{{shown}} / {{total}} lendu",
+    "flightsCounterSearching": "Lende otsitakse…"
   },
   "search": {
     "travelWeekend": "Reisinädalavahetus",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valikuline viibimismuster",
     "departureTime": "Väljumisaeg",
     "departureTimeHint": "Valikulised filtrid ainult õhtuste lendude jaoks",
-    "travelers": "Reisijad",
+    "travelers": "reisijat",
     "travelersHint": "Reisijate arv hinna arvutamiseks",
     "thereEvening": "Sinna · õhtul",
     "thereEveningTitle": "Väljumine kell 17:00 või hiljem",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Lähedased lennujaamad",
     "removeAirport": "Eemalda {{name}}",
     "traveler": "reisija",
-    "travelers": "reisijat",
     "fewerTravelers": "Vähem reisijaid",
     "moreTravelers": "Rohkem reisijaid",
-    "travelersGroup": "Reisijate arv"
+    "travelersGroup": "Reisijate arv",
+    "loadingAirports": "Lennujaamu laaditakse…",
+    "popularHubAirports": "Populaarsed kaugemad sõlmpunktid",
+    "popularHubOffers": "{{count}} lendu",
+    "addPopularHub": "Lisa {{name}} ({{count}} lendu)"
   },
   "patterns": {
     "fri-sun": {

@@ -69,7 +69,10 @@
     "selectedAirports": "избрани летища",
     "moreAirports_one": "{{name}} + {{count}} още летище",
     "moreAirports_other": "{{name}} + {{count}} още летища",
-    "weekendsCount": "{{count}} уикенда"
+    "weekendsCount": "{{count}} уикенда",
+    "flightsCounter": "{{count}} намерени полета",
+    "flightsCounterFiltered": "{{shown}} от {{total}} полета",
+    "flightsCounterSearching": "Търсене на полети…"
   },
   "search": {
     "travelWeekend": "Пътуващ уикенд",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Незадължителен модел на престой",
     "departureTime": "Час на заминаване",
     "departureTimeHint": "Незадължителни филтри само за вечерни полети",
-    "travelers": "Пътници",
+    "travelers": "пътници",
     "travelersHint": "Брой пътници за ценообразуване",
     "thereEvening": "Натам · вечер",
     "thereEveningTitle": "Отиване заминава в 17:00 или по-късно",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Близки летища",
     "removeAirport": "Премахни {{name}}",
     "traveler": "пътник",
-    "travelers": "пътници",
     "fewerTravelers": "По-малко пътници",
     "moreTravelers": "Повече пътници",
-    "travelersGroup": "Брой пътници"
+    "travelersGroup": "Брой пътници",
+    "loadingAirports": "Зареждане на летища…",
+    "popularHubAirports": "Популярни летища по-далеч",
+    "popularHubOffers": "{{count}} полета",
+    "addPopularHub": "Добавяне на {{name}} ({{count}} полета)"
   },
   "patterns": {
     "fri-sun": {

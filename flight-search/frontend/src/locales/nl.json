@@ -69,7 +69,10 @@
     "selectedAirports": "geselecteerde luchthavens",
     "moreAirports_one": "{{name}} + {{count}} andere luchthaven",
     "moreAirports_other": "{{name}} + {{count}} andere luchthavens",
-    "weekendsCount": "{{count}} weekenden"
+    "weekendsCount": "{{count}} weekenden",
+    "flightsCounter": "{{count}} vluchten gevonden",
+    "flightsCounterFiltered": "{{shown}} van {{total}} vluchten",
+    "flightsCounterSearching": "Vluchten zoeken…"
   },
   "search": {
     "travelWeekend": "Reisweekend",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Optioneel verblijfspatroon",
     "departureTime": "Vertrektijd",
     "departureTimeHint": "Optionele filters alleen voor avondvluchten",
-    "travelers": "Reizigers",
+    "travelers": "reizigers",
     "travelersHint": "Aantal passagiers voor de prijs",
     "thereEvening": "Heen · avond",
     "thereEveningTitle": "Heenvlucht vertrekt om 17:00 of later",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Luchthavens in de buurt",
     "removeAirport": "{{name}} verwijderen",
     "traveler": "reiziger",
-    "travelers": "reizigers",
     "fewerTravelers": "Minder reizigers",
     "moreTravelers": "Meer reizigers",
-    "travelersGroup": "Aantal reizigers"
+    "travelersGroup": "Aantal reizigers",
+    "loadingAirports": "Luchthavens laden…",
+    "popularHubAirports": "Populaire hubs verder weg",
+    "popularHubOffers": "{{count}} vluchten",
+    "addPopularHub": "{{name}} toevoegen ({{count}} vluchten)"
   },
   "patterns": {
     "fri-sun": {

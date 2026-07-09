@@ -69,7 +69,10 @@
     "selectedAirports": "выбранные аэропорты",
     "moreAirports_one": "{{name}} + ещё {{count}} аэропорт",
     "moreAirports_other": "{{name}} + ещё {{count}} аэропортов",
-    "weekendsCount": "{{count}} выходных"
+    "weekendsCount": "{{count}} выходных",
+    "flightsCounter": "Найдено {{count}} рейсов",
+    "flightsCounterFiltered": "{{shown}} из {{total}} рейсов",
+    "flightsCounterSearching": "Поиск рейсов…"
   },
   "search": {
     "travelWeekend": "Выходные для поездки",
@@ -100,7 +103,11 @@
     "traveler": "путешественник",
     "fewerTravelers": "Меньше путешественников",
     "moreTravelers": "Больше путешественников",
-    "travelersGroup": "Количество путешественников"
+    "travelersGroup": "Количество путешественников",
+    "loadingAirports": "Загрузка аэропортов…",
+    "popularHubAirports": "Популярные узлы дальше",
+    "popularHubOffers": "{{count}} рейсов",
+    "addPopularHub": "Добавить {{name}} ({{count}} рейсов)"
   },
   "patterns": {
     "fri-sun": {

@@ -69,7 +69,10 @@
     "selectedAirports": "izvēlētās lidostas",
     "moreAirports_one": "{{name}} + vēl {{count}} lidosta",
     "moreAirports_other": "{{name}} + vēl {{count}} lidostas",
-    "weekendsCount": "{{count}} nedēļas nogales"
+    "weekendsCount": "{{count}} nedēļas nogales",
+    "flightsCounter": "Atrasti {{count}} lidojumi",
+    "flightsCounterFiltered": "{{shown}} no {{total}} lidojumiem",
+    "flightsCounterSearching": "Meklē lidojumus…"
   },
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Neobligāts uzturēšanās modelis",
     "departureTime": "Izlidošanas laiks",
     "departureTimeHint": "Neobligāti filtri tikai vakara lidojumiem",
-    "travelers": "Ceļotāji",
+    "travelers": "ceļotāji",
     "travelersHint": "Pasažieru skaits cenas aprēķinam",
     "thereEvening": "Turp · vakarā",
     "thereEveningTitle": "Izlidošana turp plkst. 17:00 vai vēlāk",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Tuvējās lidostas",
     "removeAirport": "Noņemt {{name}}",
     "traveler": "ceļotājs",
-    "travelers": "ceļotāji",
     "fewerTravelers": "Mazāk ceļotāju",
     "moreTravelers": "Vairāk ceļotāju",
-    "travelersGroup": "Ceļotāju skaits"
+    "travelersGroup": "Ceļotāju skaits",
+    "loadingAirports": "Ielādē lidostas…",
+    "popularHubAirports": "Populāri tālāki mezgli",
+    "popularHubOffers": "{{count}} lidojumi",
+    "addPopularHub": "Pievienot {{name}} ({{count}} lidojumi)"
   },
   "patterns": {
     "fri-sun": {

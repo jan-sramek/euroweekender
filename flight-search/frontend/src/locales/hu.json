@@ -69,7 +69,10 @@
     "selectedAirports": "kiválasztott repülőterek",
     "moreAirports_one": "{{name}} + {{count}} további repülőtér",
     "moreAirports_other": "{{name}} + {{count}} további repülőtér",
-    "weekendsCount": "{{count}} hétvége"
+    "weekendsCount": "{{count}} hétvége",
+    "flightsCounter": "{{count}} járat található",
+    "flightsCounterFiltered": "{{shown}} / {{total}} járat",
+    "flightsCounterSearching": "Járatok keresése…"
   },
   "search": {
     "travelWeekend": "Utazási hétvége",
@@ -100,7 +103,11 @@
     "traveler": "utas",
     "fewerTravelers": "Kevesebb utas",
     "moreTravelers": "Több utas",
-    "travelersGroup": "Utasok száma"
+    "travelersGroup": "Utasok száma",
+    "loadingAirports": "Repülőterek betöltése…",
+    "popularHubAirports": "Népszerű távolabbi központok",
+    "popularHubOffers": "{{count}} járat",
+    "addPopularHub": "{{name}} hozzáadása ({{count}} járat)"
   },
   "patterns": {
     "fri-sun": {

@@ -69,7 +69,10 @@
     "selectedAirports": "aeropuertos seleccionados",
     "moreAirports_one": "{{name}} + {{count}} aeropuerto más",
     "moreAirports_other": "{{name}} + {{count}} aeropuertos más",
-    "weekendsCount": "{{count}} fines de semana"
+    "weekendsCount": "{{count}} fines de semana",
+    "flightsCounter": "{{count}} vuelos encontrados",
+    "flightsCounterFiltered": "{{shown}} de {{total}} vuelos",
+    "flightsCounterSearching": "Buscando vuelos…"
   },
   "search": {
     "travelWeekend": "Fin de semana de viaje",
@@ -100,7 +103,11 @@
     "traveler": "viajero",
     "fewerTravelers": "Menos viajeros",
     "moreTravelers": "Más viajeros",
-    "travelersGroup": "Número de viajeros"
+    "travelersGroup": "Número de viajeros",
+    "loadingAirports": "Cargando aeropuertos…",
+    "popularHubAirports": "Hubs populares más lejos",
+    "popularHubOffers": "{{count}} vuelos",
+    "addPopularHub": "Añadir {{name}} ({{count}} vuelos)"
   },
   "patterns": {
     "fri-sun": {

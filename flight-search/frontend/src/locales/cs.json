@@ -69,7 +69,10 @@
     "selectedAirports": "vybraná letiště",
     "moreAirports_one": "{{name}} + {{count}} další letiště",
     "moreAirports_other": "{{name}} + {{count}} dalších letišť",
-    "weekendsCount": "{{count}} víkendů"
+    "weekendsCount": "{{count}} víkendů",
+    "flightsCounter": "{{count}} nalezených letů",
+    "flightsCounterFiltered": "{{shown}} z {{total}} letů",
+    "flightsCounterSearching": "Hledání letů…"
   },
   "search": {
     "travelWeekend": "Cestovní víkend",
@@ -100,7 +103,11 @@
     "traveler": "cestující",
     "fewerTravelers": "Méně cestujících",
     "moreTravelers": "Více cestujících",
-    "travelersGroup": "Počet cestujících"
+    "travelersGroup": "Počet cestujících",
+    "loadingAirports": "Načítání letišť…",
+    "popularHubAirports": "Oblíbená letiště dál",
+    "popularHubOffers": "{{count}} letů",
+    "addPopularHub": "Přidat {{name}} ({{count}} letů)"
   },
   "patterns": {
     "fri-sun": {

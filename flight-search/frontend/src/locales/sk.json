@@ -69,7 +69,10 @@
     "selectedAirports": "vybrané letiská",
     "moreAirports_one": "{{name}} + {{count}} ďalšie letisko",
     "moreAirports_other": "{{name}} + {{count}} ďalších letísk",
-    "weekendsCount": "{{count}} víkendov"
+    "weekendsCount": "{{count}} víkendov",
+    "flightsCounter": "{{count}} nájdených letov",
+    "flightsCounterFiltered": "{{shown}} z {{total}} letov",
+    "flightsCounterSearching": "Hľadanie letov…"
   },
   "search": {
     "travelWeekend": "Cestovný víkend",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Voliteľný vzor pobytu",
     "departureTime": "Čas odletu",
     "departureTimeHint": "Voliteľné filtre len pre večerné odlety",
-    "travelers": "Cestujúci",
+    "travelers": "cestujúcich",
     "travelersHint": "Počet cestujúcich pre výpočet ceny",
     "thereEvening": "Tam · večer",
     "thereEveningTitle": "Odlet tam od 17:00 alebo neskôr",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Blízke letiská",
     "removeAirport": "Odstrániť {{name}}",
     "traveler": "cestujúci",
-    "travelers": "cestujúcich",
     "fewerTravelers": "Menej cestujúcich",
     "moreTravelers": "Viac cestujúcich",
-    "travelersGroup": "Počet cestujúcich"
+    "travelersGroup": "Počet cestujúcich",
+    "loadingAirports": "Načítavanie letísk…",
+    "popularHubAirports": "Obľúbené letiská ďalej",
+    "popularHubOffers": "{{count}} letov",
+    "addPopularHub": "Pridať {{name}} ({{count}} letov)"
   },
   "patterns": {
     "fri-sun": {

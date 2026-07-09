@@ -69,7 +69,10 @@
     "selectedAirports": "valda flygplatser",
     "moreAirports_one": "{{name}} + {{count}} flygplats till",
     "moreAirports_other": "{{name}} + {{count}} flygplatser till",
-    "weekendsCount": "{{count}} helger"
+    "weekendsCount": "{{count}} helger",
+    "flightsCounter": "{{count}} flyg hittades",
+    "flightsCounterFiltered": "{{shown}} av {{total}} flyg",
+    "flightsCounterSearching": "Söker flyg…"
   },
   "search": {
     "travelWeekend": "Reshelg",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valfritt vistelsemönster",
     "departureTime": "Avgångstid",
     "departureTimeHint": "Valfria filter endast för kvällsavgångar",
-    "travelers": "Resenärer",
+    "travelers": "resenärer",
     "travelersHint": "Antal passagerare för prissättning",
     "thereEvening": "Dit · kväll",
     "thereEveningTitle": "Utresa avgår kl. 17:00 eller senare",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Närliggande flygplatser",
     "removeAirport": "Ta bort {{name}}",
     "traveler": "resenär",
-    "travelers": "resenärer",
     "fewerTravelers": "Färre resenärer",
     "moreTravelers": "Fler resenärer",
-    "travelersGroup": "Antal resenärer"
+    "travelersGroup": "Antal resenärer",
+    "loadingAirports": "Laddar flygplatser…",
+    "popularHubAirports": "Populära nav längre bort",
+    "popularHubOffers": "{{count}} flyg",
+    "addPopularHub": "Lägg till {{name}} ({{count}} flyg)"
   },
   "patterns": {
     "fri-sun": {

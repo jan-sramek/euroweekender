@@ -69,7 +69,10 @@
     "selectedAirports": "pasirinkti oro uostai",
     "moreAirports_one": "{{name}} + dar {{count}} oro uostas",
     "moreAirports_other": "{{name}} + dar {{count}} oro uostų",
-    "weekendsCount": "{{count}} savaitgaliai"
+    "weekendsCount": "{{count}} savaitgaliai",
+    "flightsCounter": "Rasta {{count}} skrydžių",
+    "flightsCounterFiltered": "{{shown}} iš {{total}} skrydžių",
+    "flightsCounterSearching": "Ieškoma skrydžių…"
   },
   "search": {
     "travelWeekend": "Kelionės savaitgalis",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Neprivalomas buvimo modelis",
     "departureTime": "Išvykimo laikas",
     "departureTimeHint": "Neprivalomi filtrai tik vakaro skrydžiams",
-    "travelers": "Keliautojai",
+    "travelers": "keliautojai",
     "travelersHint": "Keleivių skaičius kainai apskaičiuoti",
     "thereEvening": "Ten · vakare",
     "thereEveningTitle": "Išvykimas ten nuo 17:00 ar vėliau",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Artimiausi oro uostai",
     "removeAirport": "Pašalinti {{name}}",
     "traveler": "keliautojas",
-    "travelers": "keliautojai",
     "fewerTravelers": "Mažiau keliautojų",
     "moreTravelers": "Daugiau keliautojų",
-    "travelersGroup": "Keliautojų skaičius"
+    "travelersGroup": "Keliautojų skaičius",
+    "loadingAirports": "Įkeliami oro uostai…",
+    "popularHubAirports": "Populiarūs tolesni mazgai",
+    "popularHubOffers": "{{count}} skrydžių",
+    "addPopularHub": "Pridėti {{name}} ({{count}} skrydžių)"
   },
   "patterns": {
     "fri-sun": {

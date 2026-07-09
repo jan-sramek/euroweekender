@@ -69,7 +69,10 @@
     "selectedAirports": "valitut lentokentät",
     "moreAirports_one": "{{name}} + {{count}} muu lentokenttä",
     "moreAirports_other": "{{name}} + {{count}} muuta lentokenttää",
-    "weekendsCount": "{{count}} viikonloppua"
+    "weekendsCount": "{{count}} viikonloppua",
+    "flightsCounter": "{{count}} lentoa löytyi",
+    "flightsCounterFiltered": "{{shown}} / {{total}} lentoa",
+    "flightsCounterSearching": "Etsitään lentoja…"
   },
   "search": {
     "travelWeekend": "Matkaviikonloppu",
@@ -78,7 +81,7 @@
     "tripTypeHint": "Valinnainen oleskelumalli",
     "departureTime": "Lähtöaika",
     "departureTimeHint": "Valinnaiset vain-iltalähdöt-suodattimet",
-    "travelers": "Matkustajat",
+    "travelers": "matkustajaa",
     "travelersHint": "Matkustajamäärä hinnoittelua varten",
     "thereEvening": "Meno · ilta",
     "thereEveningTitle": "Menolento lähtee klo 17:00 tai myöhemmin",
@@ -98,10 +101,13 @@
     "nearbyAirports": "Lähellä olevat lentokentät",
     "removeAirport": "Poista {{name}}",
     "traveler": "matkustaja",
-    "travelers": "matkustajaa",
     "fewerTravelers": "Vähemmän matkustajia",
     "moreTravelers": "Enemmän matkustajia",
-    "travelersGroup": "Matkustajien määrä"
+    "travelersGroup": "Matkustajien määrä",
+    "loadingAirports": "Ladataan lentoasemia…",
+    "popularHubAirports": "Suositut solmukohdat kauempana",
+    "popularHubOffers": "{{count}} lentoa",
+    "addPopularHub": "Lisää {{name}} ({{count}} lentoa)"
   },
   "patterns": {
     "fri-sun": {

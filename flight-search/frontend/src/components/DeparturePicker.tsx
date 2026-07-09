@@ -118,7 +118,7 @@ export function DeparturePicker({
   };
 
   const placeholder = locating
-    ? t('search.detectingLocation')
+    ? t('search.loadingAirports')
     : locationLabel
       ? t('search.fromLocationAdd', { location: locationLabel })
       : t('search.addAirport');
@@ -127,7 +127,7 @@ export function DeparturePicker({
     <div className="departure-picker">
       {locating ? (
         <div className="departure-picker-locating" role="status" aria-live="polite">
-          <LoadingIndicator size="sm" label={t('search.detectingLocation')} />
+          <LoadingIndicator size="sm" label={t('search.loadingAirports')} />
         </div>
       ) : null}
 

@@ -93,6 +93,7 @@
     "selectTripType": "Trip type (optional)",
     "eveningDepartures": "Evening departures (optional)",
     "detectingLocation": "Detecting your location…",
+    "loadingAirports": "Loading airports…",
     "fromLocationAdd": "From {{location}} — add another airport…",
     "addAirport": "Add departure airport…",
     "searchAirports": "Search airports to add",

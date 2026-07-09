@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCities, getHubScores } from '../services/api';
-import { getCurrentPosition, type GeoPosition } from '../services/geolocation';
 import { rankNearbyCities, rankPopularHubCities } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 
@@ -23,14 +22,22 @@ function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIE
   return unique;
 }
 
-function selectDefaultCityCodes(nearby: CityWithDistance[], cities: City[]): string[] {
-  const nearbyCodes = nearby.map(city => city.code);
-  if (nearbyCodes.length >= DEFAULT_SELECTED_CITIES) {
-    return takeTopCityCodes(nearbyCodes);
-  }
-
+function selectDefaultCityCodes(cities: City[]): string[] {
   const fallbackCodes = FALLBACK_CODES.filter(code => cities.some(city => city.code === code));
-  return takeTopCityCodes([...nearbyCodes, ...fallbackCodes]);
+  const defaults = takeTopCityCodes(fallbackCodes);
+  if (defaults.length > 0) return defaults;
+  return cities[0] ? [cities[0].code] : [];
+}
+
+function updateHubSuggestions(
+  cities: City[],
+  scores: HubScore[],
+  anchorCity: City
+): { nearby: CityWithDistance[]; popular: CityWithDistance[] } {
+  const anchor = { latitude: anchorCity.latitude, longitude: anchorCity.longitude };
+  const nearby = rankNearbyCities(cities, anchor, scores);
+  const popular = rankPopularHubCities(cities, anchor, scores, nearby);
+  return { nearby, popular };
 }
 
 export function useDeparturePrefill() {
@@ -42,83 +49,33 @@ export function useDeparturePrefill() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const hubScoresRef = useRef<HubScore[]>([]);
-  const geoAnchorRef = useRef<GeoPosition | null>(null);
-  const locationInitializedRef = useRef(false);
+  const defaultsInitializedRef = useRef(false);
 
-  const applyNearbyRanking = useCallback(
-    (cities: City[], scores: HubScore[], anchor: GeoPosition): CityWithDistance[] => {
-      hubScoresRef.current = scores;
-      geoAnchorRef.current = anchor;
-      const nearby = rankNearbyCities(cities, anchor, scores);
-      setNearbyCities(nearby);
-      setPopularHubCities(rankPopularHubCities(cities, anchor, scores, nearby));
-      return nearby;
-    },
-    []
-  );
+  const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
+    const anchorCity = cities.find(city => city.code === primaryCode);
+    if (!anchorCity) {
+      setNearbyCities([]);
+      setPopularHubCities([]);
+      return;
+    }
 
-  const applyFallbackDeparture = useCallback(
-    (cities: City[], scores: HubScore[], position?: GeoPosition) => {
-      const matches = FALLBACK_CODES.map(code => cities.find(c => c.code === code)).filter(
-        (c): c is City => c !== undefined
-      );
-      const fallback = matches[0] ?? cities[0];
-      if (!fallback) return;
+    const { nearby, popular } = updateHubSuggestions(cities, scores, anchorCity);
+    setNearbyCities(nearby);
+    setPopularHubCities(popular);
+  }, []);
 
-      const anchor = position ?? { latitude: fallback.latitude, longitude: fallback.longitude };
-      const nearby = applyNearbyRanking(cities, scores, anchor);
+  const primaryCode = selectedCodes[0] ?? '';
 
-      if (nearby.length === 0) {
-        const fallbackNearby = [
-          {
-            ...fallback,
-            distanceKm: 0,
-            hubScore: 0,
-            effectiveScore: 0,
-            offerCount: 0,
-            minPrice: null
-          }
-        ];
-        setNearbyCities(fallbackNearby);
-        setPopularHubCities(rankPopularHubCities(cities, anchor, scores, fallbackNearby));
-      }
-
-      if (!locationInitializedRef.current) {
-        setSelectedCodes(selectDefaultCityCodes(nearby, cities));
-        locationInitializedRef.current = true;
-      }
-    },
-    [applyNearbyRanking]
-  );
-
-  const prefillLocation = useCallback(
-    async (cities: City[], scores: HubScore[]) => {
-      hubScoresRef.current = scores;
-
-      const position = (await getCurrentPosition()) ?? geoAnchorRef.current;
-
-      if (position && cities.length > 0) {
-        geoAnchorRef.current = position;
-        const nearby = applyNearbyRanking(cities, scores, position);
-        if (nearby.length > 0) {
-          if (!locationInitializedRef.current) {
-            setSelectedCodes(selectDefaultCityCodes(nearby, cities));
-            locationInitializedRef.current = true;
-          }
-          return;
-        }
-      }
-
-      applyFallbackDeparture(cities, scores, position ?? undefined);
-    },
-    [applyFallbackDeparture, applyNearbyRanking]
-  );
+  useEffect(() => {
+    if (allCities.length === 0 || !primaryCode) return;
+    refreshHubSuggestions(allCities, hubScoresRef.current, primaryCode);
+  }, [allCities, primaryCode, refreshHubSuggestions]);
 
   useEffect(() => {
     let cancelled = false;
 
     async function init() {
-      if (locationInitializedRef.current) return;
+      if (defaultsInitializedRef.current) return;
 
       try {
         const cities = await getCities();
@@ -138,7 +95,11 @@ export function useDeparturePrefill() {
         }
         if (cancelled) return;
 
-        await prefillLocation(cities, scores);
+        const defaults = selectDefaultCityCodes(cities);
+        if (defaults.length > 0) {
+          setSelectedCodes(defaults);
+        }
+        defaultsInitializedRef.current = true;
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));
@@ -152,7 +113,7 @@ export function useDeparturePrefill() {
     return () => {
       cancelled = true;
     };
-  }, [prefillLocation]);
+  }, []);
 
   return {
     allCities,

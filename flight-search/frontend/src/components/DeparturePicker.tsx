@@ -20,8 +20,8 @@ function formatNearby(city: CityWithDistance): string {
   return `${city.name} (${city.code}) · ${distance} km`;
 }
 
-function formatPopularHub(city: CityWithDistance, offersLabel: string): string {
-  return `${city.name} (${city.code}) · ${offersLabel}`;
+function formatPopularHub(city: CityWithDistance, offerCount: string): string {
+  return `${city.code} · ${offerCount}`;
 }
 
 function formatCity(city: City): string {
@@ -206,7 +206,7 @@ export function DeparturePicker({
         <div className="popular-hubs-section">
           <p className="nearby-label">{t('search.popularHubAirports')}</p>
           <div
-            className="airport-chips airport-chips-scroll"
+            className="airport-chips airport-chips-inline"
             role="group"
             aria-label={t('search.popularHubAirports')}
           >
@@ -214,14 +214,14 @@ export function DeparturePicker({
               <button
                 key={city.code}
                 type="button"
-                className="chip chip-add chip-popular"
+                className="chip chip-add chip-popular chip-compact"
+                aria-label={t('search.addPopularHub', {
+                  name: city.name,
+                  count: offerCountFormatter.format(city.offerCount)
+                })}
                 onClick={() => addNearby(city.code)}
               >
-                +{' '}
-                {formatPopularHub(
-                  city,
-                  t('search.popularHubOffers', { count: offerCountFormatter.format(city.offerCount) })
-                )}
+                + {formatPopularHub(city, offerCountFormatter.format(city.offerCount))}
               </button>
             ))}
           </div>

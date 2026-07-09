@@ -188,7 +188,11 @@
 .popular-hubs-section {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
+}
+
+.popular-hubs-section {
+  margin-top: -0.15rem;
 }
 
 .nearby-label {
@@ -203,4 +207,17 @@
   overflow-y: auto;
   padding-right: 0.25rem;
   scrollbar-width: thin;
+}
+
+.airport-chips-inline {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 0.1rem;
+  scrollbar-width: thin;
+}
+
+.chip-compact {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  padding: 0.28rem 0.55rem;
 }

@@ -102,6 +102,7 @@
     "nearbyAirports": "Nearby airports",
     "popularHubAirports": "Popular hubs further away",
     "popularHubOffers": "{{count}} flights",
+    "addPopularHub": "Add {{name}} ({{count}} flights)",
     "removeAirport": "Remove {{name}}",
     "traveler": "traveler",
     "travelers": "travelers",

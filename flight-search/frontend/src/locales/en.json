@@ -99,6 +99,8 @@
     "noAirportsFound": "No airports found",
     "selectedAirports": "Selected airports",
     "nearbyAirports": "Nearby airports",
+    "popularHubAirports": "Popular hubs further away",
+    "popularHubOffers": "{{count}} flights",
     "removeAirport": "Remove {{name}}",
     "traveler": "traveler",
     "travelers": "travelers",

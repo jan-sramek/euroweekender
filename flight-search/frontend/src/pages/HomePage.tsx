@@ -63,6 +63,7 @@ export function HomePage() {
   const {
     allCities,
     nearbyCities,
+    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -172,6 +173,7 @@ export function HomePage() {
                   <DeparturePicker
                     allCities={allCities}
                     nearbyCities={nearbyCities}
+                    popularHubCities={popularHubCities}
                     selectedCodes={selectedCodes}
                     locating={locating}
                     locationLabel={locationLabel}

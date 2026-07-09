@@ -7,6 +7,7 @@ import './DeparturePicker.css';
 interface DeparturePickerProps {
   allCities: City[];
   nearbyCities: CityWithDistance[];
+  popularHubCities: CityWithDistance[];
   selectedCodes: string[];
   locating: boolean;
   locationLabel: string;
@@ -19,6 +20,10 @@ function formatNearby(city: CityWithDistance): string {
   return `${city.name} (${city.code}) · ${distance} km`;
 }
 
+function formatPopularHub(city: CityWithDistance, offersLabel: string): string {
+  return `${city.name} (${city.code}) · ${offersLabel}`;
+}
+
 function formatCity(city: City): string {
   return `${city.name} (${city.code}), ${city.country}`;
 }
@@ -26,6 +31,7 @@ function formatCity(city: City): string {
 export function DeparturePicker({
   allCities,
   nearbyCities,
+  popularHubCities,
   selectedCodes,
   locating,
   locationLabel,
@@ -56,6 +62,16 @@ export function DeparturePicker({
   const nearbyNotSelected = useMemo(
     () => nearbyCities.filter(city => !selectedCodes.includes(city.code)),
     [nearbyCities, selectedCodes]
+  );
+
+  const popularHubsNotSelected = useMemo(
+    () => popularHubCities.filter(city => !selectedCodes.includes(city.code)),
+    [popularHubCities, selectedCodes]
+  );
+
+  const offerCountFormatter = useMemo(
+    () => new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }),
+    []
   );
 
   const searchResults = useMemo(() => {
@@ -170,6 +186,7 @@ export function DeparturePicker({
 
       {nearbyNotSelected.length > 0 && (
         <div className="nearby-section">
+          <p className="nearby-label">{t('search.nearbyAirports')}</p>
           <div className="airport-chips airport-chips-scroll" role="group" aria-label={t('search.nearbyAirports')}>
             {nearbyNotSelected.map(city => (
               <button
@@ -179,6 +196,32 @@ export function DeparturePicker({
                 onClick={() => addNearby(city.code)}
               >
                 + {formatNearby(city)}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {popularHubsNotSelected.length > 0 && (
+        <div className="popular-hubs-section">
+          <p className="nearby-label">{t('search.popularHubAirports')}</p>
+          <div
+            className="airport-chips airport-chips-scroll"
+            role="group"
+            aria-label={t('search.popularHubAirports')}
+          >
+            {popularHubsNotSelected.map(city => (
+              <button
+                key={city.code}
+                type="button"
+                className="chip chip-add chip-popular"
+                onClick={() => addNearby(city.code)}
+              >
+                +{' '}
+                {formatPopularHub(
+                  city,
+                  t('search.popularHubOffers', { count: offerCountFormatter.format(city.offerCount) })
+                )}
               </button>
             ))}
           </div>

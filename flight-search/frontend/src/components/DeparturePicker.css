@@ -81,6 +81,10 @@
   border-color: #228bd1;
 }
 
+.chip-popular {
+  color: #192c39;
+}
+
 .chip-remove {
   display: inline-flex;
   align-items: center;
@@ -180,7 +184,8 @@
   color: #8c959c;
 }
 
-.nearby-section {
+.nearby-section,
+.popular-hubs-section {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;

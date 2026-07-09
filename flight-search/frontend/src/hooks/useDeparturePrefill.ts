@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCities, getHubScores } from '../services/api';
 import { getCurrentPosition, type GeoPosition } from '../services/geolocation';
-import { rankNearbyCities } from '../services/locationPrefill';
+import { rankNearbyCities, rankPopularHubCities } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 
 const FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'LON', 'BCN'];
@@ -36,6 +36,7 @@ function selectDefaultCityCodes(nearby: CityWithDistance[], cities: City[]): str
 export function useDeparturePrefill() {
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
+  const [popularHubCities, setPopularHubCities] = useState<CityWithDistance[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
   const [locating, setLocating] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
@@ -50,6 +51,7 @@ export function useDeparturePrefill() {
       geoAnchorRef.current = anchor;
       const nearby = rankNearbyCities(cities, anchor, scores);
       setNearbyCities(nearby);
+      setPopularHubCities(rankPopularHubCities(cities, anchor, scores, nearby));
       return nearby;
     },
     []
@@ -67,7 +69,7 @@ export function useDeparturePrefill() {
       const nearby = applyNearbyRanking(cities, scores, anchor);
 
       if (nearby.length === 0) {
-        setNearbyCities([
+        const fallbackNearby = [
           {
             ...fallback,
             distanceKm: 0,
@@ -76,7 +78,9 @@ export function useDeparturePrefill() {
             offerCount: 0,
             minPrice: null
           }
-        ]);
+        ];
+        setNearbyCities(fallbackNearby);
+        setPopularHubCities(rankPopularHubCities(cities, anchor, scores, fallbackNearby));
       }
 
       if (!locationInitializedRef.current) {
@@ -153,6 +157,7 @@ export function useDeparturePrefill() {
   return {
     allCities,
     nearbyCities,
+    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,

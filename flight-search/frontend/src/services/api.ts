@@ -7,7 +7,7 @@ const API_BASE = '/api';
 const FLIGHTS_PER_CITY = 200;
 const MAX_SEARCH_FLIGHTS = 1000;
 const SINGLE_CITY_PAGE_SIZE = 500;
-const CITIES_CACHE_KEY = 'ew:cities:v1';
+const CITIES_CACHE_KEY = 'ew:cities:v2';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 
 function searchPageSize(cityCount: number): number {

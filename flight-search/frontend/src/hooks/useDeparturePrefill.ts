@@ -1,33 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCities, getHubScores } from '../services/api';
-import { rankNearbyCities, rankPopularHubCities } from '../services/locationPrefill';
+import {
+  findCityByCode,
+  rankNearbyCities,
+  rankPopularHubCities,
+  selectDefaultCityCodes
+} from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
-
-const FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'LON', 'BCN'];
-const DEFAULT_SELECTED_CITIES = 5;
-
-function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIES): string[] {
-  const unique: string[] = [];
-  const seen = new Set<string>();
-
-  for (const code of orderedCodes) {
-    const normalized = code.trim().toUpperCase();
-    if (!normalized || seen.has(normalized)) continue;
-    seen.add(normalized);
-    unique.push(normalized);
-    if (unique.length >= count) break;
-  }
-
-  return unique;
-}
-
-function selectDefaultCityCodes(cities: City[]): string[] {
-  const fallbackCodes = FALLBACK_CODES.filter(code => cities.some(city => city.code === code));
-  const defaults = takeTopCityCodes(fallbackCodes);
-  if (defaults.length > 0) return defaults;
-  return cities[0] ? [cities[0].code] : [];
-}
 
 function updateHubSuggestions(
   cities: City[],
@@ -52,7 +32,7 @@ export function useDeparturePrefill() {
   const defaultsInitializedRef = useRef(false);
 
   const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
-    const anchorCity = cities.find(city => city.code === primaryCode);
+    const anchorCity = findCityByCode(cities, primaryCode);
     if (!anchorCity) {
       setNearbyCities([]);
       setPopularHubCities([]);
@@ -95,7 +75,7 @@ export function useDeparturePrefill() {
         }
         if (cancelled) return;
 
-        const defaults = selectDefaultCityCodes(cities);
+        const defaults = selectDefaultCityCodes(cities, scores);
         if (defaults.length > 0) {
           setSelectedCodes(defaults);
         }

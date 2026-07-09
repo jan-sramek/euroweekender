@@ -8,6 +8,63 @@ export const NEARBY_MAX_CITIES = 40;
 export const POPULAR_HUB_MAX_CITIES = 5;
 export const POPULAR_HUB_MAX_RADIUS_KM = 1000;
 export const MIN_POPULAR_HUB_OFFER_COUNT = 50;
+export const DEFAULT_ANCHOR_CODE = 'PRG';
+export const DEFAULT_SELECTED_CITIES = 5;
+
+const DEFAULT_FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'BCN'];
+
+export function findCityByCode(cities: City[], code: string): City | undefined {
+  const normalized = code.trim().toUpperCase();
+  return cities.find(city => city.code.toUpperCase() === normalized);
+}
+
+function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIES): string[] {
+  const unique: string[] = [];
+  const seen = new Set<string>();
+
+  for (const code of orderedCodes) {
+    const normalized = code.trim().toUpperCase();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    unique.push(normalized);
+    if (unique.length >= count) break;
+  }
+
+  return unique;
+}
+
+/** Pick default departure airports around the primary anchor city (Prague by default). */
+export function selectDefaultCityCodes(
+  cities: City[],
+  hubScores: HubScore[],
+  anchorCode = DEFAULT_ANCHOR_CODE,
+  count = DEFAULT_SELECTED_CITIES
+): string[] {
+  const anchorCity =
+    findCityByCode(cities, anchorCode) ??
+    DEFAULT_FALLBACK_CODES.map(code => findCityByCode(cities, code)).find((city): city is City => city !== undefined);
+
+  if (!anchorCity) {
+    return cities[0] ? [cities[0].code.toUpperCase()] : [];
+  }
+
+  const nearby = rankNearbyCities(
+    cities,
+    { latitude: anchorCity.latitude, longitude: anchorCity.longitude },
+    hubScores,
+    count
+  );
+  const nearbyCodes = nearby.map(city => city.code);
+  if (nearbyCodes.length >= count) {
+    return takeTopCityCodes(nearbyCodes, count);
+  }
+
+  const fallbackCodes = DEFAULT_FALLBACK_CODES
+    .map(code => findCityByCode(cities, code)?.code)
+    .filter((code): code is string => Boolean(code));
+
+  return takeTopCityCodes([...nearbyCodes, ...fallbackCodes], count);
+}
 
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const toRad = (deg: number) => (deg * Math.PI) / 180;

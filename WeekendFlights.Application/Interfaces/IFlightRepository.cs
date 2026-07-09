@@ -8,7 +8,7 @@ public interface IFlightRepository
     Task UpsertFlightsAsync(List<Flight> flights);
     Task<int> DeleteOldFlightsAsync(DateTime cutoffUtc, CancellationToken cancellationToken = default);
 
-    Task<(IReadOnlyList<Flight> Flights, int TotalCount)> GetFlightsAsync(
+    Task<(IReadOnlyList<FlightListItem> Flights, int TotalCount)> GetFlightsAsync(
         string? cityCodeFrom,
         string? cityCodeTo,
         DateTime? departFromUtc,

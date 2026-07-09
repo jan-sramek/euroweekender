@@ -4,7 +4,16 @@ import { normalizeHubScore } from './hubScore';
 import { getWeekendSearchRange } from './weekend';
 
 const API_BASE = '/api';
-const SEARCH_PAGE_SIZE = 500;
+const FLIGHTS_PER_CITY = 200;
+const MAX_SEARCH_FLIGHTS = 1000;
+const SINGLE_CITY_PAGE_SIZE = 500;
+const CITIES_CACHE_KEY = 'ew:cities:v1';
+const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
+
+function searchPageSize(cityCount: number): number {
+  if (cityCount <= 1) return SINGLE_CITY_PAGE_SIZE;
+  return Math.min(MAX_SEARCH_FLIGHTS, cityCount * FLIGHTS_PER_CITY);
+}
 
 export interface FlightSearchParams {
   cityCodeFrom: string[];
@@ -39,7 +48,7 @@ export async function searchFlightsForWeekends(
     departFromUtc: range.departFrom,
     departToUtc: range.departTo,
     page: 1,
-    pageSize: SEARCH_PAGE_SIZE,
+    pageSize: searchPageSize(uniqueCities.length),
     includeTotal: false,
     signal
   });
@@ -48,11 +57,50 @@ export async function searchFlightsForWeekends(
 }
 
 export async function getCities(): Promise<City[]> {
+  const cached = readCitiesCache();
+  if (cached) {
+    return cached;
+  }
+
   const response = await fetch(`${API_BASE}/cities`);
   if (!response.ok) {
     throw new Error('Failed to load cities');
   }
-  return response.json() as Promise<City[]>;
+  const cities = (await response.json()) as City[];
+  writeCitiesCache(cities);
+  return cities;
+}
+
+function readCitiesCache(): City[] | null {
+  try {
+    const raw = sessionStorage.getItem(CITIES_CACHE_KEY);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw) as { cachedAt: number; cities: City[] };
+    if (!Array.isArray(parsed.cities) || typeof parsed.cachedAt !== 'number') {
+      return null;
+    }
+
+    if (Date.now() - parsed.cachedAt > CITIES_CACHE_TTL_MS) {
+      sessionStorage.removeItem(CITIES_CACHE_KEY);
+      return null;
+    }
+
+    return parsed.cities;
+  } catch {
+    return null;
+  }
+}
+
+function writeCitiesCache(cities: City[]): void {
+  try {
+    sessionStorage.setItem(
+      CITIES_CACHE_KEY,
+      JSON.stringify({ cachedAt: Date.now(), cities })
+    );
+  } catch {
+    // Ignore quota or private-mode storage errors.
+  }
 }
 
 export async function getHubScores(weeks = 4): Promise<HubScore[]> {

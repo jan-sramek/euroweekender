@@ -19,22 +19,15 @@ public record OriginHubScoreDto(
     int DestinationCount,
     double HubScore);
 
-public record FlightDto(
+public record FlightSearchDto(
     int Id,
-    string KiwiId,
-    string CountryFrom,
     string CountryTo,
     string? DeepLink,
-    double Distance,
-    decimal DurationDeparture,
-    decimal DurationReturn,
-    decimal DurationTotal,
-    bool FacilitatedBookingAvailable,
     decimal FareAdults,
     int NightsInDest,
     double Price,
-    double Quality,
     int TechnicalStops,
+    decimal DurationReturn,
     string FlyTo,
     string FlyFrom,
     string CityFrom,
@@ -45,12 +38,10 @@ public record FlightDto(
     DateTime LocalDeparture,
     DateTime? LocalReturnDeparture,
     DateTime? LocalReturnArrival,
-    DateTime UtcArrival,
-    DateTime UtcDeparture,
     int? AvailabilitySeats);
 
 public record PagedFlightsDto(
-    IReadOnlyList<FlightDto> Items,
+    IReadOnlyList<FlightSearchDto> Items,
     int TotalCount,
     int Page,
     int PageSize);

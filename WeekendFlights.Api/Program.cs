@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using System.IO.Compression;
 using WeekendFlights.Api.Middleware;
 using WeekendFlights.Infrastructure;
 using WeekendFlights.Infrastructure.Persistence;
@@ -7,6 +9,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+    options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(["application/json"]);
+});
+builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
+{
+    options.Level = CompressionLevel.Fastest;
+});
+builder.Services.Configure<GzipCompressionProviderOptions>(options =>
+{
+    options.Level = CompressionLevel.Fastest;
+});
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHealthChecks()
     .AddDbContextCheck<WeekendFlightsDbContext>("database");
@@ -37,6 +54,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseResponseCompression();
 app.UseCors();
 app.UseHttpsRedirection();
 

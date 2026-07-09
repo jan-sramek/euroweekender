@@ -37,6 +37,8 @@ public class CitiesController(
         [FromQuery] bool activeOnly = true,
         CancellationToken cancellationToken = default)
     {
+        Response.Headers.CacheControl = "public, max-age=3600";
+
         var list = activeOnly
             ? await cityRepository.GetActiveCitiesAsync()
             : await cityRepository.GetAllCitiesAsync();

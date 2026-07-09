@@ -53,7 +53,7 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
             .ExecuteDeleteAsync(cancellationToken);
     }
 
-    public async Task<(IReadOnlyList<Flight> Flights, int TotalCount)> GetFlightsAsync(
+    public async Task<(IReadOnlyList<FlightListItem> Flights, int TotalCount)> GetFlightsAsync(
         string? cityCodeFrom,
         string? cityCodeTo,
         DateTime? departFromUtc,
@@ -79,7 +79,7 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
             ? await query.CountAsync(cancellationToken)
             : 0;
 
-        var flights = await query
+        var flights = await ProjectSearchResults(query)
             .OrderBy(f => f.Price)
             .ThenBy(f => f.UtcDeparture)
             .Skip(skip)
@@ -89,7 +89,10 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         return (flights, totalCount);
     }
 
-    private async Task<(IReadOnlyList<Flight> Flights, int TotalCount)> GetFlightsPerCityAsync(
+    private const int PerCityFlightLimit = 200;
+    private const int MaxMultiCityFlights = 1000;
+
+    private async Task<(IReadOnlyList<FlightListItem> Flights, int TotalCount)> GetFlightsPerCityAsync(
         string[] cityCodes,
         string? cityCodeTo,
         DateTime? departFromUtc,
@@ -97,17 +100,20 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         int take,
         CancellationToken cancellationToken)
     {
-        var perCityTake = Math.Max(50, (int)Math.Ceiling((double)take / cityCodes.Length));
-        var byId = new Dictionary<int, Flight>();
+        var maxFlights = Math.Min(MaxMultiCityFlights, Math.Max(take, PerCityFlightLimit * cityCodes.Length));
 
-        foreach (var code in cityCodes)
-        {
-            var cityFlights = await BuildFlightSearchQuery([code], cityCodeTo, departFromUtc, departToUtc)
+        var cityTasks = cityCodes.Select(code =>
+            ProjectSearchResults(BuildFlightSearchQuery([code], cityCodeTo, departFromUtc, departToUtc))
                 .OrderBy(f => f.Price)
                 .ThenBy(f => f.UtcDeparture)
-                .Take(perCityTake)
-                .ToListAsync(cancellationToken);
+                .Take(PerCityFlightLimit)
+                .ToListAsync(cancellationToken));
 
+        var cityResults = await Task.WhenAll(cityTasks);
+        var byId = new Dictionary<int, FlightListItem>();
+
+        foreach (var cityFlights in cityResults)
+        {
             foreach (var flight in cityFlights)
                 byId.TryAdd(flight.Id, flight);
         }
@@ -115,11 +121,36 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         var merged = byId.Values
             .OrderBy(f => f.Price)
             .ThenBy(f => f.UtcDeparture)
-            .Take(take)
+            .Take(maxFlights)
             .ToList();
 
         return (merged, 0);
     }
+
+    private static IQueryable<FlightListItem> ProjectSearchResults(IQueryable<Flight> query) =>
+        query.Select(f => new FlightListItem
+        {
+            Id = f.Id,
+            DeepLink = f.DeepLink,
+            FareAdults = f.FareAdults,
+            NightsInDest = f.NightsInDest,
+            Price = f.Price,
+            TechnicalStops = f.TechnicalStops,
+            DurationReturn = f.DurationReturn,
+            FlyTo = f.FlyTo,
+            FlyFrom = f.FlyFrom,
+            CityFrom = f.CityFrom,
+            CityTo = f.CityTo,
+            CityCodeFrom = f.CityCodeFrom,
+            CityCodeTo = f.CityCodeTo,
+            CountryTo = f.CountryTo,
+            LocalArrival = f.LocalArrival,
+            LocalDeparture = f.LocalDeparture,
+            LocalReturnDeparture = f.LocalReturnDeparture,
+            LocalReturnArrival = f.LocalReturnArrival,
+            AvailabilitySeats = f.AvailabilitySeats,
+            UtcDeparture = f.UtcDeparture
+        });
 
     private IQueryable<Flight> BuildFlightSearchQuery(
         string[] cityCodes,

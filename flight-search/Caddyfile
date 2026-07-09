@@ -3,6 +3,7 @@
 }
 
 {$SITE_DOMAIN}, www.{$SITE_DOMAIN} {
+	encode gzip zstd
 	reverse_proxy frontend:80
 }
 

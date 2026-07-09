@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WeekendFlights.Api.Contracts;
 using WeekendFlights.Application.Interfaces;
-using WeekendFlights.Domain.Entities;
+using WeekendFlights.Application.Models;
 
 namespace WeekendFlights.Api.Controllers;
 
@@ -39,22 +39,15 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
         return Ok(new PagedFlightsDto(dtos, total, page, pageSize));
     }
 
-    private static FlightDto ToDto(Flight f) => new(
+    private static FlightSearchDto ToDto(FlightListItem f) => new(
         f.Id,
-        f.KiwiId,
-        f.CountryFrom,
         f.CountryTo,
         f.DeepLink,
-        f.Distance,
-        f.DurationDeparture,
-        f.DurationReturn,
-        f.DurationTotal,
-        f.FacilitatedBookingAvailable,
         f.FareAdults,
         f.NightsInDest,
         f.Price,
-        f.Quality,
         f.TechnicalStops,
+        f.DurationReturn,
         f.FlyTo,
         f.FlyFrom,
         f.CityFrom,
@@ -65,7 +58,5 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
         f.LocalDeparture,
         f.LocalReturnDeparture,
         f.LocalReturnArrival,
-        f.UtcArrival,
-        f.UtcDeparture,
         f.AvailabilitySeats);
 }

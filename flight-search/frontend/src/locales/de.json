@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Günstige Wochenendflüge in Europa",
-      "description": "Finden und vergleichen Sie günstige Wochenendflüge in ganz Europa. Suchen Sie Fr–So, Do–So und mehr von Flughäfen in Ihrer Nähe."
+      "description": "Vergleichen Sie günstige Wochenendflüge in Europa. Suchen Sie Fr–So und Do–So ab Prag, Wien, Berlin, London und mehr. Abflug Freitagabend, Rückkehr Sonntag — ohne Urlaubstage."
     },
     "about": {
       "title": "Über EuroWeekender",
-      "description": "Wochenendflüge in Europa ohne Urlaubstage. Erfahren Sie, wie euroweekender.com Ihnen hilft, freitags abends loszufliegen und sonntags zurückzukehren — mit sicherer Buchung über Kiwi.com."
+      "description": "Günstige europäische Wochenendflüge und Städtereisen ohne Urlaubstage. Vergleichen Sie Fr–So-Angebote von Flughäfen in ganz Europa auf euroweekender.com."
     },
     "faq": {
       "title": "FAQ zu Wochenendflügen",
-      "description": "Antworten auf häufige Fragen zur Suche nach europäischen Wochenendflügen auf euroweekender.com."
+      "description": "FAQ zu günstigen Wochenendflügen in Europa, Fr–So-Reisen, Abendabflügen und Buchung über Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "So funktioniert's",
-      "description": "Finden Sie Wochenendflüge von Freitagabend bis Sonntag in ganz Europa. Vergleichen Sie Angebote auf euroweekender.com und buchen Sie sicher über Kiwi.com."
+      "description": "So finden Sie günstige Wochenendflüge in Europa: Flughäfen wählen, Fr–So-Wochenenden auswählen, Abendabflüge filtern und auf Kiwi.com buchen."
     },
     "privacy": {
       "title": "Datenschutzerklärung",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europäische Wochenendflug-Angebote",
-    "title": "Ihr nächster Städtetrip beginnt am Freitagabend",
-    "lead": "Vergleichen Sie Hin- und Rückflüge fürs Wochenende in ganz Europa — abends nach der Arbeit los, sonntags zurück, ohne Urlaubstage.",
+    "title": "Günstige Wochenendflüge in Europa",
+    "lead": "Vergleichen Sie Hin- und Rückflüge fürs Wochenende in Europa — freitags nach der Arbeit los, sonntags zurück, ohne Urlaubstage.",
     "fromSelectedAirports": "Ab {{airports}}",
     "person": "Person",
     "persons": "Personen",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} Wochenenden",
     "flightsCounter": "{{count}} Flüge gefunden",
     "flightsCounterFiltered": "{{shown}} von {{total}} Flügen",
-    "flightsCounterSearching": "Flüge werden gesucht…"
+    "flightsCounterSearching": "Flüge werden gesucht…",
+    "subtitle": "Ihr nächster Städtetrip beginnt am Freitagabend",
+    "seoTitle": "Günstige Wochenendflüge in Europa finden",
+    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So, Do–So und Mi–So, wählen Sie Abendabflüge und entdecken Sie Städtereisen ohne Urlaub."
   },
   "search": {
     "travelWeekend": "Reisewochenende",
@@ -174,7 +177,7 @@
     "builtP2": "Wählen Sie die Reiseart Fr–So und aktivieren Sie den Abendflug-Filter, um Flüge zu finden, die zu diesem Rhythmus passen — statt generischer Wochensuchen auf anderen Seiten.",
     "stepsTitle": "Die vier Schritte",
     "step1title": "Flughäfen wählen",
-    "step1text": "Standortzugriff erlauben oder Abflughäfen manuell auswählen. Gleichzeitig aus mehreren Städten suchen.",
+    "step1text": "Wählen Sie einen oder mehrere Abflughäfen in Europa — Prag, Wien, Berlin, London und mehr. Suchen Sie gleichzeitig aus mehreren Städten.",
     "step2title": "Wochenenden wählen",
     "step2text": "Wählen Sie ein oder mehrere Reisewochenenden. Jede Kachel zeigt den Hinflugzeitraum für diese Reise.",
     "step3title": "Filter verfeinern",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Häufig gestellte Fragen",
-    "heroSubtitle": "Alles, was Sie über günstige Wochenendflüge in Europa wissen müssen.",
-    "lead": "Alles, was Sie über günstige Wochenendflüge in Europa wissen müssen.",
+    "heroSubtitle": "Alles über günstige Wochenendflüge in Europa.",
+    "lead": "Antworten zu günstigen Wochenendflügen in Europa, Fr–So-Reisen, Abendabflügen und sicherer Buchung auf Kiwi.com.",
     "items": [
       {
         "q": "Kann ich reisen, ohne Urlaubstage zu nehmen?",

@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Levné víkendové lety po Evropě",
-      "description": "Najděte a porovnejte levné víkendové lety po celé Evropě. Hledejte pá–ne, čt–ne a další termíny z letišť ve vašem okolí."
+      "description": "Porovnejte levné víkendové lety po Evropě. Hledejte pá–ne a čt–ne z Prahy, Vídně, Berlína, Londýna a dalších letišť. Odlet v pátek večer, návrat v neděli — bez dovolené."
     },
     "about": {
       "title": "O EuroWeekender",
-      "description": "Víkendové lety po Evropě bez čerpání dovolené. Zjistěte, jak vám euroweekender.com pomůže odletět v pátek večer a vrátit se v neděli přes bezpečnou rezervaci na Kiwi.com."
+      "description": "Levné evropské víkendové lety a city breaky bez čerpání dovolené. Porovnejte nabídky pá–ne z letišť po celé Evropě na euroweekender.com."
     },
     "faq": {
       "title": "Časté dotazy k víkendovým letům",
-      "description": "Odpovědi na běžné otázky o vyhledávání evropských víkendových letů na euroweekender.com."
+      "description": "Časté dotazy k levným víkendovým letům po Evropě, cestám pá–ne, večerním odletům a rezervaci přes Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Jak to funguje",
-      "description": "Najděte víkendové lety od pátečního večera do neděle po celé Evropě. Porovnejte nabídky na euroweekender.com a rezervujte bezpečně přes Kiwi.com."
+      "description": "Jak najít levné víkendové lety po Evropě: vyberte letiště, víkendy pá–ne, filtrujte večerní odlety a rezervujte na Kiwi.com."
     },
     "privacy": {
       "title": "Zásady ochrany osobních údajů",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Evropské víkendové lety za skvělé ceny",
-    "title": "Vaše další city break začíná v pátek večer",
-    "lead": "Porovnejte zpáteční víkendové lety po celé Evropě — odjezd po práci, návrat v neděli, bez čerpání dovolené.",
+    "title": "Levné víkendové lety po Evropě",
+    "lead": "Porovnejte zpáteční víkendové lety po Evropě — odlet po práci v pátek, návrat v neděli, bez čerpání dovolené.",
     "fromSelectedAirports": "Z {{airports}}",
     "person": "osoba",
     "persons": "osob",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} víkendů",
     "flightsCounter": "{{count}} nalezených letů",
     "flightsCounterFiltered": "{{shown}} z {{total}} letů",
-    "flightsCounterSearching": "Hledání letů…"
+    "flightsCounterSearching": "Hledání letů…",
+    "subtitle": "Váš další city break začíná v pátek večer",
+    "seoTitle": "Najděte levné víkendové lety po Evropě",
+    "seoBlock": "Vyhledávejte a porovnávejte levné víkendové lety z Prahy, Vídně, Berlína, Mnichova, Londýna, Barcelony a desítek evropských letišť. Filtrujte pá–ne, čt–ne a st–ne, přidejte večerní odlety a objevte city breaky bez čerpání dovolené."
   },
   "search": {
     "travelWeekend": "Cestovní víkend",
@@ -174,7 +177,7 @@
     "builtP2": "Zvolte typ cesty pá–ne a zapněte filtr večerního odletu, abyste našli lety odpovídající tomuto rytmu místo obecných týdenních vyhledávání na jiných webech.",
     "stepsTitle": "Čtyři kroky",
     "step1title": "Vyberte letiště",
-    "step1text": "Povolte přístup k poloze nebo vyberte odletové uzly ručně. Hledejte z několika měst najednou.",
+    "step1text": "Vyberte jedno nebo více odletových letišť v Evropě — Praha, Vídeň, Berlín, Londýn a další. Hledejte z více měst najednou.",
     "step2title": "Vyberte víkendy",
     "step2text": "Zvolte jeden nebo více cestovních víkendů. Každá pilulka zobrazuje rozsah odletových dat pro danou cestu.",
     "step3title": "Upřesněte filtry",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Často kladené otázky",
-    "heroSubtitle": "Vše, co potřebujete vědět o hledání levných víkendových letů po Evropě.",
-    "lead": "Vše, co potřebujete vědět o hledání levných víkendových letů po Evropě.",
+    "heroSubtitle": "Vše o hledání levných víkendových letů po Evropě.",
+    "lead": "Odpovědi k levným víkendovým letům po Evropě, cestám pá–ne, večerním odletům a bezpečné rezervaci na Kiwi.com.",
     "items": [
       {
         "q": "Mohu cestovat bez čerpání dovolené?",

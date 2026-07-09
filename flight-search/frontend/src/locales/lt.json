@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Pigūs savaitgalio skrydžiai Europoje",
-      "description": "Raskite ir palyginkite pigius savaitgalio skrydžius visoje Europoje. Ieškokite pn.–sk., kt.–sk. ir kitų variantų iš artimiausių oro uostų."
+      "description": "Palyginkite pigius savaitgalio skrydžius Europoje. Ieškokite pn–sk ir kt–sk iš Prahos, Vienos, Berlyno, Londono ir kt. Išvykimas penktadienio vakarą, grįžimas sekmadienį — be atostogų."
     },
     "about": {
       "title": "Apie EuroWeekender",
-      "description": "Savaitgalio skrydžiai po Europą be atostogų dienų. Sužinokite, kaip euroweekender.com padeda išskristi penktadienio vakarą ir grįžti sekmadienį, saugiai rezervuojant per Kiwi.com."
+      "description": "Pigūs Europos savaitgalio skrydžiai ir miesto kelionės be atostogų. Palyginkite pn–sk pasiūlymus iš oro uostų visoje Europoje svetainėje euroweekender.com."
     },
     "faq": {
       "title": "DUK apie savaitgalio skrydžius",
-      "description": "Atsakymai į dažniausiai užduodamus klausimus apie Europos savaitgalio skrydžių paiešką euroweekender.com."
+      "description": "DUK apie pigius savaitgalio skrydžius Europoje, pn–sk keliones, vakaro išvykimus ir rezervaciją per Kiwi.com."
     },
     "contact": {
       "title": "Kontaktai",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Kaip tai veikia",
-      "description": "Raskite savaitgalio skrydžius nuo penktadienio vakaro iki sekmadienio visoje Europoje. Palyginkite pasiūlymus euroweekender.com ir saugiai rezervuokite per Kiwi.com."
+      "description": "Kaip rasti pigius savaitgalio skrydžius Europoje: pasirinkite oro uostus, pn–sk savaitgalius, filtruokite vakaro išvykimus ir rezervuokite Kiwi.com."
     },
     "privacy": {
       "title": "Privatumo politika",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europos savaitgalio skrydžių pasiūlymai",
-    "title": "Jūsų kitas miesto savaitgalis prasideda penktadienio vakarą",
-    "lead": "Palyginkite pirmyn ir atgal savaitgalio skrydžius visoje Europoje — išvykite po darbo, grįžkite sekmadienį, be atostogų dienų.",
+    "title": "Pigūs savaitgalio skrydžiai Europoje",
+    "lead": "Palyginkite savaitgalio skrydžius į abi puses Europoje — išvykimas po darbo penktadienį, grįžimas sekmadienį be atostogų.",
     "fromSelectedAirports": "Iš {{airports}}",
     "person": "asmuo",
     "persons": "asmenys",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} savaitgaliai",
     "flightsCounter": "Rasta {{count}} skrydžių",
     "flightsCounterFiltered": "{{shown}} iš {{total}} skrydžių",
-    "flightsCounterSearching": "Ieškoma skrydžių…"
+    "flightsCounterSearching": "Ieškoma skrydžių…",
+    "subtitle": "Jūsų kitas miesto savaitgalis prasideda penktadienio vakarą",
+    "seoTitle": "Raskite pigius savaitgalio skrydžius Europoje",
+    "seoBlock": "Ieškokite ir palyginkite pigius savaitgalio skrydžius iš Prahos, Vienos, Berlyno, Miuncheno, Londono, Barselonos ir dešimčių Europos oro uostų. Filtruokite pn–sk, kt–sk ir tr–sk, pridėkite vakaro išvykimus ir atraskite miesto keliones be metinių atostogų."
   },
   "search": {
     "travelWeekend": "Kelionės savaitgalis",
@@ -174,7 +177,7 @@
     "builtP2": "Pasirinkite Pn–Sk kelionės tipą ir įjunkite vakaro išvykimo filtrą, kad matytumėte skrydžius, atitinkančius šį ritmą, o ne bendras savaitės trukmės paieškas kitose svetainėse.",
     "stepsTitle": "Keturi žingsniai",
     "step1title": "Pasirinkite oro uostus",
-    "step1text": "Leiskite prieigą prie vietos arba pasirinkite išvykimo centrus rankiniu būdu. Ieškokite iš kelių miestų vienu metu.",
+    "step1text": "Pasirinkite vieną ar kelis išvykimo oro uostus Europoje — Praha, Viena, Berlynas, Londonas ir kt. Ieškokite iš kelių miestų vienu metu.",
     "step2title": "Pasirinkite savaitgalius",
     "step2text": "Pasirinkite vieną ar daugiau kelionės savaitgalių. Kiekviena žymė rodo išvykimo datų intervalą šiai kelionei.",
     "step3title": "Patikslinkite filtrus",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Dažniausiai užduodami klausimai",
-    "heroSubtitle": "Viskas, ką reikia žinoti apie pigų savaitgalio skrydžių paiešką Europoje.",
-    "lead": "Viskas, ką reikia žinoti apie pigų savaitgalio skrydžių paiešką Europoje.",
+    "heroSubtitle": "Viskas apie pigius savaitgalio skrydžius Europoje.",
+    "lead": "Atsakymai apie pigius savaitgalio skrydžius Europoje, pn–sk keliones, vakaro išvykimus ir saugią rezervaciją Kiwi.com.",
     "items": [
       {
         "q": "Ar galiu keliauti nenaudodamas atostogų dienų?",

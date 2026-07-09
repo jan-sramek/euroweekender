@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Tanie weekendowe loty po Europie",
-      "description": "Znajdź i porównaj tanie weekendowe loty po Europie. Szukaj pt.–nd., czw.–nd. i innych wariantów z lotnisk w Twojej okolicy."
+      "title": "Tanie loty weekendowe w Europie",
+      "description": "Porównaj tanie loty weekendowe w Europie. Szukaj pt–nd i czw–nd z Pragi, Wiednia, Berlina, Londynu i innych. Wylot w piątek wieczorem, powrót w niedzielę — bez urlopu."
     },
     "about": {
       "title": "O EuroWeekender",
-      "description": "Weekendowe loty po Europie bez urlopu. Dowiedz się, jak euroweekender.com pomaga wyjechać w piątek wieczorem i wrócić w niedzielę dzięki bezpiecznej rezerwacji przez Kiwi.com."
+      "description": "Tanie europejskie loty weekendowe i city breaki bez urlopu. Porównaj oferty pt–nd z lotnisk w całej Europie na euroweekender.com."
     },
     "faq": {
       "title": "FAQ — weekendowe loty",
-      "description": "Odpowiedzi na najczęstsze pytania o wyszukiwanie europejskich weekendowych lotów na euroweekender.com."
+      "description": "FAQ o tanich lotach weekendowych w Europie, podróżach pt–nd, wieczornych wylotach i rezerwacji przez Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Jak to działa",
-      "description": "Znajdź weekendowe loty z piątkowego wieczoru do niedzieli po Europie. Porównaj oferty na euroweekender.com i zarezerwuj bezpiecznie przez Kiwi.com."
+      "description": "Jak znaleźć tanie loty weekendowe w Europie: wybierz lotniska, weekendy pt–nd, filtruj wieczorne wyloty i rezerwuj na Kiwi.com."
     },
     "privacy": {
       "title": "Polityka prywatności",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europejskie oferty weekendowych lotów",
-    "title": "Twój następny city break zaczyna się w piątek wieczorem",
-    "lead": "Porównaj weekendowe loty w obie strony po Europie — wyjazd po pracy, powrót w niedzielę, bez wykorzystywania urlopu.",
+    "title": "Tanie loty weekendowe w Europie",
+    "lead": "Porównaj loty weekendowe w obie strony w Europie — wylot po pracy w piątek, powrót w niedzielę bez urlopu.",
     "fromSelectedAirports": "Z {{airports}}",
     "person": "osoba",
     "persons": "osób",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} weekendów",
     "flightsCounter": "Znaleziono {{count}} lotów",
     "flightsCounterFiltered": "{{shown}} z {{total}} lotów",
-    "flightsCounterSearching": "Wyszukiwanie lotów…"
+    "flightsCounterSearching": "Wyszukiwanie lotów…",
+    "subtitle": "Twój kolejny city break zaczyna się w piątek wieczorem",
+    "seoTitle": "Znajdź tanie loty weekendowe w Europie",
+    "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, czw–nd i śr–nd, dodaj wieczorne wyloty i odkryj city breaki bez wykorzystywania urlopu."
   },
   "search": {
     "travelWeekend": "Weekend podróży",
@@ -174,7 +177,7 @@
     "builtP2": "Wybierz typ podróży pt.–nd. i włącz filtr wieczornych wylotów, aby zobaczyć loty pasujące do tego rytmu zamiast ogólnych wyszukiwań tygodniowych na innych stronach.",
     "stepsTitle": "Cztery kroki",
     "step1title": "Wybierz lotniska",
-    "step1text": "Zezwól na dostęp do lokalizacji lub wybierz huby wylotu ręcznie. Szukaj z kilku miast jednocześnie.",
+    "step1text": "Wybierz jedno lub więcej lotnisk wylotu w Europie — Praga, Wiedeń, Berlin, Londyn i inne. Szukaj z kilku miast jednocześnie.",
     "step2title": "Wybierz weekendy",
     "step2text": "Zaznacz jeden lub więcej weekendów podróży. Każda etykieta pokazuje zakres dat wylotu dla tej podróży.",
     "step3title": "Doprecyzuj filtry",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Najczęściej zadawane pytania",
-    "heroSubtitle": "Wszystko, co musisz wiedzieć o szukaniu tanich weekendowych lotów po Europie.",
-    "lead": "Wszystko, co musisz wiedzieć o szukaniu tanich weekendowych lotów po Europie.",
+    "heroSubtitle": "Wszystko o znajdowaniu tanich lotów weekendowych w Europie.",
+    "lead": "Odpowiedzi o tanich lotach weekendowych w Europie, podróżach pt–nd, wieczornych wylotach i bezpiecznej rezerwacji na Kiwi.com.",
     "items": [
       {
         "q": "Czy mogę podróżować bez wykorzystywania urlopu?",

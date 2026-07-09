@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Zboruri de weekend ieftine în Europa",
-      "description": "Găsiți și comparați zboruri de weekend ieftine în toată Europa. Căutați vin–dum, joi–dum și altele de la aeroporturile din apropierea dvs."
+      "title": "Zboruri ieftine de weekend în Europa",
+      "description": "Compară zboruri ieftine de weekend în Europa. Caută vin–dum și joi–dum din Praga, Viena, Berlin, Londra și altele. Plecare vineri seara, întoarcere duminică — fără concediu."
     },
     "about": {
       "title": "Despre EuroWeekender",
-      "description": "Zboruri de weekend în Europa fără zile de concediu. Aflați cum euroweekender.com vă ajută să plecați vineri seara și să vă întoarceți duminică prin rezervare securizată pe Kiwi.com."
+      "description": "Zboruri ieftine de weekend în Europa și city break-uri fără concediu. Compară oferte vin–dum de la aeroporturi din toată Europa pe euroweekender.com."
     },
     "faq": {
       "title": "Întrebări frecvente despre zborurile de weekend",
-      "description": "Răspunsuri la întrebările frecvente despre căutarea zborurilor de weekend în Europa pe euroweekender.com."
+      "description": "Întrebări frecvente despre zboruri ieftine de weekend în Europa, călătorii vin–dum, plecări seara și rezervare prin Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Cum funcționează",
-      "description": "Găsiți zboruri de weekend de vineri seara până duminică în toată Europa. Comparați ofertele pe euroweekender.com și rezervați în siguranță prin Kiwi.com."
+      "description": "Cum găsești zboruri ieftine de weekend în Europa: alege aeroporturi, weekenduri vin–dum, filtrează plecările seara și rezervă pe Kiwi.com."
     },
     "privacy": {
       "title": "Politica de confidențialitate",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Oferte de zboruri de weekend în Europa",
-    "title": "Următoarea dvs. escapadă urbană începe vineri seara",
-    "lead": "Comparați zboruri dus-întors de weekend în toată Europa — plecați după serviciu, reveniți duminică, fără zile de concediu.",
+    "title": "Zboruri ieftine de weekend în Europa",
+    "lead": "Compară zboruri dus-întors de weekend în Europa — plecare vineri după muncă, întoarcere duminică, fără concediu.",
     "fromSelectedAirports": "De la {{airports}}",
     "person": "persoană",
     "persons": "persoane",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} weekenduri",
     "flightsCounter": "{{count}} zboruri găsite",
     "flightsCounterFiltered": "{{shown}} din {{total}} zboruri",
-    "flightsCounterSearching": "Se caută zboruri…"
+    "flightsCounterSearching": "Se caută zboruri…",
+    "subtitle": "Următorul tău city break începe vineri seara",
+    "seoTitle": "Găsește zboruri ieftine de weekend în Europa",
+    "seoBlock": "Caută și compară zboruri ieftine de weekend din Praga, Viena, Berlin, München, Londra, Barcelona și zeci de aeroporturi europene. Filtrează vin–dum, joi–dum și mie–dum, adaugă plecări seara și descoperă city break-uri fără concediu anual."
   },
   "search": {
     "travelWeekend": "Weekend de călătorie",
@@ -174,7 +177,7 @@
     "builtP2": "Alegeți un tip de călătorie vin–dum și activați filtrul de plecare de seară pentru a afișa zboruri care se potrivesc acestui ritm, în loc de căutări generice de o săptămână pe alte site-uri.",
     "stepsTitle": "Cei patru pași",
     "step1title": "Alegeți aeroporturile",
-    "step1text": "Permiteți accesul la locație sau alegeți manual hub-urile de plecare. Căutați din mai multe orașe simultan.",
+    "step1text": "Alege unul sau mai multe aeroporturi de plecare în Europa — Praga, Viena, Berlin, Londra și altele. Caută din mai multe orașe simultan.",
     "step2title": "Alegeți weekendurile",
     "step2text": "Selectați unul sau mai multe weekenduri de călătorie. Fiecare etichetă arată intervalul de date al plecării dus pentru acea călătorie.",
     "step3title": "Rafinați filtrele",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Întrebări frecvente",
-    "heroSubtitle": "Tot ce trebuie să știți despre găsirea zborurilor de weekend ieftine în Europa.",
-    "lead": "Tot ce trebuie să știți despre găsirea zborurilor de weekend ieftine în Europa.",
+    "heroSubtitle": "Totul despre găsirea zborurilor ieftine de weekend în Europa.",
+    "lead": "Răspunsuri despre zboruri ieftine de weekend în Europa, călătorii vin–dum, plecări seara și rezervare sigură pe Kiwi.com.",
     "items": [
       {
         "q": "Pot călători fără să folosesc zile de concediu?",

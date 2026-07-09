@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Vols de week-end pas chers en Europe",
-      "description": "Trouvez et comparez des vols de week-end pas chers à travers l'Europe. Recherchez ven–dim, jeu–dim et plus depuis les aéroports près de chez vous."
+      "title": "Vols pas chers pour le week-end en Europe",
+      "description": "Comparez les vols pas chers pour le week-end en Europe. Cherchez ven–dim et jeu–dim depuis Prague, Vienne, Berlin, Londres et plus. Départ vendredi soir, retour dimanche — sans congés."
     },
     "about": {
       "title": "À propos d'EuroWeekender",
-      "description": "Des vols de week-end en Europe sans poser de congés. Découvrez comment euroweekender.com vous aide à partir le vendredi soir et revenir le dimanche via une réservation sécurisée sur Kiwi.com."
+      "description": "Vols pas chers pour le week-end en Europe et city breaks sans congés. Comparez les offres ven–dim depuis des aéroports partout en Europe sur euroweekender.com."
     },
     "faq": {
       "title": "FAQ sur les vols de week-end",
-      "description": "Réponses aux questions fréquentes sur la recherche de vols de week-end en Europe sur euroweekender.com."
+      "description": "FAQ sur les vols pas chers pour le week-end en Europe, les voyages ven–dim, les départs le soir et la réservation via Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Comment ça marche",
-      "description": "Trouvez des vols de week-end du vendredi soir au dimanche à travers l'Europe. Comparez les offres sur euroweekender.com et réservez en toute sécurité via Kiwi.com."
+      "description": "Comment trouver des vols pas chers pour le week-end en Europe : choisissez des aéroports, des week-ends ven–dim, filtrez les départs le soir et réservez sur Kiwi.com."
     },
     "privacy": {
       "title": "Politique de confidentialité",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Offres de vols de week-end en Europe",
-    "title": "Votre prochain city break commence vendredi soir",
-    "lead": "Comparez les vols aller-retour de week-end à travers l'Europe — départ après le travail, retour dimanche, sans poser de congés.",
+    "title": "Vols pas chers pour le week-end en Europe",
+    "lead": "Comparez les vols aller-retour pour le week-end en Europe — partez vendredi après le travail, revenez dimanche, sans congés.",
     "fromSelectedAirports": "Depuis {{airports}}",
     "person": "personne",
     "persons": "personnes",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} week-ends",
     "flightsCounter": "{{count}} vols trouvés",
     "flightsCounterFiltered": "{{shown}} sur {{total}} vols",
-    "flightsCounterSearching": "Recherche de vols…"
+    "flightsCounterSearching": "Recherche de vols…",
+    "subtitle": "Votre prochain city break commence vendredi soir",
+    "seoTitle": "Trouvez des vols pas chers pour le week-end en Europe",
+    "seoBlock": "Recherchez et comparez des vols pas chers pour le week-end depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez des départs le soir et découvrez des city breaks sans poser de congés."
   },
   "search": {
     "travelWeekend": "Week-end de voyage",
@@ -174,7 +177,7 @@
     "builtP2": "Choisissez un type de séjour ven–dim et activez le filtre de départ en soirée pour faire remonter des vols adaptés à ce rythme, plutôt que des recherches génériques d'une semaine sur d'autres sites.",
     "stepsTitle": "Les quatre étapes",
     "step1title": "Choisir les aéroports",
-    "step1text": "Autorisez l'accès à la position ou choisissez manuellement les hubs de départ. Recherchez depuis plusieurs villes à la fois.",
+    "step1text": "Choisissez un ou plusieurs aéroports de départ en Europe — Prague, Vienne, Berlin, Londres et plus. Recherchez depuis plusieurs villes à la fois.",
     "step2title": "Choisir les week-ends",
     "step2text": "Sélectionnez un ou plusieurs week-ends de voyage. Chaque pastille affiche la période de départ aller pour ce voyage.",
     "step3title": "Affiner les filtres",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Questions fréquentes",
-    "heroSubtitle": "Tout ce qu'il faut savoir pour trouver des vols de week-end pas chers en Europe.",
-    "lead": "Tout ce qu'il faut savoir pour trouver des vols de week-end pas chers en Europe.",
+    "heroSubtitle": "Tout savoir pour trouver des vols pas chers pour le week-end en Europe.",
+    "lead": "Réponses sur les vols pas chers pour le week-end en Europe, les voyages ven–dim, les départs le soir et la réservation sécurisée sur Kiwi.com.",
     "items": [
       {
         "q": "Puis-je voyager sans poser de congés ?",

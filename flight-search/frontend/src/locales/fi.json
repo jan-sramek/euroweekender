@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Halvat viikonloppulennot Euroopassa",
-      "description": "Etsi ja vertaile halpoja viikonloppulentoja ympäri Eurooppaa. Hae pe–su, to–su ja muita matkoja lähellä olevilta lentokentiltä."
+      "description": "Vertaile halpoja viikonloppulentoja Euroopassa. Etsi pe–su ja to–su -matkoja Praha, Wien, Berliini, Lontoo ja muihin. Lähtö perjantai-iltana, paluu sunnuntaina — ilman lomapäiviä."
     },
     "about": {
       "title": "Tietoa EuroWeekenderistä",
-      "description": "Viikonloppulennot Euroopassa ilman lomapäiviä. Katso, miten euroweekender.com auttaa sinua lähtemään perjantai-iltana ja palaamaan sunnuntaina turvallisen Kiwi.com-varauksen kautta."
+      "description": "Halvat eurooppalaiset viikonloppulennot ja kaupunkilomat ilman lomapäiviä. Vertaile pe–su-tarjouksia lentokentiltä ympäri Eurooppaa osoitteessa euroweekender.com."
     },
     "faq": {
       "title": "Viikonloppulentojen UKK",
-      "description": "Vastauksia yleisiin kysymyksiin eurooppalaisten viikonloppulentojen etsimisestä euroweekender.comissa."
+      "description": "UKK halvoista viikonloppulennoista Euroopassa, pe–su-matkoista, iltalähdöistä ja varaamisesta Kiwi.comin kautta."
     },
     "contact": {
       "title": "Yhteystiedot",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Näin se toimii",
-      "description": "Löydä perjantai-illasta sunnuntaihin ulottuvat viikonloppulennot ympäri Eurooppaa. Vertaile tarjouksia euroweekender.comissa ja varaa turvallisesti Kiwi.comin kautta."
+      "description": "Näin löydät halvat viikonloppulennot Euroopassa: valitse lentokentät, pe–su-viikonloput, suodata iltalähdöt ja varaa Kiwi.comissa."
     },
     "privacy": {
       "title": "Tietosuojakäytäntö",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Eurooppalaiset viikonloppulentotarjoukset",
-    "title": "Seuraava kaupunkiloma alkaa perjantai-iltana",
-    "lead": "Vertaile meno-paluuviikonloppulentoja ympäri Eurooppaa — lähtö työn jälkeen, paluu sunnuntaina, lomapäiviä ei tarvita.",
+    "title": "Halvat viikonloppulennot Euroopassa",
+    "lead": "Vertaile meno-paluu-viikonloppulentoja Euroopassa — lähde perjantaina töiden jälkeen, palaa sunnuntaina ilman lomapäiviä.",
     "fromSelectedAirports": "Lähtö: {{airports}}",
     "person": "henkilö",
     "persons": "henkilöä",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} viikonloppua",
     "flightsCounter": "{{count}} lentoa löytyi",
     "flightsCounterFiltered": "{{shown}} / {{total}} lentoa",
-    "flightsCounterSearching": "Etsitään lentoja…"
+    "flightsCounterSearching": "Etsitään lentoja…",
+    "subtitle": "Seuraava kaupunkilomasi alkaa perjantai-iltana",
+    "seoTitle": "Löydä halvat viikonloppulennot Euroopassa",
+    "seoBlock": "Etsi ja vertaile halpoja viikonloppulentoja Praha, Wien, Berliini, München, Lontoo, Barcelona ja kymmenistä eurooppalaisista lentokentistä. Suodata pe–su, to–su ja ke–su, lisää iltalähdöt ja löydä kaupunkilomia ilman vuosilomaa."
   },
   "search": {
     "travelWeekend": "Matkaviikonloppu",
@@ -174,7 +177,7 @@
     "builtP2": "Valitse pe–su-matkatyyppi ja ota iltalähtösuodatin käyttöön löytääksesi lennot, jotka sopivat tähän rytmiin, eivät geneerisiin viikon mittaisiin hakuihin muilla sivustoilla.",
     "stepsTitle": "Neljä vaihetta",
     "step1title": "Valitse lentokentät",
-    "step1text": "Salli sijaintitiedot tai valitse lähtösolmukohdat käsin. Hae useista kaupungeista kerralla.",
+    "step1text": "Valitse yksi tai useampi lähtölentokenttä Euroopassa — Praha, Wien, Berliini, Lontoo ja muut. Hae useasta kaupungista kerralla.",
     "step2title": "Valitse viikonloput",
     "step2text": "Valitse yksi tai useampi matkaviikonloppu. Jokainen merkki näyttää matkan lähtöaikavälin.",
     "step3title": "Tarkenna suodattimia",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Usein kysytyt kysymykset",
-    "heroSubtitle": "Kaikki mitä sinun tarvitsee tietää halpojen viikonloppulentojen etsimisestä Euroopassa.",
-    "lead": "Kaikki mitä sinun tarvitsee tietää halpojen viikonloppulentojen etsimisestä Euroopassa.",
+    "heroSubtitle": "Kaikki halpojen viikonloppulentojen löytämisestä Euroopassa.",
+    "lead": "Vastauksia halvoista viikonloppulennoista Euroopassa, pe–su-matkoista, iltalähdöistä ja turvallisesta varaamisesta Kiwi.comissa.",
     "items": [
       {
         "q": "Voinko matkustaa käyttämättä lomapäiviä?",

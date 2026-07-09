@@ -9,7 +9,7 @@ import '../layouts/ContentPageLayout.css';
 export function AboutPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.about.title'), t('meta.about.description'));
+  usePageMeta(t('meta.about.title'), t('meta.about.description'), '/about');
 
   return (
     <ContentPageLayout

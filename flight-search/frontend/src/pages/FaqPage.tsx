@@ -10,7 +10,7 @@ export function FaqPage() {
   const { t } = useTranslation();
   const items = t('faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
 
-  usePageMeta(t('meta.faq.title'), t('meta.faq.description'));
+  usePageMeta(t('meta.faq.title'), t('meta.faq.description'), '/faq');
 
   useEffect(() => {
     const script = document.createElement('script');

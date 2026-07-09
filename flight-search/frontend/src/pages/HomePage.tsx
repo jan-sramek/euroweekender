@@ -43,7 +43,7 @@ export function HomePage() {
   const { t } = useTranslation();
   const weekendPatterns = useWeekendPatterns();
 
-  usePageMeta(t('meta.home.title'), t('meta.home.description'));
+  usePageMeta(t('meta.home.title'), t('meta.home.description'), '/');
 
   const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
@@ -164,6 +164,7 @@ export function HomePage() {
           <div className="container container-wide intro-copy">
             <p className="intro-eyebrow">{t('home.tagline')}</p>
             <h1>{t('home.title')}</h1>
+            <p className="intro-subtitle">{t('home.subtitle')}</p>
             <p className="intro-lead">{t('home.lead')}</p>
           </div>
           <div className="search-home">
@@ -293,6 +294,15 @@ export function HomePage() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="home-seo" aria-labelledby="home-seo-title">
+        <div className="container container-wide">
+          <h2 id="home-seo-title" className="home-seo-title">
+            {t('home.seoTitle')}
+          </h2>
+          <p className="home-seo-text">{t('home.seoBlock')}</p>
         </div>
       </section>
 

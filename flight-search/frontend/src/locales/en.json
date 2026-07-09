@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Cheap European Weekend Flights",
-      "description": "Find and compare cheap weekend flights across Europe. Search Fri–Sun, Thu–Sun, and more from airports near you."
+      "description": "Compare cheap weekend flights across Europe. Search Fri–Sun and Thu–Sun round trips from Prague, Vienna, Berlin, London, and more. Leave Friday evening, return Sunday — no vacation days."
     },
     "about": {
       "title": "About EuroWeekender",
-      "description": "Weekend flights across Europe without vacation days. Learn how euroweekender.com helps you leave Friday evening and return Sunday via secure Kiwi.com booking."
+      "description": "Cheap European weekend flights and city breaks without vacation days. Compare Fri–Sun deals from airports across Europe on euroweekender.com."
     },
     "faq": {
       "title": "Weekend Flights FAQ",
-      "description": "Answers to common questions about searching European weekend flights on euroweekender.com."
+      "description": "FAQ about cheap European weekend flights, Fri–Sun trips, evening departures, and booking through Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "How It Works",
-      "description": "Find Friday evening to Sunday weekend flights across Europe. Compare deals on euroweekender.com and book securely through Kiwi.com."
+      "description": "How to find cheap European weekend flights: pick airports, select Fri–Sun weekends, filter evening departures, and book on Kiwi.com."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -47,8 +47,11 @@
   },
   "home": {
     "tagline": "European weekend flight deals",
-    "title": "Your next city break starts Friday evening",
-    "lead": "Compare round-trip weekend flights across Europe — leave after work, return Sunday, no vacation days needed.",
+    "title": "Cheap European weekend flights",
+    "subtitle": "Your next city break starts Friday evening",
+    "lead": "Compare round-trip weekend flights across Europe — leave after work on Friday, return Sunday, no vacation days needed.",
+    "seoTitle": "Find cheap weekend flights across Europe",
+    "seoBlock": "Search and compare cheap weekend flights from Prague, Vienna, Berlin, Munich, London, Barcelona, and dozens of European airports. Filter Fri–Sun, Thu–Sun, and Wed–Sun trip patterns, add evening departure times, and discover city breaks you can take without using annual leave.",
     "fromSelectedAirports": "From {{airports}}",
     "person": "person",
     "persons": "persons",
@@ -175,7 +178,7 @@
     "builtP2": "Pick a Fri–Sun trip type and turn on the evening departure filter to surface flights that match that rhythm instead of generic week-long searches on other sites.",
     "stepsTitle": "The four steps",
     "step1title": "Choose airports",
-    "step1text": "Allow location access or pick departure hubs manually. Search from several cities at once.",
+    "step1text": "Pick one or more departure airports across Europe — Prague, Vienna, Berlin, London, and more. Search from several cities at once.",
     "step2title": "Pick weekends",
     "step2text": "Select one or more travel weekends. Each pill shows the outbound date range for that trip.",
     "step3title": "Refine filters",
@@ -195,8 +198,8 @@
   },
   "faq": {
     "heroTitle": "Frequently asked questions",
-    "heroSubtitle": "Everything you need to know about finding cheap weekend flights across Europe.",
-    "lead": "Everything you need to know about finding cheap weekend flights across Europe.",
+    "heroSubtitle": "Everything you need to know about finding cheap European weekend flights.",
+    "lead": "Answers about cheap weekend flights across Europe, Fri–Sun trip types, evening departures, and secure Kiwi.com booking.",
     "items": [
       {
         "q": "Can I travel without using vacation days?",

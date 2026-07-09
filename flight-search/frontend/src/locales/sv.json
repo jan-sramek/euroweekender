@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Billiga europeiska helgflyg",
-      "description": "Hitta och jämför billiga helgflyg i hela Europa. Sök fre–sön, tor–sön och mer från flygplatser nära dig."
+      "title": "Billiga helgflyg i Europa",
+      "description": "Jämför billiga helgflyg i Europa. Sök fre–sön och tor–sön från Prag, Wien, Berlin, London och fler. Avresa fredag kväll, hem söndag — utan semesterdagar."
     },
     "about": {
       "title": "Om EuroWeekender",
-      "description": "Helgflyg i Europa utan semesterdagar. Lär dig hur euroweekender.com hjälper dig att åka på fredagskvällen och komma tillbaka på söndagen via säker bokning på Kiwi.com."
+      "description": "Billiga europeiska helgflyg och storstadsweekends utan semesterdagar. Jämför fre–sön-erbjudanden från flygplatser i hela Europa på euroweekender.com."
     },
     "faq": {
       "title": "Vanliga frågor om helgflyg",
-      "description": "Svar på vanliga frågor om att söka europeiska helgflyg på euroweekender.com."
+      "description": "FAQ om billiga helgflyg i Europa, fre–sön-resor, kvällsavgångar och bokning via Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Så fungerar det",
-      "description": "Hitta helgflyg från fredagskväll till söndag i hela Europa. Jämför erbjudanden på euroweekender.com och boka säkert via Kiwi.com."
+      "description": "Så hittar du billiga helgflyg i Europa: välj flygplatser, fre–sön-helger, filtrera kvällsavgångar och boka på Kiwi.com."
     },
     "privacy": {
       "title": "Integritetspolicy",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europeiska helgflygserbjudanden",
-    "title": "Din nästa storstadsresa börjar på fredagskvällen",
-    "lead": "Jämför tur-och-retur-helgflyg i hela Europa — åk efter jobbet, hem på söndagen, inga semesterdagar behövs.",
+    "title": "Billiga helgflyg i Europa",
+    "lead": "Jämför tur-och-retur-helgflyg i Europa — åk iväg efter jobbet på fredag, hem på söndag utan semesterdagar.",
     "fromSelectedAirports": "Från {{airports}}",
     "person": "person",
     "persons": "personer",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} helger",
     "flightsCounter": "{{count}} flyg hittades",
     "flightsCounterFiltered": "{{shown}} av {{total}} flyg",
-    "flightsCounterSearching": "Söker flyg…"
+    "flightsCounterSearching": "Söker flyg…",
+    "subtitle": "Din nästa storstadsweekend börjar fredag kväll",
+    "seoTitle": "Hitta billiga helgflyg i Europa",
+    "seoBlock": "Sök och jämför billiga helgflyg från Prag, Wien, Berlin, München, London, Barcelona och dussintals europeiska flygplatser. Filtrera fre–sön, tor–sön och ons–sön, lägg till kvällsavgångar och upptäck storstadsweekends utan att ta semester."
   },
   "search": {
     "travelWeekend": "Reshelg",
@@ -174,7 +177,7 @@
     "builtP2": "Välj en fre–sön-resetyp och aktivera kvällsavgångsfilter för att visa flyg som matchar den rytmen istället för generiska veckolånga sökningar på andra sajter.",
     "stepsTitle": "De fyra stegen",
     "step1title": "Välj flygplatser",
-    "step1text": "Tillåt platsåtkomst eller välj avgångshubbar manuellt. Sök från flera städer samtidigt.",
+    "step1text": "Välj en eller flera avreseflygplatser i Europa — Prag, Wien, Berlin, London och fler. Sök från flera städer samtidigt.",
     "step2title": "Välj helger",
     "step2text": "Välj en eller flera reshelger. Varje etikett visar datumintervallet för utresan för den resan.",
     "step3title": "Förfina filter",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Vanliga frågor",
-    "heroSubtitle": "Allt du behöver veta om att hitta billiga helgflyg i Europa.",
-    "lead": "Allt du behöver veta om att hitta billiga helgflyg i Europa.",
+    "heroSubtitle": "Allt om att hitta billiga helgflyg i Europa.",
+    "lead": "Svar om billiga helgflyg i Europa, fre–sön-resor, kvällsavgångar och säker bokning på Kiwi.com.",
     "items": [
       {
         "q": "Kan jag resa utan att använda semesterdagar?",

@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Odavad nädalavahetuse lennud Euroopas",
-      "description": "Leia ja võrdle odavaid nädalavahetuse lende üle Euroopa. Otsi re–püh, nel–püh ja teisi variante sinu lähedal asuvatest lennujaamadest."
+      "title": "Odavad nädalalõpu lennud Euroopas",
+      "description": "Võrdle odavaid nädalalõpu lende Euroopas. Otsi re–p ja nel–p Praha, Viin, Berliin, London ja teistest. Väljumine reedel õhtul, tagasi pühapäeval — ilma puhkuseta."
     },
     "about": {
       "title": "EuroWeekenderist",
-      "description": "Nädalavahetuse lennud üle Euroopa ilma puhkepäevi kulutamata. Uuri, kuidas euroweekender.com aitab sul reedel õhtul välja ja pühapäeval tagasi sõita turvalise Kiwi.com broneeringu kaudu."
+      "description": "Odavad Euroopa nädalalõpu lennud ja linnapuhkused ilma puhkuseta. Võrdle re–p pakkumisi lennujaamadest üle Euroopa saidil euroweekender.com."
     },
     "faq": {
       "title": "Nädalavahetuse lendude KKK",
-      "description": "Vastused levinud küsimustele Euroopa nädalavahetuse lendude otsimise kohta euroweekender.com-is."
+      "description": "KKK odavate nädalalõpu lendude, re–p reiside, õhtuste väljumiste ja broneerimise kohta Kiwi.com kaudu."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Kuidas see töötab",
-      "description": "Leia reedest pühapäevani kestvad nädalavahetuse lennud üle Euroopa. Võrdle pakkumisi euroweekender.com-is ja broneeri turvaliselt Kiwi.com kaudu."
+      "description": "Kuidas leida odavaid nädalalõpu lende Euroopas: vali lennujaamad, re–p nädalalõpud, filtreeri õhtused väljumised ja broneeri Kiwi.com-is."
     },
     "privacy": {
       "title": "Privaatsuspoliitika",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Euroopa nädalavahetuse lennipakkumised",
-    "title": "Sinu järgmine linnapuhkus algab reedel õhtul",
-    "lead": "Võrdle edasi-tagasi nädalavahetuse lende üle Euroopa — lahku pärast tööd, tule pühapäeval tagasi, puhkepäevi pole vaja.",
+    "title": "Odavad nädalalõpu lennud Euroopas",
+    "lead": "Võrdle edasi-tagasi nädalalõpu lende Euroopas — väljumine pärast tööd reedel, tagasi pühapäeval, ilma puhkuseta.",
     "fromSelectedAirports": "Lähtekoht: {{airports}}",
     "person": "inimene",
     "persons": "inimest",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} nädalavahetust",
     "flightsCounter": "{{count}} lendu leitud",
     "flightsCounterFiltered": "{{shown}} / {{total}} lendu",
-    "flightsCounterSearching": "Lende otsitakse…"
+    "flightsCounterSearching": "Lende otsitakse…",
+    "subtitle": "Sinu järgmine linnapuhkus algab reedel õhtul",
+    "seoTitle": "Leia odavad nädalalõpu lennud Euroopas",
+    "seoBlock": "Otsi ja võrdle odavaid nädalalõpu lende Praha, Viin, Berliin, München, London, Barcelona ja paljudest Euroopa lennujaamadest. Filtreeri re–p, nel–p ja kol–p, lisa õhtused väljumised ja avasta linnapuhkusi ilma aastapuhkuseta."
   },
   "search": {
     "travelWeekend": "Reisinädalavahetus",
@@ -174,7 +177,7 @@
     "builtP2": "Vali R–P reisitüüp ja lülita sisse õhtuse väljumise filter, et näha lende, mis sobivad selle rütmiga, mitte teistel saitidel levinud üldisi nädalapikkuseid otsinguid.",
     "stepsTitle": "Neli sammu",
     "step1title": "Vali lennujaamad",
-    "step1text": "Luba asukoha juurdepääs või vali väljumiskeskused käsitsi. Otsi korraga mitmest linnast.",
+    "step1text": "Vali üks või mitu väljumislennujaama Euroopas — Praha, Viin, Berliin, London ja teised. Otsi korraga mitmest linnast.",
     "step2title": "Vali nädalavahetused",
     "step2text": "Vali üks või mitu reisinädalavahetust. Iga silt näitab selle reisi väljumiskuupäevade vahemikku.",
     "step3title": "Täpsusta filtreid",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Korduma kippuvad küsimused",
-    "heroSubtitle": "Kõik, mida pead teadma odavate nädalavahetuse lendude leidmise kohta üle Euroopa.",
-    "lead": "Kõik, mida pead teadma odavate nädalavahetuse lendude leidmise kohta üle Euroopa.",
+    "heroSubtitle": "Kõik odavate nädalalõpu lendude leidmise kohta Euroopas.",
+    "lead": "Vastused odavate nädalalõpu lendude, re–p reiside, õhtuste väljumiste ja turvalise broneerimise kohta Kiwi.com-is.",
     "items": [
       {
         "q": "Kas saan reisida ilma puhkepäevi kasutamata?",

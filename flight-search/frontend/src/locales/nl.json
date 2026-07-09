@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Goedkope Europese weekendvluchten",
-      "description": "Vind en vergelijk goedkope weekendvluchten door heel Europa. Zoek vr–zo, do–zo en meer vanaf luchthavens bij u in de buurt."
+      "title": "Goedkope weekendvluchten in Europa",
+      "description": "Vergelijk goedkope weekendvluchten in Europa. Zoek vr–zo en do–zo vanuit Praag, Wenen, Berlijn, Londen en meer. Vertrek vrijdagavond, terug zondag — zonder vakantiedagen."
     },
     "about": {
       "title": "Over EuroWeekender",
-      "description": "Weekendvluchten door Europa zonder vakantiedagen. Ontdek hoe euroweekender.com u helpt vrijdagavond te vertrekken en zondag terug te keren via een veilige boeking bij Kiwi.com."
+      "description": "Goedkope Europese weekendvluchten en citytrips zonder vakantiedagen. Vergelijk vr–zo-deals van luchthavens in heel Europa op euroweekender.com."
     },
     "faq": {
       "title": "FAQ weekendvluchten",
-      "description": "Antwoorden op veelgestelde vragen over het zoeken naar Europese weekendvluchten op euroweekender.com."
+      "description": "FAQ over goedkope weekendvluchten in Europa, vr–zo-reizen, avondvertrekken en boeken via Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Hoe het werkt",
-      "description": "Vind weekendvluchten van vrijdagavond tot zondag door heel Europa. Vergelijk aanbiedingen op euroweekender.com en boek veilig via Kiwi.com."
+      "description": "Zo vind je goedkope weekendvluchten in Europa: kies luchthavens, vr–zo-weekenden, filter avondvertrekken en boek op Kiwi.com."
     },
     "privacy": {
       "title": "Privacybeleid",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europese weekendvlucht-aanbiedingen",
-    "title": "Uw volgende citytrip begint vrijdagavond",
-    "lead": "Vergelijk retourweekendvluchten door heel Europa — vertrek na het werk, terug op zondag, zonder vakantiedagen.",
+    "title": "Goedkope weekendvluchten in Europa",
+    "lead": "Vergelijk retour-weekendvluchten in Europa — vertrek vrijdag na werk, terug zondag, zonder vakantiedagen.",
     "fromSelectedAirports": "Vanaf {{airports}}",
     "person": "persoon",
     "persons": "personen",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} weekenden",
     "flightsCounter": "{{count}} vluchten gevonden",
     "flightsCounterFiltered": "{{shown}} van {{total}} vluchten",
-    "flightsCounterSearching": "Vluchten zoeken…"
+    "flightsCounterSearching": "Vluchten zoeken…",
+    "subtitle": "Je volgende citytrip begint vrijdagavond",
+    "seoTitle": "Vind goedkope weekendvluchten in Europa",
+    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanuit Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe en ontdek citytrips zonder verlof op te nemen."
   },
   "search": {
     "travelWeekend": "Reisweekend",
@@ -174,7 +177,7 @@
     "builtP2": "Kies een vr–zo reistype en schakel het avondvertrekfilter in om vluchten te tonen die bij dat ritme passen, in plaats van generieke weeklange zoekopdrachten op andere sites.",
     "stepsTitle": "De vier stappen",
     "step1title": "Luchthavens kiezen",
-    "step1text": "Sta locatietoegang toe of kies vertrekhubs handmatig. Zoek vanuit meerdere steden tegelijk.",
+    "step1text": "Kies een of meer vertrekluchthavens in Europa — Praag, Wenen, Berlijn, Londen en meer. Zoek tegelijk vanuit meerdere steden.",
     "step2title": "Weekenden kiezen",
     "step2text": "Selecteer een of meer reisweekenden. Elke pill toont het datumbereik van de heenvlucht voor die reis.",
     "step3title": "Filters verfijnen",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Veelgestelde vragen",
-    "heroSubtitle": "Alles wat u moet weten over het vinden van goedkope weekendvluchten door Europa.",
-    "lead": "Alles wat u moet weten over het vinden van goedkope weekendvluchten door Europa.",
+    "heroSubtitle": "Alles over het vinden van goedkope weekendvluchten in Europa.",
+    "lead": "Antwoorden over goedkope weekendvluchten in Europa, vr–zo-reizen, avondvertrekken en veilig boeken op Kiwi.com.",
     "items": [
       {
         "q": "Kan ik reizen zonder vakantiedagen op te maken?",

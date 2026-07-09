@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Lēti nedēļas nogales lidojumi Eiropā",
-      "description": "Atrodi un salīdzini lētus nedēļas nogales lidojumus visā Eiropā. Meklē piektd.–svētd., ceturtd.–svētd. un citus variantus no tuvākajām lidostām."
+      "description": "Salīdziniet lētus nedēļas nogales lidojumus Eiropā. Meklējiet pk–sv un ce–sv no Prāgas, Vīnes, Berlīnes, Londonas un citur. Izladšanās piektdienas vakarā, atgriešanās svētdienā — bez atvaļinājuma."
     },
     "about": {
       "title": "Par EuroWeekender",
-      "description": "Nedēļas nogales lidojumi Eiropā bez atvaļinājuma dienām. Uzzini, kā euroweekender.com palīdz izlidot piektdienas vakarā un atgriezties svētdien, rezervējot droši caur Kiwi.com."
+      "description": "Lēti Eiropas nedēļas nogales lidojumi un pilsētu braucieni bez atvaļinājuma. Salīdziniet pk–sv piedāvājumus no lidostām visā Eiropā vietnē euroweekender.com."
     },
     "faq": {
       "title": "BUJ par nedēļas nogales lidojumiem",
-      "description": "Atbildes uz biežāk uzdotajiem jautājumiem par Eiropas nedēļas nogales lidojumu meklēšanu euroweekender.com."
+      "description": "BUJ par lētiem nedēļas nogales lidojumiem Eiropā, pk–sv braucieniem, vakara izlidošanu un rezervāciju caur Kiwi.com."
     },
     "contact": {
       "title": "Kontakti",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Kā tas darbojas",
-      "description": "Atrodi nedēļas nogales lidojumus no piektdienas vakara līdz svētdienai visā Eiropā. Salīdzini piedāvājumus euroweekender.com un rezervē droši caur Kiwi.com."
+      "description": "Kā atrast lētus nedēļas nogales lidojumus Eiropā: izvēlieties lidostas, pk–sv nedēļas nogales, filtrējiet vakara izlidošanas un rezervējiet Kiwi.com."
     },
     "privacy": {
       "title": "Privātuma politika",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
-    "title": "Tava nākamā pilsētas brīvdiena sākas piektdienas vakarā",
-    "lead": "Salīdzini turp-atpakaļ nedēļas nogales lidojumus visā Eiropā — aizbrauc pēc darba, atgriezies svētdien, bez atvaļinājuma dienām.",
+    "title": "Lēti nedēļas nogales lidojumi Eiropā",
+    "lead": "Salīdziniet riņķa nedēļas nogales lidojumus Eiropā — izlidošana pēc darba piektdienā, atgriešanās svētdienā bez atvaļinājuma.",
     "fromSelectedAirports": "No {{airports}}",
     "person": "persona",
     "persons": "personas",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} nedēļas nogales",
     "flightsCounter": "Atrasti {{count}} lidojumi",
     "flightsCounterFiltered": "{{shown}} no {{total}} lidojumiem",
-    "flightsCounterSearching": "Meklē lidojumus…"
+    "flightsCounterSearching": "Meklē lidojumus…",
+    "subtitle": "Jūsu nākamais pilsētas brauciens sākas piektdienas vakarā",
+    "seoTitle": "Atrodiet lētus nedēļas nogales lidojumus Eiropā",
+    "seoBlock": "Meklējiet un salīdziniet lētus nedēļas nogales lidojumus no Prāgas, Vīnes, Berlīnes, Minhenes, Londonas, Barselonas un desmitiem Eiropas lidostu. Filtrējiet pk–sv, ce–sv un tr–sv, pievienojiet vakara izlidošanas un atklājiet pilsētu braucienus bez gada atvaļinājuma."
   },
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
@@ -174,7 +177,7 @@
     "builtP2": "Izvēlies Pk–Sv ceļojuma veidu un ieslēdz vakara izlidošanas filtru, lai redzētu lidojumus, kas atbilst šim ritmam, nevis vispārīgus nedēļas garus meklējumus citās vietnēs.",
     "stepsTitle": "Četri soļi",
     "step1title": "Izvēlies lidostas",
-    "step1text": "Atļauj piekļuvi atrašanās vietai vai izvēlies izlidošanas centrus manuāli. Meklē no vairākām pilsētām vienlaikus.",
+    "step1text": "Izvēlieties vienu vai vairākas izlidošanas lidostas Eiropā — Prāga, Vīne, Berlīne, Londona un citas. Meklējiet no vairākām pilsētām vienlaikus.",
     "step2title": "Izvēlies nedēļas nogales",
     "step2text": "Izvēlies vienu vai vairākas ceļojuma nedēļas nogales. Katra zīme rāda izlidošanas datumu intervālu šim ceļojumam.",
     "step3title": "Precizē filtrus",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Biežāk uzdotie jautājumi",
-    "heroSubtitle": "Viss, kas jāzina par lētu nedēļas nogales lidojumu meklēšanu Eiropā.",
-    "lead": "Viss, kas jāzina par lētu nedēļas nogales lidojumu meklēšanu Eiropā.",
+    "heroSubtitle": "Viss par lētu nedēļas nogales lidojumu meklēšanu Eiropā.",
+    "lead": "Atbildes par lētiem nedēļas nogales lidojumiem Eiropā, pk–sv braucieniem, vakara izlidošanu un drošu rezervāciju Kiwi.com.",
     "items": [
       {
         "q": "Vai varu ceļot bez atvaļinājuma dienām?",

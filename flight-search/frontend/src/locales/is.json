@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Ódýrir helgarflug í Evrópu",
-      "description": "Finndu og berðu saman ódýr helgarflug um alla Evrópu. Leitaðu Fös–Sun, Fim–Sun og fleira frá flugvöllum nálægt þér."
+      "title": "Ódýr helgarflug í Evrópu",
+      "description": "Berðu saman ódýr helgarflug í Evrópu. Leitaðu að fös–sun og fim–sun frá Prag, Vín, Berlín, London og fleiru. Brottför á föstudagskvöld, heim sunnudag — án frídaga."
     },
     "about": {
       "title": "Um EuroWeekender",
-      "description": "Helgarflug um Evrópu án frídaga. Lærðu hvernig euroweekender.com hjálpar þér að fara á föstudagskvöld og koma aftur á sunnudag með öruggri bókun í gegnum Kiwi.com."
+      "description": "Ódýr evrópsk helgarflug og borgarferðir án frídaga. Berðu saman fös–sun tilboð frá flugvöllum um allan Evrópu á euroweekender.com."
     },
     "faq": {
       "title": "Algengar spurningar um helgarflug",
-      "description": "Svör við algengum spurningum um að leita að helgarflugi í Evrópu á euroweekender.com."
+      "description": "Algengar spurningar um ódýr helgarflug í Evrópu, fös–sun ferðir, kvöldbrottfarir og bókun í gegnum Kiwi.com."
     },
     "contact": {
       "title": "Hafa samband",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Hvernig það virkar",
-      "description": "Finndu helgarflug frá föstudagskvöldi til sunnudags um alla Evrópu. Berðu saman tilboð á euroweekender.com og bókaðu örugglega í gegnum Kiwi.com."
+      "description": "Hvernig á að finna ódýr helgarflug í Evrópu: veldu flugvelli, fös–sun helgar, sía kvöldbrottfarir og bókaðu á Kiwi.com."
     },
     "privacy": {
       "title": "Persónuverndarstefna",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Helgarflugtilboð í Evrópu",
-    "title": "Næsta borgarferðalag þitt byrjar á föstudagskvöldi",
-    "lead": "Berðu saman heim-og-til-baka helgarflug um alla Evrópu — farðu eftir vinnu, komdu aftur á sunnudag, engir frídagar þarf.",
+    "title": "Ódýr helgarflug í Evrópu",
+    "lead": "Berðu saman fram og til baka helgarflug í Evrópu — brott eftir vinnu á föstudegi, heim á sunnudegi án frídaga.",
     "fromSelectedAirports": "Frá {{airports}}",
     "person": "manni",
     "persons": "mönnum",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} helgar",
     "flightsCounter": "{{count}} flug fundust",
     "flightsCounterFiltered": "{{shown}} af {{total}} flugum",
-    "flightsCounterSearching": "Leita að flugum…"
+    "flightsCounterSearching": "Leita að flugum…",
+    "subtitle": "Næsta borgarferð byrjar á föstudagskvöldi",
+    "seoTitle": "Finndu ódýr helgarflug í Evrópu",
+    "seoBlock": "Leitaðu og berðu saman ódýr helgarflug frá Prag, Vín, Berlín, München, London, Barcelona og tugum evrópskra flugvalla. Síaðu fös–sun, fim–sun og mið–sun, bættu við kvöldbrottförum og uppgötvaðu borgarferðir án ársfrís."
   },
   "search": {
     "travelWeekend": "Ferðahelgi",
@@ -174,7 +177,7 @@
     "builtP2": "Veldu Fös–Sun ferðategund og kveiktu á kvöldbrottfarasíunni til að sýna flug sem passa við þetta taktmynstur í stað almennra vikulegra leitanna á öðrum síðum.",
     "stepsTitle": "Fjórir þættirnir",
     "step1title": "Veldu flugvelli",
-    "step1text": "Leyfðu staðsetningaraðgang eða veldu brottfararmiðstöðvar handvirkt. Leitaðu frá mörgum borgum í einu.",
+    "step1text": "Veldu einn eða fleiri brottfararflugvelli í Evrópu — Prag, Vín, Berlín, London og fleiri. Leitaðu frá mörgum borgum í einu.",
     "step2title": "Veldu helgar",
     "step2text": "Veldu eina eða fleiri ferðahelgar. Hver merki sýnir brottfarardagsetningabil fyrir þá ferð.",
     "step3title": "Fínstilltu síur",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Algengar spurningar",
-    "heroSubtitle": "Allt sem þú þarft að vita um að finna ódýr helgarflug um alla Evrópu.",
-    "lead": "Allt sem þú þarft að vita um að finna ódýr helgarflug um alla Evrópu.",
+    "heroSubtitle": "Allt um að finna ódýr helgarflug í Evrópu.",
+    "lead": "Svör um ódýr helgarflug í Evrópu, fös–sun ferðir, kvöldbrottfarir og örugga bókun á Kiwi.com.",
     "items": [
       {
         "q": "Get ég ferðast án þess að nota frídaga?",

@@ -40,6 +40,14 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.intro-subtitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .search-home {
   width: 100%;
 }
@@ -102,6 +110,25 @@
 
 .offers-home {
   padding: 2rem 0 4rem;
+}
+
+.home-seo {
+  padding: 0 0 3rem;
+  background: #f5f7f9;
+}
+
+.home-seo-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  color: #192c39;
+}
+
+.home-seo-text {
+  margin: 0;
+  max-width: 52rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #5c6770;
 }
 
 .offers-header {

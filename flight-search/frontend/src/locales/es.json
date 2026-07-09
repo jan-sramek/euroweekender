@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Vuelos de fin de semana baratos en Europa",
-      "description": "Encuentra y compara vuelos de fin de semana baratos por toda Europa. Busca vie–dom, jue–dom y más desde aeropuertos cerca de ti."
+      "title": "Vuelos baratos de fin de semana en Europa",
+      "description": "Compara vuelos baratos de fin de semana en Europa. Busca vie–dom y jue–dom desde Praga, Viena, Berlín, Londres y más. Salida viernes por la noche, vuelta domingo — sin vacaciones."
     },
     "about": {
       "title": "Sobre EuroWeekender",
-      "description": "Vuelos de fin de semana por Europa sin gastar días de vacaciones. Descubre cómo euroweekender.com te ayuda a salir el viernes por la noche y volver el domingo con reserva segura en Kiwi.com."
+      "description": "Vuelos baratos de fin de semana en Europa y escapadas urbanas sin días de vacaciones. Compara ofertas vie–dom desde aeropuertos de toda Europa en euroweekender.com."
     },
     "faq": {
       "title": "Preguntas frecuentes sobre vuelos de fin de semana",
-      "description": "Respuestas a preguntas habituales sobre la búsqueda de vuelos de fin de semana en Europa en euroweekender.com."
+      "description": "Preguntas frecuentes sobre vuelos baratos de fin de semana en Europa, viajes vie–dom, salidas nocturnas y reserva en Kiwi.com."
     },
     "contact": {
       "title": "Contacto",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Cómo funciona",
-      "description": "Encuentra vuelos de fin de semana del viernes por la noche al domingo por toda Europa. Compara ofertas en euroweekender.com y reserva de forma segura a través de Kiwi.com."
+      "description": "Cómo encontrar vuelos baratos de fin de semana en Europa: elige aeropuertos, fines de semana vie–dom, filtra salidas nocturnas y reserva en Kiwi.com."
     },
     "privacy": {
       "title": "Política de privacidad",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Ofertas de vuelos de fin de semana en Europa",
-    "title": "Tu próxima escapada urbana empieza el viernes por la noche",
-    "lead": "Compara vuelos de ida y vuelta de fin de semana por toda Europa — sal después del trabajo, vuelve el domingo, sin gastar días de vacaciones.",
+    "title": "Vuelos baratos de fin de semana en Europa",
+    "lead": "Compara vuelos de ida y vuelta de fin de semana en Europa — sal el viernes después del trabajo, vuelve el domingo, sin días de vacaciones.",
     "fromSelectedAirports": "Desde {{airports}}",
     "person": "persona",
     "persons": "personas",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} fines de semana",
     "flightsCounter": "{{count}} vuelos encontrados",
     "flightsCounterFiltered": "{{shown}} de {{total}} vuelos",
-    "flightsCounterSearching": "Buscando vuelos…"
+    "flightsCounterSearching": "Buscando vuelos…",
+    "subtitle": "Tu próxima escapada urbana empieza el viernes por la noche",
+    "seoTitle": "Encuentra vuelos baratos de fin de semana en Europa",
+    "seoBlock": "Busca y compara vuelos baratos de fin de semana desde Praga, Viena, Berlín, Múnich, Londres, Barcelona y decenas de aeropuertos europeos. Filtra vie–dom, jue–dom y mié–dom, añade salidas nocturnas y descubre escapadas sin usar vacaciones."
   },
   "search": {
     "travelWeekend": "Fin de semana de viaje",
@@ -174,7 +177,7 @@
     "builtP2": "Elige un tipo de viaje vie–dom y activa el filtro de salida nocturna para mostrar vuelos que encajen con ese ritmo en lugar de búsquedas genéricas de una semana en otros sitios.",
     "stepsTitle": "Los cuatro pasos",
     "step1title": "Elige aeropuertos",
-    "step1text": "Permite el acceso a la ubicación o elige hubs de salida manualmente. Busca desde varias ciudades a la vez.",
+    "step1text": "Elige uno o más aeropuertos de salida en Europa — Praga, Viena, Berlín, Londres y más. Busca desde varias ciudades a la vez.",
     "step2title": "Elige fines de semana",
     "step2text": "Selecciona uno o más fines de semana de viaje. Cada pastilla muestra el rango de fechas de salida de ida para ese viaje.",
     "step3title": "Ajusta los filtros",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Preguntas frecuentes",
-    "heroSubtitle": "Todo lo que necesitas saber para encontrar vuelos de fin de semana baratos por Europa.",
-    "lead": "Todo lo que necesitas saber para encontrar vuelos de fin de semana baratos por Europa.",
+    "heroSubtitle": "Todo sobre cómo encontrar vuelos baratos de fin de semana en Europa.",
+    "lead": "Respuestas sobre vuelos baratos de fin de semana en Europa, viajes vie–dom, salidas nocturnas y reserva segura en Kiwi.com.",
     "items": [
       {
         "q": "¿Puedo viajar sin gastar días de vacaciones?",

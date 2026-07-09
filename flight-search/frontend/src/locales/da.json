@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Billige europæiske weekendfly",
-      "description": "Find og sammenlign billige weekendfly i hele Europa. Søg fre–søn, tor–søn og mere fra lufthavne nær dig."
+      "title": "Billige weekendfly i Europa",
+      "description": "Sammenlign billige weekendfly i Europa. Søg fre–søn og tor–søn fra Prag, Wien, Berlin, London og flere. Afgang fredag aften, hjemkomst søndag — uden feriedage."
     },
     "about": {
       "title": "Om EuroWeekender",
-      "description": "Weekendfly i Europa uden feriedage. Lær hvordan euroweekender.com hjælper dig med at rejse fredag aften og komme tilbage søndag via sikker booking på Kiwi.com."
+      "description": "Billige europæiske weekendfly og storbyweekender uden feriedage. Sammenlign fre–søn-tilbud fra lufthavne i hele Europa på euroweekender.com."
     },
     "faq": {
       "title": "Ofte stillede spørgsmål om weekendfly",
-      "description": "Svar på almindelige spørgsmål om at søge europæiske weekendfly på euroweekender.com."
+      "description": "FAQ om billige weekendfly i Europa, fre–søn-rejser, aftenafgange og booking via Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Sådan fungerer det",
-      "description": "Find weekendfly fra fredag aften til søndag i hele Europa. Sammenlign tilbud på euroweekender.com og book sikkert via Kiwi.com."
+      "description": "Sådan finder du billige weekendfly i Europa: vælg lufthavne, fre–søn-weekender, filtrer aftenafgange og book på Kiwi.com."
     },
     "privacy": {
       "title": "Privatlivspolitik",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europæiske weekendfly-tilbud",
-    "title": "Din næste storbyferie starter fredag aften",
-    "lead": "Sammenlign tur-retur-weekendfly i hele Europa — afsted efter arbejde, hjem søndag, ingen feriedage nødvendige.",
+    "title": "Billige weekendfly i Europa",
+    "lead": "Sammenlign retur-weekendfly i Europa — afsted efter arbejde fredag, hjem søndag, uden feriedage.",
     "fromSelectedAirports": "Fra {{airports}}",
     "person": "person",
     "persons": "personer",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} weekender",
     "flightsCounter": "{{count}} fly fundet",
     "flightsCounterFiltered": "{{shown}} af {{total}} fly",
-    "flightsCounterSearching": "Søger fly…"
+    "flightsCounterSearching": "Søger fly…",
+    "subtitle": "Din næste storbyweekend starter fredag aften",
+    "seoTitle": "Find billige weekendfly i Europa",
+    "seoBlock": "Søg og sammenlign billige weekendfly fra Prag, Wien, Berlin, München, London, Barcelona og dusinvis af europæiske lufthavne. Filtrer fre–søn, tor–søn og ons–søn, tilføj aftenafgange og find storbyweekender uden at bruge ferie."
   },
   "search": {
     "travelWeekend": "Rejseweekend",
@@ -174,7 +177,7 @@
     "builtP2": "Vælg en fre–søn-rejsetype og slå aftenafgangsfilteret til for at vise fly der matcher den rytme i stedet for generiske ugesøgninger på andre sider.",
     "stepsTitle": "De fire trin",
     "step1title": "Vælg lufthavne",
-    "step1text": "Tillad placeringsadgang eller vælg afgangshubs manuelt. Søg fra flere byer på én gang.",
+    "step1text": "Vælg en eller flere afgangslufthavne i Europa — Prag, Wien, Berlin, London og flere. Søg fra flere byer på én gang.",
     "step2title": "Vælg weekender",
     "step2text": "Vælg en eller flere rejseweekender. Hver etiket viser datointervallet for udrejsen for den rejse.",
     "step3title": "Finpuds filtre",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Ofte stillede spørgsmål",
-    "heroSubtitle": "Alt hvad du behøver at vide om at finde billige weekendfly i Europa.",
-    "lead": "Alt hvad du behøver at vide om at finde billige weekendfly i Europa.",
+    "heroSubtitle": "Alt om at finde billige weekendfly i Europa.",
+    "lead": "Svar om billige weekendfly i Europa, fre–søn-rejser, aftenafgange og sikker booking på Kiwi.com.",
     "items": [
       {
         "q": "Kan jeg rejse uden at bruge feriedage?",

@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Olcsó európai hétvégi járatok",
-      "description": "Keress és hasonlíts össze olcsó hétvégi járatokat Európában. Keresés péntek–vasárnap, csütörtök–vasárnap és más időszakokra a közeledben lévő repülőterekről."
+      "title": "Olcsó hétvégi repülőjáratok Európában",
+      "description": "Hasonlítsa össze az olcsó hétvégi repülőjáratokat Európában. Keressen p–v és cs–v utakat Prága, Bécs, Berlin, London és más városokból. Indulás péntek este, visszatérés vasárnap — szabadság nélkül."
     },
     "about": {
       "title": "Az EuroWeekenderről",
-      "description": "Hétvégi járatok Európában szabadság nélkül. Tudj meg többet arról, hogyan segít az euroweekender.com péntek esti indulással és vasárnapi visszatéréssel, biztonságos Kiwi.com foglalással."
+      "description": "Olcsó európai hétvégi repülőjáratok és városlátogatások szabadság nélkül. Hasonlítsa össze a p–v ajánlatokat egész Európa repülőtereiről az euroweekender.com oldalon."
     },
     "faq": {
       "title": "Hétvégi járatok – GYIK",
-      "description": "Válaszok a gyakori kérdésekre az európai hétvégi járatok kereséséről az euroweekender.com oldalon."
+      "description": "GYIK az olcsó hétvégi repülőjáratokról Európában, p–v utakról, esti indulásokról és a Kiwi.com-on keresztüli foglalásról."
     },
     "contact": {
       "title": "Kapcsolat",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Hogyan működik",
-      "description": "Találj péntek esti–vasárnapi hétvégi járatokat Európában. Hasonlítsd össze az ajánlatokat az euroweekender.com-on, és foglalj biztonságosan a Kiwi.com-on keresztül."
+      "description": "Hogyan találjon olcsó hétvégi repülőjáratokat Európában: válasszon repülőteret, p–v hétvégéket, szűrjön esti indulásokra és foglaljon a Kiwi.com-on."
     },
     "privacy": {
       "title": "Adatvédelmi irányelvek",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Európai hétvégi repülőjárat-ajánlatok",
-    "title": "A következő városlátogatásod péntek estén kezdődik",
-    "lead": "Hasonlítsd össze a hétvégi oda-vissza járatokat Európában — indulás munka után, visszatérés vasárnap, szabadság nélkül.",
+    "title": "Olcsó hétvégi repülőjáratok Európában",
+    "lead": "Hasonlítsa össze a hétvégi oda-vissza repülőjáratokat Európában — indulás pénteken munka után, visszatérés vasárnap, szabadság nélkül.",
     "fromSelectedAirports": "Innen: {{airports}}",
     "person": "fő",
     "persons": "fő",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} hétvége",
     "flightsCounter": "{{count}} járat található",
     "flightsCounterFiltered": "{{shown}} / {{total}} járat",
-    "flightsCounterSearching": "Járatok keresése…"
+    "flightsCounterSearching": "Járatok keresése…",
+    "subtitle": "A következő városlátogatása péntek este kezdődik",
+    "seoTitle": "Találjon olcsó hétvégi repülőjáratokat Európában",
+    "seoBlock": "Keressen és hasonlítson össze olcsó hétvégi repülőjáratokat Prága, Bécs, Berlin, München, London, Barcelona és tucatnyi európai repülőtérről. Szűrjön p–v, cs–v és sze–v utakra, adjon hozzá esti indulásokat, és fedezze fel a városlátogatásokat szabadság felhasználása nélkül."
   },
   "search": {
     "travelWeekend": "Utazási hétvége",
@@ -174,7 +177,7 @@
     "builtP2": "Válaszd a P–V utazástípust, és kapcsold be az esti indulás szűrőt, hogy olyan járatokat láss, amelyek ehhez a ritmushoz illenek, nem pedig általános hetes kereséseket más oldalakon.",
     "stepsTitle": "A négy lépés",
     "step1title": "Válassz repülőtereket",
-    "step1text": "Engedélyezd a helymeghatározást, vagy válaszd ki kézzel az indulási központokat. Keress egyszerre több városból.",
+    "step1text": "Válasszon egy vagy több indulási repülőteret Európában — Prága, Bécs, Berlin, London és mások. Keressen egyszerre több városból.",
     "step2title": "Válassz hétvégéket",
     "step2text": "Jelölj ki egy vagy több utazási hétvégét. Minden címke az adott utazás odaúti dátumtartományát mutatja.",
     "step3title": "Finomítsd a szűrőket",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Gyakran ismételt kérdések",
-    "heroSubtitle": "Minden, amit tudnod kell az olcsó európai hétvégi járatok kereséséről.",
-    "lead": "Minden, amit tudnod kell az olcsó európai hétvégi járatok kereséséről.",
+    "heroSubtitle": "Minden az olcsó hétvégi repülőjáratok megtalálásáról Európában.",
+    "lead": "Válaszok olcsó hétvégi repülőjáratokról Európában, p–v utakról, esti indulásokról és biztonságos foglalásról a Kiwi.com-on.",
     "items": [
       {
         "q": "Utazhatok szabadság felhasználása nélkül?",

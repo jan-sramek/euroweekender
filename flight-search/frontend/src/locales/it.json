@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Voli economici per il weekend in Europa",
-      "description": "Trova e confronta voli economici per il weekend in Europa. Cerca ven.–dom., gio.–dom. e altro da aeroporti vicino a te."
+      "description": "Confronta voli economici per il weekend in Europa. Cerca ven–dom e gio–dom da Praga, Vienna, Berlino, Londra e altro. Partenza venerdì sera, ritorno domenica — senza ferie."
     },
     "about": {
       "title": "Chi siamo — EuroWeekender",
-      "description": "Voli per il weekend in Europa senza giorni di ferie. Scopri come euroweekender.com ti aiuta a partire venerdì sera e tornare domenica con prenotazione sicura su Kiwi.com."
+      "description": "Voli economici per il weekend in Europa e city break senza ferie. Confronta offerte ven–dom da aeroporti in tutta Europa su euroweekender.com."
     },
     "faq": {
       "title": "FAQ — voli per il weekend",
-      "description": "Risposte alle domande frequenti sulla ricerca di voli europei per il weekend su euroweekender.com."
+      "description": "FAQ sui voli economici per il weekend in Europa, viaggi ven–dom, partenze serali e prenotazione tramite Kiwi.com."
     },
     "contact": {
       "title": "Contatti",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Come funziona",
-      "description": "Trova voli per il weekend da venerdì sera a domenica in Europa. Confronta le offerte su euroweekender.com e prenota in sicurezza su Kiwi.com."
+      "description": "Come trovare voli economici per il weekend in Europa: scegli aeroporti, weekend ven–dom, filtra partenze serali e prenota su Kiwi.com."
     },
     "privacy": {
       "title": "Informativa sulla privacy",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Offerte europee di voli per il weekend",
-    "title": "La tua prossima fuga in città inizia venerdì sera",
-    "lead": "Confronta voli andata e ritorno per il weekend in Europa — partenza dopo il lavoro, ritorno domenica, senza giorni di ferie.",
+    "title": "Voli economici per il weekend in Europa",
+    "lead": "Confronta voli andata e ritorno per il weekend in Europa — partenza venerdì dopo il lavoro, ritorno domenica, senza ferie.",
     "fromSelectedAirports": "Da {{airports}}",
     "person": "persona",
     "persons": "persone",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} weekend",
     "flightsCounter": "{{count}} voli trovati",
     "flightsCounterFiltered": "{{shown}} di {{total}} voli",
-    "flightsCounterSearching": "Ricerca voli…"
+    "flightsCounterSearching": "Ricerca voli…",
+    "subtitle": "Il tuo prossimo city break inizia venerdì sera",
+    "seoTitle": "Trova voli economici per il weekend in Europa",
+    "seoBlock": "Cerca e confronta voli economici per il weekend da Praga, Vienna, Berlino, Monaco, Londra, Barcellona e decine di aeroporti europei. Filtra ven–dom, gio–dom e mer–dom, aggiungi partenze serali e scopri city break senza usare ferie."
   },
   "search": {
     "travelWeekend": "Weekend di viaggio",
@@ -174,7 +177,7 @@
     "builtP2": "Scegli un tipo di viaggio Ven.–Dom. e attiva il filtro partenze serali per mostrare voli che seguono quel ritmo invece di ricerche generiche di una settimana su altri siti.",
     "stepsTitle": "I quattro passaggi",
     "step1title": "Scegli gli aeroporti",
-    "step1text": "Consenti l'accesso alla posizione o scegli manualmente gli hub di partenza. Cerca da più città contemporaneamente.",
+    "step1text": "Scegli uno o più aeroporti di partenza in Europa — Praga, Vienna, Berlino, Londra e altri. Cerca da più città contemporaneamente.",
     "step2title": "Scegli i weekend",
     "step2text": "Seleziona uno o più weekend di viaggio. Ogni etichetta mostra l'intervallo di date di andata per quel viaggio.",
     "step3title": "Affina i filtri",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Domande frequenti",
-    "heroSubtitle": "Tutto ciò che devi sapere per trovare voli economici per il weekend in Europa.",
-    "lead": "Tutto ciò che devi sapere per trovare voli economici per il weekend in Europa.",
+    "heroSubtitle": "Tutto su come trovare voli economici per il weekend in Europa.",
+    "lead": "Risposte su voli economici per il weekend in Europa, viaggi ven–dom, partenze serali e prenotazione sicura su Kiwi.com.",
     "items": [
       {
         "q": "Posso viaggiare senza usare giorni di ferie?",

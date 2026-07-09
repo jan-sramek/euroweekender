@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Ucuz Avrupa Hafta Sonu Uçuşları",
-      "description": "Avrupa genelinde ucuz hafta sonu uçuşlarını bulun ve karşılaştırın. Yakınınızdaki havalimanlarından Cum–Paz, Per–Paz ve daha fazlasını arayın."
+      "title": "Avrupa'da ucuz hafta sonu uçuşları",
+      "description": "Avrupa'da ucuz hafta sonu uçuşlarını karşılaştırın. Prag, Viyana, Berlin, Londra ve daha fazlasından cuma–pazar ve perşembe–pazar arayın. Cuma akşamı kalkış, pazar dönüş — izin günü yok."
     },
     "about": {
       "title": "EuroWeekender Hakkında",
-      "description": "İzin günü harcamadan Avrupa'da hafta sonu uçuşları. euroweekender.com'un Cuma akşamı kalkış ve Pazar dönüşü için Kiwi.com üzerinden güvenli rezervasyonla nasıl yardımcı olduğunu öğrenin."
+      "description": "Avrupa'da izin günü olmadan ucuz hafta sonu uçuşları ve şehir kaçamakları. euroweekender.com'da Avrupa genelindeki havalimanlarından cuma–pazar fırsatlarını karşılaştırın."
     },
     "faq": {
       "title": "Hafta Sonu Uçuşları SSS",
-      "description": "euroweekender.com'da Avrupa hafta sonu uçuşları arama hakkında sık sorulan soruların yanıtları."
+      "description": "Avrupa'da ucuz hafta sonu uçuşları, cuma–pazar seyahatleri, akşam kalkışları ve Kiwi.com üzerinden rezervasyon hakkında SSS."
     },
     "contact": {
       "title": "İletişim",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Nasıl Çalışır",
-      "description": "Avrupa genelinde Cuma akşamından Pazar'a hafta sonu uçuşları bulun. euroweekender.com'da fırsatları karşılaştırın ve Kiwi.com üzerinden güvenle rezervasyon yapın."
+      "description": "Avrupa'da ucuz hafta sonu uçuşları nasıl bulunur: havalimanı seçin, cuma–pazar hafta sonları, akşam kalkışlarını filtreleyin ve Kiwi.com'da rezervasyon yapın."
     },
     "privacy": {
       "title": "Gizlilik Politikası",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Avrupa hafta sonu uçuş fırsatları",
-    "title": "Bir sonraki şehir kaçamağınız Cuma akşamı başlıyor",
-    "lead": "Avrupa genelinde gidiş-dönüş hafta sonu uçuşlarını karşılaştırın — işten sonra kalkın, Pazar dönün, izin günü gerekmez.",
+    "title": "Avrupa'da ucuz hafta sonu uçuşları",
+    "lead": "Avrupa'da gidiş-dönüş hafta sonu uçuşlarını karşılaştırın — cuma işten sonra kalkış, pazar dönüş, izin günü gerekmez.",
     "fromSelectedAirports": "{{airports}} kalkışlı",
     "person": "kişi",
     "persons": "kişi",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} hafta sonu",
     "flightsCounter": "{{count}} uçuş bulundu",
     "flightsCounterFiltered": "{{total}} uçuştan {{shown}} tanesi",
-    "flightsCounterSearching": "Uçuşlar aranıyor…"
+    "flightsCounterSearching": "Uçuşlar aranıyor…",
+    "subtitle": "Bir sonraki şehir kaçamağınız cuma akşamı başlar",
+    "seoTitle": "Avrupa'da ucuz hafta sonu uçuşları bulun",
+    "seoBlock": "Prag, Viyana, Berlin, Münih, Londra, Barselona ve onlarca Avrupa havalimanından ucuz hafta sonu uçuşlarını arayın ve karşılaştırın. Cuma–pazar, perşembe–pazar ve çarşamba–pazar filtreleyin, akşam kalkışları ekleyin ve yıllık izin kullanmadan şehir kaçamakları keşfedin."
   },
   "search": {
     "travelWeekend": "Seyahat hafta sonu",
@@ -174,7 +177,7 @@
     "builtP2": "Cum–Paz seyahat türünü seçin ve akşam kalkış filtresini açarak diğer sitelerdeki genel haftalık aramalar yerine bu ritme uyan uçuşları görün.",
     "stepsTitle": "Dört adım",
     "step1title": "Havalimanlarını seçin",
-    "step1text": "Konum erişimine izin verin veya kalkış merkezlerini manuel seçin. Birden fazla şehirden aynı anda arayın.",
+    "step1text": "Avrupa'da bir veya daha fazla kalkış havalimanı seçin — Prag, Viyana, Berlin, Londra ve daha fazlası. Birden fazla şehirden aynı anda arayın.",
     "step2title": "Hafta sonlarını seçin",
     "step2text": "Bir veya daha fazla seyahat hafta sonu seçin. Her etiket o seyahat için gidiş tarih aralığını gösterir.",
     "step3title": "Filtreleri daraltın",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Sık sorulan sorular",
-    "heroSubtitle": "Avrupa genelinde ucuz hafta sonu uçuşları bulmak için bilmeniz gereken her şey.",
-    "lead": "Avrupa genelinde ucuz hafta sonu uçuşları bulmak için bilmeniz gereken her şey.",
+    "heroSubtitle": "Avrupa'da ucuz hafta sonu uçuşları bulma hakkında her şey.",
+    "lead": "Avrupa'da ucuz hafta sonu uçuşları, cuma–pazar seyahatleri, akşam kalkışları ve Kiwi.com'da güvenli rezervasyon hakkında yanıtlar.",
     "items": [
       {
         "q": "İzin günü kullanmadan seyahat edebilir miyim?",

@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "Billige helgeflyvninger i Europa",
-      "description": "Finn og sammenlign billige helgeflyvninger i hele Europa. Søk fre–søn, tor–søn og mer fra flyplasser i nærheten av deg."
+      "title": "Billige helgefly i Europa",
+      "description": "Sammenlign billige helgefly i Europa. Søk fre–søn og tor–søn fra Praha, Wien, Berlin, London og mer. Avreise fredag kveld, hjem søndag — uten feriedager."
     },
     "about": {
       "title": "Om EuroWeekender",
-      "description": "Helgeflyvninger i Europa uten feriedager. Se hvordan euroweekender.com hjelper deg med å reise fredag kveld og komme tilbake søndag via sikker booking på Kiwi.com."
+      "description": "Billige europeiske helgefly og storbyweekender uten feriedager. Sammenlign fre–søn-tilbud fra flyplasser i hele Europa på euroweekender.com."
     },
     "faq": {
       "title": "FAQ om helgeflyvninger",
-      "description": "Svar på vanlige spørsmål om søk etter europeiske helgeflyvninger på euroweekender.com."
+      "description": "FAQ om billige helgefly i Europa, fre–søn-reiser, kveldavreiser og booking via Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Slik fungerer det",
-      "description": "Finn helgeflyvninger fra fredag kveld til søndag i hele Europa. Sammenlign tilbud på euroweekender.com og book trygt via Kiwi.com."
+      "description": "Slik finner du billige helgefly i Europa: velg flyplasser, fre–søn-helger, filtrer kveldavreiser og bestill på Kiwi.com."
     },
     "privacy": {
       "title": "Personvernerklæring",
@@ -47,8 +47,8 @@
   },
   "home": {
     "tagline": "Europeiske helgeflytilbud",
-    "title": "Din neste storbytur starter fredag kveld",
-    "lead": "Sammenlign tur-retur-helgeflyvninger i hele Europa — reis etter jobb, kom tilbake søndag, ingen feriedager nødvendig.",
+    "title": "Billige helgefly i Europa",
+    "lead": "Sammenlign tur-retur-helgefly i Europa — avreise etter jobb fredag, hjem søndag uten feriedager.",
     "fromSelectedAirports": "Fra {{airports}}",
     "person": "person",
     "persons": "personer",
@@ -72,7 +72,10 @@
     "weekendsCount": "{{count}} helger",
     "flightsCounter": "{{count}} fly funnet",
     "flightsCounterFiltered": "{{shown}} av {{total}} fly",
-    "flightsCounterSearching": "Søker etter fly…"
+    "flightsCounterSearching": "Søker etter fly…",
+    "subtitle": "Din neste storbyweekend starter fredag kveld",
+    "seoTitle": "Finn billige helgefly i Europa",
+    "seoBlock": "Søk og sammenlign billige helgefly fra Praha, Wien, Berlin, München, London, Barcelona og dusinvis av europeiske flyplasser. Filtrer fre–søn, tor–søn og ons–søn, legg til kveldavreiser og oppdag storbyweekender uten å bruke ferie."
   },
   "search": {
     "travelWeekend": "Reisehelg",
@@ -174,7 +177,7 @@
     "builtP2": "Velg reisetypen fre–søn og slå på kveldsavgangsfiltret for å finne flyvninger som matcher den rytmen, i stedet for generiske ukesøk på andre nettsteder.",
     "stepsTitle": "De fire stegene",
     "step1title": "Velg flyplasser",
-    "step1text": "Tillat posisjonstilgang eller velg avreisehubs manuelt. Søk fra flere byer samtidig.",
+    "step1text": "Velg én eller flere avreiseflyplasser i Europa — Praha, Wien, Berlin, London og mer. Søk fra flere byer samtidig.",
     "step2title": "Velg helger",
     "step2text": "Velg én eller flere reisehelger. Hver merkelapp viser avreisedatointervallet for den turen.",
     "step3title": "Finjuster filtre",
@@ -194,8 +197,8 @@
   },
   "faq": {
     "heroTitle": "Ofte stilte spørsmål",
-    "heroSubtitle": "Alt du trenger å vite om å finne billige helgeflyvninger i Europa.",
-    "lead": "Alt du trenger å vite om å finne billige helgeflyvninger i Europa.",
+    "heroSubtitle": "Alt om å finne billige helgefly i Europa.",
+    "lead": "Svar om billige helgefly i Europa, fre–søn-reiser, kveldavreiser og sikker booking på Kiwi.com.",
     "items": [
       {
         "q": "Kan jeg reise uten å bruke feriedager?",

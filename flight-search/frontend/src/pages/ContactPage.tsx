@@ -8,7 +8,7 @@ import '../layouts/ContentPageLayout.css';
 export function ContactPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.contact.title'), t('meta.contact.description'));
+  usePageMeta(t('meta.contact.title'), t('meta.contact.description'), '/contact');
 
   return (
     <ContentPageLayout

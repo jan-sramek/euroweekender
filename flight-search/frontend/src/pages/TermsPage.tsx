@@ -8,7 +8,7 @@ import '../layouts/ContentPageLayout.css';
 export function TermsPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.terms.title'), t('meta.terms.description'));
+  usePageMeta(t('meta.terms.title'), t('meta.terms.description'), '/terms');
 
   return (
     <ContentPageLayout>

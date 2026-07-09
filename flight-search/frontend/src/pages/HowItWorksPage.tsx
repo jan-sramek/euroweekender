@@ -10,7 +10,7 @@ import '../layouts/ContentPageLayout.css';
 export function HowItWorksPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.howItWorks.title'), t('meta.howItWorks.description'));
+  usePageMeta(t('meta.howItWorks.title'), t('meta.howItWorks.description'), '/how-it-works');
 
   return (
     <ContentPageLayout

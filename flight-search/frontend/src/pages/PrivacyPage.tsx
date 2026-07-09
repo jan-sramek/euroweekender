@@ -8,7 +8,7 @@ import '../layouts/ContentPageLayout.css';
 export function PrivacyPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.privacy.title'), t('meta.privacy.description'));
+  usePageMeta(t('meta.privacy.title'), t('meta.privacy.description'), '/privacy');
 
   return (
     <ContentPageLayout>

@@ -50,6 +50,10 @@ public static class Startup
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
     {
         var cs = config["DbConnectionString"] ?? config.GetConnectionString("Postgres");
-        return services.AddDbContext<WeekendFlightsDbContext>(options => options.UseNpgsql(cs));
+        void ConfigureDbContext(DbContextOptionsBuilder options) => options.UseNpgsql(cs);
+
+        services.AddDbContext<WeekendFlightsDbContext>(ConfigureDbContext);
+        services.AddDbContextFactory<WeekendFlightsDbContext>(ConfigureDbContext);
+        return services;
     }
 }

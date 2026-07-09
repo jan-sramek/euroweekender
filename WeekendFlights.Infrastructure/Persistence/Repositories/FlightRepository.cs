@@ -5,7 +5,9 @@ using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Infrastructure.Persistence.Repositories;
 
-public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
+public class FlightRepository(
+    WeekendFlightsDbContext db,
+    IDbContextFactory<WeekendFlightsDbContext> dbContextFactory) : IFlightRepository
 {
     public async Task UpsertFlightsAsync(List<Flight> flights)
     {
@@ -102,12 +104,8 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
     {
         var maxFlights = Math.Min(MaxMultiCityFlights, Math.Max(take, PerCityFlightLimit * cityCodes.Length));
 
-        var cityTasks = cityCodes.Select(code =>
-            ProjectSearchResults(BuildFlightSearchQuery([code], cityCodeTo, departFromUtc, departToUtc))
-                .OrderBy(f => f.Price)
-                .ThenBy(f => f.UtcDeparture)
-                .Take(PerCityFlightLimit)
-                .ToListAsync(cancellationToken));
+        var cityTasks = cityCodes.Select(code => LoadCityFlightsAsync(
+            code, cityCodeTo, departFromUtc, departToUtc, cancellationToken));
 
         var cityResults = await Task.WhenAll(cityTasks);
         var byId = new Dictionary<int, FlightListItem>();
@@ -125,6 +123,23 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
             .ToList();
 
         return (merged, 0);
+    }
+
+    private async Task<List<FlightListItem>> LoadCityFlightsAsync(
+        string cityCode,
+        string? cityCodeTo,
+        DateTime? departFromUtc,
+        DateTime? departToUtc,
+        CancellationToken cancellationToken)
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        return await ProjectSearchResults(
+                BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc))
+            .OrderBy(f => f.Price)
+            .ThenBy(f => f.UtcDeparture)
+            .Take(PerCityFlightLimit)
+            .ToListAsync(cancellationToken);
     }
 
     private static IQueryable<FlightListItem> ProjectSearchResults(IQueryable<Flight> query) =>
@@ -156,9 +171,17 @@ public class FlightRepository(WeekendFlightsDbContext db) : IFlightRepository
         string[] cityCodes,
         string? cityCodeTo,
         DateTime? departFromUtc,
+        DateTime? departToUtc) =>
+        BuildFlightSearchQuery(db, cityCodes, cityCodeTo, departFromUtc, departToUtc);
+
+    private static IQueryable<Flight> BuildFlightSearchQuery(
+        WeekendFlightsDbContext context,
+        string[] cityCodes,
+        string? cityCodeTo,
+        DateTime? departFromUtc,
         DateTime? departToUtc)
     {
-        var query = db.Flights
+        var query = context.Flights
             .AsNoTracking()
             .Where(f => f.UtcDeparture >= DateTime.UtcNow);
 

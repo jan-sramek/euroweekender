@@ -154,6 +154,37 @@
   color: #8c959c;
 }
 
+.state-box-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+  color: #228bd1;
+}
+
+.results-panel {
+  position: relative;
+}
+
+.results-panel-loading .results-toolbar,
+.results-panel-loading .results-list {
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.results-loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2.5rem;
+  color: #228bd1;
+  pointer-events: none;
+}
+
 .alert-error {
   color: #842029;
   background: #f8d7da;

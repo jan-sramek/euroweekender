@@ -4,6 +4,7 @@ import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
+import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
@@ -133,7 +134,7 @@ export function HomePage() {
 
   const flightsCounterLabel = useMemo(() => {
     if (selectedWeekends.length === 0) return null;
-    if (loadingFlights && flights.length === 0) {
+    if (loadingFlights) {
       return t('home.flightsCounterSearching');
     }
     if (hasLegFilter) {
@@ -201,6 +202,7 @@ export function HomePage() {
                   role="status"
                   aria-live="polite"
                 >
+                  {loadingFlights ? <LoadingIndicator size="sm" /> : null}
                   {flightsCounterLabel}
                 </div>
               ) : null}
@@ -240,7 +242,9 @@ export function HomePage() {
               </button>
             </div>
           ) : loadingFlights && flights.length === 0 ? (
-            <div className="state-box">{t('home.loading')}</div>
+            <div className="state-box state-box-loading">
+              <LoadingIndicator size="md" label={t('home.loading')} />
+            </div>
           ) : flights.length === 0 ? (
             <div className="state-box">{t('home.noFlights')}</div>
           ) : visibleFlights.length === 0 ? (
@@ -251,7 +255,12 @@ export function HomePage() {
               </button>
             </div>
           ) : (
-            <>
+            <div className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}>
+              {loadingFlights ? (
+                <div className="results-loading-overlay" aria-hidden="true">
+                  <LoadingIndicator size="md" label={t('home.flightsCounterSearching')} />
+                </div>
+              ) : null}
               <div className="results-toolbar">
                 <p className="results-count">
                   {hasLegFilter
@@ -280,7 +289,7 @@ export function HomePage() {
                   />
                 ))}
               </div>
-            </>
+            </div>
           )}
         </div>
       </section>

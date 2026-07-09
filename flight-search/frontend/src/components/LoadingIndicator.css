@@ -1,0 +1,35 @@
+.loading-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+}
+
+.loading-indicator-spinner {
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: loading-indicator-spin 0.7s linear infinite;
+}
+
+.loading-indicator-sm .loading-indicator-spinner {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.loading-indicator-md .loading-indicator-spinner {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-width: 3px;
+}
+
+.loading-indicator-label {
+  font: inherit;
+}
+
+@keyframes loading-indicator-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

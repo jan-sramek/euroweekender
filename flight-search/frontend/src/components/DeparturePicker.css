@@ -5,6 +5,11 @@
   min-width: 0;
 }
 
+.departure-picker-locating {
+  color: #228bd1;
+  font-size: 0.9rem;
+}
+
 .departure-summary {
   display: flex;
   flex-direction: column;

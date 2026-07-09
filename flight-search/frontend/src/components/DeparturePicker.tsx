@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City, CityWithDistance } from '../types/city';
+import { LoadingIndicator } from './LoadingIndicator';
 import './DeparturePicker.css';
 
 interface DeparturePickerProps {
@@ -108,6 +109,12 @@ export function DeparturePicker({
 
   return (
     <div className="departure-picker">
+      {locating ? (
+        <div className="departure-picker-locating" role="status" aria-live="polite">
+          <LoadingIndicator size="sm" label={t('search.detectingLocation')} />
+        </div>
+      ) : null}
+
       {selectedCities.length > 0 && (
         <div className="airport-chips" role="group" aria-label={t('search.selectedAirports')}>
           {selectedCities.map(city => (

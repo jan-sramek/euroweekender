@@ -172,6 +172,15 @@ export function getUpcomingWeekends(pattern: WeekendPattern, count = 12): Weeken
   return weekends;
 }
 
+export const DEFAULT_WEEKEND_COUNT = 4;
+
+export function getDefaultWeekendIds(
+  weekends: WeekendOption[],
+  count = DEFAULT_WEEKEND_COUNT
+): string[] {
+  return weekends.slice(0, count).map(weekend => weekend.id);
+}
+
 export function getWeekendOptions(patternId: WeekendPatternId | null, count = 12): WeekendOption[] {
   return patternId
     ? getUpcomingWeekends(getWeekendPattern(patternId), count)
@@ -226,7 +235,7 @@ export function findMatchingWeekendIds(
     .map(id => findMatchingWeekendId(weekends, id))
     .filter((id, index, all) => id && all.indexOf(id) === index);
 
-  return matched.length > 0 ? matched : [weekends[0].id];
+  return matched.length > 0 ? matched : getDefaultWeekendIds(weekends);
 }
 
 /** Keep the same travel week when switching trip-type filters. */

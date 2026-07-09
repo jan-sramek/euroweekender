@@ -6,6 +6,32 @@ import { rankNearbyCities } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 
 const FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'LON', 'BCN'];
+const DEFAULT_SELECTED_CITIES = 5;
+
+function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIES): string[] {
+  const unique: string[] = [];
+  const seen = new Set<string>();
+
+  for (const code of orderedCodes) {
+    const normalized = code.trim().toUpperCase();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    unique.push(normalized);
+    if (unique.length >= count) break;
+  }
+
+  return unique;
+}
+
+function selectDefaultCityCodes(nearby: CityWithDistance[], cities: City[]): string[] {
+  const nearbyCodes = nearby.map(city => city.code);
+  if (nearbyCodes.length >= DEFAULT_SELECTED_CITIES) {
+    return takeTopCityCodes(nearbyCodes);
+  }
+
+  const fallbackCodes = FALLBACK_CODES.filter(code => cities.some(city => city.code === code));
+  return takeTopCityCodes([...nearbyCodes, ...fallbackCodes]);
+}
 
 export function useDeparturePrefill() {
   const [allCities, setAllCities] = useState<City[]>([]);
@@ -54,7 +80,7 @@ export function useDeparturePrefill() {
       }
 
       if (!locationInitializedRef.current) {
-        setSelectedCodes([nearby[0]?.code ?? fallback.code]);
+        setSelectedCodes(selectDefaultCityCodes(nearby, cities));
         locationInitializedRef.current = true;
       }
     },
@@ -72,7 +98,7 @@ export function useDeparturePrefill() {
         const nearby = applyNearbyRanking(cities, scores, position);
         if (nearby.length > 0) {
           if (!locationInitializedRef.current) {
-            setSelectedCodes([nearby[0].code]);
+            setSelectedCodes(selectDefaultCityCodes(nearby, cities));
             locationInitializedRef.current = true;
           }
           return;

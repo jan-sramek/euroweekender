@@ -146,7 +146,12 @@ export function WeekendPriceCalendar({
     });
   }, [i18n.language]);
 
+  const today = startOfDay(new Date());
+  const canGoPrev =
+    year > today.getFullYear() || (year === today.getFullYear() && month > today.getMonth());
+
   const goPrev = () => {
+    if (!canGoPrev) return;
     if (month === 0) onMonthChange(year - 1, 11);
     else onMonthChange(year, month - 1);
   };
@@ -156,12 +161,16 @@ export function WeekendPriceCalendar({
     else onMonthChange(year, month + 1);
   };
 
-  const today = startOfDay(new Date());
-
   return (
     <div className={`weekend-price-calendar${loading ? ' weekend-price-calendar-loading' : ''}`}>
       <div className="wpc-header">
-        <button type="button" className="btn btn-secondary btn-sm" onClick={goPrev} aria-label={t('cheapestWeekend.prevMonth')}>
+        <button
+          type="button"
+          className="btn btn-secondary btn-sm"
+          onClick={goPrev}
+          disabled={!canGoPrev}
+          aria-label={t('cheapestWeekend.prevMonth')}
+        >
           ‹
         </button>
         <h2 className="wpc-month-label">{monthLabel}</h2>

@@ -9,6 +9,7 @@ public class WeekendFlightsDbContext : DbContext
     public DbSet<Airport> Airports => Set<Airport>();
     public DbSet<Flight> Flights => Set<Flight>();
     public DbSet<FlightsImport> FlightsImports => Set<FlightsImport>();
+    public DbSet<CityWeekendCrawlState> CityWeekendCrawlStates => Set<CityWeekendCrawlState>();
     
     public WeekendFlightsDbContext(DbContextOptions<WeekendFlightsDbContext> options)
         : base(options)
@@ -23,6 +24,7 @@ public class WeekendFlightsDbContext : DbContext
         ConfigureAirports(modelBuilder);
         ConfigureFlights(modelBuilder);
         ConfigureFlightsImports(modelBuilder);
+        ConfigureCityWeekendCrawlStates(modelBuilder);
     }
     
     private static void ConfigureCities(ModelBuilder modelBuilder)
@@ -272,6 +274,38 @@ public class WeekendFlightsDbContext : DbContext
 
             entity.HasIndex(fi => fi.LastCityCode)
                 .HasDatabaseName("idx_flights_imports_last_city_code");
+        });
+    }
+
+    private static void ConfigureCityWeekendCrawlStates(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<CityWeekendCrawlState>(entity =>
+        {
+            entity.ToTable("city_weekend_crawl_states");
+
+            entity.HasKey(s => s.Id);
+
+            entity.Property(s => s.CityCode)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            entity.Property(s => s.WeekendStart)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone");
+
+            entity.Property(s => s.LastCrawledUtc)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone");
+
+            entity.Property(s => s.LastOfferCount)
+                .IsRequired();
+
+            entity.HasIndex(s => new { s.CityCode, s.WeekendStart })
+                .IsUnique()
+                .HasDatabaseName("idx_city_weekend_crawl_states_city_weekend");
+
+            entity.HasIndex(s => s.WeekendStart)
+                .HasDatabaseName("idx_city_weekend_crawl_states_weekend_start");
         });
     }
 }

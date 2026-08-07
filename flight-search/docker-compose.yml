@@ -51,6 +51,8 @@ services:
       - ConnectionStrings__Postgres=${ConnectionStrings__DefaultConnection:-Host=db;Port=5432;Database=WeekendFlights;Username=postgres;Password=password}
       - KiwiApiKey=${KIWI_API_KEY:-${KiwiApiKey:-}}
       - Crawl__IntervalMinutes=${CRAWL_INTERVAL_MINUTES:-10}
+      - Crawl__UpcomingWeeks=${CRAWL_UPCOMING_WEEKS:-52}
+      - Crawl__MaxSearchesPerRun=${CRAWL_MAX_SEARCHES_PER_RUN:-100}
     depends_on:
       db:
         condition: service_healthy

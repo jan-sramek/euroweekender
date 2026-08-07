@@ -54,7 +54,16 @@ export function LanguageSwitcher() {
         onClick={() => setOpen(prev => !prev)}
       >
         <span className="language-flag" aria-hidden="true">
-          {current.flag}
+          <img
+            className="language-flag-img"
+            src={`https://flagcdn.com/w40/${current.flagCode}.png`}
+            srcSet={`https://flagcdn.com/w80/${current.flagCode}.png 2x`}
+            width={20}
+            height={15}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </span>
         <span className="language-trigger-label">{current.nativeLabel}</span>
         <span className="language-trigger-code">{current.code.toUpperCase()}</span>
@@ -75,7 +84,16 @@ export function LanguageSwitcher() {
                   onClick={() => selectLocale(locale.code)}
                 >
                   <span className="language-flag" aria-hidden="true">
-                    {locale.flag}
+                    <img
+                      className="language-flag-img"
+                      src={`https://flagcdn.com/w40/${locale.flagCode}.png`}
+                      srcSet={`https://flagcdn.com/w80/${locale.flagCode}.png 2x`}
+                      width={20}
+                      height={15}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </span>
                   <span className="language-menu-text">
                     <span className="language-menu-native">{locale.nativeLabel}</span>

@@ -27,6 +27,10 @@
     "terms": {
       "title": "Brugsvilkår",
       "description": "Brugsvilkår for euroweekender.com — regler for brug af vores weekendfly-søgetjeneste."
+    },
+    "cheapestWeekend": {
+      "title": "Billigste weekendfly til en hvilken som helst europæisk by",
+      "description": "Find den billigste weekend til din destination. Sammenlign fre–søn og andre korte byrejser i en kalender, og book det bedste tilbud."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Sådan fungerer det",
     "about": "Om os",
     "faq": "Ofte stillede spørgsmål",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cheapestWeekend": "Bedste weekendpris"
   },
   "footer": {
     "tagline": "Europæiske weekendfly-tilbud",
@@ -110,7 +115,13 @@
     "loadingAirports": "Indlæser lufthavne…",
     "popularHubAirports": "Populære knudepunkter længere væk",
     "popularHubOffers": "{{count}} fly",
-    "addPopularHub": "Tilføj {{name}} ({{count}} fly)"
+    "addPopularHub": "Tilføj {{name}} ({{count}} fly)",
+    "chooseDepartureAirport": "Vælg afrejselufthavn…",
+    "changeDepartureAirport": "Skift afrejselufthavn…",
+    "chooseDestinationAirport": "Vælg europæisk destination…",
+    "changeDestinationAirport": "Skift destination…",
+    "searchDestinations": "Søg europæiske destinationer",
+    "selectedDestination": "Valgt destination"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "eller læs",
     "readyToPlan": "Klar til at planlægge din næste tur?",
     "seeAlsoOur": "Se også vores"
+  },
+  "cheapestWeekend": {
+    "tagline": "Én by · hver weekend",
+    "title": "Find den billigste weekend til din by",
+    "subtitle": "Sammenlign kommende weekender i en priskalender",
+    "lead": "Vælg én afrejselufthavn og én europæisk destination. Scan kalenderen for de laveste weekendpriser, og åbn en weekend for at se fly og booke.",
+    "from": "Fra",
+    "to": "Til",
+    "pickAirports": "Vælg en afrejselufthavn og en europæisk destination for at se weekendpriser.",
+    "selectWeekend": "Klik på en weekend i kalenderen for at se matchende fly.",
+    "noFlights": "Ingen fly fundet til denne weekend endnu. Prøv en anden dato, rejsetype eller destination.",
+    "flightLoadError": "Kunne ikke indlæse fly til denne rute.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Forrige måned",
+    "nextMonth": "Næste måned",
+    "calendarLabel": "Weekendpriskalender",
+    "legendCheap": "Laveste pris",
+    "legendExpensive": "Højeste pris",
+    "dayWithPrice": "{{date}}, fra {{price}}",
+    "seoTitle": "Sammenlign weekendflypriser til én destination",
+    "seoBlock": "Leder du efter den billigste weekend i Europa? Vælg afrejselufthavn og destinationsby, og sammenlign fre–søn, tor–søn og andre korte ture i en månedskalender. Se de laveste priser med det samme, åbn en weekend for detaljer, og book via Kiwi.com — ideelt til byrejser uden feriedage."
   }
 }

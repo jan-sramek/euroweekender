@@ -27,6 +27,10 @@
     "terms": {
       "title": "Termeni de utilizare",
       "description": "Termeni de utilizare pentru euroweekender.com — reguli pentru utilizarea serviciului nostru de căutare zboruri de weekend."
+    },
+    "cheapestWeekend": {
+      "title": "Cele mai ieftine zboruri de weekend spre orice oraș european",
+      "description": "Găsește cel mai ieftin weekend spre destinația aleasă. Compară dus-întors vin–dum și alte escapade scurte pe un calendar, apoi rezervă cea mai bună ofertă."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Cum funcționează",
     "about": "Despre noi",
     "faq": "Întrebări frecvente",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cheapestWeekend": "Cel mai bun preț de weekend"
   },
   "footer": {
     "tagline": "Oferte de zboruri de weekend în Europa",
@@ -110,7 +115,13 @@
     "loadingAirports": "Se încarcă aeroporturile…",
     "popularHubAirports": "Huburi populare mai departe",
     "popularHubOffers": "{{count}} zboruri",
-    "addPopularHub": "Adaugă {{name}} ({{count}} zboruri)"
+    "addPopularHub": "Adaugă {{name}} ({{count}} zboruri)",
+    "chooseDepartureAirport": "Alege aeroportul de plecare…",
+    "changeDepartureAirport": "Schimbă aeroportul de plecare…",
+    "chooseDestinationAirport": "Alege destinația europeană…",
+    "changeDestinationAirport": "Schimbă destinația…",
+    "searchDestinations": "Caută destinații europene",
+    "selectedDestination": "Destinație selectată"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "sau citiți",
     "readyToPlan": "Gata să vă planificați următoarea escapadă?",
     "seeAlsoOur": "Consultați și"
+  },
+  "cheapestWeekend": {
+    "tagline": "Un oraș · fiecare weekend",
+    "title": "Găsește cel mai ieftin weekend spre orașul tău",
+    "subtitle": "Compară weekendurile următoare pe un calendar de prețuri",
+    "lead": "Alege un aeroport de plecare și o destinație europeană. Parcurge calendarul pentru cele mai mici tarife de weekend, apoi deschide un weekend ca să vezi zborurile și să rezervi.",
+    "from": "Din",
+    "to": "Spre",
+    "pickAirports": "Alege un aeroport de plecare și o destinație europeană pentru a vedea prețurile de weekend.",
+    "selectWeekend": "Apasă pe un weekend din calendar pentru a vedea zborurile potrivite.",
+    "noFlights": "Nu s-au găsit încă zboruri pentru acest weekend. Încearcă altă dată, alt tip de călătorie sau altă destinație.",
+    "flightLoadError": "Nu s-au putut încărca zborurile pentru această rută.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Luna anterioară",
+    "nextMonth": "Luna următoare",
+    "calendarLabel": "Calendar de prețuri weekend",
+    "legendCheap": "Cel mai mic preț",
+    "legendExpensive": "Cel mai mare preț",
+    "dayWithPrice": "{{date}}, de la {{price}}",
+    "seoTitle": "Compară prețurile zborurilor de weekend spre o destinație",
+    "seoBlock": "Cauți cel mai ieftin weekend în Europa? Alege aeroportul de plecare și orașul destinație, apoi compară vin–dum, joi–dum și alte călătorii scurte pe un calendar lunar. Vezi dintr-o privire tarifele cele mai mici, deschide un weekend pentru detalii și rezervă pe Kiwi.com — ideal pentru city break-uri fără zile de concediu."
   }
 }

@@ -27,6 +27,10 @@
     "terms": {
       "title": "Käyttöehdot",
       "description": "euroweekender.comin käyttöehdot — säännöt viikonloppulentojen hakupalvelun käyttöön."
+    },
+    "cheapestWeekend": {
+      "title": "Halvimmat viikonloppulennot mihin tahansa Euroopan kaupunkiin",
+      "description": "Löydä edullisin viikonloppu valitsemaasi kohteeseen. Vertaa pe–su-matkoja ja muita lyhyitä citybreikkejä kalenterissa ja varaa paras tarjous."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Näin se toimii",
     "about": "Tietoa",
     "faq": "UKK",
-    "contact": "Yhteystiedot"
+    "contact": "Yhteystiedot",
+    "cheapestWeekend": "Paras viikonlopun hinta"
   },
   "footer": {
     "tagline": "Eurooppalaiset viikonloppulentotarjoukset",
@@ -110,7 +115,13 @@
     "loadingAirports": "Ladataan lentoasemia…",
     "popularHubAirports": "Suositut solmukohdat kauempana",
     "popularHubOffers": "{{count}} lentoa",
-    "addPopularHub": "Lisää {{name}} ({{count}} lentoa)"
+    "addPopularHub": "Lisää {{name}} ({{count}} lentoa)",
+    "chooseDepartureAirport": "Valitse lähtölentokenttä…",
+    "changeDepartureAirport": "Vaihda lähtölentokenttä…",
+    "chooseDestinationAirport": "Valitse eurooppalainen kohde…",
+    "changeDestinationAirport": "Vaihda kohde…",
+    "searchDestinations": "Hae eurooppalaisia kohteita",
+    "selectedDestination": "Valittu kohde"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "tai lue",
     "readyToPlan": "Valmis suunnittelemaan seuraavaa lomaasi?",
     "seeAlsoOur": "Katso myös"
+  },
+  "cheapestWeekend": {
+    "tagline": "Yksi kaupunki · jokainen viikonloppu",
+    "title": "Löydä edullisin viikonloppu kaupunkiisi",
+    "subtitle": "Vertaa tulevia viikonloppuja hintakalenterissa",
+    "lead": "Valitse yksi lähtölentokenttä ja yksi eurooppalainen kohde. Selaa kalenteria alhaisimpien viikonloppuhintojen varalta ja avaa viikonloppu nähdäksesi lennot ja varataksesi.",
+    "from": "Mistä",
+    "to": "Mihin",
+    "pickAirports": "Valitse lähtölentokenttä ja eurooppalainen kohde nähdäksesi viikonlopun hinnat.",
+    "selectWeekend": "Napsauta viikonloppua kalenterissa nähdäksesi sopivat lennot.",
+    "noFlights": "Tälle viikonlopulle ei vielä löytynyt lentoja. Kokeile toista päivää, matkatyyppiä tai kohdetta.",
+    "flightLoadError": "Lentoja tälle reitille ei voitu ladata.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Edellinen kuukausi",
+    "nextMonth": "Seuraava kuukausi",
+    "calendarLabel": "Viikonlopun hintakalenteri",
+    "legendCheap": "Alhaisin hinta",
+    "legendExpensive": "Korkein hinta",
+    "dayWithPrice": "{{date}}, alkaen {{price}}",
+    "seoTitle": "Vertaa viikonloppulentojen hintoja yhteen kohteeseen",
+    "seoBlock": "Etsitkö Euroopan edullisinta viikonloppua? Valitse lähtölentokenttä ja kohdekaupunki ja vertaa pe–su-, to–su- ja muita lyhyitä matkoja kuukausikalenterissa. Näet alhaisimmat hinnat heti, avaa viikonloppu nähdäksesi tiedot ja varaa Kiwi.comissa — täydellinen citybreakiin ilman lomapäiviä."
   }
 }

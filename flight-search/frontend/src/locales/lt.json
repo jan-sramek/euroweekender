@@ -27,6 +27,10 @@
     "terms": {
       "title": "Naudojimo sąlygos",
       "description": "euroweekender.com naudojimo sąlygos — taisyklės naudojantis mūsų savaitgalio skrydžių paieškos paslauga."
+    },
+    "cheapestWeekend": {
+      "title": "Pigiausi savaitgalio skrydžiai į bet kurį Europos miestą",
+      "description": "Raskite pigiausią savaitgalį į pasirinktą kelionės tikslą. Palyginkite pen–sek ir kitas trumpas keliones kalendoriuje ir rezervuokite geriausią pasiūlymą."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Kaip tai veikia",
     "about": "Apie mus",
     "faq": "DUK",
-    "contact": "Kontaktai"
+    "contact": "Kontaktai",
+    "cheapestWeekend": "Geriausia savaitgalio kaina"
   },
   "footer": {
     "tagline": "Europos savaitgalio skrydžių pasiūlymai",
@@ -110,7 +115,13 @@
     "loadingAirports": "Įkeliami oro uostai…",
     "popularHubAirports": "Populiarūs tolesni mazgai",
     "popularHubOffers": "{{count}} skrydžių",
-    "addPopularHub": "Pridėti {{name}} ({{count}} skrydžių)"
+    "addPopularHub": "Pridėti {{name}} ({{count}} skrydžių)",
+    "chooseDepartureAirport": "Pasirinkite išvykimo oro uostą…",
+    "changeDepartureAirport": "Keisti išvykimo oro uostą…",
+    "chooseDestinationAirport": "Pasirinkite Europos kelionės tikslą…",
+    "changeDestinationAirport": "Keisti kelionės tikslą…",
+    "searchDestinations": "Ieškoti Europos kelionių tikslų",
+    "selectedDestination": "Pasirinktas kelionės tikslas"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "arba skaitykite",
     "readyToPlan": "Pasiruošę planuoti kitą savaitgalį?",
     "seeAlsoOur": "Taip pat žiūrėkite mūsų"
+  },
+  "cheapestWeekend": {
+    "tagline": "Vienas miestas · kiekvienas savaitgalis",
+    "title": "Raskite pigiausią savaitgalį į savo miestą",
+    "subtitle": "Palyginkite artėjančius savaitgalius kainų kalendoriuje",
+    "lead": "Pasirinkite vieną išvykimo oro uostą ir vieną Europos kelionės tikslą. Peržiūrėkite kalendorių su mažiausiomis savaitgalio kainomis, tada atidarykite savaitgalį, kad pamatytumėte skrydžius ir rezervuotumėte.",
+    "from": "Iš",
+    "to": "Į",
+    "pickAirports": "Pasirinkite išvykimo oro uostą ir Europos kelionės tikslą, kad pamatytumėte savaitgalio kainas.",
+    "selectWeekend": "Spustelėkite savaitgalį kalendoriuje, kad pamatytumėte atitinkančius skrydžius.",
+    "noFlights": "Šiam savaitgaliui dar nerasta skrydžių. Bandykite kitą datą, kelionės tipą ar tikslą.",
+    "flightLoadError": "Nepavyko įkelti šio maršruto skrydžių.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Ankstesnis mėnuo",
+    "nextMonth": "Kitas mėnuo",
+    "calendarLabel": "Savaitgalio kainų kalendorius",
+    "legendCheap": "Žemiausia kaina",
+    "legendExpensive": "Aukščiausia kaina",
+    "dayWithPrice": "{{date}}, nuo {{price}}",
+    "seoTitle": "Palyginkite savaitgalio skrydžių kainas į vieną tikslą",
+    "seoBlock": "Ieškote pigiausio savaitgalio Europoje? Pasirinkite išvykimo oro uostą ir tikslinį miestą, palyginkite pen–sek, ket–sek ir kitas trumpas keliones mėnesio kalendoriuje. Iš karto pamatysite mažiausias kainas, atidarykite savaitgalį detalėms ir rezervuokite per Kiwi.com — puiku miesto išvykoms be atostogų dienų."
   }
 }

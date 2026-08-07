@@ -27,6 +27,10 @@
     "terms": {
       "title": "Regulamin",
       "description": "Regulamin euroweekender.com — zasady korzystania z naszej wyszukiwarki weekendowych lotów."
+    },
+    "cheapestWeekend": {
+      "title": "Najtańsze loty weekendowe do dowolnego europejskiego miasta",
+      "description": "Znajdź najtańszy weekend do wybranego celu. Porównaj loty pt–nd i inne krótkie wyjazdy na kalendarzu, a potem zarezerwuj najlepszą ofertę."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Jak to działa",
     "about": "O nas",
     "faq": "FAQ",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cheapestWeekend": "Najlepsza cena weekendu"
   },
   "footer": {
     "tagline": "Europejskie oferty weekendowych lotów",
@@ -110,7 +115,13 @@
     "loadingAirports": "Ładowanie lotnisk…",
     "popularHubAirports": "Popularne węzły dalej",
     "popularHubOffers": "{{count}} lotów",
-    "addPopularHub": "Dodaj {{name}} ({{count}} lotów)"
+    "addPopularHub": "Dodaj {{name}} ({{count}} lotów)",
+    "chooseDepartureAirport": "Wybierz lotnisko wylotu…",
+    "changeDepartureAirport": "Zmień lotnisko wylotu…",
+    "chooseDestinationAirport": "Wybierz europejski cel…",
+    "changeDestinationAirport": "Zmień cel podróży…",
+    "searchDestinations": "Szukaj europejskich celów",
+    "selectedDestination": "Wybrany cel"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "lub przeczytaj",
     "readyToPlan": "Gotowy zaplanować następny wyjazd?",
     "seeAlsoOur": "Zobacz też naszą"
+  },
+  "cheapestWeekend": {
+    "tagline": "Jedno miasto · każdy weekend",
+    "title": "Znajdź najtańszy weekend do swojego miasta",
+    "subtitle": "Porównaj nadchodzące weekendy na kalendarzu cen",
+    "lead": "Wybierz jedno lotnisko wylotu i jeden europejski cel. Przejrzyj kalendarz, aby znaleźć najniższe ceny weekendowe, a następnie otwórz weekend, by zobaczyć loty i zarezerwować.",
+    "from": "Z",
+    "to": "Do",
+    "pickAirports": "Wybierz lotnisko wylotu i europejski cel, aby zobaczyć ceny weekendów.",
+    "selectWeekend": "Kliknij weekend na kalendarzu, aby zobaczyć pasujące loty.",
+    "noFlights": "Brak lotów na ten weekend. Spróbuj innej daty, innego typu podróży lub innego celu.",
+    "flightLoadError": "Nie udało się wczytać lotów dla tej trasy.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Poprzedni miesiąc",
+    "nextMonth": "Następny miesiąc",
+    "calendarLabel": "Kalendarz cen weekendowych",
+    "legendCheap": "Najniższa cena",
+    "legendExpensive": "Najwyższa cena",
+    "dayWithPrice": "{{date}}, od {{price}}",
+    "seoTitle": "Porównaj ceny lotów weekendowych do jednego celu",
+    "seoBlock": "Szukasz najtańszego weekendu w Europie? Wybierz lotnisko wylotu i miasto docelowe, a potem porównaj pt–nd, cz–nd i inne krótkie wyjazdy na miesięcznym kalendarzu. Od razu zobaczysz najniższe ceny, otwórz weekend, by sprawdzić szczegóły, i zarezerwuj przez Kiwi.com — idealne na city break bez urlopu."
   }
 }

@@ -27,6 +27,10 @@
     "terms": {
       "title": "Felhasználási feltételek",
       "description": "Az euroweekender.com felhasználási feltételei — szabályok a hétvégi járatkereső szolgáltatás használatához."
+    },
+    "cheapestWeekend": {
+      "title": "Legolcsóbb hétvégi járatok bármely európai városba",
+      "description": "Találja meg a legolcsóbb hétvégét a választott célállomásra. Hasonlítsa össze a pén–vas és más rövid city breakeket a naptárban, majd foglalja le a legjobb ajánlatot."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Hogyan működik",
     "about": "Rólunk",
     "faq": "GYIK",
-    "contact": "Kapcsolat"
+    "contact": "Kapcsolat",
+    "cheapestWeekend": "Legjobb hétvégi ár"
   },
   "footer": {
     "tagline": "Európai hétvégi repülőjárat-ajánlatok",
@@ -110,7 +115,13 @@
     "loadingAirports": "Repülőterek betöltése…",
     "popularHubAirports": "Népszerű távolabbi központok",
     "popularHubOffers": "{{count}} járat",
-    "addPopularHub": "{{name}} hozzáadása ({{count}} járat)"
+    "addPopularHub": "{{name}} hozzáadása ({{count}} járat)",
+    "chooseDepartureAirport": "Indulási reptér választása…",
+    "changeDepartureAirport": "Indulási reptér módosítása…",
+    "chooseDestinationAirport": "Európai célállomás választása…",
+    "changeDestinationAirport": "Célállomás módosítása…",
+    "searchDestinations": "Európai célállomások keresése",
+    "selectedDestination": "Kiválasztott célállomás"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "vagy olvasd el a",
     "readyToPlan": "Készen állsz a következő kiruccanás tervezésére?",
     "seeAlsoOur": "Lásd még a"
+  },
+  "cheapestWeekend": {
+    "tagline": "Egy város · minden hétvége",
+    "title": "Találja meg a legolcsóbb hétvégét a városába",
+    "subtitle": "Hasonlítsa össze a közelgő hétvégéket az árnaptárban",
+    "lead": "Válasszon egy indulási reptért és egy európai célállomást. Nézze át a naptárat a legalacsonyabb hétvégi árakért, majd nyisson meg egy hétvégét a járatok megtekintéséhez és foglaláshoz.",
+    "from": "Honnan",
+    "to": "Hová",
+    "pickAirports": "Válasszon indulási reptért és európai célállomást a hétvégi árak megtekintéséhez.",
+    "selectWeekend": "Kattintson egy hétvégére a naptárban a megfelelő járatokhoz.",
+    "noFlights": "Ehhez a hétvégéhez még nincs járat. Próbáljon másik dátumot, utazástípust vagy célállomást.",
+    "flightLoadError": "Nem sikerült betölteni a járatokat ezen az útvonalon.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Előző hónap",
+    "nextMonth": "Következő hónap",
+    "calendarLabel": "Hétvégi árnaptár",
+    "legendCheap": "Legalacsonyabb ár",
+    "legendExpensive": "Legmagasabb ár",
+    "dayWithPrice": "{{date}}, {{price}}-tól",
+    "seoTitle": "Hasonlítsa össze egy célállomás hétvégi járatárait",
+    "seoBlock": "A legolcsóbb európai hétvégét keresi? Válassza ki az indulási reptért és a célvárost, majd hasonlítsa össze a pén–vas, csüt–vas és más rövid utakat a havi naptárban. Egy pillantással láthatja a legalacsonyabb árakat, nyisson meg egy hétvégét a részletekért, és foglaljon a Kiwi.com-on — ideális city breakhez szabadság nélkül."
   }
 }

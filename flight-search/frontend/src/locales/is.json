@@ -27,6 +27,10 @@
     "terms": {
       "title": "Notkunarskilmálar",
       "description": "Notkunarskilmálar euroweekender.com — reglur um notkun helgarflugleitarþjónustunnar okkar."
+    },
+    "cheapestWeekend": {
+      "title": "Ódýrustu helgarflug til hvaða evrópskrar borgar sem er",
+      "description": "Finndu ódýrustu helgina til áfangastaðarins þíns. Berðu saman fös–sun og aðrar stuttar borgarferðir á dagatali og bókaðu besta tilboðið."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Hvernig það virkar",
     "about": "Um okkur",
     "faq": "Algengar spurningar",
-    "contact": "Hafa samband"
+    "contact": "Hafa samband",
+    "cheapestWeekend": "Besta helgarverðið"
   },
   "footer": {
     "tagline": "Helgarflugtilboð í Evrópu",
@@ -110,7 +115,13 @@
     "loadingAirports": "Hleð flugvöllum…",
     "popularHubAirports": "Vinsælir flugmannastöðvar lengra í burtu",
     "popularHubOffers": "{{count}} flug",
-    "addPopularHub": "Bæta við {{name}} ({{count}} flug)"
+    "addPopularHub": "Bæta við {{name}} ({{count}} flug)",
+    "chooseDepartureAirport": "Veldu brottfararflugvöll…",
+    "changeDepartureAirport": "Breyta brottfararflugvelli…",
+    "chooseDestinationAirport": "Veldu evrópskan áfangastað…",
+    "changeDestinationAirport": "Breyta áfangastað…",
+    "searchDestinations": "Leita að evrópskum áfangastöðum",
+    "selectedDestination": "Valinn áfangastaður"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "eða lestu",
     "readyToPlan": "Tilbúinn að skipuleggja næstu ferð?",
     "seeAlsoOur": "Sjá einnig"
+  },
+  "cheapestWeekend": {
+    "tagline": "Ein borg · hver helgi",
+    "title": "Finndu ódýrustu helgina til borgarinnar þinnar",
+    "subtitle": "Berðu saman komandi helgar á verðdagatali",
+    "lead": "Veldu einn brottfararflugvöll og einn evrópskan áfangastað. Skoðaðu dagatalið fyrir lægstu helgarverðin og opnaðu síðan helgi til að sjá flug og bóka.",
+    "from": "Frá",
+    "to": "Til",
+    "pickAirports": "Veldu brottfararflugvöll og evrópskan áfangastað til að sjá helgarverð.",
+    "selectWeekend": "Smelltu á helgi á dagatalinu til að sjá samsvarandi flug.",
+    "noFlights": "Engin flug fundust fyrir þessa helgi ennþá. Prófaðu aðra dagsetningu, ferðategund eða áfangastað.",
+    "flightLoadError": "Ekki tókst að hlaða flugi fyrir þessa leið.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Fyrri mánuður",
+    "nextMonth": "Næsti mánuður",
+    "calendarLabel": "Helgarverðdagatal",
+    "legendCheap": "Lægsta verð",
+    "legendExpensive": "Hæsta verð",
+    "dayWithPrice": "{{date}}, frá {{price}}",
+    "seoTitle": "Berðu saman helgarflugverð til eins áfangastaðar",
+    "seoBlock": "Leitarðu að ódýrustu helginni í Evrópu? Veldu brottfararflugvöll og áfangaborg, berðu síðan saman fös–sun, fim–sun og aðrar stuttar ferðir á mánaðardagatali. Sjáðu lægstu verðin strax, opnaðu helgi fyrir smáatriði og bókaðu í gegnum Kiwi.com — tilvalið fyrir borgarferðir án frídaga."
   }
 }

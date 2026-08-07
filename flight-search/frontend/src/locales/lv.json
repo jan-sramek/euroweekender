@@ -27,6 +27,10 @@
     "terms": {
       "title": "Lietošanas noteikumi",
       "description": "euroweekender.com lietošanas noteikumi — kā lietot mūsu nedēļas nogales lidojumu meklēšanas pakalpojumu."
+    },
+    "cheapestWeekend": {
+      "title": "Lētākie nedēļas nogales lidojumi uz jebkuru Eiropas pilsētu",
+      "description": "Atrodiet lētāko nedēļas nogali uz izvēlēto galamērķi. Salīdziniet piektd.–svētd. un citus īsus braucienus kalendārā un rezervējiet labāko piedāvājumu."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Kā tas darbojas",
     "about": "Par mums",
     "faq": "BUJ",
-    "contact": "Kontakti"
+    "contact": "Kontakti",
+    "cheapestWeekend": "Labākā nedēļas nogales cena"
   },
   "footer": {
     "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
@@ -110,7 +115,13 @@
     "loadingAirports": "Ielādē lidostas…",
     "popularHubAirports": "Populāri tālāki mezgli",
     "popularHubOffers": "{{count}} lidojumi",
-    "addPopularHub": "Pievienot {{name}} ({{count}} lidojumi)"
+    "addPopularHub": "Pievienot {{name}} ({{count}} lidojumi)",
+    "chooseDepartureAirport": "Izvēlieties izlidošanas lidostu…",
+    "changeDepartureAirport": "Mainīt izlidošanas lidostu…",
+    "chooseDestinationAirport": "Izvēlieties Eiropas galamērķi…",
+    "changeDestinationAirport": "Mainīt galamērķi…",
+    "searchDestinations": "Meklēt Eiropas galamērķus",
+    "selectedDestination": "Izvēlētais galamērķis"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "vai izlasi",
     "readyToPlan": "Gatavs plānot nākamo brīvdību?",
     "seeAlsoOur": "Skatīt arī mūsu"
+  },
+  "cheapestWeekend": {
+    "tagline": "Viena pilsēta · katra nedēļas nogale",
+    "title": "Atrodiet lētāko nedēļas nogali uz savu pilsētu",
+    "subtitle": "Salīdziniet gaidāmās nedēļas nogales cenu kalendārā",
+    "lead": "Izvēlieties vienu izlidošanas lidostu un vienu Eiropas galamērķi. Apskatiet kalendāru ar zemākajām nedēļas nogales cenām, pēc tam atveriet nedēļas nogali, lai redzētu lidojumus un rezervētu.",
+    "from": "No",
+    "to": "Uz",
+    "pickAirports": "Izvēlieties izlidošanas lidostu un Eiropas galamērķi, lai redzētu nedēļas nogales cenas.",
+    "selectWeekend": "Noklikšķiniet uz nedēļas nogales kalendārā, lai redzētu atbilstošos lidojumus.",
+    "noFlights": "Šai nedēļas nogalei vēl nav atrasti lidojumi. Izmēģiniet citu datumu, ceļojuma veidu vai galamērķi.",
+    "flightLoadError": "Neizdevās ielādēt lidojumus šim maršrutam.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Iepriekšējais mēnesis",
+    "nextMonth": "Nākamais mēnesis",
+    "calendarLabel": "Nedēļas nogales cenu kalendārs",
+    "legendCheap": "Zemākā cena",
+    "legendExpensive": "Augstākā cena",
+    "dayWithPrice": "{{date}}, no {{price}}",
+    "seoTitle": "Salīdziniet nedēļas nogales lidojumu cenas uz vienu galamērķi",
+    "seoBlock": "Meklējat lētāko nedēļas nogali Eiropā? Izvēlieties izlidošanas lidostu un galamērķa pilsētu, salīdziniet piektd.–svētd., ceturtd.–svētd. un citus īsos braucienus mēneša kalendārā. Uzreiz redzēsiet zemākās cenas, atveriet nedēļas nogali detalām un rezervējiet, izmantojot Kiwi.com — ideāli pilsētas braucieniem bez atvaļinājuma dienām."
   }
 }

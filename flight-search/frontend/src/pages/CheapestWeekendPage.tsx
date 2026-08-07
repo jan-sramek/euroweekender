@@ -60,8 +60,6 @@ export function CheapestWeekendPage() {
 
   const {
     allCities,
-    nearbyCities,
-    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -158,8 +156,8 @@ export function CheapestWeekendPage() {
                   <p className="search-field-label">{t('cheapestWeekend.from')}</p>
                   <DeparturePicker
                     allCities={allCities}
-                    nearbyCities={nearbyCities}
-                    popularHubCities={popularHubCities}
+                    nearbyCities={[]}
+                    popularHubCities={[]}
                     selectedCodes={selectedCodes.slice(0, 1)}
                     locating={locating}
                     locationLabel={locationLabel}
@@ -312,6 +310,15 @@ export function CheapestWeekendPage() {
               )}
             </>
           )}
+        </div>
+      </section>
+
+      <section className="home-seo" aria-labelledby="cheapest-seo-title">
+        <div className="container container-wide">
+          <h2 id="cheapest-seo-title" className="home-seo-title">
+            {t('cheapestWeekend.seoTitle')}
+          </h2>
+          <p className="home-seo-text">{t('cheapestWeekend.seoBlock')}</p>
         </div>
       </section>
 

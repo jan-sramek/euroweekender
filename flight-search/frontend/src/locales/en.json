@@ -29,13 +29,13 @@
       "description": "Terms of use for euroweekender.com — rules for using our weekend flight search service."
     },
     "cheapestWeekend": {
-      "title": "Cheapest Weekend to a Destination",
-      "description": "Find the cheapest weekend flight to one European city. Pick a departure airport, choose a destination, and compare prices on a calendar heatmap."
+      "title": "Cheapest Weekend Flights to Any European City",
+      "description": "Find the lowest-priced weekend trip to your chosen destination. Compare upcoming Fri–Sun and other short city breaks on a calendar, then book the best deal."
     }
   },
   "nav": {
     "home": "Home",
-    "cheapestWeekend": "Cheapest weekend",
+    "cheapestWeekend": "Best weekend price",
     "howItWorks": "How it works",
     "about": "About",
     "faq": "FAQ",
@@ -83,23 +83,25 @@
     "weekendsCount": "{{count}} weekends"
   },
   "cheapestWeekend": {
-    "tagline": "One destination · every weekend",
-    "title": "Cheapest weekend to your city",
-    "subtitle": "See which weekend is cheapest on the calendar",
-    "lead": "Pick one departure airport and one European destination. Prices are colour-coded — green is cheapest, red is most expensive. Click a weekend to see the flights.",
+    "tagline": "One city · every weekend",
+    "title": "Find the cheapest weekend to your city",
+    "subtitle": "Compare upcoming weekends on a price calendar",
+    "lead": "Choose one departure airport and one European destination. Scan the calendar for the lowest weekend fares, then open any weekend to see the flights and book.",
     "from": "From",
     "to": "To",
-    "pickAirports": "Choose a departure airport and a European destination to load the price calendar.",
-    "selectWeekend": "Select a weekend on the calendar to see matching flights.",
+    "pickAirports": "Choose a departure airport and a European destination to see weekend prices.",
+    "selectWeekend": "Click a weekend on the calendar to see matching flights.",
     "noFlights": "No flights found for this weekend yet. Try another weekend, trip type, or destination.",
     "flightLoadError": "Could not load flights for this route.",
     "routeSummary": "{{from}} → {{to}}",
     "prevMonth": "Previous month",
     "nextMonth": "Next month",
     "calendarLabel": "Weekend price calendar",
-    "legendCheap": "Cheapest",
-    "legendExpensive": "Most expensive",
-    "dayWithPrice": "{{date}}, from {{price}}"
+    "legendCheap": "Lowest price",
+    "legendExpensive": "Highest price",
+    "dayWithPrice": "{{date}}, from {{price}}",
+    "seoTitle": "Compare weekend flight prices to one destination",
+    "seoBlock": "Looking for the cheapest weekend in Europe? Pick your departure airport and destination city, then compare Fri–Sun, Thu–Sun and other short trip patterns on a monthly calendar. Spot the lowest fares at a glance, open a weekend for flight details, and book through Kiwi.com — ideal for city breaks without taking vacation days."
   },
   "search": {
     "travelWeekend": "Travel weekend",

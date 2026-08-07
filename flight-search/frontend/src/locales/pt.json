@@ -27,6 +27,10 @@
     "terms": {
       "title": "Termos de utilização",
       "description": "Termos de utilização do euroweekender.com — regras para usar o nosso serviço de pesquisa de voos de fim de semana."
+    },
+    "cheapestWeekend": {
+      "title": "Voos de fim de semana mais baratos para qualquer cidade europeia",
+      "description": "Encontre o fim de semana mais barato para o seu destino. Compare ida e volta sex–dom e outras viagens curtas num calendário e reserve a melhor oferta."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Como funciona",
     "about": "Sobre",
     "faq": "FAQ",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "cheapestWeekend": "Melhor preço de fim de semana"
   },
   "footer": {
     "tagline": "Ofertas europeias de voos de fim de semana",
@@ -110,7 +115,13 @@
     "loadingAirports": "A carregar aeroportos…",
     "popularHubAirports": "Hubs populares mais longe",
     "popularHubOffers": "{{count}} voos",
-    "addPopularHub": "Adicionar {{name}} ({{count}} voos)"
+    "addPopularHub": "Adicionar {{name}} ({{count}} voos)",
+    "chooseDepartureAirport": "Escolher aeroporto de partida…",
+    "changeDepartureAirport": "Alterar aeroporto de partida…",
+    "chooseDestinationAirport": "Escolher destino europeu…",
+    "changeDestinationAirport": "Alterar destino…",
+    "searchDestinations": "Pesquisar destinos europeus",
+    "selectedDestination": "Destino selecionado"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "ou leia a",
     "readyToPlan": "Pronto para planear a sua próxima escapadinha?",
     "seeAlsoOur": "Consulte também a nossa"
+  },
+  "cheapestWeekend": {
+    "tagline": "Uma cidade · cada fim de semana",
+    "title": "Encontre o fim de semana mais barato para a sua cidade",
+    "subtitle": "Compare os próximos fins de semana num calendário de preços",
+    "lead": "Escolha um aeroporto de partida e um destino europeu. Percorra o calendário para encontrar as tarifas mais baixas e abra um fim de semana para ver os voos e reservar.",
+    "from": "De",
+    "to": "Para",
+    "pickAirports": "Escolha um aeroporto de partida e um destino europeu para ver os preços do fim de semana.",
+    "selectWeekend": "Clique num fim de semana no calendário para ver os voos correspondentes.",
+    "noFlights": "Ainda não há voos para este fim de semana. Tente outra data, outro tipo de viagem ou outro destino.",
+    "flightLoadError": "Não foi possível carregar os voos desta rota.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Mês anterior",
+    "nextMonth": "Mês seguinte",
+    "calendarLabel": "Calendário de preços de fim de semana",
+    "legendCheap": "Preço mais baixo",
+    "legendExpensive": "Preço mais alto",
+    "dayWithPrice": "{{date}}, desde {{price}}",
+    "seoTitle": "Compare preços de voos de fim de semana para um destino",
+    "seoBlock": "Procura o fim de semana mais barato na Europa? Escolha o aeroporto de partida e a cidade de destino e compare sex–dom, qui–dom e outras viagens curtas num calendário mensal. Veja as tarifas mais baixas de imediato, abra um fim de semana para detalhes e reserve no Kiwi.com — ideal para city breaks sem dias de férias."
   }
 }

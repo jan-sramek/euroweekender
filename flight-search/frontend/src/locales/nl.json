@@ -27,6 +27,10 @@
     "terms": {
       "title": "Gebruiksvoorwaarden",
       "description": "Gebruiksvoorwaarden voor euroweekender.com — regels voor het gebruik van onze weekendvlucht-zoekdienst."
+    },
+    "cheapestWeekend": {
+      "title": "Goedkoopste weekendvluchten naar elke Europese stad",
+      "description": "Vind het goedkoopste weekend naar jouw bestemming. Vergelijk vr–zo en andere korte citytrips op een kalender en boek de beste deal."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Hoe het werkt",
     "about": "Over ons",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cheapestWeekend": "Beste weekendprijs"
   },
   "footer": {
     "tagline": "Europese weekendvlucht-aanbiedingen",
@@ -110,7 +115,13 @@
     "loadingAirports": "Luchthavens laden…",
     "popularHubAirports": "Populaire hubs verder weg",
     "popularHubOffers": "{{count}} vluchten",
-    "addPopularHub": "{{name}} toevoegen ({{count}} vluchten)"
+    "addPopularHub": "{{name}} toevoegen ({{count}} vluchten)",
+    "chooseDepartureAirport": "Kies vertrekluchthaven…",
+    "changeDepartureAirport": "Wijzig vertrekluchthaven…",
+    "chooseDestinationAirport": "Kies Europese bestemming…",
+    "changeDestinationAirport": "Wijzig bestemming…",
+    "searchDestinations": "Zoek Europese bestemmingen",
+    "selectedDestination": "Geselecteerde bestemming"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "of lees de",
     "readyToPlan": "Klaar om uw volgende uitstap te plannen?",
     "seeAlsoOur": "Zie ook onze"
+  },
+  "cheapestWeekend": {
+    "tagline": "Eén stad · elk weekend",
+    "title": "Vind het goedkoopste weekend naar jouw stad",
+    "subtitle": "Vergelijk aankomende weekenden op een prijskalender",
+    "lead": "Kies één vertrekluchthaven en één Europese bestemming. Scan de kalender voor de laagste weekendtarieven en open een weekend om vluchten te zien en te boeken.",
+    "from": "Van",
+    "to": "Naar",
+    "pickAirports": "Kies een vertrekluchthaven en een Europese bestemming om weekendprijzen te zien.",
+    "selectWeekend": "Klik op een weekend in de kalender om bijpassende vluchten te zien.",
+    "noFlights": "Nog geen vluchten gevonden voor dit weekend. Probeer een andere datum, reisvorm of bestemming.",
+    "flightLoadError": "Vluchten voor deze route konden niet worden geladen.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Vorige maand",
+    "nextMonth": "Volgende maand",
+    "calendarLabel": "Weekendprijskalender",
+    "legendCheap": "Laagste prijs",
+    "legendExpensive": "Hoogste prijs",
+    "dayWithPrice": "{{date}}, vanaf {{price}}",
+    "seoTitle": "Vergelijk weekendvluchtprijzen naar één bestemming",
+    "seoBlock": "Op zoek naar het goedkoopste weekend in Europa? Kies je vertrekluchthaven en bestemmingsstad en vergelijk vr–zo, do–zo en andere korte trips op een maandkalender. Zie meteen de laagste tarieven, open een weekend voor details en boek via Kiwi.com — ideaal voor citytrips zonder vakantiedagen."
   }
 }

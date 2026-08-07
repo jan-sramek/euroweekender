@@ -27,6 +27,10 @@
     "terms": {
       "title": "Nutzungsbedingungen",
       "description": "Nutzungsbedingungen für euroweekender.com — Regeln für die Nutzung unseres Wochenendflug-Suchdienstes."
+    },
+    "cheapestWeekend": {
+      "title": "Günstigstes Wochenende zu jedem Ziel in Europa",
+      "description": "Finden Sie den günstigsten Wochenendflug zu Ihrer Wunschstadt. Vergleichen Sie kommende Fr–So- und andere Kurztrips im Kalender und buchen Sie das beste Angebot."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "So funktioniert's",
     "about": "Über uns",
     "faq": "FAQ",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cheapestWeekend": "Bester Wochenendpreis"
   },
   "footer": {
     "tagline": "Europäische Wochenendflug-Angebote",
@@ -110,7 +115,13 @@
     "loadingAirports": "Flughäfen werden geladen…",
     "popularHubAirports": "Beliebte Drehkreuze weiter entfernt",
     "popularHubOffers": "{{count}} Flüge",
-    "addPopularHub": "{{name}} hinzufügen ({{count}} Flüge)"
+    "addPopularHub": "{{name}} hinzufügen ({{count}} Flüge)",
+    "chooseDepartureAirport": "Abflughafen wählen…",
+    "changeDepartureAirport": "Abflughafen ändern…",
+    "chooseDestinationAirport": "Europäisches Ziel wählen…",
+    "changeDestinationAirport": "Ziel ändern…",
+    "searchDestinations": "Europäische Ziele suchen",
+    "selectedDestination": "Ausgewähltes Ziel"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "oder lesen Sie die",
     "readyToPlan": "Bereit, Ihren nächsten Trip zu planen?",
     "seeAlsoOur": "Siehe auch unsere"
+  },
+  "cheapestWeekend": {
+    "tagline": "Eine Stadt · jedes Wochenende",
+    "title": "Finden Sie das günstigste Wochenende zu Ihrer Stadt",
+    "subtitle": "Vergleichen Sie kommende Wochenenden im Preiskalender",
+    "lead": "Wählen Sie einen Abflughafen und ein europäisches Ziel. Prüfen Sie den Kalender auf die niedrigsten Wochenendpreise und öffnen Sie ein Wochenende, um Flüge zu sehen und zu buchen.",
+    "from": "Von",
+    "to": "Nach",
+    "pickAirports": "Wählen Sie einen Abflughafen und ein europäisches Ziel, um Wochenendpreise zu sehen.",
+    "selectWeekend": "Klicken Sie im Kalender auf ein Wochenende, um passende Flüge zu sehen.",
+    "noFlights": "Für dieses Wochenende wurden noch keine Flüge gefunden. Versuchen Sie ein anderes Wochenende, eine andere Reiseart oder ein anderes Ziel.",
+    "flightLoadError": "Flüge für diese Strecke konnten nicht geladen werden.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat",
+    "calendarLabel": "Wochenend-Preiskalender",
+    "legendCheap": "Niedrigster Preis",
+    "legendExpensive": "Höchster Preis",
+    "dayWithPrice": "{{date}}, ab {{price}}",
+    "seoTitle": "Wochenendflugpreise zu einem Ziel vergleichen",
+    "seoBlock": "Auf der Suche nach dem günstigsten Wochenende in Europa? Wählen Sie Abflughafen und Zielstadt und vergleichen Sie Fr–So, Do–So und andere Kurztrips im Monatskalender. Erkennen Sie die niedrigsten Preise auf einen Blick, öffnen Sie ein Wochenende für Flugdetails und buchen Sie über Kiwi.com — ideal für Städtereisen ohne Urlaubstage."
   }
 }

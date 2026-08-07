@@ -27,6 +27,10 @@
     "terms": {
       "title": "Podmienky používania",
       "description": "Podmienky používania euroweekender.com — pravidlá pre používanie našej služby vyhľadávania víkendových letov."
+    },
+    "cheapestWeekend": {
+      "title": "Najlacnejšie víkendové lety do ľubovoľného európskeho mesta",
+      "description": "Nájdite najlacnejší víkend do vybranej destinácie. Porovnajte pia–ne a ďalšie krátke výlety v kalendári a rezervujte najlepšiu ponuku."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Ako to funguje",
     "about": "O nás",
     "faq": "Časté otázky",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cheapestWeekend": "Najlepšia víkendová cena"
   },
   "footer": {
     "tagline": "Európske víkendové letové ponuky",
@@ -110,7 +115,13 @@
     "loadingAirports": "Načítavanie letísk…",
     "popularHubAirports": "Obľúbené letiská ďalej",
     "popularHubOffers": "{{count}} letov",
-    "addPopularHub": "Pridať {{name}} ({{count}} letov)"
+    "addPopularHub": "Pridať {{name}} ({{count}} letov)",
+    "chooseDepartureAirport": "Vyberte odletové letisko…",
+    "changeDepartureAirport": "Zmeniť odletové letisko…",
+    "chooseDestinationAirport": "Vyberte európsku destináciu…",
+    "changeDestinationAirport": "Zmeniť destináciu…",
+    "searchDestinations": "Hľadať európske destinácie",
+    "selectedDestination": "Vybraná destinácia"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "alebo si prečítajte",
     "readyToPlan": "Pripravení naplánovať ďalší výlet?",
     "seeAlsoOur": "Pozrite si aj naše"
+  },
+  "cheapestWeekend": {
+    "tagline": "Jedno mesto · každý víkend",
+    "title": "Nájdite najlacnejší víkend do svojho mesta",
+    "subtitle": "Porovnajte nadchádzajúce víkendy v cenovom kalendári",
+    "lead": "Vyberte jedno odletové letisko a jednu európsku destináciu. V kalendári nájdite najnižšie víkendové ceny a po otvorení víkendu uvidíte lety na rezerváciu.",
+    "from": "Odkiaľ",
+    "to": "Kam",
+    "pickAirports": "Vyberte odletové letisko a európsku destináciu, aby ste videli víkendové ceny.",
+    "selectWeekend": "Kliknite na víkend v kalendári a zobrazte zodpovedajúce lety.",
+    "noFlights": "Pre tento víkend zatiaľ nie sú žiadne lety. Skúste iný dátum, typ cesty alebo destináciu.",
+    "flightLoadError": "Lety pre túto trasu sa nepodarilo načítať.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Predchádzajúci mesiac",
+    "nextMonth": "Ďalší mesiac",
+    "calendarLabel": "Kalendár víkendových cien",
+    "legendCheap": "Najnižšia cena",
+    "legendExpensive": "Najvyššia cena",
+    "dayWithPrice": "{{date}}, od {{price}}",
+    "seoTitle": "Porovnajte ceny víkendových letov do jednej destinácie",
+    "seoBlock": "Hľadáte najlacnejší víkend v Európe? Vyberte odletové letisko a cieľové mesto a porovnajte pia–ne, št–ne a ďalšie krátke výlety v mesačnom kalendári. Najnižšie ceny uvidíte hneď, otvorte víkend pre detaily a rezervujte cez Kiwi.com — ideálne na city break bez dovolenky."
   }
 }

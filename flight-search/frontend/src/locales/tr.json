@@ -27,6 +27,10 @@
     "terms": {
       "title": "Kullanım Koşulları",
       "description": "euroweekender.com kullanım koşulları — hafta sonu uçuş arama hizmetimizi kullanma kuralları."
+    },
+    "cheapestWeekend": {
+      "title": "Herhangi bir Avrupa şehrine en ucuz hafta sonu uçuşları",
+      "description": "Seçtiğiniz destinasyona en uygun hafta sonunu bulun. Takvimde Cum–Paz ve diğer kısa şehir kaçamaklarını karşılaştırın, en iyi fırsatı rezerve edin."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Nasıl çalışır",
     "about": "Hakkında",
     "faq": "SSS",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "cheapestWeekend": "En iyi hafta sonu fiyatı"
   },
   "footer": {
     "tagline": "Avrupa hafta sonu uçuş fırsatları",
@@ -110,7 +115,13 @@
     "loadingAirports": "Havalimanları yükleniyor…",
     "popularHubAirports": "Daha uzaktaki popüler merkezler",
     "popularHubOffers": "{{count}} uçuş",
-    "addPopularHub": "{{name}} ekle ({{count}} uçuş)"
+    "addPopularHub": "{{name}} ekle ({{count}} uçuş)",
+    "chooseDepartureAirport": "Kalkış havalimanı seçin…",
+    "changeDepartureAirport": "Kalkış havalimanını değiştir…",
+    "chooseDestinationAirport": "Avrupa destinasyonu seçin…",
+    "changeDestinationAirport": "Destinasyonu değiştir…",
+    "searchDestinations": "Avrupa destinasyonlarında ara",
+    "selectedDestination": "Seçilen destinasyon"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "veya",
     "readyToPlan": "Bir sonraki kaçamağınızı planlamaya hazır mısınız?",
     "seeAlsoOur": "Ayrıca"
+  },
+  "cheapestWeekend": {
+    "tagline": "Bir şehir · her hafta sonu",
+    "title": "Şehrinize en ucuz hafta sonunu bulun",
+    "subtitle": "Yaklaşan hafta sonlarını fiyat takviminde karşılaştırın",
+    "lead": "Bir kalkış havalimanı ve bir Avrupa destinasyonu seçin. Takvimde en düşük hafta sonu ücretlerini görün, ardından uçuşları görmek ve rezervasyon yapmak için bir hafta sonu açın.",
+    "from": "Nereden",
+    "to": "Nereye",
+    "pickAirports": "Hafta sonu fiyatlarını görmek için bir kalkış havalimanı ve bir Avrupa destinasyonu seçin.",
+    "selectWeekend": "Uçuşları görmek için takvimde bir hafta sonuna tıklayın.",
+    "noFlights": "Bu hafta sonu için henüz uçuş bulunamadı. Başka bir tarih, seyahat türü veya destinasyon deneyin.",
+    "flightLoadError": "Bu rota için uçuşlar yüklenemedi.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Önceki ay",
+    "nextMonth": "Sonraki ay",
+    "calendarLabel": "Hafta sonu fiyat takvimi",
+    "legendCheap": "En düşük fiyat",
+    "legendExpensive": "En yüksek fiyat",
+    "dayWithPrice": "{{date}}, {{price}}’den itibaren",
+    "seoTitle": "Bir destinasyona hafta sonu uçuş fiyatlarını karşılaştırın",
+    "seoBlock": "Avrupa’da en ucuz hafta sonunu mu arıyorsunuz? Kalkış havalimanınızı ve hedef şehri seçin; aylık takvimde Cum–Paz, Per–Paz ve diğer kısa gezileri karşılaştırın. En düşük ücretleri bir bakışta görün, ayrıntılar için bir hafta sonu açın ve Kiwi.com üzerinden rezervasyon yapın — izin günü kullanmadan şehir kaçamakları için ideal."
   }
 }

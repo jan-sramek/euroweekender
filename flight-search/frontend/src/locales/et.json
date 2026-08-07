@@ -27,6 +27,10 @@
     "terms": {
       "title": "Kasutustingimused",
       "description": "euroweekender.com kasutustingimused — reeglid meie nädalavahetuse lendude otsingu teenuse kasutamiseks."
+    },
+    "cheapestWeekend": {
+      "title": "Odavaimad nädalavahetuslennud ükskõik millisesse Euroopa linna",
+      "description": "Leidke odavaim nädalavahetus valitud sihtkohta. Võrrelge reede–pühapäeva ja teisi lühireise kalendris ning broneerige parim pakkumine."
     }
   },
   "nav": {
@@ -34,7 +38,8 @@
     "howItWorks": "Kuidas see töötab",
     "about": "Meist",
     "faq": "KKK",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cheapestWeekend": "Parim nädalavahetuse hind"
   },
   "footer": {
     "tagline": "Euroopa nädalavahetuse lennipakkumised",
@@ -110,7 +115,13 @@
     "loadingAirports": "Lennujaamu laaditakse…",
     "popularHubAirports": "Populaarsed kaugemad sõlmpunktid",
     "popularHubOffers": "{{count}} lendu",
-    "addPopularHub": "Lisa {{name}} ({{count}} lendu)"
+    "addPopularHub": "Lisa {{name}} ({{count}} lendu)",
+    "chooseDepartureAirport": "Valige väljumislennujaam…",
+    "changeDepartureAirport": "Muuda väljumislennujaama…",
+    "chooseDestinationAirport": "Valige Euroopa sihtkoht…",
+    "changeDestinationAirport": "Muuda sihtkohta…",
+    "searchDestinations": "Otsi Euroopa sihtkohti",
+    "selectedDestination": "Valitud sihtkoht"
   },
   "patterns": {
     "fri-sun": {
@@ -323,5 +334,26 @@
     "orRead": "või loe",
     "readyToPlan": "Valmis järgmist puhkust planeerima?",
     "seeAlsoOur": "Vaata ka meie"
+  },
+  "cheapestWeekend": {
+    "tagline": "Üks linn · iga nädalavahetus",
+    "title": "Leidke odavaim nädalavahetus oma linna",
+    "subtitle": "Võrrelge eelseisvaid nädalavahetusi hinnakalendris",
+    "lead": "Valige üks väljumislennujaam ja üks Euroopa sihtkoht. Sirvige kalendrit madalaimate nädalavahetuse hindade leidmiseks, seejärel avage nädalavahetus lendude nägemiseks ja broneerimiseks.",
+    "from": "Kust",
+    "to": "Kuhu",
+    "pickAirports": "Valige väljumislennujaam ja Euroopa sihtkoht, et näha nädalavahetuse hindu.",
+    "selectWeekend": "Klõpsake kalendris nädalavahetusel, et näha sobivaid lende.",
+    "noFlights": "Selle nädalavahetuse jaoks ei leitud veel lende. Proovige teist kuupäeva, reisitüüpi või sihtkohta.",
+    "flightLoadError": "Selle marsruudi lende ei õnnestunud laadida.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Eelmine kuu",
+    "nextMonth": "Järgmine kuu",
+    "calendarLabel": "Nädalavahetuse hinnakalender",
+    "legendCheap": "Madalaim hind",
+    "legendExpensive": "Kõrgeim hind",
+    "dayWithPrice": "{{date}}, alates {{price}}",
+    "seoTitle": "Võrrelge nädalavahetuslendude hindu ühte sihtkohta",
+    "seoBlock": "Otsite Euroopa odavaimat nädalavahetust? Valige väljumislennujaam ja sihtlinn ning võrrelge reede–pühapäeva, neljapäev–pühapäeva ja teisi lühireise kuukalendris. Näete madalaimaid hindu kohe, avage nädalavahetus üksikasjadeks ja broneerige Kiwi.com-is — ideaalne city-break’iks ilma puhkusepäevadeta."
   }
 }

@@ -4,6 +4,7 @@ import { LocaleRedirect } from './components/LocaleRedirect';
 import { UmamiAnalytics } from './components/UmamiAnalytics';
 import { DEFAULT_LOCALE } from './config/locales';
 import { AboutPage } from './pages/AboutPage';
+import { CheapestWeekendPage } from './pages/CheapestWeekendPage';
 import { ContactPage } from './pages/ContactPage';
 import { FaqPage } from './pages/FaqPage';
 import { HomePage } from './pages/HomePage';
@@ -17,7 +18,8 @@ const LEGACY_REDIRECTS = [
   'contact',
   'how-it-works',
   'privacy',
-  'terms'
+  'terms',
+  'cheapest-weekend'
 ] as const;
 
 export default function App() {
@@ -36,6 +38,7 @@ export default function App() {
 
         <Route path="/:lang" element={<LocaleLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="cheapest-weekend" element={<CheapestWeekendPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="faq" element={<FaqPage />} />
           <Route path="contact" element={<ContactPage />} />

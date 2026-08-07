@@ -1,0 +1,143 @@
+.weekend-price-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  background: #fff;
+  border-radius: 0.35rem;
+  box-shadow: 0 0 15px rgba(25, 44, 57, 0.08);
+}
+
+.weekend-price-calendar-loading {
+  opacity: 0.72;
+}
+
+.wpc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.wpc-month-label {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #192c39;
+  text-transform: capitalize;
+}
+
+.wpc-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #5c6770;
+}
+
+.wpc-legend-bar {
+  flex: 1;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, hsl(142, 55%, 42%), hsl(48, 70%, 48%), hsl(4, 72%, 48%));
+}
+
+.wpc-legend-cheap {
+  color: hsl(142, 55%, 32%);
+}
+
+.wpc-legend-expensive {
+  color: hsl(4, 72%, 40%);
+}
+
+.wpc-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.wpc-weekday {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8c959c;
+  padding: 0.25rem 0;
+}
+
+.wpc-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  min-height: 3.6rem;
+  padding: 0.35rem 0.2rem;
+  border: 1px solid #e8edf1;
+  border-radius: 0.3rem;
+  background: #f8fafb;
+  color: #192c39;
+  font: inherit;
+}
+
+button.wpc-day {
+  cursor: pointer;
+}
+
+button.wpc-day:hover {
+  outline: 2px solid #04bfab;
+  outline-offset: 1px;
+}
+
+.wpc-day-outside {
+  opacity: 0.4;
+}
+
+.wpc-day-today .wpc-day-number {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.wpc-day-priced {
+  color: #fff;
+  border-color: transparent;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.wpc-day-selected {
+  outline: 2px solid #192c39;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.wpc-day-weekend-empty {
+  background: #eef3f6;
+  border-style: dashed;
+}
+
+.wpc-day-number {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wpc-day-price {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 640px) {
+  .wpc-day {
+    min-height: 3.1rem;
+    padding: 0.25rem 0.1rem;
+  }
+
+  .wpc-day-price {
+    font-size: 0.65rem;
+  }
+}

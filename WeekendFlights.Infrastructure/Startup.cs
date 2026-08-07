@@ -53,7 +53,11 @@ public static class Startup
         var cs = config["DbConnectionString"] ?? config.GetConnectionString("Postgres");
         void ConfigureDbContext(DbContextOptionsBuilder options) => options.UseNpgsql(cs);
 
-        services.AddDbContext<WeekendFlightsDbContext>(ConfigureDbContext);
+        // Factory is singleton and needs singleton options; default AddDbContext options are scoped.
+        services.AddDbContext<WeekendFlightsDbContext>(
+            ConfigureDbContext,
+            contextLifetime: ServiceLifetime.Scoped,
+            optionsLifetime: ServiceLifetime.Singleton);
         services.AddDbContextFactory<WeekendFlightsDbContext>(ConfigureDbContext);
         return services;
     }

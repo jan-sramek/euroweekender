@@ -187,6 +187,69 @@ export function getWeekendOptions(patternId: WeekendPatternId | null, count = 12
     : getUpcomingCalendarWeeks(count);
 }
 
+function overlapsMonth(weekend: WeekendOption, year: number, month: number): boolean {
+  const monthStart = new Date(year, month, 1);
+  const monthEnd = endOfDay(new Date(year, month + 1, 0));
+  return weekend.departDate <= monthEnd && weekend.returnDate >= monthStart;
+}
+
+function getWeekendsFromCursor(
+  pattern: WeekendPattern | null,
+  from: Date,
+  until: Date
+): WeekendOption[] {
+  const weekends: WeekendOption[] = [];
+  const today = startOfDay(new Date());
+  let cursor = startOfDay(from);
+  const end = endOfDay(until);
+  let guard = 0;
+
+  while (cursor <= end && guard < 40) {
+    guard += 1;
+    const departWeekday = pattern?.departWeekday ?? 4;
+    const departDate = nextWeekday(cursor, departWeekday);
+
+    if (departDate > end) break;
+
+    if (departDate >= today) {
+      weekends.push(toWeekendOption(pattern, departDate));
+    }
+
+    cursor = addDays(departDate, 7);
+  }
+
+  return weekends;
+}
+
+/** Weekends whose trip days overlap the given calendar month (0-based month). */
+export function getWeekendsForMonth(
+  patternId: WeekendPatternId | null,
+  year: number,
+  month: number
+): WeekendOption[] {
+  const pattern = patternId ? getWeekendPattern(patternId) : null;
+  // Start a week before the month so trips that begin in the previous month still appear.
+  const from = addDays(new Date(year, month, 1), -7);
+  const until = new Date(year, month + 1, 7);
+  return getWeekendsFromCursor(pattern, from, until).filter(weekend =>
+    overlapsMonth(weekend, year, month)
+  );
+}
+
+/** Inclusive list of calendar days from depart through return for a weekend trip. */
+export function getWeekendTripDays(weekend: WeekendOption): Date[] {
+  const days: Date[] = [];
+  let cursor = startOfDay(weekend.departDate);
+  const end = startOfDay(weekend.returnDate);
+
+  while (cursor <= end) {
+    days.push(new Date(cursor));
+    cursor = addDays(cursor, 1);
+  }
+
+  return days;
+}
+
 function parseDepartDateFromWeekendId(weekendId: string): Date | null {
   const match = weekendId.match(/(\d{4}-\d{2}-\d{2})$/);
   if (!match) return null;

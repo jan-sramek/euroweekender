@@ -1,0 +1,42 @@
+.cheapest-searchbar {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr);
+}
+
+.search-field-label {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8c959c;
+}
+
+.cheapest-offers {
+  padding-top: 1.5rem;
+}
+
+.cheapest-calendar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.cheapest-route {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .cheapest-searchbar {
+    grid-template-columns: 1fr;
+  }
+
+  .cheapest-searchbar .search-field {
+    border-left: 0;
+    border-top: 1px solid #e8edf1;
+  }
+
+  .cheapest-searchbar .search-field:first-child {
+    border-top: 0;
+  }
+}

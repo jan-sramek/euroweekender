@@ -13,6 +13,8 @@ interface DeparturePickerProps {
   locationLabel: string;
   onSelectedCodesChange: (codes: string[]) => void;
   onAddCity: (city: City) => void;
+  /** When true, selecting an airport replaces the current one (exactly one origin). */
+  singleSelect?: boolean;
 }
 
 function formatNearby(city: CityWithDistance): string {
@@ -36,7 +38,8 @@ export function DeparturePicker({
   locating,
   locationLabel,
   onSelectedCodesChange,
-  onAddCity
+  onAddCity,
+  singleSelect = false
 }: DeparturePickerProps) {
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -101,27 +104,43 @@ export function DeparturePicker({
   }, []);
 
   const removeCity = (code: string) => {
+    if (singleSelect) {
+      onSelectedCodesChange([]);
+      return;
+    }
     if (selectedCodes.length === 1) return;
     onSelectedCodesChange(selectedCodes.filter(c => c !== code));
   };
 
-  const addNearby = (code: string) => {
+  const selectCode = (code: string) => {
+    if (singleSelect) {
+      onSelectedCodesChange([code]);
+      return;
+    }
     if (!selectedCodes.includes(code)) {
       onSelectedCodesChange([...selectedCodes, code]);
     }
   };
 
   const pickCity = (city: City) => {
-    onAddCity(city);
+    if (singleSelect) {
+      onSelectedCodesChange([city.code]);
+    } else {
+      onAddCity(city);
+    }
     setQuery('');
     setOpen(false);
   };
 
   const placeholder = locating
     ? t('search.loadingAirports')
-    : locationLabel
-      ? t('search.fromLocationAdd', { location: locationLabel })
-      : t('search.addAirport');
+    : singleSelect
+      ? selectedCities.length > 0
+        ? t('search.changeDepartureAirport')
+        : t('search.chooseDepartureAirport')
+      : locationLabel
+        ? t('search.fromLocationAdd', { location: locationLabel })
+        : t('search.addAirport');
 
   return (
     <div className="departure-picker">
@@ -140,7 +159,7 @@ export function DeparturePicker({
                 type="button"
                 className="chip-remove"
                 aria-label={t('search.removeAirport', { name: city.name })}
-                disabled={selectedCodes.length === 1}
+                disabled={!singleSelect && selectedCodes.length === 1}
                 onClick={() => removeCity(city.code)}
               >
                 ×
@@ -193,7 +212,7 @@ export function DeparturePicker({
                 key={city.code}
                 type="button"
                 className="chip chip-add"
-                onClick={() => addNearby(city.code)}
+                onClick={() => selectCode(city.code)}
               >
                 + {formatNearby(city)}
               </button>
@@ -219,7 +238,7 @@ export function DeparturePicker({
                   name: city.name,
                   count: offerCountFormatter.format(city.offerCount)
                 })}
-                onClick={() => addNearby(city.code)}
+                onClick={() => selectCode(city.code)}
               >
                 + {formatPopularHub(city, offerCountFormatter.format(city.offerCount))}
               </button>

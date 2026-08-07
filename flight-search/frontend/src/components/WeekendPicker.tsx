@@ -13,9 +13,10 @@ interface WeekendPickerProps {
   onEveningFiltersChange: (filters: EveningFlightFilters) => void;
   passengerCount: number;
   onPassengerCountChange: (count: number) => void;
-  weekends: WeekendOption[];
-  selectedWeekendIds: string[];
-  onWeekendToggle: (id: string) => void;
+  weekends?: WeekendOption[];
+  selectedWeekendIds?: string[];
+  onWeekendToggle?: (id: string) => void;
+  showWeekendStrip?: boolean;
 }
 
 function EveningIcon() {
@@ -58,9 +59,10 @@ export function WeekendPicker({
   onEveningFiltersChange,
   passengerCount,
   onPassengerCountChange,
-  weekends,
-  selectedWeekendIds,
-  onWeekendToggle
+  weekends = [],
+  selectedWeekendIds = [],
+  onWeekendToggle,
+  showWeekendStrip = true
 }: WeekendPickerProps) {
   const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -79,52 +81,54 @@ export function WeekendPicker({
 
   return (
     <div className="weekend-picker">
-      <div className="weekend-section">
-        <div className="weekend-section-header">
-          <span className="weekend-section-label">{t('search.travelWeekend')}</span>
-          <span className="weekend-section-hint">{t('search.travelWeekendHint')}</span>
-        </div>
+      {showWeekendStrip && onWeekendToggle ? (
+        <div className="weekend-section">
+          <div className="weekend-section-header">
+            <span className="weekend-section-label">{t('search.travelWeekend')}</span>
+            <span className="weekend-section-hint">{t('search.travelWeekendHint')}</span>
+          </div>
 
-        <div className="weekend-dates-row">
-          <div className="weekend-track" ref={scrollRef} role="group" aria-label={t('search.selectWeekends')}>
-            {weekends.map(weekend => {
-              const active = selectedWeekendIds.includes(weekend.id);
-              return (
-                <button
-                  key={weekend.id}
-                  type="button"
-                  className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
-                  aria-pressed={active}
-                  onClick={() => onWeekendToggle(weekend.id)}
-                >
-                  <span className="weekend-range">{weekend.shortLabel}</span>
-                  <span className={`weekend-sub${selectedPattern ? '' : ' weekend-sub-placeholder'}`}>
-                    {selectedPattern ? selectedPattern.shortLabel : '\u00A0'}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          <div className="weekend-nav">
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm nav-btn"
-              onClick={() => scroll('left')}
-              aria-label={t('search.prevWeekends')}
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm nav-btn"
-              onClick={() => scroll('right')}
-              aria-label={t('search.nextWeekends')}
-            >
-              ›
-            </button>
+          <div className="weekend-dates-row">
+            <div className="weekend-track" ref={scrollRef} role="group" aria-label={t('search.selectWeekends')}>
+              {weekends.map(weekend => {
+                const active = selectedWeekendIds.includes(weekend.id);
+                return (
+                  <button
+                    key={weekend.id}
+                    type="button"
+                    className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
+                    aria-pressed={active}
+                    onClick={() => onWeekendToggle(weekend.id)}
+                  >
+                    <span className="weekend-range">{weekend.shortLabel}</span>
+                    <span className={`weekend-sub${selectedPattern ? '' : ' weekend-sub-placeholder'}`}>
+                      {selectedPattern ? selectedPattern.shortLabel : '\u00A0'}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="weekend-nav">
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm nav-btn"
+                onClick={() => scroll('left')}
+                aria-label={t('search.prevWeekends')}
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm nav-btn"
+                onClick={() => scroll('right')}
+                aria-label={t('search.nextWeekends')}
+              >
+                ›
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
 
       <div className="weekend-section">
         <div className="weekend-section-header">

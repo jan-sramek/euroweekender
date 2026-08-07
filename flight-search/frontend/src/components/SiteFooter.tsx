@@ -23,6 +23,9 @@ export function SiteFooter() {
               <LocalizedLink to="/">{t('footer.searchFlights')}</LocalizedLink>
             </li>
             <li>
+              <LocalizedLink to="/cheapest-weekend">{t('nav.cheapestWeekend')}</LocalizedLink>
+            </li>
+            <li>
               <LocalizedLink to="/how-it-works">{t('nav.howItWorks')}</LocalizedLink>
             </li>
             <li>

@@ -27,10 +27,15 @@
     "terms": {
       "title": "Terms of Use",
       "description": "Terms of use for euroweekender.com — rules for using our weekend flight search service."
+    },
+    "cheapestWeekend": {
+      "title": "Cheapest Weekend to a Destination",
+      "description": "Find the cheapest weekend flight to one European city. Pick a departure airport, choose a destination, and compare prices on a calendar heatmap."
     }
   },
   "nav": {
     "home": "Home",
+    "cheapestWeekend": "Cheapest weekend",
     "howItWorks": "How it works",
     "about": "About",
     "faq": "FAQ",
@@ -77,6 +82,25 @@
     "moreAirports_other": "{{name}} + {{count}} more airports",
     "weekendsCount": "{{count}} weekends"
   },
+  "cheapestWeekend": {
+    "tagline": "One destination · every weekend",
+    "title": "Cheapest weekend to your city",
+    "subtitle": "See which weekend is cheapest on the calendar",
+    "lead": "Pick one departure airport and one European destination. Prices are colour-coded — green is cheapest, red is most expensive. Click a weekend to see the flights.",
+    "from": "From",
+    "to": "To",
+    "pickAirports": "Choose a departure airport and a European destination to load the price calendar.",
+    "selectWeekend": "Select a weekend on the calendar to see matching flights.",
+    "noFlights": "No flights found for this weekend yet. Try another weekend, trip type, or destination.",
+    "flightLoadError": "Could not load flights for this route.",
+    "routeSummary": "{{from}} → {{to}}",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "calendarLabel": "Weekend price calendar",
+    "legendCheap": "Cheapest",
+    "legendExpensive": "Most expensive",
+    "dayWithPrice": "{{date}}, from {{price}}"
+  },
   "search": {
     "travelWeekend": "Travel weekend",
     "travelWeekendHint": "Pick one or more date ranges",
@@ -99,6 +123,12 @@
     "loadingAirports": "Loading airports…",
     "fromLocationAdd": "From {{location}} — add another airport…",
     "addAirport": "Add departure airport…",
+    "chooseDepartureAirport": "Choose departure airport…",
+    "changeDepartureAirport": "Change departure airport…",
+    "chooseDestinationAirport": "Choose European destination…",
+    "changeDestinationAirport": "Change destination…",
+    "searchDestinations": "Search European destinations",
+    "selectedDestination": "Selected destination",
     "searchAirports": "Search airports to add",
     "noAirportsFound": "No airports found",
     "selectedAirports": "Selected airports",

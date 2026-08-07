@@ -19,6 +19,7 @@ export function AppHeader() {
             <LocalizedNavLink to="/" end>
               {t('nav.home')}
             </LocalizedNavLink>
+            <LocalizedNavLink to="/cheapest-weekend">{t('nav.cheapestWeekend')}</LocalizedNavLink>
             <LocalizedNavLink to="/how-it-works">{t('nav.howItWorks')}</LocalizedNavLink>
             <LocalizedNavLink to="/about">{t('nav.about')}</LocalizedNavLink>
             <LocalizedNavLink to="/faq">{t('nav.faq')}</LocalizedNavLink>

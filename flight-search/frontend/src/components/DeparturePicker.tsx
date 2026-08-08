@@ -17,6 +17,8 @@ interface DeparturePickerProps {
   onAddCity: (city: City) => void;
   /** When true, selecting an airport replaces the current one (exactly one origin). */
   singleSelect?: boolean;
+  /** Keep a chip-row height even when nothing is selected so paired fields stay aligned. */
+  reserveChipSlot?: boolean;
 }
 
 function formatNearby(city: CityWithDistance): string {
@@ -48,7 +50,8 @@ export function DeparturePicker({
   locationLabel,
   onSelectedCodesChange,
   onAddCity,
-  singleSelect = false
+  singleSelect = false,
+  reserveChipSlot = false
 }: DeparturePickerProps) {
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -150,8 +153,13 @@ export function DeparturePicker({
         </div>
       ) : null}
 
-      {selectedCities.length > 0 && (
-        <div className="airport-chips" role="group" aria-label={t('search.selectedAirports')}>
+      {selectedCities.length > 0 || reserveChipSlot ? (
+        <div
+          className={`airport-chips${selectedCities.length === 0 ? ' airport-chips-placeholder' : ''}`}
+          role={selectedCities.length > 0 ? 'group' : undefined}
+          aria-hidden={selectedCities.length === 0 ? true : undefined}
+          aria-label={selectedCities.length > 0 ? t('search.selectedAirports') : undefined}
+        >
           {selectedCities.map(city => (
             <span key={city.code} className="chip chip-active chip-selected">
               <CountryFlag country={city.country} />
@@ -168,7 +176,7 @@ export function DeparturePicker({
             </span>
           ))}
         </div>
-      )}
+      ) : null}
 
       <div className="airport-search" ref={searchRef}>
         <input

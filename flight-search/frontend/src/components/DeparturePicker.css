@@ -41,6 +41,10 @@
   gap: 0.5rem;
 }
 
+.airport-chips-placeholder {
+  min-height: 2.05rem;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;

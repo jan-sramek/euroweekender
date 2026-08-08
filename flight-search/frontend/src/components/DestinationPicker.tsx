@@ -11,6 +11,8 @@ interface DestinationPickerProps {
   excludeCode?: string | null;
   selectedCode: string | null;
   onSelectedCodeChange: (code: string | null) => void;
+  /** Keep a chip-row height even when nothing is selected so paired fields stay aligned. */
+  reserveChipSlot?: boolean;
 }
 
 function formatCity(city: City): string {
@@ -28,7 +30,8 @@ export function DestinationPicker({
   allCities,
   excludeCode,
   selectedCode,
-  onSelectedCodeChange
+  onSelectedCodeChange,
+  reserveChipSlot = false
 }: DestinationPickerProps) {
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -85,20 +88,27 @@ export function DestinationPicker({
 
   return (
     <div className="departure-picker destination-picker">
-      {selectedCity ? (
-        <div className="airport-chips" role="group" aria-label={t('search.selectedDestination')}>
-          <span className="chip chip-active chip-selected">
-            <CountryFlag country={selectedCity.country} />
-            {formatCity(selectedCity)}
-            <button
-              type="button"
-              className="chip-remove"
-              aria-label={t('search.removeAirport', { name: selectedCity.name })}
-              onClick={() => onSelectedCodeChange(null)}
-            >
-              ×
-            </button>
-          </span>
+      {selectedCity || reserveChipSlot ? (
+        <div
+          className={`airport-chips${selectedCity ? '' : ' airport-chips-placeholder'}`}
+          role={selectedCity ? 'group' : undefined}
+          aria-hidden={selectedCity ? undefined : true}
+          aria-label={selectedCity ? t('search.selectedDestination') : undefined}
+        >
+          {selectedCity ? (
+            <span className="chip chip-active chip-selected">
+              <CountryFlag country={selectedCity.country} />
+              {formatCity(selectedCity)}
+              <button
+                type="button"
+                className="chip-remove"
+                aria-label={t('search.removeAirport', { name: selectedCity.name })}
+                onClick={() => onSelectedCodeChange(null)}
+              >
+                ×
+              </button>
+            </span>
+          ) : null}
         </div>
       ) : null}
 

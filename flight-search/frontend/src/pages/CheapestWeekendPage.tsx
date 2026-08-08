@@ -173,6 +173,7 @@ export function CheapestWeekendPage() {
                     onSelectedCodesChange={codes => setSelectedCodes(codes.slice(0, 1))}
                     onAddCity={handleAddCity}
                     singleSelect
+                    reserveChipSlot
                   />
                 </div>
 
@@ -186,6 +187,7 @@ export function CheapestWeekendPage() {
                       setDestinationCode(code);
                       setSelectedWeekendId(null);
                     }}
+                    reserveChipSlot
                   />
                 </div>
 

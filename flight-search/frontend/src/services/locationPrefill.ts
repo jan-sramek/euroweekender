@@ -4,7 +4,7 @@ import { computeEffectiveScore, hubScoresByCode } from './hubScore';
 
 const EARTH_RADIUS_KM = 6371;
 export const NEARBY_RADIUS_KM = 350;
-export const NEARBY_MAX_CITIES = 40;
+export const NEARBY_MAX_CITIES = 100;
 export const POPULAR_HUB_MAX_CITIES = 5;
 export const POPULAR_HUB_MAX_RADIUS_KM = 1000;
 export const MIN_POPULAR_HUB_OFFER_COUNT = 50;

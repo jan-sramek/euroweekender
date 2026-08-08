@@ -82,9 +82,9 @@ export function DeparturePicker({
   /** Empty-query dropdown: closest airports to the current origin first. */
   const nearbyByDistance = useMemo(
     () =>
-      [...nearbyNotSelected]
-        .sort((a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name))
-        .slice(0, 8),
+      [...nearbyNotSelected].sort(
+        (a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name)
+      ),
     [nearbyNotSelected]
   );
 

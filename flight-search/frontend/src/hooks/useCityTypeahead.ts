@@ -44,9 +44,12 @@ export function useCityTypeahead({
   const [learnedAliases, setLearnedAliases] = useState<Record<string, string[]>>({});
   const [isSearching, setIsSearching] = useState(false);
 
+  // Stabilize dependency: callers often pass a fresh array literal each render.
+  const excludeKey = excludeCodes.map(code => code.toUpperCase()).sort().join('|');
+
   const excluded = useMemo(
-    () => new Set(excludeCodes.map(code => code.toUpperCase())),
-    [excludeCodes]
+    () => new Set(excludeKey ? excludeKey.split('|') : []),
+    [excludeKey]
   );
 
   const citiesWithLearnedAliases = useMemo(
@@ -76,15 +79,15 @@ export function useCityTypeahead({
   useEffect(() => {
     const q = query.trim();
     if (q.length < 1) {
-      setRemoteSuggestions([]);
-      setIsSearching(false);
+      setRemoteSuggestions(prev => (prev.length === 0 ? prev : []));
+      setIsSearching(prev => (prev ? false : prev));
       return;
     }
 
     // Local English/alias hits are enough — avoid extra Tequila calls.
     if (localResults.length > 0) {
-      setRemoteSuggestions([]);
-      setIsSearching(false);
+      setRemoteSuggestions(prev => (prev.length === 0 ? prev : []));
+      setIsSearching(prev => (prev ? false : prev));
       return;
     }
 
@@ -121,7 +124,7 @@ export function useCityTypeahead({
         }
       } catch {
         if (controller.signal.aborted) return;
-        setRemoteSuggestions([]);
+        setRemoteSuggestions(prev => (prev.length === 0 ? prev : []));
       } finally {
         if (!controller.signal.aborted) {
           setIsSearching(false);
@@ -133,7 +136,7 @@ export function useCityTypeahead({
       controller.abort();
       window.clearTimeout(timer);
     };
-  }, [excluded, filterCity, i18n.language, localResults.length, query]);
+  }, [excludeKey, excluded, filterCity, i18n.language, localResults.length, query]);
 
   const results = useMemo(() => {
     const q = query.trim();

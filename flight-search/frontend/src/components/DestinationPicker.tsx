@@ -45,13 +45,18 @@ export function DestinationPicker({
     [europeanCities, selectedCode]
   );
 
-  const { results: searchResults, isSearching } = useCityTypeahead({
-    allCities,
-    query,
-    excludeCodes: [
+  const excludeCodes = useMemo(
+    () => [
       ...(selectedCode ? [selectedCode] : []),
       ...(excludeCode ? [excludeCode] : [])
     ],
+    [selectedCode, excludeCode]
+  );
+
+  const { results: searchResults, isSearching } = useCityTypeahead({
+    allCities,
+    query,
+    excludeCodes,
     filterCity: isEuropeanCity,
     limit: 8
   });

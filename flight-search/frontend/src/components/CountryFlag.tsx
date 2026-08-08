@@ -1,7 +1,7 @@
 import { countryFlagCode } from '../utils/countryFlag';
 
 interface CountryFlagProps {
-  country: string;
+  country: string | null | undefined;
   className?: string;
   size?: 'sm' | 'lg';
 }

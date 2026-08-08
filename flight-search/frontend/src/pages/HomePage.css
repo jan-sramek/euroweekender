@@ -168,7 +168,7 @@
 .results-list {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.4rem;
 }
 
 .state-box,

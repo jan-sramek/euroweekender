@@ -153,6 +153,9 @@
     "changes_zero": "0 αλλαγές",
     "changes_one": "1 αλλαγή",
     "changes_other": "{{count}} αλλαγές"
+,
+    "outbound": "Μετάβαση",
+    "return": "Επιστροφή"
   },
   "about": {
     "heroTitle": "Σχετικά με το euroweekender.com",

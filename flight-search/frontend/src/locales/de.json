@@ -153,6 +153,9 @@
     "changes_zero": "0 Umstiege",
     "changes_one": "1 Umstieg",
     "changes_other": "{{count}} Umstiege"
+,
+    "outbound": "Hinflug",
+    "return": "Rückflug"
   },
   "about": {
     "heroTitle": "Über euroweekender.com",

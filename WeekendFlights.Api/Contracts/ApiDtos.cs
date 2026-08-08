@@ -39,6 +39,7 @@ public record OriginHubScoreDto(
 public record FlightSearchDto(
     int Id,
     string CountryTo,
+    string CountryFrom,
     string? DeepLink,
     decimal FareAdults,
     int NightsInDest,

@@ -153,6 +153,9 @@
     "changes_zero": "0 scali",
     "changes_one": "1 scalo",
     "changes_other": "{{count}} scali"
+,
+    "outbound": "Andata",
+    "return": "Ritorno"
   },
   "about": {
     "heroTitle": "Chi è euroweekender.com",

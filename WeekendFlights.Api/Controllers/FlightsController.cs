@@ -42,6 +42,7 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
     private static FlightSearchDto ToDto(FlightListItem f) => new(
         f.Id,
         f.CountryTo,
+        f.CountryFrom,
         f.DeepLink,
         f.FareAdults,
         f.NightsInDest,

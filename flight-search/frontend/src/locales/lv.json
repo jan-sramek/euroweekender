@@ -153,6 +153,9 @@
     "changes_zero": "0 pārsēšanās",
     "changes_one": "1 pārsēšanās",
     "changes_other": "{{count}} pārsēšanās"
+,
+    "outbound": "Turp",
+    "return": "Atpakaļ"
   },
   "about": {
     "heroTitle": "Par euroweekender.com",

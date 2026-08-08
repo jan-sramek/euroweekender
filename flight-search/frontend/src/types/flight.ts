@@ -1,6 +1,7 @@
 export interface Flight {
   id: number;
   countryTo: string;
+  countryFrom?: string;
   deepLink: string | null;
   fareAdults: number;
   nightsInDest: number;

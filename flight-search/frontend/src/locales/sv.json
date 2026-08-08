@@ -153,6 +153,9 @@
     "changes_zero": "0 byten",
     "changes_one": "1 byte",
     "changes_other": "{{count}} byten"
+,
+    "outbound": "Utresa",
+    "return": "Hemresa"
   },
   "about": {
     "heroTitle": "Om euroweekender.com",

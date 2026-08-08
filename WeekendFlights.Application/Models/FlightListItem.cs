@@ -15,6 +15,7 @@ public sealed class FlightListItem
     public string CityTo { get; init; } = "";
     public string CityCodeFrom { get; init; } = "";
     public string CityCodeTo { get; init; } = "";
+    public string CountryFrom { get; init; } = "";
     public string CountryTo { get; init; } = "";
     public DateTime LocalArrival { get; init; }
     public DateTime LocalDeparture { get; init; }

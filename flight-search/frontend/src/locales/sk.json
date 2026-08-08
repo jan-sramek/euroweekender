@@ -153,6 +153,9 @@
     "changes_zero": "0 prestupov",
     "changes_one": "1 prestup",
     "changes_other": "{{count}} prestupov"
+,
+    "outbound": "Tam",
+    "return": "Späť"
   },
   "about": {
     "heroTitle": "O euroweekender.com",

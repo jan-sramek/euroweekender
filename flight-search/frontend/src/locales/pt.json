@@ -153,6 +153,9 @@
     "changes_zero": "0 escalas",
     "changes_one": "1 escala",
     "changes_other": "{{count}} escalas"
+,
+    "outbound": "Ida",
+    "return": "Volta"
   },
   "about": {
     "heroTitle": "Sobre o euroweekender.com",

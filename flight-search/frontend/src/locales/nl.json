@@ -153,6 +153,9 @@
     "changes_zero": "0 overstappen",
     "changes_one": "1 overstap",
     "changes_other": "{{count}} overstappen"
+,
+    "outbound": "Heenreis",
+    "return": "Terugreis"
   },
   "about": {
     "heroTitle": "Over euroweekender.com",

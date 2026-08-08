@@ -153,6 +153,9 @@
     "changes_zero": "0 пересадок",
     "changes_one": "1 пересадка",
     "changes_other": "{{count}} пересадок"
+,
+    "outbound": "Туди",
+    "return": "Назад"
   },
   "about": {
     "heroTitle": "Про euroweekender.com",

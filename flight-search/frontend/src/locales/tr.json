@@ -153,6 +153,9 @@
     "changes_zero": "0 aktarma",
     "changes_one": "1 aktarma",
     "changes_other": "{{count}} aktarma"
+,
+    "outbound": "Gidiş",
+    "return": "Dönüş"
   },
   "about": {
     "heroTitle": "euroweekender.com Hakkında",

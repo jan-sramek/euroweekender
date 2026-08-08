@@ -153,6 +153,9 @@
     "changes_zero": "0 átszállás",
     "changes_one": "1 átszállás",
     "changes_other": "{{count}} átszállás"
+,
+    "outbound": "Odaút",
+    "return": "Visszaút"
   },
   "about": {
     "heroTitle": "Az euroweekender.com-ról",

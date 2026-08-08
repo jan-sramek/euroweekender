@@ -205,6 +205,15 @@
   object-fit: cover;
 }
 
+.country-flag-lg {
+  width: 1.7rem;
+}
+
+.country-flag-lg .country-flag-img {
+  width: 1.55rem;
+  border-radius: 0.18rem;
+}
+
 .chip-active .country-flag-img {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
 }

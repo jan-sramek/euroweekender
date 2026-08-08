@@ -153,6 +153,9 @@
     "changes_zero": "0 escale",
     "changes_one": "1 escală",
     "changes_other": "{{count}} escale"
+,
+    "outbound": "Dus",
+    "return": "Întoarcere"
   },
   "about": {
     "heroTitle": "Despre euroweekender.com",

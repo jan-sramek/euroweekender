@@ -153,6 +153,9 @@
     "changes_zero": "0 vahetust",
     "changes_one": "1 vahetus",
     "changes_other": "{{count}} vahetust"
+,
+    "outbound": "Sinna",
+    "return": "Tagasi"
   },
   "about": {
     "heroTitle": "euroweekender.com-ist",

@@ -158,6 +158,7 @@ public class FlightRepository(
             CityTo = f.CityTo,
             CityCodeFrom = f.CityCodeFrom,
             CityCodeTo = f.CityCodeTo,
+            CountryFrom = f.CountryFrom,
             CountryTo = f.CountryTo,
             LocalArrival = f.LocalArrival,
             LocalDeparture = f.LocalDeparture,

@@ -10,6 +10,7 @@ import {
 import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
 import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
+import { CountryFlag } from './CountryFlag';
 import './FlightCard.css';
 
 interface FlightCardProps {
@@ -26,9 +27,11 @@ interface LegDisplay {
   departTimeLabel: string;
   departCity: string;
   departCode: string;
+  departCountry: string;
   arriveTimeLabel: string;
   arriveCity: string;
   arriveCode: string;
+  arriveCountry: string;
   durationMinutes: number;
   stops: number;
   highlightDepart?: boolean;
@@ -50,9 +53,11 @@ function getOutboundLeg(flight: Flight): LegDisplay {
     departTimeLabel: formatApiLocalTime(flight.localDeparture),
     departCity: flight.cityFrom,
     departCode: flight.flyFrom,
+    departCountry: flight.countryFrom ?? '',
     arriveTimeLabel: formatApiLocalTime(flight.localArrival),
     arriveCity: flight.cityTo,
     arriveCode: flight.flyTo,
+    arriveCountry: flight.countryTo,
     durationMinutes: durationMinutesFromLocalIso(flight.localDeparture, flight.localArrival),
     stops: flight.technicalStops,
     highlightArrive: true
@@ -76,32 +81,39 @@ function getReturnLeg(flight: Flight): LegDisplay {
     departTimeLabel: hasStoredReturnTimes ? formatApiLocalTime(returnDepartIso) : '—',
     departCity: flight.cityTo,
     departCode: flight.flyTo,
+    departCountry: flight.countryTo,
     arriveTimeLabel: hasStoredReturnTimes ? formatApiLocalTime(returnArriveIso) : '—',
     arriveCity: flight.cityFrom,
     arriveCode: flight.flyFrom,
+    arriveCountry: flight.countryFrom ?? '',
     durationMinutes,
     stops: flight.technicalStops,
     highlightDepart: true
   };
 }
 
-function CityLine({
+function Endpoint({
   time,
   city,
   code,
+  country,
   highlight
 }: {
   time: string;
   city: string;
   code: string;
+  country: string;
   highlight?: boolean;
 }) {
   return (
-    <>
-      <strong>{time}</strong>{' '}
-      <span className={highlight ? 'destination-city' : undefined}>{city}</span>{' '}
-      <span className={`badge${highlight ? ' badge-destination' : ''}`}>{code}</span>
-    </>
+    <div className={`result-endpoint${highlight ? ' result-endpoint-highlight' : ''}`}>
+      <span className="result-endpoint-time">{time}</span>
+      <span className="result-endpoint-place">
+        <CountryFlag country={country} />
+        <span className="result-endpoint-city">{city}</span>
+        <span className={`badge${highlight ? ' badge-destination' : ''}`}>{code}</span>
+      </span>
+    </div>
   );
 }
 
@@ -110,17 +122,20 @@ function FlightLegRow({
   inputId,
   checked,
   onCheckedChange,
-  formatStops
+  formatStops,
+  directionLabel
 }: {
   leg: LegDisplay;
   inputId: string;
   checked: boolean;
   onCheckedChange: (selected: boolean) => void;
   formatStops: (stops: number) => string;
+  directionLabel: string;
 }) {
   return (
-    <div className="result-leg-row">
+    <div className={`result-leg-row${checked ? ' result-leg-row-selected' : ''}`}>
       <div className="result-leg-date">
+        <span className="result-leg-direction">{directionLabel}</span>
         <label className="leg-date-label" htmlFor={inputId}>
           <input
             type="checkbox"
@@ -132,28 +147,31 @@ function FlightLegRow({
           <span>{formatApiLocalTripDate(leg.dateIso)}</span>
         </label>
       </div>
-      <div className="result-leg-segment">
-        <CityLine
-          time={leg.departTimeLabel}
-          city={leg.departCity}
-          code={leg.departCode}
-          highlight={leg.highlightDepart}
-        />
+
+      <Endpoint
+        time={leg.departTimeLabel}
+        city={leg.departCity}
+        code={leg.departCode}
+        country={leg.departCountry}
+        highlight={leg.highlightDepart}
+      />
+
+      <div className="result-leg-connector" aria-hidden="true">
+        <span className="result-leg-connector-line" />
+        <span className="result-leg-connector-meta">
+          {formatDuration(leg.durationMinutes)}
+          <span className="result-leg-meta-sep"> · </span>
+          {formatStops(leg.stops)}
+        </span>
       </div>
-      <div className="result-leg-segment result-leg-arrival">
-        <span className="flight-arrow" aria-hidden="true" />
-        <CityLine
-          time={leg.arriveTimeLabel}
-          city={leg.arriveCity}
-          code={leg.arriveCode}
-          highlight={leg.highlightArrive}
-        />
-      </div>
-      <div className="result-leg-meta">
-        {formatDuration(leg.durationMinutes)}
-        <span className="result-leg-meta-sep"> / </span>
-        {formatStops(leg.stops)}
-      </div>
+
+      <Endpoint
+        time={leg.arriveTimeLabel}
+        city={leg.arriveCity}
+        code={leg.arriveCode}
+        country={leg.arriveCountry}
+        highlight={leg.highlightArrive}
+      />
     </div>
   );
 }
@@ -184,25 +202,31 @@ export function FlightCard({
   return (
     <article className="block-result">
       <div className="result-destination-banner">
-        <span className="result-destination-label">{t('flights.destination')}</span>
-        <span className="result-destination-name">
-          {flight.cityTo}, {flight.countryTo}
-        </span>
-        <span className="badge badge-destination">{flight.cityCodeTo}</span>
+        <CountryFlag country={flight.countryTo} size="lg" />
+        <div className="result-destination-copy">
+          <span className="result-destination-label">{t('flights.destination')}</span>
+          <span className="result-destination-name">
+            {flight.cityTo}
+            <span className="result-destination-country">{flight.countryTo}</span>
+          </span>
+        </div>
+        <div className="result-route-codes" aria-hidden="true">
+          <CountryFlag country={flight.countryFrom} />
+          <span className="badge">{flight.cityCodeFrom}</span>
+          <span className="result-route-arrow" />
+          <CountryFlag country={flight.countryTo} />
+          <span className="badge badge-destination">{flight.cityCodeTo}</span>
+        </div>
       </div>
 
       <div className="result-grid">
         <div className="result-price">
           <p className="price">
             <strong>{formatEur(totalPrice)}</strong>
-            <br />
             {passengerCount > 1 ? (
-              <>
-                {t('flights.perPerson', { price: formatEur(perPersonPrice) })}
-                <br />
-              </>
+              <span className="price-sub">{t('flights.perPerson', { price: formatEur(perPersonPrice) })}</span>
             ) : null}
-            {t('flights.forDaysTrip', { days: tripDays })}
+            <span className="price-sub">{t('flights.forDaysTrip', { days: tripDays })}</span>
           </p>
         </div>
 
@@ -213,14 +237,15 @@ export function FlightCard({
             checked={departureSelected}
             onCheckedChange={onDepartureSelect}
             formatStops={formatStops}
+            directionLabel={t('flights.outbound')}
           />
-          <hr />
           <FlightLegRow
             leg={returnLeg}
             inputId={`ret-${flight.id}`}
             checked={returnSelected}
             onCheckedChange={onReturnSelect}
             formatStops={formatStops}
+            directionLabel={t('flights.return')}
           />
         </div>
 

@@ -175,6 +175,9 @@
     "changes_zero": "0 changes",
     "changes_one": "1 change",
     "changes_other": "{{count}} changes"
+,
+    "outbound": "Outbound",
+    "return": "Return"
   },
   "about": {
     "heroTitle": "About euroweekender.com",

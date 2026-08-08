@@ -79,10 +79,23 @@ export function DeparturePicker({
     [nearbyCities, selectedCodes]
   );
 
+  /** Empty-query dropdown: closest airports to the current origin first. */
+  const nearbyByDistance = useMemo(
+    () =>
+      [...nearbyNotSelected]
+        .sort((a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name))
+        .slice(0, 8),
+    [nearbyNotSelected]
+  );
+
   const popularHubsNotSelected = useMemo(
     () => popularHubCities.filter(city => !selectedCodes.includes(city.code)),
     [popularHubCities, selectedCodes]
   );
+
+  const trimmedQuery = query.trim();
+  const showSearchResults = open && trimmedQuery.length >= 1;
+  const showNearbySuggestions = open && trimmedQuery.length < 1 && nearbyByDistance.length > 0;
 
   const offerCountFormatter = useMemo(
     () => new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }),
@@ -194,30 +207,49 @@ export function DeparturePicker({
           aria-label={t('search.searchAirports')}
           autoComplete="off"
         />
-        {open && query.trim().length >= 1 && (
+        {(showSearchResults || showNearbySuggestions) && (
           <ul className="airport-search-results" role="listbox">
-            {searchResults.length === 0 ? (
-              <li className="airport-search-empty">
-                {isSearching ? t('search.loadingAirports') : t('search.noAirportsFound')}
-              </li>
-            ) : (
-              searchResults.map(city => (
-                <li key={city.code}>
-                  <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                    <CountryFlag country={city.country} />
-                    <span className="airport-search-item-text">
-                      <strong>{displayName(city)}</strong>
-                      <span>
-                        {city.code} · {city.country}
-                        {city.localizedName &&
-                        city.localizedName.toLowerCase() !== city.name.toLowerCase()
-                          ? ` · ${city.name}`
-                          : ''}
-                      </span>
-                    </span>
-                  </button>
+            {showSearchResults ? (
+              searchResults.length === 0 ? (
+                <li className="airport-search-empty">
+                  {isSearching ? t('search.loadingAirports') : t('search.noAirportsFound')}
                 </li>
-              ))
+              ) : (
+                searchResults.map(city => (
+                  <li key={city.code}>
+                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                      <CountryFlag country={city.country} />
+                      <span className="airport-search-item-text">
+                        <strong>{displayName(city)}</strong>
+                        <span>
+                          {city.code} · {city.country}
+                          {city.localizedName &&
+                          city.localizedName.toLowerCase() !== city.name.toLowerCase()
+                            ? ` · ${city.name}`
+                            : ''}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                ))
+              )
+            ) : (
+              nearbyByDistance.map(city => {
+                const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
+                return (
+                  <li key={city.code}>
+                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                      <CountryFlag country={city.country} />
+                      <span className="airport-search-item-text">
+                        <strong>{displayName(city)}</strong>
+                        <span>
+                          {city.code} · {city.country} · {distance} km
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })
             )}
           </ul>
         )}

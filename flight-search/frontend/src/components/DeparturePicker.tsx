@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City, CityWithDistance } from '../types/city';
+import { cityMatchesQuery, rankCityMatch } from '../utils/citySearch';
+import { CountryFlag } from './CountryFlag';
 import { LoadingIndicator } from './LoadingIndicator';
 import './DeparturePicker.css';
 
@@ -78,18 +80,12 @@ export function DeparturePicker({
   );
 
   const searchResults = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2) return [];
+    const q = query.trim();
+    if (q.length < 1) return [];
 
     return allCities
-      .filter(city => {
-        if (selectedCodes.includes(city.code)) return false;
-        return (
-          city.code.toLowerCase().includes(q) ||
-          city.name.toLowerCase().includes(q) ||
-          city.country.toLowerCase().includes(q)
-        );
-      })
+      .filter(city => !selectedCodes.includes(city.code) && cityMatchesQuery(city, q))
+      .sort((a, b) => rankCityMatch(a, q) - rankCityMatch(b, q) || a.name.localeCompare(b.name))
       .slice(0, 8);
   }, [allCities, query, selectedCodes]);
 
@@ -154,6 +150,7 @@ export function DeparturePicker({
         <div className="airport-chips" role="group" aria-label={t('search.selectedAirports')}>
           {selectedCities.map(city => (
             <span key={city.code} className="chip chip-active chip-selected">
+              <CountryFlag country={city.country} />
               {formatCity(city)}
               <button
                 type="button"
@@ -183,7 +180,7 @@ export function DeparturePicker({
           aria-label={t('search.searchAirports')}
           autoComplete="off"
         />
-        {open && query.trim().length >= 2 && (
+        {open && query.trim().length >= 1 && (
           <ul className="airport-search-results" role="listbox">
             {searchResults.length === 0 ? (
               <li className="airport-search-empty">{t('search.noAirportsFound')}</li>
@@ -191,9 +188,12 @@ export function DeparturePicker({
               searchResults.map(city => (
                 <li key={city.code}>
                   <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                    <strong>{city.name}</strong>
-                    <span>
-                      {city.code} · {city.country}
+                    <CountryFlag country={city.country} />
+                    <span className="airport-search-item-text">
+                      <strong>{city.name}</strong>
+                      <span>
+                        {city.code} · {city.country}
+                      </span>
                     </span>
                   </button>
                 </li>
@@ -214,7 +214,7 @@ export function DeparturePicker({
                 className="chip chip-add"
                 onClick={() => selectCode(city.code)}
               >
-                + {formatNearby(city)}
+                + <CountryFlag country={city.country} /> {formatNearby(city)}
               </button>
             ))}
           </div>
@@ -240,7 +240,8 @@ export function DeparturePicker({
                 })}
                 onClick={() => selectCode(city.code)}
               >
-                + {formatPopularHub(city, offerCountFormatter.format(city.offerCount))}
+                + <CountryFlag country={city.country} />{' '}
+                {formatPopularHub(city, offerCountFormatter.format(city.offerCount))}
               </button>
             ))}
           </div>

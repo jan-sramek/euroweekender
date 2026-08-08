@@ -11,64 +11,74 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
 {
     private const int PageLimit = 1000;
     private const int MaxRateLimitRetries = 30;
+    private const string PrimaryLocale = "en-US";
     private static readonly TimeSpan CitiesPageDelay = TimeSpan.FromSeconds(1);
     private static readonly TimeSpan AirportsPageDelay = TimeSpan.FromSeconds(1.5);
+    private static readonly TimeSpan LocaleDelay = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Tequila locales matching the app UI languages (plus English as the canonical name source).
+    /// </summary>
+    private static readonly string[] CityNameLocales =
+    [
+        PrimaryLocale,
+        "de-DE",
+        "fr-FR",
+        "es-ES",
+        "it-IT",
+        "pl-PL",
+        "nl-NL",
+        "ro-RO",
+        "tr-TR",
+        "pt-PT",
+        "cs-CZ",
+        "hu-HU",
+        "el-GR",
+        "sv-SE",
+        "uk-UA",
+        "ru-RU",
+        "bg-BG",
+        "da-DK",
+        "fi-FI",
+        "sk-SK",
+        "nb-NO",
+        "lt-LT",
+        "lv-LV",
+        "et-EE",
+        "is-IS"
+    ];
 
     public async Task<List<City>> LoadCitiesAsync(string apiKey, CancellationToken cancellationToken = default)
     {
         ConfigureApiKey(apiKey);
 
-        var cities = new List<City>();
-        var addedCities = new HashSet<string>();
-        string? searchAfter1 = null;
-        string? searchAfter2 = null;
-        var page = 0;
+        var citiesByKiwiId = new Dictionary<string, City>(StringComparer.Ordinal);
 
-        while (true)
+        foreach (var locale in CityNameLocales)
         {
-            page++;
-            var url =
-                $"https://api.tequila.kiwi.com/locations/dump?location_types=city&limit={PageLimit}&sort=rank&locale=en-US&active_only=true";
-            if (searchAfter1 != null && searchAfter2 != null)
+            cancellationToken.ThrowIfCancellationRequested();
+            logger.LogInformation("Fetching Kiwi city dump for locale {Locale}", locale);
+
+            var pageCities = await LoadCityDumpForLocaleAsync(locale, cancellationToken);
+            foreach (var city in pageCities)
             {
-                url += $"&search_after={Uri.EscapeDataString(searchAfter1)}";
-                url += $"&search_after={Uri.EscapeDataString(searchAfter2)}";
+                MergeCity(citiesByKiwiId, city, isPrimaryLocale: locale == PrimaryLocale);
             }
 
-            using var response = await SendWithRateLimitRetryAsync(url, "cities", page, cancellationToken);
-            response.EnsureSuccessStatusCode();
-
-            var json = await response.Content.ReadAsStringAsync(cancellationToken);
-            var root = JsonDocument.Parse(json).RootElement;
-            var locations = root.GetProperty("locations");
-            var pageCount = locations.GetArrayLength();
-
-            if (pageCount == 0)
-                break;
-
-            foreach (var item in locations.EnumerateArray())
-            {
-                var city = MapCity(item);
-                if (!addedCities.Contains(city.KiwiId) && !string.IsNullOrWhiteSpace(city.Code))
-                {
-                    city.IsActive = true;
-                    cities.Add(city);
-                    addedCities.Add(city.KiwiId);
-                }
-            }
-
-            logger.LogInformation("Kiwi cities page {Page}: fetched {PageCount}, total {Total}", page, pageCount, cities.Count);
-
-            if (!root.TryGetProperty("search_after", out var searchAfter))
-                break;
-
-            searchAfter1 = searchAfter[0].GetRawText();
-            searchAfter2 = searchAfter[1].GetRawText();
-
-            await Task.Delay(CitiesPageDelay, cancellationToken);
+            if (locale != CityNameLocales[^1])
+                await Task.Delay(LocaleDelay, cancellationToken);
         }
 
-        logger.LogInformation("Kiwi city dump finished with {Total} cities", cities.Count);
+        var cities = citiesByKiwiId.Values
+            .Where(c => !string.IsNullOrWhiteSpace(c.Code))
+            .OrderBy(c => c.Code, StringComparer.Ordinal)
+            .ToList();
+
+        logger.LogInformation(
+            "Kiwi city dump finished with {Total} cities ({AliasCount} with search aliases)",
+            cities.Count,
+            cities.Count(c => c.Aliases.Count > 0));
+
         return cities;
     }
 
@@ -86,7 +96,7 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
         {
             page++;
             var url =
-                $"https://api.tequila.kiwi.com/locations/dump?location_types=airport&limit={PageLimit}&sort=rank&locale=en-US&active_only=true";
+                $"https://api.tequila.kiwi.com/locations/dump?location_types=airport&limit={PageLimit}&sort=rank&locale={PrimaryLocale}&active_only=true";
             if (searchAfter1 != null && searchAfter2 != null)
             {
                 url += $"&search_after={Uri.EscapeDataString(searchAfter1)}";
@@ -143,6 +153,108 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
         };
     }
 
+    private async Task<List<City>> LoadCityDumpForLocaleAsync(string locale, CancellationToken cancellationToken)
+    {
+        var cities = new List<City>();
+        string? searchAfter1 = null;
+        string? searchAfter2 = null;
+        var page = 0;
+
+        while (true)
+        {
+            page++;
+            var url =
+                $"https://api.tequila.kiwi.com/locations/dump?location_types=city&limit={PageLimit}&sort=rank&locale={Uri.EscapeDataString(locale)}&active_only=true";
+            if (searchAfter1 != null && searchAfter2 != null)
+            {
+                url += $"&search_after={Uri.EscapeDataString(searchAfter1)}";
+                url += $"&search_after={Uri.EscapeDataString(searchAfter2)}";
+            }
+
+            using var response = await SendWithRateLimitRetryAsync(url, $"cities:{locale}", page, cancellationToken);
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync(cancellationToken);
+            var root = JsonDocument.Parse(json).RootElement;
+            var locations = root.GetProperty("locations");
+            var pageCount = locations.GetArrayLength();
+
+            if (pageCount == 0)
+                break;
+
+            foreach (var item in locations.EnumerateArray())
+            {
+                cities.Add(MapCity(item));
+            }
+
+            logger.LogInformation(
+                "Kiwi cities ({Locale}) page {Page}: fetched {PageCount}, locale total {Total}",
+                locale, page, pageCount, cities.Count);
+
+            if (!root.TryGetProperty("search_after", out var searchAfter))
+                break;
+
+            searchAfter1 = searchAfter[0].GetRawText();
+            searchAfter2 = searchAfter[1].GetRawText();
+
+            await Task.Delay(CitiesPageDelay, cancellationToken);
+        }
+
+        return cities;
+    }
+
+    private static void MergeCity(Dictionary<string, City> citiesByKiwiId, City incoming, bool isPrimaryLocale)
+    {
+        if (string.IsNullOrWhiteSpace(incoming.KiwiId) || string.IsNullOrWhiteSpace(incoming.Code))
+            return;
+
+        if (!citiesByKiwiId.TryGetValue(incoming.KiwiId, out var existing))
+        {
+            if (!isPrimaryLocale)
+            {
+                // Prefer English as the canonical display row; skip orphans from other locales.
+                return;
+            }
+
+            citiesByKiwiId[incoming.KiwiId] = incoming;
+            return;
+        }
+
+        if (isPrimaryLocale)
+        {
+            existing.Name = incoming.Name;
+            existing.Code = incoming.Code;
+            existing.Country = incoming.Country;
+            existing.Region = incoming.Region;
+            existing.Continent = incoming.Continent;
+            existing.Latitude = incoming.Latitude;
+            existing.Longitude = incoming.Longitude;
+            existing.IsActive = incoming.IsActive;
+        }
+
+        AddAlias(existing, incoming.Name);
+        foreach (var alias in incoming.Aliases)
+            AddAlias(existing, alias);
+    }
+
+    private static void AddAlias(City city, string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return;
+
+        if (string.Equals(value, city.Name, StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(value, city.Code, StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(value, city.Country, StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        if (city.Aliases.Any(existing => string.Equals(existing, value, StringComparison.OrdinalIgnoreCase)))
+            return;
+
+        city.Aliases.Add(value);
+    }
+
     private void ConfigureApiKey(string apiKey)
     {
         httpClient.DefaultRequestHeaders.Clear();
@@ -187,8 +299,31 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
         Latitude = item.GetProperty("location").GetProperty("lat").GetDecimal(),
         Longitude = item.GetProperty("location").GetProperty("lon").GetDecimal(),
         IsActive = true,
+        Aliases = ExtractAlternativeNames(item),
         Airports = []
     };
+
+    private static List<string> ExtractAlternativeNames(JsonElement item)
+    {
+        if (!item.TryGetProperty("alternative_names", out var altNames) ||
+            altNames.ValueKind != JsonValueKind.Array)
+        {
+            return [];
+        }
+
+        var names = new List<string>();
+        foreach (var entry in altNames.EnumerateArray())
+        {
+            if (entry.ValueKind != JsonValueKind.String)
+                continue;
+
+            var value = entry.GetString();
+            if (!string.IsNullOrWhiteSpace(value))
+                names.Add(value);
+        }
+
+        return names;
+    }
 
     private static Airport MapAirport(JsonElement item) => new()
     {

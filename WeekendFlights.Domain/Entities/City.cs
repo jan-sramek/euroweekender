@@ -56,6 +56,12 @@ public class City
     public bool IsActive { get; set; } = false;
 
     /// <summary>
+    /// Alternate / localized city names used for multilingual search.
+    /// English <see cref="Name"/> stays the canonical display value.
+    /// </summary>
+    public List<string> Aliases { get; set; } = [];
+
+    /// <summary>
     /// Collection of airports associated with this city.
     /// </summary>
     public List<Airport> Airports { get; set; } = new();

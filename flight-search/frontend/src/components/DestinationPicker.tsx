@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City } from '../types/city';
+import { cityMatchesQuery, rankCityMatch } from '../utils/citySearch';
 import { isEuropeanCity } from '../utils/europe';
+import { CountryFlag } from './CountryFlag';
 import './DeparturePicker.css';
 
 interface DestinationPickerProps {
@@ -37,18 +39,12 @@ export function DestinationPicker({
   );
 
   const searchResults = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2) return [];
+    const q = query.trim();
+    if (q.length < 1) return [];
 
     return europeanCities
-      .filter(city => {
-        if (city.code === selectedCode) return false;
-        return (
-          city.code.toLowerCase().includes(q) ||
-          city.name.toLowerCase().includes(q) ||
-          city.country.toLowerCase().includes(q)
-        );
-      })
+      .filter(city => city.code !== selectedCode && cityMatchesQuery(city, q))
+      .sort((a, b) => rankCityMatch(a, q) - rankCityMatch(b, q) || a.name.localeCompare(b.name))
       .slice(0, 8);
   }, [europeanCities, query, selectedCode]);
 
@@ -79,6 +75,7 @@ export function DestinationPicker({
       {selectedCity ? (
         <div className="airport-chips" role="group" aria-label={t('search.selectedDestination')}>
           <span className="chip chip-active chip-selected">
+            <CountryFlag country={selectedCity.country} />
             {formatCity(selectedCity)}
             <button
               type="button"
@@ -108,7 +105,7 @@ export function DestinationPicker({
           aria-label={t('search.searchDestinations')}
           autoComplete="off"
         />
-        {open && query.trim().length >= 2 && (
+        {open && query.trim().length >= 1 && (
           <ul className="airport-search-results" role="listbox">
             {searchResults.length === 0 ? (
               <li className="airport-search-empty">{t('search.noAirportsFound')}</li>
@@ -116,9 +113,12 @@ export function DestinationPicker({
               searchResults.map(city => (
                 <li key={city.code}>
                   <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                    <strong>{city.name}</strong>
-                    <span>
-                      {city.code} · {city.country}
+                    <CountryFlag country={city.country} />
+                    <span className="airport-search-item-text">
+                      <strong>{city.name}</strong>
+                      <span>
+                        {city.code} · {city.country}
+                      </span>
                     </span>
                   </button>
                 </li>

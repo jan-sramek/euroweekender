@@ -150,9 +150,9 @@
 
 .airport-search-item {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
   width: 100%;
   padding: 0.55rem 0.85rem;
   border: 0;
@@ -163,13 +163,43 @@
   color: #192c39;
 }
 
+.airport-search-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
 .airport-search-item strong {
   font-size: 0.9rem;
 }
 
-.airport-search-item span {
+.airport-search-item-text > span {
   font-size: 0.78rem;
   color: #8c959c;
+}
+
+.country-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  line-height: 0;
+}
+
+.country-flag-img {
+  display: block;
+  width: 1.15rem;
+  height: auto;
+  border-radius: 0.12rem;
+  box-shadow: 0 0 0 1px rgba(25, 44, 57, 0.12);
+  object-fit: cover;
+}
+
+.chip-active .country-flag-img {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
 .airport-search-item:hover,

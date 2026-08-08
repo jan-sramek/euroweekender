@@ -9,7 +9,8 @@ public record CityDto(
     string Continent,
     decimal Latitude,
     decimal Longitude,
-    bool IsActive);
+    bool IsActive,
+    IReadOnlyList<string> Aliases);
 
 public record OriginHubScoreDto(
     string Code,

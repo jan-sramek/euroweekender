@@ -52,7 +52,8 @@ public class CitiesController(
             c.Continent,
             c.Latitude,
             c.Longitude,
-            c.IsActive)).ToList();
+            c.IsActive,
+            c.Aliases)).ToList();
 
         return Ok(dtos);
     }
@@ -77,7 +78,8 @@ public class CitiesController(
             city.Continent,
             city.Latitude,
             city.Longitude,
-            city.IsActive);
+            city.IsActive,
+            city.Aliases);
 
         return Ok(dto);
     }

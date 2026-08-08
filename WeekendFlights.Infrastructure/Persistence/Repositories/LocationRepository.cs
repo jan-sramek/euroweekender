@@ -10,18 +10,38 @@ public class LocationRepository(WeekendFlightsDbContext db, ILogger<LocationRepo
 
     public async Task SaveCitiesAsync(List<City> cities)
     {
+        if (cities.Count == 0)
+            return;
+
         var cityIds = cities.Select(c => c.KiwiId).ToList();
 
-        var existingIds = await db.Cities
+        var existingCities = await db.Cities
             .Where(c => cityIds.Contains(c.KiwiId))
-            .Select(c => c.KiwiId)
-            .ToListAsync();
+            .ToDictionaryAsync(c => c.KiwiId);
 
-        var existingSet = existingIds.ToHashSet();
+        var newCities = new List<City>();
 
-        var newCities = cities
-            .Where(c => !existingSet.Contains(c.KiwiId))
-            .ToList();
+        foreach (var city in cities)
+        {
+            if (existingCities.TryGetValue(city.KiwiId, out var existing))
+            {
+                existing.Name = city.Name;
+                existing.Code = city.Code;
+                existing.Country = city.Country;
+                existing.Region = city.Region;
+                existing.Continent = city.Continent;
+                existing.Latitude = city.Latitude;
+                existing.Longitude = city.Longitude;
+                existing.IsActive = city.IsActive;
+                // Supplemental airport-city rows have empty aliases; don't wipe imported multilingual names.
+                if (city.Aliases.Count > 0)
+                    existing.Aliases = city.Aliases;
+            }
+            else
+            {
+                newCities.Add(city);
+            }
+        }
 
         if (newCities.Count > 0)
             db.Cities.AddRange(newCities);

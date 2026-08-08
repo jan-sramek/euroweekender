@@ -8,6 +8,8 @@ export interface City {
   latitude: number;
   longitude: number;
   isActive: boolean;
+  /** Localized / alternate names used for multilingual search. */
+  aliases?: string[];
 }
 
 export interface HubScore {

@@ -67,6 +67,10 @@ public class WeekendFlightsDbContext : DbContext
             entity.Property(c => c.IsActive)
                 .HasDefaultValue(false);
 
+            entity.Property(c => c.Aliases)
+                .HasColumnType("text[]")
+                .HasDefaultValueSql("'{}'");
+
             entity.HasIndex(c => c.Code)
                 .HasDatabaseName("idx_city_code");
 

@@ -147,34 +147,36 @@ export function DeparturePicker({
 
   return (
     <div className="departure-picker">
-      {locating ? (
-        <div className="departure-picker-locating" role="status" aria-live="polite">
-          <LoadingIndicator size="sm" label={t('search.loadingAirports')} />
-        </div>
-      ) : null}
-
-      {selectedCities.length > 0 || reserveChipSlot ? (
+      {selectedCities.length > 0 || reserveChipSlot || locating ? (
         <div
-          className={`airport-chips${selectedCities.length === 0 ? ' airport-chips-placeholder' : ''}`}
+          className={`airport-chips${
+            selectedCities.length === 0 && !locating ? ' airport-chips-placeholder' : ''
+          }`}
           role={selectedCities.length > 0 ? 'group' : undefined}
-          aria-hidden={selectedCities.length === 0 ? true : undefined}
+          aria-hidden={selectedCities.length === 0 && !locating ? true : undefined}
           aria-label={selectedCities.length > 0 ? t('search.selectedAirports') : undefined}
         >
-          {selectedCities.map(city => (
-            <span key={city.code} className="chip chip-active chip-selected">
-              <CountryFlag country={city.country} />
-              {formatCity(city)}
-              <button
-                type="button"
-                className="chip-remove"
-                aria-label={t('search.removeAirport', { name: city.name })}
-                disabled={!singleSelect && selectedCodes.length === 1}
-                onClick={() => removeCity(city.code)}
-              >
-                ×
-              </button>
-            </span>
-          ))}
+          {locating ? (
+            <div className="departure-picker-locating" role="status" aria-live="polite">
+              <LoadingIndicator size="sm" label={t('search.loadingAirports')} />
+            </div>
+          ) : (
+            selectedCities.map(city => (
+              <span key={city.code} className="chip chip-active chip-selected">
+                <CountryFlag country={city.country} />
+                {formatCity(city)}
+                <button
+                  type="button"
+                  className="chip-remove"
+                  aria-label={t('search.removeAirport', { name: city.name })}
+                  disabled={!singleSelect && selectedCodes.length === 1}
+                  onClick={() => removeCity(city.code)}
+                >
+                  ×
+                </button>
+              </span>
+            ))
+          )}
         </div>
       ) : null}
 

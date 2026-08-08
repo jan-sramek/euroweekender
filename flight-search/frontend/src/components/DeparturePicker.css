@@ -6,6 +6,9 @@
 }
 
 .departure-picker-locating {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.05rem;
   color: #228bd1;
   font-size: 0.9rem;
 }

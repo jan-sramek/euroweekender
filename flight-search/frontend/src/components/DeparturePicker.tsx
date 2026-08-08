@@ -24,6 +24,10 @@ interface DeparturePickerProps {
   singleSelect?: boolean;
   /** Keep a chip-row height even when nothing is selected so paired fields stay aligned. */
   reserveChipSlot?: boolean;
+  /** Show the nearby airport chip row under the search field. */
+  showNearbyAirports?: boolean;
+  /** Show the popular hubs further away chip row. */
+  showPopularHubs?: boolean;
 }
 
 function formatNearby(city: CityWithDistance): string {
@@ -56,7 +60,9 @@ export function DeparturePicker({
   onSelectedCodesChange,
   onAddCity,
   singleSelect = false,
-  reserveChipSlot = false
+  reserveChipSlot = false,
+  showNearbyAirports = true,
+  showPopularHubs = true
 }: DeparturePickerProps) {
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -269,7 +275,7 @@ export function DeparturePicker({
         )}
       </div>
 
-      {nearbyNotSelected.length > 0 && (
+      {showNearbyAirports && nearbyNotSelected.length > 0 && (
         <div className="nearby-section">
           <p className="nearby-label">{t('search.nearbyAirports')}</p>
           <div className="airport-chips airport-chips-scroll" role="group" aria-label={t('search.nearbyAirports')}>
@@ -287,7 +293,7 @@ export function DeparturePicker({
         </div>
       )}
 
-      {popularHubsNotSelected.length > 0 && (
+      {showPopularHubs && popularHubsNotSelected.length > 0 && (
         <div className="popular-hubs-section">
           <p className="nearby-label">{t('search.popularHubAirports')}</p>
           <div

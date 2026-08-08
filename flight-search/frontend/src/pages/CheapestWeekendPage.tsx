@@ -85,7 +85,6 @@ export function CheapestWeekendPage() {
 
   const {
     allCities,
-    nearbyCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -189,7 +188,7 @@ export function CheapestWeekendPage() {
                   <p className="search-field-label">{t('cheapestWeekend.from')}</p>
                   <DeparturePicker
                     allCities={allCities}
-                    nearbyCities={nearbyCities}
+                    nearbyCities={[]}
                     popularHubCities={[]}
                     selectedCodes={selectedCodes.slice(0, 1)}
                     locating={locating}
@@ -198,6 +197,8 @@ export function CheapestWeekendPage() {
                     onAddCity={handleAddCity}
                     singleSelect
                     reserveChipSlot
+                    showNearbyAirports={false}
+                    showPopularHubs={false}
                   />
                 </div>
 

@@ -86,7 +86,6 @@ export function CheapestWeekendPage() {
   const {
     allCities,
     nearbyCities,
-    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -191,7 +190,7 @@ export function CheapestWeekendPage() {
                   <DeparturePicker
                     allCities={allCities}
                     nearbyCities={nearbyCities}
-                    popularHubCities={popularHubCities}
+                    popularHubCities={[]}
                     selectedCodes={selectedCodes.slice(0, 1)}
                     locating={locating}
                     locationLabel={locationLabel}

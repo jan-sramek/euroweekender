@@ -28,7 +28,9 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
   const [popularHubCities, setPopularHubCities] = useState<CityWithDistance[]>([]);
-  const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
+  const [selectedCodes, setSelectedCodes] = useState<string[]>(() =>
+    preferredKey ? preferredKey.split('|') : []
+  );
   const [locating, setLocating] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -58,6 +60,19 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
   useEffect(() => {
     let cancelled = false;
 
+    async function loadHubScoresInBackground(cities: City[], anchorCode: string) {
+      try {
+        const scores = await getHubScores();
+        if (cancelled) return;
+        hubScoresRef.current = scores;
+        refreshHubSuggestions(cities, scores, anchorCode);
+      } catch {
+        if (!cancelled) {
+          setErrorMessage(i18n.t('home.hubRankingWarning'));
+        }
+      }
+    }
+
     async function init() {
       if (defaultsInitializedRef.current) return;
 
@@ -66,35 +81,26 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
         if (cancelled) return;
         setAllCities(cities);
 
-        let scores = hubScoresRef.current;
-        if (scores.length === 0) {
-          try {
-            scores = await getHubScores();
-            hubScoresRef.current = scores;
-          } catch {
-            if (!cancelled) {
-              setErrorMessage(i18n.t('home.hubRankingWarning'));
-            }
-          }
-        }
-        if (cancelled) return;
-
         const preferred = preferredKey
           .split('|')
           .filter(code => Boolean(findCityByCode(cities, code)));
 
+        // Prefer URL/prefill codes; otherwise pick defaults from cities only so the
+        // From chip can render without waiting on hub scores.
         const defaults =
-          preferred.length > 0 ? preferred : selectDefaultCityCodes(cities, scores);
+          preferred.length > 0 ? preferred : selectDefaultCityCodes(cities, hubScoresRef.current);
         if (defaults.length > 0) {
           setSelectedCodes(defaults);
         }
         defaultsInitializedRef.current = true;
+        setLocating(false);
+
+        void loadHubScoresInBackground(cities, defaults[0] ?? '');
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));
+          setLocating(false);
         }
-      } finally {
-        if (!cancelled) setLocating(false);
       }
     }
 
@@ -102,7 +108,7 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
     return () => {
       cancelled = true;
     };
-  }, [preferredKey]);
+  }, [preferredKey, refreshHubSuggestions]);
 
   return {
     allCities,

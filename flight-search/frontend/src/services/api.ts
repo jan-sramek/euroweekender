@@ -9,6 +9,8 @@ const MAX_SEARCH_FLIGHTS = 1000;
 const SINGLE_CITY_PAGE_SIZE = 500;
 const CITIES_CACHE_KEY = 'ew:cities:v3';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
+const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
+const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
 
 function searchPageSize(cityCount: number): number {
   if (cityCount <= 1) return SINGLE_CITY_PAGE_SIZE;
@@ -162,13 +164,60 @@ function writeCitiesCache(cities: City[]): void {
   }
 }
 
+export function getCachedHubScores(weeks = 4): HubScore[] | null {
+  return readHubScoresCache(weeks);
+}
+
 export async function getHubScores(weeks = 4): Promise<HubScore[]> {
+  const cached = readHubScoresCache(weeks);
+  if (cached) {
+    return cached;
+  }
+
   const response = await fetch(`${API_BASE}/cities/hub-scores?weeks=${weeks}`);
   if (!response.ok) {
     throw new Error(`Failed to load hub scores (${response.status})`);
   }
   const payload = (await response.json()) as Record<string, unknown>[];
-  return payload.map(normalizeHubScore).filter(score => score.code.length > 0);
+  const scores = payload.map(normalizeHubScore).filter(score => score.code.length > 0);
+  writeHubScoresCache(weeks, scores);
+  return scores;
+}
+
+function readHubScoresCache(weeks: number): HubScore[] | null {
+  try {
+    const raw = sessionStorage.getItem(HUB_SCORES_CACHE_KEY);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw) as { cachedAt: number; weeks: number; scores: HubScore[] };
+    if (
+      !Array.isArray(parsed.scores) ||
+      typeof parsed.cachedAt !== 'number' ||
+      parsed.weeks !== weeks
+    ) {
+      return null;
+    }
+
+    if (Date.now() - parsed.cachedAt > HUB_SCORES_CACHE_TTL_MS) {
+      sessionStorage.removeItem(HUB_SCORES_CACHE_KEY);
+      return null;
+    }
+
+    return parsed.scores;
+  } catch {
+    return null;
+  }
+}
+
+function writeHubScoresCache(weeks: number, scores: HubScore[]): void {
+  try {
+    sessionStorage.setItem(
+      HUB_SCORES_CACHE_KEY,
+      JSON.stringify({ cachedAt: Date.now(), weeks, scores })
+    );
+  } catch {
+    // Ignore quota or private-mode storage errors.
+  }
 }
 
 export async function searchFlights(params: FlightSearchParams): Promise<FlightPage> {

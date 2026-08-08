@@ -85,6 +85,8 @@ export function CheapestWeekendPage() {
 
   const {
     allCities,
+    nearbyCities,
+    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -188,8 +190,8 @@ export function CheapestWeekendPage() {
                   <p className="search-field-label">{t('cheapestWeekend.from')}</p>
                   <DeparturePicker
                     allCities={allCities}
-                    nearbyCities={[]}
-                    popularHubCities={[]}
+                    nearbyCities={nearbyCities}
+                    popularHubCities={popularHubCities}
                     selectedCodes={selectedCodes.slice(0, 1)}
                     locating={locating}
                     locationLabel={locationLabel}
@@ -204,6 +206,7 @@ export function CheapestWeekendPage() {
                   <p className="search-field-label">{t('cheapestWeekend.to')}</p>
                   <DestinationPicker
                     allCities={allCities}
+                    originCity={fromCity}
                     excludeCode={fromCode}
                     selectedCode={destinationCode}
                     onSelectedCodeChange={code => {

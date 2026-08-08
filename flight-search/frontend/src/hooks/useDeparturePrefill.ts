@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import i18n from '../i18n';
-import { getCities, getHubScores } from '../services/api';
+import { getCachedHubScores, getCities, getHubScores } from '../services/api';
 import {
   findCityByCode,
   rankNearbyCities,
   rankPopularHubCities,
-  selectDefaultCityCodes
+  selectDefaultCityCodes,
+  selectFallbackCityCodes
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 
@@ -18,6 +19,11 @@ function updateHubSuggestions(
   const nearby = rankNearbyCities(cities, anchor, scores);
   const popular = rankPopularHubCities(cities, anchor, scores, nearby);
   return { nearby, popular };
+}
+
+function sameCodeList(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  return a.every((code, index) => code.toUpperCase() === b[index]?.toUpperCase());
 }
 
 export function useDeparturePrefill(options?: { preferredCodes?: string[] | null }) {
@@ -36,6 +42,7 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
 
   const hubScoresRef = useRef<HubScore[]>([]);
   const defaultsInitializedRef = useRef(false);
+  const provisionalDefaultsRef = useRef<string[] | null>(null);
 
   const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
     const anchorCity = findCityByCode(cities, primaryCode);
@@ -60,21 +67,14 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
   useEffect(() => {
     let cancelled = false;
 
-    async function loadHubScoresInBackground(cities: City[], anchorCode: string) {
-      try {
-        const scores = await getHubScores();
-        if (cancelled) return;
-        hubScoresRef.current = scores;
-        refreshHubSuggestions(cities, scores, anchorCode);
-      } catch {
-        if (!cancelled) {
-          setErrorMessage(i18n.t('home.hubRankingWarning'));
-        }
-      }
-    }
-
     async function init() {
       if (defaultsInitializedRef.current) return;
+
+      // Prefetch hub scores while cities load (often the slower call).
+      const scoresPromise = getHubScores().then(
+        scores => ({ scores, error: false as const }),
+        () => ({ scores: [] as HubScore[], error: true as const })
+      );
 
       try {
         const cities = await getCities();
@@ -85,36 +85,75 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
           .split('|')
           .filter(code => Boolean(findCityByCode(cities, code)));
 
-        // URL/prefill codes can show immediately; algorithmic defaults need hub scores
-        // so ranking uses flight volume + distance, not nearest-by-km alone.
         if (preferred.length > 0) {
           setSelectedCodes(preferred);
           defaultsInitializedRef.current = true;
           setLocating(false);
-          void loadHubScoresInBackground(cities, preferred[0] ?? '');
+
+          const result = await scoresPromise;
+          if (cancelled) return;
+          if (result.error) {
+            setErrorMessage(i18n.t('home.hubRankingWarning'));
+            return;
+          }
+          hubScoresRef.current = result.scores;
+          refreshHubSuggestions(cities, result.scores, preferred[0] ?? '');
           return;
         }
 
-        let scores = hubScoresRef.current;
-        if (scores.length === 0) {
-          try {
-            scores = await getHubScores();
-            if (cancelled) return;
-            hubScoresRef.current = scores;
-          } catch {
-            if (!cancelled) {
-              setErrorMessage(i18n.t('home.hubRankingWarning'));
-            }
+        const cachedScores = getCachedHubScores();
+        if (cachedScores && cachedScores.length > 0) {
+          hubScoresRef.current = cachedScores;
+          const defaults = selectDefaultCityCodes(cities, cachedScores);
+          if (defaults.length > 0) {
+            setSelectedCodes(defaults);
           }
-        }
-        if (cancelled) return;
+          defaultsInitializedRef.current = true;
+          setLocating(false);
+          refreshHubSuggestions(cities, cachedScores, defaults[0] ?? '');
 
-        const defaults = selectDefaultCityCodes(cities, scores);
-        if (defaults.length > 0) {
-          setSelectedCodes(defaults);
+          void scoresPromise.then(result => {
+            if (cancelled || result.error) return;
+            hubScoresRef.current = result.scores;
+            refreshHubSuggestions(cities, result.scores, defaults[0] ?? '');
+          });
+          return;
+        }
+
+        // Unlock immediately with static fallbacks, then refine once scores arrive.
+        const provisional = selectFallbackCityCodes(cities);
+        provisionalDefaultsRef.current = provisional;
+        if (provisional.length > 0) {
+          setSelectedCodes(provisional);
         }
         defaultsInitializedRef.current = true;
-        refreshHubSuggestions(cities, scores, defaults[0] ?? '');
+        setLocating(false);
+        refreshHubSuggestions(cities, [], provisional[0] ?? '');
+
+        const result = await scoresPromise;
+        if (cancelled) return;
+        if (result.error) {
+          setErrorMessage(i18n.t('home.hubRankingWarning'));
+          return;
+        }
+
+        hubScoresRef.current = result.scores;
+        const refined = selectDefaultCityCodes(cities, result.scores);
+        let anchorCode = provisional[0] ?? '';
+        setSelectedCodes(current => {
+          if (
+            provisionalDefaultsRef.current &&
+            sameCodeList(current, provisionalDefaultsRef.current)
+          ) {
+            provisionalDefaultsRef.current = null;
+            anchorCode = refined[0] ?? anchorCode;
+            return refined;
+          }
+          provisionalDefaultsRef.current = null;
+          anchorCode = current[0] ?? anchorCode;
+          return current;
+        });
+        refreshHubSuggestions(cities, result.scores, anchorCode);
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));

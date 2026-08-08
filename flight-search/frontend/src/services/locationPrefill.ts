@@ -10,6 +10,8 @@ export const POPULAR_HUB_MAX_RADIUS_KM = 1000;
 export const MIN_POPULAR_HUB_OFFER_COUNT = 50;
 export const DEFAULT_ANCHOR_CODE = 'PRG';
 export const DEFAULT_SELECTED_CITIES = 5;
+/** Empty destination dropdown: European cities closest to the chosen origin. */
+export const DESTINATION_SUGGEST_MAX_CITIES = 100;
 
 const DEFAULT_FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'BCN'];
 
@@ -80,6 +82,65 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
     Math.sin(dLat / 2) ** 2 +
     Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
   return EARTH_RADIUS_KM * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/** Static fallback origins used before hub scores are ready. */
+export function selectFallbackCityCodes(
+  cities: City[],
+  count = DEFAULT_SELECTED_CITIES
+): string[] {
+  const fallbackCodes = DEFAULT_FALLBACK_CODES
+    .map(code => findCityByCode(cities, code)?.code)
+    .filter((code): code is string => Boolean(code));
+
+  if (fallbackCodes.length > 0) {
+    return takeTopCityCodes(fallbackCodes, count);
+  }
+
+  return cities[0] ? [cities[0].code.toUpperCase()] : [];
+}
+
+/** Closest cities by haversine distance (for empty-query airport dropdowns). */
+export function rankCitiesByDistance(
+  cities: City[],
+  position: GeoPosition,
+  options?: {
+    excludeCodes?: string[];
+    filter?: (city: City) => boolean;
+    limit?: number;
+    radiusKm?: number | null;
+  }
+): CityWithDistance[] {
+  const exclude = new Set((options?.excludeCodes ?? []).map(code => code.trim().toUpperCase()));
+  const limit = options?.limit ?? NEARBY_MAX_CITIES;
+  const radiusKm = options?.radiusKm;
+  const filter = options?.filter;
+
+  return cities
+    .filter(city => {
+      if (exclude.has(city.code.toUpperCase())) return false;
+      if (filter && !filter(city)) return false;
+      return true;
+    })
+    .map(city => {
+      const distanceKm = haversineKm(
+        position.latitude,
+        position.longitude,
+        city.latitude,
+        city.longitude
+      );
+      return {
+        ...city,
+        distanceKm,
+        hubScore: 0,
+        effectiveScore: 0,
+        offerCount: 0,
+        minPrice: null
+      };
+    })
+    .filter(city => radiusKm == null || city.distanceKm <= radiusKm)
+    .sort((a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name))
+    .slice(0, limit);
 }
 
 export function rankNearbyCities(

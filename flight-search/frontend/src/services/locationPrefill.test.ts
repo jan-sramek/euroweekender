@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   findCityByCode,
+  rankCitiesByDistance,
   rankNearbyCities,
   rankPopularHubCities,
-  selectDefaultCityCodes
+  selectDefaultCityCodes,
+  selectFallbackCityCodes
 } from '../services/locationPrefill';
 import type { City, HubScore } from '../types/city';
 
@@ -96,6 +98,20 @@ describe('locationPrefill', () => {
     expect(defaults).not.toContain('LON');
     expect(defaults).not.toContain('WAW');
     expect(defaults.length).toBeGreaterThan(1);
+  });
+
+  it('uses static fallback codes before hub scores are available', () => {
+    expect(selectFallbackCityCodes(cities)).toEqual(['PRG', 'VIE', 'BER']);
+  });
+
+  it('ranks cities by distance from an origin for empty dropdown suggestions', () => {
+    const ranked = rankCitiesByDistance(cities, cities[0], {
+      excludeCodes: ['PRG'],
+      limit: 3
+    });
+
+    expect(ranked.map(city => city.code)).toEqual(['BRQ', 'VIE', 'BER']);
+    expect(ranked[0].distanceKm).toBeLessThan(ranked[1].distanceKm);
   });
 
   it('finds cities by code case-insensitively', () => {

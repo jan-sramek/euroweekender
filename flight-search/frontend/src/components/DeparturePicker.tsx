@@ -2,6 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City, CityWithDistance } from '../types/city';
 import { useCityTypeahead } from '../hooks/useCityTypeahead';
+import {
+  NEARBY_MAX_CITIES,
+  NEARBY_RADIUS_KM,
+  rankCitiesByDistance
+} from '../services/locationPrefill';
 import { CountryFlag } from './CountryFlag';
 import { LoadingIndicator } from './LoadingIndicator';
 import './DeparturePicker.css';
@@ -80,13 +85,22 @@ export function DeparturePicker({
   );
 
   /** Empty-query dropdown: closest airports to the current origin first. */
-  const nearbyByDistance = useMemo(
-    () =>
-      [...nearbyNotSelected].sort(
+  const nearbyByDistance = useMemo(() => {
+    if (nearbyNotSelected.length > 0) {
+      return [...nearbyNotSelected].sort(
         (a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name)
-      ),
-    [nearbyNotSelected]
-  );
+      );
+    }
+
+    const anchor = selectedCities[0];
+    if (!anchor) return [];
+
+    return rankCitiesByDistance(allCities, anchor, {
+      excludeCodes: selectedCodes,
+      limit: NEARBY_MAX_CITIES,
+      radiusKm: NEARBY_RADIUS_KM
+    });
+  }, [allCities, nearbyNotSelected, selectedCities, selectedCodes]);
 
   const popularHubsNotSelected = useMemo(
     () => popularHubCities.filter(city => !selectedCodes.includes(city.code)),

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using WeekendFlights.Api.Contracts;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Application.Services;
@@ -10,24 +11,36 @@ namespace WeekendFlights.Api.Controllers;
 public class CitiesController(
     ICityRepository cityRepository,
     IHubScoreService hubScoreService,
-    ITequilaLocationClient tequilaLocationClient) : ControllerBase
+    ITequilaLocationClient tequilaLocationClient,
+    IMemoryCache memoryCache) : ControllerBase
 {
+    private static readonly TimeSpan HubScoresCacheDuration = TimeSpan.FromMinutes(5);
+
     [HttpGet("hub-scores")]
     [ProducesResponseType(typeof(IReadOnlyList<OriginHubScoreDto>), StatusCodes.Status200OK)]
     public async Task<ActionResult<IReadOnlyList<OriginHubScoreDto>>> GetHubScoresAsync(
         [FromQuery] int weeks = WeekendHubIndex.DefaultWeeksAhead,
         CancellationToken cancellationToken = default)
     {
-        var scores = await hubScoreService.GetHubScoresAsync(weeks, cancellationToken);
-        var dtos = scores
-            .Select(score => new OriginHubScoreDto(
-                score.Code,
-                score.OfferCount,
-                score.MinPrice,
-                score.AverageQuality,
-                score.DestinationCount,
-                score.HubScore))
-            .ToList();
+        weeks = Math.Clamp(weeks, 1, 12);
+        Response.Headers.CacheControl = "public, max-age=300";
+
+        var cacheKey = $"cities:hub-scores:{weeks}";
+        if (!memoryCache.TryGetValue(cacheKey, out IReadOnlyList<OriginHubScoreDto>? dtos) || dtos is null)
+        {
+            var scores = await hubScoreService.GetHubScoresAsync(weeks, cancellationToken);
+            dtos = scores
+                .Select(score => new OriginHubScoreDto(
+                    score.Code,
+                    score.OfferCount,
+                    score.MinPrice,
+                    score.AverageQuality,
+                    score.DestinationCount,
+                    score.HubScore))
+                .ToList();
+
+            memoryCache.Set(cacheKey, dtos, HubScoresCacheDuration);
+        }
 
         return Ok(dtos);
     }

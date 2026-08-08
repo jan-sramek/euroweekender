@@ -2,12 +2,18 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City } from '../types/city';
 import { useCityTypeahead } from '../hooks/useCityTypeahead';
+import {
+  DESTINATION_SUGGEST_MAX_CITIES,
+  rankCitiesByDistance
+} from '../services/locationPrefill';
 import { isEuropeanCity } from '../utils/europe';
 import { CountryFlag } from './CountryFlag';
 import './DeparturePicker.css';
 
 interface DestinationPickerProps {
   allCities: City[];
+  /** Rank empty-query suggestions by distance from this origin. */
+  originCity?: City | null;
   excludeCode?: string | null;
   selectedCode: string | null;
   onSelectedCodeChange: (code: string | null) => void;
@@ -28,6 +34,7 @@ function displayName(city: City & { localizedName?: string }): string {
 
 export function DestinationPicker({
   allCities,
+  originCity = null,
   excludeCode,
   selectedCode,
   onSelectedCodeChange,
@@ -56,6 +63,15 @@ export function DestinationPicker({
     [selectedCode, excludeCode]
   );
 
+  const nearbyByDistance = useMemo(() => {
+    if (!originCity) return [];
+    return rankCitiesByDistance(allCities, originCity, {
+      excludeCodes,
+      filter: isEuropeanCity,
+      limit: DESTINATION_SUGGEST_MAX_CITIES
+    });
+  }, [allCities, excludeCodes, originCity]);
+
   const { results: searchResults, isSearching } = useCityTypeahead({
     allCities,
     query,
@@ -63,6 +79,10 @@ export function DestinationPicker({
     filterCity: isEuropeanCity,
     limit: 8
   });
+
+  const trimmedQuery = query.trim();
+  const showSearchResults = open && trimmedQuery.length >= 1;
+  const showNearbySuggestions = open && trimmedQuery.length < 1 && nearbyByDistance.length > 0;
 
   useEffect(() => {
     if (selectedCode && excludeCode && selectedCode === excludeCode) {
@@ -128,30 +148,49 @@ export function DestinationPicker({
           aria-label={t('search.searchDestinations')}
           autoComplete="off"
         />
-        {open && query.trim().length >= 1 && (
+        {(showSearchResults || showNearbySuggestions) && (
           <ul className="airport-search-results" role="listbox">
-            {searchResults.length === 0 ? (
-              <li className="airport-search-empty">
-                {isSearching ? t('search.loadingAirports') : t('search.noAirportsFound')}
-              </li>
-            ) : (
-              searchResults.map(city => (
-                <li key={city.code}>
-                  <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                    <CountryFlag country={city.country} />
-                    <span className="airport-search-item-text">
-                      <strong>{displayName(city)}</strong>
-                      <span>
-                        {city.code} · {city.country}
-                        {city.localizedName &&
-                        city.localizedName.toLowerCase() !== city.name.toLowerCase()
-                          ? ` · ${city.name}`
-                          : ''}
-                      </span>
-                    </span>
-                  </button>
+            {showSearchResults ? (
+              searchResults.length === 0 ? (
+                <li className="airport-search-empty">
+                  {isSearching ? t('search.loadingAirports') : t('search.noAirportsFound')}
                 </li>
-              ))
+              ) : (
+                searchResults.map(city => (
+                  <li key={city.code}>
+                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                      <CountryFlag country={city.country} />
+                      <span className="airport-search-item-text">
+                        <strong>{displayName(city)}</strong>
+                        <span>
+                          {city.code} · {city.country}
+                          {city.localizedName &&
+                          city.localizedName.toLowerCase() !== city.name.toLowerCase()
+                            ? ` · ${city.name}`
+                            : ''}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                ))
+              )
+            ) : (
+              nearbyByDistance.map(city => {
+                const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
+                return (
+                  <li key={city.code}>
+                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                      <CountryFlag country={city.country} />
+                      <span className="airport-search-item-text">
+                        <strong>{displayName(city)}</strong>
+                        <span>
+                          {city.code} · {city.country} · {distance} km
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })
             )}
           </ul>
         )}

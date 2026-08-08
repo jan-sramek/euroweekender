@@ -22,7 +22,12 @@ interface WeekendPickerProps {
 function EveningIcon() {
   return (
     <svg className="evening-toggle-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z" fill="currentColor" />
+      <path
+        fill="currentColor"
+        d="M15.2 3.1a1 1 0 0 1 1.1 1.3A7.4 7.4 0 1 0 19.6 16a1 1 0 0 1 1.4 1.1A9.4 9.4 0 1 1 15.2 3.1Z"
+      />
+      <circle cx="18.2" cy="6.2" r="1.15" fill="currentColor" opacity="0.55" />
+      <circle cx="20.6" cy="8.8" r="0.75" fill="currentColor" opacity="0.4" />
     </svg>
   );
 }

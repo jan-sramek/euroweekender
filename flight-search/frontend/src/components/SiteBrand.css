@@ -10,7 +10,7 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 0.55rem;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 

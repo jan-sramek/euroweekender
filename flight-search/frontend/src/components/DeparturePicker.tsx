@@ -7,6 +7,7 @@ import {
   NEARBY_RADIUS_KM,
   rankCitiesByDistance
 } from '../services/locationPrefill';
+import { getCityDisplayName } from '../utils/cityDisplayName';
 import { CountryFlag } from './CountryFlag';
 import { LoadingIndicator } from './LoadingIndicator';
 import './DeparturePicker.css';
@@ -30,24 +31,21 @@ interface DeparturePickerProps {
   showPopularHubs?: boolean;
 }
 
-function formatNearby(city: CityWithDistance): string {
+function formatNearby(city: CityWithDistance, language: string): string {
   const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
-  return `${city.name} (${city.code}) · ${distance} km`;
+  return `${getCityDisplayName(city, language)} (${city.code}) · ${distance} km`;
 }
 
 function formatPopularHub(city: CityWithDistance, offerCount: string): string {
   return `${city.code} · ${offerCount}`;
 }
 
-function formatCity(city: City): string {
-  return `${city.name} (${city.code}), ${city.country}`;
+function formatCity(city: City, language: string): string {
+  return `${getCityDisplayName(city, language)} (${city.code}), ${city.country}`;
 }
 
-function displayName(city: City & { localizedName?: string }): string {
-  if (city.localizedName && city.localizedName.toLowerCase() !== city.name.toLowerCase()) {
-    return city.localizedName;
-  }
-  return city.name;
+function displayName(city: City & { localizedName?: string }, language: string): string {
+  return getCityDisplayName(city, language);
 }
 
 export function DeparturePicker({
@@ -64,7 +62,8 @@ export function DeparturePicker({
   showNearbyAirports = true,
   showPopularHubs = true
 }: DeparturePickerProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language || 'en';
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -197,11 +196,11 @@ export function DeparturePicker({
             selectedCities.map(city => (
               <span key={city.code} className="chip chip-active chip-selected">
                 <CountryFlag country={city.country} />
-                {formatCity(city)}
+                {formatCity(city, language)}
                 <button
                   type="button"
                   className="chip-remove"
-                  aria-label={t('search.removeAirport', { name: city.name })}
+                  aria-label={t('search.removeAirport', { name: getCityDisplayName(city, language) })}
                   disabled={!singleSelect && selectedCodes.length === 1}
                   onClick={() => removeCity(city.code)}
                 >
@@ -240,11 +239,10 @@ export function DeparturePicker({
                     <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
                       <CountryFlag country={city.country} />
                       <span className="airport-search-item-text">
-                        <strong>{displayName(city)}</strong>
+                        <strong>{displayName(city, language)}</strong>
                         <span>
                           {city.code} · {city.country}
-                          {city.localizedName &&
-                          city.localizedName.toLowerCase() !== city.name.toLowerCase()
+                          {displayName(city, language).toLowerCase() !== city.name.toLowerCase()
                             ? ` · ${city.name}`
                             : ''}
                         </span>
@@ -261,7 +259,7 @@ export function DeparturePicker({
                     <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
                       <CountryFlag country={city.country} />
                       <span className="airport-search-item-text">
-                        <strong>{displayName(city)}</strong>
+                        <strong>{displayName(city, language)}</strong>
                         <span>
                           {city.code} · {city.country} · {distance} km
                         </span>
@@ -286,7 +284,7 @@ export function DeparturePicker({
                 className="chip chip-add"
                 onClick={() => selectCode(city.code)}
               >
-                + <CountryFlag country={city.country} /> {formatNearby(city)}
+                + <CountryFlag country={city.country} /> {formatNearby(city, language)}
               </button>
             ))}
           </div>
@@ -307,7 +305,7 @@ export function DeparturePicker({
                 type="button"
                 className="chip chip-add chip-popular chip-compact"
                 aria-label={t('search.addPopularHub', {
-                  name: city.name,
+                  name: getCityDisplayName(city, language),
                   count: offerCountFormatter.format(city.offerCount)
                 })}
                 onClick={() => selectCode(city.code)}

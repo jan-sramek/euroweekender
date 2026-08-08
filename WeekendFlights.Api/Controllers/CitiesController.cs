@@ -3,6 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 using WeekendFlights.Api.Contracts;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Application.Services;
+using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Api.Controllers;
 
@@ -85,6 +86,10 @@ public class CitiesController(
             if (!cityByCode.TryGetValue(suggestion.Code, out var city))
                 continue;
 
+            var namesByLocale = CopyNamesByLocale(city);
+            if (!string.IsNullOrWhiteSpace(suggestion.Name))
+                namesByLocale[tequilaLocale] = suggestion.Name.Trim();
+
             dtos.Add(new CitySuggestDto(
                 city.Id,
                 city.Code,
@@ -96,6 +101,7 @@ public class CitiesController(
                 city.Longitude,
                 city.IsActive,
                 city.Aliases,
+                namesByLocale,
                 suggestion.Name));
         }
 
@@ -114,17 +120,7 @@ public class CitiesController(
             ? await cityRepository.GetActiveCitiesAsync()
             : await cityRepository.GetAllCitiesAsync();
 
-        var dtos = list.Select(c => new CityDto(
-            c.Id,
-            c.Code,
-            c.Name,
-            c.Country,
-            c.Region,
-            c.Continent,
-            c.Latitude,
-            c.Longitude,
-            c.IsActive,
-            c.Aliases)).ToList();
+        var dtos = list.Select(ToCityDto).ToList();
 
         return Ok(dtos);
     }
@@ -140,18 +136,24 @@ public class CitiesController(
         if (city is null)
             return NotFound();
 
-        var dto = new CityDto(
-            city.Id,
-            city.Code,
-            city.Name,
-            city.Country,
-            city.Region,
-            city.Continent,
-            city.Latitude,
-            city.Longitude,
-            city.IsActive,
-            city.Aliases);
-
-        return Ok(dto);
+        return Ok(ToCityDto(city));
     }
+
+    private static CityDto ToCityDto(City city) => new(
+        city.Id,
+        city.Code,
+        city.Name,
+        city.Country,
+        city.Region,
+        city.Continent,
+        city.Latitude,
+        city.Longitude,
+        city.IsActive,
+        city.Aliases,
+        CopyNamesByLocale(city));
+
+    private static Dictionary<string, string> CopyNamesByLocale(City city) =>
+        city.NamesByLocale.Count == 0
+            ? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            : new Dictionary<string, string>(city.NamesByLocale, StringComparer.OrdinalIgnoreCase);
 }

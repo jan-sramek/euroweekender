@@ -62,7 +62,7 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
             var pageCities = await LoadCityDumpForLocaleAsync(locale, cancellationToken);
             foreach (var city in pageCities)
             {
-                MergeCity(citiesByKiwiId, city, isPrimaryLocale: locale == PrimaryLocale);
+                MergeCity(citiesByKiwiId, city, locale);
             }
 
             if (locale != CityNameLocales[^1])
@@ -203,8 +203,10 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
         return cities;
     }
 
-    private static void MergeCity(Dictionary<string, City> citiesByKiwiId, City incoming, bool isPrimaryLocale)
+    private static void MergeCity(Dictionary<string, City> citiesByKiwiId, City incoming, string locale)
     {
+        var isPrimaryLocale = string.Equals(locale, PrimaryLocale, StringComparison.OrdinalIgnoreCase);
+
         if (string.IsNullOrWhiteSpace(incoming.KiwiId) || string.IsNullOrWhiteSpace(incoming.Code))
             return;
 
@@ -216,6 +218,7 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
                 return;
             }
 
+            SetLocalizedName(incoming, locale, incoming.Name);
             citiesByKiwiId[incoming.KiwiId] = incoming;
             return;
         }
@@ -232,9 +235,18 @@ public class KiwiApiClient(HttpClient httpClient, ILogger<KiwiApiClient> logger)
             existing.IsActive = incoming.IsActive;
         }
 
+        SetLocalizedName(existing, locale, incoming.Name);
         AddAlias(existing, incoming.Name);
         foreach (var alias in incoming.Aliases)
             AddAlias(existing, alias);
+    }
+
+    private static void SetLocalizedName(City city, string locale, string? value)
+    {
+        if (string.IsNullOrWhiteSpace(locale) || string.IsNullOrWhiteSpace(value))
+            return;
+
+        city.NamesByLocale[locale] = value.Trim();
     }
 
     private static void AddAlias(City city, string? value)

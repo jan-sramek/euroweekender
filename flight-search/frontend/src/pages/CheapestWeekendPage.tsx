@@ -20,6 +20,7 @@ import {
   getWeekendsForMonth
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
+import { getCityDisplayName } from '../utils/cityDisplayName';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import type { City } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
@@ -35,7 +36,7 @@ function readAirportParam(value: string | null): string | null {
 }
 
 export function CheapestWeekendPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [searchParams] = useSearchParams();
   const weekendPatterns = useWeekendPatterns();
 
@@ -89,7 +90,10 @@ export function CheapestWeekendPage() {
     setSelectedCodes,
     locating,
     errorMessage
-  } = useDeparturePrefill({ preferredCodes });
+  } = useDeparturePrefill({
+    preferredCodes,
+    localizeCodes: destinationCode ? [destinationCode] : null
+  });
 
   useEffect(() => {
     if (!toParam || allCities.length === 0) return;
@@ -153,7 +157,9 @@ export function CheapestWeekendPage() {
     [allCities, destinationCode]
   );
 
-  const locationLabel = fromCity ? `${fromCity.name} (${fromCity.code})` : '';
+  const locationLabel = fromCity
+    ? `${getCityDisplayName(fromCity, i18n.language)} (${fromCity.code})`
+    : '';
 
   const handleAddCity = (city: City) => {
     setSelectedCodes([city.code]);
@@ -251,8 +257,8 @@ export function CheapestWeekendPage() {
                 {fromCity && toCity ? (
                   <p className="offers-subtitle cheapest-route">
                     {t('cheapestWeekend.routeSummary', {
-                      from: `${fromCity.name} (${fromCity.code})`,
-                      to: `${toCity.name} (${toCity.code})`
+                      from: `${getCityDisplayName(fromCity, i18n.language)} (${fromCity.code})`,
+                      to: `${getCityDisplayName(toCity, i18n.language)} (${toCity.code})`
                     })}
                     {' · '}
                     {passengerCount}{' '}

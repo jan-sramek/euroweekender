@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { rememberCityAlias, suggestCities } from '../services/api';
+import { rememberCityAlias, rememberCityLocalizedName, suggestCities } from '../services/api';
 import type { City, CitySuggestion } from '../types/city';
 import { cityMatchesQuery, rankCityMatch } from '../utils/citySearch';
 
@@ -32,6 +32,11 @@ function mergeAlias(city: City, alias: string): City {
   return { ...city, aliases: [...aliases, normalized] };
 }
 
+function isEnglishUiLanguage(language: string | undefined): boolean {
+  const base = (language ?? 'en').toLowerCase().split('-')[0];
+  return base === 'en';
+}
+
 export function useCityTypeahead({
   allCities,
   query,
@@ -45,7 +50,7 @@ export function useCityTypeahead({
   const [isSearching, setIsSearching] = useState(false);
 
   // Stabilize dependency: callers often pass a fresh array literal each render.
-  const excludeKey = excludeCodes.map(code => code.toUpperCase()).sort().join('|');
+  const excludeKey = excludeCodes.map(code => code.trim().toUpperCase()).filter(Boolean).sort().join('|');
 
   const excluded = useMemo(
     () => new Set(excludeKey ? excludeKey.split('|') : []),
@@ -84,8 +89,10 @@ export function useCityTypeahead({
       return;
     }
 
-    // Local English/alias hits are enough — avoid extra Tequila calls.
-    if (localResults.length > 0) {
+    // English UI can rely on local English names. Other languages need Tequila even when
+    // some English substring matches exist (e.g. "Pa" → Paris) so "Mnichov"/"Paříž" still resolve.
+    const englishUi = isEnglishUiLanguage(i18n.language);
+    if (englishUi && localResults.length > 0) {
       setRemoteSuggestions(prev => (prev.length === 0 ? prev : []));
       setIsSearching(prev => (prev ? false : prev));
       return;
@@ -107,12 +114,16 @@ export function useCityTypeahead({
         setRemoteSuggestions(usable);
 
         if (usable.length > 0) {
+          const language = i18n.language || 'en';
           setLearnedAliases(prev => {
             const next = { ...prev };
             for (const city of usable) {
               const key = city.code.toUpperCase();
               const aliases = new Set(next[key] ?? []);
-              if (city.localizedName) aliases.add(city.localizedName);
+              if (city.localizedName) {
+                aliases.add(city.localizedName);
+                rememberCityLocalizedName(city.code, language, city.localizedName);
+              }
               aliases.add(q);
               next[key] = [...aliases];
               for (const alias of aliases) {
@@ -143,13 +154,24 @@ export function useCityTypeahead({
     if (q.length < 1) return [];
 
     const byCode = new Map<string, CitySuggestion>();
+    // Prefer remote (localized) rows when both exist so Czech labels win over English-only locals.
     for (const city of localResults) {
       byCode.set(city.code.toUpperCase(), city);
     }
     for (const city of remoteSuggestions) {
       const key = city.code.toUpperCase();
-      if (!byCode.has(key)) {
-        byCode.set(key, city);
+      const existing = byCode.get(key);
+      if (!existing || city.localizedName) {
+        byCode.set(key, {
+          ...existing,
+          ...city,
+          aliases: [...new Set([...(existing?.aliases ?? []), ...(city.aliases ?? [])])],
+          namesByLocale: {
+            ...(existing?.namesByLocale ?? {}),
+            ...(city.namesByLocale ?? {})
+          },
+          localizedName: city.localizedName ?? existing?.localizedName
+        });
       }
     }
 

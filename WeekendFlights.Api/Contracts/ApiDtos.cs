@@ -10,7 +10,8 @@ public record CityDto(
     decimal Latitude,
     decimal Longitude,
     bool IsActive,
-    IReadOnlyList<string> Aliases);
+    IReadOnlyList<string> Aliases,
+    IReadOnlyDictionary<string, string> NamesByLocale);
 
 /// <summary>
 /// City suggestion that may include a localized display name from Tequila.
@@ -26,6 +27,7 @@ public record CitySuggestDto(
     decimal Longitude,
     bool IsActive,
     IReadOnlyList<string> Aliases,
+    IReadOnlyDictionary<string, string> NamesByLocale,
     string LocalizedName);
 
 public record OriginHubScoreDto(

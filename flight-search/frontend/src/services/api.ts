@@ -1,5 +1,6 @@
 import type { City, CitySuggestion, HubScore } from '../types/city';
 import type { Flight, FlightPage } from '../types/flight';
+import { withLocalizedName } from '../utils/cityDisplayName';
 import { normalizeHubScore } from './hubScore';
 import { getWeekendSearchRange } from './weekend';
 
@@ -7,7 +8,7 @@ const API_BASE = '/api';
 const FLIGHTS_PER_CITY = 200;
 const MAX_SEARCH_FLIGHTS = 1000;
 const SINGLE_CITY_PAGE_SIZE = 500;
-const CITIES_CACHE_KEY = 'ew:cities:v3';
+const CITIES_CACHE_KEY = 'ew:cities:v4';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
@@ -71,7 +72,7 @@ export async function getCities(): Promise<City[]> {
   if (!response.ok) {
     throw new Error('Failed to load cities');
   }
-  const cities = (await response.json()) as City[];
+  const cities = ((await response.json()) as Record<string, unknown>[]).map(normalizeCity);
   writeCitiesCache(cities);
   return cities;
 }
@@ -95,12 +96,45 @@ export async function suggestCities(
     throw new Error(`Failed to suggest cities (${response.status})`);
   }
 
-  const payload = (await response.json()) as Array<City & { localizedName?: string }>;
-  return payload.map(city => ({
-    ...city,
-    aliases: city.aliases ?? [],
-    localizedName: city.localizedName
-  }));
+  const payload = (await response.json()) as Record<string, unknown>[];
+  return payload.map(raw => {
+    const city = normalizeCity(raw);
+    const localizedName = String(raw.localizedName ?? raw.LocalizedName ?? '');
+    return {
+      ...city,
+      localizedName: localizedName || undefined
+    };
+  });
+}
+
+function normalizeCity(raw: Record<string, unknown>): City {
+  const namesByLocale = normalizeNamesByLocale(raw.namesByLocale ?? raw.NamesByLocale);
+  return {
+    id: String(raw.id ?? raw.Id ?? ''),
+    code: String(raw.code ?? raw.Code ?? ''),
+    name: String(raw.name ?? raw.Name ?? ''),
+    country: String(raw.country ?? raw.Country ?? ''),
+    region: (raw.region ?? raw.Region ?? null) as string | null,
+    continent: String(raw.continent ?? raw.Continent ?? ''),
+    latitude: Number(raw.latitude ?? raw.Latitude ?? 0),
+    longitude: Number(raw.longitude ?? raw.Longitude ?? 0),
+    isActive: Boolean(raw.isActive ?? raw.IsActive ?? true),
+    aliases: Array.isArray(raw.aliases ?? raw.Aliases)
+      ? ((raw.aliases ?? raw.Aliases) as unknown[]).map(String)
+      : [],
+    namesByLocale
+  };
+}
+
+function normalizeNamesByLocale(raw: unknown): Record<string, string> {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const result: Record<string, string> = {};
+  for (const [locale, name] of Object.entries(raw as Record<string, unknown>)) {
+    if (typeof name === 'string' && name.trim()) {
+      result[locale] = name.trim();
+    }
+  }
+  return result;
 }
 
 /** Persist a newly discovered localized alias into the session cities cache. */
@@ -130,6 +164,30 @@ export function rememberCityAlias(code: string, alias: string): void {
   if (changed) {
     writeCitiesCache(next);
   }
+}
+
+/** Persist a locale-specific display name into the session cities cache. */
+export function rememberCityLocalizedName(code: string, language: string, localizedName: string): void {
+  const cached = readCitiesCache();
+  if (!cached) return;
+
+  let changed = false;
+  const next = cached.map(city => {
+    if (city.code.toUpperCase() !== code.toUpperCase()) return city;
+    const updated = withLocalizedName(city, language, localizedName);
+    if (updated === city) return city;
+    changed = true;
+    return updated;
+  });
+
+  if (changed) {
+    writeCitiesCache(next);
+  }
+}
+
+/** Replace the in-memory/session cities cache (used after enriching localized names). */
+export function replaceCitiesCache(cities: City[]): void {
+  writeCitiesCache(cities);
 }
 
 function readCitiesCache(): City[] | null {

@@ -57,9 +57,14 @@ public class City
 
     /// <summary>
     /// Alternate / localized city names used for multilingual search.
-    /// English <see cref="Name"/> stays the canonical display value.
+    /// English <see cref="Name"/> stays the canonical value.
     /// </summary>
     public List<string> Aliases { get; set; } = [];
+
+    /// <summary>
+    /// City display names keyed by Tequila locale (e.g. "cs-CZ" → "Praha").
+    /// </summary>
+    public Dictionary<string, string> NamesByLocale { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
     /// Collection of airports associated with this city.

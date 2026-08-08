@@ -6,6 +6,7 @@ import {
   DESTINATION_SUGGEST_MAX_CITIES,
   rankCitiesByDistance
 } from '../services/locationPrefill';
+import { getCityDisplayName } from '../utils/cityDisplayName';
 import { isEuropeanCity } from '../utils/europe';
 import { CountryFlag } from './CountryFlag';
 import './DeparturePicker.css';
@@ -21,15 +22,12 @@ interface DestinationPickerProps {
   reserveChipSlot?: boolean;
 }
 
-function formatCity(city: City): string {
-  return `${city.name} (${city.code}), ${city.country}`;
+function formatCity(city: City, language: string): string {
+  return `${getCityDisplayName(city, language)} (${city.code}), ${city.country}`;
 }
 
-function displayName(city: City & { localizedName?: string }): string {
-  if (city.localizedName && city.localizedName.toLowerCase() !== city.name.toLowerCase()) {
-    return city.localizedName;
-  }
-  return city.name;
+function displayName(city: City & { localizedName?: string }, language: string): string {
+  return getCityDisplayName(city, language);
 }
 
 export function DestinationPicker({
@@ -40,7 +38,8 @@ export function DestinationPicker({
   onSelectedCodeChange,
   reserveChipSlot = false
 }: DestinationPickerProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language || 'en';
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -118,11 +117,13 @@ export function DestinationPicker({
           {selectedCity ? (
             <span className="chip chip-active chip-selected">
               <CountryFlag country={selectedCity.country} />
-              {formatCity(selectedCity)}
+              {formatCity(selectedCity, language)}
               <button
                 type="button"
                 className="chip-remove"
-                aria-label={t('search.removeAirport', { name: selectedCity.name })}
+                aria-label={t('search.removeAirport', {
+                  name: getCityDisplayName(selectedCity, language)
+                })}
                 onClick={() => onSelectedCodeChange(null)}
               >
                 ×
@@ -161,11 +162,10 @@ export function DestinationPicker({
                     <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
                       <CountryFlag country={city.country} />
                       <span className="airport-search-item-text">
-                        <strong>{displayName(city)}</strong>
+                        <strong>{displayName(city, language)}</strong>
                         <span>
                           {city.code} · {city.country}
-                          {city.localizedName &&
-                          city.localizedName.toLowerCase() !== city.name.toLowerCase()
+                          {displayName(city, language).toLowerCase() !== city.name.toLowerCase()
                             ? ` · ${city.name}`
                             : ''}
                         </span>
@@ -182,7 +182,7 @@ export function DestinationPicker({
                     <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
                       <CountryFlag country={city.country} />
                       <span className="airport-search-item-text">
-                        <strong>{displayName(city)}</strong>
+                        <strong>{displayName(city, language)}</strong>
                         <span>
                           {city.code} · {city.country} · {distance} km
                         </span>

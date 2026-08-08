@@ -44,6 +44,12 @@ describe('citySearch', () => {
     expect(cityMatchesQuery(munich, 'munchen')).toBe(true);
   });
 
+  it('matches and ranks localized display names from suggest', () => {
+    const munichCs = { ...munich, aliases: [], localizedName: 'Mnichov' };
+    expect(cityMatchesQuery(munichCs, 'Mnichov')).toBe(true);
+    expect(rankCityMatch(munichCs, 'Mnichov')).toBeLessThan(rankCityMatch(munich, 'ich'));
+  });
+
   it('ranks IATA and prefix matches higher', () => {
     expect(rankCityMatch(vienna, 'VIE')).toBeLessThan(rankCityMatch(vienna, 'ien'));
     expect(rankCityMatch(vienna, 'Wien')).toBeLessThan(rankCityMatch(vienna, 'ena'));

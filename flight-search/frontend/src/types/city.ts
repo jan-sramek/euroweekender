@@ -10,6 +10,8 @@ export interface City {
   isActive: boolean;
   /** Localized / alternate names used for multilingual search. */
   aliases?: string[];
+  /** Display names keyed by Tequila locale (e.g. "cs-CZ": "Praha"). */
+  namesByLocale?: Record<string, string>;
 }
 
 export interface CitySuggestion extends City {

@@ -9,6 +9,7 @@ import {
   selectFallbackCityCodes
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
+import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
 function updateHubSuggestions(
   cities: City[],
@@ -26,8 +27,16 @@ function sameCodeList(a: string[], b: string[]): boolean {
   return a.every((code, index) => code.toUpperCase() === b[index]?.toUpperCase());
 }
 
-export function useDeparturePrefill(options?: { preferredCodes?: string[] | null }) {
+export function useDeparturePrefill(options?: {
+  preferredCodes?: string[] | null;
+  /** Extra city codes to localize for the active UI language (e.g. destination). */
+  localizeCodes?: string[] | null;
+}) {
   const preferredKey = (options?.preferredCodes ?? [])
+    .map(code => code.trim().toUpperCase())
+    .filter(Boolean)
+    .join('|');
+  const localizeKey = (options?.localizeCodes ?? [])
     .map(code => code.trim().toUpperCase())
     .filter(Boolean)
     .join('|');
@@ -58,6 +67,12 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
   }, []);
 
   const primaryCode = selectedCodes[0] ?? '';
+  const codesToLocalize = [
+    ...selectedCodes,
+    ...(localizeKey ? localizeKey.split('|') : [])
+  ];
+
+  useResolveCityDisplayNames(allCities, setAllCities, codesToLocalize);
 
   useEffect(() => {
     if (allCities.length === 0 || !primaryCode) return;

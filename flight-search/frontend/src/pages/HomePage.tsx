@@ -18,6 +18,7 @@ import {
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import { getCityDisplayName } from '../utils/cityDisplayName';
 import type { City } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import './HomePage.css';
@@ -25,6 +26,7 @@ import './HomePage.css';
 function buildLocationLabel(
   allCities: City[],
   selectedCodes: string[],
+  language: string,
   t: (key: string, options?: Record<string, unknown>) => string
 ): string {
   const active = selectedCodes
@@ -32,15 +34,17 @@ function buildLocationLabel(
     .filter((c): c is City => c !== undefined);
 
   if (active.length === 0) return '';
-  if (active.length === 1) return `${active[0].name} (${active[0].code})`;
+  if (active.length === 1) {
+    return `${getCityDisplayName(active[0], language)} (${active[0].code})`;
+  }
   return t('home.moreAirports', {
-    name: active[0].name,
+    name: getCityDisplayName(active[0], language),
     count: active.length - 1
   });
 }
 
 export function HomePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(t('meta.home.title'), t('meta.home.description'), '/');
@@ -98,8 +102,8 @@ export function HomePage() {
   }, [weekends]);
 
   const locationLabel = useMemo(
-    () => buildLocationLabel(allCities, selectedCodes, t),
-    [allCities, selectedCodes, t]
+    () => buildLocationLabel(allCities, selectedCodes, i18n.language, t),
+    [allCities, selectedCodes, i18n.language, t]
   );
 
   const weekendsLabel = useMemo(() => {

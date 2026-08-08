@@ -71,6 +71,10 @@ public class WeekendFlightsDbContext : DbContext
                 .HasColumnType("text[]")
                 .HasDefaultValueSql("'{}'");
 
+            entity.Property(c => c.NamesByLocale)
+                .HasColumnType("jsonb")
+                .HasDefaultValueSql("'{}'::jsonb");
+
             entity.HasIndex(c => c.Code)
                 .HasDatabaseName("idx_city_code");
 

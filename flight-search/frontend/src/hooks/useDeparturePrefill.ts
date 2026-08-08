@@ -85,22 +85,42 @@ export function useDeparturePrefill(options?: { preferredCodes?: string[] | null
           .split('|')
           .filter(code => Boolean(findCityByCode(cities, code)));
 
-        // Prefer URL/prefill codes; otherwise pick defaults from cities only so the
-        // From chip can render without waiting on hub scores.
-        const defaults =
-          preferred.length > 0 ? preferred : selectDefaultCityCodes(cities, hubScoresRef.current);
+        // URL/prefill codes can show immediately; algorithmic defaults need hub scores
+        // so ranking uses flight volume + distance, not nearest-by-km alone.
+        if (preferred.length > 0) {
+          setSelectedCodes(preferred);
+          defaultsInitializedRef.current = true;
+          setLocating(false);
+          void loadHubScoresInBackground(cities, preferred[0] ?? '');
+          return;
+        }
+
+        let scores = hubScoresRef.current;
+        if (scores.length === 0) {
+          try {
+            scores = await getHubScores();
+            if (cancelled) return;
+            hubScoresRef.current = scores;
+          } catch {
+            if (!cancelled) {
+              setErrorMessage(i18n.t('home.hubRankingWarning'));
+            }
+          }
+        }
+        if (cancelled) return;
+
+        const defaults = selectDefaultCityCodes(cities, scores);
         if (defaults.length > 0) {
           setSelectedCodes(defaults);
         }
         defaultsInitializedRef.current = true;
-        setLocating(false);
-
-        void loadHubScoresInBackground(cities, defaults[0] ?? '');
+        refreshHubSuggestions(cities, scores, defaults[0] ?? '');
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));
-          setLocating(false);
         }
+      } finally {
+        if (!cancelled) setLocating(false);
       }
     }
 

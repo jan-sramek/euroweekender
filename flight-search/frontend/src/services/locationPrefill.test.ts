@@ -11,6 +11,7 @@ const hubScores: HubScore[] = [
   { code: 'PRG', offerCount: 120, minPrice: 40, averageQuality: 70, destinationCount: 20, hubScore: 8 },
   { code: 'VIE', offerCount: 500, minPrice: 35, averageQuality: 75, destinationCount: 40, hubScore: 8.5 },
   { code: 'BER', offerCount: 450, minPrice: 36, averageQuality: 74, destinationCount: 38, hubScore: 8.2 },
+  { code: 'BRQ', offerCount: 0, minPrice: 0, averageQuality: 0, destinationCount: 0, hubScore: 3 },
   { code: 'WAW', offerCount: 700, minPrice: 35, averageQuality: 75, destinationCount: 50, hubScore: 8.5 },
   { code: 'LON', offerCount: 900, minPrice: 35, averageQuality: 75, destinationCount: 80, hubScore: 9 }
 ];
@@ -51,6 +52,17 @@ const cities: City[] = [
   },
   {
     id: '4',
+    code: 'BRQ',
+    name: 'Brno',
+    country: 'Czechia',
+    region: null,
+    continent: 'EU',
+    latitude: 49.15,
+    longitude: 16.69,
+    isActive: true
+  },
+  {
+    id: '5',
     code: 'WAW',
     name: 'Warsaw',
     country: 'Poland',
@@ -61,7 +73,7 @@ const cities: City[] = [
     isActive: true
   },
   {
-    id: '5',
+    id: '6',
     code: 'LON',
     name: 'London',
     country: 'United Kingdom',
@@ -74,11 +86,15 @@ const cities: City[] = [
 ];
 
 describe('locationPrefill', () => {
-  it('selects nearby airports around Prague by default without distant hubs like London', () => {
+  it('selects nearby airports around Prague by flight volume, not distant or empty hubs', () => {
     const defaults = selectDefaultCityCodes(cities, hubScores);
 
     expect(defaults[0]).toBe('PRG');
+    expect(defaults).toContain('VIE');
+    expect(defaults).toContain('BER');
+    expect(defaults).not.toContain('BRQ');
     expect(defaults).not.toContain('LON');
+    expect(defaults).not.toContain('WAW');
     expect(defaults.length).toBeGreaterThan(1);
   });
 

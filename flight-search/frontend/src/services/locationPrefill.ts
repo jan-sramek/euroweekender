@@ -48,13 +48,19 @@ export function selectDefaultCityCodes(
     return cities[0] ? [cities[0].code.toUpperCase()] : [];
   }
 
+  // Rank a wider nearby pool, then keep only airports that make sense as defaults:
+  // within radius and (when scores exist) with real weekend flight offers.
   const nearby = rankNearbyCities(
     cities,
     { latitude: anchorCity.latitude, longitude: anchorCity.longitude },
     hubScores,
-    count
+    NEARBY_MAX_CITIES
   );
-  const nearbyCodes = nearby.map(city => city.code);
+  const scoredCandidates =
+    hubScores.length > 0 ? nearby.filter(city => city.offerCount > 0) : nearby;
+  const nearbyCodes = (scoredCandidates.length > 0 ? scoredCandidates : nearby).map(
+    city => city.code
+  );
   if (nearbyCodes.length >= count) {
     return takeTopCityCodes(nearbyCodes, count);
   }

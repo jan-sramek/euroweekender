@@ -99,34 +99,33 @@ function buildMonthGrid(
   return cells;
 }
 
-export function WeekendPriceCalendar({
+function nextMonth(year: number, month: number): { year: number; month: number } {
+  if (month === 11) return { year: year + 1, month: 0 };
+  return { year, month: month + 1 };
+}
+
+interface MonthGridProps {
+  year: number;
+  month: number;
+  cells: CalendarDay[];
+  weekdayLabels: string[];
+  minPrice: number;
+  maxPrice: number;
+  today: Date;
+  onWeekendSelect: (weekendId: string) => void;
+}
+
+function MonthGrid({
   year,
   month,
-  weekends,
-  pricesByWeekendId,
-  selectedWeekendId,
-  onMonthChange,
-  onWeekendSelect,
-  loading = false
-}: WeekendPriceCalendarProps) {
+  cells,
+  weekdayLabels,
+  minPrice,
+  maxPrice,
+  today,
+  onWeekendSelect
+}: MonthGridProps) {
   const { t, i18n } = useTranslation();
-
-  const pricedValues = useMemo(() => {
-    // Scale against the full price map (typically ~1 year), not only the visible month.
-    const values: number[] = [];
-    for (const price of pricesByWeekendId.values()) {
-      if (price != null) values.push(price);
-    }
-    return values;
-  }, [pricesByWeekendId]);
-
-  const minPrice = pricedValues.length > 0 ? Math.min(...pricedValues) : 0;
-  const maxPrice = pricedValues.length > 0 ? Math.max(...pricedValues) : 0;
-
-  const cells = useMemo(
-    () => buildMonthGrid(year, month, weekends, pricesByWeekendId, selectedWeekendId),
-    [year, month, weekends, pricesByWeekendId, selectedWeekendId]
-  );
 
   const monthLabel = useMemo(
     () =>
@@ -137,63 +136,18 @@ export function WeekendPriceCalendar({
     [year, month, i18n.language]
   );
 
-  const weekdayLabels = useMemo(() => {
-    const monday = new Date(2024, 0, 1); // Monday
-    return Array.from({ length: 7 }, (_, index) => {
-      const day = new Date(monday);
-      day.setDate(monday.getDate() + index);
-      return day.toLocaleDateString(i18n.language, { weekday: 'short' });
-    });
-  }, [i18n.language]);
-
-  const today = startOfDay(new Date());
-  const canGoPrev =
-    year > today.getFullYear() || (year === today.getFullYear() && month > today.getMonth());
-
-  const goPrev = () => {
-    if (!canGoPrev) return;
-    if (month === 0) onMonthChange(year - 1, 11);
-    else onMonthChange(year, month - 1);
-  };
-
-  const goNext = () => {
-    if (month === 11) onMonthChange(year + 1, 0);
-    else onMonthChange(year, month + 1);
-  };
-
   return (
-    <div className={`weekend-price-calendar${loading ? ' weekend-price-calendar-loading' : ''}`}>
-      <div className="wpc-header">
-        <button
-          type="button"
-          className="btn btn-secondary btn-sm"
-          onClick={goPrev}
-          disabled={!canGoPrev}
-          aria-label={t('cheapestWeekend.prevMonth')}
-        >
-          ‹
-        </button>
-        <h2 className="wpc-month-label">{monthLabel}</h2>
-        <button type="button" className="btn btn-secondary btn-sm" onClick={goNext} aria-label={t('cheapestWeekend.nextMonth')}>
-          ›
-        </button>
-      </div>
-
-      <div className="wpc-legend" aria-hidden="true">
-        <span className="wpc-legend-cheap">{t('cheapestWeekend.legendCheap')}</span>
-        <span className="wpc-legend-bar" />
-        <span className="wpc-legend-expensive">{t('cheapestWeekend.legendExpensive')}</span>
-      </div>
-
-      <div className="wpc-grid" role="grid" aria-label={t('cheapestWeekend.calendarLabel')}>
+    <div className="wpc-month">
+      <h3 className="wpc-month-title">{monthLabel}</h3>
+      <div className="wpc-grid" role="grid" aria-label={monthLabel}>
         {weekdayLabels.map(label => (
-          <div key={label} className="wpc-weekday" role="columnheader">
+          <div key={`${year}-${month}-${label}`} className="wpc-weekday" role="columnheader">
             {label}
           </div>
         ))}
 
         {cells.map(cell => {
-          const key = cell.date.toISOString();
+          const key = `${year}-${month}-${cell.date.toISOString()}`;
           const hasDeal = cell.weekendId != null && cell.price != null;
           const style =
             hasDeal && cell.price != null
@@ -244,6 +198,116 @@ export function WeekendPriceCalendar({
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+export function WeekendPriceCalendar({
+  year,
+  month,
+  weekends,
+  pricesByWeekendId,
+  selectedWeekendId,
+  onMonthChange,
+  onWeekendSelect,
+  loading = false
+}: WeekendPriceCalendarProps) {
+  const { t, i18n } = useTranslation();
+  const second = nextMonth(year, month);
+
+  const pricedValues = useMemo(() => {
+    // Scale against the full price map (typically ~1 year), not only the visible months.
+    const values: number[] = [];
+    for (const price of pricesByWeekendId.values()) {
+      if (price != null) values.push(price);
+    }
+    return values;
+  }, [pricesByWeekendId]);
+
+  const minPrice = pricedValues.length > 0 ? Math.min(...pricedValues) : 0;
+  const maxPrice = pricedValues.length > 0 ? Math.max(...pricedValues) : 0;
+
+  const firstCells = useMemo(
+    () => buildMonthGrid(year, month, weekends, pricesByWeekendId, selectedWeekendId),
+    [year, month, weekends, pricesByWeekendId, selectedWeekendId]
+  );
+
+  const secondCells = useMemo(
+    () =>
+      buildMonthGrid(second.year, second.month, weekends, pricesByWeekendId, selectedWeekendId),
+    [second.year, second.month, weekends, pricesByWeekendId, selectedWeekendId]
+  );
+
+  const weekdayLabels = useMemo(() => {
+    const monday = new Date(2024, 0, 1); // Monday
+    return Array.from({ length: 7 }, (_, index) => {
+      const day = new Date(monday);
+      day.setDate(monday.getDate() + index);
+      return day.toLocaleDateString(i18n.language, { weekday: 'short' });
+    });
+  }, [i18n.language]);
+
+  const today = startOfDay(new Date());
+  const canGoPrev =
+    year > today.getFullYear() || (year === today.getFullYear() && month > today.getMonth());
+
+  const goPrev = () => {
+    if (!canGoPrev) return;
+    if (month === 0) onMonthChange(year - 1, 11);
+    else onMonthChange(year, month - 1);
+  };
+
+  const goNext = () => {
+    if (month === 11) onMonthChange(year + 1, 0);
+    else onMonthChange(year, month + 1);
+  };
+
+  return (
+    <div className={`weekend-price-calendar${loading ? ' weekend-price-calendar-loading' : ''}`}>
+      <div className="wpc-header">
+        <button
+          type="button"
+          className="btn btn-secondary btn-sm"
+          onClick={goPrev}
+          disabled={!canGoPrev}
+          aria-label={t('cheapestWeekend.prevMonth')}
+        >
+          ‹
+        </button>
+        <h2 className="wpc-month-label">{t('cheapestWeekend.calendarLabel')}</h2>
+        <button type="button" className="btn btn-secondary btn-sm" onClick={goNext} aria-label={t('cheapestWeekend.nextMonth')}>
+          ›
+        </button>
+      </div>
+
+      <div className="wpc-legend" aria-hidden="true">
+        <span className="wpc-legend-cheap">{t('cheapestWeekend.legendCheap')}</span>
+        <span className="wpc-legend-bar" />
+        <span className="wpc-legend-expensive">{t('cheapestWeekend.legendExpensive')}</span>
+      </div>
+
+      <div className="wpc-months">
+        <MonthGrid
+          year={year}
+          month={month}
+          cells={firstCells}
+          weekdayLabels={weekdayLabels}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          today={today}
+          onWeekendSelect={onWeekendSelect}
+        />
+        <MonthGrid
+          year={second.year}
+          month={second.month}
+          cells={secondCells}
+          weekdayLabels={weekdayLabels}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          today={today}
+          onWeekendSelect={onWeekendSelect}
+        />
       </div>
     </div>
   );

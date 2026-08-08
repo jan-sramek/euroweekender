@@ -21,10 +21,10 @@
 
 .wpc-month-label {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #192c39;
-  text-transform: capitalize;
+  text-align: center;
 }
 
 .wpc-legend {
@@ -51,20 +51,43 @@
   color: hsl(4, 72%, 40%);
 }
 
+.wpc-months {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.wpc-month {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.wpc-month-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #192c39;
+  text-transform: capitalize;
+  text-align: center;
+}
+
 .wpc-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 .wpc-weekday {
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #8c959c;
-  padding: 0.25rem 0;
+  padding: 0.2rem 0;
 }
 
 .wpc-day {
@@ -73,9 +96,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.15rem;
-  min-height: 3.6rem;
-  padding: 0.35rem 0.2rem;
+  gap: 0.12rem;
+  min-height: 3.2rem;
+  padding: 0.3rem 0.15rem;
   border: 1px solid #e8edf1;
   border-radius: 0.3rem;
   background: #f8fafb;
@@ -119,16 +142,27 @@ button.wpc-day:hover {
 }
 
 .wpc-day-number {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .wpc-day-price {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.01em;
+}
+
+@media (max-width: 900px) {
+  .wpc-months {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .wpc-day {
+    min-height: 3.4rem;
+  }
 }
 
 @media (max-width: 640px) {

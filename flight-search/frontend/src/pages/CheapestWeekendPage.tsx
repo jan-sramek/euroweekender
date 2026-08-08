@@ -73,10 +73,15 @@ export function CheapestWeekendPage() {
     [selectedPatternId]
   );
 
-  const weekends = useMemo(
-    () => getWeekendsForMonth(selectedPatternId, viewYear, viewMonth),
-    [selectedPatternId, viewYear, viewMonth]
-  );
+  const nextViewMonth = viewMonth === 11 ? 0 : viewMonth + 1;
+  const nextViewYear = viewMonth === 11 ? viewYear + 1 : viewYear;
+
+  const weekends = useMemo(() => {
+    const first = getWeekendsForMonth(selectedPatternId, viewYear, viewMonth);
+    const second = getWeekendsForMonth(selectedPatternId, nextViewYear, nextViewMonth);
+    const seen = new Set(first.map(weekend => weekend.id));
+    return [...first, ...second.filter(weekend => !seen.has(weekend.id))];
+  }, [selectedPatternId, viewYear, viewMonth, nextViewYear, nextViewMonth]);
 
   const {
     allCities,
@@ -228,7 +233,7 @@ export function CheapestWeekendPage() {
       </section>
 
       <section className="offers-home cheapest-offers">
-        <div className="container">
+        <div className="container container-wide">
           {errorMessage ? (
             <div className="alert alert-warning" role="status">
               {errorMessage}

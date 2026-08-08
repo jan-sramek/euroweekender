@@ -14,6 +14,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendId,
+  getWeekendOptions,
   getWeekendPattern,
   getWeekendsForMonth
 } from '../services/weekend';
@@ -23,6 +24,9 @@ import type { City } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import './HomePage.css';
 import './CheapestWeekendPage.css';
+
+/** Horizon used for flight search + calendar heat-scale (independent of visible month). */
+const CALENDAR_PRICE_HORIZON_WEEKENDS = 52;
 
 export function CheapestWeekendPage() {
   const { t } = useTranslation();
@@ -51,6 +55,11 @@ export function CheapestWeekendPage() {
   const translatedSelectedPattern = useMemo(
     () => weekendPatterns.find(pattern => pattern.id === selectedPatternId) ?? null,
     [weekendPatterns, selectedPatternId]
+  );
+
+  const yearWeekends = useMemo(
+    () => getWeekendOptions(selectedPatternId, CALENDAR_PRICE_HORIZON_WEEKENDS),
+    [selectedPatternId]
   );
 
   const weekends = useMemo(
@@ -103,7 +112,7 @@ export function CheapestWeekendPage() {
   } = useDestinationWeekendSearch({
     fromCode,
     toCode: destinationCode,
-    weekends,
+    weekends: yearWeekends,
     selectedWeekendId,
     selectedPattern,
     eveningFilters,

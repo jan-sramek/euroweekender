@@ -112,13 +112,13 @@ export function WeekendPriceCalendar({
   const { t, i18n } = useTranslation();
 
   const pricedValues = useMemo(() => {
+    // Scale against the full price map (typically ~1 year), not only the visible month.
     const values: number[] = [];
-    for (const weekend of weekends) {
-      const price = pricesByWeekendId.get(weekend.id);
+    for (const price of pricesByWeekendId.values()) {
       if (price != null) values.push(price);
     }
     return values;
-  }, [weekends, pricesByWeekendId]);
+  }, [pricesByWeekendId]);
 
   const minPrice = pricedValues.length > 0 ? Math.min(...pricedValues) : 0;
   const maxPrice = pricedValues.length > 0 ? Math.max(...pricedValues) : 0;

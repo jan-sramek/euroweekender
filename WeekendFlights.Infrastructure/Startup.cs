@@ -43,6 +43,12 @@ public static class Startup
                 sp.GetRequiredService<TequilaApiSearchClientConfigurator>().Configure(client);
             });
 
+        services.AddHttpClient<ITequilaLocationClient, TequilaLocationClient>()
+            .ConfigureHttpClient((sp, client) =>
+            {
+                sp.GetRequiredService<TequilaApiSearchClientConfigurator>().Configure(client);
+            });
+
         services.AddSingleton<TequilaApiSearchClientConfigurator>();
 
         return services;

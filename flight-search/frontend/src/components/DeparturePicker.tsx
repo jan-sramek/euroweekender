@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City, CityWithDistance } from '../types/city';
-import { cityMatchesQuery, rankCityMatch } from '../utils/citySearch';
+import { useCityTypeahead } from '../hooks/useCityTypeahead';
 import { CountryFlag } from './CountryFlag';
 import { LoadingIndicator } from './LoadingIndicator';
 import './DeparturePicker.css';
@@ -30,6 +30,13 @@ function formatPopularHub(city: CityWithDistance, offerCount: string): string {
 
 function formatCity(city: City): string {
   return `${city.name} (${city.code}), ${city.country}`;
+}
+
+function displayName(city: City & { localizedName?: string }): string {
+  if (city.localizedName && city.localizedName.toLowerCase() !== city.name.toLowerCase()) {
+    return city.localizedName;
+  }
+  return city.name;
 }
 
 export function DeparturePicker({
@@ -79,15 +86,12 @@ export function DeparturePicker({
     []
   );
 
-  const searchResults = useMemo(() => {
-    const q = query.trim();
-    if (q.length < 1) return [];
-
-    return allCities
-      .filter(city => !selectedCodes.includes(city.code) && cityMatchesQuery(city, q))
-      .sort((a, b) => rankCityMatch(a, q) - rankCityMatch(b, q) || a.name.localeCompare(b.name))
-      .slice(0, 8);
-  }, [allCities, query, selectedCodes]);
+  const { results: searchResults, isSearching } = useCityTypeahead({
+    allCities,
+    query,
+    excludeCodes: selectedCodes,
+    limit: 8
+  });
 
   useEffect(() => {
     const onPointerDown = (event: MouseEvent) => {
@@ -183,16 +187,22 @@ export function DeparturePicker({
         {open && query.trim().length >= 1 && (
           <ul className="airport-search-results" role="listbox">
             {searchResults.length === 0 ? (
-              <li className="airport-search-empty">{t('search.noAirportsFound')}</li>
+              <li className="airport-search-empty">
+                {isSearching ? t('search.loadingAirports') : t('search.noAirportsFound')}
+              </li>
             ) : (
               searchResults.map(city => (
                 <li key={city.code}>
                   <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
                     <CountryFlag country={city.country} />
                     <span className="airport-search-item-text">
-                      <strong>{city.name}</strong>
+                      <strong>{displayName(city)}</strong>
                       <span>
                         {city.code} · {city.country}
+                        {city.localizedName &&
+                        city.localizedName.toLowerCase() !== city.name.toLowerCase()
+                          ? ` · ${city.name}`
+                          : ''}
                       </span>
                     </span>
                   </button>

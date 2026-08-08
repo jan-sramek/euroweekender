@@ -12,6 +12,22 @@ public record CityDto(
     bool IsActive,
     IReadOnlyList<string> Aliases);
 
+/// <summary>
+/// City suggestion that may include a localized display name from Tequila.
+/// </summary>
+public record CitySuggestDto(
+    Guid Id,
+    string Code,
+    string Name,
+    string Country,
+    string? Region,
+    string Continent,
+    decimal Latitude,
+    decimal Longitude,
+    bool IsActive,
+    IReadOnlyList<string> Aliases,
+    string LocalizedName);
+
 public record OriginHubScoreDto(
     string Code,
     int OfferCount,

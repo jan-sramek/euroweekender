@@ -1,4 +1,4 @@
-import type { City, HubScore } from '../types/city';
+import type { City, CitySuggestion, HubScore } from '../types/city';
 import type { Flight, FlightPage } from '../types/flight';
 import { normalizeHubScore } from './hubScore';
 import { getWeekendSearchRange } from './weekend';
@@ -72,6 +72,62 @@ export async function getCities(): Promise<City[]> {
   const cities = (await response.json()) as City[];
   writeCitiesCache(cities);
   return cities;
+}
+
+export async function suggestCities(
+  term: string,
+  locale: string,
+  signal?: AbortSignal
+): Promise<CitySuggestion[]> {
+  const query = term.trim();
+  if (query.length < 1) return [];
+
+  const params = new URLSearchParams({
+    term: query,
+    locale,
+    limit: '8'
+  });
+
+  const response = await fetch(`${API_BASE}/cities/suggest?${params}`, { signal });
+  if (!response.ok) {
+    throw new Error(`Failed to suggest cities (${response.status})`);
+  }
+
+  const payload = (await response.json()) as Array<City & { localizedName?: string }>;
+  return payload.map(city => ({
+    ...city,
+    aliases: city.aliases ?? [],
+    localizedName: city.localizedName
+  }));
+}
+
+/** Persist a newly discovered localized alias into the session cities cache. */
+export function rememberCityAlias(code: string, alias: string): void {
+  const normalizedAlias = alias.trim();
+  if (!normalizedAlias) return;
+
+  const cached = readCitiesCache();
+  if (!cached) return;
+
+  let changed = false;
+  const next = cached.map(city => {
+    if (city.code.toUpperCase() !== code.toUpperCase()) return city;
+
+    const aliases = city.aliases ?? [];
+    if (
+      aliases.some(existing => existing.toLowerCase() === normalizedAlias.toLowerCase()) ||
+      city.name.toLowerCase() === normalizedAlias.toLowerCase()
+    ) {
+      return city;
+    }
+
+    changed = true;
+    return { ...city, aliases: [...aliases, normalizedAlias] };
+  });
+
+  if (changed) {
+    writeCitiesCache(next);
+  }
 }
 
 function readCitiesCache(): City[] | null {

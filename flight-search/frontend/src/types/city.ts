@@ -12,6 +12,10 @@ export interface City {
   aliases?: string[];
 }
 
+export interface CitySuggestion extends City {
+  localizedName?: string;
+}
+
 export interface HubScore {
   code: string;
   offerCount: number;

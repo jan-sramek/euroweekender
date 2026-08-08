@@ -9,7 +9,8 @@ namespace WeekendFlights.Api.Controllers;
 [Route("api/cities")]
 public class CitiesController(
     ICityRepository cityRepository,
-    IHubScoreService hubScoreService) : ControllerBase
+    IHubScoreService hubScoreService,
+    ITequilaLocationClient tequilaLocationClient) : ControllerBase
 {
     [HttpGet("hub-scores")]
     [ProducesResponseType(typeof(IReadOnlyList<OriginHubScoreDto>), StatusCodes.Status200OK)]
@@ -27,6 +28,63 @@ public class CitiesController(
                 score.DestinationCount,
                 score.HubScore))
             .ToList();
+
+        return Ok(dtos);
+    }
+
+    /// <summary>
+    /// Multilingual city typeahead via Tequila locations/query, mapped to our cities.
+    /// </summary>
+    [HttpGet("suggest")]
+    [ProducesResponseType(typeof(IReadOnlyList<CitySuggestDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyList<CitySuggestDto>>> SuggestAsync(
+        [FromQuery] string term,
+        [FromQuery] string? locale = null,
+        [FromQuery] int limit = 8,
+        CancellationToken cancellationToken = default)
+    {
+        var query = term?.Trim() ?? string.Empty;
+        if (query.Length < 1)
+            return Ok(Array.Empty<CitySuggestDto>());
+
+        var cappedLimit = Math.Clamp(limit, 1, 15);
+        var tequilaLocale = TequilaLocaleMapper.ToTequilaLocale(locale);
+        var suggestions = await tequilaLocationClient.SuggestCitiesAsync(
+            query,
+            tequilaLocale,
+            cappedLimit,
+            cancellationToken);
+
+        if (suggestions.Count == 0)
+            return Ok(Array.Empty<CitySuggestDto>());
+
+        var codes = suggestions
+            .Select(s => s.Code)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        var cities = await cityRepository.GetCitiesByCodesAsync(codes);
+        var cityByCode = cities.ToDictionary(c => c.Code, StringComparer.OrdinalIgnoreCase);
+
+        var dtos = new List<CitySuggestDto>();
+        foreach (var suggestion in suggestions)
+        {
+            if (!cityByCode.TryGetValue(suggestion.Code, out var city))
+                continue;
+
+            dtos.Add(new CitySuggestDto(
+                city.Id,
+                city.Code,
+                city.Name,
+                city.Country,
+                city.Region,
+                city.Continent,
+                city.Latitude,
+                city.Longitude,
+                city.IsActive,
+                city.Aliases,
+                suggestion.Name));
+        }
 
         return Ok(dtos);
     }

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
 import type { Flight } from '../types/flight';
-import { useLocale } from '../hooks/useLocale';
+import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import {
   durationMinutesFromLocalIso,
   formatApiLocalTime,
@@ -180,12 +181,16 @@ export function FlightCard({
 }: FlightCardProps) {
   const { t } = useTranslation();
   const locale = useLocale();
+  const { path } = useLocalizedPath();
+  const location = useLocation();
   const bookingUrl = localizeKiwiDeepLink(flight.deepLink, locale);
   const outbound = getOutboundLeg(flight);
   const returnLeg = getReturnLeg(flight);
   const tripDays = flight.nightsInDest + 1;
   const totalPrice = getTripPrice(flight, passengerCount);
   const perPersonPrice = getPerPersonPrice(flight);
+  const showBestWeekendPriceLink = !location.pathname.includes('/cheapest-weekend');
+  const bestWeekendPriceTo = `${path('/cheapest-weekend')}?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
 
   const formatStops = (stops: number) => {
     if (stops === 0) return t('flights.changes_zero');
@@ -233,6 +238,15 @@ export function FlightCard({
         </div>
 
         <div className="result-action">
+          {showBestWeekendPriceLink ? (
+            <Link
+              className="btn btn-secondary btn-sm"
+              to={bestWeekendPriceTo}
+              data-umami-event="best_weekend_price_click"
+            >
+              {t('nav.cheapestWeekend')}
+            </Link>
+          ) : null}
           {bookingUrl ? (
             <a
               className="btn btn-primary btn-sm"

@@ -20,7 +20,11 @@ function updateHubSuggestions(
   return { nearby, popular };
 }
 
-export function useDeparturePrefill() {
+export function useDeparturePrefill(options?: { preferredCodes?: string[] | null }) {
+  const preferredKey = (options?.preferredCodes ?? [])
+    .map(code => code.trim().toUpperCase())
+    .filter(Boolean)
+    .join('|');
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
   const [popularHubCities, setPopularHubCities] = useState<CityWithDistance[]>([]);
@@ -75,7 +79,12 @@ export function useDeparturePrefill() {
         }
         if (cancelled) return;
 
-        const defaults = selectDefaultCityCodes(cities, scores);
+        const preferred = preferredKey
+          .split('|')
+          .filter(code => Boolean(findCityByCode(cities, code)));
+
+        const defaults =
+          preferred.length > 0 ? preferred : selectDefaultCityCodes(cities, scores);
         if (defaults.length > 0) {
           setSelectedCodes(defaults);
         }
@@ -93,7 +102,7 @@ export function useDeparturePrefill() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [preferredKey]);
 
   return {
     allCities,

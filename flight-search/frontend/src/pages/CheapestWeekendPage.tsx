@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { DestinationPicker } from '../components/DestinationPicker';
@@ -28,8 +29,14 @@ import './CheapestWeekendPage.css';
 /** Horizon used for flight search + calendar heat-scale (independent of visible month). */
 const CALENDAR_PRICE_HORIZON_WEEKENDS = 52;
 
+function readAirportParam(value: string | null): string | null {
+  const code = value?.trim().toUpperCase() ?? '';
+  return code.length > 0 ? code : null;
+}
+
 export function CheapestWeekendPage() {
   const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(
@@ -38,13 +45,17 @@ export function CheapestWeekendPage() {
     '/cheapest-weekend'
   );
 
+  const fromParam = readAirportParam(searchParams.get('from'));
+  const toParam = readAirportParam(searchParams.get('to'));
+  const preferredCodes = useMemo(() => (fromParam ? [fromParam] : null), [fromParam]);
+
   const now = new Date();
   const [viewYear, setViewYear] = useState(now.getFullYear());
   const [viewMonth, setViewMonth] = useState(now.getMonth());
   const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);
-  const [destinationCode, setDestinationCode] = useState<string | null>(null);
+  const [destinationCode, setDestinationCode] = useState<string | null>(toParam);
   const [selectedWeekendId, setSelectedWeekendId] = useState<string | null>(null);
   const [singleOriginReady, setSingleOriginReady] = useState(false);
 
@@ -73,7 +84,14 @@ export function CheapestWeekendPage() {
     setSelectedCodes,
     locating,
     errorMessage
-  } = useDeparturePrefill();
+  } = useDeparturePrefill({ preferredCodes });
+
+  useEffect(() => {
+    if (!toParam || allCities.length === 0) return;
+    if (allCities.some(city => city.code === toParam)) {
+      setDestinationCode(toParam);
+    }
+  }, [toParam, allCities]);
 
   // Keep exactly one departure airport for this page.
   useEffect(() => {

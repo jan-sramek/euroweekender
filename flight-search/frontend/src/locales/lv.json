@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Vienas dienas braucieni Eiropā",
       "description": "Atrodiet sestdienas un svētdienas braucienus Eiropā — no rīta turp, vakarā atpakaļ, bez nakšņošanas. Salīdziniet tās pašas dienas lidojumus no lidostām jums tuvumā."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, no {{price}}",
     "seoTitle": "Salīdziniet nedēļas nogales lidojumu cenas uz vienu galamērķi",
     "seoBlock": "Meklējat lētāko nedēļas nogali Eiropā? Izvēlieties izlidošanas lidostu un galamērķa pilsētu, salīdziniet piektd.–svētd., ceturtd.–svētd. un citus īsos braucienus mēneša kalendārā. Uzreiz redzēsiet zemākās cenas, atveriet nedēļas nogali detalām un rezervējiet, izmantojot Kiwi.com — ideāli pilsētas braucieniem bez atvaļinājuma dienām."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   }
 }

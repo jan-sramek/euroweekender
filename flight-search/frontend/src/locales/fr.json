@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Escapades d’une journée en Europe",
       "description": "Trouvez des escapades samedi et dimanche en Europe — départ le matin, retour le soir, sans nuitée. Comparez les vols aller-retour le jour même depuis les aéroports près de chez vous."
+    },
+    "notFound": {
+      "title": "Page introuvable",
+      "description": "La page demandée est introuvable sur euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Vols week-end depuis {{city}}",
+      "description": "Comparez des vols week-end économiques depuis {{city}}. City breaks ven–dim sans congés — trouvez des offres et réservez via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, dès {{price}}",
     "seoTitle": "Comparer les prix des vols week-end vers une destination",
     "seoBlock": "Vous cherchez le week-end le moins cher en Europe ? Choisissez votre aéroport de départ et votre ville, puis comparez ven–dim, jeu–dim et d’autres courts séjours sur un calendrier mensuel. Repérez les meilleurs tarifs d’un coup d’œil, ouvrez un week-end pour les détails et réservez via Kiwi.com — idéal pour un city break sans poser de congés."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "lead": "Cette page n’existe pas ou le lien ville est invalide.",
+    "backHome": "Retour à la recherche"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Vols week-end depuis {{city}}",
+    "title": "Vols week-end pas chers depuis {{city}}",
+    "subtitle": "City breaks depuis {{city}} sans poser de congés",
+    "lead": "Comparez les vols aller-retour week-end depuis {{city}} en Europe — départ vendredi soir, retour dimanche.",
+    "seoTitle": "Trouver des offres week-end depuis {{city}}",
+    "seoBlock": "Recherchez des vols week-end pas chers depuis {{city}} vers des villes en Europe. Filtrez ven–dim et autres courts séjours, comparez les prix et réservez sur Kiwi.com.",
+    "popularHubsTitle": "Villes de départ populaires",
+    "seeAlsoCheapest": "Trouver le week-end le moins cher vers une destination",
+    "seeAlsoDayTrips": "Escapades d’une journée"
   }
 }

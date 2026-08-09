@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Ühepäevareisid Euroopas",
       "description": "Leidke laupäeva- ja pühapäevareise Euroopas — hommikul välja, õhtul tagasi, ilma ööbimata. Võrrelge sama päeva lende teie lähedal asuvatelt lennujaamadelt."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, alates {{price}}",
     "seoTitle": "Võrrelge nädalavahetuslendude hindu ühte sihtkohta",
     "seoBlock": "Otsite Euroopa odavaimat nädalavahetust? Valige väljumislennujaam ja sihtlinn ning võrrelge reede–pühapäeva, neljapäev–pühapäeva ja teisi lühireise kuukalendris. Näete madalaimaid hindu kohe, avage nädalavahetus üksikasjadeks ja broneerige Kiwi.com-is — ideaalne city-break’iks ilma puhkusepäevadeta."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   }
 }

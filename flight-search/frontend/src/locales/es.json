@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Escapadas de un día por Europa",
       "description": "Encuentra escapadas de sábado y domingo por Europa — salida por la mañana, regreso por la noche, sin pernoctar. Compara vuelos del mismo día desde aeropuertos cerca de ti."
+    },
+    "notFound": {
+      "title": "Página no encontrada",
+      "description": "La página solicitada no se encontró en euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Vuelos de fin de semana desde {{city}}",
+      "description": "Compara vuelos de fin de semana baratos desde {{city}}. Escapadas vie–dom sin vacaciones — encuentra ofertas y reserva en Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, desde {{price}}",
     "seoTitle": "Compara precios de vuelos de fin de semana a un destino",
     "seoBlock": "¿Buscas el fin de semana más barato en Europa? Elige aeropuerto de salida y ciudad de destino, y compara vie–dom, jue–dom y otros viajes cortos en un calendario mensual. Detecta las mejores tarifas de un vistazo, abre un fin de semana para ver detalles y reserva en Kiwi.com — ideal para escapadas urbanas sin días de vacaciones."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "lead": "Esa página no existe o el enlace de la ciudad no es válido.",
+    "backHome": "Volver a la búsqueda"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Vuelos de fin de semana desde {{city}}",
+    "title": "Vuelos de fin de semana baratos desde {{city}}",
+    "subtitle": "Escapadas desde {{city}} sin usar vacaciones",
+    "lead": "Compara vuelos de ida y vuelta de fin de semana desde {{city}} por Europa — salida viernes por la noche, regreso domingo.",
+    "seoTitle": "Encuentra ofertas de fin de semana desde {{city}}",
+    "seoBlock": "Busca vuelos de fin de semana baratos desde {{city}} a ciudades de Europa. Filtra vie–dom y otros patrones cortos, compara precios y reserva en Kiwi.com.",
+    "popularHubsTitle": "Ciudades de salida populares",
+    "seeAlsoCheapest": "Encuentra el fin de semana más barato a un destino",
+    "seeAlsoDayTrips": "Escapadas de un día"
   }
 }

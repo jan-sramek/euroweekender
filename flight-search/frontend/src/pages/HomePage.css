@@ -131,6 +131,49 @@
   color: #5c6770;
 }
 
+.home-hub-links {
+  margin-top: 1.5rem;
+}
+
+.home-hub-links-title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: #192c39;
+}
+
+.home-hub-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-hub-links-list a {
+  font-size: 0.9rem;
+  color: #228bd1;
+  text-decoration: none;
+}
+
+.home-hub-links-list a:hover {
+  text-decoration: underline;
+}
+
+.home-seo-links {
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.home-seo-links a {
+  color: #228bd1;
+  text-decoration: none;
+}
+
+.home-seo-links a:hover {
+  text-decoration: underline;
+}
+
 .offers-header {
   margin-bottom: 1.5rem;
 }

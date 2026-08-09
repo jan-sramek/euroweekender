@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Päiväretket Euroopassa",
       "description": "Löydä lauantai- ja sunnuntaimatkat Euroopassa — aamulla mennen, illalla takaisin, ilman yöpymistä. Vertaa saman päivän lentoja lähelläsi olevilta lentoasemilta."
+    },
+    "notFound": {
+      "title": "Sivua ei löytynyt",
+      "description": "Pyydettyä sivua ei löytynyt osoitteesta euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Viikonloppulennot kohteesta {{city}}",
+      "description": "Vertaa edullisia eurooppalaisia viikonloppulentoja kohteesta {{city}}. Pe–su city breakit ilman lomapäiviä — löydä tarjoukset ja varaa Kiwi.comin kautta."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, alkaen {{price}}",
     "seoTitle": "Vertaa viikonloppulentojen hintoja yhteen kohteeseen",
     "seoBlock": "Etsitkö Euroopan edullisinta viikonloppua? Valitse lähtölentokenttä ja kohdekaupunki ja vertaa pe–su-, to–su- ja muita lyhyitä matkoja kuukausikalenterissa. Näet alhaisimmat hinnat heti, avaa viikonloppu nähdäksesi tiedot ja varaa Kiwi.comissa — täydellinen citybreakiin ilman lomapäiviä."
+  },
+  "notFound": {
+    "title": "Sivua ei löytynyt",
+    "lead": "Sivua ei ole olemassa tai kaupunkilinkki on virheellinen.",
+    "backHome": "Takaisin hakuun"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Viikonloppulennot kohteesta {{city}}",
+    "title": "Edulliset viikonloppulennot kohteesta {{city}}",
+    "subtitle": "City breakit kohteesta {{city}} ilman lomapäiviä",
+    "lead": "Vertaa meno-paluu-viikonloppulentoja kohteesta {{city}} ympäri Eurooppaa — lähtö perjantai-iltana, paluu sunnuntaina.",
+    "seoTitle": "Löydä viikonloppulento-tarjoukset kohteesta {{city}}",
+    "seoBlock": "Etsi edullisia viikonloppulentoja kohteesta {{city}} Euroopan kaupunkeihin. Suodata pe–su ja muita lyhyitä malleja, vertaa hintoja ja varaa Kiwi.comissa.",
+    "popularHubsTitle": "Suositut lähtökaupungit",
+    "seeAlsoCheapest": "Löydä edullisin viikonloppu kohteeseen",
+    "seeAlsoDayTrips": "Päiväretket"
   }
 }

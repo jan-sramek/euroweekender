@@ -5,6 +5,7 @@ import { DeparturePicker } from '../components/DeparturePicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
@@ -321,6 +322,7 @@ export function HomePage() {
             {t('home.seoTitle')}
           </h2>
           <p className="home-seo-text">{t('home.seoBlock')}</p>
+          <SeoHubLinks allCities={allCities} language={i18n.language} />
         </div>
       </section>
 

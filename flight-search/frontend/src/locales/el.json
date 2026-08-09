@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Ημερήσιες εκδρομές στην Ευρώπη",
       "description": "Βρείτε εκδρομές Σαββάτου και Κυριακής στην Ευρώπη — πρωί αναχώρηση, βράδυ επιστροφή, χωρίς διανυκτέρευση. Συγκρίνετε πτήσεις αυθημερόν από αεροδρόμια κοντά σας."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, από {{price}}",
     "seoTitle": "Συγκρίνετε τιμές πτήσεων Σαββατοκύριακου προς έναν προορισμό",
     "seoBlock": "Ψάχνετε το φθηνότερο Σαββατοκύριακο στην Ευρώπη; Επιλέξτε αεροδρόμιο αναχώρησης και πόλη προορισμού και συγκρίνετε Παρ–Κυρ, Πεμ–Κυρ και άλλες σύντομες διαδρομές σε μηνιαίο ημερολόγιο. Δείτε με μια ματιά τις χαμηλότερες τιμές, ανοίξτε ένα Σαββατοκύριακο για λεπτομέρειες και κλείστε μέσω Kiwi.com — ιδανικό για city break χωρίς άδεια."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   }
 }

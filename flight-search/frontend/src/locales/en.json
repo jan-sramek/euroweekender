@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Same-Day European City Trips",
       "description": "Find Saturday and Sunday day trips across Europe — morning outbound, evening return, no overnight stay. Compare same-day flights from airports near you."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -125,6 +133,22 @@
     "noFlights": "No same-day trips found for the selected days yet. Try fewer airports, nearer dates, or wait while offers are collected.",
     "seoTitle": "Find European day trips without an overnight stay",
     "seoBlock": "Looking for a same-day city trip in Europe? Pick your departure airports and choose Saturdays or Sundays for morning-out, evening-back flights. Compare deals across nearby hubs, scan the next months of weekend days, and book through Kiwi.com — ideal when you want a full day abroad without a hotel."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   },
   "search": {
     "travelWeekend": "Travel weekend",

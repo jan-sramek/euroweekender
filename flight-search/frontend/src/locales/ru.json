@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Однодневные поездки по Европе",
       "description": "Найдите субботние и воскресные поездки по Европе — утром туда, вечером обратно, без ночёвки. Сравните рейсы в тот же день из аэропортов рядом с вами."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, от {{price}}",
     "seoTitle": "Сравните цены уикенд-рейсов в одно направление",
     "seoBlock": "Ищете самый дешёвый уикенд в Европе? Выберите аэропорт вылета и город назначения, сравните пт–вс, чт–вс и другие короткие поездки в месячном календаре. Сразу увидите самые низкие тарифы, откройте уикенд для деталей и бронируйте через Kiwi.com — идеально для city break без отпуска."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   }
 }

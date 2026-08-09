@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Dagsferðir um Evrópu",
       "description": "Finndu laugardags- og sunnudagsferðir um Evrópu — út að morgni, heim að kvöldi, án gistingar. Berðu saman samdægursflug frá flugvöllum nálægt þér."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you requested was not found on euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekend Flights from {{city}}",
+      "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, frá {{price}}",
     "seoTitle": "Berðu saman helgarflugverð til eins áfangastaðar",
     "seoBlock": "Leitarðu að ódýrustu helginni í Evrópu? Veldu brottfararflugvöll og áfangaborg, berðu síðan saman fös–sun, fim–sun og aðrar stuttar ferðir á mánaðardagatali. Sjáðu lægstu verðin strax, opnaðu helgi fyrir smáatriði og bókaðu í gegnum Kiwi.com — tilvalið fyrir borgarferðir án frídaga."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "That page does not exist or the city link is invalid.",
+    "backHome": "Back to search"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekend flights from {{city}}",
+    "title": "Cheap weekend flights from {{city}}",
+    "subtitle": "City breaks from {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights from {{city}} across Europe — leave Friday evening, return Sunday.",
+    "seoTitle": "Find weekend flight deals from {{city}}",
+    "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "popularHubsTitle": "Popular departure cities",
+    "seeAlsoCheapest": "Find the cheapest weekend to a destination",
+    "seeAlsoDayTrips": "Same-day city trips"
   }
 }

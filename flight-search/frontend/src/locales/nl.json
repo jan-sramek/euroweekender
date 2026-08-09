@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Dagtrips door Europa",
       "description": "Vind zaterdag- en zondagtrips door Europa — ’s ochtends heen, ’s avonds terug, zonder overnachting. Vergelijk same-day vluchten vanaf luchthavens bij jou in de buurt."
+    },
+    "notFound": {
+      "title": "Pagina niet gevonden",
+      "description": "De gevraagde pagina is niet gevonden op euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Weekendvluchten vanuit {{city}}",
+      "description": "Vergelijk goedkope Europese weekendvluchten vanuit {{city}}. Vr–zo citybreaks zonder vakantiedagen — vind deals en boek via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, vanaf {{price}}",
     "seoTitle": "Vergelijk weekendvluchtprijzen naar één bestemming",
     "seoBlock": "Op zoek naar het goedkoopste weekend in Europa? Kies je vertrekluchthaven en bestemmingsstad en vergelijk vr–zo, do–zo en andere korte trips op een maandkalender. Zie meteen de laagste tarieven, open een weekend voor details en boek via Kiwi.com — ideaal voor citytrips zonder vakantiedagen."
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "lead": "Deze pagina bestaat niet of de stadskoppeling is ongeldig.",
+    "backHome": "Terug naar zoeken"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Weekendvluchten vanuit {{city}}",
+    "title": "Goedkope weekendvluchten vanuit {{city}}",
+    "subtitle": "Citybreaks vanuit {{city}} zonder vakantiedagen",
+    "lead": "Vergelijk retour-weekendvluchten vanuit {{city}} door Europa — vrijdagavond vertrek, zondag terug.",
+    "seoTitle": "Vind weekendvluchtdeals vanuit {{city}}",
+    "seoBlock": "Zoek goedkope weekendvluchten vanuit {{city}} naar steden in Europa. Filter vr–zo en andere korte patronen, vergelijk prijzen en boek op Kiwi.com.",
+    "popularHubsTitle": "Populaire vertreksteden",
+    "seeAlsoCheapest": "Vind het goedkoopste weekend naar een bestemming",
+    "seeAlsoDayTrips": "Dagtrips"
   }
 }

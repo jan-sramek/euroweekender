@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Escapadas de um dia na Europa",
       "description": "Encontre escapadas de sábado e domingo na Europa — saída de manhã, regresso à noite, sem pernoita. Compare voos no mesmo dia a partir de aeroportos perto de si."
+    },
+    "notFound": {
+      "title": "Página não encontrada",
+      "description": "A página solicitada não foi encontrada em euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Voos de fim de semana de {{city}}",
+      "description": "Compare voos de fim de semana baratos de {{city}}. Escapadas sex–dom sem férias — encontre ofertas e reserve via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, desde {{price}}",
     "seoTitle": "Compare preços de voos de fim de semana para um destino",
     "seoBlock": "Procura o fim de semana mais barato na Europa? Escolha o aeroporto de partida e a cidade de destino e compare sex–dom, qui–dom e outras viagens curtas num calendário mensal. Veja as tarifas mais baixas de imediato, abra um fim de semana para detalhes e reserve no Kiwi.com — ideal para city breaks sem dias de férias."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "lead": "Essa página não existe ou o link da cidade é inválido.",
+    "backHome": "Voltar à pesquisa"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Voos de fim de semana de {{city}}",
+    "title": "Voos de fim de semana baratos de {{city}}",
+    "subtitle": "Escapadas de {{city}} sem usar férias",
+    "lead": "Compare voos de ida e volta de fim de semana de {{city}} pela Europa — saída sexta à noite, regresso domingo.",
+    "seoTitle": "Encontre ofertas de fim de semana de {{city}}",
+    "seoBlock": "Pesquise voos de fim de semana baratos de {{city}} para cidades na Europa. Filtre sex–dom e outros padrões curtos, compare preços e reserve no Kiwi.com.",
+    "popularHubsTitle": "Cidades de partida populares",
+    "seeAlsoCheapest": "Encontre o fim de semana mais barato para um destino",
+    "seeAlsoDayTrips": "Escapadas de um dia"
   }
 }

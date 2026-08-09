@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { LocaleLayout } from './components/LocaleLayout';
 import { LocaleRedirect } from './components/LocaleRedirect';
 import { UmamiAnalytics } from './components/UmamiAnalytics';
@@ -9,9 +9,11 @@ import { ContactPage } from './pages/ContactPage';
 import { FaqPage } from './pages/FaqPage';
 import { HomePage } from './pages/HomePage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { SingleDayTripsPage } from './pages/SingleDayTripsPage';
 import { TermsPage } from './pages/TermsPage';
+import { WeekendFlightsFromCityPage } from './pages/WeekendFlightsFromCityPage';
 
 const LEGACY_REDIRECTS = [
   'about',
@@ -23,6 +25,13 @@ const LEGACY_REDIRECTS = [
   'cheapest-weekend',
   'single-day-trips'
 ] as const;
+
+function LegacyWeekendFlightsRedirect() {
+  const { citySlug } = useParams<{ citySlug: string }>();
+  return (
+    <Navigate to={`/${DEFAULT_LOCALE}/weekend-flights-from/${citySlug ?? ''}`} replace />
+  );
+}
 
 export default function App() {
   return (
@@ -37,6 +46,7 @@ export default function App() {
             element={<Navigate to={`/${DEFAULT_LOCALE}/${segment}`} replace />}
           />
         ))}
+        <Route path="/weekend-flights-from/:citySlug" element={<LegacyWeekendFlightsRedirect />} />
 
         <Route path="/:lang" element={<LocaleLayout />}>
           <Route index element={<HomePage />} />
@@ -48,7 +58,8 @@ export default function App() {
           <Route path="how-it-works" element={<HowItWorksPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="weekend-flights-from/:citySlug" element={<WeekendFlightsFromCityPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>

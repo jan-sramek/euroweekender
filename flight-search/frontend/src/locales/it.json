@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Gite di un giorno in Europa",
       "description": "Trova gite sabato e domenica in Europa — partenza al mattino, ritorno la sera, senza pernottamento. Confronta voli same-day dagli aeroporti vicino a te."
+    },
+    "notFound": {
+      "title": "Pagina non trovata",
+      "description": "La pagina richiesta non è stata trovata su euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Voli weekend da {{city}}",
+      "description": "Confronta voli weekend economici da {{city}}. City break ven–dom senza ferie — trova offerte e prenota su Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, da {{price}}",
     "seoTitle": "Confronta i prezzi dei voli weekend verso una destinazione",
     "seoBlock": "Cerchi il weekend più economico in Europa? Scegli aeroporto di partenza e città di destinazione, poi confronta ven–dom, gio–dom e altri soggiorni brevi sul calendario mensile. Individua subito le tariffe più basse, apri un weekend per i dettagli e prenota su Kiwi.com — ideale per city break senza ferie."
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "lead": "Questa pagina non esiste o il link della città non è valido.",
+    "backHome": "Torna alla ricerca"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Voli weekend da {{city}}",
+    "title": "Voli weekend economici da {{city}}",
+    "subtitle": "City break da {{city}} senza usare ferie",
+    "lead": "Confronta voli andata e ritorno per il weekend da {{city}} in Europa — partenza venerdì sera, ritorno domenica.",
+    "seoTitle": "Trova offerte weekend da {{city}}",
+    "seoBlock": "Cerca voli weekend economici da {{city}} verso città in Europa. Filtra ven–dom e altri pattern brevi, confronta i prezzi e prenota su Kiwi.com.",
+    "popularHubsTitle": "Città di partenza popolari",
+    "seeAlsoCheapest": "Trova il weekend più economico verso una destinazione",
+    "seeAlsoDayTrips": "Gite di un giorno"
   }
 }

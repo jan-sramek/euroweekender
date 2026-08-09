@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Excursii de o zi în Europa",
       "description": "Găsiți excursii de sâmbătă și duminică în Europa — dimineața dus, seara întors, fără cazare. Comparați zboruri în aceeași zi de pe aeroporturi aproape de dvs."
+    },
+    "notFound": {
+      "title": "Pagină negăsită",
+      "description": "Pagina solicitată nu a fost găsită pe euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Zboruri de weekend din {{city}}",
+      "description": "Comparați zboruri de weekend ieftine din {{city}}. City break-uri vin–dum fără concediu — găsiți oferte și rezervați prin Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, de la {{price}}",
     "seoTitle": "Compară prețurile zborurilor de weekend spre o destinație",
     "seoBlock": "Cauți cel mai ieftin weekend în Europa? Alege aeroportul de plecare și orașul destinație, apoi compară vin–dum, joi–dum și alte călătorii scurte pe un calendar lunar. Vezi dintr-o privire tarifele cele mai mici, deschide un weekend pentru detalii și rezervă pe Kiwi.com — ideal pentru city break-uri fără zile de concediu."
+  },
+  "notFound": {
+    "title": "Pagină negăsită",
+    "lead": "Această pagină nu există sau linkul orașului este invalid.",
+    "backHome": "Înapoi la căutare"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Zboruri de weekend din {{city}}",
+    "title": "Zboruri de weekend ieftine din {{city}}",
+    "subtitle": "City break-uri din {{city}} fără zile de concediu",
+    "lead": "Comparați zboruri dus-întors de weekend din {{city}} în Europa — plecare vineri seara, întoarcere duminică.",
+    "seoTitle": "Găsiți oferte de zbor de weekend din {{city}}",
+    "seoBlock": "Căutați zboruri de weekend ieftine din {{city}} spre orașe din Europa. Filtrați vin–dum și alte tipare scurte, comparați prețurile și rezervați pe Kiwi.com.",
+    "popularHubsTitle": "Orașe de plecare populare",
+    "seeAlsoCheapest": "Găsiți cel mai ieftin weekend spre o destinație",
+    "seeAlsoDayTrips": "Excursii de o zi"
   }
 }

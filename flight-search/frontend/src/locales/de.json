@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Eintägige Städtetrips in Europa",
       "description": "Finden Sie Samstags- und Sonntags-Tagestrips in Europa — morgens hin, abends zurück, ohne Übernachtung. Vergleichen Sie Same-Day-Flüge von Flughäfen in Ihrer Nähe."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Die angeforderte Seite wurde auf euroweekender.com nicht gefunden."
+    },
+    "weekendFlightsFrom": {
+      "title": "Wochenendflüge ab {{city}}",
+      "description": "Vergleichen Sie günstige europäische Wochenendflüge ab {{city}}. Fr–So-Städtereisen ohne Urlaubstage — Angebote finden und über Kiwi.com buchen."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, ab {{price}}",
     "seoTitle": "Wochenendflugpreise zu einem Ziel vergleichen",
     "seoBlock": "Auf der Suche nach dem günstigsten Wochenende in Europa? Wählen Sie Abflughafen und Zielstadt und vergleichen Sie Fr–So, Do–So und andere Kurztrips im Monatskalender. Erkennen Sie die niedrigsten Preise auf einen Blick, öffnen Sie ein Wochenende für Flugdetails und buchen Sie über Kiwi.com — ideal für Städtereisen ohne Urlaubstage."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "lead": "Diese Seite existiert nicht oder der Stadtlink ist ungültig.",
+    "backHome": "Zurück zur Suche"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Wochenendflüge ab {{city}}",
+    "title": "Günstige Wochenendflüge ab {{city}}",
+    "subtitle": "Städtereisen ab {{city}} ohne Urlaubstage",
+    "lead": "Vergleichen Sie Hin- und Rückflüge fürs Wochenende ab {{city}} in ganz Europa — Freitagabend los, Sonntag zurück.",
+    "seoTitle": "Wochenend-Flugangebote ab {{city}} finden",
+    "seoBlock": "Suchen Sie günstige Wochenendflüge ab {{city}} in europäische Städte. Filtern Sie Fr–So und andere Kurzmuster, vergleichen Sie Preise und buchen Sie auf Kiwi.com.",
+    "popularHubsTitle": "Beliebte Abflugstädte",
+    "seeAlsoCheapest": "Günstigstes Wochenende zu einem Ziel finden",
+    "seeAlsoDayTrips": "Eintägige Städtetrips"
   }
 }

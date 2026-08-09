@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Dagsreiser i Europa",
       "description": "Finn lørdags- og søndagsreiser i Europa — ut om morgenen, hjem om kvelden, uten overnatting. Sammenlign same-day-fly fra flyplasser nær deg."
+    },
+    "notFound": {
+      "title": "Siden ble ikke funnet",
+      "description": "Den forespurte siden ble ikke funnet på euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Helgefly fra {{city}}",
+      "description": "Sammenlign billige europeiske helgefly fra {{city}}. Fre–søn city breaks uten feriedager — finn tilbud og bestill via Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, fra {{price}}",
     "seoTitle": "Sammenlign helgeflypriser til én destinasjon",
     "seoBlock": "Leter du etter den billigste helgen i Europa? Velg avreiseflyplass og destinasjonsby, og sammenlign fre–søn, tor–søn og andre korte turer i en månedskalender. Se de laveste prisene med én gang, åpne en helg for detaljer, og book via Kiwi.com — ideelt for byturer uten feriedager."
+  },
+  "notFound": {
+    "title": "Siden ble ikke funnet",
+    "lead": "Denne siden finnes ikke, eller bylenken er ugyldig.",
+    "backHome": "Tilbake til søk"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Helgefly fra {{city}}",
+    "title": "Billige helgefly fra {{city}}",
+    "subtitle": "City breaks fra {{city}} uten feriedager",
+    "lead": "Sammenlign tur-retur-helgefly fra {{city}} i Europa — avgang fredag kveld, hjemkomst søndag.",
+    "seoTitle": "Finn helgetilbud fra {{city}}",
+    "seoBlock": "Søk billige helgefly fra {{city}} til byer i Europa. Filtrer fre–søn og andre korte mønstre, sammenlign priser og bestill på Kiwi.com.",
+    "popularHubsTitle": "Populære avreisebyer",
+    "seeAlsoCheapest": "Finn den billigste helgen til en destinasjon",
+    "seeAlsoDayTrips": "Dagsreiser"
   }
 }

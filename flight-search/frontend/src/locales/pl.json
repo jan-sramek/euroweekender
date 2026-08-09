@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Jednodniowe wycieczki po Europie",
       "description": "Znajdź sobotnie i niedzielne wycieczki po Europie — rano tam, wieczorem z powrotem, bez noclegu. Porównuj loty tego samego dnia z lotnisk w pobliżu."
+    },
+    "notFound": {
+      "title": "Nie znaleziono strony",
+      "description": "Nie znaleziono żądanej strony na euroweekender.com."
+    },
+    "weekendFlightsFrom": {
+      "title": "Loty weekendowe z {{city}}",
+      "description": "Porównuj tanie europejskie loty weekendowe z {{city}}. Wyjazdy pt–nd bez urlopu — znajdź oferty i rezerwuj przez Kiwi.com."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, od {{price}}",
     "seoTitle": "Porównaj ceny lotów weekendowych do jednego celu",
     "seoBlock": "Szukasz najtańszego weekendu w Europie? Wybierz lotnisko wylotu i miasto docelowe, a potem porównaj pt–nd, cz–nd i inne krótkie wyjazdy na miesięcznym kalendarzu. Od razu zobaczysz najniższe ceny, otwórz weekend, by sprawdzić szczegóły, i zarezerwuj przez Kiwi.com — idealne na city break bez urlopu."
+  },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "lead": "Ta strona nie istnieje lub link do miasta jest nieprawidłowy.",
+    "backHome": "Wróć do wyszukiwania"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Loty weekendowe z {{city}}",
+    "title": "Tanie loty weekendowe z {{city}}",
+    "subtitle": "City breaki z {{city}} bez urlopu",
+    "lead": "Porównuj loty weekendowe w obie strony z {{city}} po Europie — wylot w piątek wieczorem, powrót w niedzielę.",
+    "seoTitle": "Znajdź oferty lotów weekendowych z {{city}}",
+    "seoBlock": "Szukaj tanich lotów weekendowych z {{city}} do miast w Europie. Filtruj pt–nd i inne krótkie wzorce, porównuj ceny i rezerwuj na Kiwi.com.",
+    "popularHubsTitle": "Popularne miasta wylotu",
+    "seeAlsoCheapest": "Znajdź najtańszy weekend do celu",
+    "seeAlsoDayTrips": "Jednodniowe wycieczki"
   }
 }

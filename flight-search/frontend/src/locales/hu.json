@@ -35,6 +35,14 @@
     "singleDayTrips": {
       "title": "Egynapos városi kirándulások Európában",
       "description": "Találjon szombati és vasárnapi egynapos utakat Európában — reggel oda, este vissza, éjszakázás nélkül. Hasonlítsa össze az egynapos járatokat a közeli reptérről."
+    },
+    "notFound": {
+      "title": "Az oldal nem található",
+      "description": "A kért oldal nem található az euroweekender.com oldalon."
+    },
+    "weekendFlightsFrom": {
+      "title": "Hétvégi járatok {{city}} városból",
+      "description": "Hasonlítsa össze az olcsó európai hétvégi járatokat {{city}} városból. P–V city breakek szabadság nélkül — találjon ajánlatokat és foglaljon a Kiwi.com-on."
     }
   },
   "nav": {
@@ -391,5 +399,21 @@
     "dayWithPrice": "{{date}}, {{price}}-tól",
     "seoTitle": "Hasonlítsa össze egy célállomás hétvégi járatárait",
     "seoBlock": "A legolcsóbb európai hétvégét keresi? Válassza ki az indulási reptért és a célvárost, majd hasonlítsa össze a pén–vas, csüt–vas és más rövid utakat a havi naptárban. Egy pillantással láthatja a legalacsonyabb árakat, nyisson meg egy hétvégét a részletekért, és foglaljon a Kiwi.com-on — ideális city breakhez szabadság nélkül."
+  },
+  "notFound": {
+    "title": "Az oldal nem található",
+    "lead": "Ez az oldal nem létezik, vagy a városlink érvénytelen.",
+    "backHome": "Vissza a kereséshez"
+  },
+  "weekendFlightsFrom": {
+    "tagline": "Hétvégi járatok {{city}} városból",
+    "title": "Olcsó hétvégi járatok {{city}} városból",
+    "subtitle": "City break {{city}} városból szabadság felhasználása nélkül",
+    "lead": "Hasonlítsa össze a hétvégi oda-vissza járatokat {{city}} városból Európában — péntek esti indulás, vasárnapi visszaérkezés.",
+    "seoTitle": "Hétvégi repülőjárat-ajánlatok {{city}} városból",
+    "seoBlock": "Keressen olcsó hétvégi járatokat {{city}} városból európai városokba. Szűrjön P–V és más rövid minták szerint, hasonlítson árakat és foglaljon a Kiwi.com-on.",
+    "popularHubsTitle": "Népszerű induló városok",
+    "seeAlsoCheapest": "Találja meg a legolcsóbb hétvégét egy célállomásra",
+    "seeAlsoDayTrips": "Egynapos utak"
   }
 }

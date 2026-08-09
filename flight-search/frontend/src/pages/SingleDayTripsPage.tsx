@@ -17,8 +17,8 @@ import {
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import type { City } from '../types/city';
+import '../components/WeekendPicker.css';
 import './HomePage.css';
-import './WeekendPicker.css';
 
 export function SingleDayTripsPage() {
   const { t, i18n } = useTranslation();

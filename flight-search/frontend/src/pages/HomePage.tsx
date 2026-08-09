@@ -13,6 +13,7 @@ import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendIds,
   formatWeekendsLabel,
+  getWeekendIdsForMonths,
   getWeekendOptions,
   getWeekendPattern,
   WEEKEND_OPTIONS_COUNT
@@ -140,6 +141,10 @@ export function HomePage() {
     setSelectedWeekendIds([]);
   };
 
+  const handleSelectWeekendMonths = (months: number) => {
+    setSelectedWeekendIds(getWeekendIdsForMonths(weekends, months));
+  };
+
   const handleAddCity = (city: City) => {
     setSelectedCodes(prev => (prev.includes(city.code) ? prev : [...prev, city.code]));
   };
@@ -207,6 +212,7 @@ export function HomePage() {
                     selectedWeekendIds={selectedWeekendIds}
                     onWeekendToggle={handleWeekendToggle}
                     onClearWeekends={handleClearWeekends}
+                    onSelectWeekendMonths={handleSelectWeekendMonths}
                   />
                 </div>
               </div>

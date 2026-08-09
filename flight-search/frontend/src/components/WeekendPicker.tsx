@@ -1,9 +1,12 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PassengerPicker } from './PassengerPicker';
+import { getWeekendIdsForMonths } from '../services/weekend';
 import type { EveningFlightFilters } from '../services/weekendFilter';
 import type { WeekendOption, WeekendPattern, WeekendPatternId } from '../types/weekend';
 import './WeekendPicker.css';
+
+const WEEKEND_RANGE_PRESETS = [1, 3, 6] as const;
 
 interface WeekendPickerProps {
   patterns: WeekendPattern[];
@@ -17,6 +20,7 @@ interface WeekendPickerProps {
   selectedWeekendIds?: string[];
   onWeekendToggle?: (id: string) => void;
   onClearWeekends?: () => void;
+  onSelectWeekendMonths?: (months: number) => void;
   showWeekendStrip?: boolean;
 }
 
@@ -69,11 +73,23 @@ export function WeekendPicker({
   selectedWeekendIds = [],
   onWeekendToggle,
   onClearWeekends,
+  onSelectWeekendMonths,
   showWeekendStrip = true
 }: WeekendPickerProps) {
   const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const selectedPattern = patterns.find(p => p.id === selectedPatternId);
+
+  const activeRangeMonths = useMemo(() => {
+    if (selectedWeekendIds.length === 0) return null;
+    const selected = new Set(selectedWeekendIds);
+    for (const months of WEEKEND_RANGE_PRESETS) {
+      const ids = getWeekendIdsForMonths(weekends, months);
+      if (ids.length === 0 || ids.length !== selected.size) continue;
+      if (ids.every(id => selected.has(id))) return months;
+    }
+    return null;
+  }, [weekends, selectedWeekendIds]);
 
   const scroll = (direction: 'left' | 'right') => {
     scrollRef.current?.scrollBy({
@@ -84,6 +100,12 @@ export function WeekendPicker({
 
   const handlePatternClick = (patternId: WeekendPatternId) => {
     onSelectedPatternIdChange(selectedPatternId === patternId ? null : patternId);
+  };
+
+  const rangeLabel = (months: (typeof WEEKEND_RANGE_PRESETS)[number]) => {
+    if (months === 1) return t('search.weekendNextMonth');
+    if (months === 3) return t('search.weekendNext3Months');
+    return t('search.weekendNext6Months');
   };
 
   return (
@@ -105,6 +127,25 @@ export function WeekendPicker({
               <span className="weekend-section-hint">{t('search.travelWeekendHint')}</span>
             </div>
           </div>
+
+          {onSelectWeekendMonths ? (
+            <div className="weekend-range-presets" role="group" aria-label={t('search.selectWeekends')}>
+              {WEEKEND_RANGE_PRESETS.map(months => {
+                const active = activeRangeMonths === months;
+                return (
+                  <button
+                    key={months}
+                    type="button"
+                    className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
+                    aria-pressed={active}
+                    onClick={() => onSelectWeekendMonths(months)}
+                  >
+                    {rangeLabel(months)}
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
 
           <div className="weekend-dates-row">
             <div className="weekend-track" ref={scrollRef} role="group" aria-label={t('search.selectWeekends')}>

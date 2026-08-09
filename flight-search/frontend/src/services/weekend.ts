@@ -187,6 +187,25 @@ export function getDefaultWeekendIds(
   return weekends.slice(0, count).map(weekend => weekend.id);
 }
 
+/** Select weekends whose outbound date falls within the next `months` calendar months. */
+export function getWeekendIdsForMonths(
+  weekends: WeekendOption[],
+  months: number
+): string[] {
+  if (months <= 0 || weekends.length === 0) return [];
+
+  const today = startOfDay(new Date());
+  const until = startOfDay(new Date(today));
+  until.setMonth(until.getMonth() + months);
+
+  return weekends
+    .filter(weekend => {
+      const depart = startOfDay(weekend.departDate);
+      return depart >= today && depart < until;
+    })
+    .map(weekend => weekend.id);
+}
+
 export function getWeekendOptions(
   patternId: WeekendPatternId | null,
   count = WEEKEND_OPTIONS_COUNT

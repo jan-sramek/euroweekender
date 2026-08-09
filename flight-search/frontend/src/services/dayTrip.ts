@@ -2,11 +2,14 @@ import type { Flight } from '../types/flight';
 import { getReturnDepartDate } from '../utils/flightLeg';
 import { parseApiLocalDateTime } from '../utils/flightTime';
 
-export const DAY_TRIP_OPTIONS_COUNT = 21;
+/** Show Saturday/Sunday day trips this far ahead. */
+export const DAY_TRIP_OPTIONS_MONTHS = 6;
 export const MORNING_DEPART_HOUR_FROM = 5;
 export const MORNING_DEPART_HOUR_TO = 12;
 /** Matches crawl `ReturnDepartTimeFromHour` (evening return). */
 export const DAY_TRIP_EVENING_HOUR_FROM = 16;
+
+export const DAY_TRIP_RANGE_PRESETS = [1, 3, 6] as const;
 
 export interface DayTripOption {
   id: string;
@@ -36,35 +39,70 @@ function sameCalendarDay(a: Date, b: Date): boolean {
   );
 }
 
+function isWeekendDay(date: Date): boolean {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
+
+function toDayTripOption(date: Date, locale: string): DayTripOption {
+  const day = startOfDay(date);
+  const id = `day-${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
+  return {
+    id,
+    date: day,
+    shortLabel: day.toLocaleDateString(locale, {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short'
+    }),
+    departFrom: startOfDay(day),
+    departTo: endOfDay(day)
+  };
+}
+
+/** Upcoming Saturday and Sunday dates within the next `months` calendar months. */
 export function getUpcomingDayTripOptions(
-  count = DAY_TRIP_OPTIONS_COUNT,
+  months = DAY_TRIP_OPTIONS_MONTHS,
   locale = 'en'
 ): DayTripOption[] {
   const today = startOfDay(new Date());
-  const options: DayTripOption[] = [];
+  const until = startOfDay(new Date(today));
+  until.setMonth(until.getMonth() + months);
 
-  for (let offset = 0; offset < count; offset += 1) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + offset);
-    const id = `day-${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-    options.push({
-      id,
-      date,
-      shortLabel: date.toLocaleDateString(locale, {
-        weekday: 'short',
-        day: 'numeric',
-        month: 'short'
-      }),
-      departFrom: startOfDay(date),
-      departTo: endOfDay(date)
-    });
+  const options: DayTripOption[] = [];
+  const cursor = new Date(today);
+
+  while (cursor < until) {
+    if (isWeekendDay(cursor)) {
+      options.push(toDayTripOption(cursor, locale));
+    }
+    cursor.setDate(cursor.getDate() + 1);
   }
 
   return options;
 }
 
-export function getDefaultDayTripIds(days: DayTripOption[], count = 7): string[] {
-  return days.slice(0, count).map(day => day.id);
+/** Select weekend days whose date falls within the next `months` calendar months. */
+export function getDayTripIdsForMonths(days: DayTripOption[], months: number): string[] {
+  if (months <= 0 || days.length === 0) return [];
+
+  const today = startOfDay(new Date());
+  const until = startOfDay(new Date(today));
+  until.setMonth(until.getMonth() + months);
+
+  return days
+    .filter(day => {
+      const date = startOfDay(day.date);
+      return date >= today && date < until;
+    })
+    .map(day => day.id);
+}
+
+export function getDefaultDayTripIds(
+  days: DayTripOption[],
+  months = DAY_TRIP_OPTIONS_MONTHS
+): string[] {
+  return getDayTripIdsForMonths(days, months);
 }
 
 export function isMorningDeparture(date: Date): boolean {

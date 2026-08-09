@@ -10,7 +10,9 @@ import { useDayTripSearch } from '../hooks/useDayTripSearch';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
-  DAY_TRIP_OPTIONS_COUNT,
+  DAY_TRIP_OPTIONS_MONTHS,
+  DAY_TRIP_RANGE_PRESETS,
+  getDayTripIdsForMonths,
   getDefaultDayTripIds,
   getUpcomingDayTripOptions
 } from '../services/dayTrip';
@@ -35,14 +37,14 @@ export function SingleDayTripsPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const days = useMemo(
-    () => getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_COUNT, i18n.language),
+    () => getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_MONTHS, i18n.language),
     [i18n.language]
   );
 
   useEffect(() => {
     if (defaultsApplied.current || days.length === 0) return;
     defaultsApplied.current = true;
-    setSelectedDayIds(getDefaultDayTripIds(days, 7));
+    setSelectedDayIds(getDefaultDayTripIds(days, DAY_TRIP_OPTIONS_MONTHS));
   }, [days]);
 
   const {
@@ -98,6 +100,17 @@ export function SingleDayTripsPage() {
     return selectedDays.map(day => day.shortLabel).join(', ');
   }, [selectedDays, t]);
 
+  const activeRangeMonths = useMemo(() => {
+    if (selectedDayIds.length === 0) return null;
+    const selected = new Set(selectedDayIds);
+    for (const months of DAY_TRIP_RANGE_PRESETS) {
+      const ids = getDayTripIdsForMonths(days, months);
+      if (ids.length === 0 || ids.length !== selected.size) continue;
+      if (ids.every(id => selected.has(id))) return months;
+    }
+    return null;
+  }, [days, selectedDayIds]);
+
   const handleDayToggle = (dayId: string) => {
     setSelectedDayIds(prev => {
       if (prev.includes(dayId)) return prev.filter(id => id !== dayId);
@@ -109,6 +122,16 @@ export function SingleDayTripsPage() {
       });
       return next;
     });
+  };
+
+  const handleSelectMonths = (months: number) => {
+    setSelectedDayIds(getDayTripIdsForMonths(days, months));
+  };
+
+  const rangeLabel = (months: (typeof DAY_TRIP_RANGE_PRESETS)[number]) => {
+    if (months === 1) return t('search.weekendNextMonth');
+    if (months === 3) return t('search.weekendNext3Months');
+    return t('search.weekendNext6Months');
   };
 
   const handleAddCity = (city: City) => {
@@ -156,8 +179,41 @@ export function SingleDayTripsPage() {
                     <div className="weekend-section">
                       <div className="weekend-section-header">
                         <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
-                        <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
+                        <div className="weekend-section-actions">
+                          {selectedDayIds.length > 0 ? (
+                            <button
+                              type="button"
+                              className="weekend-clear-btn"
+                              onClick={() => setSelectedDayIds([])}
+                            >
+                              {t('search.clearWeekends')}
+                            </button>
+                          ) : null}
+                          <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
+                        </div>
                       </div>
+
+                      <div
+                        className="weekend-range-presets"
+                        role="group"
+                        aria-label={t('singleDayTrips.selectDays')}
+                      >
+                        {DAY_TRIP_RANGE_PRESETS.map(months => {
+                          const active = activeRangeMonths === months;
+                          return (
+                            <button
+                              key={months}
+                              type="button"
+                              className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
+                              aria-pressed={active}
+                              onClick={() => handleSelectMonths(months)}
+                            >
+                              {rangeLabel(months)}
+                            </button>
+                          );
+                        })}
+                      </div>
+
                       <div className="weekend-dates-row">
                         <div
                           className="weekend-track"

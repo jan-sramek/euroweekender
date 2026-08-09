@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import type { Flight } from '../types/flight';
 import {
   DAY_TRIP_EVENING_HOUR_FROM,
+  DAY_TRIP_OPTIONS_MONTHS,
   filterFlightsByDayTrip,
+  getDayTripIdsForMonths,
   getUpcomingDayTripOptions,
   isMorningDeparture,
   matchesDayTrip
@@ -33,6 +35,26 @@ function flight(
     ...partial
   };
 }
+
+describe('dayTrip options', () => {
+  it('only includes Saturday and Sunday for the next 6 months', () => {
+    const days = getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_MONTHS, 'en');
+    expect(days.length).toBeGreaterThan(40);
+    expect(days.every(day => day.date.getDay() === 0 || day.date.getDay() === 6)).toBe(true);
+
+    const spanMs = days[days.length - 1].date.getTime() - days[0].date.getTime();
+    expect(spanMs).toBeLessThan(190 * 24 * 60 * 60 * 1000);
+  });
+
+  it('selects ids within the next N months', () => {
+    const days = getUpcomingDayTripOptions(6, 'en');
+    const oneMonth = getDayTripIdsForMonths(days, 1);
+    const sixMonths = getDayTripIdsForMonths(days, 6);
+    expect(oneMonth.length).toBeGreaterThan(0);
+    expect(sixMonths.length).toBeGreaterThan(oneMonth.length);
+    expect(sixMonths).toEqual(days.map(day => day.id));
+  });
+});
 
 describe('dayTrip filters', () => {
   it('accepts morning outbound and evening return on the same day', () => {

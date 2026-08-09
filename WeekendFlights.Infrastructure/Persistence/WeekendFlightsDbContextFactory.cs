@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using Npgsql;
 
 namespace WeekendFlights.Infrastructure.Persistence;
 
@@ -19,8 +20,12 @@ public class WeekendFlightsDbContextFactory : IDesignTimeDbContextFactory<Weeken
             ?? throw new InvalidOperationException(
                 "Connection string not found. Set ConnectionStrings__Postgres or pass --connection.");
 
+        var dataSource = new NpgsqlDataSourceBuilder(connectionString)
+            .EnableDynamicJson()
+            .Build();
+
         var optionsBuilder = new DbContextOptionsBuilder<WeekendFlightsDbContext>();
-        optionsBuilder.UseNpgsql(connectionString);
+        optionsBuilder.UseNpgsql(dataSource);
         return new WeekendFlightsDbContext(optionsBuilder.Options);
     }
 

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
 using WeekendFlights.Application;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Infrastructure.Kiwi;
@@ -57,7 +58,15 @@ public static class Startup
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
     {
         var cs = config["DbConnectionString"] ?? config.GetConnectionString("Postgres");
-        void ConfigureDbContext(DbContextOptionsBuilder options) => options.UseNpgsql(cs);
+        ArgumentException.ThrowIfNullOrWhiteSpace(cs);
+
+        // Required for Dictionary<string, string> ↔ jsonb (City.NamesByLocale) on Npgsql 8+.
+        var dataSource = new NpgsqlDataSourceBuilder(cs)
+            .EnableDynamicJson()
+            .Build();
+        services.AddSingleton(dataSource);
+
+        void ConfigureDbContext(DbContextOptionsBuilder options) => options.UseNpgsql(dataSource);
 
         // Factory is singleton and needs singleton options; default AddDbContext options are scoped.
         services.AddDbContext<WeekendFlightsDbContext>(

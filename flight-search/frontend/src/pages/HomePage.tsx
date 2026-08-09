@@ -4,11 +4,13 @@ import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
+import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
+import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
@@ -103,6 +105,14 @@ export function HomePage() {
     locating
   });
 
+  const resultsResetKey = `${selectedCodes.slice().sort().join(',')}|${selectedWeekendIds.slice().sort().join('|')}`;
+  const {
+    query: resultsQuery,
+    setQuery: setResultsQuery,
+    filteredFlights,
+    hasTextFilter
+  } = useFlightTextFilter(visibleFlights, resultsResetKey);
+
   useEffect(() => {
     setSelectedWeekendIds(prev => findMatchingWeekendIds(weekends, prev));
   }, [weekends]);
@@ -121,6 +131,8 @@ export function HomePage() {
   }, [selectedWeekends, t]);
 
   const totalCount = flights.length;
+  const shownCount = filteredFlights.length;
+  const showFilteredCount = hasLegFilter || hasTextFilter;
 
   const handleWeekendToggle = (weekendId: string) => {
     setSelectedWeekendIds(prev => {
@@ -276,6 +288,16 @@ export function HomePage() {
                 {t('home.clearLegFilters')}
               </button>
             </div>
+          ) : filteredFlights.length === 0 ? (
+            <div className="results-panel">
+              <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
+              <div className="state-box">
+                {t('home.noTextMatch')}{' '}
+                <button type="button" className="link-button" onClick={() => setResultsQuery('')}>
+                  {t('home.clearResultsSearch')}
+                </button>
+              </div>
+            </div>
           ) : (
             <div className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}>
               {loadingFlights ? (
@@ -283,11 +305,12 @@ export function HomePage() {
                   <LoadingIndicator size="md" label={t('home.flightsCounterSearching')} />
                 </div>
               ) : null}
+              <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
               <div className="results-toolbar">
                 <p className="results-count">
-                  {hasLegFilter
+                  {showFilteredCount
                     ? t('home.dealsShown', {
-                        shown: visibleFlights.length,
+                        shown: shownCount,
                         total: totalCount
                       })
                     : t('home.dealsFound', { count: totalCount })}
@@ -299,7 +322,7 @@ export function HomePage() {
                 )}
               </div>
               <div className="flight-list results-list">
-                {visibleFlights.map(flight => (
+                {filteredFlights.map(flight => (
                   <FlightCard
                     key={flight.id}
                     flight={flight}

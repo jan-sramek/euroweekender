@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
+import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { PassengerPicker } from '../components/PassengerPicker';
 import { SeoHubLinks } from '../components/SeoHubLinks';
@@ -11,6 +12,7 @@ import { SiteFooter } from '../components/SiteFooter';
 import { LocalizedLink } from '../components/LocalizedLink';
 import { useDayTripSearch } from '../hooks/useDayTripSearch';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
+import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -99,6 +101,14 @@ export function DayTripsFromCityPage() {
     passengerCount,
     locating
   });
+
+  const resultsResetKey = `${selectedCodes.slice().sort().join(',')}|${selectedDayIds.slice().sort().join('|')}`;
+  const {
+    query: resultsQuery,
+    setQuery: setResultsQuery,
+    filteredFlights,
+    hasTextFilter
+  } = useFlightTextFilter(visibleFlights, resultsResetKey);
 
   const locationLabel = useMemo(() => {
     const active = selectedCodes
@@ -383,20 +393,37 @@ export function DayTripsFromCityPage() {
                 {t('home.clearLegFilters')}
               </button>
             </div>
+          ) : filteredFlights.length === 0 ? (
+            <div className="results-panel">
+              <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
+              <div className="state-box">
+                {t('home.noTextMatch')}{' '}
+                <button type="button" className="link-button" onClick={() => setResultsQuery('')}>
+                  {t('home.clearResultsSearch')}
+                </button>
+              </div>
+            </div>
           ) : (
             <div className="flight-list">
-              {hasLegFilter ? (
+              <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
+              {hasLegFilter || hasTextFilter ? (
                 <p className="offers-subtitle">
                   {t('home.flightsCounterFiltered', {
-                    shown: visibleFlights.length,
+                    shown: filteredFlights.length,
                     total: flights.length
                   })}{' '}
-                  <button type="button" className="link-button" onClick={clearLegFilters}>
-                    {t('home.clearLegFilters')}
-                  </button>
+                  {hasLegFilter ? (
+                    <button type="button" className="link-button" onClick={clearLegFilters}>
+                      {t('home.clearLegFilters')}
+                    </button>
+                  ) : (
+                    <button type="button" className="link-button" onClick={() => setResultsQuery('')}>
+                      {t('home.clearResultsSearch')}
+                    </button>
+                  )}
                 </p>
               ) : null}
-              {visibleFlights.map(flight => (
+              {filteredFlights.map(flight => (
                 <FlightCard
                   key={flight.id}
                   flight={flight}

@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Voli weekend da {{city}}",
       "description": "Confronta voli weekend economici da {{city}}. City break ven–dom senza ferie — trova offerte e prenota su Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Gite di un giorno da {{city}}",
+      "description": "Trova gite sabato e domenica in giornata da {{city}} — partenza al mattino, ritorno la sera, senza pernottamento. Confronta le offerte e prenota su Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Voli weekend {{from}} verso {{to}}",
+      "description": "Confronta i voli weekend più economici da {{from}} verso {{to}} su un calendario prezzi mensile. Trova la migliore tariffa ven–dom e prenota su Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Cerca voli weekend economici da {{city}} verso città in Europa. Filtra ven–dom e altri pattern brevi, confronta i prezzi e prenota su Kiwi.com.",
     "popularHubsTitle": "Città di partenza popolari",
     "seeAlsoCheapest": "Trova il weekend più economico verso una destinazione",
-    "seeAlsoDayTrips": "Gite di un giorno"
+    "seeAlsoDayTrips": "Gite di un giorno",
+    "priceHint": "Le offerte weekend da {{city}} partono spesso da circa {{minPrice}} € verso {{destinationCount}} destinazioni.",
+    "topDestinationsTitle": "Destinazioni popolari da {{city}}",
+    "destinationPrice": "da {{price}} €",
+    "seeAlsoDayTripsFromCity": "Gite di un giorno da {{city}}",
+    "faqTitle": "FAQ: voli weekend da {{city}}",
+    "faq": [
+      {
+        "q": "Quanto costano i voli weekend da {{city}}?",
+        "a": "I prezzi variano in base a destinazione e stagione, ma molte rotte ven–dom da {{city}} partono da tariffe economiche — usa il calendario e i link alle destinazioni in questa pagina per confrontare le offerte attuali."
+      },
+      {
+        "q": "Quali compagnie coprono le rotte weekend da {{city}}?",
+        "a": "Le offerte weekend da {{city}} sono aggregate dalla ricerca voli di Kiwi.com e includono sia compagnie low-cost che tradizionali a seconda della rotta."
+      },
+      {
+        "q": "Posso trovare un volo venerdì sera da {{city}}?",
+        "a": "Sì — usa il filtro partenza serale qui sopra per mostrare solo i voli in partenza da {{city}} dalle 17:00 in poi, così puoi partire dopo il lavoro."
+      },
+      {
+        "q": "Qual è il weekend più economico per volare da {{city}} verso una città specifica?",
+        "a": "Apri \"Miglior prezzo weekend\" e scegli {{city}} come aeroporto di partenza e una città europea come destinazione per confrontare le tariffe dei prossimi weekend su un calendario."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Gite di un giorno da {{city}}",
+    "title": "Gite in giornata da {{city}}",
+    "subtitle": "Parti sabato o domenica mattina da {{city}}, torna a casa la stessa sera",
+    "lead": "Parti da {{city}} dopo colazione, esplora una città europea e vola a casa la stessa sera — niente hotel, niente pernottamento.",
+    "seoTitle": "Trova gite da {{city}} senza pernottamento",
+    "seoBlock": "Cerchi una gita di un giorno da {{city}}? Scegli sabati o domeniche per voli mattina andata / sera ritorno da {{city}}. Confronta le offerte delle destinazioni vicine e prenota tramite Kiwi.com — ideale per una giornata intera all’estero senza hotel.",
+    "popularHubsTitle": "Altre città di partenza per gite",
+    "seeAlsoWeekendFromCity": "Voli weekend da {{city}}",
+    "faqTitle": "FAQ: gite di un giorno da {{city}}",
+    "faq": [
+      {
+        "q": "Cosa si intende per gita di un giorno da {{city}}?",
+        "a": "Un andata e ritorno in giornata: si parte da {{city}} al mattino, si passa la giornata in un’altra città europea e si torna la stessa sera — senza hotel né pernottamento."
+      },
+      {
+        "q": "In quali giorni posso fare una gita da {{city}}?",
+        "a": "Le gite da {{city}} su euroweekender.com si concentrano su sabati e domeniche, con voli mattina andata / sera ritorno."
+      },
+      {
+        "q": "Con quanto anticipo posso cercare gite da {{city}}?",
+        "a": "Usa i pulsanti dell’intervallo sopra il calendario per esplorare il prossimo mese, i prossimi tre o sei mesi di sabati e domeniche da {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Voli weekend più economici {{from}} → {{to}}",
+    "seoBlock": "Confronta i prezzi dei voli weekend da {{from}} verso {{to}} su un calendario mensile. Individua la tariffa ven–dom più bassa, apri un weekend per i dettagli del volo e prenota in sicurezza su Kiwi.com.",
+    "seeAlsoFromCity": "Voli weekend da {{city}}"
   }
 }

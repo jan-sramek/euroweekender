@@ -47,6 +47,38 @@ public class CitiesController(
     }
 
     /// <summary>
+    /// Top destinations from an origin city by offer volume in the upcoming weeks.
+    /// </summary>
+    [HttpGet("{code}/top-destinations")]
+    [ProducesResponseType(typeof(IReadOnlyList<OriginDestinationDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyList<OriginDestinationDto>>> GetTopDestinationsAsync(
+        string code,
+        [FromQuery] int weeks = WeekendHubIndex.DefaultWeeksAhead,
+        [FromQuery] int limit = 12,
+        CancellationToken cancellationToken = default)
+    {
+        weeks = Math.Clamp(weeks, 1, 12);
+        limit = Math.Clamp(limit, 1, 50);
+        Response.Headers.CacheControl = "public, max-age=300";
+
+        var cacheKey = $"cities:top-destinations:{code.Trim().ToUpperInvariant()}:{weeks}:{limit}";
+        if (!memoryCache.TryGetValue(cacheKey, out IReadOnlyList<OriginDestinationDto>? dtos) || dtos is null)
+        {
+            var destinations = await hubScoreService.GetTopDestinationsAsync(
+                code,
+                weeks,
+                limit,
+                cancellationToken);
+            dtos = destinations
+                .Select(d => new OriginDestinationDto(d.CityCodeTo, d.OfferCount, d.MinPrice))
+                .ToList();
+            memoryCache.Set(cacheKey, dtos, HubScoresCacheDuration);
+        }
+
+        return Ok(dtos);
+    }
+
+    /// <summary>
     /// Multilingual city typeahead via Tequila locations/query, mapped to our cities.
     /// </summary>
     [HttpGet("suggest")]

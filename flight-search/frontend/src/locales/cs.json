@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Víkendové lety z {{city}}",
       "description": "Porovnejte levné evropské víkendové lety z {{city}}. Pá–ne city breaky bez dovolené — najděte nabídky a rezervujte přes Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Jednodenní výlety z {{city}}",
+      "description": "Najděte sobotní a nedělní jednodenní výlety z {{city}} — ráno tam, večer zpět, bez přenocování. Porovnejte nabídky a rezervujte na Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Víkendové lety {{from}} do {{to}}",
+      "description": "Porovnejte nejlevnější víkendové lety z {{from}} do {{to}} v měsíčním cenovém kalendáři. Najděte nejlepší pá–ne tarif a rezervujte na Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Hledejte levné víkendové lety z {{city}} do evropských měst. Filtrujte pá–ne a další krátké vzory, porovnávejte ceny a rezervujte na Kiwi.com.",
     "popularHubsTitle": "Oblíbená odletová města",
     "seeAlsoCheapest": "Najděte nejlevnější víkend do destinace",
-    "seeAlsoDayTrips": "Jednodenní výlety"
+    "seeAlsoDayTrips": "Jednodenní výlety",
+    "priceHint": "Víkendové nabídky z {{city}} často začínají kolem {{minPrice}} € do {{destinationCount}} destinací.",
+    "topDestinationsTitle": "Oblíbené destinace z {{city}}",
+    "destinationPrice": "od {{price}} €",
+    "seeAlsoDayTripsFromCity": "Jednodenní výlety z {{city}}",
+    "faqTitle": "FAQ: víkendové lety z {{city}}",
+    "faq": [
+      {
+        "q": "Kolik stojí víkendové lety z {{city}}?",
+        "a": "Ceny se liší podle destinace a sezóny, ale mnoho tras pá–ne z {{city}} začíná na dostupných tarifech — pomocí kalendáře a odkazů na destinace na této stránce porovnejte aktuální nabídky."
+      },
+      {
+        "q": "Které aerolinky létají na víkendových trasách z {{city}}?",
+        "a": "Víkendové nabídky z {{city}} pocházejí z vyhledávání letů Kiwi.com a zahrnují jak nízkonákladové, tak síťové dopravce podle trasy."
+      },
+      {
+        "q": "Najdu let v pátek večer z {{city}}?",
+        "a": "Ano — použijte výše filtr večerních odletů, který zobrazí pouze odlety z {{city}} od 17:00, abyste mohli odletět po práci."
+      },
+      {
+        "q": "Jaký je nejlevnější víkend pro let z {{city}} do konkrétního města?",
+        "a": "Otevřete „Nejlepší víkendovou cenu“ a vyberte {{city}} jako odletové letiště a libovolné evropské město jako cíl, abyste porovnali tarify nadcházejících víkendů v kalendáři."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Jednodenní výlety z {{city}}",
+    "title": "Výlety v rámci jednoho dne z {{city}}",
+    "subtitle": "Odlet v sobotu nebo neděli ráno z {{city}}, návrat tentýž večer",
+    "lead": "Vyjeďte z {{city}} po snídani, prozkoumejte evropské město a vraťte se tentýž večer — bez hotelu, bez přenocování.",
+    "seoTitle": "Najděte výlety z {{city}} bez přenocování",
+    "seoBlock": "Hledáte jednodenní výlet z {{city}}? Vyberte soboty nebo neděle pro lety ráno tam / večer zpět z {{city}}. Porovnejte nabídky blízkých destinací a rezervujte přes Kiwi.com — ideální na celý den v zahraničí bez hotelu.",
+    "popularHubsTitle": "Další odletová města pro jednodenní výlety",
+    "seeAlsoWeekendFromCity": "Víkendové lety z {{city}}",
+    "faqTitle": "FAQ: jednodenní výlety z {{city}}",
+    "faq": [
+      {
+        "q": "Co se počítá jako jednodenní výlet z {{city}}?",
+        "a": "Let tam a zpět tentýž den: ráno odlet z {{city}}, den v jiném evropském městě a návrat tentýž večer — bez hotelu a bez přenocování."
+      },
+      {
+        "q": "V jakých dnech mohu letět na jednodenní výlet z {{city}}?",
+        "a": "Jednodenní výlety z {{city}} na euroweekender.com se zaměřují na soboty a neděle, odpovídající letům ráno tam / večer zpět."
+      },
+      {
+        "q": "Jak daleko dopředu mohu hledat výlety z {{city}}?",
+        "a": "Použijte tlačítka rozsahu nad kalendářem k procházení nejbližšího měsíce, tří nebo šesti měsíců sobot a nedělí z {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Nejlevnější víkendové lety {{from}} → {{to}}",
+    "seoBlock": "Porovnejte ceny víkendových letů z {{from}} do {{to}} v měsíčním kalendáři. Najděte nejnižší pá–ne tarif, otevřete víkend pro podrobnosti o letu a rezervujte bezpečně na Kiwi.com.",
+    "seeAlsoFromCity": "Víkendové lety z {{city}}"
   }
 }

@@ -43,4 +43,26 @@ public sealed class HubScoreService(
             .OrderByDescending(score => score.HubScore)
             .ToList();
     }
+
+    public async Task<IReadOnlyList<OriginDestinationStats>> GetTopDestinationsAsync(
+        string cityCodeFrom,
+        int weeksAhead,
+        int limit,
+        CancellationToken cancellationToken = default)
+    {
+        weeksAhead = Math.Clamp(weeksAhead, 1, 12);
+        limit = Math.Clamp(limit, 1, 50);
+        var code = cityCodeFrom.Trim().ToUpperInvariant();
+        if (code.Length == 0)
+            return Array.Empty<OriginDestinationStats>();
+
+        var departFromUtc = DateTime.UtcNow;
+        var departToUtc = departFromUtc.AddDays(weeksAhead * 7);
+        return await flightRepository.GetTopDestinationsFromOriginAsync(
+            code,
+            departFromUtc,
+            departToUtc,
+            limit,
+            cancellationToken);
+    }
 }

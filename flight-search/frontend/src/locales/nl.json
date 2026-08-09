@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Weekendvluchten vanuit {{city}}",
       "description": "Vergelijk goedkope Europese weekendvluchten vanuit {{city}}. Vr–zo citybreaks zonder vakantiedagen — vind deals en boek via Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Dagtrips vanuit {{city}}",
+      "description": "Vind zaterdag- en zondagtrips op dezelfde dag vanuit {{city}} — ’s ochtends heen, ’s avonds terug, zonder overnachting. Vergelijk deals en boek via Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Weekendvluchten {{from}} naar {{to}}",
+      "description": "Vergelijk de goedkoopste weekendvluchten van {{from}} naar {{to}} op een maandelijkse priskalender. Vind de beste vr–zo-tarief en boek via Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Zoek goedkope weekendvluchten vanuit {{city}} naar steden in Europa. Filter vr–zo en andere korte patronen, vergelijk prijzen en boek op Kiwi.com.",
     "popularHubsTitle": "Populaire vertreksteden",
     "seeAlsoCheapest": "Vind het goedkoopste weekend naar een bestemming",
-    "seeAlsoDayTrips": "Dagtrips"
+    "seeAlsoDayTrips": "Dagtrips",
+    "priceHint": "Weekenddeals vanuit {{city}} beginnen vaak rond {{minPrice}} € naar {{destinationCount}} bestemmingen.",
+    "topDestinationsTitle": "Populaire bestemmingen vanuit {{city}}",
+    "destinationPrice": "vanaf {{price}} €",
+    "seeAlsoDayTripsFromCity": "Dagtrips vanuit {{city}}",
+    "faqTitle": "FAQ: weekendvluchten vanuit {{city}}",
+    "faq": [
+      {
+        "q": "Hoeveel kosten weekendvluchten vanuit {{city}}?",
+        "a": "Prijzen variëren per bestemming en seizoen, maar veel vr–zo-routes vanuit {{city}} beginnen bij budgetvriendelijke tarieven — gebruik de kalender en bestemmingslinks op deze pagina om actuele aanbiedingen te vergelijken."
+      },
+      {
+        "q": "Welke maatschappijen vliegen weekendroutes vanuit {{city}}?",
+        "a": "Weekenddeals vanuit {{city}} komen uit de vluchtzoekmachine van Kiwi.com en omvatten zowel low-cost als traditionele maatschappijen, afhankelijk van de route."
+      },
+      {
+        "q": "Kan ik een vrijdagavondvlucht vanuit {{city}} vinden?",
+        "a": "Ja — gebruik hierboven het avondvertrekfilter om alleen heenvluchten vanuit {{city}} vanaf 17:00 uur te tonen, zodat je na het werk kunt vertrekken."
+      },
+      {
+        "q": "Wat is het goedkoopste weekend om van {{city}} naar een specifieke stad te vliegen?",
+        "a": "Open \"Beste weekendprijs\" en kies {{city}} als vertrekluchthaven en een Europese stad als bestemming om tarieven van komende weekenden op een kalender te vergelijken."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Dagtrips vanuit {{city}}",
+    "title": "Dagtrips op dezelfde dag vanuit {{city}}",
+    "subtitle": "Vlieg zaterdag of zondag ’s ochtends vanuit {{city}} weg, kom dezelfde avond terug",
+    "lead": "Vertrek na het ontbijt vanuit {{city}}, verken een Europese stad en vlieg dezelfde avond terug — geen hotel, geen overnachting.",
+    "seoTitle": "Vind dagtrips vanuit {{city}} zonder overnachting",
+    "seoBlock": "Op zoek naar een dagtrip vanuit {{city}}? Kies zaterdagen of zondagen voor ochtend-heen, avond-terug vluchten vanuit {{city}}. Vergelijk deals van nabije bestemmingen en boek via Kiwi.com — ideaal voor een volle dag in het buitenland zonder hotel.",
+    "popularHubsTitle": "Meer vertreksteden voor dagtrips",
+    "seeAlsoWeekendFromCity": "Weekendvluchten vanuit {{city}}",
+    "faqTitle": "FAQ: dagtrips vanuit {{city}}",
+    "faq": [
+      {
+        "q": "Wat geldt als dagtrip vanuit {{city}}?",
+        "a": "Een same-day retour: ’s ochtends vanuit {{city}} vertrekken, de dag in een andere Europese stad doorbrengen en dezelfde avond terugvliegen — zonder hotel of overnachting."
+      },
+      {
+        "q": "Op welke dagen kan ik een dagtrip vanuit {{city}} vliegen?",
+        "a": "Dagtrips vanuit {{city}} op euroweekender.com focussen op zaterdagen en zondagen, passend bij ochtend-heen en avond-terug vluchten."
+      },
+      {
+        "q": "Hoe ver vooruit kan ik dagtrips vanuit {{city}} zoeken?",
+        "a": "Gebruik de bereikknoppen boven de kalender om de komende maand, drie maanden of zes maanden aan zaterdagen en zondagen vanuit {{city}} te bekijken."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Goedkoopste weekendvluchten {{from}} → {{to}}",
+    "seoBlock": "Vergelijk weekendvluchtprijzen van {{from}} naar {{to}} op een maandelijkse kalender. Spot het laagste vr–zo-tarief, open een weekend voor vluchtdetails en boek veilig via Kiwi.com.",
+    "seeAlsoFromCity": "Weekendvluchten vanuit {{city}}"
   }
 }

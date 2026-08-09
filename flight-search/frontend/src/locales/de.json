@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Wochenendflüge ab {{city}}",
       "description": "Vergleichen Sie günstige europäische Wochenendflüge ab {{city}}. Fr–So-Städtereisen ohne Urlaubstage — Angebote finden und über Kiwi.com buchen."
+    },
+    "dayTripsFrom": {
+      "title": "Tagesausflüge ab {{city}}",
+      "description": "Finden Sie eintägige Samstags- und Sonntags-Städtetrips ab {{city}} — morgens hin, abends zurück, ohne Übernachtung. Angebote vergleichen und über Kiwi.com buchen."
+    },
+    "weekendFlightsOd": {
+      "title": "Wochenendflüge {{from}} nach {{to}}",
+      "description": "Vergleichen Sie die günstigsten Wochenendflüge von {{from}} nach {{to}} in einem monatlichen Preiskalender. Finden Sie den besten Fr–So-Tarif und buchen Sie über Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Suchen Sie günstige Wochenendflüge ab {{city}} in europäische Städte. Filtern Sie Fr–So und andere Kurzmuster, vergleichen Sie Preise und buchen Sie auf Kiwi.com.",
     "popularHubsTitle": "Beliebte Abflugstädte",
     "seeAlsoCheapest": "Günstigstes Wochenende zu einem Ziel finden",
-    "seeAlsoDayTrips": "Eintägige Städtetrips"
+    "seeAlsoDayTrips": "Eintägige Städtetrips",
+    "priceHint": "Wochenendangebote ab {{city}} beginnen oft bei rund {{minPrice}} € für {{destinationCount}} Ziele.",
+    "topDestinationsTitle": "Beliebte Ziele ab {{city}}",
+    "destinationPrice": "ab {{price}} €",
+    "seeAlsoDayTripsFromCity": "Tagesausflüge ab {{city}}",
+    "faqTitle": "FAQ: Wochenendflüge ab {{city}}",
+    "faq": [
+      {
+        "q": "Wie viel kosten Wochenendflüge ab {{city}}?",
+        "a": "Die Preise variieren je nach Ziel und Saison, aber viele Fr–So-Strecken ab {{city}} starten preisgünstig — nutzen Sie den Kalender und die Zielverlinkungen auf dieser Seite, um aktuelle Angebote zu vergleichen."
+      },
+      {
+        "q": "Welche Airlines fliegen Wochenendstrecken ab {{city}}?",
+        "a": "Wochenendangebote ab {{city}} stammen aus der Flugsuche von Kiwi.com und umfassen je nach Strecke sowohl Low-Cost- als auch Netzwerk-Airlines."
+      },
+      {
+        "q": "Finde ich einen Freitagabendflug ab {{city}}?",
+        "a": "Ja — nutzen Sie oben den Abendabflug-Filter, um nur Hinflüge ab {{city}} ab 17:00 Uhr anzuzeigen, damit Sie nach der Arbeit losfliegen können."
+      },
+      {
+        "q": "Was ist das günstigste Wochenende, um von {{city}} in eine bestimmte Stadt zu fliegen?",
+        "a": "Öffnen Sie „Bester Wochenendpreis“ und wählen Sie {{city}} als Abflughafen sowie eine europäische Stadt als Ziel, um Tarife über kommende Wochenenden im Kalender zu vergleichen."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Tagesausflüge ab {{city}}",
+    "title": "Eintägige Städtetrips ab {{city}}",
+    "subtitle": "Samstag oder Sonntag morgens ab {{city}} los, am selben Abend zurück",
+    "lead": "Verlassen Sie {{city}} nach dem Frühstück, erkunden Sie eine europäische Stadt und fliegen Sie am selben Abend zurück — ohne Hotel, ohne Übernachtung.",
+    "seoTitle": "Tagesausflüge ab {{city}} ohne Übernachtung finden",
+    "seoBlock": "Suchen Sie einen eintägigen Städtetrip ab {{city}}? Wählen Sie Samstage oder Sonntage für Flüge morgens hin und abends zurück ab {{city}}. Vergleichen Sie Angebote naher Ziele und buchen Sie über Kiwi.com — ideal für einen vollen Tag im Ausland ohne Hotel.",
+    "popularHubsTitle": "Weitere Tagesausflug-Abflugstädte",
+    "seeAlsoWeekendFromCity": "Wochenendflüge ab {{city}}",
+    "faqTitle": "FAQ: Tagesausflüge ab {{city}}",
+    "faq": [
+      {
+        "q": "Was gilt als Tagesausflug ab {{city}}?",
+        "a": "Ein Same-Day-Rückflug: morgens ab {{city}} los, einen Tag in einer anderen europäischen Stadt verbringen und am selben Abend zurückfliegen — ohne Hotel und ohne Übernachtung."
+      },
+      {
+        "q": "An welchen Tagen kann ich einen Tagesausflug ab {{city}} fliegen?",
+        "a": "Tagesausflüge ab {{city}} auf euroweekender.com konzentrieren sich auf Samstage und Sonntage, passend zu Flügen morgens hin und abends zurück."
+      },
+      {
+        "q": "Wie weit im Voraus kann ich Tagesausflüge ab {{city}} suchen?",
+        "a": "Nutzen Sie die Bereichsschaltflächen über dem Kalender, um den nächsten Monat, die nächsten drei oder sechs Monate an Samstagen und Sonntagen ab {{city}} zu durchsuchen."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Günstigste Wochenendflüge {{from}} → {{to}}",
+    "seoBlock": "Vergleichen Sie Wochenend-Flugpreise von {{from}} nach {{to}} in einem monatlichen Kalender. Finden Sie den günstigsten Fr–So-Tarif, öffnen Sie ein Wochenende für Flugdetails und buchen Sie sicher über Kiwi.com.",
+    "seeAlsoFromCity": "Wochenendflüge ab {{city}}"
   }
 }

@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Vuelos de fin de semana desde {{city}}",
       "description": "Compara vuelos de fin de semana baratos desde {{city}}. Escapadas vie–dom sin vacaciones — encuentra ofertas y reserva en Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Escapadas de un día desde {{city}}",
+      "description": "Encuentra escapadas de sábado y domingo el mismo día desde {{city}} — salida por la mañana, regreso por la noche, sin pernoctar. Compara ofertas y reserva en Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Vuelos de fin de semana {{from}} a {{to}}",
+      "description": "Compara los vuelos de fin de semana más baratos de {{from}} a {{to}} en un calendario de precios mensual. Encuentra la mejor tarifa vie–dom y reserva en Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Busca vuelos de fin de semana baratos desde {{city}} a ciudades de Europa. Filtra vie–dom y otros patrones cortos, compara precios y reserva en Kiwi.com.",
     "popularHubsTitle": "Ciudades de salida populares",
     "seeAlsoCheapest": "Encuentra el fin de semana más barato a un destino",
-    "seeAlsoDayTrips": "Escapadas de un día"
+    "seeAlsoDayTrips": "Escapadas de un día",
+    "priceHint": "Las ofertas de fin de semana desde {{city}} suelen empezar en torno a {{minPrice}} € hacia {{destinationCount}} destinos.",
+    "topDestinationsTitle": "Destinos populares desde {{city}}",
+    "destinationPrice": "desde {{price}} €",
+    "seeAlsoDayTripsFromCity": "Escapadas de un día desde {{city}}",
+    "faqTitle": "FAQ: vuelos de fin de semana desde {{city}}",
+    "faq": [
+      {
+        "q": "¿Cuánto cuestan los vuelos de fin de semana desde {{city}}?",
+        "a": "Los precios varían según el destino y la temporada, pero muchas rutas vie–dom desde {{city}} parten de tarifas económicas — usa el calendario y los enlaces de destino de esta página para comparar ofertas actuales."
+      },
+      {
+        "q": "¿Qué aerolíneas cubren rutas de fin de semana desde {{city}}?",
+        "a": "Las ofertas de fin de semana desde {{city}} se recopilan de la búsqueda de vuelos de Kiwi.com, incluyendo aerolíneas low-cost y tradicionales según la ruta."
+      },
+      {
+        "q": "¿Puedo encontrar un vuelo el viernes por la noche desde {{city}}?",
+        "a": "Sí — usa el filtro de salida nocturna arriba para mostrar solo vuelos de ida desde {{city}} a partir de las 17:00, para poder viajar después del trabajo."
+      },
+      {
+        "q": "¿Cuál es el fin de semana más barato para volar de {{city}} a una ciudad concreta?",
+        "a": "Abre \"Mejor precio de fin de semana\" y elige {{city}} como aeropuerto de salida y cualquier ciudad europea como destino para comparar tarifas de los próximos fines de semana en un calendario."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Escapadas de un día desde {{city}}",
+    "title": "Escapadas el mismo día desde {{city}}",
+    "subtitle": "Sal el sábado o domingo por la mañana desde {{city}}, vuelve la misma noche",
+    "lead": "Sal de {{city}} después del desayuno, explora una ciudad europea y vuelve a casa la misma noche — sin hotel, sin pernoctar.",
+    "seoTitle": "Encuentra escapadas desde {{city}} sin pernoctar",
+    "seoBlock": "¿Buscas una escapada de un día desde {{city}}? Elige sábados o domingos para vuelos mañana ida / noche vuelta desde {{city}}. Compara ofertas de destinos cercanos y reserva con Kiwi.com — ideal para un día completo en el extranjero sin hotel.",
+    "popularHubsTitle": "Más ciudades de salida para escapadas",
+    "seeAlsoWeekendFromCity": "Vuelos de fin de semana desde {{city}}",
+    "faqTitle": "FAQ: escapadas de un día desde {{city}}",
+    "faq": [
+      {
+        "q": "¿Qué se considera una escapada de un día desde {{city}}?",
+        "a": "Una ida y vuelta el mismo día: sale de {{city}} por la mañana, pasa el día en otra ciudad europea y vuelve la misma noche — sin hotel ni pernocta."
+      },
+      {
+        "q": "¿Qué días puedo volar una escapada desde {{city}}?",
+        "a": "Las escapadas desde {{city}} en euroweekender.com se centran en sábados y domingos, con vuelos mañana ida / noche vuelta."
+      },
+      {
+        "q": "¿Con cuánta antelación puedo buscar escapadas desde {{city}}?",
+        "a": "Usa los botones de rango sobre el calendario para explorar el próximo mes, los próximos tres o seis meses de sábados y domingos desde {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Vuelos de fin de semana más baratos {{from}} → {{to}}",
+    "seoBlock": "Compara los precios de vuelos de fin de semana de {{from}} a {{to}} en un calendario mensual. Encuentra la tarifa vie–dom más baja, abre un fin de semana para ver los detalles del vuelo y reserva de forma segura en Kiwi.com.",
+    "seeAlsoFromCity": "Vuelos de fin de semana desde {{city}}"
   }
 }

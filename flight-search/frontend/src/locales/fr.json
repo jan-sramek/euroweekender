@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Vols week-end depuis {{city}}",
       "description": "Comparez des vols week-end économiques depuis {{city}}. City breaks ven–dim sans congés — trouvez des offres et réservez via Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Excursions d’une journée depuis {{city}}",
+      "description": "Trouvez des escapades samedi et dimanche le jour même depuis {{city}} — départ le matin, retour le soir, sans nuitée. Comparez les offres et réservez via Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Vols week-end {{from}} vers {{to}}",
+      "description": "Comparez les vols week-end les moins chers de {{from}} vers {{to}} sur un calendrier de prix mensuel. Trouvez le meilleur tarif ven–dim et réservez via Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Recherchez des vols week-end pas chers depuis {{city}} vers des villes en Europe. Filtrez ven–dim et autres courts séjours, comparez les prix et réservez sur Kiwi.com.",
     "popularHubsTitle": "Villes de départ populaires",
     "seeAlsoCheapest": "Trouver le week-end le moins cher vers une destination",
-    "seeAlsoDayTrips": "Escapades d’une journée"
+    "seeAlsoDayTrips": "Escapades d’une journée",
+    "priceHint": "Les offres week-end depuis {{city}} démarrent souvent autour de {{minPrice}} € vers {{destinationCount}} destinations.",
+    "topDestinationsTitle": "Destinations populaires depuis {{city}}",
+    "destinationPrice": "dès {{price}} €",
+    "seeAlsoDayTripsFromCity": "Escapades d’une journée depuis {{city}}",
+    "faqTitle": "FAQ : vols week-end depuis {{city}}",
+    "faq": [
+      {
+        "q": "Combien coûtent les vols week-end depuis {{city}} ?",
+        "a": "Les prix varient selon la destination et la saison, mais de nombreuses routes ven–dim depuis {{city}} démarrent à des tarifs abordables — utilisez le calendrier et les liens de destination sur cette page pour comparer les offres actuelles."
+      },
+      {
+        "q": "Quelles compagnies desservent les routes week-end depuis {{city}} ?",
+        "a": "Les offres week-end depuis {{city}} sont agrégées depuis la recherche de vols Kiwi.com, couvrant compagnies low-cost et traditionnelles selon la route."
+      },
+      {
+        "q": "Puis-je trouver un vol le vendredi soir depuis {{city}} ?",
+        "a": "Oui — utilisez le filtre de départ en soirée ci-dessus pour n’afficher que les vols aller au départ de {{city}} à partir de 17h00, afin de partir après le travail."
+      },
+      {
+        "q": "Quel est le week-end le moins cher pour voler de {{city}} vers une ville précise ?",
+        "a": "Ouvrez « Meilleur prix week-end » et choisissez {{city}} comme aéroport de départ et n’importe quelle ville européenne comme destination pour comparer les tarifs des prochains week-ends sur un calendrier."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Escapades d’une journée depuis {{city}}",
+    "title": "Escapades le jour même depuis {{city}}",
+    "subtitle": "Partez samedi ou dimanche matin depuis {{city}}, rentrez le même soir",
+    "lead": "Quittez {{city}} après le petit-déjeuner, explorez une ville européenne et rentrez le même soir — pas d’hôtel, pas de nuitée.",
+    "seoTitle": "Trouvez des escapades depuis {{city}} sans nuitée",
+    "seoBlock": "Vous cherchez une escapade d’une journée depuis {{city}} ? Choisissez samedi ou dimanche pour des vols matin aller / soir retour depuis {{city}}. Comparez les offres des destinations proches et réservez via Kiwi.com — idéal pour une journée complète à l’étranger sans hôtel.",
+    "popularHubsTitle": "Autres villes de départ pour escapades",
+    "seeAlsoWeekendFromCity": "Vols week-end depuis {{city}}",
+    "faqTitle": "FAQ : escapades d’une journée depuis {{city}}",
+    "faq": [
+      {
+        "q": "Qu’est-ce qu’une escapade d’une journée depuis {{city}} ?",
+        "a": "Un aller-retour le jour même : décollage de {{city}} le matin, une journée dans une autre ville européenne et retour le même soir — sans hôtel ni nuitée."
+      },
+      {
+        "q": "Quels jours puis-je voyager en escapade depuis {{city}} ?",
+        "a": "Les escapades depuis {{city}} sur euroweekender.com se concentrent sur les samedis et dimanches, avec des vols matin aller / soir retour."
+      },
+      {
+        "q": "Jusqu’à quand puis-je rechercher des escapades depuis {{city}} ?",
+        "a": "Utilisez les boutons de plage au-dessus du calendrier pour parcourir le mois, les trois mois ou les six prochains mois de samedis et dimanches depuis {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Vols week-end les moins chers {{from}} → {{to}}",
+    "seoBlock": "Comparez les prix des vols week-end de {{from}} vers {{to}} sur un calendrier mensuel. Repérez le tarif ven–dim le plus bas, ouvrez un week-end pour les détails du vol et réservez en toute sécurité via Kiwi.com.",
+    "seeAlsoFromCity": "Vols week-end depuis {{city}}"
   }
 }

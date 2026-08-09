@@ -1,7 +1,7 @@
-import type { City, CitySuggestion, HubScore } from '../types/city';
+import type { City, CitySuggestion, HubScore, OriginDestination } from '../types/city';
 import type { Flight, FlightPage } from '../types/flight';
 import { withLocalizedName } from '../utils/cityDisplayName';
-import { normalizeHubScore } from './hubScore';
+import { normalizeHubScore, normalizeOriginDestination } from './hubScore';
 import { getWeekendSearchRange } from './weekend';
 
 const API_BASE = '/api';
@@ -12,6 +12,8 @@ const CITIES_CACHE_KEY = 'ew:cities:v4';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
+const TOP_DESTINATIONS_CACHE_PREFIX = 'ew:top-destinations:v1:';
+const TOP_DESTINATIONS_CACHE_TTL_MS = 15 * 60 * 1000;
 
 function searchPageSize(cityCount: number): number {
   if (cityCount <= 1) return SINGLE_CITY_PAGE_SIZE;
@@ -276,6 +278,60 @@ function writeHubScoresCache(weeks: number, scores: HubScore[]): void {
       HUB_SCORES_CACHE_KEY,
       JSON.stringify({ cachedAt: Date.now(), weeks, scores })
     );
+  } catch {
+    // Ignore quota or private-mode storage errors.
+  }
+}
+
+/** Top destinations from an origin city by upcoming offer volume (used for SEO destination links). */
+export async function getTopDestinations(
+  code: string,
+  weeks = 4,
+  limit = 12
+): Promise<OriginDestination[]> {
+  const normalized = code.trim().toUpperCase();
+  if (!normalized) return [];
+
+  const cacheKey = `${TOP_DESTINATIONS_CACHE_PREFIX}${normalized}:${weeks}:${limit}`;
+  const cached = readTopDestinationsCache(cacheKey);
+  if (cached) return cached;
+
+  const response = await fetch(
+    `${API_BASE}/cities/${normalized}/top-destinations?weeks=${weeks}&limit=${limit}`
+  );
+  if (!response.ok) {
+    throw new Error(`Failed to load top destinations (${response.status})`);
+  }
+  const payload = (await response.json()) as Record<string, unknown>[];
+  const destinations = payload.map(normalizeOriginDestination).filter(d => d.code.length > 0);
+  writeTopDestinationsCache(cacheKey, destinations);
+  return destinations;
+}
+
+function readTopDestinationsCache(cacheKey: string): OriginDestination[] | null {
+  try {
+    const raw = sessionStorage.getItem(cacheKey);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw) as { cachedAt: number; destinations: OriginDestination[] };
+    if (!Array.isArray(parsed.destinations) || typeof parsed.cachedAt !== 'number') {
+      return null;
+    }
+
+    if (Date.now() - parsed.cachedAt > TOP_DESTINATIONS_CACHE_TTL_MS) {
+      sessionStorage.removeItem(cacheKey);
+      return null;
+    }
+
+    return parsed.destinations;
+  } catch {
+    return null;
+  }
+}
+
+function writeTopDestinationsCache(cacheKey: string, destinations: OriginDestination[]): void {
+  try {
+    sessionStorage.setItem(cacheKey, JSON.stringify({ cachedAt: Date.now(), destinations }));
   } catch {
     // Ignore quota or private-mode storage errors.
   }

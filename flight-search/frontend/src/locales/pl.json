@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Loty weekendowe z {{city}}",
       "description": "Porównuj tanie europejskie loty weekendowe z {{city}}. Wyjazdy pt–nd bez urlopu — znajdź oferty i rezerwuj przez Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Jednodniowe wycieczki z {{city}}",
+      "description": "Znajdź sobotnie i niedzielne jednodniowe wycieczki z {{city}} — rano tam, wieczorem z powrotem, bez noclegu. Porównaj oferty i rezerwuj na Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Loty weekendowe {{from}} do {{to}}",
+      "description": "Porównaj najtańsze loty weekendowe z {{from}} do {{to}} w miesięcznym kalendarzu cen. Znajdź najlepszą taryfę pt–nd i rezerwuj na Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Szukaj tanich lotów weekendowych z {{city}} do miast w Europie. Filtruj pt–nd i inne krótkie wzorce, porównuj ceny i rezerwuj na Kiwi.com.",
     "popularHubsTitle": "Popularne miasta wylotu",
     "seeAlsoCheapest": "Znajdź najtańszy weekend do celu",
-    "seeAlsoDayTrips": "Jednodniowe wycieczki"
+    "seeAlsoDayTrips": "Jednodniowe wycieczki",
+    "priceHint": "Oferty weekendowe z {{city}} często zaczynają się od około {{minPrice}} € do {{destinationCount}} destynacji.",
+    "topDestinationsTitle": "Popularne kierunki z {{city}}",
+    "destinationPrice": "od {{price}} €",
+    "seeAlsoDayTripsFromCity": "Jednodniowe wycieczki z {{city}}",
+    "faqTitle": "FAQ: loty weekendowe z {{city}}",
+    "faq": [
+      {
+        "q": "Ile kosztują loty weekendowe z {{city}}?",
+        "a": "Ceny zależą od kierunku i sezonu, ale wiele tras pt–nd z {{city}} zaczyna się od budżetowych taryf — użyj kalendarza i linków do kierunków na tej stronie, aby porównać aktualne oferty."
+      },
+      {
+        "q": "Które linie lotnicze obsługują trasy weekendowe z {{city}}?",
+        "a": "Oferty weekendowe z {{city}} są zbierane z wyszukiwarki lotów Kiwi.com i obejmują zarówno tanie linie, jak i przewoźników sieciowych, w zależności od trasy."
+      },
+      {
+        "q": "Czy znajdę lot w piątek wieczorem z {{city}}?",
+        "a": "Tak — użyj powyższego filtra wieczornych odlotów, aby pokazać tylko loty z {{city}} od godziny 17:00, dzięki czemu możesz wylecieć po pracy."
+      },
+      {
+        "q": "Jaki jest najtańszy weekend na lot z {{city}} do konkretnego miasta?",
+        "a": "Otwórz „Najlepszą cenę weekendu” i wybierz {{city}} jako lotnisko wylotu oraz dowolne europejskie miasto jako cel, aby porównać taryfy nadchodzących weekendów w kalendarzu."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Jednodniowe wycieczki z {{city}}",
+    "title": "Wycieczki tego samego dnia z {{city}}",
+    "subtitle": "Wylot w sobotę lub niedzielę rano z {{city}}, powrót tego samego wieczoru",
+    "lead": "Wyjedź z {{city}} po śniadaniu, zwiedzaj europejskie miasto i wróć tego samego wieczoru — bez hotelu, bez noclegu.",
+    "seoTitle": "Znajdź wycieczki z {{city}} bez noclegu",
+    "seoBlock": "Szukasz jednodniowej wycieczki z {{city}}? Wybierz soboty lub niedziele na loty rano tam / wieczorem z powrotem z {{city}}. Porównaj oferty pobliskich kierunków i rezerwuj przez Kiwi.com — idealne na pełny dzień za granicą bez hotelu.",
+    "popularHubsTitle": "Więcej miast wylotu na wycieczki jednodniowe",
+    "seeAlsoWeekendFromCity": "Loty weekendowe z {{city}}",
+    "faqTitle": "FAQ: jednodniowe wycieczki z {{city}}",
+    "faq": [
+      {
+        "q": "Co liczy się jako wycieczka jednodniowa z {{city}}?",
+        "a": "Lot w obie strony tego samego dnia: wylot z {{city}} rano, dzień w innym europejskim mieście i powrót wieczorem — bez hotelu i bez noclegu."
+      },
+      {
+        "q": "W jakie dni mogę polecieć na wycieczkę jednodniową z {{city}}?",
+        "a": "Wycieczki jednodniowe z {{city}} na euroweekender.com skupiają się na sobotach i niedzielach, z lotami rano tam / wieczorem z powrotem."
+      },
+      {
+        "q": "Z jakim wyprzedzeniem mogę szukać wycieczek z {{city}}?",
+        "a": "Użyj przycisków zakresu nad kalendarzem, aby przeglądać najbliższy miesiąc, trzy lub sześć miesięcy sobót i niedziel z {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Najtańsze loty weekendowe {{from}} → {{to}}",
+    "seoBlock": "Porównaj ceny lotów weekendowych z {{from}} do {{to}} w miesięcznym kalendarzu. Znajdź najniższą taryfę pt–nd, otwórz weekend, aby zobaczyć szczegóły lotu, i rezerwuj bezpiecznie na Kiwi.com.",
+    "seeAlsoFromCity": "Loty weekendowe z {{city}}"
   }
 }

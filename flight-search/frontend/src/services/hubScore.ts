@@ -1,4 +1,4 @@
-import type { HubScore } from '../types/city';
+import type { HubScore, OriginDestination } from '../types/city';
 
 export const HUB_DISTANCE_PENALTY_EXPONENT = 1.5;
 
@@ -22,5 +22,13 @@ export function normalizeHubScore(raw: Record<string, unknown>): HubScore {
     averageQuality: Number(raw.averageQuality ?? raw.AverageQuality ?? 0),
     destinationCount: Number(raw.destinationCount ?? raw.DestinationCount ?? 0),
     hubScore: Number.isFinite(hubScore) ? hubScore : 0
+  };
+}
+
+export function normalizeOriginDestination(raw: Record<string, unknown>): OriginDestination {
+  return {
+    code: String(raw.code ?? raw.Code ?? ''),
+    offerCount: Number(raw.offerCount ?? raw.OfferCount ?? 0),
+    minPrice: Number(raw.minPrice ?? raw.MinPrice ?? 0)
   };
 }

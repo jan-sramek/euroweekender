@@ -27,6 +27,12 @@ export interface HubScore {
   hubScore: number;
 }
 
+export interface OriginDestination {
+  code: string;
+  offerCount: number;
+  minPrice: number;
+}
+
 export interface CityWithDistance extends City {
   distanceKm: number;
   hubScore: number;

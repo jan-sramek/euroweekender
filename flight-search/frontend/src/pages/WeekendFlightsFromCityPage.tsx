@@ -5,15 +5,18 @@ import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { SeoDestinationLinks } from '../components/SeoDestinationLinks';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SiteFooter } from '../components/SiteFooter';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { LocalizedLink } from '../components/LocalizedLink';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
+import { getHubScores, getTopDestinations } from '../services/api';
 import { findCityByCode } from '../services/locationPrefill';
 import {
   findMatchingWeekendIds,
@@ -25,11 +28,18 @@ import {
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
-import { buildCitySlug, parseCityCodeFromSlug, weekendFlightsFromPath } from '../utils/citySlug';
+import {
+  buildCitySlug,
+  dayTripsFromPath,
+  parseCityCodeFromSlug,
+  weekendFlightsFromPath
+} from '../utils/citySlug';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
-import type { City } from '../types/city';
+import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
+import type { City, HubScore, OriginDestination } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import { NotFoundPage } from './NotFoundPage';
+import '../layouts/ContentPageLayout.css';
 import './HomePage.css';
 
 function buildLocationLabel(
@@ -86,6 +96,33 @@ export function WeekendFlightsFromCityPage() {
     t('meta.weekendFlightsFrom.description', { city: metaCity }),
     city ? weekendFlightsFromPath(city) : '/404'
   );
+
+  const [hubScore, setHubScore] = useState<HubScore | null>(null);
+  const [topDestinations, setTopDestinations] = useState<OriginDestination[]>([]);
+
+  useEffect(() => {
+    if (!parsedCode) return;
+    let cancelled = false;
+
+    void getHubScores().then(
+      scores => {
+        if (cancelled) return;
+        setHubScore(scores.find(score => score.code.toUpperCase() === parsedCode) ?? null);
+      },
+      () => undefined
+    );
+
+    void getTopDestinations(parsedCode).then(
+      destinations => {
+        if (!cancelled) setTopDestinations(destinations);
+      },
+      () => undefined
+    );
+
+    return () => {
+      cancelled = true;
+    };
+  }, [parsedCode]);
 
   const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
@@ -197,6 +234,26 @@ export function WeekendFlightsFromCityPage() {
     t
   ]);
 
+  const faqItems = useMemo(() => {
+    if (!cityLabel) return [];
+    return (t('weekendFlightsFrom.faq', { city: cityLabel, returnObjects: true }) as Array<{
+      q: string;
+      a: string;
+    }>) ?? [];
+  }, [cityLabel, t]);
+
+  useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
+
+  const breadcrumbJsonLd = useMemo(() => {
+    if (!city) return null;
+    return breadcrumbListJsonLd([
+      { name: t('nav.home'), path: path('/') },
+      { name: t('weekendFlightsFrom.tagline', { city: cityLabel }), path: path(weekendFlightsFromPath(city)) }
+    ]);
+  }, [city, cityLabel, path, t]);
+
+  useJsonLd(breadcrumbJsonLd);
+
   if (!parsedCode) {
     return <NotFoundPage />;
   }
@@ -235,6 +292,15 @@ export function WeekendFlightsFromCityPage() {
             <h1>{t('weekendFlightsFrom.title', { city: cityLabel })}</h1>
             <p className="intro-subtitle">{t('weekendFlightsFrom.subtitle', { city: cityLabel })}</p>
             <p className="intro-lead">{t('weekendFlightsFrom.lead', { city: cityLabel })}</p>
+            {hubScore && hubScore.minPrice > 0 && hubScore.destinationCount > 0 ? (
+              <p className="intro-lead">
+                {t('weekendFlightsFrom.priceHint', {
+                  city: cityLabel,
+                  minPrice: Math.round(hubScore.minPrice),
+                  destinationCount: hubScore.destinationCount
+                })}
+              </p>
+            ) : null}
           </div>
           <div className="search-home">
             <div className="container container-wide">
@@ -374,12 +440,37 @@ export function WeekendFlightsFromCityPage() {
             {t('weekendFlightsFrom.seoTitle', { city: cityLabel })}
           </h2>
           <p className="home-seo-text">{t('weekendFlightsFrom.seoBlock', { city: cityLabel })}</p>
+
+          <SeoDestinationLinks
+            fromCity={city}
+            destinations={topDestinations}
+            allCities={allCities}
+            language={i18n.language}
+          />
+
           <SeoHubLinks allCities={allCities} language={i18n.language} excludeCode={city.code} />
+
           <p className="home-seo-links">
             <LocalizedLink to="/cheapest-weekend">{t('weekendFlightsFrom.seeAlsoCheapest')}</LocalizedLink>
             {' · '}
             <LocalizedLink to="/single-day-trips">{t('weekendFlightsFrom.seeAlsoDayTrips')}</LocalizedLink>
+            {' · '}
+            <LocalizedLink to={dayTripsFromPath(city)}>
+              {t('weekendFlightsFrom.seeAlsoDayTripsFromCity', { city: cityLabel })}
+            </LocalizedLink>
           </p>
+
+          {faqItems.length > 0 ? (
+            <div className="faq-list">
+              <h3 className="home-seo-title">{t('weekendFlightsFrom.faqTitle', { city: cityLabel })}</h3>
+              {faqItems.map(item => (
+                <section key={item.q} className="faq-item">
+                  <h2>{item.q}</h2>
+                  <p>{item.a}</p>
+                </section>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 

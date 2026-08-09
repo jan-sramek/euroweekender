@@ -263,6 +263,37 @@ public class FlightRepository(
             .ToList();
     }
 
+    public async Task<IReadOnlyList<OriginDestinationStats>> GetTopDestinationsFromOriginAsync(
+        string cityCodeFrom,
+        DateTime departFromUtc,
+        DateTime departToUtc,
+        int limit,
+        CancellationToken cancellationToken = default)
+    {
+        var origin = cityCodeFrom.Trim().ToUpperInvariant();
+        if (origin.Length == 0 || limit <= 0)
+            return Array.Empty<OriginDestinationStats>();
+
+        return await db.Flights
+            .AsNoTracking()
+            .Where(f =>
+                f.CityCodeFrom == origin &&
+                f.UtcDeparture >= departFromUtc &&
+                f.UtcDeparture <= departToUtc)
+            .GroupBy(f => f.CityCodeTo)
+            .Select(g => new OriginDestinationStats
+            {
+                CityCodeFrom = origin,
+                CityCodeTo = g.Key,
+                OfferCount = g.Count(),
+                MinPrice = g.Min(f => f.Price)
+            })
+            .OrderByDescending(s => s.OfferCount)
+            .ThenBy(s => s.MinPrice)
+            .Take(limit)
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<IReadOnlyList<string>> GetOriginCityCodesMissingReturnTimesAsync(
         CancellationToken cancellationToken = default)
     {

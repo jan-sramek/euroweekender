@@ -24,6 +24,13 @@ public interface IFlightRepository
         DateTime departToUtc,
         CancellationToken cancellationToken = default);
 
+    Task<IReadOnlyList<OriginDestinationStats>> GetTopDestinationsFromOriginAsync(
+        string cityCodeFrom,
+        DateTime departFromUtc,
+        DateTime departToUtc,
+        int limit,
+        CancellationToken cancellationToken = default);
+
     Task<IReadOnlyList<string>> GetOriginCityCodesMissingReturnTimesAsync(
         CancellationToken cancellationToken = default);
 }

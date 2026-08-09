@@ -42,3 +42,40 @@ export function weekendFlightsFromPathByCode(code: string, name?: string): strin
   }
   return '/weekend-flights-from/' + normalized.toLowerCase();
 }
+
+export function dayTripsFromPath(city: Pick<City, 'code' | 'name'>): string {
+  return '/day-trips-from/' + buildCitySlug(city);
+}
+
+export function dayTripsFromPathByCode(code: string, name?: string): string {
+  const normalized = code.trim().toUpperCase();
+  if (name?.trim()) {
+    return dayTripsFromPath({ code: normalized, name: name.trim() });
+  }
+  return '/day-trips-from/' + normalized.toLowerCase();
+}
+
+/** Build canonical OD slug/path: prague-prg-to-barcelona-bcn. */
+export function weekendFlightsOdPath(
+  from: Pick<City, 'code' | 'name'>,
+  to: Pick<City, 'code' | 'name'>
+): string {
+  return '/weekend-flights/' + buildCitySlug(from) + '-to-' + buildCitySlug(to);
+}
+
+/** Parse an OD path segment like "prague-prg-to-barcelona-bcn" into origin/destination codes. */
+export function parseOdSlugs(
+  segment: string | undefined
+): { fromCode: string; toCode: string } | null {
+  const trimmed = segment?.trim().toLowerCase();
+  if (!trimmed) return null;
+
+  const separatorIndex = trimmed.lastIndexOf('-to-');
+  if (separatorIndex <= 0) return null;
+
+  const fromCode = parseCityCodeFromSlug(trimmed.slice(0, separatorIndex));
+  const toCode = parseCityCodeFromSlug(trimmed.slice(separatorIndex + '-to-'.length));
+  if (!fromCode || !toCode) return null;
+
+  return { fromCode, toCode };
+}

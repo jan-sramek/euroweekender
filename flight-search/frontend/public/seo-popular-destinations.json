@@ -1,0 +1,17 @@
+[
+  { "code": "BCN", "name": "Barcelona" },
+  { "code": "MAD", "name": "Madrid" },
+  { "code": "ROM", "name": "Rome" },
+  { "code": "MIL", "name": "Milan" },
+  { "code": "PAR", "name": "Paris" },
+  { "code": "LON", "name": "London" },
+  { "code": "AMS", "name": "Amsterdam" },
+  { "code": "BER", "name": "Berlin" },
+  { "code": "VIE", "name": "Vienna" },
+  { "code": "PRG", "name": "Prague" },
+  { "code": "LIS", "name": "Lisbon" },
+  { "code": "ATH", "name": "Athens" },
+  { "code": "BUD", "name": "Budapest" },
+  { "code": "WAW", "name": "Warsaw" },
+  { "code": "VCE", "name": "Venice" }
+]

@@ -38,6 +38,11 @@ public record OriginHubScoreDto(
     int DestinationCount,
     double HubScore);
 
+public record OriginDestinationDto(
+    string Code,
+    int OfferCount,
+    double MinPrice);
+
 public record FlightSearchDto(
     int Id,
     string CountryTo,

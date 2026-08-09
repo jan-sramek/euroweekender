@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
@@ -35,19 +35,39 @@ function readAirportParam(value: string | null): string | null {
   return code.length > 0 ? code : null;
 }
 
-export function CheapestWeekendPage() {
+interface CheapestWeekendPageProps {
+  /** Preselect + default the departure airport (e.g. from an OD landing page). */
+  forcedFrom?: string;
+  /** Preselect + default the destination city (e.g. from an OD landing page). */
+  forcedTo?: string;
+  /** Canonical route path used for <link rel="canonical"> and hreflang tags. */
+  routePath?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  /** Extra SEO content (links, breadcrumbs, etc.) rendered inside the SEO section. */
+  extraSeoContent?: ReactNode;
+}
+
+export function CheapestWeekendPage({
+  forcedFrom,
+  forcedTo,
+  routePath,
+  metaTitle,
+  metaDescription,
+  extraSeoContent
+}: CheapestWeekendPageProps = {}) {
   const { t, i18n } = useTranslation();
   const [searchParams] = useSearchParams();
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(
-    t('meta.cheapestWeekend.title'),
-    t('meta.cheapestWeekend.description'),
-    '/cheapest-weekend'
+    metaTitle ?? t('meta.cheapestWeekend.title'),
+    metaDescription ?? t('meta.cheapestWeekend.description'),
+    routePath ?? '/cheapest-weekend'
   );
 
-  const fromParam = readAirportParam(searchParams.get('from'));
-  const toParam = readAirportParam(searchParams.get('to'));
+  const fromParam = forcedFrom?.trim().toUpperCase() || readAirportParam(searchParams.get('from'));
+  const toParam = forcedTo?.trim().toUpperCase() || readAirportParam(searchParams.get('to'));
   const preferredCodes = useMemo(() => (fromParam ? [fromParam] : null), [fromParam]);
 
   const now = new Date();
@@ -362,6 +382,7 @@ export function CheapestWeekendPage() {
             {t('cheapestWeekend.seoTitle')}
           </h2>
           <p className="home-seo-text">{t('cheapestWeekend.seoBlock')}</p>
+          {extraSeoContent}
         </div>
       </section>
 

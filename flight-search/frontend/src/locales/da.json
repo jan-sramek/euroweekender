@@ -43,6 +43,14 @@
     "weekendFlightsFrom": {
       "title": "Weekendfly fra {{city}}",
       "description": "Sammenlign billige europæiske weekendfly fra {{city}}. Fre–søn city breaks uden feriedage — find tilbud og book via Kiwi.com."
+    },
+    "dayTripsFrom": {
+      "title": "Day Trips from {{city}}",
+      "description": "Find same-day Saturday and Sunday city trips from {{city}} — morning outbound, evening return, no overnight stay. Compare deals and book via Kiwi.com."
+    },
+    "weekendFlightsOd": {
+      "title": "Weekend Flights {{from}} to {{to}}",
+      "description": "Compare the cheapest weekend flights from {{from}} to {{to}} on a monthly price calendar. Find the best Fri–Sun fare and book via Kiwi.com."
     }
   },
   "nav": {
@@ -414,6 +422,59 @@
     "seoBlock": "Søg billige weekendfly fra {{city}} til byer i Europa. Filtrer fre–søn og andre korte mønstre, sammenlign priser og book på Kiwi.com.",
     "popularHubsTitle": "Populære afgangsbyer",
     "seeAlsoCheapest": "Find den billigste weekend til en destination",
-    "seeAlsoDayTrips": "Dagsrejser"
+    "seeAlsoDayTrips": "Dagsrejser",
+    "priceHint": "Weekend deals from {{city}} often start around €{{minPrice}} across {{destinationCount}} destinations.",
+    "topDestinationsTitle": "Popular destinations from {{city}}",
+    "destinationPrice": "from €{{price}}",
+    "seeAlsoDayTripsFromCity": "Day trips from {{city}}",
+    "faqTitle": "FAQ: weekend flights from {{city}}",
+    "faq": [
+      {
+        "q": "How much do weekend flights from {{city}} cost?",
+        "a": "Prices vary by destination and season, but many Fri–Sun routes from {{city}} start from budget-friendly fares — use the calendar and destination links on this page to compare current offers."
+      },
+      {
+        "q": "Which airlines fly weekend routes from {{city}}?",
+        "a": "Weekend deals from {{city}} are aggregated from Kiwi.com's flight search, covering both low-cost and full-service carriers depending on the route."
+      },
+      {
+        "q": "Can I find a Friday evening flight from {{city}}?",
+        "a": "Yes — use the evening departure filter above to show only outbound flights leaving {{city}} at 17:00 or later, so you can travel after work."
+      },
+      {
+        "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
+        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+      }
+    ]
+  },
+  "dayTripsFrom": {
+    "tagline": "Day trips from {{city}}",
+    "title": "Same-day city trips from {{city}}",
+    "subtitle": "Fly out Saturday or Sunday morning from {{city}}, come home the same evening",
+    "lead": "Leave {{city}} after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "seoTitle": "Find day trips from {{city}} without an overnight stay",
+    "seoBlock": "Looking for a same-day city trip from {{city}}? Choose Saturdays or Sundays for morning-out, evening-back flights from {{city}}. Compare deals across nearby destinations and book through Kiwi.com — ideal when you want a full day abroad without a hotel.",
+    "popularHubsTitle": "More day-trip departure cities",
+    "seeAlsoWeekendFromCity": "Weekend flights from {{city}}",
+    "faqTitle": "FAQ: day trips from {{city}}",
+    "faq": [
+      {
+        "q": "What counts as a day trip from {{city}}?",
+        "a": "A same-day return: fly out of {{city}} in the morning, spend the day in another European city, and fly home the same evening — no hotel and no overnight stay."
+      },
+      {
+        "q": "Which days can I fly a day trip from {{city}}?",
+        "a": "Day trips from {{city}} on euroweekender.com focus on Saturdays and Sundays, matching morning-out and evening-back flight schedules."
+      },
+      {
+        "q": "How far ahead can I search day trips from {{city}}?",
+        "a": "Use the range buttons above the calendar to scan the next month, three months, or six months of Saturdays and Sundays from {{city}}."
+      }
+    ]
+  },
+  "weekendFlightsOd": {
+    "title": "Cheapest weekend flights {{from}} → {{to}}",
+    "seoBlock": "Compare weekend flight prices from {{from}} to {{to}} on a monthly calendar. Spot the cheapest Fri–Sun fare, open a weekend for flight details, and book securely through Kiwi.com.",
+    "seeAlsoFromCity": "Weekend flights from {{city}}"
   }
 }

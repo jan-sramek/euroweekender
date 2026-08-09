@@ -172,7 +172,7 @@ export function getUpcomingWeekends(pattern: WeekendPattern, count = 12): Weeken
   return weekends;
 }
 
-export const DEFAULT_WEEKEND_MONTHS = 12;
+export const DEFAULT_WEEKEND_MONTHS = 6;
 /** Roughly four weekends per month in the travel strip. */
 export const WEEKENDS_PER_MONTH = 4;
 export const DEFAULT_WEEKEND_COUNT = DEFAULT_WEEKEND_MONTHS * WEEKENDS_PER_MONTH;

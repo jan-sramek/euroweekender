@@ -25,7 +25,7 @@ export function PassengerPicker({ count, onChange }: PassengerPickerProps) {
         −
       </button>
       <span className="pattern-pill pattern-pill-active passenger-count" aria-live="polite">
-        {count} {count === 1 ? t('search.traveler') : t('search.travelers')}
+        {count} {count === 1 ? t('search.traveler') : t('search.travelersCount')}
       </span>
       <button
         type="button"

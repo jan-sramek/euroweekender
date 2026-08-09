@@ -110,6 +110,7 @@
     "nearbyAirports": "Flughäfen in der Nähe",
     "removeAirport": "{{name}} entfernen",
     "traveler": "Reisender",
+    "travelersCount": "Reisende",
     "fewerTravelers": "Weniger Reisende",
     "moreTravelers": "Mehr Reisende",
     "travelersGroup": "Anzahl der Reisenden",

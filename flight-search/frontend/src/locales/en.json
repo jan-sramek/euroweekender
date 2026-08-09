@@ -141,7 +141,7 @@
     "addPopularHub": "Add {{name}} ({{count}} flights)",
     "removeAirport": "Remove {{name}}",
     "traveler": "traveler",
-    "travelers": "travelers",
+    "travelersCount": "travelers",
     "fewerTravelers": "Fewer travelers",
     "moreTravelers": "More travelers",
     "travelersGroup": "Number of travelers"

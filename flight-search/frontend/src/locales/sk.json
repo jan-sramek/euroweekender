@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Cestovný víkend",
     "travelWeekendHint": "Vyberte jeden alebo viac termínov",
+    "clearWeekends": "Zrušiť výber",
     "tripType": "Typ cesty",
     "tripTypeHint": "Voliteľný vzor pobytu",
     "departureTime": "Čas odletu",

@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Seyahat hafta sonu",
     "travelWeekendHint": "Bir veya daha fazla tarih aralığı seçin",
+    "clearWeekends": "Tümünü kaldır",
     "tripType": "Seyahat türü",
     "tripTypeHint": "İsteğe bağlı konaklama deseni",
     "departureTime": "Kalkış saati",

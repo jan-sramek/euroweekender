@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Reisewochenende",
     "travelWeekendHint": "Wählen Sie einen oder mehrere Zeiträume",
+    "clearWeekends": "Alle abwählen",
     "tripType": "Reiseart",
     "tripTypeHint": "Optionales Aufenthaltsmuster",
     "departureTime": "Abflugzeit",

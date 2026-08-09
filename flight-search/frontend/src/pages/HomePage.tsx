@@ -14,7 +14,8 @@ import {
   findMatchingWeekendIds,
   formatWeekendsLabel,
   getWeekendOptions,
-  getWeekendPattern
+  getWeekendPattern,
+  DEFAULT_WEEKEND_COUNT
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
@@ -62,7 +63,10 @@ export function HomePage() {
     () => weekendPatterns.find(pattern => pattern.id === selectedPatternId) ?? null,
     [weekendPatterns, selectedPatternId]
   );
-  const weekends = useMemo(() => getWeekendOptions(selectedPatternId, 12), [selectedPatternId]);
+  const weekends = useMemo(
+    () => getWeekendOptions(selectedPatternId, DEFAULT_WEEKEND_COUNT),
+    [selectedPatternId]
+  );
 
   const {
     allCities,
@@ -119,7 +123,6 @@ export function HomePage() {
   const handleWeekendToggle = (weekendId: string) => {
     setSelectedWeekendIds(prev => {
       if (prev.includes(weekendId)) {
-        if (prev.length === 1) return prev;
         return prev.filter(id => id !== weekendId);
       }
 
@@ -131,6 +134,10 @@ export function HomePage() {
       });
       return next;
     });
+  };
+
+  const handleClearWeekends = () => {
+    setSelectedWeekendIds([]);
   };
 
   const handleAddCity = (city: City) => {
@@ -199,6 +206,7 @@ export function HomePage() {
                     weekends={weekends}
                     selectedWeekendIds={selectedWeekendIds}
                     onWeekendToggle={handleWeekendToggle}
+                    onClearWeekends={handleClearWeekends}
                   />
                 </div>
               </div>

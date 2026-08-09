@@ -16,6 +16,7 @@ interface WeekendPickerProps {
   weekends?: WeekendOption[];
   selectedWeekendIds?: string[];
   onWeekendToggle?: (id: string) => void;
+  onClearWeekends?: () => void;
   showWeekendStrip?: boolean;
 }
 
@@ -67,6 +68,7 @@ export function WeekendPicker({
   weekends = [],
   selectedWeekendIds = [],
   onWeekendToggle,
+  onClearWeekends,
   showWeekendStrip = true
 }: WeekendPickerProps) {
   const { t } = useTranslation();
@@ -90,7 +92,18 @@ export function WeekendPicker({
         <div className="weekend-section">
           <div className="weekend-section-header">
             <span className="weekend-section-label">{t('search.travelWeekend')}</span>
-            <span className="weekend-section-hint">{t('search.travelWeekendHint')}</span>
+            <div className="weekend-section-actions">
+              {selectedWeekendIds.length > 0 && onClearWeekends ? (
+                <button
+                  type="button"
+                  className="weekend-clear-btn"
+                  onClick={onClearWeekends}
+                >
+                  {t('search.clearWeekends')}
+                </button>
+              ) : null}
+              <span className="weekend-section-hint">{t('search.travelWeekendHint')}</span>
+            </div>
           </div>
 
           <div className="weekend-dates-row">

@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Reisinädalavahetus",
     "travelWeekendHint": "Vali üks või mitu kuupäevavahemikku",
+    "clearWeekends": "Tühista valik",
     "tripType": "Reisitüüp",
     "tripTypeHint": "Valikuline viibimismuster",
     "departureTime": "Väljumisaeg",

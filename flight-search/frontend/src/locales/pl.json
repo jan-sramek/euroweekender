@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Weekend podróży",
     "travelWeekendHint": "Wybierz jeden lub więcej zakresów dat",
+    "clearWeekends": "Odznacz wszystko",
     "tripType": "Typ podróży",
     "tripTypeHint": "Opcjonalny wzorzec pobytu",
     "departureTime": "Godzina wylotu",

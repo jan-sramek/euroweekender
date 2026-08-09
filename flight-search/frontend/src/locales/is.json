@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Ferðahelgi",
     "travelWeekendHint": "Veldu eitt eða fleiri dagsetningabil",
+    "clearWeekends": "Afvelja allt",
     "tripType": "Ferðategund",
     "tripTypeHint": "Valfrjálst dvölarmynstur",
     "departureTime": "Brottfarartími",

@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Weekend de călătorie",
     "travelWeekendHint": "Alegeți unul sau mai multe intervale de date",
+    "clearWeekends": "Deselectează tot",
     "tripType": "Tip de călătorie",
     "tripTypeHint": "Model de ședere opțional",
     "departureTime": "Ora plecării",

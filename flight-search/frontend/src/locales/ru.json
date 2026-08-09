@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Выходные для поездки",
     "travelWeekendHint": "Выберите один или несколько диапазонов дат",
+    "clearWeekends": "Снять выбор",
     "tripType": "Тип поездки",
     "tripTypeHint": "Необязательный шаблон пребывания",
     "departureTime": "Время вылета",

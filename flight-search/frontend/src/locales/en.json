@@ -106,6 +106,7 @@
   "search": {
     "travelWeekend": "Travel weekend",
     "travelWeekendHint": "Pick one or more date ranges",
+    "clearWeekends": "Unselect all",
     "tripType": "Trip type",
     "tripTypeHint": "Optional stay pattern",
     "departureTime": "Departure time",

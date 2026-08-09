@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Пътуващ уикенд",
     "travelWeekendHint": "Изберете един или повече периода",
+    "clearWeekends": "Премахни избора",
     "tripType": "Тип пътуване",
     "tripTypeHint": "Незадължителен модел на престой",
     "departureTime": "Час на заминаване",

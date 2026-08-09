@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Utazási hétvége",
     "travelWeekendHint": "Válassz egy vagy több dátumtartományt",
+    "clearWeekends": "Összes törlése",
     "tripType": "Utazástípus",
     "tripTypeHint": "Opcionális tartózkodási minta",
     "departureTime": "Indulási idő",

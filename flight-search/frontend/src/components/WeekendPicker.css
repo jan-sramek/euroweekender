@@ -24,6 +24,31 @@
   margin-bottom: 0.55rem;
 }
 
+.weekend-section-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.weekend-clear-btn {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #228bd1;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.weekend-clear-btn:hover {
+  color: #1769a0;
+}
+
 .weekend-section-label {
   font-size: 0.8rem;
   font-weight: 700;

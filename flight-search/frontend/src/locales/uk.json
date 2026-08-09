@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Вихідні для подорожі",
     "travelWeekendHint": "Оберіть один або кілька діапазонів дат",
+    "clearWeekends": "Зняти вибір",
     "tripType": "Тип подорожі",
     "tripTypeHint": "Необов'язковий шаблон перебування",
     "departureTime": "Час вильоту",

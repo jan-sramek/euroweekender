@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Matkaviikonloppu",
     "travelWeekendHint": "Valitse yksi tai useampi ajanjakso",
+    "clearWeekends": "Poista valinnat",
     "tripType": "Matkatyyppi",
     "tripTypeHint": "Valinnainen oleskelumalli",
     "departureTime": "Lähtöaika",

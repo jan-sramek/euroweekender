@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Fim de semana de viagem",
     "travelWeekendHint": "Escolha um ou mais intervalos de datas",
+    "clearWeekends": "Desmarcar tudo",
     "tripType": "Tipo de viagem",
     "tripTypeHint": "Padrão de estadia opcional",
     "departureTime": "Hora de partida",

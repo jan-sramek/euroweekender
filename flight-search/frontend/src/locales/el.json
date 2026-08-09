@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Σαββατοκύριακο ταξιδιού",
     "travelWeekendHint": "Επιλέξτε ένα ή περισσότερα εύρη ημερομηνιών",
+    "clearWeekends": "Αποεπιλογή όλων",
     "tripType": "Τύπος ταξιδιού",
     "tripTypeHint": "Προαιρετικό μοτίβο διαμονής",
     "departureTime": "Ώρα αναχώρησης",

@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
     "travelWeekendHint": "Izvēlies vienu vai vairākus datumu intervālus",
+    "clearWeekends": "Noņemt atlasi",
     "tripType": "Ceļojuma veids",
     "tripTypeHint": "Neobligāts uzturēšanās modelis",
     "departureTime": "Izlidošanas laiks",

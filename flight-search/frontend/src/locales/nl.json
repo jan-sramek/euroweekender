@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Reisweekend",
     "travelWeekendHint": "Kies een of meer datumbereiken",
+    "clearWeekends": "Alles deselecteren",
     "tripType": "Reistype",
     "tripTypeHint": "Optioneel verblijfspatroon",
     "departureTime": "Vertrektijd",

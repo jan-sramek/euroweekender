@@ -85,6 +85,7 @@
   "search": {
     "travelWeekend": "Rejseweekend",
     "travelWeekendHint": "Vælg et eller flere datointervaller",
+    "clearWeekends": "Fravælg alle",
     "tripType": "Rejsetype",
     "tripTypeHint": "Valgfrit opholdsmønster",
     "departureTime": "Afgangstid",

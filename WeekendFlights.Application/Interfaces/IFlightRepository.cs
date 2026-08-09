@@ -16,6 +16,7 @@ public interface IFlightRepository
         int skip,
         int take,
         bool includeTotal = true,
+        int? nightsInDest = null,
         CancellationToken cancellationToken = default);
 
     Task<IReadOnlyList<OriginHubStats>> GetOriginHubStatsAsync(

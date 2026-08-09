@@ -23,6 +23,7 @@ export interface FlightSearchParams {
   cityCodeTo?: string;
   departFromUtc: Date;
   departToUtc: Date;
+  nightsInDest?: number;
   page?: number;
   pageSize?: number;
   includeTotal?: boolean;
@@ -38,7 +39,8 @@ export async function searchFlightsForWeekends(
   cityCodeFrom: string[],
   weekends: WeekendFlightSearchWindow[],
   signal?: AbortSignal,
-  cityCodeTo?: string
+  cityCodeTo?: string,
+  nightsInDest?: number
 ): Promise<Flight[]> {
   if (weekends.length === 0 || cityCodeFrom.length === 0) {
     return [];
@@ -53,6 +55,7 @@ export async function searchFlightsForWeekends(
     cityCodeTo,
     departFromUtc: range.departFrom,
     departToUtc: range.departTo,
+    nightsInDest,
     page: 1,
     pageSize: searchPageSize(uniqueCities.length),
     includeTotal: false,
@@ -291,6 +294,10 @@ export async function searchFlights(params: FlightSearchParams): Promise<FlightP
   const destination = params.cityCodeTo?.trim().toUpperCase();
   if (destination) {
     query.set('cityCodeTo', destination);
+  }
+
+  if (params.nightsInDest !== undefined) {
+    query.set('nightsInDest', String(params.nightsInDest));
   }
 
   const response = await fetch(`${API_BASE}/flights?${query}`, { signal: params.signal });

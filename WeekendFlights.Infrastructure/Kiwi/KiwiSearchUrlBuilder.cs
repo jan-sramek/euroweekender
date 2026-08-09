@@ -37,17 +37,20 @@ public static class KiwiSearchUrlBuilder
         }
 
         if (parameters.DepartTimeFromHour is int dFrom)
-            query.Add($"dtime_from={dFrom}");
+            query.Add($"dtime_from={FormatHour(dFrom)}");
         if (parameters.DepartTimeToHour is int dTo)
-            query.Add($"dtime_to={dTo}");
+            query.Add($"dtime_to={FormatHour(dTo)}");
         if (parameters.ReturnDepartTimeFromHour is int rFrom)
-            query.Add($"ret_dtime_from={rFrom}");
+            query.Add($"ret_dtime_from={FormatHour(rFrom)}");
         if (parameters.ReturnDepartTimeToHour is int rTo)
-            query.Add($"ret_dtime_to={rTo}");
+            query.Add($"ret_dtime_to={FormatHour(rTo)}");
 
         return $"/v2/search?{string.Join("&", query)}";
     }
 
     private static string FormatDate(DateTime date) =>
         date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+    private static string FormatHour(int hour) =>
+        $"{Math.Clamp(hour, 0, 23):00}:00";
 }

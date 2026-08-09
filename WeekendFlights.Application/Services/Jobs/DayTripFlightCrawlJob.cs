@@ -105,12 +105,15 @@ public class DayTripFlightCrawlJob(
             cancellationToken.ThrowIfCancellationRequested();
 
             var offerCount = await ProcessDayTripAsync(cityCode, day, cancellationToken);
-            await crawlStateRepository.UpsertAsync(
-                DayTripStatePrefix + cityCode,
-                day,
-                DateTime.UtcNow,
-                offerCount,
-                cancellationToken);
+            if (offerCount is int count)
+            {
+                await crawlStateRepository.UpsertAsync(
+                    DayTripStatePrefix + cityCode,
+                    day,
+                    DateTime.UtcNow,
+                    count,
+                    cancellationToken);
+            }
 
             searchesCompleted++;
             if (searchesCompleted < work.Count)
@@ -120,7 +123,7 @@ public class DayTripFlightCrawlJob(
         logger.LogInformation("Day-trip crawl finished: {SearchCount} searches", searchesCompleted);
     }
 
-    private async Task<int> ProcessDayTripAsync(
+    private async Task<int?> ProcessDayTripAsync(
         string cityCode,
         DateTime day,
         CancellationToken cancellationToken)
@@ -138,7 +141,7 @@ public class DayTripFlightCrawlJob(
         catch (Exception ex)
         {
             logger.LogError(ex, "Error crawling day-trip {CityCode} {Day:yyyy-MM-dd}", cityCode, day);
-            return 0;
+            return null;
         }
     }
 }

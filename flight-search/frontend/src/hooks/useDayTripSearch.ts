@@ -80,7 +80,9 @@ export function useDayTripSearch({
         const results = await searchFlightsForWeekends(
           codes,
           activeDays.map(day => ({ departFrom: day.departFrom, departTo: day.departTo })),
-          signal
+          signal,
+          undefined,
+          0
         );
         if (signal.aborted || generation !== searchGeneration.current) return;
         setRawFlights(results);

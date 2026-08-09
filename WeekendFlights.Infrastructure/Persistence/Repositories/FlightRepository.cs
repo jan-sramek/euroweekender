@@ -63,6 +63,7 @@ public class FlightRepository(
         int skip,
         int take,
         bool includeTotal = true,
+        int? nightsInDest = null,
         CancellationToken cancellationToken = default)
     {
         take = Math.Clamp(take, 1, 1000);
@@ -72,10 +73,10 @@ public class FlightRepository(
         if (cityCodes.Length > 1 && skip == 0)
         {
             return await GetFlightsPerCityAsync(
-                cityCodes, cityCodeTo, departFromUtc, departToUtc, take, cancellationToken);
+                cityCodes, cityCodeTo, departFromUtc, departToUtc, take, nightsInDest, cancellationToken);
         }
 
-        var query = BuildFlightSearchQuery(cityCodes, cityCodeTo, departFromUtc, departToUtc);
+        var query = BuildFlightSearchQuery(cityCodes, cityCodeTo, departFromUtc, departToUtc, nightsInDest);
 
         var totalCount = includeTotal
             ? await query.CountAsync(cancellationToken)
@@ -100,12 +101,13 @@ public class FlightRepository(
         DateTime? departFromUtc,
         DateTime? departToUtc,
         int take,
+        int? nightsInDest,
         CancellationToken cancellationToken)
     {
         var maxFlights = Math.Min(MaxMultiCityFlights, Math.Max(take, PerCityFlightLimit * cityCodes.Length));
 
         var cityTasks = cityCodes.Select(code => LoadCityFlightsAsync(
-            code, cityCodeTo, departFromUtc, departToUtc, cancellationToken));
+            code, cityCodeTo, departFromUtc, departToUtc, nightsInDest, cancellationToken));
 
         var cityResults = await Task.WhenAll(cityTasks);
         var byId = new Dictionary<int, FlightListItem>();
@@ -130,12 +132,13 @@ public class FlightRepository(
         string? cityCodeTo,
         DateTime? departFromUtc,
         DateTime? departToUtc,
+        int? nightsInDest,
         CancellationToken cancellationToken)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync(cancellationToken);
 
         return await ProjectSearchResults(
-                BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc))
+                BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc, nightsInDest))
             .OrderBy(f => f.Price)
             .ThenBy(f => f.UtcDeparture)
             .Take(PerCityFlightLimit)
@@ -172,15 +175,17 @@ public class FlightRepository(
         string[] cityCodes,
         string? cityCodeTo,
         DateTime? departFromUtc,
-        DateTime? departToUtc) =>
-        BuildFlightSearchQuery(db, cityCodes, cityCodeTo, departFromUtc, departToUtc);
+        DateTime? departToUtc,
+        int? nightsInDest = null) =>
+        BuildFlightSearchQuery(db, cityCodes, cityCodeTo, departFromUtc, departToUtc, nightsInDest);
 
     private static IQueryable<Flight> BuildFlightSearchQuery(
         WeekendFlightsDbContext context,
         string[] cityCodes,
         string? cityCodeTo,
         DateTime? departFromUtc,
-        DateTime? departToUtc)
+        DateTime? departToUtc,
+        int? nightsInDest = null)
     {
         var query = context.Flights
             .AsNoTracking()
@@ -197,6 +202,9 @@ public class FlightRepository(
 
         if (departToUtc.HasValue)
             query = query.Where(f => f.UtcDeparture <= departToUtc.Value);
+
+        if (nightsInDest.HasValue)
+            query = query.Where(f => f.NightsInDest == nightsInDest.Value);
 
         return query;
     }

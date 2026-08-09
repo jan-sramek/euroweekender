@@ -150,7 +150,7 @@
     "destination": "Пункт назначения",
     "perPerson": "{{price}} за человека",
     "forDaysTrip": "на {{days}}-дневную поездку",
-    "detail": "Подробнее",
+    "book": "Забронировать",
     "changes_zero": "0 пересадок",
     "changes_one": "1 пересадка",
     "changes_other": "{{count}} пересадок"

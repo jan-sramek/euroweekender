@@ -150,7 +150,7 @@
     "destination": "Kohde",
     "perPerson": "{{price}} / henkilö",
     "forDaysTrip": "{{days}} päivän matka",
-    "detail": "Tiedot",
+    "book": "Varaa",
     "changes_zero": "0 vaihtoa",
     "changes_one": "1 vaihto",
     "changes_other": "{{count}} vaihtoa"

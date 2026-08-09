@@ -150,7 +150,7 @@
     "destination": "Προορισμός",
     "perPerson": "{{price}} ανά άτομο",
     "forDaysTrip": "για ταξίδι {{days}} ημερών",
-    "detail": "Λεπτομέρειες",
+    "book": "Κράτηση",
     "changes_zero": "0 αλλαγές",
     "changes_one": "1 αλλαγή",
     "changes_other": "{{count}} αλλαγές"

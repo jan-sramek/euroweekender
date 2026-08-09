@@ -150,7 +150,7 @@
     "destination": "Galamērķis",
     "perPerson": "{{price}} vienai personai",
     "forDaysTrip": "{{days}} dienu ceļojumam",
-    "detail": "Detaļas",
+    "book": "Rezervēt",
     "changes_zero": "0 pārsēšanās",
     "changes_one": "1 pārsēšanās",
     "changes_other": "{{count}} pārsēšanās"

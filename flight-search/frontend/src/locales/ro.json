@@ -150,7 +150,7 @@
     "destination": "Destinație",
     "perPerson": "{{price}} per persoană",
     "forDaysTrip": "pentru o călătorie de {{days}} zile",
-    "detail": "Detalii",
+    "book": "Rezervă",
     "changes_zero": "0 escale",
     "changes_one": "1 escală",
     "changes_other": "{{count}} escale"

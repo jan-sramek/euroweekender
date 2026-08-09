@@ -150,7 +150,7 @@
     "destination": "Дестинация",
     "perPerson": "{{price}} на човек",
     "forDaysTrip": "за {{days}}-дневно пътуване",
-    "detail": "Детайли",
+    "book": "Резервирай",
     "changes_zero": "0 прекачвания",
     "changes_one": "1 прекачване",
     "changes_other": "{{count}} прекачвания"

@@ -150,7 +150,7 @@
     "destination": "Destinácia",
     "perPerson": "{{price}} na osobu",
     "forDaysTrip": "na {{days}}-dňovú cestu",
-    "detail": "Detail",
+    "book": "Rezervovať",
     "changes_zero": "0 prestupov",
     "changes_one": "1 prestup",
     "changes_other": "{{count}} prestupov"

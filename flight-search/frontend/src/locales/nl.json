@@ -150,7 +150,7 @@
     "destination": "Bestemming",
     "perPerson": "{{price}} per persoon",
     "forDaysTrip": "voor {{days}}-daagse reis",
-    "detail": "Details",
+    "book": "Boeken",
     "changes_zero": "0 overstappen",
     "changes_one": "1 overstap",
     "changes_other": "{{count}} overstappen"

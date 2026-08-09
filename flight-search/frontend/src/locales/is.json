@@ -150,7 +150,7 @@
     "destination": "Áfangastaður",
     "perPerson": "{{price}} á mann",
     "forDaysTrip": "fyrir {{days}} daga ferð",
-    "detail": "Nánar",
+    "book": "Bóka",
     "changes_zero": "0 skipti",
     "changes_one": "1 skipti",
     "changes_other": "{{count}} skipti"

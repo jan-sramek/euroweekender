@@ -255,11 +255,11 @@ export function FlightCard({
               rel="noopener noreferrer"
               data-umami-event="booking_click"
             >
-              {t('flights.detail')}
+              {t('flights.book')}
             </a>
           ) : (
             <button className="btn btn-primary btn-sm" type="button" disabled>
-              {t('flights.detail')}
+              {t('flights.book')}
             </button>
           )}
         </div>

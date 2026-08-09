@@ -150,7 +150,7 @@
     "destination": "Destination",
     "perPerson": "{{price}} par personne",
     "forDaysTrip": "pour un séjour de {{days}} jours",
-    "detail": "Détail",
+    "book": "Réserver",
     "changes_zero": "0 escale",
     "changes_one": "1 escale",
     "changes_other": "{{count}} escales"

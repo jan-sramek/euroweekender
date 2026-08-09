@@ -150,7 +150,7 @@
     "destination": "Ziel",
     "perPerson": "{{price}} pro Person",
     "forDaysTrip": "für {{days}}-tägige Reise",
-    "detail": "Details",
+    "book": "Buchen",
     "changes_zero": "0 Umstiege",
     "changes_one": "1 Umstieg",
     "changes_other": "{{count}} Umstiege"

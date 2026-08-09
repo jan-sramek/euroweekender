@@ -150,7 +150,7 @@
     "destination": "Varış noktası",
     "perPerson": "Kişi başı {{price}}",
     "forDaysTrip": "{{days}} günlük seyahat için",
-    "detail": "Detay",
+    "book": "Rezerve et",
     "changes_zero": "0 aktarma",
     "changes_one": "1 aktarma",
     "changes_other": "{{count}} aktarma"

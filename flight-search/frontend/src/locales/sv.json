@@ -150,7 +150,7 @@
     "destination": "Destination",
     "perPerson": "{{price}} per person",
     "forDaysTrip": "för {{days}}-dagarsresa",
-    "detail": "Detaljer",
+    "book": "Boka",
     "changes_zero": "0 byten",
     "changes_one": "1 byte",
     "changes_other": "{{count}} byten"

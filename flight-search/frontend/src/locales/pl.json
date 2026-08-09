@@ -150,7 +150,7 @@
     "destination": "Cel podróży",
     "perPerson": "{{price}} za osobę",
     "forDaysTrip": "na {{days}}-dniową podróż",
-    "detail": "Szczegóły",
+    "book": "Rezerwuj",
     "changes_zero": "0 przesiadek",
     "changes_one": "1 przesiadka",
     "changes_other": "{{count}} przesiadek"

@@ -150,7 +150,7 @@
     "destination": "Úticél",
     "perPerson": "{{price}} főnként",
     "forDaysTrip": "{{days}} napos utazásra",
-    "detail": "Részletek",
+    "book": "Foglalás",
     "changes_zero": "0 átszállás",
     "changes_one": "1 átszállás",
     "changes_other": "{{count}} átszállás"

@@ -150,7 +150,7 @@
     "destination": "Kelionės tikslas",
     "perPerson": "{{price}} vienam asmeniui",
     "forDaysTrip": "{{days}} dienų kelionei",
-    "detail": "Detalės",
+    "book": "Rezervuoti",
     "changes_zero": "0 persėdimų",
     "changes_one": "1 persėdimas",
     "changes_other": "{{count}} persėdimų"

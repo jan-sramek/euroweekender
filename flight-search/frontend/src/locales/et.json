@@ -150,7 +150,7 @@
     "destination": "Sihtkoht",
     "perPerson": "{{price}} inimese kohta",
     "forDaysTrip": "{{days}}-päevaseks reisiks",
-    "detail": "Detailid",
+    "book": "Broneeri",
     "changes_zero": "0 vahetust",
     "changes_one": "1 vahetus",
     "changes_other": "{{count}} vahetust"

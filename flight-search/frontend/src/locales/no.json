@@ -150,7 +150,7 @@
     "destination": "Destinasjon",
     "perPerson": "{{price}} per person",
     "forDaysTrip": "for {{days}}-dagers tur",
-    "detail": "Detaljer",
+    "book": "Book",
     "changes_zero": "0 bytter",
     "changes_one": "1 bytte",
     "changes_other": "{{count}} bytter"

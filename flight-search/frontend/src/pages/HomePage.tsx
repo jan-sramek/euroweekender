@@ -15,7 +15,7 @@ import {
   formatWeekendsLabel,
   getWeekendOptions,
   getWeekendPattern,
-  DEFAULT_WEEKEND_COUNT
+  WEEKEND_OPTIONS_COUNT
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
@@ -64,7 +64,7 @@ export function HomePage() {
     [weekendPatterns, selectedPatternId]
   );
   const weekends = useMemo(
-    () => getWeekendOptions(selectedPatternId, DEFAULT_WEEKEND_COUNT),
+    () => getWeekendOptions(selectedPatternId, WEEKEND_OPTIONS_COUNT),
     [selectedPatternId]
   );
 

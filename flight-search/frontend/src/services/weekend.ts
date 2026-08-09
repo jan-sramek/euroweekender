@@ -173,9 +173,12 @@ export function getUpcomingWeekends(pattern: WeekendPattern, count = 12): Weeken
 }
 
 export const DEFAULT_WEEKEND_MONTHS = 6;
+/** How far ahead the weekend strip shows (user can select beyond the default). */
+export const WEEKEND_OPTIONS_MONTHS = 12;
 /** Roughly four weekends per month in the travel strip. */
 export const WEEKENDS_PER_MONTH = 4;
 export const DEFAULT_WEEKEND_COUNT = DEFAULT_WEEKEND_MONTHS * WEEKENDS_PER_MONTH;
+export const WEEKEND_OPTIONS_COUNT = WEEKEND_OPTIONS_MONTHS * WEEKENDS_PER_MONTH;
 
 export function getDefaultWeekendIds(
   weekends: WeekendOption[],
@@ -186,7 +189,7 @@ export function getDefaultWeekendIds(
 
 export function getWeekendOptions(
   patternId: WeekendPatternId | null,
-  count = DEFAULT_WEEKEND_COUNT
+  count = WEEKEND_OPTIONS_COUNT
 ): WeekendOption[] {
   return patternId
     ? getUpcomingWeekends(getWeekendPattern(patternId), count)

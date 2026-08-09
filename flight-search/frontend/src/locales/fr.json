@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Vols pas chers pour le week-end en Europe",
-      "description": "Comparez les vols pas chers pour le week-end en Europe. Cherchez ven–dim et jeu–dim depuis Prague, Vienne, Berlin, Londres et plus. Départ vendredi soir, retour dimanche — sans congés."
+      "description": "Comparez des vols week-end économiques en Europe, trouvez le week-end le moins cher vers n’importe quelle ville, ou réservez des escapades le samedi et le dimanche aller-retour le jour même. Partez le vendredi soir — ou allez et revenez le même jour — sans poser de congés."
     },
     "about": {
       "title": "À propos d'EuroWeekender",
-      "description": "Vols pas chers pour le week-end en Europe et city breaks sans congés. Comparez les offres ven–dim depuis des aéroports partout en Europe sur euroweekender.com."
+      "description": "Vols week-end économiques en Europe, escapades d’une journée et calendriers de prix par destination — city breaks sans congés sur euroweekender.com."
     },
     "faq": {
       "title": "FAQ sur les vols de week-end",
-      "description": "FAQ sur les vols pas chers pour le week-end en Europe, les voyages ven–dim, les départs le soir et la réservation via Kiwi.com."
+      "description": "FAQ sur les vols week-end économiques en Europe, les escapades d’une journée, les trajets ven–dim, les départs en soirée et la réservation via Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Comment ça marche",
-      "description": "Comment trouver des vols pas chers pour le week-end en Europe : choisissez des aéroports, des week-ends ven–dim, filtrez les départs le soir et réservez sur Kiwi.com."
+      "description": "Comment trouver des vols week-end économiques et des escapades d’une journée : choisissez les aéroports, les week-ends ou samedis/dimanches, filtrez les départs du soir et réservez sur Kiwi.com."
     },
     "privacy": {
       "title": "Politique de confidentialité",
@@ -33,8 +33,8 @@
       "description": "Trouvez le week-end le moins cher vers votre destination. Comparez les allers-retours ven–dim et autres courts séjours sur un calendrier, puis réservez la meilleure offre."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Escapades d’une journée en Europe",
+      "description": "Trouvez des escapades samedi et dimanche en Europe — départ le matin, retour le soir, sans nuitée. Comparez les vols aller-retour le jour même depuis les aéroports près de chez vous."
     }
   },
   "nav": {
@@ -84,21 +84,23 @@
     "flightsCounterFiltered": "{{shown}} sur {{total}} vols",
     "flightsCounterSearching": "Recherche de vols…",
     "subtitle": "Votre prochain city break commence vendredi soir",
-    "seoTitle": "Trouvez des vols pas chers pour le week-end en Europe",
-    "seoBlock": "Recherchez et comparez des vols pas chers pour le week-end depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez des départs le soir et découvrez des city breaks sans poser de congés."
+    "seoTitle": "Trouvez des vols week-end et escapades d’une journée en Europe",
+    "seoBlock": "Recherchez et comparez des vols week-end économiques depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez les départs du soir, ou passez aux escapades samedi et dimanche le jour même — et découvrez des pauses sans utiliser de congés. Utilisez Meilleur prix week-end pour comparer les tarifs vers une destination sur un calendrier."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Départ matin · retour soir",
+    "title": "Escapades d’une journée en Europe",
+    "subtitle": "Parte le samedi ou dimanche matin, rentrez le même soir",
+    "lead": "Partez après le petit-déjeuner, explorez une ville européenne et rentrez le même soir — pas d’hôtel, pas de nuitée.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Choisissez samedi ou dimanche pour un départ le matin / retour le soir",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Départ matin · retour soir",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Trouvez des escapades européennes sans nuitée",
+    "seoBlock": "Vous cherchez une escapade d’une journée en Europe ? Choisissez vos aéroports de départ et des samedis ou dimanches pour des vols matin aller / soir retour. Comparez les offres des hubs proches, parcourez les prochains week-ends et réservez via Kiwi.com — idéal pour une journée à l’étranger sans hôtel."
   },
   "search": {
     "travelWeekend": "Week-end de voyage",
@@ -181,14 +183,14 @@
   },
   "about": {
     "heroTitle": "À propos d'euroweekender.com",
-    "heroSubtitle": "Des city breaks européens abordables qui s'intègrent à votre semaine de travail — départ vendredi soir, retour dimanche.",
-    "lead": "Nous aidons les Européens à découvrir des escapades abordables — départ vendredi soir, retour dimanche, et un city break complet sans poser de congés.",
+    "heroSubtitle": "City breaks européens abordables autour de la semaine de travail — départ vendredi soir, retour dimanche, ou escapade le samedi.",
+    "lead": "Nous aidons les Européens à découvrir des courts séjours abordables — départ vendredi soir, retour dimanche, ou aller-retour le même jour — sans poser de congés.",
     "sections": {
       "weekendTitle": "Voyages de week-end sans congés",
       "weekendP1": "La plupart d'entre nous n'ont que le samedi et le dimanche de libre — mais c'est suffisant pour une escapade en Europe. euroweekender.com est conçu autour de courts allers-retours : partir après le travail le vendredi, explorer le samedi et être de retour chez soi dimanche soir.",
       "weekendP2": "Utilisez des types de séjour comme ven–dim et le filtre de départ en soirée pour trouver des vols adaptés à un vrai rythme de semaine de travail, pas seulement aux vacances en milieu de semaine.",
       "whatTitle": "Ce que nous faisons",
-      "whatP": "euroweekender.com agrège des offres de vols de week-end issues de Kiwi.com et les présente dans une interface de recherche simple. Choisissez vos aéroports de départ, sélectionnez un ou plusieurs week-ends de voyage, filtrez par type de séjour et comparez les prix aller-retour en un coup d'œil.",
+      "whatP": "euroweekender.com agrège des offres de vols Kiwi.com et les présente dans trois outils simples : deals week-end depuis vos aéroports, un calendrier du week-end le moins cher vers une ville européenne, et des escapades samedi/dimanche aller-retour le jour même. Choisissez aéroports et dates, comparez les prix et réservez chez le partenaire.",
       "whoTitle": "Pour qui c'est fait",
       "whoP": "Le site est conçu pour les voyageurs en city break, les couples et les amis qui veulent de l'inspiration sans passer des heures sur les comparateurs de vols. Que vous partiez de Prague, Vienne, Barcelone ou tout autre hub européen, vous pouvez parcourir les week-ends à venir et réserver directement auprès de la compagnie aérienne ou du partenaire de voyage.",
       "rankTitle": "Comment nous classons les résultats",
@@ -206,16 +208,16 @@
   },
   "howItWorks": {
     "heroTitle": "Comment ça marche",
-    "heroSubtitle": "Quatre étapes simples du vol du vendredi soir au retour du dimanche — sans poser de congés.",
-    "lead": "Trouvez un week-end européen pas cher en quatre étapes — départ vendredi soir, retour dimanche, sans congés.",
+    "heroSubtitle": "Quatre étapes simples du vol vendredi soir au retour dimanche — ou une escapade d’une journée — sans congés.",
+    "lead": "Trouvez un week-end européen pas cher ou une escapade d’une journée en quatre étapes — départ vendredi soir, retour dimanche, ou aller-retour le samedi ou le dimanche.",
     "builtTitle": "Conçu pour de vrais week-ends",
-    "builtP1": "euroweekender.com se concentre sur les courts allers-retours qui s'adaptent au travail. Prenez un vol vendredi soir après votre dernière réunion, passez le samedi dans une nouvelle ville et rentrez dimanche soir — deux nuits dehors, zéro jour de congé.",
+    "builtP1": "euroweekender.com se concentre sur les courts aller-retour compatibles avec le travail. Prenez un vol vendredi soir après votre dernière réunion, passez le samedi dans une nouvelle ville et rentrez dimanche soir — deux nuits dehors, zéro jour de congé. Sans hôtel ? Utilisez les escapades d’une journée pour un départ le matin et un retour le soir le samedi ou le dimanche.",
     "builtP2": "Choisissez un type de séjour ven–dim et activez le filtre de départ en soirée pour faire remonter des vols adaptés à ce rythme, plutôt que des recherches génériques d'une semaine sur d'autres sites.",
     "stepsTitle": "Les quatre étapes",
     "step1title": "Choisir les aéroports",
     "step1text": "Choisissez un ou plusieurs aéroports de départ en Europe — Prague, Vienne, Berlin, Londres et plus. Recherchez depuis plusieurs villes à la fois.",
     "step2title": "Choisir les week-ends",
-    "step2text": "Sélectionnez un ou plusieurs week-ends de voyage. Chaque pastille affiche la période de départ aller pour ce voyage.",
+    "step2text": "Sélectionnez un ou plusieurs week-ends. Chaque pastille montre la plage de départ. Pour les escapades d’une journée, choisissez plutôt samedis ou dimanches.",
     "step3title": "Affiner les filtres",
     "step3text": "Choisissez les schémas ven–dim, les départs en soirée et le nombre de passagers. Les résultats se mettent à jour automatiquement.",
     "step4title": "Comparer et réserver",
@@ -229,16 +231,25 @@
     "tip4": "Réservez rapidement après avoir trouvé un tarif ; les places de week-end à bas prix partent vite.",
     "cta": "Commencer la recherche",
     "heroImageAlt": "Voyageur avec des bagages prêt pour un week-end",
-    "weekendImageAlt": "Rue pavée européenne dans une lumière chaude du soir"
+    "weekendImageAlt": "Rue pavée européenne dans une lumière chaude du soir",
+    "tip5": "Ouvrez Meilleur prix week-end pour comparer chaque week-end à venir vers une ville, ou Excursions d’une journée pour des retours le jour même le samedi/dimanche."
   },
   "faq": {
     "heroTitle": "Questions fréquentes",
-    "heroSubtitle": "Tout savoir pour trouver des vols pas chers pour le week-end en Europe.",
-    "lead": "Réponses sur les vols pas chers pour le week-end en Europe, les voyages ven–dim, les départs le soir et la réservation sécurisée sur Kiwi.com.",
+    "heroSubtitle": "Tout ce qu’il faut savoir sur les vols week-end économiques et les escapades d’une journée en Europe.",
+    "lead": "Réponses sur les vols week-end en Europe, les escapades samedi/dimanche le jour même, les trajets ven–dim, les départs du soir et la réservation sécurisée sur Kiwi.com.",
     "items": [
       {
         "q": "Puis-je voyager sans poser de congés ?",
         "a": "Oui — c'est exactement l'objectif des voyages de week-end. Choisissez un schéma ven–dim et filtrez les départs du vendredi soir pour partir après le travail, profiter du samedi à destination et revenir dimanche soir. Vous obtenez un city break complet en utilisant uniquement votre week-end habituel."
+      },
+      {
+        "q": "Qu’est-ce qu’une escapade d’une journée ?",
+        "a": "Un aller-retour le jour même : départ le matin, journée dans une autre ville européenne, retour le même soir — sans hôtel ni nuitée. Sur euroweekender.com, ces escapades se concentrent sur les samedis et dimanches."
+      },
+      {
+        "q": "Qu’est-ce que « Meilleur prix week-end » ?",
+        "a": "Meilleur prix week-end est un calendrier de destination. Choisissez un aéroport de départ et une ville européenne, puis comparez les tarifs des week-ends à venir sur une vue mensuelle pour repérer le week-end le moins cher."
       },
       {
         "q": "Est-il sûr de réserver via Kiwi.com ?",
@@ -246,7 +257,7 @@
       },
       {
         "q": "Qu'est-ce qu'euroweekender.com ?",
-        "a": "Un outil de recherche pour des vols de week-end pas chers en Europe. Nous collectons des offres aller-retour pour de courts séjours et vous permettons de filtrer par dates de week-end, durée du séjour et heure de départ."
+        "a": "Un outil de recherche pour les courts séjours européens pas chers. Nous collectons des offres aller-retour pour les week-ends et les escapades d’une journée, et vous laissez filtrer par dates, durée et heure de départ — ou comparer les prix week-end vers une destination."
       },
       {
         "q": "Depuis quels aéroports puis-je rechercher ?",

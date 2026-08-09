@@ -33,8 +33,8 @@
       "description": "Löydä edullisin viikonloppu valitsemaasi kohteeseen. Vertaa pe–su-matkoja ja muita lyhyitä citybreikkejä kalenterissa ja varaa paras tarjous."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Päiväretket Euroopassa",
+      "description": "Löydä lauantai- ja sunnuntaimatkat Euroopassa — aamulla mennen, illalla takaisin, ilman yöpymistä. Vertaa saman päivän lentoja lähelläsi olevilta lentoasemilta."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Etsi ja vertaile halpoja viikonloppulentoja Praha, Wien, Berliini, München, Lontoo, Barcelona ja kymmenistä eurooppalaisista lentokentistä. Suodata pe–su, to–su ja ke–su, lisää iltalähdöt ja löydä kaupunkilomia ilman vuosilomaa."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Aamulla mennen · illalla takaisin",
+    "title": "Päiväretket Euroopassa",
+    "subtitle": "Lennä lauantaina tai sunnuntaina aamulla, palaa saman illan aikana",
+    "lead": "Lähde aamiaisen jälkeen, tutustu eurooppalaiseen kaupunkiin ja lennä kotiin saman illan aikana — ei hotellia, ei yöpymistä.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Valitse lauantai tai sunnuntai aamuulos / iltapaluu -matkoille",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Aamulla mennen · illalla takaisin",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Löydä eurooppalaisia päiväretkiä ilman yöpymistä",
+    "seoBlock": "Etsitkö päiväretkeä Euroopassa? Valitse lähtölentoasemat sekä lauantait tai sunnuntait aamuulos / iltapaluu -lennoille. Vertaa lähellä olevien hubien tarjouksia, selaa tulevia viikonloppuja ja varaa Kiwi.comin kautta — ihanteellinen täyteen päivään ulkomailla ilman hotellia."
   },
   "search": {
     "travelWeekend": "Matkaviikonloppu",
@@ -229,7 +231,8 @@
     "tip4": "Varaa pian löydettyäsi hinnan; halvat viikonloppupaikat myydään nopeasti loppuun.",
     "cta": "Aloita haku",
     "heroImageAlt": "Matkustaja matkatavaroiden kanssa valmiina viikonloppumatkalle",
-    "weekendImageAlt": "Eurooppalainen mukulakivikatu lämpimässä iltavalossa"
+    "weekendImageAlt": "Eurooppalainen mukulakivikatu lämpimässä iltavalossa",
+    "tip5": "Open Paras viikonloppuhinta to compare every upcoming weekend to one city, or Päiväretket for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Usein kysytyt kysymykset",
@@ -241,12 +244,20 @@
         "a": "Kyllä — juuri siihen viikonloppumatkat on tarkoitettu. Valitse pe–su-malli ja suodata perjantai-iltalähdöt, jotta lähdet työn jälkeen, nautit lauantaina kohteessa ja palaat sunnuntai-iltana. Saat täyden kaupunkiloman käyttäen vain tavallista viikonloppuasi."
       },
       {
+        "q": "Mikä on päiväretki?",
+        "a": "Meno-paluu samana päivänä: aamulla lähtö, päivä toisessa eurooppalaisessa kaupungissa ja paluu illalla — ilman hotellia ja ilman yöpymistä. euroweekender.comissa päiväretket keskittyvät lauantaihin ja sunnuntaihin."
+      },
+      {
+        "q": "Mikä on „Paras viikonloppuhinta”?",
+        "a": "Paras viikonloppuhinta on kohdekalenteri. Valitse lähtölentoasema ja eurooppalainen kaupunki, sitten vertaa tulevia viikonloppuhintoja kuukausinäkymässä löytääksesi edullisimman viikonlopun."
+      },
+      {
         "q": "Onko turvallista varata Kiwi.comin kautta?",
         "a": "Kiwi.com on merkittävä eurooppalainen lentovarausalusta, jota miljoonat matkustajat käyttävät. Maksu tapahtuu Kiwin turvallisessa kassassa standardisalauksella, ja saat kunnollisen varausvahvistuksen asiakastuen kera. Moniin hintoihin sisältyy myös Kiwi.comin varaussuoja aikataulumuutoksia ja häiriöitä varten — tarkista aina hintaehdot ennen maksua."
       },
       {
         "q": "Mikä on euroweekender.com?",
-        "a": "Hakutyökalu halpojen eurooppalaisten viikonloppulentojen löytämiseen. Keräämme meno-palutarjouksia lyhyille matkoille ja voit suodattaa viikonloppupäivien, matkan pituuden ja lähtöajan mukaan."
+        "a": "Hakutyökalu edullisiin lyhyihin matkoihin Euroopassa. Keräämme meno-paluu-tarjouksia viikonlopuille ja päiväretkille ja annamme suodattaa päivämäärän, keston ja lähtöajan mukaan — tai vertailla viikonloppuhintoja yhteen kohteeseen."
       },
       {
         "q": "Mistä lentokentiltä voin hakea?",

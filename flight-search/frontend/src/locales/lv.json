@@ -33,8 +33,8 @@
       "description": "Atrodiet lētāko nedēļas nogali uz izvēlēto galamērķi. Salīdziniet piektd.–svētd. un citus īsus braucienus kalendārā un rezervējiet labāko piedāvājumu."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Vienas dienas braucieni Eiropā",
+      "description": "Atrodiet sestdienas un svētdienas braucienus Eiropā — no rīta turp, vakarā atpakaļ, bez nakšņošanas. Salīdziniet tās pašas dienas lidojumus no lidostām jums tuvumā."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Meklējiet un salīdziniet lētus nedēļas nogales lidojumus no Prāgas, Vīnes, Berlīnes, Minhenes, Londonas, Barselonas un desmitiem Eiropas lidostu. Filtrējiet pk–sv, ce–sv un tr–sv, pievienojiet vakara izlidošanas un atklājiet pilsētu braucienus bez gada atvaļinājuma."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "No rīta turp · vakarā atpakaļ",
+    "title": "Vienas dienas braucieni Eiropā",
+    "subtitle": "Izlidojiet sestdienā vai svētdienā no rīta, atgriezieties tajā pašā vakarā",
+    "lead": "Dodieties pēc brokastīm, izpētiet Eiropas pilsētu un lidojiet mājās tajā pašā vakarā — bez viesnīcas, bez nakšņošanas.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Izvēlieties sestdienu vai svētdienu izlidošanai no rīta / atgriešanai vakarā",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "No rīta turp · vakarā atpakaļ",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Atrodiet Eiropas vienas dienas braucienus bez nakšņošanas",
+    "seoBlock": "Meklējat vienas dienas braucienu Eiropā? Izvēlieties izlidošanas lidostas un sestdienas vai svētdienas rīta turp / vakara atpakaļ lidojumiem. Salīdziniet tuvāko hubu piedāvājumus, pārlūkojiet nākamās nedēļas nogales un rezervējiet caur Kiwi.com — ideāli pilnai dienai ārzemēs bez viesnīcas."
   },
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
@@ -229,7 +231,8 @@
     "tip4": "Rezervē drīz pēc labas cenas atrašanas; lēti nedēļas nogales vietas ātri izpārdodas.",
     "cta": "Sākt meklēt",
     "heroImageAlt": "Ceļotājs ar bagāžu gatavs nedēļas nogales ceļojumam",
-    "weekendImageAlt": "Eiropas bruģēta iela siltā vakara gaismā"
+    "weekendImageAlt": "Eiropas bruģēta iela siltā vakara gaismā",
+    "tip5": "Open Labākā nedēļas nogales cena to compare every upcoming weekend to one city, or Vienas dienas braucieni for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Biežāk uzdotie jautājumi",
@@ -241,12 +244,20 @@
         "a": "Jā — tieši tam ir paredzēti nedēļas nogales ceļojumi. Izvēlies Pk–Sv modeli un filtrē piektdienas vakara izlidošanas, lai aizbrauktu pēc darba, baudītu sestdienu galamērķī un atgrieztos svētdienas vakarā. Tu iegūsti pilnvērtīgu pilsētas brīvdību, izmantojot tikai parasto nedēļas nogali."
       },
       {
+        "q": "Kas ir vienas dienas brauciens?",
+        "a": "Turp un atpakaļ tajā pašā dienā: no rīta izlidošana, diena citā Eiropas pilsētā un atgriešanās vakarā — bez viesnīcas un bez nakšņošanas. euroweekender.com vienas dienas braucieni koncentrējas uz sestdienām un svētdienām."
+      },
+      {
+        "q": "Kas ir „Labākā nedēļas nogales cena”?",
+        "a": "Labākā nedēļas nogales cena ir galamērķa kalendārs. Izvēlieties izlidošanas lidostu un Eiropas pilsētu, pēc tam salīdziniet gaidāmās nedēļas nogales cenas mēneša skatā, lai atrastu lētāko nedēļas nogali."
+      },
+      {
         "q": "Vai ir droši rezervēt caur Kiwi.com?",
         "a": "Kiwi.com ir liela Eiropas lidojumu rezervēšanas platforma, ko izmanto miljoni ceļotāju. Maksājums notiek Kiwi drošajā kasē ar standarta šifrēšanu, un tu saņem korektu rezervācijas apstiprinājumu ar klientu atbalstu. Daudzām cenām ir arī Kiwi.com rezervēšanas aizsardzība grafika izmaiņu un traucējumu gadījumā — vienmēr pārbaudi tarifa nosacījumus pirms maksājuma."
       },
       {
         "q": "Kas ir euroweekender.com?",
-        "a": "Meklēšanas rīks lētiem Eiropas nedēļas nogales lidojumiem. Mēs vācam turp-atpakaļ piedāvājumus īsiem uzturēšanās laikiem un ļaujam filtrēt pēc nedēļas nogales datumiem, ceļojuma ilguma un izlidošanas laika."
+        "a": "Meklēšanas rīks lētiem īsiem braucieniem Eiropā. Mēs apkopojam turp un atpakaļ piedāvājumus nedēļas nogalēm un vienas dienas braucieniem un ļaujam filtrēt pēc datumiem, ilguma un izlidošanas laika — vai salīdzināt nedēļas nogales cenas uz vienu galamērķi."
       },
       {
         "q": "No kurām lidostām varu meklēt?",

@@ -33,8 +33,8 @@
       "description": "Leidke odavaim nädalavahetus valitud sihtkohta. Võrrelge reede–pühapäeva ja teisi lühireise kalendris ning broneerige parim pakkumine."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Ühepäevareisid Euroopas",
+      "description": "Leidke laupäeva- ja pühapäevareise Euroopas — hommikul välja, õhtul tagasi, ilma ööbimata. Võrrelge sama päeva lende teie lähedal asuvatelt lennujaamadelt."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Otsi ja võrdle odavaid nädalalõpu lende Praha, Viin, Berliin, München, London, Barcelona ja paljudest Euroopa lennujaamadest. Filtreeri re–p, nel–p ja kol–p, lisa õhtused väljumised ja avasta linnapuhkusi ilma aastapuhkuseta."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Hommikul välja · õhtul tagasi",
+    "title": "Ühepäevareisid Euroopas",
+    "subtitle": "Lennake laupäeval või pühapäeval hommikul välja, tulge sama õhtu tagasi",
+    "lead": "Minge pärast hommikusööki, avastage Euroopa linna ja lennake koju sama õhtu — ilma hotellita, ilma ööbimata.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Valige laupäev või pühapäev hommikuse väljalennu / õhtuse naasmise jaoks",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Hommikul välja · õhtul tagasi",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Leidke Euroopa ühepäevareise ilma ööbimata",
+    "seoBlock": "Otsite ühepäevareisi Euroopas? Valige väljalennu lennujaamad ning laupäevad või pühapäevad hommik välja / õhtu tagasi lendudeks. Võrrelge lähedaste hubide pakkumisi, sirvige eelseisvaid nädalavahetusi ja broneerige Kiwi.com kaudu — ideaalne täispäevaks välismaal ilma hotellita."
   },
   "search": {
     "travelWeekend": "Reisinädalavahetus",
@@ -229,7 +231,8 @@
     "tip4": "Broneeri peagi pärast sobiva hinna leidmist; odavad nädalavahetuse kohad müüakse kiiresti läbi.",
     "cta": "Alusta otsimist",
     "heroImageAlt": "Reisija pagasiga nädalavahetuse reisiks valmis",
-    "weekendImageAlt": "Euroopa munakivis tänav soojas õhtuvalguses"
+    "weekendImageAlt": "Euroopa munakivis tänav soojas õhtuvalguses",
+    "tip5": "Open Parim nädalavahetuse hind to compare every upcoming weekend to one city, or Ühepäevareisid for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Korduma kippuvad küsimused",
@@ -241,12 +244,20 @@
         "a": "Jah — just selleks on nädalavahetuse reisid. Vali R–P muster ja filtreeri reedeseid õhtuseid väljumisi, et lahkuda pärast tööd, naudi laupäeva sihtkohas ja tule pühapäeva õhtul tagasi. Saad täisväärtusliku linnapuhkuse ainult tavalise nädalavahetuse arvel."
       },
       {
+        "q": "Mis on ühepäevareis?",
+        "a": "Edasi-tagasi samal päeval: hommikul väljalend, päev teises Euroopa linnas ja naasmine õhtul — ilma hotellita ja ilma ööbimata. euroweekender.com ühepäevareisid keskenduvad laupäevadele ja pühapäevadele."
+      },
+      {
+        "q": "Mis on „Parim nädalavahetuse hind”?",
+        "a": "Parim nädalavahetuse hind on sihtkoha kalender. Valige väljalennu lennujaam ja Euroopa linn, seejärel võrrelge eelseisvaid nädalavahetuse hindu kuukuvas, et leida odavaim nädalavahetus."
+      },
+      {
         "q": "Kas Kiwi.com kaudu broneerimine on turvaline?",
         "a": "Kiwi.com on suur Euroopa lennubroneerimisplatvorm, mida kasutavad miljonid reisijad. Makse toimub Kiwi turvalisel kassas standardkrüpteeringuga ja saad korraliku broneeringukinnituse koos klienditoega. Paljudel hindadel on ka Kiwi.com broneerimiskaitse graafikumuudatuste ja häirete korral — kontrolli alati enne maksmist pileti tingimusi."
       },
       {
         "q": "Mis on euroweekender.com?",
-        "a": "Otsingutööriist odavate Euroopa nädalavahetuse lendude jaoks. Kogume lühikeste viibimiste edasi-tagasi pakkumisi ja võimaldame filtreerida nädalavahetuse kuupäevade, reisi pikkuse ja väljumisaja järgi."
+        "a": "Otsingutööriist odavate lühireiside jaoks Euroopas. Kogume edasi-tagasi pakkumisi nädalavahetusteks ja ühepäevareisideks ning laseme filtreerida kuupäeva, kestuse ja väljalennuaja järgi — või võrrelda nädalavahetuse hindu ühte sihtkohta."
       },
       {
         "q": "Millistest lennujaamadest saan otsida?",

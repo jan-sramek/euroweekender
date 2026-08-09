@@ -347,6 +347,15 @@ export function SingleDayTripsPage() {
         </div>
       </section>
 
+      <section className="home-seo" aria-labelledby="single-day-seo-title">
+        <div className="container container-wide">
+          <h2 id="single-day-seo-title" className="home-seo-title">
+            {t('singleDayTrips.seoTitle')}
+          </h2>
+          <p className="home-seo-text">{t('singleDayTrips.seoBlock')}</p>
+        </div>
+      </section>
+
       <SiteFooter />
     </>
   );

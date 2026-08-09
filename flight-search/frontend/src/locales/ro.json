@@ -33,8 +33,8 @@
       "description": "Găsește cel mai ieftin weekend spre destinația aleasă. Compară dus-întors vin–dum și alte escapade scurte pe un calendar, apoi rezervă cea mai bună ofertă."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Excursii de o zi în Europa",
+      "description": "Găsiți excursii de sâmbătă și duminică în Europa — dimineața dus, seara întors, fără cazare. Comparați zboruri în aceeași zi de pe aeroporturi aproape de dvs."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Caută și compară zboruri ieftine de weekend din Praga, Viena, Berlin, München, Londra, Barcelona și zeci de aeroporturi europene. Filtrează vin–dum, joi–dum și mie–dum, adaugă plecări seara și descoperă city break-uri fără concediu anual."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Dimineața dus · seara întors",
+    "title": "Excursii de o zi în Europa",
+    "subtitle": "Zburăți sâmbătă sau duminică dimineața, reveniți în aceeași seară",
+    "lead": "Plecați după micul dejun, explorați un oraș european și zburați acasă în aceeași seară — fără hotel, fără cazare.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Alegeți sâmbătă sau duminică pentru dus dimineața / întors seara",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Dimineața dus · seara întors",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Găsiți excursii europene fără cazare",
+    "seoBlock": "Căutați o excursie de o zi în Europa? Alegeți aeroporturile de plecare și sâmbete sau duminici pentru zboruri dimineața dus / seara întors. Comparați ofertele hub-urilor din apropiere, parcurgeți weekendurile următoare și rezervați prin Kiwi.com — ideal pentru o zi completă în străinătate fără hotel."
   },
   "search": {
     "travelWeekend": "Weekend de călătorie",
@@ -229,7 +231,8 @@
     "tip4": "Rezervați curând după ce găsiți un tarif; locurile de weekend la prețuri mici se epuizează rapid.",
     "cta": "Începeți căutarea",
     "heroImageAlt": "Călător cu bagaje pregătit pentru o escapadă de weekend",
-    "weekendImageAlt": "Stradă cu pavaj din piatră într-un oraș european, în lumina caldă a serii"
+    "weekendImageAlt": "Stradă cu pavaj din piatră într-un oraș european, în lumina caldă a serii",
+    "tip5": "Open Cel mai bun preț de weekend to compare every upcoming weekend to one city, or Excursii de o zi for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Întrebări frecvente",
@@ -241,12 +244,20 @@
         "a": "Da — exact pentru asta sunt călătoriile de weekend. Alegeți un model vin–dum și filtrați plecările de vineri seara ca să plecați după serviciu, să petreceți sâmbăta la destinație și să reveniți duminică seara. Obțineți o escapadă urbană completă folosind doar weekendul obișnuit."
       },
       {
+        "q": "Ce este o excursie de o zi?",
+        "a": "Dus-întors în aceeași zi: decolare dimineața, ziua într-un alt oraș european și întoarcere seara — fără hotel și fără cazare. Pe euroweekender.com, excursiile de o zi se concentrează pe sâmbete și duminici."
+      },
+      {
+        "q": "Ce este „Cel mai bun preț de weekend”?",
+        "a": "Cel mai bun preț de weekend este un calendar de destinație. Alegeți un aeroport de plecare și un oraș european, apoi comparați tarifele weekendurilor următoare într-o vedere lunară pentru a găsi cel mai ieftin weekend."
+      },
+      {
         "q": "Este sigur să rezerv prin Kiwi.com?",
         "a": "Kiwi.com este o platformă majoră europeană de rezervare zboruri folosită de milioane de călători. Plata se face prin checkout-ul securizat Kiwi cu criptare standard, iar dvs. primiți o confirmare corectă a rezervării cu asistență pentru clienți. Multe tarife includ și protecție la rezervare Kiwi.com pentru schimbări de program și perturbări — verificați întotdeauna condițiile tarifului înainte de plată."
       },
       {
         "q": "Ce este euroweekender.com?",
-        "a": "Un instrument de căutare pentru zboruri de weekend ieftine în Europa. Colectăm oferte dus-întors pentru șederi scurte și vă permitem să filtrați după date de weekend, durata călătoriei și ora plecării."
+        "a": "Un instrument de căutare pentru călătorii scurte ieftine în Europa. Colectăm oferte dus-întors pentru weekenduri și excursii de o zi și vă lăsăm să filtrați după date, durată și ora plecării — sau să comparați prețurile de weekend către o destinație."
       },
       {
         "q": "De la ce aeroporturi pot căuta?",

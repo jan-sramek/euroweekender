@@ -33,8 +33,8 @@
       "description": "Finndu ódýrustu helgina til áfangastaðarins þíns. Berðu saman fös–sun og aðrar stuttar borgarferðir á dagatali og bókaðu besta tilboðið."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Dagsferðir um Evrópu",
+      "description": "Finndu laugardags- og sunnudagsferðir um Evrópu — út að morgni, heim að kvöldi, án gistingar. Berðu saman samdægursflug frá flugvöllum nálægt þér."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Leitaðu og berðu saman ódýr helgarflug frá Prag, Vín, Berlín, München, London, Barcelona og tugum evrópskra flugvalla. Síaðu fös–sun, fim–sun og mið–sun, bættu við kvöldbrottförum og uppgötvaðu borgarferðir án ársfrís."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Út að morgni · heim að kvöldi",
+    "title": "Dagsferðir um Evrópu",
+    "subtitle": "Farðu laugardag eða sunnudag að morgni, komdu heim sama kvöld",
+    "lead": "Farðu eftir morgunmat, skoðaðu evrópska borg og fljúgðu heim sama kvöld — ekkert hótel, engin gisting.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Veldu laugardag eða sunnudag fyrir útferð morgun / heimferð kvöld",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Út að morgni · heim að kvöldi",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Finndu evrópskar dagsferðir án gistingar",
+    "seoBlock": "Leitarðu að dagsferð í Evrópu? Veldu brottfararflugvelli og laugardaga eða sunnudaga fyrir morgun út / kvöld heim. Berðu saman tilboð frá nálægum hubbum, skoðaðu næstu helgar og bókaðu í gegnum Kiwi.com — tilvalið fyrir heilan dag erlendis án hótels."
   },
   "search": {
     "travelWeekend": "Ferðahelgi",
@@ -229,7 +231,8 @@
     "tip4": "Bókaðu fljótlega eftir að þú finnur verð; helgarsæti á lágu verði seljast fljótt upp.",
     "cta": "Byrja leit",
     "heroImageAlt": "Ferðamaður með farangur tilbúinn í helgarferð",
-    "weekendImageAlt": "Evrópskur götusteinn í hlýju kvöldljósi"
+    "weekendImageAlt": "Evrópskur götusteinn í hlýju kvöldljósi",
+    "tip5": "Open Besta helgarverðið to compare every upcoming weekend to one city, or Dagsferðir for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Algengar spurningar",
@@ -241,12 +244,20 @@
         "a": "Já — einmitt þess vegna eru helgarferðir til. Veldu Fös–Sun mynstur og síaðu fyrir föstudagskvöldbrottfarir svo þú farir eftir vinnu, njótir laugardagsins á áfangastað og kemur aftur á sunnudagskvöldi. Þú færð fulla borgarferð með venjulegu helgina þína."
       },
       {
+        "q": "Hvað er dagsferð?",
+        "a": "Út og heim sama dag: út að morgni, dagur í annarri evrópskri borg og heim sama kvöld — án hótels og án gistingar. Á euroweekender.com einbeita dagsferðir sér að laugardögum og sunnudögum."
+      },
+      {
+        "q": "Hvað er „Besta helgarverðið”?",
+        "a": "Besta helgarverðið er áfangastaðsdagatal. Veldu brottfararflugvöll og evrópska borg, berðu síðan saman væntanleg helgarverð í mánaðaryfirliti til að finna ódýrustu helgina."
+      },
+      {
         "q": "Er öruggt að bóka í gegnum Kiwi.com?",
         "a": "Kiwi.com er stór Evrópuflugbókunarvettvangur sem milljónir ferðamanna nota. Greiðsla fer fram á öruggu greiðslukerfi Kiwi með venjulegri dulkóðun og þú færð rétta bókunarstaðfestingu með þjónustuveri. Margir verðflokkar innihalda einnig Kiwi.com bókunarvernd fyrir breytingar á áætlun og truflanir — athugaðu alltaf verðskilmála áður en þú greiðir."
       },
       {
         "q": "Hvað er euroweekender.com?",
-        "a": "Leitartól fyrir ódýr helgarflug í Evrópu. Við söfnum heim-og-til-baka tilboðum fyrir stuttar dvölir og leyfa þér að sía eftir helgardagsetningum, ferðalengd og brottfarartíma."
+        "a": "Leitartól fyrir ódýrar stuttar ferðir um Evrópu. Við söfnum út-og-heim tilboðum fyrir helgar og dagsferðir og leyfum þér að sía eftir dagsetningum, lengd og brottfarartíma — eða bera saman helgarverð til eins áfangastaðar."
       },
       {
         "q": "Frá hvaða flugvöllum get ég leitað?",

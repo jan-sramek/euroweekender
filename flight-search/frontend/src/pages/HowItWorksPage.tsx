@@ -47,6 +47,7 @@ export function HowItWorksPage() {
           <li>{t('howItWorks.tip2')}</li>
           <li>{t('howItWorks.tip3')}</li>
           <li>{t('howItWorks.tip4')}</li>
+          <li>{t('howItWorks.tip5')}</li>
         </ul>
 
         <div className="cta-box">

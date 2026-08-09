@@ -33,8 +33,8 @@
       "description": "Seçtiğiniz destinasyona en uygun hafta sonunu bulun. Takvimde Cum–Paz ve diğer kısa şehir kaçamaklarını karşılaştırın, en iyi fırsatı rezerve edin."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Avrupa’da tek günlük geziler",
+      "description": "Avrupa’da Cumartesi ve Pazar günü gezileri bulun — sabah gidiş, akşam dönüş, geceleme yok. Yakınınızındaki havalimanlarından aynı gün uçuşları karşılaştırın."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Prag, Viyana, Berlin, Münih, Londra, Barselona ve onlarca Avrupa havalimanından ucuz hafta sonu uçuşlarını arayın ve karşılaştırın. Cuma–pazar, perşembe–pazar ve çarşamba–pazar filtreleyin, akşam kalkışları ekleyin ve yıllık izin kullanmadan şehir kaçamakları keşfedin."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Sabah gidiş · akşam dönüş",
+    "title": "Avrupa’da tek günlük geziler",
+    "subtitle": "Cumartesi veya Pazar sabahı uçun, aynı akşam dönün",
+    "lead": "Kahvaltıdan sonra çıkın, bir Avrupa şehrini keşfedin ve aynı akşam eve uçun — otel yok, geceleme yok.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Sabah gidiş / akşam dönüş için Cumartesi veya Pazar seçin",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Sabah gidiş · akşam dönüş",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Gecelemesiz Avrupa günü gezileri bulun",
+    "seoBlock": "Avrupa’da tek günlük bir şehir gezisi mi arıyorsunuz? Kalkış havalimanlarınızı ve Cumartesi veya Pazar’ı sabah gidiş / akşam dönüş uçuşları için seçin. Yakın hub’lardaki fırsatları karşılaştırın, önümüzdeki hafta sonlarını tarayın ve Kiwi.com üzerinden rezervasyon yapın — otelsiz tam bir gün yurt dışı için ideal."
   },
   "search": {
     "travelWeekend": "Seyahat hafta sonu",
@@ -229,7 +231,8 @@
     "tip4": "Bir tarife bulduktan sonra kısa sürede rezervasyon yapın; düşük fiyatlı hafta sonu koltukları hızla tükenir.",
     "cta": "Aramaya başla",
     "heroImageAlt": "Hafta sonu seyahatine hazır bagajlı gezgin",
-    "weekendImageAlt": "Sıcak akşam ışığında Avrupa arnavut kaldırımlı sokak"
+    "weekendImageAlt": "Sıcak akşam ışığında Avrupa arnavut kaldırımlı sokak",
+    "tip5": "Open En iyi hafta sonu fiyatı to compare every upcoming weekend to one city, or Tek günlük geziler for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Sık sorulan sorular",
@@ -241,12 +244,20 @@
         "a": "Evet — hafta sonu seyahatleri tam da bunun için var. Cum–Paz desenini seçin ve Cuma akşamı kalkışları için filtreleyin; işten sonra kalkın, Cumartesi varış noktanızın tadını çıkarın ve Pazar akşamı dönün. Yalnızca normal hafta sonunuzu kullanarak tam bir şehir kaçamağı yaşarsınız."
       },
       {
+        "q": "Tek günlük gezi nedir?",
+        "a": "Aynı gün gidiş-dönüş: sabah uçuş, günü başka bir Avrupa şehrinde geçirme ve aynı akşam dönüş — otel ve geceleme yok. euroweekender.com’da tek günlük geziler Cumartesi ve Pazar’a odaklanır."
+      },
+      {
+        "q": "“En iyi hafta sonu fiyatı” nedir?",
+        "a": "En iyi hafta sonu fiyatı bir destinasyon takvimidir. Bir kalkış havalimanı ve bir Avrupa şehri seçin, ardından en ucuz hafta sonunu bulmak için yaklaşan hafta sonu ücretlerini aylık görünümde karşılaştırın."
+      },
+      {
         "q": "Kiwi.com üzerinden rezervasyon yapmak güvenli mi?",
         "a": "Kiwi.com, milyonlarca gezginin kullandığı büyük bir Avrupa uçuş rezervasyon platformudur. Ödeme, standart şifreleme ile Kiwi'nin güvenli ödeme sayfasında yapılır ve müşteri desteğiyle birlikte düzgün bir rezervasyon onayı alırsınız. Birçok tarife ayrıca program değişiklikleri ve aksaklıklar için Kiwi.com rezervasyon koruması içerir — ödeme yapmadan önce tarife koşullarını her zaman kontrol edin."
       },
       {
         "q": "euroweekender.com nedir?",
-        "a": "Ucuz Avrupa hafta sonu uçuşları için bir arama aracı. Kısa konaklamalar için gidiş-dönüş fırsatlarını toplar ve hafta sonu tarihleri, seyahat süresi ve kalkış saatine göre filtrelemenizi sağlar."
+        "a": "Avrupa’da ucuz kısa geziler için bir arama aracı. Hafta sonları ve tek günlük geziler için gidiş-dönüş fırsatlarını toplar; tarih, süre ve kalkış saatiyle filtrelemenize — veya bir destinasyona hafta sonu fiyatlarını karşılaştırmanıza — izin verir."
       },
       {
         "q": "Hangi havalimanlarından arama yapabilirim?",

@@ -33,8 +33,8 @@
       "description": "Raskite pigiausią savaitgalį į pasirinktą kelionės tikslą. Palyginkite pen–sek ir kitas trumpas keliones kalendoriuje ir rezervuokite geriausią pasiūlymą."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Vienos dienos kelionės Europoje",
+      "description": "Raskite šeštadienio ir sekmadienio keliones Europoje — ryte ten, vakare atgal, be nakvynės. Palyginkite tos pačios dienos skrydžius iš netoliese esančių oro uostų."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Ieškokite ir palyginkite pigius savaitgalio skrydžius iš Prahos, Vienos, Berlyno, Miuncheno, Londono, Barselonos ir dešimčių Europos oro uostų. Filtruokite pn–sk, kt–sk ir tr–sk, pridėkite vakaro išvykimus ir atraskite miesto keliones be metinių atostogų."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Ryte ten · vakare atgal",
+    "title": "Vienos dienos kelionės Europoje",
+    "subtitle": "Išskriskite šeštadienį ar sekmadienį ryte, grįžkite tą patį vakarą",
+    "lead": "Išvykite po pusryčių, tyrinėkite Europos miestą ir skriskite namo tą patį vakarą — be viešbučio, be nakvynės.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Pasirinkite šeštadienį arba sekmadienį rytiniam išskridimui / vakarinėms grįžimui",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Ryte ten · vakare atgal",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Raskite europietiškas vienos dienos keliones be nakvynės",
+    "seoBlock": "Ieškote vienos dienos kelionės Europoje? Pasirinkite išvykimo oro uostus ir šeštadienius ar sekmadienius rytiniams / vakariniams skrydžiams. Palyginkite artimų hubų pasiūlymus, peržiūrėkite artimiausius savaitgalius ir rezervuokite per Kiwi.com — idealu pilnai dienai užsienyje be viešbučio."
   },
   "search": {
     "travelWeekend": "Kelionės savaitgalis",
@@ -229,7 +231,8 @@
     "tip4": "Rezervuokite greitai radę gerą kainą; pigios savaitgalio vietos greitai išsiparduoda.",
     "cta": "Pradėti paiešką",
     "heroImageAlt": "Keliautojas su bagažu pasiruošęs savaitgalio kelionei",
-    "weekendImageAlt": "Europos grįdintos akmenys gatvė šiltame vakaro šviesoje"
+    "weekendImageAlt": "Europos grįdintos akmenys gatvė šiltame vakaro šviesoje",
+    "tip5": "Open Geriausia savaitgalio kaina to compare every upcoming weekend to one city, or Vienos dienos kelionės for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Dažniausiai užduodami klausimai",
@@ -241,12 +244,20 @@
         "a": "Taip — būtent tam skirtos savaitgalio kelionės. Pasirinkite Pn–Sk modelį ir filtruokite penktadienio vakaro išvykimus, kad išvyktumėte po darbo, mėgautumėtės šeštadienį kelionės tikslas ir grįžtumėte sekmadienio vakarą. Gaunate pilnavertį miesto savaitgalį naudodami tik įprastą savaitgalį."
       },
       {
+        "q": "Kas yra vienos dienos kelionė?",
+        "a": "Į abi puses tą pačią dieną: ryte išskridimas, diena kitame Europos mieste ir grįžimas vakare — be viešbučio ir be nakvynės. euroweekender.com vienos dienos kelionės orientuotos į šeštadienius ir sekmadienius."
+      },
+      {
+        "q": "Kas yra „Geriausia savaitgalio kaina“?",
+        "a": "Geriausia savaitgalio kaina yra paskirties kalendorius. Pasirinkite išvykimo oro uostą ir Europos miestą, tada palyginkite artėjančius savaitgalio tarifus mėnesio rodinyje, kad rastumėte pigiausią savaitgalį."
+      },
+      {
         "q": "Ar saugu rezervuoti per Kiwi.com?",
         "a": "Kiwi.com yra didelė Europos skrydžių rezervavimo platforma, kuria naudojasi milijonai keliautojų. Mokėjimas vyksta Kiwi saugioje kasoje su standartiniu šifravimu, o gaunate tinkamą rezervacijos patvirtinimą su klientų pagalba. Daugeliui tarifų taip pat taikoma Kiwi.com rezervavimo apsauga grafiko pakeitimų ir sutrikimų atveju — visada patikrinkite tarifo sąlygas prieš mokant."
       },
       {
         "q": "Kas yra euroweekender.com?",
-        "a": "Paieškos įrankis pigiems Europos savaitgalio skrydžiams. Renkame pirmyn ir atgal pasiūlymus trumpiems buvimams ir leidžiame filtruoti pagal savaitgalio datas, kelionės trukmę ir išvykimo laiką."
+        "a": "Paieškos įrankis pigioms trumpoms kelionėms Europoje. Renkame į abi puses pasiūlymus savaitgaliams ir vienos dienos kelionėms ir leidžiame filtruoti pagal datas, trukmę ir išvykimo laiką — arba lyginti savaitgalio kainas į vieną kryptį."
       },
       {
         "q": "Iš kurių oro uostų galiu ieškoti?",

@@ -33,8 +33,8 @@
       "description": "Finn den billigste helgen til destinasjonen din. Sammenlign fre–søn og andre korte byturer i en kalender, og book det beste tilbudet."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Dagsreiser i Europa",
+      "description": "Finn lørdags- og søndagsreiser i Europa — ut om morgenen, hjem om kvelden, uten overnatting. Sammenlign same-day-fly fra flyplasser nær deg."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Søk og sammenlign billige helgefly fra Praha, Wien, Berlin, München, London, Barcelona og dusinvis av europeiske flyplasser. Filtrer fre–søn, tor–søn og ons–søn, legg til kveldavreiser og oppdag storbyweekender uten å bruke ferie."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Ut om morgenen · hjem om kvelden",
+    "title": "Dagsreiser i Europa",
+    "subtitle": "Fly ut lørdag eller søndag morgen, kom hjem samme kveld",
+    "lead": "Dra etter frokost, utforsk en europeisk by og fly hjem samme kveld — ikke hotell, ikke overnatting.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Velg lørdag eller søndag for utreise morgen / hjemreise kveld",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Ut om morgenen · hjem om kvelden",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Finn europeiske dagsreiser uten overnatting",
+    "seoBlock": "Ser du etter en dagsreise i Europa? Velg avreiseflyplasser og lørdager eller søndager for morgen ut / kveld hjem. Sammenlign tilbud fra nærliggende hubber, bla gjennom kommende helger og bestill via Kiwi.com — ideelt for en hel dag i utlandet uten hotell."
   },
   "search": {
     "travelWeekend": "Reisehelg",
@@ -229,7 +231,8 @@
     "tip4": "Book snart etter at du finner en pris; helgeplasser til lave priser blir raskt utsolgt.",
     "cta": "Start søket",
     "heroImageAlt": "Reisende med bagasje klar for en helgetur",
-    "weekendImageAlt": "Europeisk brosteinsgate i varmt kveldslys"
+    "weekendImageAlt": "Europeisk brosteinsgate i varmt kveldslys",
+    "tip5": "Open Beste helgepris to compare every upcoming weekend to one city, or Dagsreiser for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Ofte stilte spørsmål",
@@ -241,12 +244,20 @@
         "a": "Ja — det er nettopp det helgeturer er til for. Velg et fre–søn-mønster og filtrer for fredagskveldsavganger slik at du reiser etter jobb, nyter lørdag på destinasjonen og kommer tilbake søndag kveld. Du får en full storbytur med bare den vanlige helgen."
       },
       {
+        "q": "Hva er en dagsreise?",
+        "a": "Tur-retur samme dag: ut om morgenen, dagen i en annen europeisk by og hjem samme kveld — uten hotell og uten overnatting. På euroweekender.com fokuserer dagsreiser på lørdager og søndager."
+      },
+      {
+        "q": "Hva er „Beste helgepris”?",
+        "a": "Beste helgepris er en destinasjonskalender. Velg en avreiseflyplass og en europeisk by, og sammenlign kommende helgepriser i månedsvisning for å finne den billigste helgen."
+      },
+      {
         "q": "Er det trygt å booke via Kiwi.com?",
         "a": "Kiwi.com er en stor europeisk flybookingplattform brukt av millioner av reisende. Betaling skjer i Kiwis sikre kasse med standard kryptering, og du får en ordentlig bookingbekreftelse med kundestøtte. Mange billetter inkluderer også Kiwi.com bookingbeskyttelse ved ruteendringer og forstyrrelser — sjekk alltid billettvilkårene før du betaler."
       },
       {
         "q": "Hva er euroweekender.com?",
-        "a": "Et søkeverktøy for billige europeiske helgeflyvninger. Vi samler tur-retur-tilbud for korte opphold og lar deg filtrere etter helgedatoer, reiselengde og avreisetid."
+        "a": "Et søkeverktøy for billige korte turer i Europa. Vi samler tur-retur-tilbud for helger og dagsreiser og lar deg filtrere etter datoer, lengde og avgangstid — eller sammenligne helgepriser til én destinasjon."
       },
       {
         "q": "Hvilke flyplasser kan jeg søke fra?",

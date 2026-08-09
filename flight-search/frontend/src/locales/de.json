@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Günstige Wochenendflüge in Europa",
-      "description": "Vergleichen Sie günstige Wochenendflüge in Europa. Suchen Sie Fr–So und Do–So ab Prag, Wien, Berlin, London und mehr. Abflug Freitagabend, Rückkehr Sonntag — ohne Urlaubstage."
+      "description": "Vergleichen Sie günstige europäische Wochenendflüge, finden Sie das günstigste Wochenende zu jeder Stadt oder buchen Sie eintägige Samstags- und Sonntags-Städtetrips. Freitagabend los — oder hin und zurück am selben Tag — ohne Urlaubstage."
     },
     "about": {
       "title": "Über EuroWeekender",
-      "description": "Günstige europäische Wochenendflüge und Städtereisen ohne Urlaubstage. Vergleichen Sie Fr–So-Angebote von Flughäfen in ganz Europa auf euroweekender.com."
+      "description": "Günstige europäische Wochenendflüge, eintägige Städtetrips und Ziel-Preiskalender — Städtereisen ohne Urlaubstage auf euroweekender.com."
     },
     "faq": {
       "title": "FAQ zu Wochenendflügen",
-      "description": "FAQ zu günstigen Wochenendflügen in Europa, Fr–So-Reisen, Abendabflügen und Buchung über Kiwi.com."
+      "description": "FAQ zu günstigen europäischen Wochenendflügen, eintägigen Städtetrips, Fr–So-Mustern, Abendabflügen und Buchung über Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "So funktioniert's",
-      "description": "So finden Sie günstige Wochenendflüge in Europa: Flughäfen wählen, Fr–So-Wochenenden auswählen, Abendabflüge filtern und auf Kiwi.com buchen."
+      "description": "So finden Sie günstige europäische Wochenendflüge und Tagestrips: Flughäfen wählen, Wochenenden oder Samstage/Sonntage auswählen, Abendabflüge filtern und auf Kiwi.com buchen."
     },
     "privacy": {
       "title": "Datenschutzerklärung",
@@ -33,8 +33,8 @@
       "description": "Finden Sie den günstigsten Wochenendflug zu Ihrer Wunschstadt. Vergleichen Sie kommende Fr–So- und andere Kurztrips im Kalender und buchen Sie das beste Angebot."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Eintägige Städtetrips in Europa",
+      "description": "Finden Sie Samstags- und Sonntags-Tagestrips in Europa — morgens hin, abends zurück, ohne Übernachtung. Vergleichen Sie Same-Day-Flüge von Flughäfen in Ihrer Nähe."
     }
   },
   "nav": {
@@ -84,21 +84,23 @@
     "flightsCounterFiltered": "{{shown}} von {{total}} Flügen",
     "flightsCounterSearching": "Flüge werden gesucht…",
     "subtitle": "Ihr nächster Städtetrip beginnt am Freitagabend",
-    "seoTitle": "Günstige Wochenendflüge in Europa finden",
-    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So, Do–So und Mi–So, wählen Sie Abendabflüge und entdecken Sie Städtereisen ohne Urlaub."
+    "seoTitle": "Günstige Wochenendflüge und Tagestrips in Europa finden",
+    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So-, Do–So- und Mi–So-Muster, aktivieren Sie Abendabflüge oder wechseln Sie zu eintägigen Samstags- und Sonntags-Städtetrips — und entdecken Sie Auszeiten ohne Urlaubstage. Nutzen Sie „Bester Wochenendpreis“, um Tarife zu einem Ziel im Kalender zu vergleichen."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Morgens hin · abends zurück",
+    "title": "Eintägige Städtetrips in Europa",
+    "subtitle": "Samstag oder Sonntag morgens raus, am selben Abend wieder zu Hause",
+    "lead": "Nach dem Frühstück los, eine europäische Stadt erkunden und am selben Abend zurückfliegen — ohne Hotel, ohne Übernachtung.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Samstag oder Sonntag für morgens-hin / abends-zurück wählen",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Morgens hin · abends zurück",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Europäische Tagestrips ohne Übernachtung finden",
+    "seoBlock": "Suchen Sie einen eintägigen Städtetrip in Europa? Wählen Sie Abflughäfen und Samstage oder Sonntage für Flüge morgens hin und abends zurück. Vergleichen Sie Angebote naher Hubs, scannen Sie die nächsten Wochenendtage und buchen Sie über Kiwi.com — ideal für einen vollen Tag im Ausland ohne Hotel."
   },
   "search": {
     "travelWeekend": "Reisewochenende",
@@ -181,14 +183,14 @@
   },
   "about": {
     "heroTitle": "Über euroweekender.com",
-    "heroSubtitle": "Günstige europäische Städtetrips, die in Ihre Arbeitswoche passen — freitags abends los, sonntags zurück.",
-    "lead": "Wir helfen Europäern, günstige Kurzreisen zu entdecken — freitags abends los, sonntags zurück, und einen vollen Städtetrip ohne Urlaubstage genießen.",
+    "heroSubtitle": "Bezahlbare europäische Städtereisen um die Arbeitswoche herum — Freitagabend raus, Sonntag zurück, oder ein eintägiger Samstags-Trip.",
+    "lead": "Wir helfen Europäern, günstige Kurztrips zu finden — Freitagabend los, Sonntag zurück, oder am selben Tag hin und zurück — ohne Urlaubstage zu verbrauchen.",
     "sections": {
       "weekendTitle": "Wochenendtrips ohne Urlaub",
       "weekendP1": "Die meisten von uns haben nur Samstag und Sonntag frei — aber das reicht für einen europäischen Kurztrip. euroweekender.com ist auf kurze Hin- und Rückflüge ausgelegt: freitags nach der Arbeit losfliegen, samstags erkunden und sonntagabend wieder zu Hause sein.",
       "weekendP2": "Nutzen Sie Reisearten wie Fr–So und den Abendflug-Filter, um Flüge zu finden, die zu einem echten Arbeitswochenrhythmus passen — nicht nur zu Ferien mitten in der Woche.",
       "whatTitle": "Was wir tun",
-      "whatP": "euroweekender.com aggregiert Wochenendflug-Angebote von Kiwi.com und präsentiert sie in einer einfachen Suchoberfläche. Wählen Sie Ihre Abflughäfen, bestimmen Sie ein oder mehrere Reisewochenenden, filtern Sie nach Reiseart und vergleichen Sie Hin- und Rückflugpreise auf einen Blick.",
+      "whatP": "euroweekender.com aggregiert Flugangebote von Kiwi.com und zeigt sie in drei einfachen Tools: Wochenendangebote von Ihren Flughäfen, ein Kalender für das günstigste Wochenende zu einer europäischen Stadt, und eintägige Samstags-/Sonntags-Städtetrips mit morgens hin und abends zurück. Flughäfen und Daten wählen, Preise vergleichen und beim Partner buchen.",
       "whoTitle": "Für wen es gedacht ist",
       "whoP": "Die Seite richtet sich an Städtetrip-Reisende, Paare und Freunde, die Inspiration suchen, ohne stundenlang auf Flugvergleichsportalen zu verbringen. Ob Sie von Prag, Wien, Barcelona oder einem anderen europäischen Hub abfliegen — Sie können kommende Wochenenden durchstöbern und direkt bei der Airline oder dem Reisepartner buchen.",
       "rankTitle": "Wie wir Ergebnisse sortieren",
@@ -206,16 +208,16 @@
   },
   "howItWorks": {
     "heroTitle": "So funktioniert's",
-    "heroSubtitle": "Vier einfache Schritte vom Freitagabendflug bis zur Sonntagsrückkehr — ohne Urlaubstage.",
-    "lead": "Finden Sie einen günstigen europäischen Wochenendtrip in vier Schritten — freitags abends los, sonntags zurück, ohne Urlaubstage.",
+    "heroSubtitle": "Vier einfache Schritte vom Freitagabendflug bis zur Sonntagsrückkehr — oder einem eintägigen Städtetrip — ohne Urlaubstage.",
+    "lead": "Finden Sie einen günstigen europäischen Wochenendtrip oder eintägigen Städtetrip in vier Schritten — Freitagabend los, Sonntag zurück, oder samstags/sonntags am selben Tag hin und zurück.",
     "builtTitle": "Für echte Wochenenden gemacht",
-    "builtP1": "euroweekender.com konzentriert sich auf kurze Hin- und Rückflüge, die um die Arbeit herumpassen. Nehmen Sie nach Ihrem letzten Meeting einen Freitagabendflug, verbringen Sie den Samstag in einer neuen Stadt und fliegen Sie sonntagabend nach Hause — zwei Nächte weg, null Urlaubstage.",
+    "builtP1": "euroweekender.com konzentriert sich auf kurze Hin- und Rückflüge, die um die Arbeit herumpassen. Nehmen Sie nach Ihrem letzten Meeting einen Freitagabendflug, verbringen Sie den Samstag in einer neuen Stadt und fliegen Sie sonntagabend nach Hause — zwei Nächte weg, null Urlaubstage. Lieber ohne Hotel? Nutzen Sie Tagestrips für morgens-hin, abends-zurück an Samstag oder Sonntag.",
     "builtP2": "Wählen Sie die Reiseart Fr–So und aktivieren Sie den Abendflug-Filter, um Flüge zu finden, die zu diesem Rhythmus passen — statt generischer Wochensuchen auf anderen Seiten.",
     "stepsTitle": "Die vier Schritte",
     "step1title": "Flughäfen wählen",
     "step1text": "Wählen Sie einen oder mehrere Abflughäfen in Europa — Prag, Wien, Berlin, London und mehr. Suchen Sie gleichzeitig aus mehreren Städten.",
     "step2title": "Wochenenden wählen",
-    "step2text": "Wählen Sie ein oder mehrere Reisewochenenden. Jede Kachel zeigt den Hinflugzeitraum für diese Reise.",
+    "step2text": "Wählen Sie ein oder mehrere Reisewochenenden. Jede Kachel zeigt den Hinflugzeitraum für diese Reise. Bei Tagestrips wählen Sie stattdessen Samstage oder Sonntage.",
     "step3title": "Filter verfeinern",
     "step3text": "Wählen Sie Fr–So-Muster, Abendflüge und Passagieranzahl. Ergebnisse aktualisieren sich automatisch.",
     "step4title": "Vergleichen & buchen",
@@ -229,16 +231,25 @@
     "tip4": "Buchen Sie bald nach dem Fund eines Tarifs; günstige Wochenendplätze sind schnell ausgebucht.",
     "cta": "Suche starten",
     "heroImageAlt": "Reisender mit Gepäck bereit für einen Wochenendtrip",
-    "weekendImageAlt": "Europäische Kopfsteinpflasterstraße im warmen Abendlicht"
+    "weekendImageAlt": "Europäische Kopfsteinpflasterstraße im warmen Abendlicht",
+    "tip5": "Öffnen Sie „Bester Wochenendpreis“, um jedes kommende Wochenende zu einer Stadt zu vergleichen, oder „Tagesausflüge“ für Same-Day-Rückflüge an Samstag/Sonntag."
   },
   "faq": {
     "heroTitle": "Häufig gestellte Fragen",
-    "heroSubtitle": "Alles über günstige Wochenendflüge in Europa.",
-    "lead": "Antworten zu günstigen Wochenendflügen in Europa, Fr–So-Reisen, Abendabflügen und sicherer Buchung auf Kiwi.com.",
+    "heroSubtitle": "Alles über günstige europäische Wochenendflüge und eintägige Städtetrips.",
+    "lead": "Antworten zu günstigen Wochenendflügen in Europa, eintägigen Samstags-/Sonntags-Trips, Fr–So-Mustern, Abendabflügen und sicherer Buchung auf Kiwi.com.",
     "items": [
       {
         "q": "Kann ich reisen, ohne Urlaubstage zu nehmen?",
         "a": "Ja — genau dafür sind Wochenendtrips da. Wählen Sie ein Fr–So-Muster und filtern Sie nach Freitagabend-Abflügen, damit Sie nach der Arbeit losfliegen, den Samstag am Ziel verbringen und sonntagabend zurückkehren. Sie bekommen einen vollen Städtetrip nur mit Ihrem regulären Wochenende."
+      },
+      {
+        "q": "Was ist ein eintägiger Trip?",
+        "a": "Ein Same-Day-Rückflug: morgens hin, den Tag in einer anderen europäischen Stadt verbringen und am selben Abend zurück — ohne Hotel und ohne Übernachtung. Auf euroweekender.com konzentrieren sich Tagestrips auf Samstage und Sonntage."
+      },
+      {
+        "q": "Was ist „Bester Wochenendpreis“?",
+        "a": "„Bester Wochenendpreis“ ist ein Zielkalender. Wählen Sie einen Abflughafen und eine europäische Stadt und vergleichen Sie kommende Wochenendpreise in einer Monatsansicht, um das günstigste Wochenende zu finden."
       },
       {
         "q": "Ist die Buchung über Kiwi.com sicher?",
@@ -246,7 +257,7 @@
       },
       {
         "q": "Was ist euroweekender.com?",
-        "a": "Ein Suchtool für günstige europäische Wochenendflüge. Wir sammeln Hin- und Rückflug-Angebote für Kurzaufenthalte und lassen Sie nach Wochenenddaten, Reisedauer und Abflugzeit filtern."
+        "a": "Ein Suchtool für günstige europäische Kurztrips. Wir sammeln Hin- und Rückflug-Angebote für Wochenendaufenthalte und eintägige Städtetrips und lassen Sie nach Daten, Reisedauer und Abflugzeit filtern — oder Wochenendpreise zu einem Ziel vergleichen."
       },
       {
         "q": "Von welchen Flughäfen kann ich suchen?",

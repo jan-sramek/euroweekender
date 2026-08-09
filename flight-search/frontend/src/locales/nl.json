@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Goedkope weekendvluchten in Europa",
-      "description": "Vergelijk goedkope weekendvluchten in Europa. Zoek vr–zo en do–zo vanuit Praag, Wenen, Berlijn, Londen en meer. Vertrek vrijdagavond, terug zondag — zonder vakantiedagen."
+      "description": "Vergelijk goedkope Europese weekendvluchten, vind het goedkoopste weekend naar elke stad of boek zaterdag- en zondagtrips heen en terug op dezelfde dag. Vertrek vrijdagavond — of heen en terug op één dag — zonder vakantiedagen."
     },
     "about": {
       "title": "Over EuroWeekender",
-      "description": "Goedkope Europese weekendvluchten en citytrips zonder vakantiedagen. Vergelijk vr–zo-deals van luchthavens in heel Europa op euroweekender.com."
+      "description": "Goedkope Europese weekendvluchten, dagtrips en bestemmingsprijskalenders — citybreaks zonder vakantiedagen op euroweekender.com."
     },
     "faq": {
       "title": "FAQ weekendvluchten",
-      "description": "FAQ over goedkope weekendvluchten in Europa, vr–zo-reizen, avondvertrekken en boeken via Kiwi.com."
+      "description": "FAQ over goedkope Europese weekendvluchten, dagtrips, vr–zo-patronen, avondvertrekken en boeken via Kiwi.com."
     },
     "contact": {
       "title": "Contact",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Hoe het werkt",
-      "description": "Zo vind je goedkope weekendvluchten in Europa: kies luchthavens, vr–zo-weekenden, filter avondvertrekken en boek op Kiwi.com."
+      "description": "Zo vind je goedkope Europese weekendvluchten en dagtrips: kies luchthavens, weekenden of zaterdagen/zondagen, filter avondvertrekken en boek op Kiwi.com."
     },
     "privacy": {
       "title": "Privacybeleid",
@@ -33,8 +33,8 @@
       "description": "Vind het goedkoopste weekend naar jouw bestemming. Vergelijk vr–zo en andere korte citytrips op een kalender en boek de beste deal."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Dagtrips door Europa",
+      "description": "Vind zaterdag- en zondagtrips door Europa — ’s ochtends heen, ’s avonds terug, zonder overnachting. Vergelijk same-day vluchten vanaf luchthavens bij jou in de buurt."
     }
   },
   "nav": {
@@ -84,21 +84,23 @@
     "flightsCounterFiltered": "{{shown}} van {{total}} vluchten",
     "flightsCounterSearching": "Vluchten zoeken…",
     "subtitle": "Je volgende citytrip begint vrijdagavond",
-    "seoTitle": "Vind goedkope weekendvluchten in Europa",
-    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanuit Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe en ontdek citytrips zonder verlof op te nemen."
+    "seoTitle": "Vind goedkope weekendvluchten en dagtrips door Europa",
+    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanaf Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe of schakel over naar zaterdag- en zondagtrips op dezelfde dag — en ontdek breaks zonder vakantiedagen. Gebruik Beste weekendprijs om tarieven naar één bestemming op een kalender te vergelijken."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "’s Ochtends heen · ’s avonds terug",
+    "title": "Dagtrips door Europa",
+    "subtitle": "Vlieg zaterdag of zondag ’s ochtends weg, kom dezelfde avond terug",
+    "lead": "Vertrek na het ontbijt, verken een Europese stad en vlieg dezelfde avond terug — geen hotel, geen overnachting.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Kies zaterdag of zondag voor ochtend heen / avond terug",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "’s Ochtends heen · ’s avonds terug",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Vind Europese dagtrips zonder overnachting",
+    "seoBlock": "Op zoek naar een dagtrip in Europa? Kies vertrekluchthavens en zaterdagen of zondagen voor ochtend-heen, avond-terug vluchten. Vergelijk deals van nabije hubs, scan de komende weekenddagen en boek via Kiwi.com — ideaal voor een volle dag in het buitenland zonder hotel."
   },
   "search": {
     "travelWeekend": "Reisweekend",
@@ -181,14 +183,14 @@
   },
   "about": {
     "heroTitle": "Over euroweekender.com",
-    "heroSubtitle": "Betaalbare Europese citytrips die passen rond uw werkweek — vrijdagavond weg, zondag terug.",
-    "lead": "Wij helpen Europeanen betaalbare korte reizen te ontdekken — vertrek vrijdagavond, terug op zondag, en geniet van een volledige citytrip zonder vakantiedagen op te maken.",
+    "heroSubtitle": "Betaalbare Europese citybreaks rond je werkweek — vrijdagavond weg, zondag terug, of een zaterdagdagtrip.",
+    "lead": "We helpen Europeanen goedkope korte trips te vinden — vrijdagavond weg, zondag terug, of heen en terug op dezelfde dag — zonder vakantiedagen op te maken.",
     "sections": {
       "weekendTitle": "Weekendreizen zonder vakantie",
       "weekendP1": "De meesten van ons hebben alleen zaterdag en zondag vrij — maar dat is genoeg voor een Europese uitstap. euroweekender.com is gebouwd rond korte retourreizen: vlieg vrijdag na het werk weg, verken zaterdag en wees zondagavond weer thuis.",
       "weekendP2": "Gebruik reistypes zoals vr–zo en het avondvertrekfilter om vluchten te vinden die passen bij een echte werkweek, niet alleen midweek-vakanties.",
       "whatTitle": "Wat we doen",
-      "whatP": "euroweekender.com verzamelt weekendvlucht-aanbiedingen van Kiwi.com en presenteert ze in een eenvoudige zoekervaring. Kies uw vertrekluchthavens, selecteer een of meer reisweekenden, filter op reistype en vergelijk retourprijzen in één oogopslag.",
+      "whatP": "euroweekender.com aggregeert vluchtdeals van Kiwi.com en toont ze in drie eenvoudige tools: weekenddeals vanaf jouw luchthavens, een kalender voor het goedkoopste weekend naar één Europese stad, en zaterdag/zondag same-day citytrips. Kies luchthavens en data, vergelijk prijzen en boek bij de partner.",
       "whoTitle": "Voor wie het is",
       "whoP": "De site is gemaakt voor citytrip-reizigers, koppels en vrienden die inspiratie willen zonder urenlang vluchtvergelijkingssites te doorzoeken. Of u nu vertrekt vanuit Praag, Wenen, Barcelona of een andere Europese hub — u kunt komende weekenden scannen en direct boeken bij de luchtvaartmaatschappij of reispartner.",
       "rankTitle": "Hoe we resultaten rangschikken",
@@ -206,16 +208,16 @@
   },
   "howItWorks": {
     "heroTitle": "Hoe het werkt",
-    "heroSubtitle": "Vier eenvoudige stappen van vrijdagavondvlucht tot zondagse terugkeer — geen vakantiedagen nodig.",
-    "lead": "Vind een goedkope Europese weekendreis in vier stappen — vertrek vrijdagavond, terug op zondag en sla de vakantiedagen over.",
+    "heroSubtitle": "Vier eenvoudige stappen van vrijdagavondvlucht tot zondagterugkomst — of een dagtrip — zonder vakantiedagen.",
+    "lead": "Vind een goedkope Europese weekendtrip of dagtrip in vier stappen — vrijdagavond weg, zondag terug, of heen en terug op zaterdag of zondag.",
     "builtTitle": "Gemaakt voor echte weekenden",
-    "builtP1": "euroweekender.com richt zich op korte retourreizen die passen rond het werk. Pak een vrijdagavondvlucht na uw laatste vergadering, breng zaterdag door in een nieuwe stad en vlieg zondagavond weer naar huis — twee nachten weg, nul dagen verlof.",
+    "builtP1": "euroweekender.com focust op korte retourvluchten die om werk heen passen. Neem na je laatste meeting een vrijdagavondvlucht, breng zaterdag door in een nieuwe stad en vlieg zondagavond terug — twee nachten weg, nul vakantiedagen. Liever geen hotel? Gebruik dagtrips voor ochtend heen en avond terug op zaterdag of zondag.",
     "builtP2": "Kies een vr–zo reistype en schakel het avondvertrekfilter in om vluchten te tonen die bij dat ritme passen, in plaats van generieke weeklange zoekopdrachten op andere sites.",
     "stepsTitle": "De vier stappen",
     "step1title": "Luchthavens kiezen",
     "step1text": "Kies een of meer vertrekluchthavens in Europa — Praag, Wenen, Berlijn, Londen en meer. Zoek tegelijk vanuit meerdere steden.",
     "step2title": "Weekenden kiezen",
-    "step2text": "Selecteer een of meer reisweekenden. Elke pill toont het datumbereik van de heenvlucht voor die reis.",
+    "step2text": "Selecteer een of meer weekenden. Elke pill toont het vertrekbereik. Bij dagtrips kies je zaterdagen of zondagen.",
     "step3title": "Filters verfijnen",
     "step3text": "Kies vr–zo patronen, avondvluchten en aantal passagiers. Resultaten worden automatisch bijgewerkt.",
     "step4title": "Vergelijken en boeken",
@@ -229,16 +231,25 @@
     "tip4": "Boek snel na het vinden van een tarief; weekendstoelen tegen lage prijzen zijn snel uitverkocht.",
     "cta": "Begin met zoeken",
     "heroImageAlt": "Reiziger met bagage klaar voor een weekendtrip",
-    "weekendImageAlt": "Europese kasseienstraat in warm avondlicht"
+    "weekendImageAlt": "Europese kasseienstraat in warm avondlicht",
+    "tip5": "Open Beste weekendprijs om elk komend weekend naar één stad te vergelijken, of Eendaagse trips voor same-day retour op zaterdag/zondag."
   },
   "faq": {
     "heroTitle": "Veelgestelde vragen",
-    "heroSubtitle": "Alles over het vinden van goedkope weekendvluchten in Europa.",
-    "lead": "Antwoorden over goedkope weekendvluchten in Europa, vr–zo-reizen, avondvertrekken en veilig boeken op Kiwi.com.",
+    "heroSubtitle": "Alles wat je moet weten over goedkope Europese weekendvluchten en dagtrips.",
+    "lead": "Antwoorden over goedkope weekendvluchten in Europa, zaterdag/zondag same-day trips, vr–zo-patronen, avondvertrekken en veilig boeken op Kiwi.com.",
     "items": [
       {
         "q": "Kan ik reizen zonder vakantiedagen op te maken?",
         "a": "Ja — daar zijn weekendreizen precies voor bedoeld. Kies een vr–zo patroon en filter op vrijdagavondvertrekken zodat u na het werk vertrekt, zaterdag op uw bestemming doorbrengt en zondagavond terugkeert. U krijgt een volledige citytrip met alleen uw reguliere weekend."
+      },
+      {
+        "q": "Wat is een dagtrip?",
+        "a": "Een same-day retour: ’s ochtends heen, de dag in een andere Europese stad doorbrengen en dezelfde avond terug — zonder hotel of overnachting. Op euroweekender.com focussen dagtrips op zaterdagen en zondagen."
+      },
+      {
+        "q": "Wat is „Beste weekendprijs”?",
+        "a": "Beste weekendprijs is een bestemmingskalender. Kies één vertrekluchthaven en één Europese stad, en vergelijk komende weekendtarieven in een maandweergave om het goedkoopste weekend te spotten."
       },
       {
         "q": "Is het veilig om te boeken via Kiwi.com?",
@@ -246,7 +257,7 @@
       },
       {
         "q": "Wat is euroweekender.com?",
-        "a": "Een zoektool voor goedkope Europese weekendvluchten. We verzamelen retouraanbiedingen voor korte verblijven en laten u filteren op weekenddata, reisduur en vertrektijd."
+        "a": "Een zoektool voor goedkope korte trips door Europa. We verzamelen retourdeals voor weekenden en dagtrips en laten je filteren op data, duur en vertrektijd — of weekendprijzen naar één bestemming vergelijken."
       },
       {
         "q": "Vanaf welke luchthavens kan ik zoeken?",

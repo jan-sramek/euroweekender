@@ -33,8 +33,8 @@
       "description": "Találja meg a legolcsóbb hétvégét a választott célállomásra. Hasonlítsa össze a pén–vas és más rövid city breakeket a naptárban, majd foglalja le a legjobb ajánlatot."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Egynapos városi kirándulások Európában",
+      "description": "Találjon szombati és vasárnapi egynapos utakat Európában — reggel oda, este vissza, éjszakázás nélkül. Hasonlítsa össze az egynapos járatokat a közeli reptérről."
     }
   },
   "nav": {
@@ -88,17 +88,19 @@
     "seoBlock": "Keressen és hasonlítson össze olcsó hétvégi repülőjáratokat Prága, Bécs, Berlin, München, London, Barcelona és tucatnyi európai repülőtérről. Szűrjön p–v, cs–v és sze–v utakra, adjon hozzá esti indulásokat, és fedezze fel a városlátogatásokat szabadság felhasználása nélkül."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Reggel oda · este vissza",
+    "title": "Egynapos városi kirándulások Európában",
+    "subtitle": "Szombat vagy vasárnap reggel induljon, ugyanaznap este érjen haza",
+    "lead": "Reggeli után induljon, fedezzen fel egy európai várost, és ugyanaznap este repüljön haza — szálloda nélkül, éjszakázás nélkül.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Válasszon szombatot vagy vasárnapot reggeli induláshoz / esti visszatéréshez",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Reggel oda · este vissza",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Találjon európai egynapos utakat éjszakázás nélkül",
+    "seoBlock": "Európai egynapos városi kirándulást keres? Válassza ki az induló reptéreket és a szombatokat vagy vasárnapokat reggel oda / este vissza járatokhoz. Hasonlítsa össze a közeli hubok ajánlatait, böngéssze a következő hétvégéket, és foglaljon a Kiwi.com-on — ideális egy teljes külföldi naphoz szálloda nélkül."
   },
   "search": {
     "travelWeekend": "Utazási hétvége",
@@ -229,7 +231,8 @@
     "tip4": "Foglalj hamar a talált tarifa után — a hétvégi olcsó helyek gyorsan elfogynak.",
     "cta": "Kezdd el a keresést",
     "heroImageAlt": "Utazó csomaggal, készen a hétvégi útra",
-    "weekendImageAlt": "Európai macskaköves utca meleg esti fényben"
+    "weekendImageAlt": "Európai macskaköves utca meleg esti fényben",
+    "tip5": "Open Legjobb hétvégi ár to compare every upcoming weekend to one city, or Egynapos utak for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Gyakran ismételt kérdések",
@@ -241,12 +244,20 @@
         "a": "Igen — pont erre valók a hétvégi utak. Válaszd a P–V mintát, és szűrj péntek esti indulásra, hogy munka után indulj, szombatot az úticélen töltsd, és vasárnap estére térj vissza. Teljes városlátogatást kapsz a szokásos hétvégédből."
       },
       {
+        "q": "Mi az egynapos út?",
+        "a": "Ugyanaznapi oda-vissza: reggel indulás, nap egy másik európai városban, este vissza — szálloda és éjszakázás nélkül. Az euroweekender.com-on az egynapos utak szombatra és vasárnapra fókuszálnak."
+      },
+      {
+        "q": "Mi a „Legjobb hétvégi ár”?",
+        "a": "A Legjobb hétvégi ár egy célállomás-naptár. Válasszon egy induló reptéri és egy európai várost, majd hasonlítsa össze a közelgő hétvégi díjakat havi nézetben, hogy megtalálja a legolcsóbb hétvégét."
+      },
+      {
         "q": "Biztonságos a Kiwi.com-on keresztül foglalni?",
         "a": "A Kiwi.com egy nagy európai repülőjárat-foglalási platform, amelyet évente milliók használnak. A fizetés a Kiwi biztonságos pénztárán történik szabványos titkosítással, és megfelelő foglalási visszaigazolást kapsz ügyfélszolgálattal. Sok tarifa Kiwi.com foglalásvédelmet is tartalmaz menetrendváltozásokra és zavarásokra — mindig ellenőrizd a tarifafeltételeket fizetés előtt."
       },
       {
         "q": "Mi az euroweekender.com?",
-        "a": "Egy keresőeszköz olcsó európai hétvégi járatokhoz. Rövid tartózkodásra szóló oda-vissza ajánlatokat gyűjtünk, és szűrhetsz hétvégi dátumok, utazás hossza és indulási idő szerint."
+        "a": "Keresőeszköz olcsó európai rövid utakhoz. Oda-vissza ajánlatokat gyűjtünk hétvégékre és egynapos utakra, és szűrhet dátum, időtartam és indulási idő szerint — vagy összehasonlíthatja egy célállomás hétvégi árait."
       },
       {
         "q": "Mely repülőterekről kereshetek?",

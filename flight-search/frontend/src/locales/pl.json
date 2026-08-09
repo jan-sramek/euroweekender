@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Tanie loty weekendowe w Europie",
-      "description": "Porównaj tanie loty weekendowe w Europie. Szukaj pt–nd i czw–nd z Pragi, Wiednia, Berlina, Londynu i innych. Wylot w piątek wieczorem, powrót w niedzielę — bez urlopu."
+      "description": "Porównuj tanie loty weekendowe po Europie, znajdź najtańszy weekend do dowolnego miasta lub rezerwuj jednodniowe wycieczki w sobotę i niedzielę. Wylot w piątek wieczorem — albo tam i z powrotem tego samego dnia — bez urlopu."
     },
     "about": {
       "title": "O EuroWeekender",
-      "description": "Tanie europejskie loty weekendowe i city breaki bez urlopu. Porównaj oferty pt–nd z lotnisk w całej Europie na euroweekender.com."
+      "description": "Tanie loty weekendowe po Europie, jednodniowe wycieczki i kalendarze cen do destynacji — city breaki bez urlopu na euroweekender.com."
     },
     "faq": {
       "title": "FAQ — weekendowe loty",
-      "description": "FAQ o tanich lotach weekendowych w Europie, podróżach pt–nd, wieczornych wylotach i rezerwacji przez Kiwi.com."
+      "description": "FAQ o tanich lotach weekendowych po Europie, wycieczkach jednodniowych, wzorcach pt–nd, wieczornych odlotach i rezerwacji przez Kiwi.com."
     },
     "contact": {
       "title": "Kontakt",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Jak to działa",
-      "description": "Jak znaleźć tanie loty weekendowe w Europie: wybierz lotniska, weekendy pt–nd, filtruj wieczorne wyloty i rezerwuj na Kiwi.com."
+      "description": "Jak znaleźć tanie loty weekendowe i wycieczki jednodniowe: wybierz lotniska, weekendy lub soboty/niedziele, filtruj wieczorne odloty i rezerwuj na Kiwi.com."
     },
     "privacy": {
       "title": "Polityka prywatności",
@@ -33,8 +33,8 @@
       "description": "Znajdź najtańszy weekend do wybranego celu. Porównaj loty pt–nd i inne krótkie wyjazdy na kalendarzu, a potem zarezerwuj najlepszą ofertę."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Jednodniowe wycieczki po Europie",
+      "description": "Znajdź sobotnie i niedzielne wycieczki po Europie — rano tam, wieczorem z powrotem, bez noclegu. Porównuj loty tego samego dnia z lotnisk w pobliżu."
     }
   },
   "nav": {
@@ -84,21 +84,23 @@
     "flightsCounterFiltered": "{{shown}} z {{total}} lotów",
     "flightsCounterSearching": "Wyszukiwanie lotów…",
     "subtitle": "Twój kolejny city break zaczyna się w piątek wieczorem",
-    "seoTitle": "Znajdź tanie loty weekendowe w Europie",
-    "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, czw–nd i śr–nd, dodaj wieczorne wyloty i odkryj city breaki bez wykorzystywania urlopu."
+    "seoTitle": "Znajdź tanie loty weekendowe i wycieczki jednodniowe po Europie",
+    "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, cz–nd i śr–nd, dodaj wieczorne odloty lub przejdź do sobotnich i niedzielnych wycieczek jednodniowych — i odkrywaj przerwy bez urlopu. Użyj Najlepszej ceny weekendu, by porównać taryfy do jednego miasta w kalendarzu."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Rano tam · wieczorem z powrotem",
+    "title": "Jednodniowe wycieczki po Europie",
+    "subtitle": "Wylot w sobotę lub niedzielę rano, powrót tego samego wieczoru",
+    "lead": "Wyrusz po śniadaniu, zwiedzaj europejskie miasto i wróć tego samego wieczoru — bez hotelu, bez noclegu.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Wybierz sobotę lub niedzielę na lot rano / powrót wieczorem",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Rano tam · wieczorem z powrotem",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Znajdź europejskie wycieczki jednodniowe bez noclegu",
+    "seoBlock": "Szukasz jednodniowej wycieczki po Europie? Wybierz lotniska wylotu oraz soboty lub niedziele na loty rano tam / wieczorem z powrotem. Porównuj oferty pobliskich hubów, przeglądaj najbliższe weekendy i rezerwuj przez Kiwi.com — idealne na pełny dzień za granicą bez hotelu."
   },
   "search": {
     "travelWeekend": "Weekend podróży",
@@ -181,14 +183,14 @@
   },
   "about": {
     "heroTitle": "O euroweekender.com",
-    "heroSubtitle": "Przystępne europejskie city breaki dopasowane do tygodnia pracy — wylot w piątek wieczorem, powrót w niedzielę.",
-    "lead": "Pomagamy Europejczykom odkrywać przystępne krótkie wyjazdy — wylot w piątek wieczorem, powrót w niedzielę i pełny city break bez wykorzystywania dni urlopowych.",
+    "heroSubtitle": "Przystępne europejskie city breaki wokół tygodnia pracy — wylot w piątek wieczorem, powrót w niedzielę, albo jednodniowa sobota.",
+    "lead": "Pomagamy Europejczykom znaleźć tanie krótkie wyjazdy — wylot w piątek wieczorem, powrót w niedzielę albo tam i z powrotem tego samego dnia — bez spalania urlopu.",
     "sections": {
       "weekendTitle": "Weekendowe wyjazdy bez urlopu",
       "weekendP1": "Większość z nas ma wolne tylko sobotę i niedzielę — ale to wystarczy na europejską ucieczkę. euroweekender.com jest zbudowany wokół krótkich podróży w obie strony: wylot po pracy w piątek, zwiedzanie w sobotę i powrót do domu w niedzielę wieczorem.",
       "weekendP2": "Użyj typów podróży jak pt.–nd. i filtra wieczornych wylotów, aby znaleźć loty pasujące do realnego harmonogramu pracy, a nie tylko do wakacji w środku tygodnia.",
       "whatTitle": "Co robimy",
-      "whatP": "euroweekender.com zbiera weekendowe oferty lotów z Kiwi.com i prezentuje je w prostej wyszukiwarce. Wybierz lotniska wylotu, jeden lub więcej weekendów podróży, filtruj według typu podróży i porównuj ceny w obie strony na pierwszy rzut oka.",
+      "whatP": "euroweekender.com agreguje oferty lotów z Kiwi.com i pokazuje je w trzech prostych narzędziach: oferty weekendowe z Twoich lotnisk, kalendarz najtańszego weekendu do jednego miasta oraz sobotnio-niedzielne wycieczki jednodniowe. Wybierz lotniska i daty, porównaj ceny i rezerwuj u partnera.",
       "whoTitle": "Dla kogo",
       "whoP": "Strona jest stworzona dla podróżników na city breaki, par i przyjaciół, którzy szukają inspiracji bez spędzania godzin na porównywarkach lotów. Niezależnie od tego, czy wylatujesz z Pragi, Wiednia, Barcelony czy innego europejskiego hubu, możesz przejrzeć nadchodzące weekendy i zarezerwować bezpośrednio u linii lotniczej lub partnera podróżnego.",
       "rankTitle": "Jak sortujemy wyniki",
@@ -206,16 +208,16 @@
   },
   "howItWorks": {
     "heroTitle": "Jak to działa",
-    "heroSubtitle": "Cztery proste kroki od piątkowego wieczornego lotu do niedzielnego powrotu — bez dni urlopowych.",
-    "lead": "Znajdź tani europejski weekend w czterech krokach — wylot w piątek wieczorem, powrót w niedzielę i bez wykorzystywania urlopu.",
+    "heroSubtitle": "Cztery proste kroki od lotu w piątek wieczorem do powrotu w niedzielę — albo jednodniowej wycieczki — bez urlopu.",
+    "lead": "Znajdź tani europejski weekend lub jednodniową wycieczkę w czterech krokach — wylot w piątek wieczorem, powrót w niedzielę, albo tam i z powrotem w sobotę lub niedzielę.",
     "builtTitle": "Stworzone pod prawdziwe weekendy",
-    "builtP1": "euroweekender.com skupia się na krótkich podróżach w obie strony, które pasują do pracy. Złap piątkowy wieczorny lot po ostatnim spotkaniu, spędź sobotę w nowym mieście i wróć do domu w niedzielę wieczorem — dwie noce poza domem, zero dni urlopu.",
+    "builtP1": "euroweekender.com skupia się na krótkich lotach w obie strony dopasowanych do pracy. Weź lot w piątek wieczorem po ostatnim spotkaniu, spędź sobotę w nowym mieście i wróć w niedzielę wieczorem — dwie noce poza domem, zero dni urlopu. Bez hotelu? Użyj wycieczek jednodniowych: rano tam, wieczorem z powrotem w sobotę lub niedzielę.",
     "builtP2": "Wybierz typ podróży pt.–nd. i włącz filtr wieczornych wylotów, aby zobaczyć loty pasujące do tego rytmu zamiast ogólnych wyszukiwań tygodniowych na innych stronach.",
     "stepsTitle": "Cztery kroki",
     "step1title": "Wybierz lotniska",
     "step1text": "Wybierz jedno lub więcej lotnisk wylotu w Europie — Praga, Wiedeń, Berlin, Londyn i inne. Szukaj z kilku miast jednocześnie.",
     "step2title": "Wybierz weekendy",
-    "step2text": "Zaznacz jeden lub więcej weekendów podróży. Każda etykieta pokazuje zakres dat wylotu dla tej podróży.",
+    "step2text": "Wybierz jeden lub więcej weekendów. Każda kapsułka pokazuje zakres wylotu. Przy wycieczkach jednodniowych wybierz soboty lub niedziele.",
     "step3title": "Doprecyzuj filtry",
     "step3text": "Wybierz wzorce pt.–nd., wieczorne wyloty i liczbę pasażerów. Wyniki aktualizują się automatycznie.",
     "step4title": "Porównaj i zarezerwuj",
@@ -229,16 +231,25 @@
     "tip4": "Rezerwuj szybko po znalezieniu taryfy — weekendowe miejsca w niskich cenach szybko się wyprzedają.",
     "cta": "Zacznij szukać",
     "heroImageAlt": "Podróżny z bagażem gotowy na weekendowy wyjazd",
-    "weekendImageAlt": "Europejska brukowana ulica w ciepłym wieczornym świetle"
+    "weekendImageAlt": "Europejska brukowana ulica w ciepłym wieczornym świetle",
+    "tip5": "Otwórz Najlepszą cenę weekendu, by porównać każdy nadchodzący weekend do jednego miasta, albo Wycieczki jednodniowe na sobotnio-niedzielne powroty tego samego dnia."
   },
   "faq": {
     "heroTitle": "Najczęściej zadawane pytania",
-    "heroSubtitle": "Wszystko o znajdowaniu tanich lotów weekendowych w Europie.",
-    "lead": "Odpowiedzi o tanich lotach weekendowych w Europie, podróżach pt–nd, wieczornych wylotach i bezpiecznej rezerwacji na Kiwi.com.",
+    "heroSubtitle": "Wszystko, co musisz wiedzieć o tanich lotach weekendowych i wycieczkach jednodniowych po Europie.",
+    "lead": "Odpowiedzi o tanich lotach weekendowych po Europie, sobotnio-niedzielnych wycieczkach jednodniowych, wzorcach pt–nd, wieczornych odlotach i bezpiecznej rezerwacji na Kiwi.com.",
     "items": [
       {
         "q": "Czy mogę podróżować bez wykorzystywania urlopu?",
         "a": "Tak — właśnie do tego służą weekendowe wyjazdy. Wybierz wzorzec pt.–nd. i filtr piątkowych wieczornych wylotów, aby wyjechać po pracy, spędzić sobotę w miejscu docelowym i wrócić w niedzielę wieczorem. Masz pełny city break, korzystając tylko z regularnego weekendu."
+      },
+      {
+        "q": "Czym jest wycieczka jednodniowa?",
+        "a": "Lot w obie strony tego samego dnia: rano wylot, dzień w innym europejskim mieście i powrót wieczorem — bez hotelu i bez noclegu. Na euroweekender.com wycieczki jednodniowe obejmują soboty i niedziele."
+      },
+      {
+        "q": "Czym jest „Najlepsza cena weekendu”?",
+        "a": "Najlepsza cena weekendu to kalendarz destynacji. Wybierz lotnisko wylotu i europejskie miasto, potem porównaj nadchodzące ceny weekendowe w widoku miesiąca, by znaleźć najtańszy weekend."
       },
       {
         "q": "Czy rezerwacja przez Kiwi.com jest bezpieczna?",
@@ -246,7 +257,7 @@
       },
       {
         "q": "Czym jest euroweekender.com?",
-        "a": "Narzędzie do wyszukiwania tanich europejskich weekendowych lotów. Zbieramy oferty w obie strony na krótkie pobyty i pozwalamy filtrować według dat weekendowych, długości podróży i godziny wylotu."
+        "a": "Narzędzie wyszukiwania tanich krótkich wyjazdów po Europie. Zbieramy oferty w obie strony na weekendy i wycieczki jednodniowe oraz pozwalamy filtrować po datach, długości i godzinie wylotu — albo porównywać ceny weekendowe do jednej destynacji."
       },
       {
         "q": "Z jakich lotnisk mogę szukać?",

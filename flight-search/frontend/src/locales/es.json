@@ -2,15 +2,15 @@
   "meta": {
     "home": {
       "title": "Vuelos baratos de fin de semana en Europa",
-      "description": "Compara vuelos baratos de fin de semana en Europa. Busca vie–dom y jue–dom desde Praga, Viena, Berlín, Londres y más. Salida viernes por la noche, vuelta domingo — sin vacaciones."
+      "description": "Compara vuelos de fin de semana baratos por Europa, encuentra el fin de semana más barato a cualquier ciudad o reserva escapadas de sábado y domingo de ida y vuelta el mismo día. Sal el viernes por la noche — o ve y vuelve el mismo día — sin días de vacaciones."
     },
     "about": {
       "title": "Sobre EuroWeekender",
-      "description": "Vuelos baratos de fin de semana en Europa y escapadas urbanas sin días de vacaciones. Compara ofertas vie–dom desde aeropuertos de toda Europa en euroweekender.com."
+      "description": "Vuelos de fin de semana baratos por Europa, escapadas de un día y calendarios de precios por destino — city breaks sin vacaciones en euroweekender.com."
     },
     "faq": {
       "title": "Preguntas frecuentes sobre vuelos de fin de semana",
-      "description": "Preguntas frecuentes sobre vuelos baratos de fin de semana en Europa, viajes vie–dom, salidas nocturnas y reserva en Kiwi.com."
+      "description": "FAQ sobre vuelos de fin de semana baratos por Europa, escapadas de un día, patrones vie–dom, salidas nocturnas y reserva a través de Kiwi.com."
     },
     "contact": {
       "title": "Contacto",
@@ -18,7 +18,7 @@
     },
     "howItWorks": {
       "title": "Cómo funciona",
-      "description": "Cómo encontrar vuelos baratos de fin de semana en Europa: elige aeropuertos, fines de semana vie–dom, filtra salidas nocturnas y reserva en Kiwi.com."
+      "description": "Cómo encontrar vuelos de fin de semana baratos y escapadas de un día: elige aeropuertos, fines de semana o sábados/domingos, filtra salidas nocturnas y reserva en Kiwi.com."
     },
     "privacy": {
       "title": "Política de privacidad",
@@ -33,8 +33,8 @@
       "description": "Encuentra el fin de semana más barato a tu destino. Compara ida y vuelta vie–dom y otros viajes cortos en un calendario y reserva la mejor oferta."
     },
     "singleDayTrips": {
-      "title": "Single Day Trips in Europe",
-      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
+      "title": "Escapadas de un día por Europa",
+      "description": "Encuentra escapadas de sábado y domingo por Europa — salida por la mañana, regreso por la noche, sin pernoctar. Compara vuelos del mismo día desde aeropuertos cerca de ti."
     }
   },
   "nav": {
@@ -84,21 +84,23 @@
     "flightsCounterFiltered": "{{shown}} de {{total}} vuelos",
     "flightsCounterSearching": "Buscando vuelos…",
     "subtitle": "Tu próxima escapada urbana empieza el viernes por la noche",
-    "seoTitle": "Encuentra vuelos baratos de fin de semana en Europa",
-    "seoBlock": "Busca y compara vuelos baratos de fin de semana desde Praga, Viena, Berlín, Múnich, Londres, Barcelona y decenas de aeropuertos europeos. Filtra vie–dom, jue–dom y mié–dom, añade salidas nocturnas y descubre escapadas sin usar vacaciones."
+    "seoTitle": "Encuentra vuelos de fin de semana y escapadas de un día por Europa",
+    "seoBlock": "Busca y compara vuelos de fin de semana baratos desde Praga, Viena, Berlín, Múnich, Londres, Barcelona y docenas de aeropuertos europeos. Filtra vie–dom, jue–dom y mié–dom, añade salidas nocturnas o pasa a escapadas de sábado y domingo el mismo día — y descubre pausas sin usar vacaciones. Usa Mejor precio de fin de semana para comparar tarifas a un destino en un calendario."
   },
   "singleDayTrips": {
-    "tagline": "Out morning · back evening",
-    "title": "Single day trips across Europe",
-    "subtitle": "Same-day return flights for a full day in another city",
-    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "tagline": "Salida mañana · regreso noche",
+    "title": "Escapadas de un día por Europa",
+    "subtitle": "Sal el sábado o domingo por la mañana y vuelve la misma noche",
+    "lead": "Sal después del desayuno, explora una ciudad europea y vuelve a casa la misma noche — sin hotel, sin pernoctar.",
     "travelDay": "Travel day",
-    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "travelDayHint": "Elige sábado o domingo para salida mañana / regreso noche",
     "selectDays": "Select travel days",
     "dayTripTag": "Day trip",
-    "scheduleSummary": "Morning out · evening back",
+    "scheduleSummary": "Salida mañana · regreso noche",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected.",
+    "seoTitle": "Encuentra escapadas europeas sin pernoctar",
+    "seoBlock": "¿Buscas una escapada de un día en Europa? Elige aeropuertos de salida y sábados o domingos para vuelos mañana ida / noche vuelta. Compara ofertas de hubs cercanos, revisa los próximos fines de semana y reserva con Kiwi.com — ideal para un día completo en el extranjero sin hotel."
   },
   "search": {
     "travelWeekend": "Fin de semana de viaje",
@@ -181,14 +183,14 @@
   },
   "about": {
     "heroTitle": "Sobre euroweekender.com",
-    "heroSubtitle": "Escapadas urbanas europeas asequibles que encajan en tu semana laboral — salida el viernes por la noche, vuelta el domingo.",
-    "lead": "Ayudamos a los europeos a descubrir escapadas cortas y asequibles — salida el viernes por la noche, vuelta el domingo y una escapada urbana completa sin gastar días de vacaciones.",
+    "heroSubtitle": "City breaks europeos asequibles alrededor de la semana laboral — salida viernes noche, regreso domingo, o una escapada el sábado.",
+    "lead": "Ayudamos a los europeos a descubrir viajes cortos asequibles — salida viernes noche, regreso domingo, o ida y vuelta el mismo día — sin gastar días de vacaciones.",
     "sections": {
       "weekendTitle": "Viajes de fin de semana sin vacaciones",
       "weekendP1": "La mayoría solo tenemos libres el sábado y el domingo — pero eso basta para una escapada por Europa. euroweekender.com está pensado para viajes cortos de ida y vuelta: volar después del trabajo el viernes, explorar el sábado y estar de vuelta en casa el domingo por la noche.",
       "weekendP2": "Usa tipos de viaje como vie–dom y el filtro de salida nocturna para encontrar vuelos que encajen con un horario laboral real, no solo con vacaciones entre semana.",
       "whatTitle": "Qué hacemos",
-      "whatP": "euroweekender.com agrega ofertas de vuelos de fin de semana de Kiwi.com y las presenta en una experiencia de búsqueda sencilla. Elige tus aeropuertos de salida, selecciona uno o más fines de semana de viaje, filtra por tipo de viaje y compara precios de ida y vuelta de un vistazo.",
+      "whatP": "euroweekender.com agrega ofertas de vuelos de Kiwi.com y las presenta en tres herramientas simples: ofertas de fin de semana desde tus aeropuertos, un calendario del fin de semana más barato a una ciudad europea, y escapadas sábado/domingo de ida y vuelta el mismo día. Elige aeropuertos y fechas, compara precios y reserva con el partner.",
       "whoTitle": "Para quién es",
       "whoP": "El sitio está pensado para viajeros de escapadas urbanas, parejas y amigos que buscan inspiración sin pasar horas en comparadores de vuelos. Salgas de Praga, Viena, Barcelona o cualquier otro hub europeo, puedes revisar los próximos fines de semana y reservar directamente con la aerolínea o el socio de viajes.",
       "rankTitle": "Cómo ordenamos los resultados",
@@ -206,16 +208,16 @@
   },
   "howItWorks": {
     "heroTitle": "Cómo funciona",
-    "heroSubtitle": "Cuatro pasos sencillos del vuelo del viernes por la noche al regreso del domingo — sin gastar días de vacaciones.",
-    "lead": "Encuentra un viaje de fin de semana barato por Europa en cuatro pasos — salida el viernes por la noche, vuelta el domingo y sin días de vacaciones.",
+    "heroSubtitle": "Cuatro pasos simples desde el vuelo del viernes noche hasta el regreso del domingo — o una escapada de un día — sin vacaciones.",
+    "lead": "Encuentra un fin de semana europeo barato o una escapada de un día en cuatro pasos — salida viernes noche, regreso domingo, o ida y vuelta el sábado o domingo.",
     "builtTitle": "Diseñado para fines de semana reales",
-    "builtP1": "euroweekender.com se centra en viajes cortos de ida y vuelta que encajan con el trabajo. Coge un vuelo el viernes por la noche tras tu última reunión, pasa el sábado en una ciudad nueva y vuela a casa el domingo por la noche — dos noches fuera, cero días de vacaciones.",
+    "builtP1": "euroweekender.com se centra en vuelos cortos de ida y vuelta que encajan con el trabajo. Coge un vuelo el viernes noche tras tu última reunión, pasa el sábado en una ciudad nueva y vuelve el domingo por la noche — dos noches fuera, cero días de vacaciones. ¿Sin hotel? Usa escapadas de un día para salida mañana y regreso noche el sábado o domingo.",
     "builtP2": "Elige un tipo de viaje vie–dom y activa el filtro de salida nocturna para mostrar vuelos que encajen con ese ritmo en lugar de búsquedas genéricas de una semana en otros sitios.",
     "stepsTitle": "Los cuatro pasos",
     "step1title": "Elige aeropuertos",
     "step1text": "Elige uno o más aeropuertos de salida en Europa — Praga, Viena, Berlín, Londres y más. Busca desde varias ciudades a la vez.",
     "step2title": "Elige fines de semana",
-    "step2text": "Selecciona uno o más fines de semana de viaje. Cada pastilla muestra el rango de fechas de salida de ida para ese viaje.",
+    "step2text": "Selecciona uno o más fines de semana. Cada pastilla muestra el rango de salida. En escapadas de un día, elige sábados o domingos.",
     "step3title": "Ajusta los filtros",
     "step3text": "Elige patrones vie–dom, salidas nocturnas y número de pasajeros. Los resultados se actualizan automáticamente.",
     "step4title": "Compara y reserva",
@@ -229,16 +231,25 @@
     "tip4": "Reserva pronto tras encontrar una tarifa; los asientos de fin de semana a bajo precio se agotan rápido.",
     "cta": "Empezar a buscar",
     "heroImageAlt": "Viajero con equipaje listo para una escapada de fin de semana",
-    "weekendImageAlt": "Calle empedrada europea con luz cálida de la tarde"
+    "weekendImageAlt": "Calle empedrada europea con luz cálida de la tarde",
+    "tip5": "Abre Mejor precio de fin de semana para comparar cada fin de semana próximo a una ciudad, o Excursiones de un día para regresos el mismo día sábado/domingo."
   },
   "faq": {
     "heroTitle": "Preguntas frecuentes",
-    "heroSubtitle": "Todo sobre cómo encontrar vuelos baratos de fin de semana en Europa.",
-    "lead": "Respuestas sobre vuelos baratos de fin de semana en Europa, viajes vie–dom, salidas nocturnas y reserva segura en Kiwi.com.",
+    "heroSubtitle": "Todo lo que necesitas saber sobre vuelos de fin de semana baratos y escapadas de un día por Europa.",
+    "lead": "Respuestas sobre vuelos de fin de semana por Europa, escapadas sábado/domingo el mismo día, patrones vie–dom, salidas nocturnas y reserva segura en Kiwi.com.",
     "items": [
       {
         "q": "¿Puedo viajar sin gastar días de vacaciones?",
         "a": "Sí — para eso sirven exactamente los viajes de fin de semana. Elige un patrón vie–dom y filtra salidas del viernes por la noche para salir después del trabajo, disfrutar del sábado en el destino y volver el domingo por la noche. Obtienes una escapada urbana completa usando solo tu fin de semana habitual."
+      },
+      {
+        "q": "¿Qué es una escapada de un día?",
+        "a": "Una ida y vuelta el mismo día: sale por la mañana, pasa el día en otra ciudad europea y vuelve la misma noche — sin hotel ni pernocta. En euroweekender.com, las escapadas de un día se centran en sábados y domingos."
+      },
+      {
+        "q": "¿Qué es «Mejor precio de fin de semana»?",
+        "a": "Mejor precio de fin de semana es un calendario de destino. Elige un aeropuerto de salida y una ciudad europea, y compara tarifas de fines de semana próximos en una vista mensual para encontrar el más barato."
       },
       {
         "q": "¿Es seguro reservar a través de Kiwi.com?",
@@ -246,7 +257,7 @@
       },
       {
         "q": "¿Qué es euroweekender.com?",
-        "a": "Una herramienta de búsqueda de vuelos de fin de semana baratos en Europa. Recopilamos ofertas de ida y vuelta para estancias cortas y te permitimos filtrar por fechas de fin de semana, duración del viaje y hora de salida."
+        "a": "Una herramienta de búsqueda de viajes cortos baratos por Europa. Recopilamos ofertas de ida y vuelta para fines de semana y escapadas de un día, y te dejamos filtrar por fechas, duración y hora de salida — o comparar precios de fin de semana a un destino."
       },
       {
         "q": "¿Desde qué aeropuertos puedo buscar?",

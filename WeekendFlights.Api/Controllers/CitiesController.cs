@@ -152,8 +152,12 @@ public class CitiesController(
         city.Aliases,
         CopyNamesByLocale(city));
 
-    private static Dictionary<string, string> CopyNamesByLocale(City city) =>
-        city.NamesByLocale.Count == 0
-            ? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-            : new Dictionary<string, string>(city.NamesByLocale, StringComparer.OrdinalIgnoreCase);
+    private static Dictionary<string, string> CopyNamesByLocale(City city)
+    {
+        var names = city.NamesByLocale;
+        if (names is null || names.Count == 0)
+            return new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+        return new Dictionary<string, string>(names, StringComparer.OrdinalIgnoreCase);
+    }
 }

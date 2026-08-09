@@ -15,20 +15,24 @@ public sealed class HubScoreService(
         var departFromUtc = DateTime.UtcNow;
         var departToUtc = departFromUtc.AddDays(weeksAhead * 7);
 
-        var cities = await cityRepository.GetActiveCitiesAsync();
+        // Avoid loading full City rows (jsonb locale maps, etc.) — ranks + flight stats are enough.
         var airportRanks = await cityRepository.GetBestAirportRankByCityCodeAsync(cancellationToken);
         var flightStats = await flightRepository.GetOriginHubStatsAsync(departFromUtc, departToUtc, cancellationToken);
         var flightByCode = flightStats.ToDictionary(s => s.CityCode, StringComparer.OrdinalIgnoreCase);
 
-        return cities
-            .Select(city =>
+        var codes = airportRanks.Keys
+            .Concat(flightByCode.Keys)
+            .Distinct(StringComparer.OrdinalIgnoreCase);
+
+        return codes
+            .Select(code =>
             {
-                flightByCode.TryGetValue(city.Code, out var stats);
-                airportRanks.TryGetValue(city.Code, out var airportRank);
+                flightByCode.TryGetValue(code, out var stats);
+                airportRanks.TryGetValue(code, out var airportRank);
                 var hubScore = WeekendHubIndex.ResolveHubScore(stats, airportRank);
 
                 return new OriginHubScore(
-                    city.Code,
+                    code,
                     stats?.OfferCount ?? 0,
                     stats?.MinPrice ?? 0,
                     stats?.AverageQuality ?? 0,

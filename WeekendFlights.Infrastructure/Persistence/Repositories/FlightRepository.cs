@@ -218,22 +218,41 @@ public class FlightRepository(
         DateTime departToUtc,
         CancellationToken cancellationToken = default)
     {
-        var stats = await db.Flights
+        // Split destination variety into a separate aggregate — nested Distinct().Count()
+        // inside GroupBy has been unreliable across EF Core / Npgsql versions.
+        var baseStats = await db.Flights
             .AsNoTracking()
             .Where(f => f.UtcDeparture >= departFromUtc && f.UtcDeparture <= departToUtc)
             .GroupBy(f => f.CityCodeFrom)
-            .Select(g => new OriginHubStats
+            .Select(g => new
             {
                 CityCode = g.Key,
                 OfferCount = g.Count(),
                 MinPrice = g.Min(f => f.Price),
-                AverageQuality = g.Average(f => f.Quality),
-                DestinationCount = g.Select(f => f.CityCodeTo).Distinct().Count()
+                AverageQuality = g.Average(f => f.Quality)
             })
-            .OrderByDescending(s => s.OfferCount)
             .ToListAsync(cancellationToken);
 
-        return stats;
+        var destinationCounts = await db.Flights
+            .AsNoTracking()
+            .Where(f => f.UtcDeparture >= departFromUtc && f.UtcDeparture <= departToUtc)
+            .Select(f => new { f.CityCodeFrom, f.CityCodeTo })
+            .Distinct()
+            .GroupBy(x => x.CityCodeFrom)
+            .Select(g => new { CityCode = g.Key, DestinationCount = g.Count() })
+            .ToDictionaryAsync(x => x.CityCode, x => x.DestinationCount, StringComparer.OrdinalIgnoreCase, cancellationToken);
+
+        return baseStats
+            .Select(s => new OriginHubStats
+            {
+                CityCode = s.CityCode,
+                OfferCount = s.OfferCount,
+                MinPrice = s.MinPrice,
+                AverageQuality = s.AverageQuality,
+                DestinationCount = destinationCounts.GetValueOrDefault(s.CityCode)
+            })
+            .OrderByDescending(s => s.OfferCount)
+            .ToList();
     }
 
     public async Task<IReadOnlyList<string>> GetOriginCityCodesMissingReturnTimesAsync(

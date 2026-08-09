@@ -36,7 +36,7 @@ public class LocationRepository(WeekendFlightsDbContext db, ILogger<LocationRepo
                 // Supplemental airport-city rows have empty aliases; don't wipe imported multilingual names.
                 if (city.Aliases.Count > 0)
                     existing.Aliases = city.Aliases;
-                if (city.NamesByLocale.Count > 0)
+                if (city.NamesByLocale is { Count: > 0 })
                     existing.NamesByLocale = city.NamesByLocale;
             }
             else

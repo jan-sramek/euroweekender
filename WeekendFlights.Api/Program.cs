@@ -46,6 +46,13 @@ await using (var scope = app.Services.CreateAsyncScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<WeekendFlightsDbContext>();
     await db.Database.MigrateAsync();
+
+    // Idempotent guard: older deploys sometimes applied EF history without the jsonb column.
+    await db.Database.ExecuteSqlRawAsync(
+        """
+        ALTER TABLE cities
+        ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{}'::jsonb;
+        """);
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();

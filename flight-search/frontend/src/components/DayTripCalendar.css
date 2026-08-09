@@ -1,13 +1,14 @@
 .day-trip-calendar {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.65rem 0.7rem 0.75rem;
+  gap: 0.65rem;
+  padding: 0.95rem 1rem 1.05rem;
   background: #fff;
   border-radius: 0.35rem;
   box-shadow: 0 0 15px rgba(25, 44, 57, 0.08);
   user-select: none;
-  max-width: 18.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .day-trip-calendar-dragging,
@@ -19,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.35rem;
+  gap: 0.5rem;
 }
 
 .dtc-header-copy {
@@ -30,28 +31,28 @@
 
 .dtc-title {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #192c39;
 }
 
 .dtc-hint {
-  margin: 0.1rem 0 0;
-  font-size: 0.65rem;
-  line-height: 1.25;
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
   color: #5c6770;
 }
 
 .dtc-month {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
   min-width: 0;
 }
 
 .dtc-month-title {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #192c39;
   text-transform: capitalize;
@@ -61,17 +62,17 @@
 .dtc-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.15rem;
+  gap: 0.25rem;
 }
 
 .dtc-weekday {
   text-align: center;
-  font-size: 0.58rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #8c959c;
-  padding: 0.05rem 0;
+  padding: 0.15rem 0;
 }
 
 .dtc-day {
@@ -79,10 +80,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 1.55rem;
-  padding: 0.1rem;
+  min-height: 2.35rem;
+  padding: 0.2rem;
   border: 1px solid #e8edf1;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
   background: #f8fafb;
   color: #192c39;
   font: inherit;
@@ -94,7 +95,7 @@ button.dtc-day {
 }
 
 button.dtc-day:hover {
-  outline: 1px solid #04bfab;
+  outline: 2px solid #04bfab;
   outline-offset: 0;
 }
 
@@ -117,26 +118,22 @@ button.dtc-day:hover {
   background: #04bfab;
   border-color: #04bfab;
   color: #fff;
-  outline: 1px solid #192c39;
+  outline: 2px solid #192c39;
   outline-offset: 0;
 }
 
 .dtc-day-selected:hover {
-  outline: 1px solid #192c39;
+  outline: 2px solid #192c39;
 }
 
 .dtc-day-number {
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
 }
 
 @media (max-width: 960px) {
-  .day-trip-calendar {
-    max-width: none;
-  }
-
   .dtc-day {
-    min-height: 2rem;
+    min-height: 2.6rem;
   }
 }

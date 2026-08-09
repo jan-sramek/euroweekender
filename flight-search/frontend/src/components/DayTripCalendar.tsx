@@ -138,7 +138,7 @@ function MonthGrid({
   const monthLabel = useMemo(
     () =>
       new Date(year, month, 1).toLocaleDateString(i18n.language, {
-        month: 'short',
+        month: 'long',
         year: 'numeric'
       }),
     [year, month, i18n.language]
@@ -237,7 +237,7 @@ export function DayTripCalendar({
     return Array.from({ length: 7 }, (_, index) => {
       const day = new Date(wednesday);
       day.setDate(wednesday.getDate() + index);
-      return day.toLocaleDateString(i18n.language, { weekday: 'narrow' });
+      return day.toLocaleDateString(i18n.language, { weekday: 'short' });
     });
   }, [i18n.language]);
 

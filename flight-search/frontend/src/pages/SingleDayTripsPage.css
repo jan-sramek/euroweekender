@@ -1,6 +1,6 @@
 .single-day-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
 }
@@ -24,15 +24,15 @@
 
 .single-day-calendar-wrap {
   min-width: 0;
-  justify-self: end;
+}
+
+.single-day-calendar-wrap .day-trip-calendar {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 960px) {
   .single-day-layout {
     grid-template-columns: 1fr;
-  }
-
-  .single-day-calendar-wrap {
-    justify-self: stretch;
   }
 }

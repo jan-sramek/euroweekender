@@ -9,7 +9,7 @@ import {
   isDayTripSelectableDate,
   isMorningDeparture,
   matchesDayTrip,
-  wednesdayFirstIndex
+  mondayFirstIndex
 } from './dayTrip';
 
 function flight(
@@ -39,16 +39,17 @@ function flight(
 }
 
 describe('dayTrip options', () => {
-  it('includes Wed→Tue weekdays for the next 6 months', () => {
+  it('includes only Saturday and Sunday for the next 6 months', () => {
     const days = getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_MONTHS, 'en');
-    expect(days.length).toBeGreaterThan(100);
+    expect(days.length).toBeGreaterThan(40);
+    expect(days.every(day => day.date.getDay() === 0 || day.date.getDay() === 6)).toBe(true);
     expect(days.every(day => isDayTripSelectableDate(day.date))).toBe(true);
   });
 
-  it('orders calendar columns Wednesday-first', () => {
-    expect(wednesdayFirstIndex(new Date(2024, 0, 3))).toBe(0); // Wed
-    expect(wednesdayFirstIndex(new Date(2024, 0, 9))).toBe(6); // Tue
-    expect(wednesdayFirstIndex(new Date(2024, 0, 6))).toBe(3); // Sat
+  it('orders calendar columns Monday-first', () => {
+    expect(mondayFirstIndex(new Date(2024, 0, 1))).toBe(0); // Mon
+    expect(mondayFirstIndex(new Date(2024, 0, 7))).toBe(6); // Sun
+    expect(mondayFirstIndex(new Date(2024, 0, 6))).toBe(5); // Sat
   });
 
   it('selects ids within the next N months', () => {

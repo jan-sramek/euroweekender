@@ -79,6 +79,7 @@ public class DayTripFlightCrawlJob(
 
         var days = Enumerable.Range(0, options.DayTripUpcomingDays)
             .Select(offset => today.AddDays(offset))
+            .Where(day => day.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
             .ToList();
 
         var stateKeyStart = today.AddDays(-7);

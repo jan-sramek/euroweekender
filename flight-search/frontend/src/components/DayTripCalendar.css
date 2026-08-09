@@ -83,6 +83,12 @@
   padding: 0.15rem 0;
 }
 
+/* Saturday + Sunday columns (Mon-first grid). */
+.dtc-weekday:nth-child(6),
+.dtc-weekday:nth-child(7) {
+  color: #04bfab;
+}
+
 .dtc-day {
   position: relative;
   display: flex;

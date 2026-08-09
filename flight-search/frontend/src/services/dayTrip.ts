@@ -12,10 +12,10 @@ export const DAY_TRIP_EVENING_HOUR_FROM = 16;
 export const DAY_TRIP_RANGE_PRESETS = [1, 3, 6] as const;
 
 /**
- * Selectable weekdays for day trips: Wednesday → Tuesday
+ * Selectable weekdays for day trips: Saturday and Sunday only
  * (JS getDay: Sun=0 … Sat=6).
  */
-export const DAY_TRIP_ALLOWED_WEEKDAYS = new Set([3, 4, 5, 6, 0, 1, 2]);
+export const DAY_TRIP_ALLOWED_WEEKDAYS = new Set([0, 6]);
 
 export interface DayTripOption {
   id: string;
@@ -49,7 +49,12 @@ export function isDayTripSelectableDate(date: Date): boolean {
   return DAY_TRIP_ALLOWED_WEEKDAYS.has(date.getDay());
 }
 
-/** Wednesday-first column index: Wed=0 … Tue=6 */
+/** Monday-first column index: Mon=0 … Sun=6 */
+export function mondayFirstIndex(date: Date): number {
+  return (date.getDay() + 6) % 7;
+}
+
+/** @deprecated Use mondayFirstIndex — kept for older imports. */
 export function wednesdayFirstIndex(date: Date): number {
   return (date.getDay() + 4) % 7;
 }
@@ -74,7 +79,7 @@ function toDayTripOption(date: Date, locale: string): DayTripOption {
   };
 }
 
-/** Upcoming Wed→Tue dates within the next `months` calendar months. */
+/** Upcoming Saturday/Sunday dates within the next `months` calendar months. */
 export function getUpcomingDayTripOptions(
   months = DAY_TRIP_OPTIONS_MONTHS,
   locale = 'en'

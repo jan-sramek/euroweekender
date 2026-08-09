@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointer
 import { useTranslation } from 'react-i18next';
 import {
   toDayTripId,
-  wednesdayFirstIndex,
+  mondayFirstIndex,
   type DayTripOption
 } from '../services/dayTrip';
 import './DayTripCalendar.css';
@@ -95,7 +95,7 @@ function buildMonthGrid(
 ): CalendarDay[] {
   const firstOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const leading = wednesdayFirstIndex(firstOfMonth);
+  const leading = mondayFirstIndex(firstOfMonth);
   const totalCells = Math.ceil((leading + daysInMonth) / 7) * 7;
   const gridStart = startOfDay(new Date(year, month, 1 - leading));
 
@@ -235,10 +235,10 @@ export function DayTripCalendar({
   );
 
   const weekdayLabels = useMemo(() => {
-    const wednesday = new Date(2024, 0, 3);
+    const monday = new Date(2024, 0, 1); // Monday
     return Array.from({ length: 7 }, (_, index) => {
-      const day = new Date(wednesday);
-      day.setDate(wednesday.getDate() + index);
+      const day = new Date(monday);
+      day.setDate(monday.getDate() + index);
       return day.toLocaleDateString(i18n.language, { weekday: 'short' });
     });
   }, [i18n.language]);

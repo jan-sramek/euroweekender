@@ -1,18 +1,25 @@
 .day-trip-calendar {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  padding: 1.1rem 1.15rem 1.25rem;
+  gap: 0.45rem;
+  padding: 0.65rem 0.7rem 0.75rem;
   background: #fff;
   border-radius: 0.35rem;
   box-shadow: 0 0 15px rgba(25, 44, 57, 0.08);
+  user-select: none;
+  max-width: 18.5rem;
+}
+
+.day-trip-calendar-dragging,
+.day-trip-calendar-dragging * {
+  cursor: grabbing;
 }
 
 .dtc-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.35rem;
 }
 
 .dtc-header-copy {
@@ -23,34 +30,28 @@
 
 .dtc-title {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: #192c39;
 }
 
 .dtc-hint {
-  margin: 0.2rem 0 0;
-  font-size: 0.78rem;
+  margin: 0.1rem 0 0;
+  font-size: 0.65rem;
+  line-height: 1.25;
   color: #5c6770;
-}
-
-.dtc-months {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  align-items: start;
 }
 
 .dtc-month {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.35rem;
   min-width: 0;
 }
 
 .dtc-month-title {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #192c39;
   text-transform: capitalize;
@@ -60,32 +61,32 @@
 .dtc-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.3rem;
+  gap: 0.15rem;
 }
 
 .dtc-weekday {
   text-align: center;
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #8c959c;
-  padding: 0.2rem 0;
+  padding: 0.05rem 0;
 }
 
 .dtc-day {
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 2.8rem;
-  padding: 0.3rem 0.15rem;
+  min-height: 1.55rem;
+  padding: 0.1rem;
   border: 1px solid #e8edf1;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   background: #f8fafb;
   color: #192c39;
   font: inherit;
+  touch-action: none;
 }
 
 button.dtc-day {
@@ -93,17 +94,17 @@ button.dtc-day {
 }
 
 button.dtc-day:hover {
-  outline: 2px solid #04bfab;
-  outline-offset: 1px;
+  outline: 1px solid #04bfab;
+  outline-offset: 0;
 }
 
 .dtc-day-outside {
-  opacity: 0.38;
+  opacity: 0.32;
 }
 
 .dtc-day-today .dtc-day-number {
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.12em;
 }
 
 .dtc-day-selectable {
@@ -116,27 +117,26 @@ button.dtc-day:hover {
   background: #04bfab;
   border-color: #04bfab;
   color: #fff;
-  outline: 2px solid #192c39;
-  outline-offset: 1px;
+  outline: 1px solid #192c39;
+  outline-offset: 0;
 }
 
 .dtc-day-selected:hover {
-  outline: 2px solid #192c39;
+  outline: 1px solid #192c39;
 }
 
 .dtc-day-number {
-  font-size: 0.82rem;
+  font-size: 0.68rem;
   font-weight: 700;
   line-height: 1;
 }
 
-@media (max-width: 900px) {
-  .dtc-months {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+@media (max-width: 960px) {
+  .day-trip-calendar {
+    max-width: none;
   }
 
   .dtc-day {
-    min-height: 3rem;
+    min-height: 2rem;
   }
 }

@@ -1,6 +1,6 @@
 .single-day-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: start;
 }
@@ -24,20 +24,15 @@
 
 .single-day-calendar-wrap {
   min-width: 0;
-}
-
-.single-day-calendar-wrap .day-trip-calendar {
-  height: 100%;
-}
-
-/* Stack the two months in the side column so the layout stays readable. */
-.single-day-calendar-wrap .dtc-months {
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
+  justify-self: end;
 }
 
 @media (max-width: 960px) {
   .single-day-layout {
     grid-template-columns: 1fr;
+  }
+
+  .single-day-calendar-wrap {
+    justify-self: stretch;
   }
 }

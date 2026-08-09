@@ -115,19 +115,6 @@ export function SingleDayTripsPage() {
     return null;
   }, [days, selectedDayIds]);
 
-  const handleDayToggle = (dayId: string) => {
-    setSelectedDayIds(prev => {
-      if (prev.includes(dayId)) return prev.filter(id => id !== dayId);
-      const next = [...prev, dayId];
-      next.sort((a, b) => {
-        const dayA = days.find(day => day.id === a);
-        const dayB = days.find(day => day.id === b);
-        return (dayA?.date.getTime() ?? 0) - (dayB?.date.getTime() ?? 0);
-      });
-      return next;
-    });
-  };
-
   const handleSelectMonths = (months: number) => {
     setSelectedDayIds(getDayTripIdsForMonths(days, months));
   };
@@ -236,7 +223,7 @@ export function SingleDayTripsPage() {
                       setViewYear(year);
                       setViewMonth(month);
                     }}
-                    onDayToggle={handleDayToggle}
+                    onSelectedDayIdsChange={setSelectedDayIds}
                   />
                 </div>
               </div>

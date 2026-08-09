@@ -117,7 +117,7 @@
     "travelDayHint": "Select one or more days (Wednesday–Tuesday)",
     "selectDays": "Select travel days",
     "calendarLabel": "Travel calendar",
-    "calendarHint": "Tap or drag to select days · Wed→Tue weeks",
+    "calendarHint": "Click or drag across days · two months shown · Wed→Tue weeks",
     "dayToggleHint": "Click to toggle, or drag across days to select a range",
     "dayTripTag": "Day trip",
     "scheduleSummary": "Morning out · evening back",

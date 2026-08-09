@@ -26,11 +26,11 @@ interface CalendarDay {
 }
 
 interface DragState {
-  pointerId: number;
   mode: 'add' | 'remove';
   anchorId: string;
   baseIds: string[];
   moved: boolean;
+  lastId: string;
 }
 
 function startOfDay(date: Date): Date {
@@ -45,6 +45,11 @@ function sameDay(a: Date, b: Date): boolean {
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate()
   );
+}
+
+function nextMonth(year: number, month: number): { year: number; month: number } {
+  if (month === 11) return { year: year + 1, month: 0 };
+  return { year, month: month + 1 };
 }
 
 function sortDayIds(ids: string[], days: DayTripOption[]): string[] {
@@ -81,6 +86,14 @@ function toggleDay(days: DayTripOption[], baseIds: string[], dayId: string): str
   if (next.has(dayId)) next.delete(dayId);
   else next.add(dayId);
   return sortDayIds([...next], days);
+}
+
+function dayIdFromPoint(clientX: number, clientY: number): string | null {
+  const el = document.elementFromPoint(clientX, clientY);
+  if (!(el instanceof Element)) return null;
+  const dayEl = el.closest('[data-day-id]');
+  if (!(dayEl instanceof HTMLElement)) return null;
+  return dayEl.dataset.dayId ?? null;
 }
 
 function buildMonthGrid(
@@ -122,17 +135,9 @@ interface MonthGridProps {
   cells: CalendarDay[];
   weekdayLabels: string[];
   onDayPointerDown: (dayId: string, event: ReactPointerEvent<HTMLButtonElement>) => void;
-  onDayPointerEnter: (dayId: string) => void;
 }
 
-function MonthGrid({
-  year,
-  month,
-  cells,
-  weekdayLabels,
-  onDayPointerDown,
-  onDayPointerEnter
-}: MonthGridProps) {
+function MonthGrid({ year, month, cells, weekdayLabels, onDayPointerDown }: MonthGridProps) {
   const { t, i18n } = useTranslation();
 
   const monthLabel = useMemo(
@@ -176,7 +181,6 @@ function MonthGrid({
                 aria-label={label}
                 title={t('singleDayTrips.dayToggleHint')}
                 onPointerDown={event => onDayPointerDown(cell.dayId!, event)}
-                onPointerEnter={() => onDayPointerEnter(cell.dayId!)}
               >
                 <span className="dtc-day-number">{cell.date.getDate()}</span>
               </button>
@@ -212,14 +216,17 @@ export function DayTripCalendar({
 }: DayTripCalendarProps) {
   const { t, i18n } = useTranslation();
   const today = startOfDay(new Date());
+  const second = nextMonth(year, month);
   const dragRef = useRef<DragState | null>(null);
   const draftIdsRef = useRef<string[] | null>(null);
   const daysRef = useRef(days);
+  const selectedRef = useRef(selectedDayIds);
   const onChangeRef = useRef(onSelectedDayIdsChange);
   const [draftIds, setDraftIds] = useState<string[] | null>(null);
   const [dragging, setDragging] = useState(false);
 
   daysRef.current = days;
+  selectedRef.current = selectedDayIds;
   onChangeRef.current = onSelectedDayIdsChange;
   draftIdsRef.current = draftIds;
 
@@ -227,9 +234,14 @@ export function DayTripCalendar({
   const displayIds = draftIds ?? selectedDayIds;
   const selectedIds = useMemo(() => new Set(displayIds), [displayIds]);
 
-  const cells = useMemo(
+  const firstCells = useMemo(
     () => buildMonthGrid(year, month, selectableIds, selectedIds, today),
     [year, month, selectableIds, selectedIds, today]
+  );
+
+  const secondCells = useMemo(
+    () => buildMonthGrid(second.year, second.month, selectableIds, selectedIds, today),
+    [second.year, second.month, selectableIds, selectedIds, today]
   );
 
   const weekdayLabels = useMemo(() => {
@@ -253,8 +265,31 @@ export function DayTripCalendar({
     year < horizonEnd.getFullYear() ||
     (year === horizonEnd.getFullYear() && month < horizonEnd.getMonth());
 
+  const updateDragTo = (dayId: string) => {
+    const drag = dragRef.current;
+    if (!drag || dayId === drag.lastId) return;
+    drag.moved = drag.moved || dayId !== drag.anchorId;
+    drag.lastId = dayId;
+    const next = applyDragSelection(
+      daysRef.current,
+      drag.baseIds,
+      drag.anchorId,
+      dayId,
+      drag.mode
+    );
+    draftIdsRef.current = next;
+    setDraftIds(next);
+  };
+
   useEffect(() => {
-    const finish = () => {
+    const onMove = (event: PointerEvent) => {
+      if (!dragRef.current) return;
+      event.preventDefault();
+      const dayId = dayIdFromPoint(event.clientX, event.clientY);
+      if (dayId) updateDragTo(dayId);
+    };
+
+    const onUp = () => {
       const drag = dragRef.current;
       if (!drag) return;
 
@@ -270,42 +305,31 @@ export function DayTripCalendar({
       setDragging(false);
     };
 
-    window.addEventListener('pointerup', finish);
-    window.addEventListener('pointercancel', finish);
+    window.addEventListener('pointermove', onMove, { passive: false });
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
     return () => {
-      window.removeEventListener('pointerup', finish);
-      window.removeEventListener('pointercancel', finish);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
     };
   }, []);
 
   const handleDayPointerDown = (dayId: string, event: ReactPointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
     event.preventDefault();
-    event.currentTarget.setPointerCapture(event.pointerId);
+
+    const baseSelected = new Set(selectedRef.current);
     dragRef.current = {
-      pointerId: event.pointerId,
-      mode: selectedIds.has(dayId) ? 'remove' : 'add',
+      mode: baseSelected.has(dayId) ? 'remove' : 'add',
       anchorId: dayId,
-      baseIds: [...selectedDayIds],
-      moved: false
+      baseIds: [...selectedRef.current],
+      moved: false,
+      lastId: dayId
     };
+    draftIdsRef.current = null;
     setDraftIds(null);
     setDragging(true);
-  };
-
-  const handleDayPointerEnter = (dayId: string) => {
-    const drag = dragRef.current;
-    if (!drag) return;
-    drag.moved = drag.moved || dayId !== drag.anchorId;
-    const next = applyDragSelection(
-      daysRef.current,
-      drag.baseIds,
-      drag.anchorId,
-      dayId,
-      drag.mode
-    );
-    draftIdsRef.current = next;
-    setDraftIds(next);
   };
 
   const goPrev = () => {
@@ -347,14 +371,22 @@ export function DayTripCalendar({
         </button>
       </div>
 
-      <MonthGrid
-        year={year}
-        month={month}
-        cells={cells}
-        weekdayLabels={weekdayLabels}
-        onDayPointerDown={handleDayPointerDown}
-        onDayPointerEnter={handleDayPointerEnter}
-      />
+      <div className="dtc-months">
+        <MonthGrid
+          year={year}
+          month={month}
+          cells={firstCells}
+          weekdayLabels={weekdayLabels}
+          onDayPointerDown={handleDayPointerDown}
+        />
+        <MonthGrid
+          year={second.year}
+          month={second.month}
+          cells={secondCells}
+          weekdayLabels={weekdayLabels}
+          onDayPointerDown={handleDayPointerDown}
+        />
+      </div>
     </div>
   );
 }

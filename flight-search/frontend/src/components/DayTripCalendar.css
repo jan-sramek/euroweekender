@@ -9,6 +9,7 @@
   user-select: none;
   width: 100%;
   box-sizing: border-box;
+  touch-action: none;
 }
 
 .day-trip-calendar-dragging,
@@ -41,6 +42,13 @@
   font-size: 0.72rem;
   line-height: 1.3;
   color: #5c6770;
+}
+
+.dtc-months {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  align-items: start;
 }
 
 .dtc-month {
@@ -130,6 +138,7 @@ button.dtc-day:hover {
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
+  pointer-events: none;
 }
 
 @media (max-width: 960px) {

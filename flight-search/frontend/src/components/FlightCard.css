@@ -129,6 +129,13 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  gap: 0.4rem;
+}
+
+.result-action .btn-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
 }
 
 .block-result .badge {

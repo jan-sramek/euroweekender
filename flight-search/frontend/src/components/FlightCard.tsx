@@ -14,6 +14,37 @@ import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
 import { CountryFlag } from './CountryFlag';
 import './FlightCard.css';
 
+function CalendarIcon() {
+  return (
+    <svg className="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M7 3.5a.75.75 0 0 1 .75.75V5h8.5V4.25a.75.75 0 0 1 1.5 0V5H19a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1.25V4.25A.75.75 0 0 1 7 3.5ZM4.5 9.5v9.5a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5V9.5h-15Z"
+      />
+      <path
+        fill="currentColor"
+        d="M8 12.25h2.5v2.5H8v-2.5Zm5.25 0H16v2.5h-2.75v-2.5ZM8 16.5h2.5V19H8v-2.5Zm5.25 0H16V19h-2.75v-2.5Z"
+        opacity="0.85"
+      />
+    </svg>
+  );
+}
+
+function BookIcon() {
+  return (
+    <svg className="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M14 3.75a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V5.81l-8.72 8.72a.75.75 0 1 1-1.06-1.06l8.72-8.72h-3.44a.75.75 0 0 1-.75-.75Z"
+      />
+      <path
+        fill="currentColor"
+        d="M5.75 5A1.75 1.75 0 0 0 4 6.75v11.5C4 19.216 4.784 20 5.75 20h11.5A1.75 1.75 0 0 0 19 18.25v-5a.75.75 0 0 0-1.5 0v5a.25.25 0 0 1-.25.25H5.75a.25.25 0 0 1-.25-.25V6.75a.25.25 0 0 1 .25-.25h5a.75.75 0 0 0 0-1.5h-5Z"
+      />
+    </svg>
+  );
+}
+
 interface FlightCardProps {
   flight: Flight;
   passengerCount: number;
@@ -246,6 +277,7 @@ export function FlightCard({
               to={bestWeekendPriceTo}
               data-umami-event="best_weekend_price_click"
             >
+              <CalendarIcon />
               {t('nav.cheapestWeekend')}
             </Link>
           ) : null}
@@ -257,10 +289,12 @@ export function FlightCard({
               rel="noopener noreferrer"
               data-umami-event="booking_click"
             >
+              <BookIcon />
               {t('flights.book')}
             </a>
           ) : (
             <button className="btn btn-primary btn-sm" type="button" disabled>
+              <BookIcon />
               {t('flights.book')}
             </button>
           )}

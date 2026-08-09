@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Günstigstes Wochenende zu jedem Ziel in Europa",
       "description": "Finden Sie den günstigsten Wochenendflug zu Ihrer Wunschstadt. Vergleichen Sie kommende Fr–So- und andere Kurztrips im Kalender und buchen Sie das beste Angebot."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Über uns",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "cheapestWeekend": "Bester Wochenendpreis"
+    "cheapestWeekend": "Bester Wochenendpreis",
+    "singleDayTrips": "Tagesausflüge"
   },
   "footer": {
     "tagline": "Europäische Wochenendflug-Angebote",
@@ -81,6 +86,19 @@
     "subtitle": "Ihr nächster Städtetrip beginnt am Freitagabend",
     "seoTitle": "Günstige Wochenendflüge in Europa finden",
     "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So, Do–So und Mi–So, wählen Sie Abendabflüge und entdecken Sie Städtereisen ohne Urlaub."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Reisewochenende",
@@ -157,8 +175,7 @@
     "book": "Buchen",
     "changes_zero": "0 Umstiege",
     "changes_one": "1 Umstieg",
-    "changes_other": "{{count}} Umstiege"
-,
+    "changes_other": "{{count}} Umstiege",
     "outbound": "Hinflug",
     "return": "Rückflug"
   },

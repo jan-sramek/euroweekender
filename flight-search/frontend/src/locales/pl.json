@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Najtańsze loty weekendowe do dowolnego europejskiego miasta",
       "description": "Znajdź najtańszy weekend do wybranego celu. Porównaj loty pt–nd i inne krótkie wyjazdy na kalendarzu, a potem zarezerwuj najlepszą ofertę."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "O nas",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "cheapestWeekend": "Najlepsza cena weekendu"
+    "cheapestWeekend": "Najlepsza cena weekendu",
+    "singleDayTrips": "Wycieczki jednodniowe"
   },
   "footer": {
     "tagline": "Europejskie oferty weekendowych lotów",
@@ -81,6 +86,19 @@
     "subtitle": "Twój kolejny city break zaczyna się w piątek wieczorem",
     "seoTitle": "Znajdź tanie loty weekendowe w Europie",
     "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, czw–nd i śr–nd, dodaj wieczorne wyloty i odkryj city breaki bez wykorzystywania urlopu."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Weekend podróży",
@@ -157,8 +175,7 @@
     "book": "Rezerwuj",
     "changes_zero": "0 przesiadek",
     "changes_one": "1 przesiadka",
-    "changes_other": "{{count}} przesiadek"
-,
+    "changes_other": "{{count}} przesiadek",
     "outbound": "Wylot",
     "return": "Powrót"
   },

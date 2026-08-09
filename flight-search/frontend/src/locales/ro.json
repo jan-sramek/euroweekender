@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Cele mai ieftine zboruri de weekend spre orice oraș european",
       "description": "Găsește cel mai ieftin weekend spre destinația aleasă. Compară dus-întors vin–dum și alte escapade scurte pe un calendar, apoi rezervă cea mai bună ofertă."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Despre noi",
     "faq": "Întrebări frecvente",
     "contact": "Contact",
-    "cheapestWeekend": "Cel mai bun preț de weekend"
+    "cheapestWeekend": "Cel mai bun preț de weekend",
+    "singleDayTrips": "Excursii de o zi"
   },
   "footer": {
     "tagline": "Oferte de zboruri de weekend în Europa",
@@ -81,6 +86,19 @@
     "subtitle": "Următorul tău city break începe vineri seara",
     "seoTitle": "Găsește zboruri ieftine de weekend în Europa",
     "seoBlock": "Caută și compară zboruri ieftine de weekend din Praga, Viena, Berlin, München, Londra, Barcelona și zeci de aeroporturi europene. Filtrează vin–dum, joi–dum și mie–dum, adaugă plecări seara și descoperă city break-uri fără concediu anual."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Weekend de călătorie",
@@ -157,8 +175,7 @@
     "book": "Rezervă",
     "changes_zero": "0 escale",
     "changes_one": "1 escală",
-    "changes_other": "{{count}} escale"
-,
+    "changes_other": "{{count}} escale",
     "outbound": "Dus",
     "return": "Întoarcere"
   },

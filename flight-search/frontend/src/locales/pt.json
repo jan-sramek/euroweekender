@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Voos de fim de semana mais baratos para qualquer cidade europeia",
       "description": "Encontre o fim de semana mais barato para o seu destino. Compare ida e volta sex–dom e outras viagens curtas num calendário e reserve a melhor oferta."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Sobre",
     "faq": "FAQ",
     "contact": "Contacto",
-    "cheapestWeekend": "Melhor preço de fim de semana"
+    "cheapestWeekend": "Melhor preço de fim de semana",
+    "singleDayTrips": "Viagens de um dia"
   },
   "footer": {
     "tagline": "Ofertas europeias de voos de fim de semana",
@@ -81,6 +86,19 @@
     "subtitle": "A sua próxima escapadinha urbana começa sexta à noite",
     "seoTitle": "Encontre voos baratos de fim de semana na Europa",
     "seoBlock": "Pesquise e compare voos baratos de fim de semana de Praga, Viena, Berlim, Munique, Londres, Barcelona e dezenas de aeroportos europeus. Filtre sex–dom, qui–dom e qua–dom, adicione partidas noturnas e descubra escapadinhas sem usar férias."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Fim de semana de viagem",
@@ -157,8 +175,7 @@
     "book": "Reservar",
     "changes_zero": "0 escalas",
     "changes_one": "1 escala",
-    "changes_other": "{{count}} escalas"
-,
+    "changes_other": "{{count}} escalas",
     "outbound": "Ida",
     "return": "Volta"
   },

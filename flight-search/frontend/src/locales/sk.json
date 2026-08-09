@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Najlacnejšie víkendové lety do ľubovoľného európskeho mesta",
       "description": "Nájdite najlacnejší víkend do vybranej destinácie. Porovnajte pia–ne a ďalšie krátke výlety v kalendári a rezervujte najlepšiu ponuku."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "O nás",
     "faq": "Časté otázky",
     "contact": "Kontakt",
-    "cheapestWeekend": "Najlepšia víkendová cena"
+    "cheapestWeekend": "Najlepšia víkendová cena",
+    "singleDayTrips": "Jednodňové výlety"
   },
   "footer": {
     "tagline": "Európske víkendové letové ponuky",
@@ -81,6 +86,19 @@
     "subtitle": "Váš ďalší city break začína v piatok večer",
     "seoTitle": "Nájdite lacné víkendové lety po Európe",
     "seoBlock": "Vyhľadávajte a porovnávajte lacné víkendové lety z Prahy, Viedne, Berlína, Mníchova, Londýna, Barcelona a desiatok európskych letísk. Filtrujte pi–ne, št–ne a st–ne, pridajte večerné odlety a objavte city breaky bez čerpania dovolenky."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Cestovný víkend",
@@ -157,8 +175,7 @@
     "book": "Rezervovať",
     "changes_zero": "0 prestupov",
     "changes_one": "1 prestup",
-    "changes_other": "{{count}} prestupov"
-,
+    "changes_other": "{{count}} prestupov",
     "outbound": "Tam",
     "return": "Späť"
   },

@@ -1,0 +1,297 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { AppHeader } from '../components/AppHeader';
+import { DeparturePicker } from '../components/DeparturePicker';
+import { FlightCard } from '../components/FlightCard';
+import { LoadingIndicator } from '../components/LoadingIndicator';
+import { PassengerPicker } from '../components/PassengerPicker';
+import { SiteFooter } from '../components/SiteFooter';
+import { useDayTripSearch } from '../hooks/useDayTripSearch';
+import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
+import { usePageMeta } from '../hooks/usePageMeta';
+import {
+  DAY_TRIP_OPTIONS_COUNT,
+  getDefaultDayTripIds,
+  getUpcomingDayTripOptions
+} from '../services/dayTrip';
+import { getCityDisplayName } from '../utils/cityDisplayName';
+import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import type { City } from '../types/city';
+import './HomePage.css';
+import './WeekendPicker.css';
+
+export function SingleDayTripsPage() {
+  const { t, i18n } = useTranslation();
+
+  usePageMeta(
+    t('meta.singleDayTrips.title'),
+    t('meta.singleDayTrips.description'),
+    '/single-day-trips'
+  );
+
+  const [passengerCount, setPassengerCount] = useState(1);
+  const [selectedDayIds, setSelectedDayIds] = useState<string[]>([]);
+  const defaultsApplied = useRef(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const days = useMemo(
+    () => getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_COUNT, i18n.language),
+    [i18n.language]
+  );
+
+  useEffect(() => {
+    if (defaultsApplied.current || days.length === 0) return;
+    defaultsApplied.current = true;
+    setSelectedDayIds(getDefaultDayTripIds(days, 7));
+  }, [days]);
+
+  const {
+    allCities,
+    nearbyCities,
+    popularHubCities,
+    selectedCodes,
+    setSelectedCodes,
+    locating,
+    errorMessage
+  } = useDeparturePrefill();
+
+  const {
+    selectedDays,
+    flights,
+    visibleFlights,
+    loadingFlights,
+    flightError,
+    hasLegFilter,
+    loadFlights,
+    handleDepartureLegSelect,
+    handleReturnLegSelect,
+    clearLegFilters,
+    departureLegFilter,
+    returnLegFilter
+  } = useDayTripSearch({
+    selectedCodes,
+    days,
+    selectedDayIds,
+    passengerCount,
+    locating
+  });
+
+  const locationLabel = useMemo(() => {
+    const active = selectedCodes
+      .map(code => allCities.find(c => c.code === code))
+      .filter((c): c is City => c !== undefined);
+    if (active.length === 0) return '';
+    if (active.length === 1) {
+      return `${getCityDisplayName(active[0], i18n.language)} (${active[0].code})`;
+    }
+    return t('home.moreAirports', {
+      name: getCityDisplayName(active[0], i18n.language),
+      count: active.length - 1
+    });
+  }, [allCities, selectedCodes, i18n.language, t]);
+
+  const daysLabel = useMemo(() => {
+    if (selectedDays.length === 0) return '';
+    if (selectedDays.length > 3) {
+      return t('singleDayTrips.daysCount', { count: selectedDays.length });
+    }
+    return selectedDays.map(day => day.shortLabel).join(', ');
+  }, [selectedDays, t]);
+
+  const handleDayToggle = (dayId: string) => {
+    setSelectedDayIds(prev => {
+      if (prev.includes(dayId)) return prev.filter(id => id !== dayId);
+      const next = [...prev, dayId];
+      next.sort((a, b) => {
+        const dayA = days.find(day => day.id === a);
+        const dayB = days.find(day => day.id === b);
+        return (dayA?.date.getTime() ?? 0) - (dayB?.date.getTime() ?? 0);
+      });
+      return next;
+    });
+  };
+
+  const handleAddCity = (city: City) => {
+    setSelectedCodes(prev => (prev.includes(city.code) ? prev : [...prev, city.code]));
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    scrollRef.current?.scrollBy({
+      left: direction === 'left' ? -220 : 220,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
+    <>
+      <AppHeader />
+
+      <section className="home-intro">
+        <div className="intro-overlay">
+          <div className="container container-wide intro-copy">
+            <p className="intro-eyebrow">{t('singleDayTrips.tagline')}</p>
+            <h1>{t('singleDayTrips.title')}</h1>
+            <p className="intro-subtitle">{t('singleDayTrips.subtitle')}</p>
+            <p className="intro-lead">{t('singleDayTrips.lead')}</p>
+          </div>
+
+          <div className="search-home">
+            <div className="container container-wide">
+              <div className="searchbar">
+                <div className="search-field search-from">
+                  <DeparturePicker
+                    allCities={allCities}
+                    nearbyCities={nearbyCities}
+                    popularHubCities={popularHubCities}
+                    selectedCodes={selectedCodes}
+                    locating={locating}
+                    locationLabel={locationLabel}
+                    onSelectedCodesChange={setSelectedCodes}
+                    onAddCity={handleAddCity}
+                  />
+                </div>
+
+                <div className="search-field search-dates">
+                  <div className="weekend-picker">
+                    <div className="weekend-section">
+                      <div className="weekend-section-header">
+                        <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
+                        <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
+                      </div>
+                      <div className="weekend-dates-row">
+                        <div
+                          className="weekend-track"
+                          ref={scrollRef}
+                          role="group"
+                          aria-label={t('singleDayTrips.selectDays')}
+                        >
+                          {days.map(day => {
+                            const active = selectedDayIds.includes(day.id);
+                            return (
+                              <button
+                                key={day.id}
+                                type="button"
+                                className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
+                                aria-pressed={active}
+                                onClick={() => handleDayToggle(day.id)}
+                              >
+                                <span className="weekend-range">{day.shortLabel}</span>
+                                <span className="weekend-sub">{t('singleDayTrips.dayTripTag')}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                        <div className="weekend-nav">
+                          <button
+                            type="button"
+                            className="btn btn-secondary btn-sm nav-btn"
+                            onClick={() => scroll('left')}
+                            aria-label={t('search.prevWeekends')}
+                          >
+                            ‹
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-secondary btn-sm nav-btn"
+                            onClick={() => scroll('right')}
+                            aria-label={t('search.nextWeekends')}
+                          >
+                            ›
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="weekend-section">
+                      <div className="weekend-section-header">
+                        <span className="weekend-section-label">{t('search.travelers')}</span>
+                        <span className="weekend-section-hint">{t('search.travelersHint')}</span>
+                      </div>
+                      <PassengerPicker count={passengerCount} onChange={setPassengerCount} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="offers-home">
+        <div className="container">
+          {selectedDays.length > 0 && (
+            <div className="offers-header">
+              <p className="offers-subtitle">
+                {t('home.fromSelectedAirports', {
+                  airports: locationLabel || t('home.selectedAirports')
+                })}{' '}
+                · {passengerCount}{' '}
+                {passengerCount === 1 ? t('home.person') : t('home.persons')} ·{' '}
+                {t('singleDayTrips.scheduleSummary')} · {daysLabel}
+              </p>
+            </div>
+          )}
+
+          {errorMessage ? (
+            <div className="alert alert-warning" role="status">
+              {errorMessage}
+            </div>
+          ) : null}
+
+          {flightError ? (
+            <div className="alert alert-error" role="alert">
+              {flightError}{' '}
+              <button type="button" className="link-button" onClick={() => void loadFlights()}>
+                {t('home.tryAgain')}
+              </button>
+            </div>
+          ) : loadingFlights && flights.length === 0 ? (
+            <div className="state-box state-box-loading">
+              <LoadingIndicator size="md" label={t('home.loading')} />
+            </div>
+          ) : flights.length === 0 ? (
+            <div className="state-box">{t('singleDayTrips.noFlights')}</div>
+          ) : visibleFlights.length === 0 ? (
+            <div className="state-box">
+              {t('home.noLegMatch')}{' '}
+              <button type="button" className="link-button" onClick={clearLegFilters}>
+                {t('home.clearLegFilters')}
+              </button>
+            </div>
+          ) : (
+            <div className="flight-list">
+              {hasLegFilter ? (
+                <p className="offers-subtitle">
+                  {t('home.flightsCounterFiltered', {
+                    shown: visibleFlights.length,
+                    total: flights.length
+                  })}{' '}
+                  <button type="button" className="link-button" onClick={clearLegFilters}>
+                    {t('home.clearLegFilters')}
+                  </button>
+                </p>
+              ) : null}
+              {visibleFlights.map(flight => (
+                <FlightCard
+                  key={flight.id}
+                  flight={flight}
+                  passengerCount={passengerCount}
+                  departureSelected={departureLegFilter === getDepartureLegKey(flight)}
+                  returnSelected={returnLegFilter === getReturnLegKey(flight)}
+                  onDepartureSelect={selected =>
+                    handleDepartureLegSelect(selected ? getDepartureLegKey(flight) : null)
+                  }
+                  onReturnSelect={selected =>
+                    handleReturnLegSelect(selected ? getReturnLegKey(flight) : null)
+                  }
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <SiteFooter />
+    </>
+  );
+}

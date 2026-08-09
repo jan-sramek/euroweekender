@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Billigaste helgresorna till vilken europeisk stad som helst",
       "description": "Hitta den billigaste helgen till din destination. Jämför fre–sön och andra korta cityresor i en kalender och boka det bästa erbjudandet."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Om oss",
     "faq": "Vanliga frågor",
     "contact": "Kontakt",
-    "cheapestWeekend": "Bästa helgpriset"
+    "cheapestWeekend": "Bästa helgpriset",
+    "singleDayTrips": "Dagsresor"
   },
   "footer": {
     "tagline": "Europeiska helgflygserbjudanden",
@@ -81,6 +86,19 @@
     "subtitle": "Din nästa storstadsweekend börjar fredag kväll",
     "seoTitle": "Hitta billiga helgflyg i Europa",
     "seoBlock": "Sök och jämför billiga helgflyg från Prag, Wien, Berlin, München, London, Barcelona och dussintals europeiska flygplatser. Filtrera fre–sön, tor–sön och ons–sön, lägg till kvällsavgångar och upptäck storstadsweekends utan att ta semester."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Reshelg",
@@ -157,8 +175,7 @@
     "book": "Boka",
     "changes_zero": "0 byten",
     "changes_one": "1 byte",
-    "changes_other": "{{count}} byten"
-,
+    "changes_other": "{{count}} byten",
     "outbound": "Utresa",
     "return": "Hemresa"
   },

@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Odavaimad nädalavahetuslennud ükskõik millisesse Euroopa linna",
       "description": "Leidke odavaim nädalavahetus valitud sihtkohta. Võrrelge reede–pühapäeva ja teisi lühireise kalendris ning broneerige parim pakkumine."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Meist",
     "faq": "KKK",
     "contact": "Kontakt",
-    "cheapestWeekend": "Parim nädalavahetuse hind"
+    "cheapestWeekend": "Parim nädalavahetuse hind",
+    "singleDayTrips": "Ühepäevareisid"
   },
   "footer": {
     "tagline": "Euroopa nädalavahetuse lennipakkumised",
@@ -81,6 +86,19 @@
     "subtitle": "Sinu järgmine linnapuhkus algab reedel õhtul",
     "seoTitle": "Leia odavad nädalalõpu lennud Euroopas",
     "seoBlock": "Otsi ja võrdle odavaid nädalalõpu lende Praha, Viin, Berliin, München, London, Barcelona ja paljudest Euroopa lennujaamadest. Filtreeri re–p, nel–p ja kol–p, lisa õhtused väljumised ja avasta linnapuhkusi ilma aastapuhkuseta."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Reisinädalavahetus",
@@ -157,8 +175,7 @@
     "book": "Broneeri",
     "changes_zero": "0 vahetust",
     "changes_one": "1 vahetus",
-    "changes_other": "{{count}} vahetust"
-,
+    "changes_other": "{{count}} vahetust",
     "outbound": "Sinna",
     "return": "Tagasi"
   },

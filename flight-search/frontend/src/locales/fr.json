@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Vols week-end les moins chers vers toute ville d’Europe",
       "description": "Trouvez le week-end le moins cher vers votre destination. Comparez les allers-retours ven–dim et autres courts séjours sur un calendrier, puis réservez la meilleure offre."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "À propos",
     "faq": "FAQ",
     "contact": "Contact",
-    "cheapestWeekend": "Meilleur prix week-end"
+    "cheapestWeekend": "Meilleur prix week-end",
+    "singleDayTrips": "Excursions d'une journée"
   },
   "footer": {
     "tagline": "Offres de vols de week-end en Europe",
@@ -81,6 +86,19 @@
     "subtitle": "Votre prochain city break commence vendredi soir",
     "seoTitle": "Trouvez des vols pas chers pour le week-end en Europe",
     "seoBlock": "Recherchez et comparez des vols pas chers pour le week-end depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez des départs le soir et découvrez des city breaks sans poser de congés."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Week-end de voyage",
@@ -157,8 +175,7 @@
     "book": "Réserver",
     "changes_zero": "0 escale",
     "changes_one": "1 escale",
-    "changes_other": "{{count}} escales"
-,
+    "changes_other": "{{count}} escales",
     "outbound": "Aller",
     "return": "Retour"
   },

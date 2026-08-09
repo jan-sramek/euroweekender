@@ -10,6 +10,7 @@ import { FaqPage } from './pages/FaqPage';
 import { HomePage } from './pages/HomePage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { PrivacyPage } from './pages/PrivacyPage';
+import { SingleDayTripsPage } from './pages/SingleDayTripsPage';
 import { TermsPage } from './pages/TermsPage';
 
 const LEGACY_REDIRECTS = [
@@ -19,7 +20,8 @@ const LEGACY_REDIRECTS = [
   'how-it-works',
   'privacy',
   'terms',
-  'cheapest-weekend'
+  'cheapest-weekend',
+  'single-day-trips'
 ] as const;
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
         <Route path="/:lang" element={<LocaleLayout />}>
           <Route index element={<HomePage />} />
           <Route path="cheapest-weekend" element={<CheapestWeekendPage />} />
+          <Route path="single-day-trips" element={<SingleDayTripsPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="faq" element={<FaqPage />} />
           <Route path="contact" element={<ContactPage />} />

@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Lētākie nedēļas nogales lidojumi uz jebkuru Eiropas pilsētu",
       "description": "Atrodiet lētāko nedēļas nogali uz izvēlēto galamērķi. Salīdziniet piektd.–svētd. un citus īsus braucienus kalendārā un rezervējiet labāko piedāvājumu."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Par mums",
     "faq": "BUJ",
     "contact": "Kontakti",
-    "cheapestWeekend": "Labākā nedēļas nogales cena"
+    "cheapestWeekend": "Labākā nedēļas nogales cena",
+    "singleDayTrips": "Vienas dienas braucieni"
   },
   "footer": {
     "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
@@ -81,6 +86,19 @@
     "subtitle": "Jūsu nākamais pilsētas brauciens sākas piektdienas vakarā",
     "seoTitle": "Atrodiet lētus nedēļas nogales lidojumus Eiropā",
     "seoBlock": "Meklējiet un salīdziniet lētus nedēļas nogales lidojumus no Prāgas, Vīnes, Berlīnes, Minhenes, Londonas, Barselonas un desmitiem Eiropas lidostu. Filtrējiet pk–sv, ce–sv un tr–sv, pievienojiet vakara izlidošanas un atklājiet pilsētu braucienus bez gada atvaļinājuma."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
@@ -157,8 +175,7 @@
     "book": "Rezervēt",
     "changes_zero": "0 pārsēšanās",
     "changes_one": "1 pārsēšanās",
-    "changes_other": "{{count}} pārsēšanās"
-,
+    "changes_other": "{{count}} pārsēšanās",
     "outbound": "Turp",
     "return": "Atpakaļ"
   },

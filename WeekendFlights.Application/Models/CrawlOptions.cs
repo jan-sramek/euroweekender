@@ -30,6 +30,18 @@ public sealed class CrawlOptions
     public int FarTermMaxAgeHours { get; init; } = 168;
     public int DistantTermMaxAgeHours { get; init; } = 336;
 
+    /// <summary>How many upcoming calendar days to cover for same-day trips.</summary>
+    public int DayTripUpcomingDays { get; init; } = 21;
+
+    /// <summary>Max Kiwi day-trip searches per run (kept smaller than weekend budget).</summary>
+    public int DayTripMaxSearchesPerRun { get; init; } = 40;
+
+    /// <summary>How many top origin hubs to rotate through for day-trip crawls.</summary>
+    public int DayTripMaxCities { get; init; } = 25;
+
+    /// <summary>Refresh day-trip offers at least this often.</summary>
+    public int DayTripMaxAgeHours { get; init; } = 24;
+
     public TimeSpan GetMaxAge(int weekIndex)
     {
         if (weekIndex < NearTermWeeks)

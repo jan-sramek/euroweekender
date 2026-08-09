@@ -26,6 +26,9 @@ export function SiteFooter() {
               <LocalizedLink to="/cheapest-weekend">{t('nav.cheapestWeekend')}</LocalizedLink>
             </li>
             <li>
+              <LocalizedLink to="/single-day-trips">{t('nav.singleDayTrips')}</LocalizedLink>
+            </li>
+            <li>
               <LocalizedLink to="/how-it-works">{t('nav.howItWorks')}</LocalizedLink>
             </li>
             <li>

@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Най-евтините уикенд полети до всеки европейски град",
       "description": "Намерете най-евтиния уикенд до избраната дестинация. Сравнете пет–нед и други кратки пътувания в календар и резервирайте най-добрата оферта."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "За нас",
     "faq": "ЧЗВ",
     "contact": "Контакт",
-    "cheapestWeekend": "Най-добра уикенд цена"
+    "cheapestWeekend": "Най-добра уикенд цена",
+    "singleDayTrips": "Еднодневни пътувания"
   },
   "footer": {
     "tagline": "Европейски уикенд полетни оферти",
@@ -81,6 +86,19 @@
     "subtitle": "Следващият ви градски уикенд започва в петък вечер",
     "seoTitle": "Намерете евтини уикенд полети в Европа",
     "seoBlock": "Търсете и сравнявайте евтини уикенд полети от Прага, Виена, Берлин, Мюнхен, Лондон, Барселона и десетки европейски летища. Филтрирайте пт–нд, чт–нд и ср–нд, добавете вечерни излитания и открийте градски почивки без годишен отпуск."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Пътуващ уикенд",
@@ -157,8 +175,7 @@
     "book": "Резервирай",
     "changes_zero": "0 прекачвания",
     "changes_one": "1 прекачване",
-    "changes_other": "{{count}} прекачвания"
-,
+    "changes_other": "{{count}} прекачвания",
     "outbound": "Заминаване",
     "return": "Връщане"
   },

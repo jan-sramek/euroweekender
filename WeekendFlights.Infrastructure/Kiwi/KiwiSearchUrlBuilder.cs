@@ -36,6 +36,15 @@ public static class KiwiSearchUrlBuilder
             query.Add($"nights_in_dst_to={parameters.NightsInDstTo}");
         }
 
+        if (parameters.DepartTimeFromHour is int dFrom)
+            query.Add($"dtime_from={dFrom}");
+        if (parameters.DepartTimeToHour is int dTo)
+            query.Add($"dtime_to={dTo}");
+        if (parameters.ReturnDepartTimeFromHour is int rFrom)
+            query.Add($"ret_dtime_from={rFrom}");
+        if (parameters.ReturnDepartTimeToHour is int rTo)
+            query.Add($"ret_dtime_to={rTo}");
+
         return $"/v2/search?{string.Join("&", query)}";
     }
 

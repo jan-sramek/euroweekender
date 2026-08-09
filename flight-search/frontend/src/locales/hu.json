@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Legolcsóbb hétvégi járatok bármely európai városba",
       "description": "Találja meg a legolcsóbb hétvégét a választott célállomásra. Hasonlítsa össze a pén–vas és más rövid city breakeket a naptárban, majd foglalja le a legjobb ajánlatot."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "Rólunk",
     "faq": "GYIK",
     "contact": "Kapcsolat",
-    "cheapestWeekend": "Legjobb hétvégi ár"
+    "cheapestWeekend": "Legjobb hétvégi ár",
+    "singleDayTrips": "Egynapos utak"
   },
   "footer": {
     "tagline": "Európai hétvégi repülőjárat-ajánlatok",
@@ -81,6 +86,19 @@
     "subtitle": "A következő városlátogatása péntek este kezdődik",
     "seoTitle": "Találjon olcsó hétvégi repülőjáratokat Európában",
     "seoBlock": "Keressen és hasonlítson össze olcsó hétvégi repülőjáratokat Prága, Bécs, Berlin, München, London, Barcelona és tucatnyi európai repülőtérről. Szűrjön p–v, cs–v és sze–v utakra, adjon hozzá esti indulásokat, és fedezze fel a városlátogatásokat szabadság felhasználása nélkül."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Utazási hétvége",
@@ -157,8 +175,7 @@
     "book": "Foglalás",
     "changes_zero": "0 átszállás",
     "changes_one": "1 átszállás",
-    "changes_other": "{{count}} átszállás"
-,
+    "changes_other": "{{count}} átszállás",
     "outbound": "Odaút",
     "return": "Visszaút"
   },

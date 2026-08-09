@@ -31,6 +31,10 @@
     "cheapestWeekend": {
       "title": "Самые дешёвые уикенд-рейсы в любой европейский город",
       "description": "Найдите самый дешёвый уикенд в выбранный город. Сравните пт–вс и другие короткие поездки в календаре и забронируйте лучшее предложение."
+    },
+    "singleDayTrips": {
+      "title": "Single Day Trips in Europe",
+      "description": "Find same-day European flights that leave in the morning and return in the evening — city day trips without an overnight stay."
     }
   },
   "nav": {
@@ -39,7 +43,8 @@
     "about": "О нас",
     "faq": "Вопросы",
     "contact": "Контакты",
-    "cheapestWeekend": "Лучшая цена уикенда"
+    "cheapestWeekend": "Лучшая цена уикенда",
+    "singleDayTrips": "Однодневные поездки"
   },
   "footer": {
     "tagline": "Авиапредложения на выходные по Европе",
@@ -81,6 +86,19 @@
     "subtitle": "Ваш следующий city break начинается в пятницу вечером",
     "seoTitle": "Найдите дешёвые weekend-рейсы по Европе",
     "seoBlock": "Ищите и сравнивайте дешёвые weekend-рейсы из Праги, Вены, Берлина, Мюнхена, Лондона, Барселоны и десятков европейских аэропортов. Фильтруйте пт–вс, чт–вс и ср–вс, добавляйте вечерние вылеты и находите city break без ежегодного отпуска."
+  },
+  "singleDayTrips": {
+    "tagline": "Out morning · back evening",
+    "title": "Single day trips across Europe",
+    "subtitle": "Same-day return flights for a full day in another city",
+    "lead": "Leave after breakfast, explore a European city, and fly home the same evening — no hotel, no overnight.",
+    "travelDay": "Travel day",
+    "travelDayHint": "Pick one or more days for morning-out / evening-back trips",
+    "selectDays": "Select travel days",
+    "dayTripTag": "Day trip",
+    "scheduleSummary": "Morning out · evening back",
+    "daysCount": "{{count}} days",
+    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
   },
   "search": {
     "travelWeekend": "Выходные для поездки",
@@ -157,8 +175,7 @@
     "book": "Забронировать",
     "changes_zero": "0 пересадок",
     "changes_one": "1 пересадка",
-    "changes_other": "{{count}} пересадок"
-,
+    "changes_other": "{{count}} пересадок",
     "outbound": "Туда",
     "return": "Обратно"
   },

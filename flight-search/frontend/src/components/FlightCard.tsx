@@ -189,7 +189,9 @@ export function FlightCard({
   const tripDays = flight.nightsInDest + 1;
   const totalPrice = getTripPrice(flight, passengerCount);
   const perPersonPrice = getPerPersonPrice(flight);
-  const showBestWeekendPriceLink = !location.pathname.includes('/cheapest-weekend');
+  const showBestWeekendPriceLink =
+    !location.pathname.includes('/cheapest-weekend') &&
+    !location.pathname.includes('/single-day-trips');
   const bestWeekendPriceTo = `${path('/cheapest-weekend')}?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
 
   const formatStops = (stops: number) => {

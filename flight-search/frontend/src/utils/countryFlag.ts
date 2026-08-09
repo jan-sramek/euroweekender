@@ -36,6 +36,11 @@ const COUNTRY_FLAG_CODES: Record<string, string> = {
   Montenegro: 'me',
   Netherlands: 'nl',
   'North Macedonia': 'mk',
+  'Republic of North Macedonia': 'mk',
+  'Republic of Macedonia': 'mk',
+  'Macedonia (FYROM)': 'mk',
+  'Former Yugoslav Republic of Macedonia': 'mk',
+  'the former Yugoslav Republic of Macedonia': 'mk',
   Macedonia: 'mk',
   Norway: 'no',
   Poland: 'pl',
@@ -68,15 +73,39 @@ const COUNTRY_FLAG_CODES: Record<string, string> = {
   'United Arab Emirates': 'ae'
 };
 
+const KNOWN_FLAG_CODES = new Set(Object.values(COUNTRY_FLAG_CODES));
+
+function normalizeCountryKey(value: string): string {
+  return value
+    .trim()
+    .normalize('NFKC')
+    .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/\s+/g, ' ');
+}
+
 export function countryFlagCode(country: string | null | undefined): string | null {
   if (!country) return null;
-  const direct = COUNTRY_FLAG_CODES[country.trim()];
+
+  const trimmed = normalizeCountryKey(country);
+  if (!trimmed) return null;
+
+  // Already an ISO / flagcdn code (e.g. "MK" from some flight payloads).
+  if (trimmed.length === 2) {
+    const iso = trimmed.toLowerCase();
+    if (KNOWN_FLAG_CODES.has(iso) || iso === 'xk') return iso;
+  }
+
+  const direct = COUNTRY_FLAG_CODES[trimmed];
   if (direct) return direct;
 
-  const lowered = country.trim().toLowerCase();
+  const lowered = trimmed.toLowerCase();
   for (const [name, code] of Object.entries(COUNTRY_FLAG_CODES)) {
     if (name.toLowerCase() === lowered) return code;
   }
+
+  // Kiwi sometimes uses longer / older Macedonia labels.
+  if (lowered.includes('macedonia')) return 'mk';
+
   return null;
 }
 

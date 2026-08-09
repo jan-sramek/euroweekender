@@ -15,7 +15,10 @@ const hubScores: HubScore[] = [
   { code: 'BER', offerCount: 450, minPrice: 36, averageQuality: 74, destinationCount: 38, hubScore: 8.2 },
   { code: 'BRQ', offerCount: 0, minPrice: 0, averageQuality: 0, destinationCount: 0, hubScore: 3 },
   { code: 'WAW', offerCount: 700, minPrice: 35, averageQuality: 75, destinationCount: 50, hubScore: 8.5 },
-  { code: 'LON', offerCount: 900, minPrice: 35, averageQuality: 75, destinationCount: 80, hubScore: 9 }
+  { code: 'LON', offerCount: 900, minPrice: 35, averageQuality: 75, destinationCount: 80, hubScore: 9 },
+  { code: 'OSR', offerCount: 40, minPrice: 45, averageQuality: 65, destinationCount: 8, hubScore: 5 },
+  { code: 'KTW', offerCount: 80, minPrice: 40, averageQuality: 70, destinationCount: 15, hubScore: 6 },
+  { code: 'KRK', offerCount: 200, minPrice: 35, averageQuality: 72, destinationCount: 25, hubScore: 7 }
 ];
 
 const cities: City[] = [
@@ -84,24 +87,64 @@ const cities: City[] = [
     latitude: 51.5,
     longitude: -0.12,
     isActive: true
+  },
+  {
+    id: '7',
+    code: 'OSR',
+    name: 'Ostrava',
+    country: 'Czechia',
+    region: null,
+    continent: 'EU',
+    latitude: 49.7,
+    longitude: 18.11,
+    isActive: true
+  },
+  {
+    id: '8',
+    code: 'KTW',
+    name: 'Katowice',
+    country: 'Poland',
+    region: null,
+    continent: 'EU',
+    latitude: 50.47,
+    longitude: 19.08,
+    isActive: true
+  },
+  {
+    id: '9',
+    code: 'KRK',
+    name: 'Krakow',
+    country: 'Poland',
+    region: null,
+    continent: 'EU',
+    latitude: 50.08,
+    longitude: 19.8,
+    isActive: true
   }
 ];
 
 describe('locationPrefill', () => {
-  it('selects nearby airports around Prague by flight volume, not distant or empty hubs', () => {
+  it('defaults to the anchor only when no other airports are really close', () => {
     const defaults = selectDefaultCityCodes(cities, hubScores);
 
-    expect(defaults[0]).toBe('PRG');
-    expect(defaults).toContain('VIE');
-    expect(defaults).toContain('BER');
+    expect(defaults).toEqual(['PRG']);
+    expect(defaults).not.toContain('VIE');
+    expect(defaults).not.toContain('BER');
     expect(defaults).not.toContain('BRQ');
-    expect(defaults).not.toContain('LON');
-    expect(defaults).not.toContain('WAW');
-    expect(defaults.length).toBeGreaterThan(1);
   });
 
-  it('uses static fallback codes before hub scores are available', () => {
-    expect(selectFallbackCityCodes(cities)).toEqual(['PRG', 'VIE', 'BER']);
+  it('includes only very close neighbour airports for Ostrava (Katowice, not Krakow)', () => {
+    const defaults = selectDefaultCityCodes(cities, hubScores, 'OSR');
+
+    expect(defaults[0]).toBe('OSR');
+    expect(defaults).toContain('KTW');
+    expect(defaults).not.toContain('KRK');
+    expect(defaults).not.toContain('PRG');
+    expect(defaults).not.toContain('WAW');
+  });
+
+  it('uses only the default anchor before hub scores are available', () => {
+    expect(selectFallbackCityCodes(cities)).toEqual(['PRG']);
   });
 
   it('ranks cities by distance from an origin for empty dropdown suggestions', () => {
@@ -125,7 +168,7 @@ describe('locationPrefill', () => {
 
     expect(nearby.map(city => city.code)).toContain('PRG');
     expect(popular.map(city => city.code)).not.toContain('PRG');
-    expect(popular.map(city => city.code)).toEqual(['WAW']);
+    expect(popular.map(city => city.code)).toEqual(['WAW', 'KRK']);
     expect(popular.every(city => city.distanceKm <= 1000)).toBe(true);
   });
 });

@@ -9,7 +9,10 @@ export const POPULAR_HUB_MAX_CITIES = 5;
 export const POPULAR_HUB_MAX_RADIUS_KM = 1000;
 export const MIN_POPULAR_HUB_OFFER_COUNT = 50;
 export const DEFAULT_ANCHOR_CODE = 'PRG';
-export const DEFAULT_SELECTED_CITIES = 5;
+/** Only auto-select airports within this drive of the anchor (e.g. Ostrava + Katowice). */
+export const DEFAULT_SELECTED_RADIUS_KM = 120;
+/** Cap on auto-selected origins; usually just the home airport plus a close neighbour. */
+export const DEFAULT_SELECTED_CITIES = 3;
 /** Empty destination dropdown: European cities closest to the chosen origin. */
 export const DESTINATION_SUGGEST_MAX_CITIES = 100;
 
@@ -35,43 +38,60 @@ function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIE
   return unique;
 }
 
-/** Pick default departure airports around the primary anchor city (Prague by default). */
+function resolveAnchorCity(cities: City[], anchorCode: string): City | undefined {
+  return (
+    findCityByCode(cities, anchorCode) ??
+    DEFAULT_FALLBACK_CODES.map(code => findCityByCode(cities, code)).find(
+      (city): city is City => city !== undefined
+    )
+  );
+}
+
+/** Pick default departure airports: the anchor plus only very close neighbours. */
 export function selectDefaultCityCodes(
   cities: City[],
   hubScores: HubScore[],
   anchorCode = DEFAULT_ANCHOR_CODE,
   count = DEFAULT_SELECTED_CITIES
 ): string[] {
-  const anchorCity =
-    findCityByCode(cities, anchorCode) ??
-    DEFAULT_FALLBACK_CODES.map(code => findCityByCode(cities, code)).find((city): city is City => city !== undefined);
+  const anchorCity = resolveAnchorCity(cities, anchorCode);
 
   if (!anchorCity) {
     return cities[0] ? [cities[0].code.toUpperCase()] : [];
   }
 
-  // Rank a wider nearby pool, then keep only airports that make sense as defaults:
-  // within radius and (when scores exist) with real weekend flight offers.
-  const nearby = rankNearbyCities(
+  const anchorCodeUpper = anchorCity.code.toUpperCase();
+  const close = rankCitiesByDistance(
     cities,
     { latitude: anchorCity.latitude, longitude: anchorCity.longitude },
-    hubScores,
-    NEARBY_MAX_CITIES
+    {
+      limit: NEARBY_MAX_CITIES,
+      radiusKm: DEFAULT_SELECTED_RADIUS_KM
+    }
   );
-  const scoredCandidates =
-    hubScores.length > 0 ? nearby.filter(city => city.offerCount > 0) : nearby;
-  const nearbyCodes = (scoredCandidates.length > 0 ? scoredCandidates : nearby).map(
-    city => city.code
-  );
-  if (nearbyCodes.length >= count) {
-    return takeTopCityCodes(nearbyCodes, count);
-  }
 
-  const fallbackCodes = DEFAULT_FALLBACK_CODES
-    .map(code => findCityByCode(cities, code)?.code)
-    .filter((code): code is string => Boolean(code));
+  const scores =
+    hubScores.length > 0
+      ? new Map(hubScores.map(score => [score.code.toUpperCase(), score]))
+      : null;
 
-  return takeTopCityCodes([...nearbyCodes, ...fallbackCodes], count);
+  const withOffers = scores
+    ? close.filter(city => {
+        if (city.code.toUpperCase() === anchorCodeUpper) return true;
+        return (scores.get(city.code.toUpperCase())?.offerCount ?? 0) > 0;
+      })
+    : close;
+
+  const candidates = withOffers.length > 0 ? withOffers : close;
+  // Always keep the anchor first, then nearest remaining airports.
+  const ordered = [
+    anchorCodeUpper,
+    ...candidates
+      .map(city => city.code.toUpperCase())
+      .filter(code => code !== anchorCodeUpper)
+  ];
+
+  return takeTopCityCodes(ordered, count);
 }
 
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
@@ -84,17 +104,14 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
   return EARTH_RADIUS_KM * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-/** Static fallback origins used before hub scores are ready. */
+/** Static fallback origin used before hub scores are ready — just the default anchor. */
 export function selectFallbackCityCodes(
   cities: City[],
-  count = DEFAULT_SELECTED_CITIES
+  count = 1
 ): string[] {
-  const fallbackCodes = DEFAULT_FALLBACK_CODES
-    .map(code => findCityByCode(cities, code)?.code)
-    .filter((code): code is string => Boolean(code));
-
-  if (fallbackCodes.length > 0) {
-    return takeTopCityCodes(fallbackCodes, count);
+  const anchor = resolveAnchorCity(cities, DEFAULT_ANCHOR_CODE);
+  if (anchor) {
+    return takeTopCityCodes([anchor.code], count);
   }
 
   return cities[0] ? [cities[0].code.toUpperCase()] : [];

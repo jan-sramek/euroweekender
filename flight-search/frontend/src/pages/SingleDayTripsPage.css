@@ -1,4 +1,43 @@
+.single-day-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.single-day-controls {
+  min-width: 0;
+}
+
+.single-day-searchbar {
+  grid-template-columns: 1fr;
+}
+
+.single-day-searchbar .search-field {
+  border-left: 0;
+  border-top: 1px solid #e8edf1;
+}
+
+.single-day-searchbar .search-field:first-child {
+  border-top: 0;
+}
+
 .single-day-calendar-wrap {
-  margin-top: 1rem;
-  max-width: 920px;
+  min-width: 0;
+}
+
+.single-day-calendar-wrap .day-trip-calendar {
+  height: 100%;
+}
+
+/* Stack the two months in the side column so the layout stays readable. */
+.single-day-calendar-wrap .dtc-months {
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (max-width: 960px) {
+  .single-day-layout {
+    grid-template-columns: 1fr;
+  }
 }

@@ -157,84 +157,88 @@ export function SingleDayTripsPage() {
 
           <div className="search-home">
             <div className="container container-wide">
-              <div className="searchbar">
-                <div className="search-field search-from">
-                  <DeparturePicker
-                    allCities={allCities}
-                    nearbyCities={nearbyCities}
-                    popularHubCities={popularHubCities}
-                    selectedCodes={selectedCodes}
-                    locating={locating}
-                    locationLabel={locationLabel}
-                    onSelectedCodesChange={setSelectedCodes}
-                    onAddCity={handleAddCity}
-                  />
-                </div>
-
-                <div className="search-field search-dates">
-                  <div className="weekend-picker">
-                    <div className="weekend-section">
-                      <div className="weekend-section-header">
-                        <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
-                        <div className="weekend-section-actions">
-                          {selectedDayIds.length > 0 ? (
-                            <button
-                              type="button"
-                              className="weekend-clear-btn"
-                              onClick={() => setSelectedDayIds([])}
-                            >
-                              {t('search.clearWeekends')}
-                            </button>
-                          ) : null}
-                          <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
-                        </div>
-                      </div>
-
-                      <div
-                        className="weekend-range-presets"
-                        role="group"
-                        aria-label={t('singleDayTrips.selectDays')}
-                      >
-                        {DAY_TRIP_RANGE_PRESETS.map(months => {
-                          const active = activeRangeMonths === months;
-                          return (
-                            <button
-                              key={months}
-                              type="button"
-                              className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
-                              aria-pressed={active}
-                              onClick={() => handleSelectMonths(months)}
-                            >
-                              {rangeLabel(months)}
-                            </button>
-                          );
-                        })}
-                      </div>
+              <div className="single-day-layout">
+                <div className="single-day-controls">
+                  <div className="searchbar single-day-searchbar">
+                    <div className="search-field search-from">
+                      <DeparturePicker
+                        allCities={allCities}
+                        nearbyCities={nearbyCities}
+                        popularHubCities={popularHubCities}
+                        selectedCodes={selectedCodes}
+                        locating={locating}
+                        locationLabel={locationLabel}
+                        onSelectedCodesChange={setSelectedCodes}
+                        onAddCity={handleAddCity}
+                      />
                     </div>
 
-                    <div className="weekend-section">
-                      <div className="weekend-section-header">
-                        <span className="weekend-section-label">{t('search.travelers')}</span>
-                        <span className="weekend-section-hint">{t('search.travelersHint')}</span>
+                    <div className="search-field search-dates">
+                      <div className="weekend-picker">
+                        <div className="weekend-section">
+                          <div className="weekend-section-header">
+                            <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
+                            <div className="weekend-section-actions">
+                              {selectedDayIds.length > 0 ? (
+                                <button
+                                  type="button"
+                                  className="weekend-clear-btn"
+                                  onClick={() => setSelectedDayIds([])}
+                                >
+                                  {t('search.clearWeekends')}
+                                </button>
+                              ) : null}
+                              <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
+                            </div>
+                          </div>
+
+                          <div
+                            className="weekend-range-presets"
+                            role="group"
+                            aria-label={t('singleDayTrips.selectDays')}
+                          >
+                            {DAY_TRIP_RANGE_PRESETS.map(months => {
+                              const active = activeRangeMonths === months;
+                              return (
+                                <button
+                                  key={months}
+                                  type="button"
+                                  className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
+                                  aria-pressed={active}
+                                  onClick={() => handleSelectMonths(months)}
+                                >
+                                  {rangeLabel(months)}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        <div className="weekend-section">
+                          <div className="weekend-section-header">
+                            <span className="weekend-section-label">{t('search.travelers')}</span>
+                            <span className="weekend-section-hint">{t('search.travelersHint')}</span>
+                          </div>
+                          <PassengerPicker count={passengerCount} onChange={setPassengerCount} />
+                        </div>
                       </div>
-                      <PassengerPicker count={passengerCount} onChange={setPassengerCount} />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="single-day-calendar-wrap">
-                <DayTripCalendar
-                  year={viewYear}
-                  month={viewMonth}
-                  days={days}
-                  selectedDayIds={selectedDayIds}
-                  onMonthChange={(year, month) => {
-                    setViewYear(year);
-                    setViewMonth(month);
-                  }}
-                  onDayToggle={handleDayToggle}
-                />
+                <div className="single-day-calendar-wrap">
+                  <DayTripCalendar
+                    year={viewYear}
+                    month={viewMonth}
+                    days={days}
+                    selectedDayIds={selectedDayIds}
+                    onMonthChange={(year, month) => {
+                      setViewYear(year);
+                      setViewMonth(month);
+                    }}
+                    onDayToggle={handleDayToggle}
+                  />
+                </div>
               </div>
             </div>
           </div>

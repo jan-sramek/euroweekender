@@ -50,41 +50,36 @@ await using (var scope = app.Services.CreateAsyncScope())
 
     try
     {
-        // Production may already have the column from a partial deploy while EF history
-        // still wants to add it — reconcile before MigrateAsync to avoid a startup crash.
+        // Ensure column exists before EF tries AddColumn. Brace doubling is required because
+        // ExecuteSqlRaw treats single { } as String.Format placeholders.
         await db.Database.ExecuteSqlRawAsync(
             """
-            DO $$
-            BEGIN
-              IF EXISTS (
-                SELECT 1 FROM information_schema.tables
-                WHERE table_schema = 'public' AND table_name = 'cities'
-              ) THEN
-                ALTER TABLE cities
-                ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{}'::jsonb;
-              END IF;
-
-              IF EXISTS (
-                SELECT 1 FROM information_schema.tables
-                WHERE table_schema = 'public' AND table_name = '__EFMigrationsHistory'
-              )
-              AND EXISTS (
-                SELECT 1 FROM information_schema.columns
-                WHERE table_schema = 'public'
-                  AND table_name = 'cities'
-                  AND column_name = 'NamesByLocale'
-              )
-              AND NOT EXISTS (
-                SELECT 1 FROM "__EFMigrationsHistory"
-                WHERE "MigrationId" = '20260808173446_AddCityNamesByLocale'
-              ) THEN
-                INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
-                VALUES ('20260808173446_AddCityNamesByLocale', '10.0.0');
-              END IF;
-            END $$;
+            ALTER TABLE IF EXISTS cities
+            ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{{}}'::jsonb;
             """);
 
-        await db.Database.MigrateAsync();
+        try
+        {
+            await db.Database.MigrateAsync();
+        }
+        catch (Exception migrateEx) when (IsDuplicateNamesByLocaleColumn(migrateEx))
+        {
+            logger.LogWarning(
+                migrateEx,
+                "NamesByLocale already present; stamping EF history and retrying migrations");
+
+            await db.Database.ExecuteSqlRawAsync(
+                """
+                INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+                SELECT '20260808173446_AddCityNamesByLocale', '10.0.0'
+                WHERE NOT EXISTS (
+                  SELECT 1 FROM "__EFMigrationsHistory"
+                  WHERE "MigrationId" = '20260808173446_AddCityNamesByLocale'
+                );
+                """);
+
+            await db.Database.MigrateAsync();
+        }
     }
     catch (Exception ex)
     {
@@ -93,18 +88,24 @@ await using (var scope = app.Services.CreateAsyncScope())
     }
 }
 
-app.UseMiddleware<ExceptionHandlingMiddleware>();
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-app.UseResponseCompression();
-app.UseCors();
-app.UseHttpsRedirection();
-
 app.MapControllers();
 app.MapHealthChecks("/health");
 
 app.Run();
+
+static bool IsDuplicateNamesByLocaleColumn(Exception ex)
+{
+    for (var current = ex; current is not null; current = current.InnerException)
+    {
+        var message = current.Message;
+        if (message.Contains("NamesByLocale", StringComparison.OrdinalIgnoreCase)
+            && (message.Contains("already exists", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("duplicate", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("42701", StringComparison.Ordinal)))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}

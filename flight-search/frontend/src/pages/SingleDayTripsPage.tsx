@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppHeader } from '../components/AppHeader';
+import { DayTripCalendar } from '../components/DayTripCalendar';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
 import { LoadingIndicator } from '../components/LoadingIndicator';
@@ -21,9 +22,11 @@ import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import type { City } from '../types/city';
 import '../components/WeekendPicker.css';
 import './HomePage.css';
+import './SingleDayTripsPage.css';
 
 export function SingleDayTripsPage() {
   const { t, i18n } = useTranslation();
+  const now = new Date();
 
   usePageMeta(
     t('meta.singleDayTrips.title'),
@@ -33,8 +36,9 @@ export function SingleDayTripsPage() {
 
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedDayIds, setSelectedDayIds] = useState<string[]>([]);
+  const [viewYear, setViewYear] = useState(now.getFullYear());
+  const [viewMonth, setViewMonth] = useState(now.getMonth());
   const defaultsApplied = useRef(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const days = useMemo(
     () => getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_MONTHS, i18n.language),
@@ -44,7 +48,7 @@ export function SingleDayTripsPage() {
   useEffect(() => {
     if (defaultsApplied.current || days.length === 0) return;
     defaultsApplied.current = true;
-    setSelectedDayIds(getDefaultDayTripIds(days, DAY_TRIP_OPTIONS_MONTHS));
+    setSelectedDayIds(getDefaultDayTripIds(days, 1));
   }, [days]);
 
   const {
@@ -138,13 +142,6 @@ export function SingleDayTripsPage() {
     setSelectedCodes(prev => (prev.includes(city.code) ? prev : [...prev, city.code]));
   };
 
-  const scroll = (direction: 'left' | 'right') => {
-    scrollRef.current?.scrollBy({
-      left: direction === 'left' ? -220 : 220,
-      behavior: 'smooth'
-    });
-  };
-
   return (
     <>
       <AppHeader />
@@ -213,49 +210,6 @@ export function SingleDayTripsPage() {
                           );
                         })}
                       </div>
-
-                      <div className="weekend-dates-row">
-                        <div
-                          className="weekend-track"
-                          ref={scrollRef}
-                          role="group"
-                          aria-label={t('singleDayTrips.selectDays')}
-                        >
-                          {days.map(day => {
-                            const active = selectedDayIds.includes(day.id);
-                            return (
-                              <button
-                                key={day.id}
-                                type="button"
-                                className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
-                                aria-pressed={active}
-                                onClick={() => handleDayToggle(day.id)}
-                              >
-                                <span className="weekend-range">{day.shortLabel}</span>
-                                <span className="weekend-sub">{t('singleDayTrips.dayTripTag')}</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                        <div className="weekend-nav">
-                          <button
-                            type="button"
-                            className="btn btn-secondary btn-sm nav-btn"
-                            onClick={() => scroll('left')}
-                            aria-label={t('search.prevWeekends')}
-                          >
-                            ‹
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-secondary btn-sm nav-btn"
-                            onClick={() => scroll('right')}
-                            aria-label={t('search.nextWeekends')}
-                          >
-                            ›
-                          </button>
-                        </div>
-                      </div>
                     </div>
 
                     <div className="weekend-section">
@@ -267,6 +221,20 @@ export function SingleDayTripsPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="single-day-calendar-wrap">
+                <DayTripCalendar
+                  year={viewYear}
+                  month={viewMonth}
+                  days={days}
+                  selectedDayIds={selectedDayIds}
+                  onMonthChange={(year, month) => {
+                    setViewYear(year);
+                    setViewMonth(month);
+                  }}
+                  onDayToggle={handleDayToggle}
+                />
               </div>
             </div>
           </div>

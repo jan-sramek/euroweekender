@@ -27,9 +27,6 @@ interface CalendarDay {
 
 interface DragState {
   mode: 'add' | 'remove';
-  anchorId: string;
-  baseIds: string[];
-  moved: boolean;
   lastId: string;
 }
 
@@ -65,26 +62,19 @@ function idsBetween(days: DayTripOption[], fromId: string, toId: string): string
   return days.slice(lo, hi + 1).map(day => day.id);
 }
 
-function applyDragSelection(
+/** Paint every day from `fromId` to `toId` (inclusive) onto the current selection. */
+function paintPull(
   days: DayTripOption[],
-  baseIds: string[],
-  anchorId: string,
-  currentId: string,
+  currentIds: string[],
+  fromId: string,
+  toId: string,
   mode: 'add' | 'remove'
 ): string[] {
-  const range = idsBetween(days, anchorId, currentId);
-  const next = new Set(baseIds);
-  for (const id of range) {
+  const next = new Set(currentIds);
+  for (const id of idsBetween(days, fromId, toId)) {
     if (mode === 'add') next.add(id);
     else next.delete(id);
   }
-  return sortDayIds([...next], days);
-}
-
-function toggleDay(days: DayTripOption[], baseIds: string[], dayId: string): string[] {
-  const next = new Set(baseIds);
-  if (next.has(dayId)) next.delete(dayId);
-  else next.add(dayId);
   return sortDayIds([...next], days);
 }
 
@@ -268,17 +258,17 @@ export function DayTripCalendar({
   const updateDragTo = (dayId: string) => {
     const drag = dragRef.current;
     if (!drag || dayId === drag.lastId) return;
-    drag.moved = drag.moved || dayId !== drag.anchorId;
-    drag.lastId = dayId;
-    const next = applyDragSelection(
+
+    const painted = paintPull(
       daysRef.current,
-      drag.baseIds,
-      drag.anchorId,
+      draftIdsRef.current ?? selectedRef.current,
+      drag.lastId,
       dayId,
       drag.mode
     );
-    draftIdsRef.current = next;
-    setDraftIds(next);
+    drag.lastId = dayId;
+    draftIdsRef.current = painted;
+    setDraftIds(painted);
   };
 
   useEffect(() => {
@@ -293,9 +283,7 @@ export function DayTripCalendar({
       const drag = dragRef.current;
       if (!drag) return;
 
-      if (!drag.moved) {
-        onChangeRef.current(toggleDay(daysRef.current, drag.baseIds, drag.anchorId));
-      } else if (draftIdsRef.current) {
+      if (draftIdsRef.current) {
         onChangeRef.current(draftIdsRef.current);
       }
 
@@ -319,16 +307,16 @@ export function DayTripCalendar({
     if (event.button !== 0) return;
     event.preventDefault();
 
-    const baseSelected = new Set(selectedRef.current);
+    const base = selectedRef.current;
+    const mode: 'add' | 'remove' = new Set(base).has(dayId) ? 'remove' : 'add';
+    const painted = paintPull(daysRef.current, base, dayId, dayId, mode);
+
     dragRef.current = {
-      mode: baseSelected.has(dayId) ? 'remove' : 'add',
-      anchorId: dayId,
-      baseIds: [...selectedRef.current],
-      moved: false,
+      mode,
       lastId: dayId
     };
-    draftIdsRef.current = null;
-    setDraftIds(null);
+    draftIdsRef.current = painted;
+    setDraftIds(painted);
     setDragging(true);
   };
 

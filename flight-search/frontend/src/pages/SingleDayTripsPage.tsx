@@ -14,7 +14,6 @@ import {
   DAY_TRIP_OPTIONS_MONTHS,
   DAY_TRIP_RANGE_PRESETS,
   getDayTripIdsForMonths,
-  getDefaultDayTripIds,
   getUpcomingDayTripOptions
 } from '../services/dayTrip';
 import { getCityDisplayName } from '../utils/cityDisplayName';
@@ -48,7 +47,8 @@ export function SingleDayTripsPage() {
   useEffect(() => {
     if (defaultsApplied.current || days.length === 0) return;
     defaultsApplied.current = true;
-    setSelectedDayIds(getDefaultDayTripIds(days, 1));
+    // Start empty so days are chosen by pulling across the calendar.
+    setSelectedDayIds([]);
   }, [days]);
 
   const {

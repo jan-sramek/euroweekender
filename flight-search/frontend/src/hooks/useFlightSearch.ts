@@ -87,7 +87,9 @@ export function useFlightSearch({
             departFrom: weekend.departFrom,
             departTo: weekend.departTo
           })),
-          signal
+          signal,
+          undefined,
+          selectedPattern?.nightsInDest
         );
         if (generation !== searchGeneration.current) return;
         setRawFlights(items);
@@ -104,7 +106,7 @@ export function useFlightSearch({
         }
       }
     },
-    [t]
+    [t, selectedPattern]
   );
 
   const loadFlights = useCallback(async () => {

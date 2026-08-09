@@ -82,8 +82,10 @@ public class FlightRepository(
             ? await query.CountAsync(cancellationToken)
             : 0;
 
+        // Prefer FareAdults (what the UI shows) so low display fares are not truncated
+        // when Price and FareAdults diverge.
         var flights = await ProjectSearchResults(query)
-            .OrderBy(f => f.Price)
+            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
             .ThenBy(f => f.UtcDeparture)
             .Skip(skip)
             .Take(take)
@@ -119,7 +121,7 @@ public class FlightRepository(
         }
 
         var merged = byId.Values
-            .OrderBy(f => f.Price)
+            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
             .ThenBy(f => f.UtcDeparture)
             .Take(maxFlights)
             .ToList();
@@ -139,7 +141,7 @@ public class FlightRepository(
 
         return await ProjectSearchResults(
                 BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc, nightsInDest))
-            .OrderBy(f => f.Price)
+            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
             .ThenBy(f => f.UtcDeparture)
             .Take(PerCityFlightLimit)
             .ToListAsync(cancellationToken);

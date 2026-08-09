@@ -308,6 +308,23 @@ export function getWeekendSearchRange(
   };
 }
 
+/** Split weekends into contiguous chunks so each API call covers a short date span. */
+export function chunkWeekendWindows<T extends Pick<WeekendOption, 'departFrom' | 'departTo'>>(
+  weekends: ReadonlyArray<T>,
+  chunkSize = 4
+): T[][] {
+  if (weekends.length === 0 || chunkSize <= 0) return [];
+
+  const sorted = [...weekends].sort(
+    (a, b) => a.departFrom.getTime() - b.departFrom.getTime()
+  );
+  const chunks: T[][] = [];
+  for (let i = 0; i < sorted.length; i += chunkSize) {
+    chunks.push(sorted.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
 export function formatWeekendsLabel(weekends: WeekendOption[]): string {
   if (weekends.length === 0) return '';
   if (weekends.length === 1) return weekends[0].shortLabel;

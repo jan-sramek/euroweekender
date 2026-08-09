@@ -1,13 +1,17 @@
 import type { City, CitySuggestion, HubScore, OriginDestination } from '../types/city';
 import type { Flight, FlightPage } from '../types/flight';
 import { withLocalizedName } from '../utils/cityDisplayName';
+import { getPerPersonPrice } from '../utils/flightPrice';
 import { normalizeHubScore, normalizeOriginDestination } from './hubScore';
-import { getWeekendSearchRange } from './weekend';
+import { chunkWeekendWindows, getWeekendSearchRange } from './weekend';
 
 const API_BASE = '/api';
 const FLIGHTS_PER_CITY = 200;
 const MAX_SEARCH_FLIGHTS = 1000;
-const SINGLE_CITY_PAGE_SIZE = 500;
+/** Single continuous-range request can drown weekend deals in midweek fares. */
+const SINGLE_CITY_PAGE_SIZE = 1000;
+/** ~1 month of Thu–Mon windows per request so each month keeps its own cheap-flight budget. */
+const WEEKEND_SEARCH_CHUNK_SIZE = 4;
 const CITIES_CACHE_KEY = 'ew:cities:v4';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
@@ -18,6 +22,29 @@ const TOP_DESTINATIONS_CACHE_TTL_MS = 15 * 60 * 1000;
 function searchPageSize(cityCount: number): number {
   if (cityCount <= 1) return SINGLE_CITY_PAGE_SIZE;
   return Math.min(MAX_SEARCH_FLIGHTS, cityCount * FLIGHTS_PER_CITY);
+}
+
+function chunkPageSize(cityCount: number, chunkCount: number): number {
+  if (chunkCount <= 1) return searchPageSize(cityCount);
+  return Math.min(500, Math.max(150, Math.ceil(MAX_SEARCH_FLIGHTS / chunkCount)));
+}
+
+function mergeFlightPages(pages: Flight[][]): Flight[] {
+  const byId = new Map<number | string, Flight>();
+
+  for (const items of pages) {
+    for (const flight of items) {
+      const key = flight.id;
+      const existing = byId.get(key);
+      if (!existing || getPerPersonPrice(flight) < getPerPersonPrice(existing)) {
+        byId.set(key, flight);
+      }
+    }
+  }
+
+  return [...byId.values()]
+    .sort((a, b) => getPerPersonPrice(a) - getPerPersonPrice(b))
+    .slice(0, MAX_SEARCH_FLIGHTS);
 }
 
 export interface FlightSearchParams {
@@ -48,23 +75,35 @@ export async function searchFlightsForWeekends(
     return [];
   }
 
-  const range = getWeekendSearchRange(weekends);
-  if (!range) return [];
-
   const uniqueCities = [...new Set(cityCodeFrom.map(code => code.trim().toUpperCase()).filter(Boolean))];
-  const page = await searchFlights({
-    cityCodeFrom: uniqueCities,
-    cityCodeTo,
-    departFromUtc: range.departFrom,
-    departToUtc: range.departTo,
-    nightsInDest,
-    page: 1,
-    pageSize: searchPageSize(uniqueCities.length),
-    includeTotal: false,
-    signal
-  });
+  if (uniqueCities.length === 0) return [];
 
-  return page.items;
+  const chunks = chunkWeekendWindows(weekends, WEEKEND_SEARCH_CHUNK_SIZE);
+  if (chunks.length === 0) return [];
+
+  const pageSize = chunkPageSize(uniqueCities.length, chunks.length);
+
+  const pages = await Promise.all(
+    chunks.map(async chunk => {
+      const range = getWeekendSearchRange(chunk);
+      if (!range) return [] as Flight[];
+
+      const page = await searchFlights({
+        cityCodeFrom: uniqueCities,
+        cityCodeTo,
+        departFromUtc: range.departFrom,
+        departToUtc: range.departTo,
+        nightsInDest,
+        page: 1,
+        pageSize,
+        includeTotal: false,
+        signal
+      });
+      return page.items;
+    })
+  );
+
+  return mergeFlightPages(pages);
 }
 
 export async function getCities(): Promise<City[]> {

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppHeader } from '../components/AppHeader';
-import { DayTripCalendar } from '../components/DayTripCalendar';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
 import { LoadingIndicator } from '../components/LoadingIndicator';
@@ -14,6 +13,7 @@ import {
   DAY_TRIP_OPTIONS_MONTHS,
   DAY_TRIP_RANGE_PRESETS,
   getDayTripIdsForMonths,
+  getDefaultDayTripIds,
   getUpcomingDayTripOptions
 } from '../services/dayTrip';
 import { getCityDisplayName } from '../utils/cityDisplayName';
@@ -21,11 +21,9 @@ import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import type { City } from '../types/city';
 import '../components/WeekendPicker.css';
 import './HomePage.css';
-import './SingleDayTripsPage.css';
 
 export function SingleDayTripsPage() {
   const { t, i18n } = useTranslation();
-  const now = new Date();
 
   usePageMeta(
     t('meta.singleDayTrips.title'),
@@ -35,9 +33,8 @@ export function SingleDayTripsPage() {
 
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedDayIds, setSelectedDayIds] = useState<string[]>([]);
-  const [viewYear, setViewYear] = useState(now.getFullYear());
-  const [viewMonth, setViewMonth] = useState(now.getMonth());
   const defaultsApplied = useRef(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const days = useMemo(
     () => getUpcomingDayTripOptions(DAY_TRIP_OPTIONS_MONTHS, i18n.language),
@@ -47,8 +44,7 @@ export function SingleDayTripsPage() {
   useEffect(() => {
     if (defaultsApplied.current || days.length === 0) return;
     defaultsApplied.current = true;
-    // Start empty so days are chosen by pulling across the calendar.
-    setSelectedDayIds([]);
+    setSelectedDayIds(getDefaultDayTripIds(days, DAY_TRIP_OPTIONS_MONTHS));
   }, [days]);
 
   const {
@@ -115,6 +111,19 @@ export function SingleDayTripsPage() {
     return null;
   }, [days, selectedDayIds]);
 
+  const handleDayToggle = (dayId: string) => {
+    setSelectedDayIds(prev => {
+      if (prev.includes(dayId)) return prev.filter(id => id !== dayId);
+      const next = [...prev, dayId];
+      next.sort((a, b) => {
+        const dayA = days.find(day => day.id === a);
+        const dayB = days.find(day => day.id === b);
+        return (dayA?.date.getTime() ?? 0) - (dayB?.date.getTime() ?? 0);
+      });
+      return next;
+    });
+  };
+
   const handleSelectMonths = (months: number) => {
     setSelectedDayIds(getDayTripIdsForMonths(days, months));
   };
@@ -127,6 +136,13 @@ export function SingleDayTripsPage() {
 
   const handleAddCity = (city: City) => {
     setSelectedCodes(prev => (prev.includes(city.code) ? prev : [...prev, city.code]));
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    scrollRef.current?.scrollBy({
+      left: direction === 'left' ? -220 : 220,
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -144,87 +160,112 @@ export function SingleDayTripsPage() {
 
           <div className="search-home">
             <div className="container container-wide">
-              <div className="single-day-layout">
-                <div className="single-day-controls">
-                  <div className="searchbar single-day-searchbar">
-                    <div className="search-field search-from">
-                      <DeparturePicker
-                        allCities={allCities}
-                        nearbyCities={nearbyCities}
-                        popularHubCities={popularHubCities}
-                        selectedCodes={selectedCodes}
-                        locating={locating}
-                        locationLabel={locationLabel}
-                        onSelectedCodesChange={setSelectedCodes}
-                        onAddCity={handleAddCity}
-                      />
-                    </div>
+              <div className="searchbar">
+                <div className="search-field search-from">
+                  <DeparturePicker
+                    allCities={allCities}
+                    nearbyCities={nearbyCities}
+                    popularHubCities={popularHubCities}
+                    selectedCodes={selectedCodes}
+                    locating={locating}
+                    locationLabel={locationLabel}
+                    onSelectedCodesChange={setSelectedCodes}
+                    onAddCity={handleAddCity}
+                  />
+                </div>
 
-                    <div className="search-field search-dates">
-                      <div className="weekend-picker">
-                        <div className="weekend-section">
-                          <div className="weekend-section-header">
-                            <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
-                            <div className="weekend-section-actions">
-                              {selectedDayIds.length > 0 ? (
-                                <button
-                                  type="button"
-                                  className="weekend-clear-btn"
-                                  onClick={() => setSelectedDayIds([])}
-                                >
-                                  {t('search.clearWeekends')}
-                                </button>
-                              ) : null}
-                              <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
-                            </div>
-                          </div>
-
-                          <div
-                            className="weekend-range-presets"
-                            role="group"
-                            aria-label={t('singleDayTrips.selectDays')}
-                          >
-                            {DAY_TRIP_RANGE_PRESETS.map(months => {
-                              const active = activeRangeMonths === months;
-                              return (
-                                <button
-                                  key={months}
-                                  type="button"
-                                  className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
-                                  aria-pressed={active}
-                                  onClick={() => handleSelectMonths(months)}
-                                >
-                                  {rangeLabel(months)}
-                                </button>
-                              );
-                            })}
-                          </div>
+                <div className="search-field search-dates">
+                  <div className="weekend-picker">
+                    <div className="weekend-section">
+                      <div className="weekend-section-header">
+                        <span className="weekend-section-label">{t('singleDayTrips.travelDay')}</span>
+                        <div className="weekend-section-actions">
+                          {selectedDayIds.length > 0 ? (
+                            <button
+                              type="button"
+                              className="weekend-clear-btn"
+                              onClick={() => setSelectedDayIds([])}
+                            >
+                              {t('search.clearWeekends')}
+                            </button>
+                          ) : null}
+                          <span className="weekend-section-hint">{t('singleDayTrips.travelDayHint')}</span>
                         </div>
+                      </div>
 
-                        <div className="weekend-section">
-                          <div className="weekend-section-header">
-                            <span className="weekend-section-label">{t('search.travelers')}</span>
-                            <span className="weekend-section-hint">{t('search.travelersHint')}</span>
-                          </div>
-                          <PassengerPicker count={passengerCount} onChange={setPassengerCount} />
+                      <div
+                        className="weekend-range-presets"
+                        role="group"
+                        aria-label={t('singleDayTrips.selectDays')}
+                      >
+                        {DAY_TRIP_RANGE_PRESETS.map(months => {
+                          const active = activeRangeMonths === months;
+                          return (
+                            <button
+                              key={months}
+                              type="button"
+                              className={`weekend-range-btn${active ? ' weekend-range-btn-active' : ''}`}
+                              aria-pressed={active}
+                              onClick={() => handleSelectMonths(months)}
+                            >
+                              {rangeLabel(months)}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <div className="weekend-dates-row">
+                        <div
+                          className="weekend-track"
+                          ref={scrollRef}
+                          role="group"
+                          aria-label={t('singleDayTrips.selectDays')}
+                        >
+                          {days.map(day => {
+                            const active = selectedDayIds.includes(day.id);
+                            return (
+                              <button
+                                key={day.id}
+                                type="button"
+                                className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
+                                aria-pressed={active}
+                                onClick={() => handleDayToggle(day.id)}
+                              >
+                                <span className="weekend-range">{day.shortLabel}</span>
+                                <span className="weekend-sub">{t('singleDayTrips.dayTripTag')}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                        <div className="weekend-nav">
+                          <button
+                            type="button"
+                            className="btn btn-secondary btn-sm nav-btn"
+                            onClick={() => scroll('left')}
+                            aria-label={t('search.prevWeekends')}
+                          >
+                            ‹
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-secondary btn-sm nav-btn"
+                            onClick={() => scroll('right')}
+                            aria-label={t('search.nextWeekends')}
+                          >
+                            ›
+                          </button>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="single-day-calendar-wrap">
-                  <DayTripCalendar
-                    year={viewYear}
-                    month={viewMonth}
-                    days={days}
-                    selectedDayIds={selectedDayIds}
-                    onMonthChange={(year, month) => {
-                      setViewYear(year);
-                      setViewMonth(month);
-                    }}
-                    onSelectedDayIdsChange={setSelectedDayIds}
-                  />
+                    <div className="weekend-section">
+                      <div className="weekend-section-header">
+                        <span className="weekend-section-label">{t('search.travelers')}</span>
+                        <span className="weekend-section-hint">{t('search.travelersHint')}</span>
+                      </div>
+                      <PassengerPicker count={passengerCount} onChange={setPassengerCount} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

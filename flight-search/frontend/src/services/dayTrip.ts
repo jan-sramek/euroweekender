@@ -117,7 +117,10 @@ export function getDayTripIdsForMonths(days: DayTripOption[], months: number): s
     .map(day => day.id);
 }
 
-export function getDefaultDayTripIds(days: DayTripOption[], months = 1): string[] {
+export function getDefaultDayTripIds(
+  days: DayTripOption[],
+  months = DAY_TRIP_OPTIONS_MONTHS
+): string[] {
   return getDayTripIdsForMonths(days, months);
 }
 

@@ -24,8 +24,8 @@ public sealed class DayTripLiveSearchService(
     ILogger<DayTripLiveSearchService> logger) : IDayTripLiveSearchService
 {
     public const int MaxCitiesPerRequest = 3;
-    public const int MaxDaysPerRequest = 4;
-    public const int MaxKiwiCallsPerRequest = 8;
+    public const int MaxDaysPerRequest = 8;
+    public const int MaxKiwiCallsPerRequest = 12;
 
     public async Task<IReadOnlyList<FlightListItem>> SearchAndStoreAsync(
         IReadOnlyList<string> cityCodes,

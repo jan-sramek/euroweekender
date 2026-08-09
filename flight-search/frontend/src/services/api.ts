@@ -322,7 +322,7 @@ export async function liveSearchDayTrips(
     signal,
     body: JSON.stringify({
       cityCodeFrom: cities.slice(0, 3),
-      dates: days.slice(0, 4).map(day => {
+      dates: days.slice(0, 8).map(day => {
         const y = day.getFullYear();
         const m = String(day.getMonth() + 1).padStart(2, '0');
         const d = String(day.getDate()).padStart(2, '0');

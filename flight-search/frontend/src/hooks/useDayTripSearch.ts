@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { liveSearchDayTrips, searchFlightsForWeekends } from '../services/api';
-import { filterFlightsByDayTrip, type DayTripOption } from '../services/dayTrip';
+import { filterFlightsByDayTrip, toDayTripId, type DayTripOption } from '../services/dayTrip';
 import { filterFlightsByLegSelection } from '../utils/flightLeg';
+import { parseApiLocalDateTime } from '../utils/flightTime';
 import { getTripPrice, hasEnoughSeats } from '../utils/flightPrice';
 import type { Flight } from '../types/flight';
 
 const SEARCH_DEBOUNCE_MS = 800;
-const LIVE_SEARCH_DAY_LIMIT = 4;
+const LIVE_SEARCH_DAY_LIMIT = 8;
 const LIVE_SEARCH_CITY_LIMIT = 3;
 
 interface UseDayTripSearchOptions {
@@ -98,11 +99,21 @@ export function useDayTripSearch({
         const cachedMatches = filterFlightsByDayTrip(cached, activeDays);
         setRawFlights(cached);
 
-        // DB is still sparse for many hubs — live-search nearest weekend days from Kiwi.
-        if (cachedMatches.length === 0) {
+        // Live-fill selected days that still have no morning/evening same-day offers.
+        const coveredDayIds = new Set(
+          cachedMatches.map(flight => toDayTripId(parseApiLocalDateTime(flight.localDeparture)))
+        );
+        const missingDays = activeDays
+          .filter(day => !coveredDayIds.has(day.id))
+          .slice(0, LIVE_SEARCH_DAY_LIMIT);
+
+        if (missingDays.length > 0) {
           const liveCities = codes.slice(0, LIVE_SEARCH_CITY_LIMIT);
-          const liveDays = activeDays.slice(0, LIVE_SEARCH_DAY_LIMIT).map(day => day.date);
-          const live = await liveSearchDayTrips(liveCities, liveDays, signal);
+          const live = await liveSearchDayTrips(
+            liveCities,
+            missingDays.map(day => day.date),
+            signal
+          );
           if (signal.aborted || generation !== searchGeneration.current) return;
           setRawFlights(mergeFlights(cached, live));
         }

@@ -111,6 +111,10 @@ button.dtc-day:hover {
   opacity: 0.32;
 }
 
+.dtc-day-outside.dtc-day-selected {
+  opacity: 1;
+}
+
 .dtc-day-today .dtc-day-number {
   text-decoration: underline;
   text-underline-offset: 0.12em;

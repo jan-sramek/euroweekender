@@ -119,7 +119,7 @@
     "dayTripTag": "Day trip",
     "scheduleSummary": "Morning out · evening back",
     "daysCount": "{{count}} days",
-    "noFlights": "No same-day trips found for the selected days yet. Try other dates or departure airports — day-trip offers are still being collected."
+    "noFlights": "No same-day trips found for the selected weekend days yet. Try fewer airports, nearer dates, or wait while offers are collected."
   },
   "search": {
     "travelWeekend": "Travel weekend",

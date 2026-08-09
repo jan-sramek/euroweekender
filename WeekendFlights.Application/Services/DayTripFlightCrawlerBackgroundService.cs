@@ -13,8 +13,8 @@ public sealed class DayTripFlightCrawlerBackgroundService(
     : PeriodicJobBackgroundService(scopeFactory, logger)
 {
     protected override string ServiceName => nameof(DayTripFlightCrawlerBackgroundService);
-    // Offset from weekend crawler so they don't hammer Kiwi at the same time.
-    protected override TimeSpan Interval => TimeSpan.FromMinutes(Math.Max(15, crawlOptions.Value.IntervalMinutes + 5));
+    // Align with weekend crawler cadence so day-trip coverage builds quickly.
+    protected override TimeSpan Interval => TimeSpan.FromMinutes(Math.Max(10, crawlOptions.Value.IntervalMinutes));
     protected override TimeSpan ErrorBackoff => TimeSpan.FromHours(6);
 
     protected override Task ExecuteJobAsync(IServiceProvider services, CancellationToken cancellationToken) =>

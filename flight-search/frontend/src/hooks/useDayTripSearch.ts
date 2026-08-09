@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { searchFlightsForWeekends } from '../services/api';
+import { liveSearchDayTrips, searchFlightsForWeekends } from '../services/api';
 import { filterFlightsByDayTrip, type DayTripOption } from '../services/dayTrip';
 import { filterFlightsByLegSelection } from '../utils/flightLeg';
 import { getTripPrice, hasEnoughSeats } from '../utils/flightPrice';
 import type { Flight } from '../types/flight';
 
 const SEARCH_DEBOUNCE_MS = 800;
+const LIVE_SEARCH_DAY_LIMIT = 4;
+const LIVE_SEARCH_CITY_LIMIT = 3;
 
 interface UseDayTripSearchOptions {
   selectedCodes: string[];
@@ -14,6 +16,13 @@ interface UseDayTripSearchOptions {
   selectedDayIds: string[];
   passengerCount: number;
   locating: boolean;
+}
+
+function mergeFlights(existing: Flight[], incoming: Flight[]): Flight[] {
+  const byId = new Map<number, Flight>();
+  for (const flight of existing) byId.set(flight.id, flight);
+  for (const flight of incoming) byId.set(flight.id, flight);
+  return [...byId.values()];
 }
 
 export function useDayTripSearch({
@@ -77,7 +86,7 @@ export function useDayTripSearch({
       setReturnLegFilter(null);
 
       try {
-        const results = await searchFlightsForWeekends(
+        const cached = await searchFlightsForWeekends(
           codes,
           activeDays.map(day => ({ departFrom: day.departFrom, departTo: day.departTo })),
           signal,
@@ -85,7 +94,18 @@ export function useDayTripSearch({
           0
         );
         if (signal.aborted || generation !== searchGeneration.current) return;
-        setRawFlights(results);
+
+        const cachedMatches = filterFlightsByDayTrip(cached, activeDays);
+        setRawFlights(cached);
+
+        // DB is still sparse for many hubs — live-search nearest weekend days from Kiwi.
+        if (cachedMatches.length === 0) {
+          const liveCities = codes.slice(0, LIVE_SEARCH_CITY_LIMIT);
+          const liveDays = activeDays.slice(0, LIVE_SEARCH_DAY_LIMIT).map(day => day.date);
+          const live = await liveSearchDayTrips(liveCities, liveDays, signal);
+          if (signal.aborted || generation !== searchGeneration.current) return;
+          setRawFlights(mergeFlights(cached, live));
+        }
       } catch (error) {
         if (signal.aborted || generation !== searchGeneration.current) return;
         setRawFlights([]);

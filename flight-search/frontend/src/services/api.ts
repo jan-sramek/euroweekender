@@ -306,3 +306,35 @@ export async function searchFlights(params: FlightSearchParams): Promise<FlightP
   }
   return response.json() as Promise<FlightPage>;
 }
+
+/** Live Kiwi search for morning-out / evening-back day trips (server-capped). */
+export async function liveSearchDayTrips(
+  cityCodeFrom: string[],
+  days: Date[],
+  signal?: AbortSignal
+): Promise<Flight[]> {
+  const cities = [...new Set(cityCodeFrom.map(code => code.trim().toUpperCase()).filter(Boolean))];
+  if (cities.length === 0 || days.length === 0) return [];
+
+  const response = await fetch(`${API_BASE}/day-trips/search`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    signal,
+    body: JSON.stringify({
+      cityCodeFrom: cities.slice(0, 3),
+      dates: days.slice(0, 4).map(day => {
+        const y = day.getFullYear();
+        const m = String(day.getMonth() + 1).padStart(2, '0');
+        const d = String(day.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      })
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to live-search day trips');
+  }
+
+  const page = (await response.json()) as FlightPage;
+  return page.items ?? [];
+}

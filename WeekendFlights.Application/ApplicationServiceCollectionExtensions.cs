@@ -10,6 +10,7 @@ public static class ApplicationServiceCollectionExtensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IHubScoreService, HubScoreService>();
+        services.AddScoped<IDayTripLiveSearchService, DayTripLiveSearchService>();
         return services;
     }
 

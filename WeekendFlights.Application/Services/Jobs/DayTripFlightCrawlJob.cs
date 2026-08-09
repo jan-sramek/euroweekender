@@ -2,7 +2,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Application.Models;
-using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Application.Services.Jobs;
 
@@ -18,6 +17,14 @@ public class DayTripFlightCrawlJob(
     ILogger<DayTripFlightCrawlJob> logger)
 {
     private static readonly string DayTripStatePrefix = "D:";
+
+    /// <summary>Always rotate these origins first — default user airports and strong EU hubs.</summary>
+    private static readonly string[] PriorityOriginCodes =
+    [
+        "PRG", "OSR", "KTW", "VIE", "BUD", "KRK", "WAW", "BER", "MUC", "FRA",
+        "AMS", "BRU", "CPH", "ARN", "HEL", "OSL", "MIL", "MXP", "FCO", "BCN",
+        "MAD", "LIS", "DUB", "LTN", "STN", "MAN", "EDI"
+    ];
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
@@ -38,18 +45,28 @@ public class DayTripFlightCrawlJob(
             return;
         }
 
-        var horizonEnd = today.AddDays(options.DayTripUpcomingDays);
+        var citySet = cities.Select(c => c.Code).ToHashSet(StringComparer.OrdinalIgnoreCase);
         var hubStats = await flightRepository.GetOriginHubStatsAsync(
             today,
             today.AddDays(28),
             cancellationToken);
 
-        var topCityCodes = hubStats
-            .OrderByDescending(s => s.OfferCount)
-            .Select(s => s.CityCode)
-            .Where(code => cities.Any(c => c.Code.Equals(code, StringComparison.OrdinalIgnoreCase)))
-            .Take(options.DayTripMaxCities)
-            .ToList();
+        var topCityCodes = new List<string>();
+        foreach (var code in PriorityOriginCodes)
+        {
+            if (citySet.Contains(code) && !topCityCodes.Contains(code, StringComparer.OrdinalIgnoreCase))
+                topCityCodes.Add(code.ToUpperInvariant());
+        }
+
+        foreach (var code in hubStats
+                     .OrderByDescending(s => s.OfferCount)
+                     .Select(s => s.CityCode))
+        {
+            if (topCityCodes.Count >= options.DayTripMaxCities)
+                break;
+            if (citySet.Contains(code) && !topCityCodes.Contains(code, StringComparer.OrdinalIgnoreCase))
+                topCityCodes.Add(code.ToUpperInvariant());
+        }
 
         if (topCityCodes.Count == 0)
         {
@@ -71,9 +88,10 @@ public class DayTripFlightCrawlJob(
             .Where(s => s.CityCode.StartsWith(DayTripStatePrefix, StringComparison.Ordinal))
             .ToDictionary(
                 s => (s.CityCode, s.WeekendStart),
-                s => s.LastCrawledUtc);
+                s => (s.LastCrawledUtc, s.LastOfferCount));
 
-        var maxAge = TimeSpan.FromHours(options.DayTripMaxAgeHours);
+        var freshMaxAge = TimeSpan.FromHours(options.DayTripMaxAgeHours);
+        var emptyMaxAge = TimeSpan.FromHours(Math.Max(2, options.DayTripMaxAgeHours / 8));
         var work = new List<(string CityCode, DateTime Day)>();
 
         foreach (var day in days)
@@ -81,17 +99,17 @@ public class DayTripFlightCrawlJob(
             foreach (var cityCode in topCityCodes)
             {
                 var stateCity = DayTripStatePrefix + cityCode;
-                if (stateLookup.TryGetValue((stateCity, day), out var lastCrawled)
-                    && utcNow - lastCrawled < maxAge)
+                if (stateLookup.TryGetValue((stateCity, day), out var state))
                 {
-                    continue;
+                    var maxAge = state.LastOfferCount <= 0 ? emptyMaxAge : freshMaxAge;
+                    if (utcNow - state.LastCrawledUtc < maxAge)
+                        continue;
                 }
 
                 work.Add((cityCode, day));
             }
         }
 
-        // Prefer nearer days, then denser hubs (order of topCityCodes).
         work = work
             .OrderBy(item => item.Day)
             .ThenBy(item => topCityCodes.IndexOf(item.CityCode))
@@ -133,11 +151,14 @@ public class DayTripFlightCrawlJob(
         {
             var parameters = FlightSearchParameters.ForDayTripCrawl(cityCode, day);
             var flights = await searchApiClient.SearchFlightsAsync(parameters, cancellationToken);
-            await flightRepository.UpsertFlightsAsync(flights.ToList());
+            var matches = flights.Where(DayTripFlightFilter.Matches).ToList();
+            if (matches.Count > 0)
+                await flightRepository.UpsertFlightsAsync(matches);
+
             logger.LogInformation(
-                "Day-trip {CityCode} {Day:yyyy-MM-dd}: imported {Count} flights",
-                cityCode, day, flights.Count);
-            return flights.Count;
+                "Day-trip {CityCode} {Day:yyyy-MM-dd}: kiwi={KiwiCount}, kept={Kept}",
+                cityCode, day, flights.Count, matches.Count);
+            return matches.Count;
         }
         catch (Exception ex)
         {

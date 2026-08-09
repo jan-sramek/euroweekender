@@ -37,9 +37,9 @@ public sealed class CrawlOptions
     public int DayTripMaxSearchesPerRun { get; init; } = 60;
 
     /// <summary>How many top origin hubs to rotate through for day-trip crawls.</summary>
-    public int DayTripMaxCities { get; init; } = 25;
+    public int DayTripMaxCities { get; init; } = 30;
 
-    /// <summary>Refresh day-trip offers at least this often.</summary>
+    /// <summary>Refresh day-trip offers at least this often when previous crawl found matches.</summary>
     public int DayTripMaxAgeHours { get; init; } = 24;
 
     public TimeSpan GetMaxAge(int weekIndex)

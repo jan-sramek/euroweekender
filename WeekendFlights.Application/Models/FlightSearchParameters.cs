@@ -39,20 +39,24 @@ public sealed record FlightSearchParameters
 
     /// <summary>
     /// Same-day return: out in the morning, back in the evening (0 nights away).
+    /// Uses explicit same-day return dates — more reliable than nights_in_dst=0 alone.
     /// </summary>
     public static FlightSearchParameters ForDayTripCrawl(string cityCode, DateTime day) => new()
     {
         From = cityCode,
         DateFrom = day.Date,
         DateTo = day.Date,
+        ReturnFrom = day.Date,
+        ReturnTo = day.Date,
         NightsInDstFrom = 0,
         NightsInDstTo = 0,
-        MaxFlyDuration = 5,
-        PriceTo = 250,
+        MaxFlyDuration = 8,
+        PriceTo = 400,
         MaxStopOvers = 1,
         DepartTimeFromHour = 5,
         DepartTimeToHour = 12,
         ReturnDepartTimeFromHour = 16,
-        ReturnDepartTimeToHour = 23
+        ReturnDepartTimeToHour = 23,
+        Limit = 100
     };
 }

@@ -45,14 +45,52 @@ var app = builder.Build();
 await using (var scope = app.Services.CreateAsyncScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<WeekendFlightsDbContext>();
-    await db.Database.MigrateAsync();
+    var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>()
+        .CreateLogger("DatabaseStartup");
 
-    // Idempotent guard: older deploys sometimes applied EF history without the jsonb column.
-    await db.Database.ExecuteSqlRawAsync(
-        """
-        ALTER TABLE cities
-        ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{}'::jsonb;
-        """);
+    try
+    {
+        // Production may already have the column from a partial deploy while EF history
+        // still wants to add it — reconcile before MigrateAsync to avoid a startup crash.
+        await db.Database.ExecuteSqlRawAsync(
+            """
+            DO $$
+            BEGIN
+              IF EXISTS (
+                SELECT 1 FROM information_schema.tables
+                WHERE table_schema = 'public' AND table_name = 'cities'
+              ) THEN
+                ALTER TABLE cities
+                ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{}'::jsonb;
+              END IF;
+
+              IF EXISTS (
+                SELECT 1 FROM information_schema.tables
+                WHERE table_schema = 'public' AND table_name = '__EFMigrationsHistory'
+              )
+              AND EXISTS (
+                SELECT 1 FROM information_schema.columns
+                WHERE table_schema = 'public'
+                  AND table_name = 'cities'
+                  AND column_name = 'NamesByLocale'
+              )
+              AND NOT EXISTS (
+                SELECT 1 FROM "__EFMigrationsHistory"
+                WHERE "MigrationId" = '20260808173446_AddCityNamesByLocale'
+              ) THEN
+                INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+                VALUES ('20260808173446_AddCityNamesByLocale', '10.0.0');
+              END IF;
+            END $$;
+            """);
+
+        await db.Database.MigrateAsync();
+    }
+    catch (Exception ex)
+    {
+        logger.LogCritical(ex, "Database migration failed during API startup");
+        throw;
+    }
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();

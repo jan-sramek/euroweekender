@@ -7,6 +7,8 @@ import { FlightCard } from '../components/FlightCard';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SeoHubLinks } from '../components/SeoHubLinks';
+import { SeoPopularRoutes } from '../components/SeoPopularRoutes';
+import { HomeSeoExtras } from '../components/HomeSeoExtras';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
@@ -278,7 +280,11 @@ export function HomePage() {
               <LoadingIndicator size="md" label={t('home.loading')} />
             </div>
           ) : flights.length === 0 ? (
-            <div className="state-box">{t('home.noFlights')}</div>
+            <div className="state-box">
+              <p>{t('home.noFlights')}</p>
+              <p className="state-box-hint">{t('home.emptyExplore')}</p>
+              <SeoHubLinks allCities={allCities} language={i18n.language} limit={8} />
+            </div>
           ) : visibleFlights.length === 0 ? (
             <div className="state-box">
               {t('home.noLegMatch')}{' '}
@@ -344,6 +350,8 @@ export function HomePage() {
           </h2>
           <p className="home-seo-text">{t('home.seoBlock')}</p>
           <SeoHubLinks allCities={allCities} language={i18n.language} />
+          <SeoPopularRoutes language={i18n.language} />
+          <HomeSeoExtras />
         </div>
       </section>
 

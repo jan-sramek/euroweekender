@@ -185,6 +185,54 @@
   text-decoration: underline;
 }
 
+.home-seo-extras {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .home-seo-extras {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.home-seo-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #5c6770;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.home-seo-steps li + li {
+  margin-top: 0.55rem;
+}
+
+.home-seo-faq-item {
+  margin-top: 0.85rem;
+}
+
+.home-seo-faq-item h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: #192c39;
+}
+
+.home-seo-faq-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #5c6770;
+}
+
+.state-box-hint {
+  margin: 0.75rem 0 0;
+  color: #5c6770;
+  font-size: 0.9rem;
+}
+
 .offers-header {
   margin-bottom: 1.5rem;
 }

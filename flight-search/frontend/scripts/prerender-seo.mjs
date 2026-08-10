@@ -277,6 +277,75 @@ function toolLinks(locale) {
   ]);
 }
 
+/** Curated OD pairs for homepage internal linking (keep in sync with src/data/seoPopularRoutes.ts). */
+const POPULAR_ROUTE_CODES = [
+  ['PRG', 'ROM'],
+  ['PRG', 'BCN'],
+  ['PRG', 'LON'],
+  ['PRG', 'MIL'],
+  ['PRG', 'PAR'],
+  ['VIE', 'ROM'],
+  ['VIE', 'BCN'],
+  ['VIE', 'LON'],
+  ['VIE', 'MIL'],
+  ['BER', 'LON'],
+  ['BER', 'ROM'],
+  ['BER', 'BCN'],
+  ['BER', 'AMS'],
+  ['MUC', 'ROM'],
+  ['MUC', 'BCN'],
+  ['MUC', 'LON'],
+  ['LON', 'BCN'],
+  ['LON', 'ROM'],
+  ['LON', 'AMS'],
+  ['LON', 'PAR'],
+  ['AMS', 'BCN'],
+  ['AMS', 'ROM'],
+  ['BCN', 'ROM'],
+  ['BCN', 'LON']
+];
+
+function cityByCode(hubs, destinations, code) {
+  const upper = code.toUpperCase();
+  return (
+    hubs.find(city => city.code.toUpperCase() === upper) ||
+    destinations.find(city => city.code.toUpperCase() === upper)
+  );
+}
+
+function popularRouteLinks(locale, hubs, destinations) {
+  const links = POPULAR_ROUTE_CODES.flatMap(([fromCode, toCode]) => {
+    const from = cityByCode(hubs, destinations, fromCode);
+    const to = cityByCode(hubs, destinations, toCode);
+    if (!from || !to || from.code.toUpperCase() === to.code.toUpperCase()) return [];
+    return [
+      {
+        href: `${SITE_URL}${localizedPath(
+          locale,
+          `/weekend-flights/${buildCitySlug(from)}-to-${buildCitySlug(to)}`
+        )}`,
+        label: t(locale, 'home.popularRouteLabel', { from: from.name, to: to.name })
+      }
+    ];
+  });
+  return renderLinkGroup(t(locale, 'home.popularRoutesTitle'), links);
+}
+
+function howItWorksHtml(locale) {
+  const steps = [1, 2, 3, 4]
+    .map(
+      n =>
+        `        <li><strong>${escapeHtml(t(locale, `howItWorks.step${n}title`))}</strong> — ${escapeHtml(
+          t(locale, `howItWorks.step${n}text`)
+        )}</li>`
+    )
+    .join('\n');
+  return `      <h2>${escapeHtml(t(locale, 'home.howItWorksTitle'))}</h2>
+      <ol>
+${steps}
+      </ol>`;
+}
+
 function renderSeoFallbackBlock({ h1, lead, paragraphs = [], faqTitle, faqItems, linkGroupsHtml = [] }) {
   const parts = [
     `      <h1>${escapeHtml(h1)}</h1>`,
@@ -409,14 +478,22 @@ let pageCount = 0;
 for (const locale of LOCALES) {
   const emailVars = { email: CONTACT_EMAIL };
 
+  const homeFaqItems = Array.isArray(t(locale, 'faq.items')) ? t(locale, 'faq.items').slice(0, 3) : [];
   writeStaticRoute(template, locale, '/', {
     title: t(locale, 'meta.home.title'),
     description: t(locale, 'meta.home.description'),
     h1: t(locale, 'home.title'),
     lead: t(locale, 'home.lead'),
     paragraphs: [t(locale, 'home.seoBlock')],
-    linkGroupsHtml: [toolLinks(locale), hubLinks(locale, hubs)],
-    jsonLdBlocks: [websiteJsonLd(locale), organizationJsonLd()]
+    faqTitle: t(locale, 'home.faqTeaserTitle'),
+    faqItems: homeFaqItems,
+    linkGroupsHtml: [
+      toolLinks(locale),
+      hubLinks(locale, hubs),
+      popularRouteLinks(locale, hubs, popularDestinations),
+      howItWorksHtml(locale)
+    ],
+    jsonLdBlocks: [websiteJsonLd(locale), organizationJsonLd(), faqPageJsonLd(homeFaqItems)]
   });
   pageCount += 1;
 

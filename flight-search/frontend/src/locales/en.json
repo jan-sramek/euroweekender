@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Cheap European Weekend Flights",
-      "description": "Compare cheap European weekend flights, find the cheapest weekend to any city, or book same-day Saturday and Sunday city trips. Leave Friday evening — or fly out and back in one day — without using vacation days."
+      "description": "Compare cheap weekend flights across Europe. Leave Friday evening, return Sunday, and find European city breaks without taking time off work."
     },
     "about": {
       "title": "About EuroWeekender",
@@ -78,6 +78,12 @@
     "lead": "Compare round-trip weekend flights across Europe — leave after work on Friday, return Sunday, no vacation days needed.",
     "seoTitle": "Find cheap weekend flights and day trips across Europe",
     "seoBlock": "Search and compare cheap weekend flights from Prague, Vienna, Berlin, Munich, London, Barcelona, and dozens of European airports. Filter Fri–Sun, Thu–Sun, and Wed–Sun trip patterns, add evening departure times, or switch to same-day Saturday and Sunday city trips — and discover breaks you can take without using annual leave. Use Best weekend price to compare fares to one destination on a calendar.",
+    "popularRoutesTitle": "Popular weekend routes",
+    "popularRouteLabel": "{{from}} → {{to}}",
+    "howItWorksTitle": "How weekend flights work",
+    "faqTeaserTitle": "Weekend flights FAQ",
+    "faqTeaserMore": "More frequently asked questions",
+    "emptyExplore": "Meanwhile, browse weekend flights from popular cities:",
     "fromSelectedAirports": "From {{airports}}",
     "person": "person",
     "persons": "persons",

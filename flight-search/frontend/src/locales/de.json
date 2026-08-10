@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Günstige Wochenendflüge in Europa",
-      "description": "Vergleichen Sie günstige europäische Wochenendflüge, finden Sie das günstigste Wochenende zu jeder Stadt oder buchen Sie eintägige Samstags- und Sonntags-Städtetrips. Freitagabend los — oder hin und zurück am selben Tag — ohne Urlaubstage."
+      "description": "Vergleichen Sie günstige Wochenendflüge in Europa. Freitagabend abfliegen, Sonntag zurück — und finden Sie Städtereisen ohne Urlaubstage."
     },
     "about": {
       "title": "Über EuroWeekender",
@@ -101,7 +101,13 @@
     "flightsCounterSearching": "Flüge werden gesucht…",
     "subtitle": "Ihr nächster Städtetrip beginnt am Freitagabend",
     "seoTitle": "Günstige Wochenendflüge und Tagestrips in Europa finden",
-    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So-, Do–So- und Mi–So-Muster, aktivieren Sie Abendabflüge oder wechseln Sie zu eintägigen Samstags- und Sonntags-Städtetrips — und entdecken Sie Auszeiten ohne Urlaubstage. Nutzen Sie „Bester Wochenendpreis“, um Tarife zu einem Ziel im Kalender zu vergleichen."
+    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So-, Do–So- und Mi–So-Muster, aktivieren Sie Abendabflüge oder wechseln Sie zu eintägigen Samstags- und Sonntags-Städtetrips — und entdecken Sie Auszeiten ohne Urlaubstage. Nutzen Sie „Bester Wochenendpreis“, um Tarife zu einem Ziel im Kalender zu vergleichen.",
+    "popularRoutesTitle": "Beliebte Wochenendstrecken",
+    "popularRouteLabel": "{{from}} → {{to}}",
+    "howItWorksTitle": "So funktionieren Wochenendflüge",
+    "faqTeaserTitle": "FAQ zu Wochenendflügen",
+    "faqTeaserMore": "Weitere häufige Fragen",
+    "emptyExplore": "Schauen Sie sich inzwischen Wochenendflüge ab beliebten Städten an:"
   },
   "singleDayTrips": {
     "tagline": "Morgens hin · abends zurück",

@@ -69,6 +69,17 @@
   min-width: 0;
 }
 
+.search-from {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.search-from > .departure-picker {
+  flex: 1;
+  min-height: 0;
+}
+
 .search-dates {
   display: flex;
   flex-direction: column;

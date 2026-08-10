@@ -16,6 +16,14 @@ describe('countryFlagCode', () => {
     expect(countryFlagCode('MK')).toBe('mk');
   });
 
+  it('maps Bosnia country labels including Kiwi ampersand form to ba', () => {
+    expect(countryFlagCode('Bosnia and Herzegovina')).toBe('ba');
+    expect(countryFlagCode('Bosnia & Herzegovina')).toBe('ba');
+    expect(countryFlagCode('Bosnia')).toBe('ba');
+    expect(countryFlagCode('BA')).toBe('ba');
+    expect(countryFlagCode('BIH')).toBe('ba');
+  });
+
   it('returns null for unknown countries', () => {
     expect(countryFlagCode('Atlantis')).toBeNull();
     expect(countryFlagCode('')).toBeNull();

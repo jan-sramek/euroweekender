@@ -8,6 +8,10 @@ const COUNTRY_FLAG_CODES: Record<string, string> = {
   Belarus: 'by',
   Belgium: 'be',
   'Bosnia and Herzegovina': 'ba',
+  'Bosnia & Herzegovina': 'ba',
+  Bosnia: 'ba',
+  BiH: 'ba',
+  BIH: 'ba',
   Bulgaria: 'bg',
   Croatia: 'hr',
   Cyprus: 'cy',
@@ -80,6 +84,7 @@ function normalizeCountryKey(value: string): string {
     .trim()
     .normalize('NFKC')
     .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/\s*&\s*/g, ' and ')
     .replace(/\s+/g, ' ');
 }
 
@@ -105,6 +110,9 @@ export function countryFlagCode(country: string | null | undefined): string | nu
 
   // Kiwi sometimes uses longer / older Macedonia labels.
   if (lowered.includes('macedonia')) return 'mk';
+
+  // Kiwi often uses "Bosnia & Herzegovina" (ampersand) or short forms.
+  if (lowered.includes('bosnia') || lowered === 'bih') return 'ba';
 
   return null;
 }

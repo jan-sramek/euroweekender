@@ -43,6 +43,7 @@ public class DayTripsController(IDayTripLiveSearchService dayTripLiveSearchServi
         f.NightsInDest,
         f.Price,
         f.TechnicalStops,
+        f.DurationDeparture,
         f.DurationReturn,
         f.FlyTo,
         f.FlyFrom,

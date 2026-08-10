@@ -7,6 +7,7 @@ export interface Flight {
   nightsInDest: number;
   price: number;
   technicalStops: number;
+  durationDeparture: number;
   durationReturn: number;
   flyTo: string;
   flyFrom: string;

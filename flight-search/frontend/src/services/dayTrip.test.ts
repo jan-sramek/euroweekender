@@ -31,6 +31,7 @@ function flight(
     price: 99,
     fareAdults: 99,
     technicalStops: 0,
+    durationDeparture: 60,
     durationReturn: 60,
     availabilitySeats: 9,
     deepLink: 'https://example.com',

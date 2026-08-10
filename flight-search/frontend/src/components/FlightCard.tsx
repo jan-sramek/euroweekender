@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import type { Flight } from '../types/flight';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import {
-  durationMinutesFromLocalIso,
   formatApiLocalTime,
   formatApiLocalTripDate,
   formatLocalDateTimeIso
@@ -90,7 +89,7 @@ function getOutboundLeg(flight: Flight): LegDisplay {
     arriveCity: flight.cityTo,
     arriveCode: flight.flyTo,
     arriveCountry: flight.countryTo,
-    durationMinutes: durationMinutesFromLocalIso(flight.localDeparture, flight.localArrival),
+    durationMinutes: Math.round(flight.durationDeparture),
     stops: flight.technicalStops,
     highlightArrive: true
   };
@@ -103,11 +102,6 @@ function getReturnLeg(flight: Flight): LegDisplay {
   const returnArriveIso =
     flight.localReturnArrival ?? formatLocalDateTimeIso(getReturnArriveDate(flight));
 
-  const durationMinutes =
-    flight.localReturnDeparture && flight.localReturnArrival
-      ? durationMinutesFromLocalIso(flight.localReturnDeparture, flight.localReturnArrival)
-      : Math.round(flight.durationReturn);
-
   return {
     dateIso: returnDepartIso,
     departTimeLabel: hasStoredReturnTimes ? formatApiLocalTime(returnDepartIso) : '—',
@@ -118,7 +112,7 @@ function getReturnLeg(flight: Flight): LegDisplay {
     arriveCity: flight.cityFrom,
     arriveCode: flight.flyFrom,
     arriveCountry: flight.countryFrom ?? '',
-    durationMinutes,
+    durationMinutes: Math.round(flight.durationReturn),
     stops: flight.technicalStops,
     highlightDepart: true
   };

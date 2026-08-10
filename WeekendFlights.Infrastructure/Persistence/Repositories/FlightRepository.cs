@@ -156,6 +156,7 @@ public class FlightRepository(
             NightsInDest = f.NightsInDest,
             Price = f.Price,
             TechnicalStops = f.TechnicalStops,
+            DurationDeparture = f.DurationDeparture,
             DurationReturn = f.DurationReturn,
             FlyTo = f.FlyTo,
             FlyFrom = f.FlyFrom,

@@ -33,12 +33,6 @@ export function formatApiLocalTripDate(iso: string): string {
   return `${weekday} ${day}.${month}.${year}`;
 }
 
-export function durationMinutesFromLocalIso(departIso: string, arriveIso: string): number {
-  const depart = parseApiLocalDateTime(departIso);
-  const arrive = parseApiLocalDateTime(arriveIso);
-  return Math.max(0, Math.round((arrive.getTime() - depart.getTime()) / 60_000));
-}
-
 export function addLocalDays(iso: string, days: number): Date {
   const date = parseApiLocalDateTime(iso);
   date.setDate(date.getDate() + days);

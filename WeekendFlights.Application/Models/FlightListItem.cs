@@ -8,6 +8,7 @@ public sealed class FlightListItem
     public int NightsInDest { get; init; }
     public double Price { get; init; }
     public int TechnicalStops { get; init; }
+    public decimal DurationDeparture { get; init; }
     public decimal DurationReturn { get; init; }
     public string FlyTo { get; init; } = "";
     public string FlyFrom { get; init; } = "";

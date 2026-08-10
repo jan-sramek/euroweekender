@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { LOCALE_CODES, localizedPath } from '../config/locales';
-import { SITE_TITLE, SITE_URL } from '../config/site';
+import { OG_IMAGE, SITE_TITLE, SITE_URL } from '../config/site';
 import { useLocale } from './useLocale';
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -47,27 +47,55 @@ function addHreflangLinks(routePath: string) {
   document.head.appendChild(defaultLink);
 }
 
-export function usePageMeta(title: string, description: string, routePath = '/') {
+export type PageMetaOptions = {
+  /** Tell crawlers not to index this URL (404s, etc.). */
+  noindex?: boolean;
+};
+
+function clearRobotsMeta() {
+  document.querySelectorAll('meta[name="robots"]').forEach(element => element.remove());
+}
+
+export function usePageMeta(
+  title: string,
+  description: string,
+  routePath = '/',
+  options: PageMetaOptions = {}
+) {
   const locale = useLocale();
   const fullTitle = title.endsWith(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
   const canonicalUrl = `${SITE_URL}${localizedPath(locale, routePath)}`;
+  const noindex = options.noindex === true;
 
   useEffect(() => {
     document.title = fullTitle;
     upsertMeta('name', 'description', description);
-    upsertCanonical(canonicalUrl);
     upsertMeta('property', 'og:title', fullTitle);
     upsertMeta('property', 'og:description', description);
-    upsertMeta('property', 'og:url', canonicalUrl);
+    upsertMeta('property', 'og:image', OG_IMAGE);
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:site_name', SITE_TITLE);
-    upsertMeta('name', 'twitter:card', 'summary');
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', fullTitle);
     upsertMeta('name', 'twitter:description', description);
-    addHreflangLinks(routePath);
+    upsertMeta('name', 'twitter:image', OG_IMAGE);
+
+    if (noindex) {
+      upsertMeta('name', 'robots', 'noindex, follow');
+      // Avoid inventing a canonical / hreflang graph for missing URLs.
+      document.querySelector('link[rel="canonical"]')?.remove();
+      clearHreflangLinks();
+      document.querySelector('meta[property="og:url"]')?.remove();
+    } else {
+      clearRobotsMeta();
+      upsertCanonical(canonicalUrl);
+      upsertMeta('property', 'og:url', canonicalUrl);
+      addHreflangLinks(routePath);
+    }
 
     return () => {
       clearHreflangLinks();
+      if (noindex) clearRobotsMeta();
     };
-  }, [canonicalUrl, description, fullTitle, routePath]);
+  }, [canonicalUrl, description, fullTitle, noindex, routePath]);
 }

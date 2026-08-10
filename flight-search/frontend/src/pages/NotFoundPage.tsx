@@ -6,7 +6,9 @@ import { ContentPageLayout } from '../layouts/ContentPageLayout';
 export function NotFoundPage() {
   const { t } = useTranslation();
 
-  usePageMeta(t('meta.notFound.title'), t('meta.notFound.description'), '/404');
+  usePageMeta(t('meta.notFound.title'), t('meta.notFound.description'), '/', {
+    noindex: true
+  });
 
   return (
     <ContentPageLayout>

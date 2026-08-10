@@ -1,10 +1,10 @@
 /**
- * Post-build step: writes static, crawlable HTML shells for the programmatic SEO
- * landing pages (weekend-flights-from, day-trips-from, weekend-flights OD) by cloning
- * dist/index.html and patching the <head> tags + injecting a visible SEO block.
+ * Post-build step: writes static, crawlable HTML shells for SEO-critical routes by
+ * cloning dist/index.html, patching <head>, and injecting a visible SEO fallback body.
  *
- * This is intentionally lightweight (no headless browser / full prerender): the SPA
- * still boots normally and replaces the fallback content once React hydrates #root.
+ * Covers: locale homes, tool pages, content pages, and programmatic city/OD landings.
+ * Intentionally lightweight (no headless browser): the SPA still boots and removes
+ * #seo-fallback once React fills #root.
  *
  * Run after `vite build`: node scripts/prerender-seo.mjs
  */
@@ -20,11 +20,17 @@ const localesDir = path.join(frontendDir, 'src', 'locales');
 
 const SITE_URL = 'https://euroweekender.com';
 const SITE_TITLE = 'euroweekender.com';
+const CONTACT_EMAIL = 'hello@euroweekender.com';
+/** Default Open Graph image (1200-ish Unsplash hero used on the homepage). */
+const OG_IMAGE =
+  'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80';
 
 // Keep in sync with scripts/generate-seo-sitemap.mjs at the repo root.
 const OD_HUB_LIMIT = 40;
 const OD_DESTINATION_LIMIT = 12;
 const OD_PRERENDER_LOCALES = ['en', 'de', 'fr', 'es', 'it', 'pl', 'nl', 'cs'];
+const HUB_LINK_LIMIT = 12;
+const DEST_LINK_LIMIT = 12;
 
 const LOCALES = [
   'en',
@@ -161,10 +167,132 @@ function faqPageJsonLd(items) {
   };
 }
 
-function renderSeoFallbackBlock(h1, lead) {
-  return `<div id="seo-fallback">
-      <h1>${escapeHtml(h1)}</h1>
-      <p>${escapeHtml(lead)}</p>
+function websiteJsonLd(locale) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_TITLE,
+    url: `${SITE_URL}${localizedPath(locale, '/')}`,
+    inLanguage: locale,
+    description: t(locale, 'meta.home.description')
+  };
+}
+
+function organizationJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_TITLE,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo-icon.png`,
+    email: CONTACT_EMAIL
+  };
+}
+
+function renderParagraphs(paragraphs = []) {
+  return paragraphs
+    .filter(Boolean)
+    .map(text => `      <p>${escapeHtml(text)}</p>`)
+    .join('\n');
+}
+
+function renderFaqHtml(faqTitle, items) {
+  if (!Array.isArray(items) || items.length === 0) return '';
+  const title = faqTitle ? `      <h2>${escapeHtml(faqTitle)}</h2>\n` : '';
+  const body = items
+    .map(
+      item => `      <section>
+        <h3>${escapeHtml(item.q)}</h3>
+        <p>${escapeHtml(item.a)}</p>
+      </section>`
+    )
+    .join('\n');
+  return `${title}${body}`;
+}
+
+function renderLinkGroup(title, links) {
+  if (!Array.isArray(links) || links.length === 0) return '';
+  const items = links
+    .map(link => `        <li><a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a></li>`)
+    .join('\n');
+  return `      <nav aria-label="${escapeHtml(title)}">
+        <h2>${escapeHtml(title)}</h2>
+        <ul>
+${items}
+        </ul>
+      </nav>`;
+}
+
+function hubLinks(locale, hubs, { excludeCode, variant = 'weekend', limit = HUB_LINK_LIMIT } = {}) {
+  const excluded = excludeCode?.trim().toUpperCase();
+  const titleKey =
+    variant === 'dayTrips' ? 'dayTripsFrom.popularHubsTitle' : 'weekendFlightsFrom.popularHubsTitle';
+  const labelKey = variant === 'dayTrips' ? 'dayTripsFrom.tagline' : 'weekendFlightsFrom.tagline';
+  const pathPrefix = variant === 'dayTrips' ? '/day-trips-from' : '/weekend-flights-from';
+
+  const links = hubs
+    .filter(hub => hub.code.toUpperCase() !== excluded)
+    .slice(0, limit)
+    .map(hub => ({
+      href: `${SITE_URL}${localizedPath(locale, `${pathPrefix}/${buildCitySlug(hub)}`)}`,
+      label: t(locale, labelKey, { city: hub.name })
+    }));
+
+  return renderLinkGroup(t(locale, titleKey), links);
+}
+
+function destinationLinks(locale, fromHub, destinations, { limit = DEST_LINK_LIMIT } = {}) {
+  const links = destinations
+    .filter(dest => dest.code.toUpperCase() !== fromHub.code.toUpperCase())
+    .slice(0, limit)
+    .map(dest => ({
+      href: `${SITE_URL}${localizedPath(
+        locale,
+        `/weekend-flights/${buildCitySlug(fromHub)}-to-${buildCitySlug(dest)}`
+      )}`,
+      label: dest.name
+    }));
+
+  return renderLinkGroup(t(locale, 'weekendFlightsFrom.topDestinationsTitle', { city: fromHub.name }), links);
+}
+
+function toolLinks(locale) {
+  return renderLinkGroup(t(locale, 'footer.explore'), [
+    {
+      href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
+      label: t(locale, 'nav.cheapestWeekend')
+    },
+    {
+      href: `${SITE_URL}${localizedPath(locale, '/single-day-trips')}`,
+      label: t(locale, 'nav.singleDayTrips')
+    },
+    {
+      href: `${SITE_URL}${localizedPath(locale, '/how-it-works')}`,
+      label: t(locale, 'nav.howItWorks')
+    },
+    {
+      href: `${SITE_URL}${localizedPath(locale, '/faq')}`,
+      label: t(locale, 'nav.faq')
+    }
+  ]);
+}
+
+function renderSeoFallbackBlock({ h1, lead, paragraphs = [], faqTitle, faqItems, linkGroupsHtml = [] }) {
+  const parts = [
+    `      <h1>${escapeHtml(h1)}</h1>`,
+    lead ? `      <p>${escapeHtml(lead)}</p>` : '',
+    renderParagraphs(paragraphs),
+    ...linkGroupsHtml.filter(Boolean),
+    renderFaqHtml(faqTitle, faqItems)
+  ].filter(Boolean);
+
+  // Visually hide the crawlable fallback so users don't flash duplicate content;
+  // React removes #seo-fallback once #root has children. Crawlers still see the HTML.
+  return `<style>
+      #seo-fallback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    </style>
+    <div id="seo-fallback">
+${parts.join('\n')}
     </div>
     <script>
       (function () {
@@ -187,48 +315,66 @@ function renderSeoFallbackBlock(h1, lead) {
     </script>`;
 }
 
-function renderPage(template, { locale, routePath, title, description, h1, lead, jsonLdBlocks }) {
+function upsertMeta(html, attr, key, content) {
+  const pattern = new RegExp(`<meta\\s+${attr}="${key}"[^>]*>`, 'i');
+  const tag = `<meta ${attr}="${key}" content="${escapeHtml(content)}" />`;
+  if (pattern.test(html)) {
+    return html.replace(pattern, tag);
+  }
+  return html.replace('</head>', `    ${tag}\n  </head>`);
+}
+
+function renderPage(
+  template,
+  {
+    locale,
+    routePath,
+    title,
+    description,
+    h1,
+    lead,
+    paragraphs,
+    faqTitle,
+    faqItems,
+    linkGroupsHtml,
+    jsonLdBlocks,
+    ogImage = OG_IMAGE
+  }
+) {
   const fullTitle = title.endsWith(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
   const canonicalUrl = `${SITE_URL}${localizedPath(locale, routePath)}`;
 
   let html = template;
   html = html.replace(/<html lang="[^"]*"/, `<html lang="${locale}"`);
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(fullTitle)}</title>`);
-  html = html.replace(
-    /<meta\s+name="description"[\s\S]*?\/>/,
-    `<meta name="description" content="${escapeHtml(description)}" />`
-  );
+  html = upsertMeta(html, 'name', 'description', description);
   html = html.replace(
     /<link rel="canonical"[\s\S]*?\/>/,
     `<link rel="canonical" href="${canonicalUrl}" />`
   );
-  html = html.replace(
-    /<meta property="og:title"[\s\S]*?\/>/,
-    `<meta property="og:title" content="${escapeHtml(fullTitle)}" />`
-  );
-  html = html.replace(
-    /<meta\s+property="og:description"[\s\S]*?\/>/,
-    `<meta property="og:description" content="${escapeHtml(description)}" />`
-  );
-  html = html.replace(
-    /<meta property="og:url"[\s\S]*?\/>/,
-    `<meta property="og:url" content="${canonicalUrl}" />`
-  );
-  html = html.replace(
-    /<meta name="twitter:title"[\s\S]*?\/>/,
-    `<meta name="twitter:title" content="${escapeHtml(fullTitle)}" />`
-  );
-  html = html.replace(
-    /<meta\s+name="twitter:description"[\s\S]*?\/>/,
-    `<meta name="twitter:description" content="${escapeHtml(description)}" />`
-  );
+  html = upsertMeta(html, 'property', 'og:title', fullTitle);
+  html = upsertMeta(html, 'property', 'og:description', description);
+  html = upsertMeta(html, 'property', 'og:url', canonicalUrl);
+  html = upsertMeta(html, 'property', 'og:image', ogImage);
+  html = upsertMeta(html, 'name', 'twitter:title', fullTitle);
+  html = upsertMeta(html, 'name', 'twitter:description', description);
+  html = upsertMeta(html, 'name', 'twitter:image', ogImage);
+  html = upsertMeta(html, 'name', 'twitter:card', 'summary_large_image');
 
   const headExtras = [buildHreflangLinks(routePath), buildJsonLdScripts(jsonLdBlocks ?? [])]
     .filter(Boolean)
     .join('\n    ');
   html = html.replace('</head>', `    ${headExtras}\n  </head>`);
 
-  html = html.replace('<div id="root"></div>', `${renderSeoFallbackBlock(h1, lead)}\n    <div id="root"></div>`);
+  const fallback = renderSeoFallbackBlock({
+    h1,
+    lead,
+    paragraphs,
+    faqTitle,
+    faqItems,
+    linkGroupsHtml
+  });
+  html = html.replace('<div id="root"></div>', `${fallback}\n    <div id="root"></div>`);
 
   return html;
 }
@@ -237,6 +383,11 @@ function writePage(distRoutePath, html) {
   const outDir = path.join(distDir, ...distRoutePath.split('/').filter(Boolean));
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
+}
+
+function writeStaticRoute(template, locale, routePath, options) {
+  const html = renderPage(template, { locale, routePath, ...options });
+  writePage(`${locale}${routePath === '/' ? '' : routePath}`, html);
 }
 
 // --- main ---
@@ -254,12 +405,190 @@ const popularDestinations = JSON.parse(
 
 let pageCount = 0;
 
+// Locale homes + marketing / tool / content pages (previously fell through to root index.html).
+for (const locale of LOCALES) {
+  const emailVars = { email: CONTACT_EMAIL };
+
+  writeStaticRoute(template, locale, '/', {
+    title: t(locale, 'meta.home.title'),
+    description: t(locale, 'meta.home.description'),
+    h1: t(locale, 'home.title'),
+    lead: t(locale, 'home.lead'),
+    paragraphs: [t(locale, 'home.seoBlock')],
+    linkGroupsHtml: [toolLinks(locale), hubLinks(locale, hubs)],
+    jsonLdBlocks: [websiteJsonLd(locale), organizationJsonLd()]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/cheapest-weekend', {
+    title: t(locale, 'meta.cheapestWeekend.title'),
+    description: t(locale, 'meta.cheapestWeekend.description'),
+    h1: t(locale, 'cheapestWeekend.title'),
+    lead: t(locale, 'cheapestWeekend.lead'),
+    paragraphs: [t(locale, 'cheapestWeekend.seoBlock')],
+    linkGroupsHtml: [toolLinks(locale), hubLinks(locale, hubs)],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        {
+          name: t(locale, 'nav.cheapestWeekend'),
+          url: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`
+        }
+      ])
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/single-day-trips', {
+    title: t(locale, 'meta.singleDayTrips.title'),
+    description: t(locale, 'meta.singleDayTrips.description'),
+    h1: t(locale, 'singleDayTrips.title'),
+    lead: t(locale, 'singleDayTrips.lead'),
+    paragraphs: [t(locale, 'singleDayTrips.seoBlock')],
+    linkGroupsHtml: [toolLinks(locale), hubLinks(locale, hubs, { variant: 'dayTrips' })],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        {
+          name: t(locale, 'nav.singleDayTrips'),
+          url: `${SITE_URL}${localizedPath(locale, '/single-day-trips')}`
+        }
+      ])
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/about', {
+    title: t(locale, 'meta.about.title'),
+    description: t(locale, 'meta.about.description'),
+    h1: t(locale, 'about.heroTitle'),
+    lead: t(locale, 'about.lead'),
+    paragraphs: [
+      t(locale, 'about.sections.weekendP1'),
+      t(locale, 'about.sections.whatP'),
+      t(locale, 'about.sections.whoP')
+    ],
+    linkGroupsHtml: [toolLinks(locale)],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        { name: t(locale, 'nav.about'), url: `${SITE_URL}${localizedPath(locale, '/about')}` }
+      ]),
+      organizationJsonLd()
+    ]
+  });
+  pageCount += 1;
+
+  const faqItems = t(locale, 'faq.items');
+  writeStaticRoute(template, locale, '/faq', {
+    title: t(locale, 'meta.faq.title'),
+    description: t(locale, 'meta.faq.description'),
+    h1: t(locale, 'faq.heroTitle'),
+    lead: t(locale, 'faq.lead'),
+    faqItems: Array.isArray(faqItems) ? faqItems : [],
+    linkGroupsHtml: [toolLinks(locale)],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        { name: t(locale, 'nav.faq'), url: `${SITE_URL}${localizedPath(locale, '/faq')}` }
+      ]),
+      faqPageJsonLd(faqItems)
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/how-it-works', {
+    title: t(locale, 'meta.howItWorks.title'),
+    description: t(locale, 'meta.howItWorks.description'),
+    h1: t(locale, 'howItWorks.heroTitle'),
+    lead: t(locale, 'howItWorks.lead'),
+    paragraphs: [
+      t(locale, 'howItWorks.builtP1'),
+      `${t(locale, 'howItWorks.step1title')}: ${t(locale, 'howItWorks.step1text')}`,
+      `${t(locale, 'howItWorks.step2title')}: ${t(locale, 'howItWorks.step2text')}`,
+      `${t(locale, 'howItWorks.step3title')}: ${t(locale, 'howItWorks.step3text')}`,
+      `${t(locale, 'howItWorks.step4title')}: ${t(locale, 'howItWorks.step4text')}`
+    ],
+    linkGroupsHtml: [toolLinks(locale)],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        {
+          name: t(locale, 'nav.howItWorks'),
+          url: `${SITE_URL}${localizedPath(locale, '/how-it-works')}`
+        }
+      ])
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/contact', {
+    title: t(locale, 'meta.contact.title'),
+    description: t(locale, 'meta.contact.description'),
+    h1: t(locale, 'contact.heroTitle'),
+    lead: t(locale, 'contact.lead'),
+    paragraphs: [t(locale, 'contact.emailBody'), CONTACT_EMAIL],
+    linkGroupsHtml: [toolLinks(locale)],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        { name: t(locale, 'nav.contact'), url: `${SITE_URL}${localizedPath(locale, '/contact')}` }
+      ])
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/privacy', {
+    title: t(locale, 'meta.privacy.title'),
+    description: t(locale, 'meta.privacy.description'),
+    h1: t(locale, 'privacy.title'),
+    lead: t(locale, 'privacy.lead'),
+    paragraphs: [
+      t(locale, 'privacy.intro'),
+      t(locale, 'privacy.analytics'),
+      t(locale, 'privacy.location'),
+      t(locale, 'privacy.contact', emailVars)
+    ],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        {
+          name: t(locale, 'footer.privacy'),
+          url: `${SITE_URL}${localizedPath(locale, '/privacy')}`
+        }
+      ])
+    ]
+  });
+  pageCount += 1;
+
+  writeStaticRoute(template, locale, '/terms', {
+    title: t(locale, 'meta.terms.title'),
+    description: t(locale, 'meta.terms.description'),
+    h1: t(locale, 'terms.title'),
+    lead: t(locale, 'terms.lead'),
+    paragraphs: [
+      t(locale, 'terms.intro'),
+      t(locale, 'terms.service'),
+      t(locale, 'terms.accuracy'),
+      t(locale, 'terms.contact', emailVars)
+    ],
+    jsonLdBlocks: [
+      breadcrumbListJsonLd([
+        { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+        { name: t(locale, 'footer.terms'), url: `${SITE_URL}${localizedPath(locale, '/terms')}` }
+      ])
+    ]
+  });
+  pageCount += 1;
+}
+
 // weekend-flights-from: all hubs x all locales.
 for (const hub of hubs) {
   const slug = buildCitySlug(hub);
   const routePath = `/weekend-flights-from/${slug}`;
   for (const locale of LOCALES) {
     const vars = { city: hub.name };
+    const faqItems = t(locale, 'weekendFlightsFrom.faq', vars);
     const html = renderPage(template, {
       locale,
       routePath,
@@ -267,6 +596,23 @@ for (const hub of hubs) {
       description: t(locale, 'meta.weekendFlightsFrom.description', vars),
       h1: t(locale, 'weekendFlightsFrom.title', vars),
       lead: t(locale, 'weekendFlightsFrom.lead', vars),
+      paragraphs: [t(locale, 'weekendFlightsFrom.seoBlock', vars)],
+      faqTitle: t(locale, 'weekendFlightsFrom.faqTitle', vars),
+      faqItems: Array.isArray(faqItems) ? faqItems : [],
+      linkGroupsHtml: [
+        destinationLinks(locale, hub, popularDestinations),
+        hubLinks(locale, hubs, { excludeCode: hub.code }),
+        renderLinkGroup(t(locale, 'footer.explore'), [
+          {
+            href: `${SITE_URL}${localizedPath(locale, `/day-trips-from/${slug}`)}`,
+            label: t(locale, 'weekendFlightsFrom.seeAlsoDayTripsFromCity', vars)
+          },
+          {
+            href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
+            label: t(locale, 'weekendFlightsFrom.seeAlsoCheapest')
+          }
+        ])
+      ],
       jsonLdBlocks: [
         breadcrumbListJsonLd([
           { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
@@ -275,7 +621,7 @@ for (const hub of hubs) {
             url: `${SITE_URL}${localizedPath(locale, routePath)}`
           }
         ]),
-        faqPageJsonLd(t(locale, 'weekendFlightsFrom.faq', vars))
+        faqPageJsonLd(faqItems)
       ]
     });
     writePage(`${locale}${routePath}`, html);
@@ -289,6 +635,7 @@ for (const hub of hubs) {
   const routePath = `/day-trips-from/${slug}`;
   for (const locale of LOCALES) {
     const vars = { city: hub.name };
+    const faqItems = t(locale, 'dayTripsFrom.faq', vars);
     const html = renderPage(template, {
       locale,
       routePath,
@@ -296,6 +643,22 @@ for (const hub of hubs) {
       description: t(locale, 'meta.dayTripsFrom.description', vars),
       h1: t(locale, 'dayTripsFrom.title', vars),
       lead: t(locale, 'dayTripsFrom.lead', vars),
+      paragraphs: [t(locale, 'dayTripsFrom.seoBlock', vars)],
+      faqTitle: t(locale, 'dayTripsFrom.faqTitle', vars),
+      faqItems: Array.isArray(faqItems) ? faqItems : [],
+      linkGroupsHtml: [
+        hubLinks(locale, hubs, { excludeCode: hub.code, variant: 'dayTrips' }),
+        renderLinkGroup(t(locale, 'footer.explore'), [
+          {
+            href: `${SITE_URL}${localizedPath(locale, `/weekend-flights-from/${slug}`)}`,
+            label: t(locale, 'dayTripsFrom.seeAlsoWeekendFromCity', vars)
+          },
+          {
+            href: `${SITE_URL}${localizedPath(locale, '/single-day-trips')}`,
+            label: t(locale, 'nav.singleDayTrips')
+          }
+        ])
+      ],
       jsonLdBlocks: [
         breadcrumbListJsonLd([
           { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
@@ -304,7 +667,7 @@ for (const hub of hubs) {
             url: `${SITE_URL}${localizedPath(locale, routePath)}`
           }
         ]),
-        faqPageJsonLd(t(locale, 'dayTripsFrom.faq', vars))
+        faqPageJsonLd(faqItems)
       ]
     });
     writePage(`${locale}${routePath}`, html);
@@ -329,6 +692,20 @@ for (const hub of odHubs) {
         description: t(locale, 'meta.weekendFlightsOd.description', vars),
         h1: t(locale, 'weekendFlightsOd.title', vars),
         lead: t(locale, 'weekendFlightsOd.seoBlock', vars),
+        paragraphs: [],
+        linkGroupsHtml: [
+          renderLinkGroup(t(locale, 'footer.explore'), [
+            {
+              href: `${SITE_URL}${localizedPath(locale, `/weekend-flights-from/${buildCitySlug(hub)}`)}`,
+              label: t(locale, 'weekendFlightsFrom.tagline', { city: hub.name })
+            },
+            {
+              href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
+              label: t(locale, 'nav.cheapestWeekend')
+            }
+          ]),
+          destinationLinks(locale, hub, popularDestinations)
+        ],
         jsonLdBlocks: [
           breadcrumbListJsonLd([
             { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
@@ -350,3 +727,35 @@ for (const hub of odHubs) {
 }
 
 console.log(`prerender-seo: wrote ${pageCount} static HTML shells under dist/`);
+
+// SPA 404 body: nginx serves this with HTTP 404 for unknown paths (see nginx.conf).
+// Keeps the JS bundle so React can still render NotFoundPage for the requested URL.
+{
+  const notFoundTitle = `${t('en', 'meta.notFound.title')} | ${SITE_TITLE}`;
+  const notFoundDescription = t('en', 'meta.notFound.description');
+  let notFoundHtml = template;
+  notFoundHtml = notFoundHtml.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(notFoundTitle)}</title>`);
+  notFoundHtml = upsertMeta(notFoundHtml, 'name', 'description', notFoundDescription);
+  notFoundHtml = upsertMeta(notFoundHtml, 'name', 'robots', 'noindex, follow');
+  notFoundHtml = upsertMeta(notFoundHtml, 'property', 'og:title', notFoundTitle);
+  notFoundHtml = upsertMeta(notFoundHtml, 'property', 'og:description', notFoundDescription);
+  notFoundHtml = notFoundHtml.replace(
+    /<link rel="canonical"[\s\S]*?\/>\n?/,
+    ''
+  );
+  const notFoundFallback = renderSeoFallbackBlock({
+    h1: t('en', 'notFound.title'),
+    lead: t('en', 'notFound.lead'),
+    linkGroupsHtml: [
+      renderLinkGroup(t('en', 'footer.explore'), [
+        { href: `${SITE_URL}/en`, label: t('en', 'notFound.backHome') }
+      ])
+    ]
+  });
+  notFoundHtml = notFoundHtml.replace(
+    '<div id="root"></div>',
+    `${notFoundFallback}\n    <div id="root"></div>`
+  );
+  fs.writeFileSync(path.join(distDir, '404.html'), notFoundHtml);
+  console.log('prerender-seo: wrote dist/404.html (HTTP 404 body)');
+}

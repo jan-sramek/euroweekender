@@ -7,6 +7,8 @@ export interface Flight {
   nightsInDest: number;
   price: number;
   technicalStops: number;
+  /** Connection changes on the return leg; optional for older API responses. */
+  technicalStopsReturn?: number;
   durationDeparture: number;
   durationReturn: number;
   flyTo: string;

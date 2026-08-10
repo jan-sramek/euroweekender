@@ -52,6 +52,7 @@ public record FlightSearchDto(
     int NightsInDest,
     double Price,
     int TechnicalStops,
+    int TechnicalStopsReturn,
     decimal DurationDeparture,
     decimal DurationReturn,
     string FlyTo,

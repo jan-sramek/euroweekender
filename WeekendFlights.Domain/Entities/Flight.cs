@@ -121,9 +121,14 @@ public class Flight
     public int PnrCount { get; set; }
 
     /// <summary>
-    /// Number of technical stops during the journey.
+    /// Number of connection changes on the outbound journey (route segments − 1).
     /// </summary>
     public int TechnicalStops { get; set; }
+
+    /// <summary>
+    /// Number of connection changes on the return journey (route segments − 1).
+    /// </summary>
+    public int TechnicalStopsReturn { get; set; }
 
     /// <summary>
     /// Indicates if throwaway ticketing is available (one-way booking).

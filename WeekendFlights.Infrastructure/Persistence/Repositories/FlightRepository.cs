@@ -156,6 +156,7 @@ public class FlightRepository(
             NightsInDest = f.NightsInDest,
             Price = f.Price,
             TechnicalStops = f.TechnicalStops,
+            TechnicalStopsReturn = f.TechnicalStopsReturn,
             DurationDeparture = f.DurationDeparture,
             DurationReturn = f.DurationReturn,
             FlyTo = f.FlyTo,
@@ -362,6 +363,7 @@ public class FlightRepository(
         changed |= SetIfChanged(existing.Price, updated.Price, v => existing.Price = v);
         changed |= SetIfChanged(existing.Quality, updated.Quality, v => existing.Quality = v);
         changed |= SetIfChanged(existing.TechnicalStops, updated.TechnicalStops, v => existing.TechnicalStops = v);
+        changed |= SetIfChanged(existing.TechnicalStopsReturn, updated.TechnicalStopsReturn, v => existing.TechnicalStopsReturn = v);
         changed |= SetIfChanged(existing.ThrowAwayTicketing, updated.ThrowAwayTicketing, v => existing.ThrowAwayTicketing = v);
         changed |= SetIfChanged(existing.HiddenCityTicketing, updated.HiddenCityTicketing, v => existing.HiddenCityTicketing = v);
         changed |= SetIfChanged(existing.AvailabilitySeats, updated.AvailabilitySeats, v => existing.AvailabilitySeats = v);

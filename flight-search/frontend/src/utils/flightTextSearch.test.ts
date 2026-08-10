@@ -12,6 +12,7 @@ function flight(overrides: Partial<Flight>): Flight {
     nightsInDest: 2,
     price: 80,
     technicalStops: 0,
+    technicalStopsReturn: 0,
     durationDeparture: 120,
     durationReturn: 120,
     flyTo: 'BCN',

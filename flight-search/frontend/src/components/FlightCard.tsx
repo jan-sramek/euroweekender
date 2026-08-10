@@ -113,7 +113,7 @@ function getReturnLeg(flight: Flight): LegDisplay {
     arriveCode: flight.flyFrom,
     arriveCountry: flight.countryFrom ?? '',
     durationMinutes: Math.round(flight.durationReturn),
-    stops: flight.technicalStops,
+    stops: flight.technicalStopsReturn ?? 0,
     highlightDepart: true
   };
 }

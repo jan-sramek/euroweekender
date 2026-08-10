@@ -50,6 +50,7 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
         f.NightsInDest,
         f.Price,
         f.TechnicalStops,
+        f.TechnicalStopsReturn,
         f.DurationDeparture,
         f.DurationReturn,
         f.FlyTo,

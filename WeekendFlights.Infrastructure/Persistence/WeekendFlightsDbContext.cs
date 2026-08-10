@@ -218,6 +218,9 @@ public class WeekendFlightsDbContext : DbContext
         entity.Property(f => f.TechnicalStops)
             .HasDefaultValue(0);
 
+        entity.Property(f => f.TechnicalStopsReturn)
+            .HasDefaultValue(0);
+
         entity.Property(f => f.AvailabilitySeats)
             .HasDefaultValue(0);
 

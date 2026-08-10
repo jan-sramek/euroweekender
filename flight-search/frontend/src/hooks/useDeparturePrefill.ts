@@ -10,6 +10,36 @@ import {
 import type { City, CityWithDistance, HubScore } from '../types/city';
 import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
+const SELECTED_ORIGINS_KEY = 'ew.selectedOrigins';
+
+function readStoredOrigins(): string[] | null {
+  try {
+    const raw = sessionStorage.getItem(SELECTED_ORIGINS_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return null;
+    const codes = parsed
+      .filter((code): code is string => typeof code === 'string')
+      .map(code => code.trim().toUpperCase())
+      .filter(Boolean);
+    return codes.length > 0 ? codes : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredOrigins(codes: string[]): void {
+  try {
+    if (codes.length === 0) {
+      sessionStorage.removeItem(SELECTED_ORIGINS_KEY);
+      return;
+    }
+    sessionStorage.setItem(SELECTED_ORIGINS_KEY, JSON.stringify(codes));
+  } catch {
+    // Ignore quota or private-mode storage errors.
+  }
+}
+
 function updateNearbySuggestions(
   cities: City[],
   scores: HubScore[],
@@ -19,9 +49,9 @@ function updateNearbySuggestions(
   return rankNearbyCities(cities, anchor, scores);
 }
 
-function sameCodeList(a: string[], b: string[]): boolean {
-  if (a.length !== b.length) return false;
-  return a.every((code, index) => code.toUpperCase() === b[index]?.toUpperCase());
+function resolveStoredOrigins(cities: City[], stored: string[] | null): string[] {
+  if (!stored || stored.length === 0) return [];
+  return stored.filter(code => Boolean(findCityByCode(cities, code)));
 }
 
 export function useDeparturePrefill(options?: {
@@ -47,7 +77,6 @@ export function useDeparturePrefill(options?: {
 
   const hubScoresRef = useRef<HubScore[]>([]);
   const defaultsInitializedRef = useRef(false);
-  const provisionalDefaultsRef = useRef<string[] | null>(null);
 
   const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
     const anchorCity = findCityByCode(cities, primaryCode);
@@ -58,6 +87,18 @@ export function useDeparturePrefill(options?: {
 
     setNearbyCities(updateNearbySuggestions(cities, scores, anchorCity));
   }, []);
+
+  const applyDefaults = useCallback(
+    (cities: City[], codes: string[], scores: HubScore[]) => {
+      const next = codes.length > 0 ? codes : selectFallbackCityCodes(cities);
+      setSelectedCodes(next);
+      defaultsInitializedRef.current = true;
+      setLocating(false);
+      refreshHubSuggestions(cities, scores, next[0] ?? '');
+      writeStoredOrigins(next);
+    },
+    [refreshHubSuggestions]
+  );
 
   const primaryCode = selectedCodes[0] ?? '';
   const codesToLocalize = [
@@ -71,6 +112,11 @@ export function useDeparturePrefill(options?: {
     if (allCities.length === 0 || !primaryCode) return;
     refreshHubSuggestions(allCities, hubScoresRef.current, primaryCode);
   }, [allCities, primaryCode, refreshHubSuggestions]);
+
+  useEffect(() => {
+    if (!defaultsInitializedRef.current || preferredKey) return;
+    writeStoredOrigins(selectedCodes);
+  }, [selectedCodes, preferredKey]);
 
   useEffect(() => {
     let cancelled = false;
@@ -109,16 +155,30 @@ export function useDeparturePrefill(options?: {
           return;
         }
 
+        // Restore last origins from this tab session so F5 does not flash Prague → nearby.
+        const stored = resolveStoredOrigins(cities, readStoredOrigins());
+        if (stored.length > 0) {
+          setSelectedCodes(stored);
+          defaultsInitializedRef.current = true;
+          setLocating(false);
+
+          const cachedScores = getCachedHubScores() ?? [];
+          hubScoresRef.current = cachedScores;
+          refreshHubSuggestions(cities, cachedScores, stored[0] ?? '');
+
+          void scoresPromise.then(result => {
+            if (cancelled || result.error) return;
+            hubScoresRef.current = result.scores;
+            refreshHubSuggestions(cities, result.scores, stored[0] ?? '');
+          });
+          return;
+        }
+
         const cachedScores = getCachedHubScores();
         if (cachedScores && cachedScores.length > 0) {
           hubScoresRef.current = cachedScores;
           const defaults = selectDefaultCityCodes(cities, cachedScores);
-          if (defaults.length > 0) {
-            setSelectedCodes(defaults);
-          }
-          defaultsInitializedRef.current = true;
-          setLocating(false);
-          refreshHubSuggestions(cities, cachedScores, defaults[0] ?? '');
+          applyDefaults(cities, defaults, cachedScores);
 
           void scoresPromise.then(result => {
             if (cancelled || result.error) return;
@@ -128,46 +188,26 @@ export function useDeparturePrefill(options?: {
           return;
         }
 
-        // Unlock immediately with static fallbacks, then refine once scores arrive.
-        const provisional = selectFallbackCityCodes(cities);
-        provisionalDefaultsRef.current = provisional;
-        if (provisional.length > 0) {
-          setSelectedCodes(provisional);
-        }
-        defaultsInitializedRef.current = true;
-        setLocating(false);
-        refreshHubSuggestions(cities, [], provisional[0] ?? '');
-
+        // Keep locating=true until scores arrive so flights do not search provisional Prague first.
         const result = await scoresPromise;
         if (cancelled) return;
         if (result.error) {
           setErrorMessage(i18n.t('home.hubRankingWarning'));
+          applyDefaults(cities, selectFallbackCityCodes(cities), []);
           return;
         }
 
         hubScoresRef.current = result.scores;
-        const refined = selectDefaultCityCodes(cities, result.scores);
-        let anchorCode = provisional[0] ?? '';
-        setSelectedCodes(current => {
-          if (
-            provisionalDefaultsRef.current &&
-            sameCodeList(current, provisionalDefaultsRef.current)
-          ) {
-            provisionalDefaultsRef.current = null;
-            anchorCode = refined[0] ?? anchorCode;
-            return refined;
-          }
-          provisionalDefaultsRef.current = null;
-          anchorCode = current[0] ?? anchorCode;
-          return current;
-        });
-        refreshHubSuggestions(cities, result.scores, anchorCode);
+        applyDefaults(cities, selectDefaultCityCodes(cities, result.scores), result.scores);
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));
+          setLocating(false);
         }
       } finally {
-        if (!cancelled) setLocating(false);
+        if (!cancelled && !defaultsInitializedRef.current) {
+          setLocating(false);
+        }
       }
     }
 
@@ -175,7 +215,7 @@ export function useDeparturePrefill(options?: {
     return () => {
       cancelled = true;
     };
-  }, [preferredKey, refreshHubSuggestions]);
+  }, [preferredKey, refreshHubSuggestions, applyDefaults]);
 
   return {
     allCities,

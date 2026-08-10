@@ -25,8 +25,8 @@ export function AppHeader() {
             <LocalizedNavLink to="/about">{t('nav.about')}</LocalizedNavLink>
             <LocalizedNavLink to="/faq">{t('nav.faq')}</LocalizedNavLink>
             <LocalizedNavLink to="/contact">{t('nav.contact')}</LocalizedNavLink>
-            <LanguageSwitcher />
           </div>
+          <LanguageSwitcher />
         </div>
       </nav>
     </header>

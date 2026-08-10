@@ -15,14 +15,15 @@
 .navbar-inner {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
+  min-width: 0;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  margin-right: auto;
+  flex-shrink: 0;
 }
 
 .brand:hover .site-brand-weekend {
@@ -32,8 +33,11 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: flex-end;
+  gap: 0.85rem 1.1rem;
+  flex: 1;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .nav-links a {
@@ -41,6 +45,7 @@
   font-weight: 700;
   text-transform: lowercase;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -48,12 +53,31 @@
   color: #04bfab;
 }
 
+.navbar-inner > .language-switcher {
+  flex-shrink: 0;
+  margin-left: 0.15rem;
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 0.65rem 0.85rem;
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+  }
+}
+
 @media (max-width: 767px) {
   .nav-links a:not(:first-child) {
     display: none;
   }
 
-  .nav-links .language-switcher {
+  .nav-links {
+    justify-content: flex-start;
+  }
+
+  .navbar-inner > .language-switcher {
     margin-left: auto;
   }
 }

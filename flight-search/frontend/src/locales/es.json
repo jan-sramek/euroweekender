@@ -56,10 +56,10 @@
   "nav": {
     "home": "Inicio",
     "howItWorks": "Cómo funciona",
-    "about": "Sobre nosotros",
-    "faq": "Preguntas frecuentes",
+    "about": "Nosotros",
+    "faq": "FAQ",
     "contact": "Contacto",
-    "cheapestWeekend": "Mejor precio de fin de semana",
+    "cheapestWeekend": "Mejor fin de semana",
     "singleDayTrips": "Excursiones de un día"
   },
   "footer": {

@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
   findCityByCode,
   rankCitiesByDistance,
-  rankNearbyCities,
   selectDefaultCityCodes,
   selectFallbackCityCodes
 } from '../services/locationPrefill';

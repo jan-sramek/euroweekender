@@ -17,7 +17,7 @@ export function LocaleLayout() {
   }, [lang, i18n]);
 
   if (!isLocaleCode(lang)) {
-    return <Navigate to={`/${DEFAULT_LOCALE}`} replace />;
+    return <Navigate to={`/${DEFAULT_LOCALE}/`} replace />;
   }
 
   return <Outlet />;

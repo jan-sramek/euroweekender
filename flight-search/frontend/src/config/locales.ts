@@ -57,6 +57,7 @@ export function detectBrowserLocale(): LocaleCode {
 
 export function localizedPath(locale: LocaleCode, path = '/'): string {
   const normalized = path.startsWith('/') ? path : `/${path}`;
-  if (normalized === '/') return `/${locale}`;
+  // Trailing slash matches nginx's locale-home redirect (`/en` → `/en/`).
+  if (normalized === '/') return `/${locale}/`;
   return `/${locale}${normalized}`;
 }

@@ -219,6 +219,7 @@
   "weekendFlightsOd": {
     "title": "Cheapest weekend flights {{from}} → {{to}}",
     "seoBlock": "Compare weekend flight prices from {{from}} to {{to}} on a monthly calendar. Spot the cheapest Fri–Sun fare, open a weekend for flight details, and book securely through Kiwi.com.",
+    "priceHint": "Weekend fares from {{from}} to {{to}} often start around €{{minPrice}}.",
     "seeAlsoFromCity": "Weekend flights from {{city}}"
   },
   "search": {

@@ -478,6 +478,7 @@
   "weekendFlightsOd": {
     "title": "Günstigste Wochenendflüge {{from}} → {{to}}",
     "seoBlock": "Vergleichen Sie Wochenend-Flugpreise von {{from}} nach {{to}} in einem monatlichen Kalender. Finden Sie den günstigsten Fr–So-Tarif, öffnen Sie ein Wochenende für Flugdetails und buchen Sie sicher über Kiwi.com.",
+    "priceHint": "Wochenendtarife von {{from}} nach {{to}} starten oft ab ca. €{{minPrice}}.",
     "seeAlsoFromCity": "Wochenendflüge ab {{city}}"
   }
 }

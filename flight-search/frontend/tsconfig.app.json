@@ -19,5 +19,5 @@
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "public/seo-hub-cities.json"]
+  "include": ["src", "public/seo-hub-cities.json", "public/seo-popular-destinations.json"]
 }

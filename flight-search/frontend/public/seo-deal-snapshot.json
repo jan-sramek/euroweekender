@@ -1,0 +1,8987 @@
+{
+  "fetchedAt": "2026-08-10T19:33:50.178Z",
+  "weeks": 4,
+  "apiBase": "https://euroweekender.com/api",
+  "hubs": {
+    "OSL": {
+      "code": "OSL",
+      "offerCount": 8079,
+      "minPrice": 37,
+      "destinationCount": 39,
+      "hubScore": 9.12401516157088
+    },
+    "PMI": {
+      "code": "PMI",
+      "offerCount": 4818,
+      "minPrice": 44,
+      "destinationCount": 43,
+      "hubScore": 8.430257638716618
+    },
+    "WAW": {
+      "code": "WAW",
+      "offerCount": 2883,
+      "minPrice": 43,
+      "destinationCount": 46,
+      "hubScore": 8.105796186040045
+    },
+    "BUD": {
+      "code": "BUD",
+      "offerCount": 2397,
+      "minPrice": 44,
+      "destinationCount": 50,
+      "hubScore": 8.038275493968229
+    },
+    "BER": {
+      "code": "BER",
+      "offerCount": 3937,
+      "minPrice": 46,
+      "destinationCount": 41,
+      "hubScore": 8.03658274758189
+    },
+    "GDN": {
+      "code": "GDN",
+      "offerCount": 1993,
+      "minPrice": 28,
+      "destinationCount": 32,
+      "hubScore": 7.8894486782757065
+    },
+    "CPH": {
+      "code": "CPH",
+      "offerCount": 4357,
+      "minPrice": 48,
+      "destinationCount": 38,
+      "hubScore": 7.8882877895855605
+    },
+    "SKP": {
+      "code": "SKP",
+      "offerCount": 1503,
+      "minPrice": 37,
+      "destinationCount": 49,
+      "hubScore": 7.8678286418450964
+    },
+    "MIL": {
+      "code": "MIL",
+      "offerCount": 4401,
+      "minPrice": 42,
+      "destinationCount": 31,
+      "hubScore": 7.730745403471386
+    },
+    "LJU": {
+      "code": "LJU",
+      "offerCount": 3159,
+      "minPrice": 61,
+      "destinationCount": 51,
+      "hubScore": 7.714896628463754
+    },
+    "GOT": {
+      "code": "GOT",
+      "offerCount": 2187,
+      "minPrice": 31,
+      "destinationCount": 30,
+      "hubScore": 7.620290280990444
+    },
+    "KRK": {
+      "code": "KRK",
+      "offerCount": 2626,
+      "minPrice": 52,
+      "destinationCount": 44,
+      "hubScore": 7.549099667767029
+    },
+    "BRI": {
+      "code": "BRI",
+      "offerCount": 2299,
+      "minPrice": 63,
+      "destinationCount": 55,
+      "hubScore": 7.492130919078363
+    },
+    "CTA": {
+      "code": "CTA",
+      "offerCount": 2375,
+      "minPrice": 47,
+      "destinationCount": 39,
+      "hubScore": 7.407081317243821
+    },
+    "TIA": {
+      "code": "TIA",
+      "offerCount": 1801,
+      "minPrice": 48,
+      "destinationCount": 45,
+      "hubScore": 7.374953533644922
+    },
+    "PMO": {
+      "code": "PMO",
+      "offerCount": 1659,
+      "minPrice": 35,
+      "destinationCount": 34,
+      "hubScore": 7.356285197097098
+    },
+    "HAM": {
+      "code": "HAM",
+      "offerCount": 3469,
+      "minPrice": 70,
+      "destinationCount": 45,
+      "hubScore": 7.321858666443604
+    },
+    "PRG": {
+      "code": "PRG",
+      "offerCount": 2859,
+      "minPrice": 59,
+      "destinationCount": 41,
+      "hubScore": 7.26527302382503
+    },
+    "SZZ": {
+      "code": "SZZ",
+      "offerCount": 1865,
+      "minPrice": 41,
+      "destinationCount": 35,
+      "hubScore": 7.220932653524075
+    },
+    "MAD": {
+      "code": "MAD",
+      "offerCount": 4350,
+      "minPrice": 49,
+      "destinationCount": 28,
+      "hubScore": 7.2115492421505145
+    },
+    "TRN": {
+      "code": "TRN",
+      "offerCount": 2547,
+      "minPrice": 65,
+      "destinationCount": 46,
+      "hubScore": 7.207504191459916
+    },
+    "TRD": {
+      "code": "TRD",
+      "offerCount": 5014,
+      "minPrice": 55,
+      "destinationCount": 29,
+      "hubScore": 7.199083639263846
+    },
+    "BCN": {
+      "code": "BCN",
+      "offerCount": 5043,
+      "minPrice": 38,
+      "destinationCount": 21,
+      "hubScore": 7.193570211092408
+    },
+    "NAP": {
+      "code": "NAP",
+      "offerCount": 1917,
+      "minPrice": 46,
+      "destinationCount": 37,
+      "hubScore": 7.141713976531807
+    },
+    "BEG": {
+      "code": "BEG",
+      "offerCount": 2208,
+      "minPrice": 53,
+      "destinationCount": 39,
+      "hubScore": 7.1209762773993255
+    },
+    "BRU": {
+      "code": "BRU",
+      "offerCount": 3359,
+      "minPrice": 68,
+      "destinationCount": 39,
+      "hubScore": 7.0741207498343135
+    },
+    "SUF": {
+      "code": "SUF",
+      "offerCount": 1589,
+      "minPrice": 46,
+      "destinationCount": 39,
+      "hubScore": 7.062725438177773
+    },
+    "LYS": {
+      "code": "LYS",
+      "offerCount": 1901,
+      "minPrice": 64,
+      "destinationCount": 48,
+      "hubScore": 7.0395521043281715
+    },
+    "VCE": {
+      "code": "VCE",
+      "offerCount": 2305,
+      "minPrice": 57,
+      "destinationCount": 39,
+      "hubScore": 7.034697552178471
+    },
+    "BGO": {
+      "code": "BGO",
+      "offerCount": 3204,
+      "minPrice": 40,
+      "destinationCount": 24,
+      "hubScore": 6.997109412586084
+    },
+    "BLL": {
+      "code": "BLL",
+      "offerCount": 2303,
+      "minPrice": 68,
+      "destinationCount": 44,
+      "hubScore": 6.960786490648613
+    },
+    "CFU": {
+      "code": "CFU",
+      "offerCount": 1872,
+      "minPrice": 52,
+      "destinationCount": 38,
+      "hubScore": 6.953147172139022
+    },
+    "NTE": {
+      "code": "NTE",
+      "offerCount": 2013,
+      "minPrice": 61,
+      "destinationCount": 42,
+      "hubScore": 6.933322063145032
+    },
+    "DBV": {
+      "code": "DBV",
+      "offerCount": 2080,
+      "minPrice": 64,
+      "destinationCount": 42,
+      "hubScore": 6.884325324353263
+    },
+    "TRS": {
+      "code": "TRS",
+      "offerCount": 3141,
+      "minPrice": 76,
+      "destinationCount": 40,
+      "hubScore": 6.884278311509032
+    },
+    "NCE": {
+      "code": "NCE",
+      "offerCount": 2218,
+      "minPrice": 56,
+      "destinationCount": 36,
+      "hubScore": 6.881298688298157
+    },
+    "KTW": {
+      "code": "KTW",
+      "offerCount": 1536,
+      "minPrice": 46,
+      "destinationCount": 35,
+      "hubScore": 6.829448468384754
+    },
+    "OLB": {
+      "code": "OLB",
+      "offerCount": 2364,
+      "minPrice": 64,
+      "destinationCount": 38,
+      "hubScore": 6.817886987439259
+    },
+    "VNO": {
+      "code": "VNO",
+      "offerCount": 2092,
+      "minPrice": 38,
+      "destinationCount": 25,
+      "hubScore": 6.800092641516691
+    },
+    "SOF": {
+      "code": "SOF",
+      "offerCount": 1539,
+      "minPrice": 47,
+      "destinationCount": 35,
+      "hubScore": 6.794111764513515
+    },
+    "BOD": {
+      "code": "BOD",
+      "offerCount": 1533,
+      "minPrice": 49,
+      "destinationCount": 36,
+      "hubScore": 6.771016455984166
+    },
+    "LUX": {
+      "code": "LUX",
+      "offerCount": 3255,
+      "minPrice": 87,
+      "destinationCount": 41,
+      "hubScore": 6.752054895835555
+    },
+    "NUE": {
+      "code": "NUE",
+      "offerCount": 2196,
+      "minPrice": 90,
+      "destinationCount": 51,
+      "hubScore": 6.740227681115549
+    },
+    "LON": {
+      "code": "LON",
+      "offerCount": 4599,
+      "minPrice": 62,
+      "destinationCount": 26,
+      "hubScore": 6.7090425414845205
+    },
+    "GOA": {
+      "code": "GOA",
+      "offerCount": 2358,
+      "minPrice": 81,
+      "destinationCount": 44,
+      "hubScore": 6.708508732329584
+    },
+    "MRS": {
+      "code": "MRS",
+      "offerCount": 2613,
+      "minPrice": 64,
+      "destinationCount": 34,
+      "hubScore": 6.701760311041093
+    },
+    "BLQ": {
+      "code": "BLQ",
+      "offerCount": 2471,
+      "minPrice": 56,
+      "destinationCount": 31,
+      "hubScore": 6.697179956766557
+    },
+    "LIS": {
+      "code": "LIS",
+      "offerCount": 4008,
+      "minPrice": 75,
+      "destinationCount": 31,
+      "hubScore": 6.639239247567671
+    },
+    "VIE": {
+      "code": "VIE",
+      "offerCount": 3383,
+      "minPrice": 91,
+      "destinationCount": 39,
+      "hubScore": 6.629862420803905
+    },
+    "CAG": {
+      "code": "CAG",
+      "offerCount": 2901,
+      "minPrice": 71,
+      "destinationCount": 34,
+      "hubScore": 6.628374047766753
+    },
+    "CLJ": {
+      "code": "CLJ",
+      "offerCount": 1410,
+      "minPrice": 50,
+      "destinationCount": 35,
+      "hubScore": 6.609619832292328
+    },
+    "ATH": {
+      "code": "ATH",
+      "offerCount": 3428,
+      "minPrice": 63,
+      "destinationCount": 28,
+      "hubScore": 6.590680276824682
+    },
+    "SPU": {
+      "code": "SPU",
+      "offerCount": 2089,
+      "minPrice": 94,
+      "destinationCount": 49,
+      "hubScore": 6.567393248439428
+    },
+    "VRN": {
+      "code": "VRN",
+      "offerCount": 1824,
+      "minPrice": 71,
+      "destinationCount": 41,
+      "hubScore": 6.562919221702446
+    },
+    "ALC": {
+      "code": "ALC",
+      "offerCount": 2405,
+      "minPrice": 46,
+      "destinationCount": 24,
+      "hubScore": 6.509170911238678
+    },
+    "KSC": {
+      "code": "KSC",
+      "offerCount": 1076,
+      "minPrice": 50,
+      "destinationCount": 38,
+      "hubScore": 6.5055652229647425
+    },
+    "MAN": {
+      "code": "MAN",
+      "offerCount": 2650,
+      "minPrice": 71,
+      "destinationCount": 33,
+      "hubScore": 6.499739247905675
+    },
+    "NCL": {
+      "code": "NCL",
+      "offerCount": 1453,
+      "minPrice": 61,
+      "destinationCount": 38,
+      "hubScore": 6.464128198672831
+    },
+    "MLA": {
+      "code": "MLA",
+      "offerCount": 1960,
+      "minPrice": 74,
+      "destinationCount": 38,
+      "hubScore": 6.432960281566403
+    },
+    "STR": {
+      "code": "STR",
+      "offerCount": 2207,
+      "minPrice": 106,
+      "destinationCount": 47,
+      "hubScore": 6.378927790274845
+    },
+    "DUS": {
+      "code": "DUS",
+      "offerCount": 3160,
+      "minPrice": 89,
+      "destinationCount": 34,
+      "hubScore": 6.367221149235136
+    },
+    "LBA": {
+      "code": "LBA",
+      "offerCount": 1712,
+      "minPrice": 67,
+      "destinationCount": 35,
+      "hubScore": 6.323696802895969
+    },
+    "TGD": {
+      "code": "TGD",
+      "offerCount": 1230,
+      "minPrice": 59,
+      "destinationCount": 37,
+      "hubScore": 6.321779387946135
+    },
+    "MUC": {
+      "code": "MUC",
+      "offerCount": 4929,
+      "minPrice": 114,
+      "destinationCount": 33,
+      "hubScore": 6.319368781089723
+    },
+    "EDI": {
+      "code": "EDI",
+      "offerCount": 2620,
+      "minPrice": 57,
+      "destinationCount": 25,
+      "hubScore": 6.3159344225807885
+    },
+    "HAJ": {
+      "code": "HAJ",
+      "offerCount": 3121,
+      "minPrice": 106,
+      "destinationCount": 38,
+      "hubScore": 6.308353542349784
+    },
+    "BRS": {
+      "code": "BRS",
+      "offerCount": 1697,
+      "minPrice": 72,
+      "destinationCount": 37,
+      "hubScore": 6.305496956269745
+    },
+    "DUB": {
+      "code": "DUB",
+      "offerCount": 4118,
+      "minPrice": 66,
+      "destinationCount": 23,
+      "hubScore": 6.2910910787149925
+    },
+    "ZAD": {
+      "code": "ZAD",
+      "offerCount": 1137,
+      "minPrice": 56,
+      "destinationCount": 36,
+      "hubScore": 6.284889154831902
+    },
+    "GLA": {
+      "code": "GLA",
+      "offerCount": 1820,
+      "minPrice": 60,
+      "destinationCount": 30,
+      "hubScore": 6.271033182195096
+    },
+    "SVQ": {
+      "code": "SVQ",
+      "offerCount": 2049,
+      "minPrice": 52,
+      "destinationCount": 25,
+      "hubScore": 6.25770735397647
+    },
+    "FAO": {
+      "code": "FAO",
+      "offerCount": 1959,
+      "minPrice": 74,
+      "destinationCount": 34,
+      "hubScore": 6.242524694927156
+    },
+    "ZAG": {
+      "code": "ZAG",
+      "offerCount": 2517,
+      "minPrice": 97,
+      "destinationCount": 37,
+      "hubScore": 6.213073134964504
+    },
+    "EAP": {
+      "code": "EAP",
+      "offerCount": 1740,
+      "minPrice": 52,
+      "destinationCount": 26,
+      "hubScore": 6.194567965289084
+    },
+    "GVA": {
+      "code": "GVA",
+      "offerCount": 2006,
+      "minPrice": 78,
+      "destinationCount": 34,
+      "hubScore": 6.187572601930781
+    },
+    "MAH": {
+      "code": "MAH",
+      "offerCount": 2582,
+      "minPrice": 36,
+      "destinationCount": 16,
+      "hubScore": 6.164561772116214
+    },
+    "BTS": {
+      "code": "BTS",
+      "offerCount": 369,
+      "minPrice": 27,
+      "destinationCount": 31,
+      "hubScore": 6.150474742883371
+    },
+    "CGN": {
+      "code": "CGN",
+      "offerCount": 2074,
+      "minPrice": 97,
+      "destinationCount": 39,
+      "hubScore": 6.14499783387229
+    },
+    "AGP": {
+      "code": "AGP",
+      "offerCount": 2806,
+      "minPrice": 55,
+      "destinationCount": 21,
+      "hubScore": 6.09697785493754
+    },
+    "BUH": {
+      "code": "BUH",
+      "offerCount": 1758,
+      "minPrice": 46,
+      "destinationCount": 22,
+      "hubScore": 6.085476529067186
+    },
+    "BIO": {
+      "code": "BIO",
+      "offerCount": 2626,
+      "minPrice": 57,
+      "destinationCount": 22,
+      "hubScore": 6.080031234027664
+    },
+    "WRO": {
+      "code": "WRO",
+      "offerCount": 2011,
+      "minPrice": 55,
+      "destinationCount": 23,
+      "hubScore": 6.005708414770086
+    },
+    "ROM": {
+      "code": "ROM",
+      "offerCount": 2079,
+      "minPrice": 51,
+      "destinationCount": 21,
+      "hubScore": 5.976838372340793
+    },
+    "BDS": {
+      "code": "BDS",
+      "offerCount": 2095,
+      "minPrice": 105,
+      "destinationCount": 37,
+      "hubScore": 5.965443122559198
+    },
+    "AMS": {
+      "code": "AMS",
+      "offerCount": 3495,
+      "minPrice": 109,
+      "destinationCount": 30,
+      "hubScore": 5.960920217132454
+    },
+    "TSR": {
+      "code": "TSR",
+      "offerCount": 1356,
+      "minPrice": 59,
+      "destinationCount": 28,
+      "hubScore": 5.932185496508496
+    },
+    "PLQ": {
+      "code": "PLQ",
+      "offerCount": 1200,
+      "minPrice": 62,
+      "destinationCount": 31,
+      "hubScore": 5.931552405804007
+    },
+    "KIV": {
+      "code": "KIV",
+      "offerCount": 1594,
+      "minPrice": 71,
+      "destinationCount": 30,
+      "hubScore": 5.9215241431831025
+    },
+    "ACE": {
+      "code": "ACE",
+      "offerCount": 4565,
+      "minPrice": 52,
+      "destinationCount": 15,
+      "hubScore": 5.884434250742278
+    },
+    "FRA": {
+      "code": "FRA",
+      "offerCount": 4368,
+      "minPrice": 97,
+      "destinationCount": 23,
+      "hubScore": 5.810153976160456
+    },
+    "BZG": {
+      "code": "BZG",
+      "offerCount": 592,
+      "minPrice": 52,
+      "destinationCount": 36,
+      "hubScore": 5.807233657645203
+    },
+    "EIN": {
+      "code": "EIN",
+      "offerCount": 1261,
+      "minPrice": 107,
+      "destinationCount": 44,
+      "hubScore": 5.805325276163681
+    },
+    "LPA": {
+      "code": "LPA",
+      "offerCount": 6080,
+      "minPrice": 41,
+      "destinationCount": 11,
+      "hubScore": 5.792594337932433
+    },
+    "VLC": {
+      "code": "VLC",
+      "offerCount": 2105,
+      "minPrice": 48,
+      "destinationCount": 18,
+      "hubScore": 5.7896953357171
+    },
+    "HEL": {
+      "code": "HEL",
+      "offerCount": 2818,
+      "minPrice": 70,
+      "destinationCount": 21,
+      "hubScore": 5.7606170176196745
+    },
+    "MPL": {
+      "code": "MPL",
+      "offerCount": 1283,
+      "minPrice": 75,
+      "destinationCount": 31,
+      "hubScore": 5.728087808996422
+    },
+    "IBZ": {
+      "code": "IBZ",
+      "offerCount": 3067,
+      "minPrice": 32,
+      "destinationCount": 16,
+      "hubScore": 5.719972742350906
+    },
+    "TLS": {
+      "code": "TLS",
+      "offerCount": 1712,
+      "minPrice": 64,
+      "destinationCount": 23,
+      "hubScore": 5.6688064744690365
+    },
+    "BFS": {
+      "code": "BFS",
+      "offerCount": 2118,
+      "minPrice": 57,
+      "destinationCount": 19,
+      "hubScore": 5.650470498062848
+    },
+    "ZRH": {
+      "code": "ZRH",
+      "offerCount": 2212,
+      "minPrice": 93,
+      "destinationCount": 27,
+      "hubScore": 5.6489812019053955
+    },
+    "HAU": {
+      "code": "HAU",
+      "offerCount": 1577,
+      "minPrice": 37,
+      "destinationCount": 15,
+      "hubScore": 5.612816474725861
+    },
+    "VAR": {
+      "code": "VAR",
+      "offerCount": 929,
+      "minPrice": 81,
+      "destinationCount": 36,
+      "hubScore": 5.600831156573328
+    },
+    "STO": {
+      "code": "STO",
+      "offerCount": 2908,
+      "minPrice": 93,
+      "destinationCount": 23,
+      "hubScore": 5.578941060798649
+    },
+    "BOO": {
+      "code": "BOO",
+      "offerCount": 2230,
+      "minPrice": 42,
+      "destinationCount": 14,
+      "hubScore": 5.551319282428592
+    },
+    "PRN": {
+      "code": "PRN",
+      "offerCount": 1679,
+      "minPrice": 71,
+      "destinationCount": 23,
+      "hubScore": 5.518778429032334
+    },
+    "DTM": {
+      "code": "DTM",
+      "offerCount": 854,
+      "minPrice": 58,
+      "destinationCount": 27,
+      "hubScore": 5.51706785600806
+    },
+    "PAR": {
+      "code": "PAR",
+      "offerCount": 3345,
+      "minPrice": 70,
+      "destinationCount": 17,
+      "hubScore": 5.502846339219016
+    },
+    "SDR": {
+      "code": "SDR",
+      "offerCount": 1419,
+      "minPrice": 58,
+      "destinationCount": 21,
+      "hubScore": 5.502355382412202
+    },
+    "KRS": {
+      "code": "KRS",
+      "offerCount": 2010,
+      "minPrice": 128,
+      "destinationCount": 32,
+      "hubScore": 5.472596226124632
+    },
+    "DRS": {
+      "code": "DRS",
+      "offerCount": 1583,
+      "minPrice": 143,
+      "destinationCount": 38,
+      "hubScore": 5.431200916121775
+    },
+    "PSA": {
+      "code": "PSA",
+      "offerCount": 991,
+      "minPrice": 80,
+      "destinationCount": 30,
+      "hubScore": 5.391702129427153
+    },
+    "XRY": {
+      "code": "XRY",
+      "offerCount": 1292,
+      "minPrice": 50,
+      "destinationCount": 18,
+      "hubScore": 5.365467324517827
+    },
+    "BHX": {
+      "code": "BHX",
+      "offerCount": 2461,
+      "minPrice": 67,
+      "destinationCount": 17,
+      "hubScore": 5.348996193461889
+    },
+    "RZE": {
+      "code": "RZE",
+      "offerCount": 2307,
+      "minPrice": 65,
+      "destinationCount": 17,
+      "hubScore": 5.342548533476273
+    },
+    "AAL": {
+      "code": "AAL",
+      "offerCount": 3342,
+      "minPrice": 125,
+      "destinationCount": 23,
+      "hubScore": 5.332342493724914
+    },
+    "ZTH": {
+      "code": "ZTH",
+      "offerCount": 1189,
+      "minPrice": 104,
+      "destinationCount": 32,
+      "hubScore": 5.3204681081097185
+    },
+    "BRE": {
+      "code": "BRE",
+      "offerCount": 1089,
+      "minPrice": 99,
+      "destinationCount": 32,
+      "hubScore": 5.31019235872402
+    },
+    "OMR": {
+      "code": "OMR",
+      "offerCount": 490,
+      "minPrice": 52,
+      "destinationCount": 29,
+      "hubScore": 5.3082569246690445
+    },
+    "LPL": {
+      "code": "LPL",
+      "offerCount": 1287,
+      "minPrice": 64,
+      "destinationCount": 21,
+      "hubScore": 5.302449741326911
+    },
+    "KGS": {
+      "code": "KGS",
+      "offerCount": 1667,
+      "minPrice": 117,
+      "destinationCount": 29,
+      "hubScore": 5.289550619792748
+    },
+    "OVD": {
+      "code": "OVD",
+      "offerCount": 1758,
+      "minPrice": 68,
+      "destinationCount": 19,
+      "hubScore": 5.28697415165654
+    },
+    "POZ": {
+      "code": "POZ",
+      "offerCount": 2221,
+      "minPrice": 73,
+      "destinationCount": 18,
+      "hubScore": 5.271836307748032
+    },
+    "ABZ": {
+      "code": "ABZ",
+      "offerCount": 1946,
+      "minPrice": 101,
+      "destinationCount": 24,
+      "hubScore": 5.271362956822168
+    },
+    "FMO": {
+      "code": "FMO",
+      "offerCount": 1360,
+      "minPrice": 134,
+      "destinationCount": 34,
+      "hubScore": 5.230145893193
+    },
+    "SVG": {
+      "code": "SVG",
+      "offerCount": 2867,
+      "minPrice": 49,
+      "destinationCount": 12,
+      "hubScore": 5.219936425496298
+    },
+    "LCA": {
+      "code": "LCA",
+      "offerCount": 2525,
+      "minPrice": 70,
+      "destinationCount": 16,
+      "hubScore": 5.20717141691239
+    },
+    "AHO": {
+      "code": "AHO",
+      "offerCount": 1107,
+      "minPrice": 68,
+      "destinationCount": 22,
+      "hubScore": 5.1913649994243745
+    },
+    "RHO": {
+      "code": "RHO",
+      "offerCount": 1767,
+      "minPrice": 70,
+      "destinationCount": 18,
+      "hubScore": 5.16514259563244
+    },
+    "FLR": {
+      "code": "FLR",
+      "offerCount": 2647,
+      "minPrice": 97,
+      "destinationCount": 19,
+      "hubScore": 5.149664314810576
+    },
+    "SCQ": {
+      "code": "SCQ",
+      "offerCount": 2291,
+      "minPrice": 90,
+      "destinationCount": 19,
+      "hubScore": 5.138382171287338
+    },
+    "LUZ": {
+      "code": "LUZ",
+      "offerCount": 625,
+      "minPrice": 53,
+      "destinationCount": 23,
+      "hubScore": 5.130279257309481
+    },
+    "GRX": {
+      "code": "GRX",
+      "offerCount": 2151,
+      "minPrice": 52,
+      "destinationCount": 13,
+      "hubScore": 5.101017747931112
+    },
+    "EFL": {
+      "code": "EFL",
+      "offerCount": 932,
+      "minPrice": 91,
+      "destinationCount": 28,
+      "hubScore": 5.092439180692225
+    },
+    "TOS": {
+      "code": "TOS",
+      "offerCount": 2314,
+      "minPrice": 88,
+      "destinationCount": 18,
+      "hubScore": 5.081956439883411
+    },
+    "VGO": {
+      "code": "VGO",
+      "offerCount": 1693,
+      "minPrice": 87,
+      "destinationCount": 20,
+      "hubScore": 5.05558596886154
+    },
+    "AES": {
+      "code": "AES",
+      "offerCount": 1708,
+      "minPrice": 101,
+      "destinationCount": 22,
+      "hubScore": 5.046421971755763
+    },
+    "PUY": {
+      "code": "PUY",
+      "offerCount": 984,
+      "minPrice": 95,
+      "destinationCount": 27,
+      "hubScore": 5.031976220979087
+    },
+    "TKU": {
+      "code": "TKU",
+      "offerCount": 1092,
+      "minPrice": 74,
+      "destinationCount": 21,
+      "hubScore": 5.009171755395046
+    },
+    "SJJ": {
+      "code": "SJJ",
+      "offerCount": 1561,
+      "minPrice": 102,
+      "destinationCount": 22,
+      "hubScore": 4.974951910041357
+    },
+    "IEG": {
+      "code": "IEG",
+      "offerCount": 475,
+      "minPrice": 36,
+      "destinationCount": 17,
+      "hubScore": 4.935130089526095
+    },
+    "LEJ": {
+      "code": "LEJ",
+      "offerCount": 1023,
+      "minPrice": 109,
+      "destinationCount": 27,
+      "hubScore": 4.913770469260753
+    },
+    "CHQ": {
+      "code": "CHQ",
+      "offerCount": 1749,
+      "minPrice": 87,
+      "destinationCount": 17,
+      "hubScore": 4.820606385419951
+    },
+    "GRZ": {
+      "code": "GRZ",
+      "offerCount": 2668,
+      "minPrice": 171,
+      "destinationCount": 22,
+      "hubScore": 4.805707639162113
+    },
+    "SZG": {
+      "code": "SZG",
+      "offerCount": 1279,
+      "minPrice": 135,
+      "destinationCount": 26,
+      "hubScore": 4.7999392596990385
+    },
+    "LCG": {
+      "code": "LCG",
+      "offerCount": 1877,
+      "minPrice": 71,
+      "destinationCount": 14,
+      "hubScore": 4.773152901957837
+    },
+    "TLL": {
+      "code": "TLL",
+      "offerCount": 1513,
+      "minPrice": 39,
+      "destinationCount": 10,
+      "hubScore": 4.759877185771756
+    },
+    "ORK": {
+      "code": "ORK",
+      "offerCount": 1331,
+      "minPrice": 125,
+      "destinationCount": 23,
+      "hubScore": 4.727662289282929
+    },
+    "OPO": {
+      "code": "OPO",
+      "offerCount": 2273,
+      "minPrice": 80,
+      "destinationCount": 13,
+      "hubScore": 4.641777315904125
+    },
+    "LLA": {
+      "code": "LLA",
+      "offerCount": 2052,
+      "minPrice": 59,
+      "destinationCount": 11,
+      "hubScore": 4.628952303803968
+    },
+    "AXD": {
+      "code": "AXD",
+      "offerCount": 1686,
+      "minPrice": 99,
+      "destinationCount": 16,
+      "hubScore": 4.571552757398293
+    },
+    "FUE": {
+      "code": "FUE",
+      "offerCount": 5298,
+      "minPrice": 50,
+      "destinationCount": 7,
+      "hubScore": 4.535241745206835
+    },
+    "HER": {
+      "code": "HER",
+      "offerCount": 2192,
+      "minPrice": 77,
+      "destinationCount": 12,
+      "hubScore": 4.5291577278376165
+    },
+    "RTM": {
+      "code": "RTM",
+      "offerCount": 516,
+      "minPrice": 131,
+      "destinationCount": 32,
+      "hubScore": 4.474137903082029
+    },
+    "IAS": {
+      "code": "IAS",
+      "offerCount": 687,
+      "minPrice": 98,
+      "destinationCount": 22,
+      "hubScore": 4.458350984869827
+    },
+    "ALF": {
+      "code": "ALF",
+      "offerCount": 1176,
+      "minPrice": 81,
+      "destinationCount": 15,
+      "hubScore": 4.448708623774779
+    },
+    "REG": {
+      "code": "REG",
+      "offerCount": 1276,
+      "minPrice": 143,
+      "destinationCount": 21,
+      "hubScore": 4.448450140715595
+    },
+    "NQT": {
+      "code": "NQT",
+      "offerCount": 440,
+      "minPrice": 81,
+      "destinationCount": 24,
+      "hubScore": 4.447725903637112
+    },
+    "JER": {
+      "code": "JER",
+      "offerCount": 1148,
+      "minPrice": 115,
+      "destinationCount": 19,
+      "hubScore": 4.440826369529705
+    },
+    "KKN": {
+      "code": "KKN",
+      "offerCount": 838,
+      "minPrice": 55,
+      "destinationCount": 13,
+      "hubScore": 4.413698820480421
+    },
+    "SOU": {
+      "code": "SOU",
+      "offerCount": 1456,
+      "minPrice": 97,
+      "destinationCount": 15,
+      "hubScore": 4.4048098724545275
+    },
+    "RIX": {
+      "code": "RIX",
+      "offerCount": 2060,
+      "minPrice": 45,
+      "destinationCount": 8,
+      "hubScore": 4.37933502762827
+    },
+    "FNC": {
+      "code": "FNC",
+      "offerCount": 1031,
+      "minPrice": 103,
+      "destinationCount": 17,
+      "hubScore": 4.318547698088013
+    },
+    "BIA": {
+      "code": "BIA",
+      "offerCount": 1147,
+      "minPrice": 111,
+      "destinationCount": 17,
+      "hubScore": 4.315972979065111
+    },
+    "BIQ": {
+      "code": "BIQ",
+      "offerCount": 893,
+      "minPrice": 94,
+      "destinationCount": 17,
+      "hubScore": 4.313273396512442
+    },
+    "JSI": {
+      "code": "JSI",
+      "offerCount": 762,
+      "minPrice": 85,
+      "destinationCount": 17,
+      "hubScore": 4.306835971148819
+    },
+    "SMI": {
+      "code": "SMI",
+      "offerCount": 1393,
+      "minPrice": 117,
+      "destinationCount": 16,
+      "hubScore": 4.2996498914648145
+    },
+    "EAS": {
+      "code": "EAS",
+      "offerCount": 606,
+      "minPrice": 69,
+      "destinationCount": 16,
+      "hubScore": 4.2736847406329925
+    },
+    "LEI": {
+      "code": "LEI",
+      "offerCount": 982,
+      "minPrice": 64,
+      "destinationCount": 12,
+      "hubScore": 4.233929986012521
+    },
+    "AJA": {
+      "code": "AJA",
+      "offerCount": 824,
+      "minPrice": 96,
+      "destinationCount": 16,
+      "hubScore": 4.158976142978378
+    },
+    "INV": {
+      "code": "INV",
+      "offerCount": 534,
+      "minPrice": 79,
+      "destinationCount": 17,
+      "hubScore": 4.14376449406264
+    },
+    "VBY": {
+      "code": "VBY",
+      "offerCount": 1736,
+      "minPrice": 148,
+      "destinationCount": 15,
+      "hubScore": 4.133392783446773
+    },
+    "SKG": {
+      "code": "SKG",
+      "offerCount": 2027,
+      "minPrice": 93,
+      "destinationCount": 10,
+      "hubScore": 4.019000893047316
+    },
+    "EVE": {
+      "code": "EVE",
+      "offerCount": 1696,
+      "minPrice": 116,
+      "destinationCount": 12,
+      "hubScore": 4.005428389914526
+    },
+    "LIL": {
+      "code": "LIL",
+      "offerCount": 314,
+      "minPrice": 80,
+      "destinationCount": 20,
+      "hubScore": 3.9854452417356407
+    },
+    "PDL": {
+      "code": "PDL",
+      "offerCount": 3502,
+      "minPrice": 111,
+      "destinationCount": 9,
+      "hubScore": 3.9826777497120656
+    },
+    "MJT": {
+      "code": "MJT",
+      "offerCount": 1742,
+      "minPrice": 122,
+      "destinationCount": 12,
+      "hubScore": 3.978057953398433
+    },
+    "LXS": {
+      "code": "LXS",
+      "offerCount": 509,
+      "minPrice": 42,
+      "destinationCount": 10,
+      "hubScore": 3.9746526502291335
+    },
+    "JMK": {
+      "code": "JMK",
+      "offerCount": 1999,
+      "minPrice": 81,
+      "destinationCount": 9,
+      "hubScore": 3.971599667373561
+    },
+    "MOL": {
+      "code": "MOL",
+      "offerCount": 1290,
+      "minPrice": 153,
+      "destinationCount": 15,
+      "hubScore": 3.9429656290201964
+    },
+    "TER": {
+      "code": "TER",
+      "offerCount": 2842,
+      "minPrice": 103,
+      "destinationCount": 9,
+      "hubScore": 3.942728638494255
+    },
+    "TCI": {
+      "code": "TCI",
+      "offerCount": 4122,
+      "minPrice": 44,
+      "destinationCount": 5,
+      "hubScore": 3.9181851528073506
+    },
+    "OHD": {
+      "code": "OHD",
+      "offerCount": 164,
+      "minPrice": 73,
+      "destinationCount": 26,
+      "hubScore": 3.909876585105633
+    },
+    "VAA": {
+      "code": "VAA",
+      "offerCount": 1739,
+      "minPrice": 118,
+      "destinationCount": 11,
+      "hubScore": 3.879682091423439
+    },
+    "MST": {
+      "code": "MST",
+      "offerCount": 122,
+      "minPrice": 41,
+      "destinationCount": 19,
+      "hubScore": 3.8569529819229245
+    },
+    "TPS": {
+      "code": "TPS",
+      "offerCount": 383,
+      "minPrice": 87,
+      "destinationCount": 17,
+      "hubScore": 3.84147315424586
+    },
+    "AAR": {
+      "code": "AAR",
+      "offerCount": 556,
+      "minPrice": 155,
+      "destinationCount": 20,
+      "hubScore": 3.811829824314751
+    },
+    "SXB": {
+      "code": "SXB",
+      "offerCount": 241,
+      "minPrice": 67,
+      "destinationCount": 17,
+      "hubScore": 3.7599340238370123
+    },
+    "OSR": {
+      "code": "OSR",
+      "offerCount": 231,
+      "minPrice": 89,
+      "destinationCount": 21,
+      "hubScore": 3.741513015344528
+    },
+    "SFT": {
+      "code": "SFT",
+      "offerCount": 811,
+      "minPrice": 156,
+      "destinationCount": 15,
+      "hubScore": 3.6736661552581067
+    },
+    "BES": {
+      "code": "BES",
+      "offerCount": 261,
+      "minPrice": 86,
+      "destinationCount": 18,
+      "hubScore": 3.6712915202654903
+    },
+    "GCI": {
+      "code": "GCI",
+      "offerCount": 1585,
+      "minPrice": 124,
+      "destinationCount": 10,
+      "hubScore": 3.6596667603225552
+    },
+    "LMP": {
+      "code": "LMP",
+      "offerCount": 481,
+      "minPrice": 49,
+      "destinationCount": 9,
+      "hubScore": 3.6362879263810357
+    },
+    "BOJ": {
+      "code": "BOJ",
+      "offerCount": 270,
+      "minPrice": 102,
+      "destinationCount": 19,
+      "hubScore": 3.621020386437757
+    },
+    "KVA": {
+      "code": "KVA",
+      "offerCount": 369,
+      "minPrice": 114,
+      "destinationCount": 17,
+      "hubScore": 3.602205809343546
+    },
+    "FMM": {
+      "code": "FMM",
+      "offerCount": 264,
+      "minPrice": 104,
+      "destinationCount": 19,
+      "hubScore": 3.59164570812318
+    },
+    "OSD": {
+      "code": "OSD",
+      "offerCount": 499,
+      "minPrice": 135,
+      "destinationCount": 16,
+      "hubScore": 3.5840723604771423
+    },
+    "LKN": {
+      "code": "LKN",
+      "offerCount": 1799,
+      "minPrice": 59,
+      "destinationCount": 6,
+      "hubScore": 3.562389759731941
+    },
+    "AOK": {
+      "code": "AOK",
+      "offerCount": 461,
+      "minPrice": 62,
+      "destinationCount": 10,
+      "hubScore": 3.551041184964402
+    },
+    "SPC": {
+      "code": "SPC",
+      "offerCount": 5076,
+      "minPrice": 47,
+      "destinationCount": 4,
+      "hubScore": 3.547346165908026
+    },
+    "MMA": {
+      "code": "MMA",
+      "offerCount": 244,
+      "minPrice": 61,
+      "destinationCount": 13,
+      "hubScore": 3.51772790710462
+    },
+    "TMP": {
+      "code": "TMP",
+      "offerCount": 326,
+      "minPrice": 117,
+      "destinationCount": 17,
+      "hubScore": 3.5079110598679475
+    },
+    "KSU": {
+      "code": "KSU",
+      "offerCount": 1620,
+      "minPrice": 102,
+      "destinationCount": 8,
+      "hubScore": 3.503817418308392
+    },
+    "PFO": {
+      "code": "PFO",
+      "offerCount": 227,
+      "minPrice": 122,
+      "destinationCount": 21,
+      "hubScore": 3.4874677680038286
+    },
+    "PNA": {
+      "code": "PNA",
+      "offerCount": 404,
+      "minPrice": 103,
+      "destinationCount": 13,
+      "hubScore": 3.411556545242353
+    },
+    "JTR": {
+      "code": "JTR",
+      "offerCount": 2849,
+      "minPrice": 93,
+      "destinationCount": 6,
+      "hubScore": 3.4071880665195073
+    },
+    "HOR": {
+      "code": "HOR",
+      "offerCount": 1547,
+      "minPrice": 101,
+      "destinationCount": 7,
+      "hubScore": 3.302271068339688
+    },
+    "TZL": {
+      "code": "TZL",
+      "offerCount": 97,
+      "minPrice": 31,
+      "destinationCount": 11,
+      "hubScore": 3.287387295612006
+    },
+    "VDS": {
+      "code": "VDS",
+      "offerCount": 400,
+      "minPrice": 57,
+      "destinationCount": 8,
+      "hubScore": 3.2435079939494007
+    },
+    "ODB": {
+      "code": "ODB",
+      "offerCount": 108,
+      "minPrice": 68,
+      "destinationCount": 17,
+      "hubScore": 3.202503151618496
+    },
+    "FSC": {
+      "code": "FSC",
+      "offerCount": 275,
+      "minPrice": 115,
+      "destinationCount": 14,
+      "hubScore": 3.201859454177715
+    },
+    "SKN": {
+      "code": "SKN",
+      "offerCount": 949,
+      "minPrice": 88,
+      "destinationCount": 7,
+      "hubScore": 3.1763793511670406
+    },
+    "SVJ": {
+      "code": "SVJ",
+      "offerCount": 1348,
+      "minPrice": 59,
+      "destinationCount": 5,
+      "hubScore": 3.1539659792222974
+    },
+    "UME": {
+      "code": "UME",
+      "offerCount": 1872,
+      "minPrice": 105,
+      "destinationCount": 6,
+      "hubScore": 3.14424827547166
+    },
+    "IOA": {
+      "code": "IOA",
+      "offerCount": 428,
+      "minPrice": 102,
+      "destinationCount": 10,
+      "hubScore": 3.136049363205683
+    },
+    "KLU": {
+      "code": "KLU",
+      "offerCount": 144,
+      "minPrice": 213,
+      "destinationCount": 28,
+      "hubScore": 3.1230357219063225
+    },
+    "AOI": {
+      "code": "AOI",
+      "offerCount": 157,
+      "minPrice": 86,
+      "destinationCount": 14,
+      "hubScore": 3.069870927263498
+    },
+    "JIK": {
+      "code": "JIK",
+      "offerCount": 241,
+      "minPrice": 41,
+      "destinationCount": 7,
+      "hubScore": 3.0537544227105995
+    },
+    "MLN": {
+      "code": "MLN",
+      "offerCount": 2058,
+      "minPrice": 132,
+      "destinationCount": 6,
+      "hubScore": 3.0360301025684997
+    },
+    "REU": {
+      "code": "REU",
+      "offerCount": 322,
+      "minPrice": 96,
+      "destinationCount": 10,
+      "hubScore": 3.0284328909146816
+    },
+    "OMO": {
+      "code": "OMO",
+      "offerCount": 115,
+      "minPrice": 157,
+      "destinationCount": 23,
+      "hubScore": 2.9840754427709593
+    },
+    "GMZ": {
+      "code": "GMZ",
+      "offerCount": 1169,
+      "minPrice": 141,
+      "destinationCount": 7,
+      "hubScore": 2.964339399579169
+    },
+    "MJF": {
+      "code": "MJF",
+      "offerCount": 567,
+      "minPrice": 64,
+      "destinationCount": 6,
+      "hubScore": 2.956409560807019
+    },
+    "CWL": {
+      "code": "CWL",
+      "offerCount": 118,
+      "minPrice": 139,
+      "destinationCount": 20,
+      "hubScore": 2.9443952967658014
+    },
+    "IOM": {
+      "code": "IOM",
+      "offerCount": 741,
+      "minPrice": 80,
+      "destinationCount": 6,
+      "hubScore": 2.926692133246249
+    },
+    "OUL": {
+      "code": "OUL",
+      "offerCount": 1965,
+      "minPrice": 154,
+      "destinationCount": 6,
+      "hubScore": 2.9260488678619625
+    },
+    "MQN": {
+      "code": "MQN",
+      "offerCount": 892,
+      "minPrice": 64,
+      "destinationCount": 5,
+      "hubScore": 2.9164195985294166
+    },
+    "PVK": {
+      "code": "PVK",
+      "offerCount": 189,
+      "minPrice": 104,
+      "destinationCount": 12,
+      "hubScore": 2.891806119924879
+    },
+    "JSH": {
+      "code": "JSH",
+      "offerCount": 309,
+      "minPrice": 78,
+      "destinationCount": 8,
+      "hubScore": 2.884698036748687
+    },
+    "CDT": {
+      "code": "CDT",
+      "offerCount": 111,
+      "minPrice": 75,
+      "destinationCount": 13,
+      "hubScore": 2.875353445393463
+    },
+    "HFT": {
+      "code": "HFT",
+      "offerCount": 467,
+      "minPrice": 85,
+      "destinationCount": 7,
+      "hubScore": 2.870315119565598
+    },
+    "SOG": {
+      "code": "SOG",
+      "offerCount": 972,
+      "minPrice": 106,
+      "destinationCount": 6,
+      "hubScore": 2.865204288285497
+    },
+    "HAD": {
+      "code": "HAD",
+      "offerCount": 295,
+      "minPrice": 139,
+      "destinationCount": 11,
+      "hubScore": 2.8613992754796724
+    },
+    "AGH": {
+      "code": "AGH",
+      "offerCount": 532,
+      "minPrice": 125,
+      "destinationCount": 8,
+      "hubScore": 2.852464320303652
+    },
+    "KRN": {
+      "code": "KRN",
+      "offerCount": 211,
+      "minPrice": 189,
+      "destinationCount": 15,
+      "hubScore": 2.8304826680059056
+    },
+    "SDL": {
+      "code": "SDL",
+      "offerCount": 203,
+      "minPrice": 186,
+      "destinationCount": 15,
+      "hubScore": 2.818706434605895
+    },
+    "KLX": {
+      "code": "KLX",
+      "offerCount": 95,
+      "minPrice": 108,
+      "destinationCount": 17,
+      "hubScore": 2.812126373274718
+    },
+    "OSI": {
+      "code": "OSI",
+      "offerCount": 420,
+      "minPrice": 112,
+      "destinationCount": 8,
+      "hubScore": 2.8085322979916136
+    },
+    "BNN": {
+      "code": "BNN",
+      "offerCount": 597,
+      "minPrice": 114,
+      "destinationCount": 7,
+      "hubScore": 2.801957510581115
+    },
+    "GRO": {
+      "code": "GRO",
+      "offerCount": 161,
+      "minPrice": 97,
+      "destinationCount": 11,
+      "hubScore": 2.7573155150321074
+    },
+    "EXT": {
+      "code": "EXT",
+      "offerCount": 217,
+      "minPrice": 128,
+      "destinationCount": 11,
+      "hubScore": 2.7531860232437717
+    },
+    "VDE": {
+      "code": "VDE",
+      "offerCount": 1331,
+      "minPrice": 107,
+      "destinationCount": 5,
+      "hubScore": 2.7531693855662827
+    },
+    "SSJ": {
+      "code": "SSJ",
+      "offerCount": 635,
+      "minPrice": 98,
+      "destinationCount": 6,
+      "hubScore": 2.7336036508825563
+    },
+    "BJZ": {
+      "code": "BJZ",
+      "offerCount": 172,
+      "minPrice": 94,
+      "destinationCount": 10,
+      "hubScore": 2.713523849665312
+    },
+    "SCV": {
+      "code": "SCV",
+      "offerCount": 156,
+      "minPrice": 102,
+      "destinationCount": 11,
+      "hubScore": 2.7109025914095524
+    },
+    "BNX": {
+      "code": "BNX",
+      "offerCount": 63,
+      "minPrice": 58,
+      "destinationCount": 13,
+      "hubScore": 2.69170572561075
+    },
+    "SMA": {
+      "code": "SMA",
+      "offerCount": 657,
+      "minPrice": 110,
+      "destinationCount": 6,
+      "hubScore": 2.681246153097613
+    },
+    "RNS": {
+      "code": "RNS",
+      "offerCount": 166,
+      "minPrice": 99,
+      "destinationCount": 10,
+      "hubScore": 2.6649206594679327
+    },
+    "PIX": {
+      "code": "PIX",
+      "offerCount": 983,
+      "minPrice": 156,
+      "destinationCount": 6,
+      "hubScore": 2.6522612414098417
+    },
+    "RJK": {
+      "code": "RJK",
+      "offerCount": 76,
+      "minPrice": 112,
+      "destinationCount": 16,
+      "hubScore": 2.6033251252341283
+    },
+    "SKU": {
+      "code": "SKU",
+      "offerCount": 304,
+      "minPrice": 100,
+      "destinationCount": 7,
+      "hubScore": 2.57740916975646
+    },
+    "CIY": {
+      "code": "CIY",
+      "offerCount": 162,
+      "minPrice": 97,
+      "destinationCount": 9,
+      "hubScore": 2.558097376780933
+    },
+    "KUO": {
+      "code": "KUO",
+      "offerCount": 586,
+      "minPrice": 132,
+      "destinationCount": 6,
+      "hubScore": 2.536674820575407
+    },
+    "FLW": {
+      "code": "FLW",
+      "offerCount": 754,
+      "minPrice": 67,
+      "destinationCount": 4,
+      "hubScore": 2.5276149555452037
+    },
+    "KLR": {
+      "code": "KLR",
+      "offerCount": 221,
+      "minPrice": 138,
+      "destinationCount": 9,
+      "hubScore": 2.521063961495595
+    },
+    "RNB": {
+      "code": "RNB",
+      "offerCount": 391,
+      "minPrice": 140,
+      "destinationCount": 7,
+      "hubScore": 2.50909120687991
+    },
+    "ZAZ": {
+      "code": "ZAZ",
+      "offerCount": 225,
+      "minPrice": 67,
+      "destinationCount": 6,
+      "hubScore": 2.4997878438411925
+    },
+    "RVN": {
+      "code": "RVN",
+      "offerCount": 1063,
+      "minPrice": 148,
+      "destinationCount": 5,
+      "hubScore": 2.495667952411006
+    },
+    "JNX": {
+      "code": "JNX",
+      "offerCount": 1834,
+      "minPrice": 149,
+      "destinationCount": 4,
+      "hubScore": 2.4137864619944582
+    },
+    "JKH": {
+      "code": "JKH",
+      "offerCount": 384,
+      "minPrice": 127,
+      "destinationCount": 6,
+      "hubScore": 2.3875524252456337
+    },
+    "INN": {
+      "code": "INN",
+      "offerCount": 116,
+      "minPrice": 220,
+      "destinationCount": 13,
+      "hubScore": 2.3281347233193292
+    },
+    "FKB": {
+      "code": "FKB",
+      "offerCount": 110,
+      "minPrice": 85,
+      "destinationCount": 8,
+      "hubScore": 2.3231002923220943
+    },
+    "MJV": {
+      "code": "MJV",
+      "offerCount": 95,
+      "minPrice": 80,
+      "destinationCount": 8,
+      "hubScore": 2.282174095733918
+    },
+    "LDY": {
+      "code": "LDY",
+      "offerCount": 200,
+      "minPrice": 67,
+      "destinationCount": 5,
+      "hubScore": 2.251979958600853
+    },
+    "JYV": {
+      "code": "JYV",
+      "offerCount": 381,
+      "minPrice": 172,
+      "destinationCount": 6,
+      "hubScore": 2.2450222523877286
+    },
+    "KIT": {
+      "code": "KIT",
+      "offerCount": 165,
+      "minPrice": 114,
+      "destinationCount": 7,
+      "hubScore": 2.2403017535543626
+    },
+    "ANX": {
+      "code": "ANX",
+      "offerCount": 613,
+      "minPrice": 101,
+      "destinationCount": 4,
+      "hubScore": 2.234085183228852
+    },
+    "CFR": {
+      "code": "CFR",
+      "offerCount": 72,
+      "minPrice": 84,
+      "destinationCount": 9,
+      "hubScore": 2.223705481462516
+    },
+    "TAY": {
+      "code": "TAY",
+      "offerCount": 248,
+      "minPrice": 177,
+      "destinationCount": 7,
+      "hubScore": 2.214145119304284
+    },
+    "BOH": {
+      "code": "BOH",
+      "offerCount": 46,
+      "minPrice": 64,
+      "destinationCount": 10,
+      "hubScore": 2.2116421253716947
+    },
+    "BDU": {
+      "code": "BDU",
+      "offerCount": 201,
+      "minPrice": 174,
+      "destinationCount": 7,
+      "hubScore": 2.1372100257521143
+    },
+    "LIG": {
+      "code": "LIG",
+      "offerCount": 102,
+      "minPrice": 92,
+      "destinationCount": 7,
+      "hubScore": 2.126295960433006
+    },
+    "OSY": {
+      "code": "OSY",
+      "offerCount": 136,
+      "minPrice": 64,
+      "destinationCount": 5,
+      "hubScore": 2.111788351753561
+    },
+    "INI": {
+      "code": "INI",
+      "offerCount": 41,
+      "minPrice": 60,
+      "destinationCount": 9,
+      "hubScore": 2.093545710706631
+    },
+    "TIV": {
+      "code": "TIV",
+      "offerCount": 1836,
+      "minPrice": 148,
+      "destinationCount": 3,
+      "hubScore": 2.0822035290939485
+    },
+    "SBZ": {
+      "code": "SBZ",
+      "offerCount": 58,
+      "minPrice": 152,
+      "destinationCount": 12,
+      "hubScore": 2.079078841683897
+    },
+    "PAS": {
+      "code": "PAS",
+      "offerCount": 1856,
+      "minPrice": 154,
+      "destinationCount": 3,
+      "hubScore": 2.0688809432386344
+    },
+    "HOV": {
+      "code": "HOV",
+      "offerCount": 1493,
+      "minPrice": 137,
+      "destinationCount": 3,
+      "hubScore": 2.0564640130690504
+    },
+    "CRA": {
+      "code": "CRA",
+      "offerCount": 68,
+      "minPrice": 81,
+      "destinationCount": 7,
+      "hubScore": 1.9979890851958264
+    },
+    "NWI": {
+      "code": "NWI",
+      "offerCount": 53,
+      "minPrice": 155,
+      "destinationCount": 11,
+      "hubScore": 1.9628783412786133
+    },
+    "KEM": {
+      "code": "KEM",
+      "offerCount": 280,
+      "minPrice": 185,
+      "destinationCount": 5,
+      "hubScore": 1.933230981222915
+    },
+    "CVU": {
+      "code": "CVU",
+      "offerCount": 146,
+      "minPrice": 63,
+      "destinationCount": 4,
+      "hubScore": 1.931237604813827
+    },
+    "PUF": {
+      "code": "PUF",
+      "offerCount": 188,
+      "minPrice": 196,
+      "destinationCount": 6,
+      "hubScore": 1.9306408079442818
+    },
+    "VRL": {
+      "code": "VRL",
+      "offerCount": 200,
+      "minPrice": 83,
+      "destinationCount": 4,
+      "hubScore": 1.9263581338899656
+    },
+    "CLY": {
+      "code": "CLY",
+      "offerCount": 176,
+      "minPrice": 188,
+      "destinationCount": 6,
+      "hubScore": 1.9215582645838074
+    },
+    "SJZ": {
+      "code": "SJZ",
+      "offerCount": 598,
+      "minPrice": 101,
+      "destinationCount": 3,
+      "hubScore": 1.916922639175112
+    },
+    "CFN": {
+      "code": "CFN",
+      "offerCount": 198,
+      "minPrice": 86,
+      "destinationCount": 4,
+      "hubScore": 1.9076177208832676
+    },
+    "SDN": {
+      "code": "SDN",
+      "offerCount": 673,
+      "minPrice": 113,
+      "destinationCount": 3,
+      "hubScore": 1.9064349338011377
+    },
+    "CFE": {
+      "code": "CFE",
+      "offerCount": 153,
+      "minPrice": 200,
+      "destinationCount": 6,
+      "hubScore": 1.8481790806432115
+    },
+    "FAE": {
+      "code": "FAE",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.8366066454935563
+    },
+    "BGC": {
+      "code": "BGC",
+      "offerCount": 154,
+      "minPrice": 83,
+      "destinationCount": 4,
+      "hubScore": 1.8319601013093625
+    },
+    "KOK": {
+      "code": "KOK",
+      "offerCount": 207,
+      "minPrice": 185,
+      "destinationCount": 5,
+      "hubScore": 1.8300895534751733
+    },
+    "KSJ": {
+      "code": "KSJ",
+      "offerCount": 189,
+      "minPrice": 53,
+      "destinationCount": 3,
+      "hubScore": 1.8235018739073323
+    },
+    "KIR": {
+      "code": "KIR",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.7741283540778674
+    },
+    "BZO": {
+      "code": "BZO",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.7589640570204286
+    },
+    "NQY": {
+      "code": "NQY",
+      "offerCount": 142,
+      "minPrice": 93,
+      "destinationCount": 4,
+      "hubScore": 1.7580612054121398
+    },
+    "CND": {
+      "code": "CND",
+      "offerCount": 71,
+      "minPrice": 222,
+      "destinationCount": 8,
+      "hubScore": 1.7378393553836982
+    },
+    "PDV": {
+      "code": "PDV",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.7297760861770446
+    },
+    "BAY": {
+      "code": "BAY",
+      "offerCount": 50,
+      "minPrice": 112,
+      "destinationCount": 7,
+      "hubScore": 1.7294966837638401
+    },
+    "BZR": {
+      "code": "BZR",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.7119845788998438
+    },
+    "RNN": {
+      "code": "RNN",
+      "offerCount": 436,
+      "minPrice": 141,
+      "destinationCount": 3,
+      "hubScore": 1.7007407656445317
+    },
+    "TUF": {
+      "code": "TUF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6849057996483805
+    },
+    "RMI": {
+      "code": "RMI",
+      "offerCount": 41,
+      "minPrice": 74,
+      "destinationCount": 6,
+      "hubScore": 1.684583501511043
+    },
+    "CCF": {
+      "code": "CCF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6815004883015061
+    },
+    "KVO": {
+      "code": "KVO",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6777892779965438
+    },
+    "LCJ": {
+      "code": "LCJ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.673971717129069
+    },
+    "PMF": {
+      "code": "PMF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6714702936512964
+    },
+    "RJL": {
+      "code": "RJL",
+      "offerCount": 53,
+      "minPrice": 143,
+      "destinationCount": 7,
+      "hubScore": 1.6690484401560035
+    },
+    "BWK": {
+      "code": "BWK",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6477266937716437
+    },
+    "SDZ": {
+      "code": "SDZ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6443383148687143
+    },
+    "FRL": {
+      "code": "FRL",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6396714017003804
+    },
+    "PRM": {
+      "code": "PRM",
+      "offerCount": 158,
+      "minPrice": 144,
+      "destinationCount": 4,
+      "hubScore": 1.6392451394399599
+    },
+    "FNI": {
+      "code": "FNI",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6368709982453387
+    },
+    "MLO": {
+      "code": "MLO",
+      "offerCount": 1540,
+      "minPrice": 138,
+      "destinationCount": 2,
+      "hubScore": 1.634220702689237
+    },
+    "QSR": {
+      "code": "QSR",
+      "offerCount": 46,
+      "minPrice": 97,
+      "destinationCount": 6,
+      "hubScore": 1.6340445877493817
+    },
+    "TAT": {
+      "code": "TAT",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6333963869908183
+    },
+    "SUJ": {
+      "code": "SUJ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6298489957426685
+    },
+    "CAT": {
+      "code": "CAT",
+      "offerCount": 152,
+      "minPrice": 144,
+      "destinationCount": 4,
+      "hubScore": 1.626805436229219
+    },
+    "DLE": {
+      "code": "DLE",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.626648027149579
+    },
+    "BRN": {
+      "code": "BRN",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6200196169578818
+    },
+    "AEY": {
+      "code": "AEY",
+      "offerCount": 374,
+      "minPrice": 160,
+      "destinationCount": 3,
+      "hubScore": 1.6169671882829237
+    },
+    "JOE": {
+      "code": "JOE",
+      "offerCount": 207,
+      "minPrice": 202,
+      "destinationCount": 4,
+      "hubScore": 1.6168084163153886
+    },
+    "PGF": {
+      "code": "PGF",
+      "offerCount": 118,
+      "minPrice": 118,
+      "destinationCount": 4,
+      "hubScore": 1.6094379124341
+    },
+    "LKL": {
+      "code": "LKL",
+      "offerCount": 253,
+      "minPrice": 117,
+      "destinationCount": 3,
+      "hubScore": 1.6090720461035553
+    },
+    "GNB": {
+      "code": "GNB",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6021424064366945
+    },
+    "JKL": {
+      "code": "JKL",
+      "offerCount": 56,
+      "minPrice": 135,
+      "destinationCount": 6,
+      "hubScore": 1.6014588197663402
+    },
+    "LBC": {
+      "code": "LBC",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.6001230408014961
+    },
+    "VOL": {
+      "code": "VOL",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5996513916229667
+    },
+    "GRW": {
+      "code": "GRW",
+      "offerCount": 210,
+      "minPrice": 103,
+      "destinationCount": 3,
+      "hubScore": 1.5974647511524322
+    },
+    "DOL": {
+      "code": "DOL",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5921671469981613
+    },
+    "LGG": {
+      "code": "LGG",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5865209878297408
+    },
+    "CMF": {
+      "code": "CMF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.583500876787573
+    },
+    "LPY": {
+      "code": "LPY",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "AHX": {
+      "code": "AHX",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "BRR": {
+      "code": "BRR",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "BEB": {
+      "code": "BEB",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "MEN": {
+      "code": "MEN",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "CUF": {
+      "code": "CUF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "EOI": {
+      "code": "EOI",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "EBJ": {
+      "code": "EBJ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "GRQ": {
+      "code": "GRQ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "HDF": {
+      "code": "HDF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "ILY": {
+      "code": "ILY",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "KSF": {
+      "code": "KSF",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "URE": {
+      "code": "URE",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "BYR": {
+      "code": "BYR",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "LRT": {
+      "code": "LRT",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "MHG": {
+      "code": "MHG",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "ETZ": {
+      "code": "ETZ",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "PED": {
+      "code": "PED",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "RLG": {
+      "code": "RLG",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "SCR": {
+      "code": "SCR",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "EBU": {
+      "code": "EBU",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "SWS": {
+      "code": "SWS",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "ACH": {
+      "code": "ACH",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "VEY": {
+      "code": "VEY",
+      "offerCount": 0,
+      "minPrice": 0,
+      "destinationCount": 0,
+      "hubScore": 1.5736476808024726
+    },
+    "KAJ": {
+      "code": "KAJ",
+      "offerCount": 180,
+      "minPrice": 215,
+      "destinationCount": 4,
+      "hubScore": 1.5565069518696708
+    },
+    "REK": {
+      "code": "REK",
+      "offerCount": 170,
+      "minPrice": 214,
+      "destinationCount": 4,
+      "hubScore": 1.5408203303734975
+    },
+    "RDZ": {
+      "code": "RDZ",
+      "offerCount": 65,
+      "minPrice": 79,
+      "destinationCount": 4,
+      "hubScore": 1.5387832489357893
+    },
+    "PNL": {
+      "code": "PNL",
+      "offerCount": 71,
+      "minPrice": 87,
+      "destinationCount": 4,
+      "hubScore": 1.537304177900898
+    },
+    "OST": {
+      "code": "OST",
+      "offerCount": 52,
+      "minPrice": 152,
+      "destinationCount": 6,
+      "hubScore": 1.5358168513398114
+    },
+    "TGM": {
+      "code": "TGM",
+      "offerCount": 31,
+      "minPrice": 38,
+      "destinationCount": 4,
+      "hubScore": 1.5225311582630627
+    },
+    "BJF": {
+      "code": "BJF",
+      "offerCount": 63,
+      "minPrice": 86,
+      "destinationCount": 4,
+      "hubScore": 1.4987912715401728
+    },
+    "VAW": {
+      "code": "VAW",
+      "offerCount": 83,
+      "minPrice": 62,
+      "destinationCount": 3,
+      "hubScore": 1.4825528854432193
+    },
+    "RVK": {
+      "code": "RVK",
+      "offerCount": 261,
+      "minPrice": 64,
+      "destinationCount": 2,
+      "hubScore": 1.4654729673709477
+    },
+    "MHQ": {
+      "code": "MHQ",
+      "offerCount": 96,
+      "minPrice": 157,
+      "destinationCount": 4,
+      "hubScore": 1.454335817737651
+    },
+    "HVG": {
+      "code": "HVG",
+      "offerCount": 63,
+      "minPrice": 99,
+      "destinationCount": 4,
+      "hubScore": 1.453467263404452
+    },
+    "PXO": {
+      "code": "PXO",
+      "offerCount": 118,
+      "minPrice": 103,
+      "destinationCount": 3,
+      "hubScore": 1.4265104065252021
+    },
+    "SNN": {
+      "code": "SNN",
+      "offerCount": 380,
+      "minPrice": 118,
+      "destinationCount": 2,
+      "hubScore": 1.3661150275806433
+    },
+    "FRO": {
+      "code": "FRO",
+      "offerCount": 311,
+      "minPrice": 103,
+      "destinationCount": 2,
+      "hubScore": 1.3584846781854771
+    },
+    "VIT": {
+      "code": "VIT",
+      "offerCount": 17,
+      "minPrice": 63,
+      "destinationCount": 6,
+      "hubScore": 1.352383230184348
+    },
+    "NDY": {
+      "code": "NDY",
+      "offerCount": 39,
+      "minPrice": 45,
+      "destinationCount": 3,
+      "hubScore": 1.3356886311626481
+    },
+    "TLN": {
+      "code": "TLN",
+      "offerCount": 123,
+      "minPrice": 149,
+      "destinationCount": 3,
+      "hubScore": 1.3336291230937976
+    },
+    "LDE": {
+      "code": "LDE",
+      "offerCount": 97,
+      "minPrice": 122,
+      "destinationCount": 3,
+      "hubScore": 1.3208377094911181
+    },
+    "JSY": {
+      "code": "JSY",
+      "offerCount": 59,
+      "minPrice": 154,
+      "destinationCount": 4,
+      "hubScore": 1.3065710726828181
+    },
+    "BVG": {
+      "code": "BVG",
+      "offerCount": 81,
+      "minPrice": 108,
+      "destinationCount": 3,
+      "hubScore": 1.3021865350599757
+    },
+    "RDO": {
+      "code": "RDO",
+      "offerCount": 23,
+      "minPrice": 119,
+      "destinationCount": 6,
+      "hubScore": 1.2917426358054653
+    },
+    "MEH": {
+      "code": "MEH",
+      "offerCount": 64,
+      "minPrice": 93,
+      "destinationCount": 3,
+      "hubScore": 1.2737297073415088
+    },
+    "PAD": {
+      "code": "PAD",
+      "offerCount": 313,
+      "minPrice": 166,
+      "destinationCount": 2,
+      "hubScore": 1.2341464288950386
+    },
+    "PEG": {
+      "code": "PEG",
+      "offerCount": 35,
+      "minPrice": 111,
+      "destinationCount": 4,
+      "hubScore": 1.2223063725972372
+    },
+    "BCM": {
+      "code": "BCM",
+      "offerCount": 45,
+      "minPrice": 172,
+      "destinationCount": 4,
+      "hubScore": 1.1957329608911271
+    },
+    "GIB": {
+      "code": "GIB",
+      "offerCount": 49,
+      "minPrice": 194,
+      "destinationCount": 4,
+      "hubScore": 1.1940372968598143
+    },
+    "KOI": {
+      "code": "KOI",
+      "offerCount": 101,
+      "minPrice": 50,
+      "destinationCount": 4,
+      "hubScore": 1.1897592616606047
+    },
+    "ILD": {
+      "code": "ILD",
+      "offerCount": 65,
+      "minPrice": 151,
+      "destinationCount": 3,
+      "hubScore": 1.156097307611142
+    },
+    "LRS": {
+      "code": "LRS",
+      "offerCount": 33,
+      "minPrice": 135,
+      "destinationCount": 4,
+      "hubScore": 1.155273157434081
+    },
+    "ERF": {
+      "code": "ERF",
+      "offerCount": 46,
+      "minPrice": 103,
+      "destinationCount": 3,
+      "hubScore": 1.1492223685815675
+    },
+    "RET": {
+      "code": "RET",
+      "offerCount": 120,
+      "minPrice": 103,
+      "destinationCount": 2,
+      "hubScore": 1.134425275926918
+    },
+    "SOJ": {
+      "code": "SOJ",
+      "offerCount": 106,
+      "minPrice": 95,
+      "destinationCount": 2,
+      "hubScore": 1.124722953866414
+    },
+    "MME": {
+      "code": "MME",
+      "offerCount": 42,
+      "minPrice": 252,
+      "destinationCount": 4,
+      "hubScore": 1.0939801137766665
+    },
+    "SZY": {
+      "code": "SZY",
+      "offerCount": 24,
+      "minPrice": 66,
+      "destinationCount": 3,
+      "hubScore": 1.061268874823547
+    },
+    "VSE": {
+      "code": "VSE",
+      "offerCount": 147,
+      "minPrice": 178,
+      "destinationCount": 2,
+      "hubScore": 1.0583363217092663
+    },
+    "GWT": {
+      "code": "GWT",
+      "offerCount": 31,
+      "minPrice": 201,
+      "destinationCount": 4,
+      "hubScore": 1.0507922875066564
+    },
+    "HAA": {
+      "code": "HAA",
+      "offerCount": 62,
+      "minPrice": 92,
+      "destinationCount": 2,
+      "hubScore": 1.0042137477394415
+    },
+    "SCN": {
+      "code": "SCN",
+      "offerCount": 56,
+      "minPrice": 96,
+      "destinationCount": 2,
+      "hubScore": 0.9709347382665332
+    },
+    "HUY": {
+      "code": "HUY",
+      "offerCount": 19,
+      "minPrice": 286,
+      "destinationCount": 5,
+      "hubScore": 0.9484315815085576
+    },
+    "FDE": {
+      "code": "FDE",
+      "offerCount": 657,
+      "minPrice": 116,
+      "destinationCount": 1,
+      "hubScore": 0.9445211711728165
+    },
+    "FOG": {
+      "code": "FOG",
+      "offerCount": 55,
+      "minPrice": 108,
+      "destinationCount": 2,
+      "hubScore": 0.9426503735534711
+    },
+    "NRL": {
+      "code": "NRL",
+      "offerCount": 138,
+      "minPrice": 38,
+      "destinationCount": 2,
+      "hubScore": 0.9233286476398662
+    },
+    "GHV": {
+      "code": "GHV",
+      "offerCount": 24,
+      "minPrice": 47,
+      "destinationCount": 2,
+      "hubScore": 0.9134882241796987
+    },
+    "PPW": {
+      "code": "PPW",
+      "offerCount": 79,
+      "minPrice": 38,
+      "destinationCount": 2,
+      "hubScore": 0.9082000350604453
+    },
+    "LPI": {
+      "code": "LPI",
+      "offerCount": 15,
+      "minPrice": 251,
+      "destinationCount": 5,
+      "hubScore": 0.898431288063386
+    },
+    "KTT": {
+      "code": "KTT",
+      "offerCount": 24,
+      "minPrice": 152,
+      "destinationCount": 3,
+      "hubScore": 0.8870618174579812
+    },
+    "KRF": {
+      "code": "KRF",
+      "offerCount": 64,
+      "minPrice": 239,
+      "destinationCount": 2,
+      "hubScore": 0.8367698030306638
+    },
+    "WRY": {
+      "code": "WRY",
+      "offerCount": 19,
+      "minPrice": 46,
+      "destinationCount": 2,
+      "hubScore": 0.7885255962583141
+    },
+    "SGD": {
+      "code": "SGD",
+      "offerCount": 188,
+      "minPrice": 146,
+      "destinationCount": 1,
+      "hubScore": 0.7280535507729107
+    },
+    "ACI": {
+      "code": "ACI",
+      "offerCount": 229,
+      "minPrice": 182,
+      "destinationCount": 1,
+      "hubScore": 0.7235625990838929
+    },
+    "TRE": {
+      "code": "TRE",
+      "offerCount": 153,
+      "minPrice": 174,
+      "destinationCount": 1,
+      "hubScore": 0.6759911277262135
+    },
+    "LEN": {
+      "code": "LEN",
+      "offerCount": 25,
+      "minPrice": 229,
+      "destinationCount": 2,
+      "hubScore": 0.6582075565658101
+    },
+    "SRP": {
+      "code": "SRP",
+      "offerCount": 99,
+      "minPrice": 171,
+      "destinationCount": 1,
+      "hubScore": 0.6201193114037888
+    },
+    "EGS": {
+      "code": "EGS",
+      "offerCount": 123,
+      "minPrice": 221,
+      "destinationCount": 1,
+      "hubScore": 0.6184275574023524
+    },
+    "LNZ": {
+      "code": "LNZ",
+      "offerCount": 99,
+      "minPrice": 177,
+      "destinationCount": 1,
+      "hubScore": 0.616015836909366
+    },
+    "LRH": {
+      "code": "LRH",
+      "offerCount": 14,
+      "minPrice": 138,
+      "destinationCount": 2,
+      "hubScore": 0.6029208522687393
+    },
+    "CAL": {
+      "code": "CAL",
+      "offerCount": 67,
+      "minPrice": 131,
+      "destinationCount": 1,
+      "hubScore": 0.5989880227712736
+    },
+    "KRP": {
+      "code": "KRP",
+      "offerCount": 81,
+      "minPrice": 168,
+      "destinationCount": 1,
+      "hubScore": 0.5954318382300198
+    },
+    "GEV": {
+      "code": "GEV",
+      "offerCount": 18,
+      "minPrice": 273,
+      "destinationCount": 2,
+      "hubScore": 0.5762912914929281
+    },
+    "AUR": {
+      "code": "AUR",
+      "offerCount": 78,
+      "minPrice": 192,
+      "destinationCount": 1,
+      "hubScore": 0.5754985284762622
+    },
+    "PSR": {
+      "code": "PSR",
+      "offerCount": 32,
+      "minPrice": 68,
+      "destinationCount": 1,
+      "hubScore": 0.5723980621190227
+    },
+    "FDH": {
+      "code": "FDH",
+      "offerCount": 10,
+      "minPrice": 100,
+      "destinationCount": 2,
+      "hubScore": 0.5708100588104469
+    },
+    "NOC": {
+      "code": "NOC",
+      "offerCount": 46,
+      "minPrice": 114,
+      "destinationCount": 1,
+      "hubScore": 0.5624356434757958
+    },
+    "EVG": {
+      "code": "EVG",
+      "offerCount": 52,
+      "minPrice": 135,
+      "destinationCount": 1,
+      "hubScore": 0.5601852175427702
+    },
+    "RRS": {
+      "code": "RRS",
+      "offerCount": 50,
+      "minPrice": 146,
+      "destinationCount": 1,
+      "hubScore": 0.5461117457024621
+    },
+    "PJA": {
+      "code": "PJA",
+      "offerCount": 48,
+      "minPrice": 59,
+      "destinationCount": 1,
+      "hubScore": 0.5447957507492895
+    },
+    "BVE": {
+      "code": "BVE",
+      "offerCount": 49,
+      "minPrice": 165,
+      "destinationCount": 1,
+      "hubScore": 0.5304409612781801
+    },
+    "KSO": {
+      "code": "KSO",
+      "offerCount": 8,
+      "minPrice": 97,
+      "destinationCount": 2,
+      "hubScore": 0.5264809255146741
+    },
+    "VHM": {
+      "code": "VHM",
+      "offerCount": 50,
+      "minPrice": 201,
+      "destinationCount": 1,
+      "hubScore": 0.5134130392689963
+    },
+    "JTY": {
+      "code": "JTY",
+      "offerCount": 9,
+      "minPrice": 137,
+      "destinationCount": 2,
+      "hubScore": 0.5133992362697989
+    },
+    "MXX": {
+      "code": "MXX",
+      "offerCount": 33,
+      "minPrice": 116,
+      "destinationCount": 1,
+      "hubScore": 0.5132712262806898
+    },
+    "HFS": {
+      "code": "HFS",
+      "offerCount": 32,
+      "minPrice": 116,
+      "destinationCount": 1,
+      "hubScore": 0.5089260474775051
+    },
+    "TYF": {
+      "code": "TYF",
+      "offerCount": 32,
+      "minPrice": 116,
+      "destinationCount": 1,
+      "hubScore": 0.5089260474775051
+    },
+    "KZS": {
+      "code": "KZS",
+      "offerCount": 8,
+      "minPrice": 114,
+      "destinationCount": 2,
+      "hubScore": 0.5087318124522533
+    },
+    "LYC": {
+      "code": "LYC",
+      "offerCount": 48,
+      "minPrice": 201,
+      "destinationCount": 1,
+      "hubScore": 0.508189191024037
+    },
+    "IFJ": {
+      "code": "IFJ",
+      "offerCount": 45,
+      "minPrice": 221,
+      "destinationCount": 1,
+      "hubScore": 0.4912031205594288
+    },
+    "SOY": {
+      "code": "SOY",
+      "offerCount": 13,
+      "minPrice": 46,
+      "destinationCount": 2,
+      "hubScore": 0.47939447903100263
+    },
+    "LYR": {
+      "code": "LYR",
+      "offerCount": 9,
+      "minPrice": 242,
+      "destinationCount": 2,
+      "hubScore": 0.4605170185988092
+    },
+    "AJR": {
+      "code": "AJR",
+      "offerCount": 33,
+      "minPrice": 201,
+      "destinationCount": 1,
+      "hubScore": 0.46046789548165473
+    },
+    "EGC": {
+      "code": "EGC",
+      "offerCount": 19,
+      "minPrice": 129,
+      "destinationCount": 1,
+      "hubScore": 0.4265985994063242
+    },
+    "HMV": {
+      "code": "HMV",
+      "offerCount": 27,
+      "minPrice": 244,
+      "destinationCount": 1,
+      "hubScore": 0.419850890992512
+    },
+    "OLA": {
+      "code": "OLA",
+      "offerCount": 7,
+      "minPrice": 243,
+      "destinationCount": 2,
+      "hubScore": 0.415577609712786
+    },
+    "CRV": {
+      "code": "CRV",
+      "offerCount": 24,
+      "minPrice": 223,
+      "destinationCount": 1,
+      "hubScore": 0.4122876258352394
+    },
+    "DCM": {
+      "code": "DCM",
+      "offerCount": 24,
+      "minPrice": 235,
+      "destinationCount": 1,
+      "hubScore": 0.4083498142325235
+    },
+    "KAO": {
+      "code": "KAO",
+      "offerCount": 21,
+      "minPrice": 254,
+      "destinationCount": 1,
+      "hubScore": 0.38665321439338923
+    },
+    "THO": {
+      "code": "THO",
+      "offerCount": 16,
+      "minPrice": 160,
+      "destinationCount": 1,
+      "hubScore": 0.3864746240015845
+    },
+    "VPN": {
+      "code": "VPN",
+      "offerCount": 16,
+      "minPrice": 160,
+      "destinationCount": 1,
+      "hubScore": 0.3864746240015845
+    },
+    "BIU": {
+      "code": "BIU",
+      "offerCount": 14,
+      "minPrice": 215,
+      "destinationCount": 1,
+      "hubScore": 0.3492056074761516
+    },
+    "SYY": {
+      "code": "SYY",
+      "offerCount": 16,
+      "minPrice": 280,
+      "destinationCount": 1,
+      "hubScore": 0.3482990972594202
+    },
+    "KSD": {
+      "code": "KSD",
+      "offerCount": 14,
+      "minPrice": 226,
+      "destinationCount": 1,
+      "hubScore": 0.34600823153394605
+    },
+    "IVL": {
+      "code": "IVL",
+      "offerCount": 10,
+      "minPrice": 166,
+      "destinationCount": 1,
+      "hubScore": 0.32475505218193257
+    },
+    "VXO": {
+      "code": "VXO",
+      "offerCount": 8,
+      "minPrice": 121,
+      "destinationCount": 1,
+      "hubScore": 0.317026092653635
+    },
+    "DEB": {
+      "code": "DEB",
+      "offerCount": 8,
+      "minPrice": 134,
+      "destinationCount": 1,
+      "hubScore": 0.31048210133550513
+    },
+    "HFN": {
+      "code": "HFN",
+      "offerCount": 10,
+      "minPrice": 211,
+      "destinationCount": 1,
+      "hubScore": 0.3102898492417137
+    },
+    "DND": {
+      "code": "DND",
+      "offerCount": 11,
+      "minPrice": 261,
+      "destinationCount": 1,
+      "hubScore": 0.30932102658013083
+    },
+    "LEU": {
+      "code": "LEU",
+      "offerCount": 8,
+      "minPrice": 143,
+      "destinationCount": 1,
+      "hubScore": 0.30645014792961195
+    },
+    "KUN": {
+      "code": "KUN",
+      "offerCount": 8,
+      "minPrice": 171,
+      "destinationCount": 1,
+      "hubScore": 0.29587210393286884
+    },
+    "KZI": {
+      "code": "KZI",
+      "offerCount": 7,
+      "minPrice": 198,
+      "destinationCount": 1,
+      "hubScore": 0.27229851472414013
+    },
+    "PIS": {
+      "code": "PIS",
+      "offerCount": 4,
+      "minPrice": 97,
+      "destinationCount": 1,
+      "hubScore": 0.24331194419146596
+    },
+    "VLL": {
+      "code": "VLL",
+      "offerCount": 6,
+      "minPrice": 290,
+      "destinationCount": 1,
+      "hubScore": 0.23774462866332233
+    },
+    "SLM": {
+      "code": "SLM",
+      "offerCount": 4,
+      "minPrice": 162,
+      "destinationCount": 1,
+      "hubScore": 0.21900904192618093
+    },
+    "BRQ": {
+      "code": "BRQ",
+      "offerCount": 4,
+      "minPrice": 277,
+      "destinationCount": 1,
+      "hubScore": 0.19823249091450942
+    },
+    "GPA": {
+      "code": "GPA",
+      "offerCount": 2,
+      "minPrice": 224,
+      "destinationCount": 1,
+      "hubScore": 0.1405993157196401
+    },
+    "GRY": {
+      "code": "GRY",
+      "offerCount": 1,
+      "minPrice": 184,
+      "destinationCount": 1,
+      "hubScore": 0.09203453366341995
+    },
+    "GJR": {
+      "code": "GJR",
+      "offerCount": 1,
+      "minPrice": 215,
+      "destinationCount": 1,
+      "hubScore": 0.08938197754210749
+    }
+  },
+  "destinationsByOrigin": {
+    "PRG": [
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 59,
+        "offerCount": 578
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 127,
+        "offerCount": 564
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 119,
+        "offerCount": 277
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 172,
+        "offerCount": 255
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 97,
+        "offerCount": 215
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 160,
+        "offerCount": 133
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 71,
+        "offerCount": 123
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 168,
+        "offerCount": 92
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 133,
+        "offerCount": 90
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 119,
+        "offerCount": 89
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 169,
+        "offerCount": 72
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 148,
+        "offerCount": 46
+      }
+    ],
+    "STR": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 147,
+        "offerCount": 648
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 131,
+        "offerCount": 380
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 168,
+        "offerCount": 276
+      },
+      {
+        "code": "HAM",
+        "name": "Hamburg",
+        "minPrice": 130,
+        "offerCount": 242
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 106,
+        "offerCount": 133
+      },
+      {
+        "code": "PRN",
+        "name": "Pristina",
+        "minPrice": 169,
+        "offerCount": 46
+      },
+      {
+        "code": "ZAG",
+        "name": "Zagreb",
+        "minPrice": 134,
+        "offerCount": 35
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 177,
+        "offerCount": 33
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 156,
+        "offerCount": 32
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 216,
+        "offerCount": 31
+      },
+      {
+        "code": "BUH",
+        "name": "Bucharest",
+        "minPrice": 150,
+        "offerCount": 29
+      },
+      {
+        "code": "NAP",
+        "name": "Naples",
+        "minPrice": 156,
+        "offerCount": 28
+      }
+    ],
+    "CGN": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 117,
+        "offerCount": 870
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 139,
+        "offerCount": 259
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 125,
+        "offerCount": 192
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 160,
+        "offerCount": 126
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 132,
+        "offerCount": 100
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 122,
+        "offerCount": 94
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 162,
+        "offerCount": 78
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 112,
+        "offerCount": 46
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 169,
+        "offerCount": 41
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 127,
+        "offerCount": 30
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 140,
+        "offerCount": 28
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 104,
+        "offerCount": 22
+      }
+    ],
+    "VIE": [
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 142,
+        "offerCount": 699
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 118,
+        "offerCount": 544
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 91,
+        "offerCount": 442
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 149,
+        "offerCount": 285
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 131,
+        "offerCount": 228
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 114,
+        "offerCount": 227
+      },
+      {
+        "code": "DBV",
+        "name": "Dubrovnik",
+        "minPrice": 125,
+        "offerCount": 163
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 107,
+        "offerCount": 159
+      },
+      {
+        "code": "SOF",
+        "name": "Sofia",
+        "minPrice": 144,
+        "offerCount": 73
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 159,
+        "offerCount": 66
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 166,
+        "offerCount": 63
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 159,
+        "offerCount": 52
+      }
+    ],
+    "DUS": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 107,
+        "offerCount": 1251
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 136,
+        "offerCount": 503
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 112,
+        "offerCount": 404
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 157,
+        "offerCount": 203
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 98,
+        "offerCount": 179
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 123,
+        "offerCount": 147
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 158,
+        "offerCount": 108
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 89,
+        "offerCount": 66
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 117,
+        "offerCount": 56
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 146,
+        "offerCount": 45
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 138,
+        "offerCount": 37
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 142,
+        "offerCount": 29
+      }
+    ],
+    "BER": [
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 119,
+        "offerCount": 862
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 89,
+        "offerCount": 541
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 155,
+        "offerCount": 381
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 130,
+        "offerCount": 358
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 99,
+        "offerCount": 334
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 81,
+        "offerCount": 301
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 142,
+        "offerCount": 250
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 120,
+        "offerCount": 185
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 116,
+        "offerCount": 145
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 155,
+        "offerCount": 68
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 128,
+        "offerCount": 54
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 239,
+        "offerCount": 52
+      }
+    ],
+    "MUC": [
+      {
+        "code": "HAM",
+        "name": "Hamburg",
+        "minPrice": 134,
+        "offerCount": 1060
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 154,
+        "offerCount": 789
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 164,
+        "offerCount": 753
+      },
+      {
+        "code": "DUS",
+        "name": "Dusseldorf",
+        "minPrice": 131,
+        "offerCount": 640
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 137,
+        "offerCount": 427
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 154,
+        "offerCount": 333
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 150,
+        "offerCount": 224
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 200,
+        "offerCount": 159
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 114,
+        "offerCount": 101
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 184,
+        "offerCount": 62
+      },
+      {
+        "code": "MLA",
+        "name": "Malta",
+        "minPrice": 158,
+        "offerCount": 55
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 162,
+        "offerCount": 53
+      }
+    ],
+    "HAM": [
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 127,
+        "offerCount": 924
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 95,
+        "offerCount": 728
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 148,
+        "offerCount": 490
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 104,
+        "offerCount": 215
+      },
+      {
+        "code": "STR",
+        "name": "Stuttgart",
+        "minPrice": 108,
+        "offerCount": 175
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 159,
+        "offerCount": 137
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 196,
+        "offerCount": 112
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 110,
+        "offerCount": 79
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 117,
+        "offerCount": 64
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 168,
+        "offerCount": 62
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 128,
+        "offerCount": 58
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 126,
+        "offerCount": 54
+      }
+    ],
+    "FRA": [
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 97,
+        "offerCount": 869
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 123,
+        "offerCount": 748
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 133,
+        "offerCount": 744
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 123,
+        "offerCount": 662
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 115,
+        "offerCount": 631
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 134,
+        "offerCount": 183
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 136,
+        "offerCount": 164
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 137,
+        "offerCount": 104
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 142,
+        "offerCount": 80
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 149,
+        "offerCount": 72
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 159,
+        "offerCount": 46
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 114,
+        "offerCount": 12
+      }
+    ],
+    "HAJ": [
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 187,
+        "offerCount": 507
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 150,
+        "offerCount": 498
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 120,
+        "offerCount": 392
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 188,
+        "offerCount": 313
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 153,
+        "offerCount": 289
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 207,
+        "offerCount": 239
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 271,
+        "offerCount": 213
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 142,
+        "offerCount": 121
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 192,
+        "offerCount": 76
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 175,
+        "offerCount": 69
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 184,
+        "offerCount": 56
+      },
+      {
+        "code": "HER",
+        "name": "Heraklion",
+        "minPrice": 191,
+        "offerCount": 48
+      }
+    ],
+    "LEJ": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 109,
+        "offerCount": 349
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 145,
+        "offerCount": 258
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 261,
+        "offerCount": 113
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 256,
+        "offerCount": 46
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 267,
+        "offerCount": 42
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 221,
+        "offerCount": 38
+      },
+      {
+        "code": "HER",
+        "name": "Heraklion",
+        "minPrice": 172,
+        "offerCount": 36
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 259,
+        "offerCount": 33
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 246,
+        "offerCount": 18
+      },
+      {
+        "code": "CFU",
+        "name": "Corfu",
+        "minPrice": 118,
+        "offerCount": 15
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 272,
+        "offerCount": 12
+      },
+      {
+        "code": "DUS",
+        "name": "Dusseldorf",
+        "minPrice": 284,
+        "offerCount": 10
+      }
+    ],
+    "NUE": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 90,
+        "offerCount": 626
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 230,
+        "offerCount": 226
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 167,
+        "offerCount": 208
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 228,
+        "offerCount": 203
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 256,
+        "offerCount": 129
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 251,
+        "offerCount": 119
+      },
+      {
+        "code": "HER",
+        "name": "Heraklion",
+        "minPrice": 171,
+        "offerCount": 101
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 255,
+        "offerCount": 91
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 244,
+        "offerCount": 48
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 256,
+        "offerCount": 43
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 250,
+        "offerCount": 36
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 236,
+        "offerCount": 34
+      }
+    ],
+    "WAW": [
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 58,
+        "offerCount": 1126
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 46,
+        "offerCount": 255
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 116,
+        "offerCount": 249
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 48,
+        "offerCount": 241
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 47,
+        "offerCount": 150
+      },
+      {
+        "code": "SOF",
+        "name": "Sofia",
+        "minPrice": 48,
+        "offerCount": 119
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 64,
+        "offerCount": 104
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 91,
+        "offerCount": 91
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 110,
+        "offerCount": 75
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 119,
+        "offerCount": 68
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 67,
+        "offerCount": 59
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 171,
+        "offerCount": 58
+      }
+    ],
+    "WRO": [
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 70,
+        "offerCount": 1569
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 118,
+        "offerCount": 212
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 55,
+        "offerCount": 59
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 124,
+        "offerCount": 26
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 125,
+        "offerCount": 25
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 151,
+        "offerCount": 21
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 164,
+        "offerCount": 20
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 93,
+        "offerCount": 11
+      },
+      {
+        "code": "KIV",
+        "name": "Chisinau",
+        "minPrice": 93,
+        "offerCount": 11
+      },
+      {
+        "code": "BRI",
+        "name": "Bari",
+        "minPrice": 118,
+        "offerCount": 10
+      },
+      {
+        "code": "EIN",
+        "name": "Eindhoven",
+        "minPrice": 90,
+        "offerCount": 8
+      },
+      {
+        "code": "TGD",
+        "name": "Podgorica",
+        "minPrice": 110,
+        "offerCount": 8
+      }
+    ],
+    "DRS": [
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 186,
+        "offerCount": 261
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 143,
+        "offerCount": 232
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 201,
+        "offerCount": 180
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 216,
+        "offerCount": 149
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 210,
+        "offerCount": 148
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 245,
+        "offerCount": 107
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 217,
+        "offerCount": 70
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 252,
+        "offerCount": 69
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 228,
+        "offerCount": 55
+      },
+      {
+        "code": "HAM",
+        "name": "Hamburg",
+        "minPrice": 277,
+        "offerCount": 51
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 245,
+        "offerCount": 43
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 214,
+        "offerCount": 32
+      }
+    ],
+    "KRK": [
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 102,
+        "offerCount": 476
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 63,
+        "offerCount": 313
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 162,
+        "offerCount": 180
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 88,
+        "offerCount": 172
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 85,
+        "offerCount": 162
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 63,
+        "offerCount": 159
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 114,
+        "offerCount": 128
+      },
+      {
+        "code": "BGO",
+        "name": "Bergen",
+        "minPrice": 52,
+        "offerCount": 122
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 108,
+        "offerCount": 115
+      },
+      {
+        "code": "VNO",
+        "name": "Vilnius",
+        "minPrice": 86,
+        "offerCount": 113
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 75,
+        "offerCount": 103
+      },
+      {
+        "code": "SZZ",
+        "name": "Szczecin",
+        "minPrice": 137,
+        "offerCount": 91
+      }
+    ],
+    "GDN": [
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 60,
+        "offerCount": 1067
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 28,
+        "offerCount": 357
+      },
+      {
+        "code": "BGO",
+        "name": "Bergen",
+        "minPrice": 40,
+        "offerCount": 109
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 43,
+        "offerCount": 91
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 28,
+        "offerCount": 66
+      },
+      {
+        "code": "WRO",
+        "name": "Wroclaw",
+        "minPrice": 114,
+        "offerCount": 56
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 123,
+        "offerCount": 44
+      },
+      {
+        "code": "SVG",
+        "name": "Stavanger",
+        "minPrice": 38,
+        "offerCount": 24
+      },
+      {
+        "code": "TKU",
+        "name": "Turku",
+        "minPrice": 41,
+        "offerCount": 24
+      },
+      {
+        "code": "HAM",
+        "name": "Hamburg",
+        "minPrice": 58,
+        "offerCount": 24
+      },
+      {
+        "code": "GOT",
+        "name": "Gothenburg",
+        "minPrice": 29,
+        "offerCount": 16
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 59,
+        "offerCount": 16
+      }
+    ],
+    "KTW": [
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 46,
+        "offerCount": 505
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 134,
+        "offerCount": 336
+      },
+      {
+        "code": "DTM",
+        "name": "Dortmund",
+        "minPrice": 54,
+        "offerCount": 228
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 116,
+        "offerCount": 80
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 181,
+        "offerCount": 65
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 80,
+        "offerCount": 25
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 130,
+        "offerCount": 25
+      },
+      {
+        "code": "BOJ",
+        "name": "Burgas",
+        "minPrice": 104,
+        "offerCount": 24
+      },
+      {
+        "code": "SPU",
+        "name": "Split",
+        "minPrice": 119,
+        "offerCount": 24
+      },
+      {
+        "code": "EIN",
+        "name": "Eindhoven",
+        "minPrice": 148,
+        "offerCount": 24
+      },
+      {
+        "code": "BLL",
+        "name": "Billund",
+        "minPrice": 81,
+        "offerCount": 23
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 147,
+        "offerCount": 22
+      }
+    ],
+    "POZ": [
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 73,
+        "offerCount": 987
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 126,
+        "offerCount": 373
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 169,
+        "offerCount": 219
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 149,
+        "offerCount": 166
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 108,
+        "offerCount": 131
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 145,
+        "offerCount": 104
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 156,
+        "offerCount": 78
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 170,
+        "offerCount": 58
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 156,
+        "offerCount": 47
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 159,
+        "offerCount": 31
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 161,
+        "offerCount": 8
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 120,
+        "offerCount": 7
+      }
+    ],
+    "BUD": [
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 125,
+        "offerCount": 475
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 44,
+        "offerCount": 320
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 59,
+        "offerCount": 156
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 58,
+        "offerCount": 145
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 110,
+        "offerCount": 142
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 70,
+        "offerCount": 139
+      },
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 89,
+        "offerCount": 111
+      },
+      {
+        "code": "STR",
+        "name": "Stuttgart",
+        "minPrice": 89,
+        "offerCount": 102
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 95,
+        "offerCount": 94
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 74,
+        "offerCount": 76
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 109,
+        "offerCount": 75
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 147,
+        "offerCount": 56
+      }
+    ],
+    "AGP": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 73,
+        "offerCount": 1057
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 69,
+        "offerCount": 956
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 66,
+        "offerCount": 251
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 84,
+        "offerCount": 236
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 55,
+        "offerCount": 131
+      },
+      {
+        "code": "LPA",
+        "name": "Las Palmas",
+        "minPrice": 59,
+        "offerCount": 69
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 87,
+        "offerCount": 37
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 107,
+        "offerCount": 16
+      },
+      {
+        "code": "CAS",
+        "name": "CAS",
+        "minPrice": 169,
+        "offerCount": 10
+      },
+      {
+        "code": "RAK",
+        "name": "RAK",
+        "minPrice": 88,
+        "offerCount": 8
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 81,
+        "offerCount": 7
+      },
+      {
+        "code": "TNG",
+        "name": "TNG",
+        "minPrice": 92,
+        "offerCount": 7
+      }
+    ],
+    "VLC": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 66,
+        "offerCount": 894
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 48,
+        "offerCount": 455
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 69,
+        "offerCount": 400
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 64,
+        "offerCount": 135
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 103,
+        "offerCount": 63
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 79,
+        "offerCount": 34
+      },
+      {
+        "code": "SVQ",
+        "name": "Seville",
+        "minPrice": 83,
+        "offerCount": 30
+      },
+      {
+        "code": "OVD",
+        "name": "Asturias",
+        "minPrice": 121,
+        "offerCount": 28
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 103,
+        "offerCount": 24
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 78,
+        "offerCount": 9
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 104,
+        "offerCount": 8
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 139,
+        "offerCount": 6
+      }
+    ],
+    "PMI": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 46,
+        "offerCount": 3592
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 64,
+        "offerCount": 240
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 44,
+        "offerCount": 238
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 64,
+        "offerCount": 153
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 79,
+        "offerCount": 125
+      },
+      {
+        "code": "DUS",
+        "name": "Dusseldorf",
+        "minPrice": 97,
+        "offerCount": 65
+      },
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 92,
+        "offerCount": 39
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 67,
+        "offerCount": 34
+      },
+      {
+        "code": "LBA",
+        "name": "Leeds",
+        "minPrice": 93,
+        "offerCount": 31
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 87,
+        "offerCount": 30
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 53,
+        "offerCount": 28
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 53,
+        "offerCount": 24
+      }
+    ],
+    "BCN": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 40,
+        "offerCount": 2081
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 38,
+        "offerCount": 2059
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 52,
+        "offerCount": 335
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 38,
+        "offerCount": 311
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 78,
+        "offerCount": 53
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 97,
+        "offerCount": 44
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 70,
+        "offerCount": 40
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 58,
+        "offerCount": 36
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 61,
+        "offerCount": 29
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 99,
+        "offerCount": 22
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 98,
+        "offerCount": 10
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 104,
+        "offerCount": 9
+      }
+    ],
+    "SVQ": [
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 52,
+        "offerCount": 602
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 102,
+        "offerCount": 418
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 106,
+        "offerCount": 213
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 85,
+        "offerCount": 205
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 107,
+        "offerCount": 148
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 119,
+        "offerCount": 123
+      },
+      {
+        "code": "OVD",
+        "name": "Asturias",
+        "minPrice": 119,
+        "offerCount": 65
+      },
+      {
+        "code": "SCQ",
+        "name": "Santiago de Compostela",
+        "minPrice": 126,
+        "offerCount": 49
+      },
+      {
+        "code": "LPA",
+        "name": "Las Palmas",
+        "minPrice": 88,
+        "offerCount": 47
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 81,
+        "offerCount": 38
+      },
+      {
+        "code": "LEI",
+        "name": "Almería",
+        "minPrice": 106,
+        "offerCount": 35
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 131,
+        "offerCount": 32
+      }
+    ],
+    "MAD": [
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 71,
+        "offerCount": 1056
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 89,
+        "offerCount": 715
+      },
+      {
+        "code": "SVQ",
+        "name": "Seville",
+        "minPrice": 49,
+        "offerCount": 570
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 73,
+        "offerCount": 380
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 59,
+        "offerCount": 356
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 53,
+        "offerCount": 302
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 91,
+        "offerCount": 263
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 67,
+        "offerCount": 229
+      },
+      {
+        "code": "OVD",
+        "name": "Asturias",
+        "minPrice": 68,
+        "offerCount": 147
+      },
+      {
+        "code": "LCG",
+        "name": "A Coruña",
+        "minPrice": 71,
+        "offerCount": 91
+      },
+      {
+        "code": "VGO",
+        "name": "Vigo",
+        "minPrice": 96,
+        "offerCount": 48
+      },
+      {
+        "code": "OPO",
+        "name": "Porto",
+        "minPrice": 91,
+        "offerCount": 39
+      }
+    ],
+    "BIO": [
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 58,
+        "offerCount": 831
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 57,
+        "offerCount": 422
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 80,
+        "offerCount": 411
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 75,
+        "offerCount": 364
+      },
+      {
+        "code": "SVQ",
+        "name": "Seville",
+        "minPrice": 92,
+        "offerCount": 143
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 58,
+        "offerCount": 128
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 104,
+        "offerCount": 98
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 74,
+        "offerCount": 77
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 99,
+        "offerCount": 50
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 91,
+        "offerCount": 49
+      },
+      {
+        "code": "XRY",
+        "name": "Jerez de la Frontera",
+        "minPrice": 111,
+        "offerCount": 13
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 69,
+        "offerCount": 10
+      }
+    ],
+    "AMS": [
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 115,
+        "offerCount": 2246
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 143,
+        "offerCount": 298
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 109,
+        "offerCount": 198
+      },
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 137,
+        "offerCount": 158
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 150,
+        "offerCount": 126
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 168,
+        "offerCount": 63
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 149,
+        "offerCount": 48
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 187,
+        "offerCount": 45
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 162,
+        "offerCount": 43
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 177,
+        "offerCount": 36
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 193,
+        "offerCount": 34
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 120,
+        "offerCount": 33
+      }
+    ],
+    "RTM": [
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 178,
+        "offerCount": 59
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 131,
+        "offerCount": 58
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 144,
+        "offerCount": 52
+      },
+      {
+        "code": "GRO",
+        "name": "Girona",
+        "minPrice": 153,
+        "offerCount": 51
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 217,
+        "offerCount": 45
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 201,
+        "offerCount": 43
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 165,
+        "offerCount": 31
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 160,
+        "offerCount": 27
+      },
+      {
+        "code": "EGC",
+        "name": "Bergerac",
+        "minPrice": 158,
+        "offerCount": 21
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 169,
+        "offerCount": 20
+      },
+      {
+        "code": "PUY",
+        "name": "Pula",
+        "minPrice": 138,
+        "offerCount": 16
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 144,
+        "offerCount": 13
+      }
+    ],
+    "CRL": [],
+    "EIN": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 158,
+        "offerCount": 112
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 109,
+        "offerCount": 99
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 138,
+        "offerCount": 73
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 152,
+        "offerCount": 72
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 133,
+        "offerCount": 69
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 107,
+        "offerCount": 68
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 179,
+        "offerCount": 68
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 172,
+        "offerCount": 62
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 124,
+        "offerCount": 51
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 215,
+        "offerCount": 50
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 146,
+        "offerCount": 48
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 185,
+        "offerCount": 47
+      }
+    ],
+    "BRU": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 87,
+        "offerCount": 1176
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 113,
+        "offerCount": 576
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 118,
+        "offerCount": 210
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 122,
+        "offerCount": 156
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 126,
+        "offerCount": 156
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 155,
+        "offerCount": 150
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 110,
+        "offerCount": 145
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 68,
+        "offerCount": 123
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 119,
+        "offerCount": 114
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 188,
+        "offerCount": 86
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 140,
+        "offerCount": 74
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 97,
+        "offerCount": 65
+      }
+    ],
+    "LYS": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 65,
+        "offerCount": 295
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 64,
+        "offerCount": 248
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 111,
+        "offerCount": 191
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 176,
+        "offerCount": 156
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 231,
+        "offerCount": 144
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 86,
+        "offerCount": 136
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 86,
+        "offerCount": 112
+      },
+      {
+        "code": "TLS",
+        "name": "Toulouse",
+        "minPrice": 77,
+        "offerCount": 67
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 115,
+        "offerCount": 48
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 126,
+        "offerCount": 42
+      },
+      {
+        "code": "NTE",
+        "name": "Nantes",
+        "minPrice": 147,
+        "offerCount": 40
+      },
+      {
+        "code": "BIA",
+        "name": "Bastia",
+        "minPrice": 121,
+        "offerCount": 38
+      }
+    ],
+    "NCE": [
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 106,
+        "offerCount": 701
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 76,
+        "offerCount": 584
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 68,
+        "offerCount": 357
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 113,
+        "offerCount": 94
+      },
+      {
+        "code": "AJA",
+        "name": "Ajaccio",
+        "minPrice": 261,
+        "offerCount": 78
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 73,
+        "offerCount": 59
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 161,
+        "offerCount": 49
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 75,
+        "offerCount": 40
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 56,
+        "offerCount": 38
+      },
+      {
+        "code": "SXB",
+        "name": "Strasbourg",
+        "minPrice": 90,
+        "offerCount": 28
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 119,
+        "offerCount": 17
+      },
+      {
+        "code": "LIL",
+        "name": "Lille",
+        "minPrice": 135,
+        "offerCount": 17
+      }
+    ],
+    "PAR": [
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 77,
+        "offerCount": 1594
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 97,
+        "offerCount": 458
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 121,
+        "offerCount": 279
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 117,
+        "offerCount": 273
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 88,
+        "offerCount": 253
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 104,
+        "offerCount": 196
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 95,
+        "offerCount": 91
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 70,
+        "offerCount": 73
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 78,
+        "offerCount": 40
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 134,
+        "offerCount": 25
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 178,
+        "offerCount": 19
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 143,
+        "offerCount": 16
+      }
+    ],
+    "BOD": [
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 49,
+        "offerCount": 455
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 57,
+        "offerCount": 264
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 161,
+        "offerCount": 166
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 85,
+        "offerCount": 104
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 55,
+        "offerCount": 100
+      },
+      {
+        "code": "LYS",
+        "name": "Lyon",
+        "minPrice": 93,
+        "offerCount": 90
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 84,
+        "offerCount": 73
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 82,
+        "offerCount": 54
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 79,
+        "offerCount": 37
+      },
+      {
+        "code": "AJA",
+        "name": "Ajaccio",
+        "minPrice": 107,
+        "offerCount": 21
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 111,
+        "offerCount": 20
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 150,
+        "offerCount": 19
+      }
+    ],
+    "MRS": [
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 96,
+        "offerCount": 1051
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 76,
+        "offerCount": 311
+      },
+      {
+        "code": "ALG",
+        "name": "ALG",
+        "minPrice": 105,
+        "offerCount": 227
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 145,
+        "offerCount": 172
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 82,
+        "offerCount": 102
+      },
+      {
+        "code": "AJA",
+        "name": "Ajaccio",
+        "minPrice": 258,
+        "offerCount": 83
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 232,
+        "offerCount": 77
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 64,
+        "offerCount": 70
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 117,
+        "offerCount": 69
+      },
+      {
+        "code": "BIA",
+        "name": "Bastia",
+        "minPrice": 251,
+        "offerCount": 67
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 104,
+        "offerCount": 51
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 150,
+        "offerCount": 48
+      }
+    ],
+    "TLS": [
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 81,
+        "offerCount": 1304
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 64,
+        "offerCount": 171
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 107,
+        "offerCount": 45
+      },
+      {
+        "code": "LYS",
+        "name": "Lyon",
+        "minPrice": 81,
+        "offerCount": 44
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 66,
+        "offerCount": 27
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 181,
+        "offerCount": 24
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 232,
+        "offerCount": 12
+      },
+      {
+        "code": "SXB",
+        "name": "Strasbourg",
+        "minPrice": 108,
+        "offerCount": 11
+      },
+      {
+        "code": "NTE",
+        "name": "Nantes",
+        "minPrice": 95,
+        "offerCount": 10
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 95,
+        "offerCount": 10
+      },
+      {
+        "code": "LIL",
+        "name": "Lille",
+        "minPrice": 162,
+        "offerCount": 10
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 84,
+        "offerCount": 8
+      }
+    ],
+    "NTE": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 61,
+        "offerCount": 541
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 67,
+        "offerCount": 449
+      },
+      {
+        "code": "AJA",
+        "name": "Ajaccio",
+        "minPrice": 111,
+        "offerCount": 120
+      },
+      {
+        "code": "MPL",
+        "name": "Montpellier",
+        "minPrice": 89,
+        "offerCount": 92
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 210,
+        "offerCount": 87
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 113,
+        "offerCount": 76
+      },
+      {
+        "code": "FSC",
+        "name": "Figari",
+        "minPrice": 116,
+        "offerCount": 63
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 146,
+        "offerCount": 63
+      },
+      {
+        "code": "LYS",
+        "name": "Lyon",
+        "minPrice": 98,
+        "offerCount": 61
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 93,
+        "offerCount": 57
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 82,
+        "offerCount": 55
+      },
+      {
+        "code": "OPO",
+        "name": "Porto",
+        "minPrice": 73,
+        "offerCount": 46
+      }
+    ],
+    "SXB": [
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 73,
+        "offerCount": 79
+      },
+      {
+        "code": "TLS",
+        "name": "Toulouse",
+        "minPrice": 115,
+        "offerCount": 30
+      },
+      {
+        "code": "AJA",
+        "name": "Ajaccio",
+        "minPrice": 150,
+        "offerCount": 28
+      },
+      {
+        "code": "NTE",
+        "name": "Nantes",
+        "minPrice": 98,
+        "offerCount": 22
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 127,
+        "offerCount": 18
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 169,
+        "offerCount": 17
+      },
+      {
+        "code": "BIA",
+        "name": "Bastia",
+        "minPrice": 191,
+        "offerCount": 12
+      },
+      {
+        "code": "MRS",
+        "name": "Marseille",
+        "minPrice": 94,
+        "offerCount": 10
+      },
+      {
+        "code": "FSC",
+        "name": "Figari",
+        "minPrice": 217,
+        "offerCount": 7
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 67,
+        "offerCount": 4
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 150,
+        "offerCount": 4
+      },
+      {
+        "code": "RAK",
+        "name": "RAK",
+        "minPrice": 207,
+        "offerCount": 3
+      }
+    ],
+    "MAN": [
+      {
+        "code": "BFS",
+        "name": "Belfast",
+        "minPrice": 71,
+        "offerCount": 1055
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 81,
+        "offerCount": 905
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 160,
+        "offerCount": 221
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 161,
+        "offerCount": 106
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 101,
+        "offerCount": 98
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 99,
+        "offerCount": 83
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 215,
+        "offerCount": 37
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 89,
+        "offerCount": 30
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 140,
+        "offerCount": 22
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 88,
+        "offerCount": 21
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 102,
+        "offerCount": 14
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 320,
+        "offerCount": 6
+      }
+    ],
+    "EDI": [
+      {
+        "code": "BFS",
+        "name": "Belfast",
+        "minPrice": 57,
+        "offerCount": 879
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 91,
+        "offerCount": 642
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 64,
+        "offerCount": 512
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 157,
+        "offerCount": 160
+      },
+      {
+        "code": "BHX",
+        "name": "Birmingham",
+        "minPrice": 81,
+        "offerCount": 153
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 132,
+        "offerCount": 152
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 213,
+        "offerCount": 24
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 116,
+        "offerCount": 21
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 90,
+        "offerCount": 20
+      },
+      {
+        "code": "GVA",
+        "name": "Geneva",
+        "minPrice": 200,
+        "offerCount": 8
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 155,
+        "offerCount": 7
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 123,
+        "offerCount": 6
+      }
+    ],
+    "LON": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 62,
+        "offerCount": 1297
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 64,
+        "offerCount": 628
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 83,
+        "offerCount": 499
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 126,
+        "offerCount": 466
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 135,
+        "offerCount": 431
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 66,
+        "offerCount": 220
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 71,
+        "offerCount": 218
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 79,
+        "offerCount": 171
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 78,
+        "offerCount": 119
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 76,
+        "offerCount": 112
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 102,
+        "offerCount": 95
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 80,
+        "offerCount": 88
+      }
+    ],
+    "GLA": [
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 86,
+        "offerCount": 538
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 60,
+        "offerCount": 496
+      },
+      {
+        "code": "BFS",
+        "name": "Belfast",
+        "minPrice": 65,
+        "offerCount": 339
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 74,
+        "offerCount": 112
+      },
+      {
+        "code": "BHX",
+        "name": "Birmingham",
+        "minPrice": 67,
+        "offerCount": 77
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 192,
+        "offerCount": 60
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 220,
+        "offerCount": 58
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 200,
+        "offerCount": 34
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 88,
+        "offerCount": 18
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 247,
+        "offerCount": 13
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 232,
+        "offerCount": 11
+      },
+      {
+        "code": "REU",
+        "name": "Reus",
+        "minPrice": 88,
+        "offerCount": 10
+      }
+    ],
+    "BRS": [
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 93,
+        "offerCount": 254
+      },
+      {
+        "code": "BFS",
+        "name": "Belfast",
+        "minPrice": 76,
+        "offerCount": 213
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 87,
+        "offerCount": 200
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 88,
+        "offerCount": 164
+      },
+      {
+        "code": "GLA",
+        "name": "Glasgow",
+        "minPrice": 75,
+        "offerCount": 162
+      },
+      {
+        "code": "ALC",
+        "name": "Alicante",
+        "minPrice": 113,
+        "offerCount": 125
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 111,
+        "offerCount": 91
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 135,
+        "offerCount": 86
+      },
+      {
+        "code": "NCL",
+        "name": "Newcastle upon Tyne",
+        "minPrice": 72,
+        "offerCount": 82
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 146,
+        "offerCount": 43
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 134,
+        "offerCount": 38
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 107,
+        "offerCount": 30
+      }
+    ],
+    "BHX": [
+      {
+        "code": "BFS",
+        "name": "Belfast",
+        "minPrice": 69,
+        "offerCount": 1053
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 68,
+        "offerCount": 886
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 181,
+        "offerCount": 107
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 81,
+        "offerCount": 97
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 82,
+        "offerCount": 78
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 151,
+        "offerCount": 77
+      },
+      {
+        "code": "GLA",
+        "name": "Glasgow",
+        "minPrice": 67,
+        "offerCount": 76
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 68,
+        "offerCount": 53
+      },
+      {
+        "code": "MAH",
+        "name": "Menorca",
+        "minPrice": 80,
+        "offerCount": 11
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 137,
+        "offerCount": 7
+      },
+      {
+        "code": "CFU",
+        "name": "Corfu",
+        "minPrice": 123,
+        "offerCount": 3
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 129,
+        "offerCount": 3
+      }
+    ],
+    "ORK": [
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 141,
+        "offerCount": 753
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 131,
+        "offerCount": 121
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 193,
+        "offerCount": 116
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 209,
+        "offerCount": 88
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 145,
+        "offerCount": 51
+      },
+      {
+        "code": "GLA",
+        "name": "Glasgow",
+        "minPrice": 125,
+        "offerCount": 48
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 175,
+        "offerCount": 45
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 151,
+        "offerCount": 32
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 273,
+        "offerCount": 12
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 239,
+        "offerCount": 11
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 280,
+        "offerCount": 9
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 214,
+        "offerCount": 7
+      }
+    ],
+    "ROM": [
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 51,
+        "offerCount": 1027
+      },
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 75,
+        "offerCount": 183
+      },
+      {
+        "code": "NAP",
+        "name": "Naples",
+        "minPrice": 155,
+        "offerCount": 113
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 85,
+        "offerCount": 100
+      },
+      {
+        "code": "MLA",
+        "name": "Malta",
+        "minPrice": 83,
+        "offerCount": 95
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 125,
+        "offerCount": 90
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 83,
+        "offerCount": 89
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 114,
+        "offerCount": 83
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 90,
+        "offerCount": 59
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 74,
+        "offerCount": 55
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 61,
+        "offerCount": 46
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 74,
+        "offerCount": 37
+      }
+    ],
+    "DUB": [
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 80,
+        "offerCount": 829
+      },
+      {
+        "code": "GLA",
+        "name": "Glasgow",
+        "minPrice": 82,
+        "offerCount": 752
+      },
+      {
+        "code": "EDI",
+        "name": "Edinburgh",
+        "minPrice": 82,
+        "offerCount": 738
+      },
+      {
+        "code": "BHX",
+        "name": "Birmingham",
+        "minPrice": 66,
+        "offerCount": 734
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 141,
+        "offerCount": 209
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 116,
+        "offerCount": 184
+      },
+      {
+        "code": "BRS",
+        "name": "Bristol",
+        "minPrice": 83,
+        "offerCount": 169
+      },
+      {
+        "code": "LBA",
+        "name": "Leeds",
+        "minPrice": 81,
+        "offerCount": 162
+      },
+      {
+        "code": "LPL",
+        "name": "Liverpool",
+        "minPrice": 80,
+        "offerCount": 102
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 109,
+        "offerCount": 92
+      },
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 199,
+        "offerCount": 37
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 143,
+        "offerCount": 27
+      }
+    ],
+    "VCE": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 74,
+        "offerCount": 897
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 115,
+        "offerCount": 331
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 132,
+        "offerCount": 210
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 97,
+        "offerCount": 124
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 58,
+        "offerCount": 102
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 67,
+        "offerCount": 96
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 215,
+        "offerCount": 75
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 102,
+        "offerCount": 64
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 113,
+        "offerCount": 60
+      },
+      {
+        "code": "NAP",
+        "name": "Naples",
+        "minPrice": 63,
+        "offerCount": 40
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 78,
+        "offerCount": 40
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 171,
+        "offerCount": 29
+      }
+    ],
+    "MIL": [
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 78,
+        "offerCount": 1634
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 67,
+        "offerCount": 373
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 97,
+        "offerCount": 272
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 145,
+        "offerCount": 257
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 130,
+        "offerCount": 234
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 60,
+        "offerCount": 224
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 78,
+        "offerCount": 206
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 86,
+        "offerCount": 127
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 54,
+        "offerCount": 118
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 93,
+        "offerCount": 118
+      },
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 108,
+        "offerCount": 111
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 127,
+        "offerCount": 109
+      }
+    ],
+    "NAP": [
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 49,
+        "offerCount": 610
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 81,
+        "offerCount": 374
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 149,
+        "offerCount": 168
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 94,
+        "offerCount": 134
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 168,
+        "offerCount": 78
+      },
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 85,
+        "offerCount": 75
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 134,
+        "offerCount": 71
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 170,
+        "offerCount": 52
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 160,
+        "offerCount": 49
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 46,
+        "offerCount": 45
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 174,
+        "offerCount": 44
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 74,
+        "offerCount": 36
+      }
+    ],
+    "BLQ": [
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 179,
+        "offerCount": 386
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 114,
+        "offerCount": 303
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 68,
+        "offerCount": 289
+      },
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 89,
+        "offerCount": 160
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 117,
+        "offerCount": 143
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 131,
+        "offerCount": 139
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 119,
+        "offerCount": 130
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 74,
+        "offerCount": 123
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 137,
+        "offerCount": 104
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 101,
+        "offerCount": 103
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 56,
+        "offerCount": 102
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 166,
+        "offerCount": 100
+      }
+    ],
+    "PSA": [
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 111,
+        "offerCount": 401
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 145,
+        "offerCount": 108
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 80,
+        "offerCount": 100
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 171,
+        "offerCount": 77
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 105,
+        "offerCount": 68
+      },
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 182,
+        "offerCount": 51
+      },
+      {
+        "code": "BUH",
+        "name": "Bucharest",
+        "minPrice": 103,
+        "offerCount": 27
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 290,
+        "offerCount": 19
+      },
+      {
+        "code": "DUB",
+        "name": "Dublin",
+        "minPrice": 166,
+        "offerCount": 17
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 235,
+        "offerCount": 13
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 118,
+        "offerCount": 12
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 238,
+        "offerCount": 11
+      }
+    ],
+    "FLR": [
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 126,
+        "offerCount": 993
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 105,
+        "offerCount": 832
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 132,
+        "offerCount": 256
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 169,
+        "offerCount": 229
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 117,
+        "offerCount": 85
+      },
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 140,
+        "offerCount": 81
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 221,
+        "offerCount": 47
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 188,
+        "offerCount": 38
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 117,
+        "offerCount": 36
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 145,
+        "offerCount": 15
+      },
+      {
+        "code": "CAG",
+        "name": "Cagliari",
+        "minPrice": 97,
+        "offerCount": 9
+      },
+      {
+        "code": "AHO",
+        "name": "Alghero",
+        "minPrice": 99,
+        "offerCount": 5
+      }
+    ],
+    "OPO": [
+      {
+        "code": "LIS",
+        "name": "Lisbon",
+        "minPrice": 96,
+        "offerCount": 1761
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 101,
+        "offerCount": 263
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 116,
+        "offerCount": 164
+      },
+      {
+        "code": "NTE",
+        "name": "Nantes",
+        "minPrice": 80,
+        "offerCount": 33
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 144,
+        "offerCount": 14
+      },
+      {
+        "code": "SVQ",
+        "name": "Seville",
+        "minPrice": 95,
+        "offerCount": 13
+      },
+      {
+        "code": "BIO",
+        "name": "Bilbao",
+        "minPrice": 140,
+        "offerCount": 10
+      },
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 140,
+        "offerCount": 4
+      },
+      {
+        "code": "BOD",
+        "name": "Bordeaux",
+        "minPrice": 141,
+        "offerCount": 4
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 194,
+        "offerCount": 4
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 125,
+        "offerCount": 1
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 180,
+        "offerCount": 1
+      }
+    ],
+    "LIS": [
+      {
+        "code": "OPO",
+        "name": "Porto",
+        "minPrice": 87,
+        "offerCount": 1692
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 75,
+        "offerCount": 1544
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 97,
+        "offerCount": 391
+      },
+      {
+        "code": "SVQ",
+        "name": "Seville",
+        "minPrice": 106,
+        "offerCount": 117
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 202,
+        "offerCount": 54
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 236,
+        "offerCount": 54
+      },
+      {
+        "code": "FAO",
+        "name": "Faro",
+        "minPrice": 101,
+        "offerCount": 40
+      },
+      {
+        "code": "FNC",
+        "name": "Funchal",
+        "minPrice": 248,
+        "offerCount": 24
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 110,
+        "offerCount": 21
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 255,
+        "offerCount": 14
+      },
+      {
+        "code": "NTE",
+        "name": "Nantes",
+        "minPrice": 101,
+        "offerCount": 7
+      },
+      {
+        "code": "RAK",
+        "name": "RAK",
+        "minPrice": 217,
+        "offerCount": 6
+      }
+    ],
+    "TRN": [
+      {
+        "code": "CTA",
+        "name": "Catania",
+        "minPrice": 106,
+        "offerCount": 471
+      },
+      {
+        "code": "PMO",
+        "name": "Palermo",
+        "minPrice": 87,
+        "offerCount": 357
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 179,
+        "offerCount": 251
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 178,
+        "offerCount": 178
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 93,
+        "offerCount": 176
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 80,
+        "offerCount": 169
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 196,
+        "offerCount": 169
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 190,
+        "offerCount": 107
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 124,
+        "offerCount": 106
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 158,
+        "offerCount": 62
+      },
+      {
+        "code": "NAP",
+        "name": "Naples",
+        "minPrice": 168,
+        "offerCount": 47
+      },
+      {
+        "code": "BRI",
+        "name": "Bari",
+        "minPrice": 167,
+        "offerCount": 46
+      }
+    ],
+    "BSL": [],
+    "ZRH": [
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 93,
+        "offerCount": 843
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 118,
+        "offerCount": 275
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 97,
+        "offerCount": 250
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 166,
+        "offerCount": 214
+      },
+      {
+        "code": "DUS",
+        "name": "Dusseldorf",
+        "minPrice": 187,
+        "offerCount": 101
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 214,
+        "offerCount": 84
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 167,
+        "offerCount": 74
+      },
+      {
+        "code": "CGN",
+        "name": "Cologne",
+        "minPrice": 177,
+        "offerCount": 72
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 164,
+        "offerCount": 46
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 118,
+        "offerCount": 42
+      },
+      {
+        "code": "HAM",
+        "name": "Hamburg",
+        "minPrice": 178,
+        "offerCount": 38
+      },
+      {
+        "code": "PRN",
+        "name": "Pristina",
+        "minPrice": 160,
+        "offerCount": 37
+      }
+    ],
+    "SKG": [
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 93,
+        "offerCount": 1980
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 121,
+        "offerCount": 21
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 107,
+        "offerCount": 8
+      },
+      {
+        "code": "MJT",
+        "name": "Mytilene",
+        "minPrice": 168,
+        "offerCount": 5
+      },
+      {
+        "code": "BUH",
+        "name": "Bucharest",
+        "minPrice": 131,
+        "offerCount": 3
+      },
+      {
+        "code": "MAN",
+        "name": "Manchester",
+        "minPrice": 157,
+        "offerCount": 3
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 148,
+        "offerCount": 2
+      },
+      {
+        "code": "LCA",
+        "name": "Larnaca",
+        "minPrice": 152,
+        "offerCount": 2
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 193,
+        "offerCount": 2
+      },
+      {
+        "code": "RHO",
+        "name": "Rhodes",
+        "minPrice": 209,
+        "offerCount": 1
+      }
+    ],
+    "ATH": [
+      {
+        "code": "JMK",
+        "name": "Mykonos",
+        "minPrice": 93,
+        "offerCount": 1055
+      },
+      {
+        "code": "JTR",
+        "name": "Santorini",
+        "minPrice": 109,
+        "offerCount": 707
+      },
+      {
+        "code": "HER",
+        "name": "Heraklion",
+        "minPrice": 77,
+        "offerCount": 556
+      },
+      {
+        "code": "SKG",
+        "name": "Thessaloniki",
+        "minPrice": 97,
+        "offerCount": 388
+      },
+      {
+        "code": "RHO",
+        "name": "Rhodes",
+        "minPrice": 97,
+        "offerCount": 274
+      },
+      {
+        "code": "LCA",
+        "name": "Larnaca",
+        "minPrice": 77,
+        "offerCount": 101
+      },
+      {
+        "code": "AXD",
+        "name": "Alexandroupoli",
+        "minPrice": 90,
+        "offerCount": 74
+      },
+      {
+        "code": "CFU",
+        "name": "Corfu",
+        "minPrice": 112,
+        "offerCount": 51
+      },
+      {
+        "code": "MLO",
+        "name": "Plaka, Milos",
+        "minPrice": 106,
+        "offerCount": 40
+      },
+      {
+        "code": "TIA",
+        "name": "Tirana",
+        "minPrice": 63,
+        "offerCount": 33
+      },
+      {
+        "code": "SOF",
+        "name": "Sofia",
+        "minPrice": 98,
+        "offerCount": 28
+      },
+      {
+        "code": "ZTH",
+        "name": "Zakynthos Island",
+        "minPrice": 111,
+        "offerCount": 21
+      }
+    ],
+    "GVA": [
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 78,
+        "offerCount": 493
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 83,
+        "offerCount": 374
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 101,
+        "offerCount": 223
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 93,
+        "offerCount": 193
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 130,
+        "offerCount": 173
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 121,
+        "offerCount": 159
+      },
+      {
+        "code": "PMI",
+        "name": "Palma",
+        "minPrice": 92,
+        "offerCount": 139
+      },
+      {
+        "code": "OLB",
+        "name": "Olbia",
+        "minPrice": 98,
+        "offerCount": 67
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 203,
+        "offerCount": 33
+      },
+      {
+        "code": "VLC",
+        "name": "Valencia",
+        "minPrice": 104,
+        "offerCount": 24
+      },
+      {
+        "code": "PRN",
+        "name": "Pristina",
+        "minPrice": 95,
+        "offerCount": 14
+      },
+      {
+        "code": "IBZ",
+        "name": "Ibiza",
+        "minPrice": 151,
+        "offerCount": 14
+      }
+    ],
+    "ZAG": [
+      {
+        "code": "DBV",
+        "name": "Dubrovnik",
+        "minPrice": 123,
+        "offerCount": 785
+      },
+      {
+        "code": "SPU",
+        "name": "Split",
+        "minPrice": 118,
+        "offerCount": 736
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 142,
+        "offerCount": 132
+      },
+      {
+        "code": "PUY",
+        "name": "Pula",
+        "minPrice": 100,
+        "offerCount": 122
+      },
+      {
+        "code": "ZAD",
+        "name": "Zadar",
+        "minPrice": 109,
+        "offerCount": 115
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 154,
+        "offerCount": 101
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 152,
+        "offerCount": 74
+      },
+      {
+        "code": "SJJ",
+        "name": "Sarajevo",
+        "minPrice": 160,
+        "offerCount": 65
+      },
+      {
+        "code": "SKP",
+        "name": "Skopje",
+        "minPrice": 152,
+        "offerCount": 42
+      },
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "minPrice": 192,
+        "offerCount": 39
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 158,
+        "offerCount": 33
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 194,
+        "offerCount": 32
+      }
+    ],
+    "SOF": [
+      {
+        "code": "VAR",
+        "name": "Varna",
+        "minPrice": 157,
+        "offerCount": 307
+      },
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 126,
+        "offerCount": 234
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 47,
+        "offerCount": 203
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 111,
+        "offerCount": 197
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 139,
+        "offerCount": 81
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 85,
+        "offerCount": 62
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 71,
+        "offerCount": 58
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 108,
+        "offerCount": 46
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 177,
+        "offerCount": 35
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 116,
+        "offerCount": 30
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 74,
+        "offerCount": 25
+      },
+      {
+        "code": "NCE",
+        "name": "Nice",
+        "minPrice": 99,
+        "offerCount": 25
+      }
+    ],
+    "BUH": [
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 100,
+        "offerCount": 585
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 105,
+        "offerCount": 284
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 80,
+        "offerCount": 274
+      },
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 98,
+        "offerCount": 146
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 46,
+        "offerCount": 99
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 91,
+        "offerCount": 98
+      },
+      {
+        "code": "BRI",
+        "name": "Bari",
+        "minPrice": 137,
+        "offerCount": 35
+      },
+      {
+        "code": "CFU",
+        "name": "Corfu",
+        "minPrice": 134,
+        "offerCount": 28
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 104,
+        "offerCount": 26
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 86,
+        "offerCount": 24
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 108,
+        "offerCount": 24
+      },
+      {
+        "code": "MLA",
+        "name": "Malta",
+        "minPrice": 110,
+        "offerCount": 24
+      }
+    ],
+    "LJU": [
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 190,
+        "offerCount": 335
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 201,
+        "offerCount": 314
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 182,
+        "offerCount": 281
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 198,
+        "offerCount": 269
+      },
+      {
+        "code": "DUS",
+        "name": "Dusseldorf",
+        "minPrice": 200,
+        "offerCount": 250
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 142,
+        "offerCount": 206
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 185,
+        "offerCount": 194
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 217,
+        "offerCount": 151
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 158,
+        "offerCount": 110
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 170,
+        "offerCount": 105
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 200,
+        "offerCount": 103
+      },
+      {
+        "code": "LUX",
+        "name": "Luxembourg",
+        "minPrice": 232,
+        "offerCount": 100
+      }
+    ],
+    "TIA": [
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 76,
+        "offerCount": 539
+      },
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 94,
+        "offerCount": 213
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 120,
+        "offerCount": 133
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 67,
+        "offerCount": 117
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 74,
+        "offerCount": 96
+      },
+      {
+        "code": "BLQ",
+        "name": "Bologna",
+        "minPrice": 80,
+        "offerCount": 94
+      },
+      {
+        "code": "PSA",
+        "name": "Pisa",
+        "minPrice": 106,
+        "offerCount": 91
+      },
+      {
+        "code": "BRI",
+        "name": "Bari",
+        "minPrice": 71,
+        "offerCount": 79
+      },
+      {
+        "code": "TRN",
+        "name": "Turin",
+        "minPrice": 60,
+        "offerCount": 63
+      },
+      {
+        "code": "VRN",
+        "name": "Verona",
+        "minPrice": 85,
+        "offerCount": 45
+      },
+      {
+        "code": "GOA",
+        "name": "Genoa",
+        "minPrice": 89,
+        "offerCount": 39
+      },
+      {
+        "code": "NAP",
+        "name": "Naples",
+        "minPrice": 75,
+        "offerCount": 36
+      }
+    ],
+    "SKP": [
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 119,
+        "offerCount": 481
+      },
+      {
+        "code": "IZM",
+        "name": "IZM",
+        "minPrice": 110,
+        "offerCount": 175
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 146,
+        "offerCount": 123
+      },
+      {
+        "code": "BEG",
+        "name": "Belgrade",
+        "minPrice": 118,
+        "offerCount": 93
+      },
+      {
+        "code": "EAP",
+        "name": "Basel",
+        "minPrice": 59,
+        "offerCount": 66
+      },
+      {
+        "code": "ZAG",
+        "name": "Zagreb",
+        "minPrice": 162,
+        "offerCount": 36
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 272,
+        "offerCount": 34
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 71,
+        "offerCount": 33
+      },
+      {
+        "code": "ANK",
+        "name": "ANK",
+        "minPrice": 156,
+        "offerCount": 33
+      },
+      {
+        "code": "DTM",
+        "name": "Dortmund",
+        "minPrice": 106,
+        "offerCount": 30
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 96,
+        "offerCount": 29
+      },
+      {
+        "code": "MMA",
+        "name": "Malmö",
+        "minPrice": 44,
+        "offerCount": 24
+      }
+    ],
+    "BEG": [
+      {
+        "code": "TIV",
+        "name": "Tivat",
+        "minPrice": 150,
+        "offerCount": 595
+      },
+      {
+        "code": "TGD",
+        "name": "Podgorica",
+        "minPrice": 129,
+        "offerCount": 455
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 133,
+        "offerCount": 439
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 93,
+        "offerCount": 96
+      },
+      {
+        "code": "ZRH",
+        "name": "Zurich",
+        "minPrice": 139,
+        "offerCount": 79
+      },
+      {
+        "code": "ZAG",
+        "name": "Zagreb",
+        "minPrice": 154,
+        "offerCount": 68
+      },
+      {
+        "code": "SKP",
+        "name": "Skopje",
+        "minPrice": 112,
+        "offerCount": 49
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 69,
+        "offerCount": 44
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 105,
+        "offerCount": 42
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 122,
+        "offerCount": 37
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 163,
+        "offerCount": 30
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 54,
+        "offerCount": 28
+      }
+    ],
+    "RIX": [
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 98,
+        "offerCount": 1136
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 45,
+        "offerCount": 296
+      },
+      {
+        "code": "VNO",
+        "name": "Vilnius",
+        "minPrice": 91,
+        "offerCount": 242
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 86,
+        "offerCount": 231
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 82,
+        "offerCount": 71
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 102,
+        "offerCount": 68
+      },
+      {
+        "code": "GOT",
+        "name": "Gothenburg",
+        "minPrice": 69,
+        "offerCount": 15
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 291,
+        "offerCount": 1
+      }
+    ],
+    "VNO": [
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 91,
+        "offerCount": 613
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 38,
+        "offerCount": 508
+      },
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 154,
+        "offerCount": 255
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 93,
+        "offerCount": 193
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 79,
+        "offerCount": 134
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 200,
+        "offerCount": 104
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 71,
+        "offerCount": 84
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 100,
+        "offerCount": 75
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 167,
+        "offerCount": 35
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 149,
+        "offerCount": 15
+      },
+      {
+        "code": "TKU",
+        "name": "Turku",
+        "minPrice": 101,
+        "offerCount": 12
+      },
+      {
+        "code": "BGO",
+        "name": "Bergen",
+        "minPrice": 114,
+        "offerCount": 12
+      }
+    ],
+    "TLL": [
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 146,
+        "offerCount": 985
+      },
+      {
+        "code": "VNO",
+        "name": "Vilnius",
+        "minPrice": 39,
+        "offerCount": 267
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 129,
+        "offerCount": 175
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 119,
+        "offerCount": 29
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 53,
+        "offerCount": 25
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 75,
+        "offerCount": 16
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 96,
+        "offerCount": 7
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 99,
+        "offerCount": 5
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 149,
+        "offerCount": 3
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 104,
+        "offerCount": 1
+      }
+    ],
+    "HEL": [
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 70,
+        "offerCount": 1400
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 98,
+        "offerCount": 605
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 140,
+        "offerCount": 536
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 166,
+        "offerCount": 71
+      },
+      {
+        "code": "VNO",
+        "name": "Vilnius",
+        "minPrice": 198,
+        "offerCount": 43
+      },
+      {
+        "code": "RVN",
+        "name": "Rovaniemi",
+        "minPrice": 165,
+        "offerCount": 38
+      },
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 230,
+        "offerCount": 28
+      },
+      {
+        "code": "OUL",
+        "name": "Oulu",
+        "minPrice": 160,
+        "offerCount": 27
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 296,
+        "offerCount": 15
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 249,
+        "offerCount": 13
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 218,
+        "offerCount": 11
+      },
+      {
+        "code": "GOT",
+        "name": "Gothenburg",
+        "minPrice": 284,
+        "offerCount": 6
+      }
+    ],
+    "REK": [
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 280,
+        "offerCount": 136
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 214,
+        "offerCount": 27
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 237,
+        "offerCount": 4
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 266,
+        "offerCount": 3
+      }
+    ],
+    "GOT": [
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 121,
+        "offerCount": 860
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 190,
+        "offerCount": 378
+      },
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 132,
+        "offerCount": 99
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 31,
+        "offerCount": 87
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 148,
+        "offerCount": 87
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 99,
+        "offerCount": 79
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 134,
+        "offerCount": 72
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 107,
+        "offerCount": 70
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 228,
+        "offerCount": 61
+      },
+      {
+        "code": "TLL",
+        "name": "Tallinn",
+        "minPrice": 182,
+        "offerCount": 51
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 110,
+        "offerCount": 50
+      },
+      {
+        "code": "FRA",
+        "name": "Frankfurt",
+        "minPrice": 251,
+        "offerCount": 49
+      }
+    ],
+    "IST": [],
+    "STO": [
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 136,
+        "offerCount": 1513
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 94,
+        "offerCount": 245
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 119,
+        "offerCount": 231
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 93,
+        "offerCount": 206
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 119,
+        "offerCount": 160
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 192,
+        "offerCount": 125
+      },
+      {
+        "code": "BUD",
+        "name": "Budapest",
+        "minPrice": 94,
+        "offerCount": 75
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 206,
+        "offerCount": 60
+      },
+      {
+        "code": "MUC",
+        "name": "Munich",
+        "minPrice": 215,
+        "offerCount": 55
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 117,
+        "offerCount": 52
+      },
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 135,
+        "offerCount": 43
+      },
+      {
+        "code": "PAR",
+        "name": "Paris",
+        "minPrice": 125,
+        "offerCount": 28
+      }
+    ],
+    "SAW": [],
+    "CPH": [
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 122,
+        "offerCount": 1116
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 119,
+        "offerCount": 886
+      },
+      {
+        "code": "AAL",
+        "name": "Aalborg",
+        "minPrice": 132,
+        "offerCount": 628
+      },
+      {
+        "code": "VIE",
+        "name": "Vienna",
+        "minPrice": 110,
+        "offerCount": 259
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 83,
+        "offerCount": 219
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 105,
+        "offerCount": 167
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 105,
+        "offerCount": 135
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 73,
+        "offerCount": 106
+      },
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 126,
+        "offerCount": 99
+      },
+      {
+        "code": "MIL",
+        "name": "Milan",
+        "minPrice": 95,
+        "offerCount": 93
+      },
+      {
+        "code": "BCN",
+        "name": "Barcelona",
+        "minPrice": 175,
+        "offerCount": 80
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 102,
+        "offerCount": 73
+      }
+    ],
+    "BLL": [
+      {
+        "code": "OSL",
+        "name": "Oslo",
+        "minPrice": 134,
+        "offerCount": 399
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 201,
+        "offerCount": 323
+      },
+      {
+        "code": "BGO",
+        "name": "Bergen",
+        "minPrice": 139,
+        "offerCount": 269
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 68,
+        "offerCount": 241
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 171,
+        "offerCount": 139
+      },
+      {
+        "code": "LON",
+        "name": "London",
+        "minPrice": 177,
+        "offerCount": 128
+      },
+      {
+        "code": "KRK",
+        "name": "Krakow",
+        "minPrice": 166,
+        "offerCount": 79
+      },
+      {
+        "code": "KTW",
+        "name": "Katowice",
+        "minPrice": 73,
+        "offerCount": 71
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 137,
+        "offerCount": 68
+      },
+      {
+        "code": "AMS",
+        "name": "Amsterdam",
+        "minPrice": 244,
+        "offerCount": 55
+      },
+      {
+        "code": "BUH",
+        "name": "Bucharest",
+        "minPrice": 137,
+        "offerCount": 51
+      },
+      {
+        "code": "AGP",
+        "name": "Malaga",
+        "minPrice": 126,
+        "offerCount": 46
+      }
+    ],
+    "OSL": [
+      {
+        "code": "SVG",
+        "name": "Stavanger",
+        "minPrice": 42,
+        "offerCount": 2507
+      },
+      {
+        "code": "TRD",
+        "name": "Trondheim",
+        "minPrice": 111,
+        "offerCount": 1935
+      },
+      {
+        "code": "BGO",
+        "name": "Bergen",
+        "minPrice": 40,
+        "offerCount": 1515
+      },
+      {
+        "code": "STO",
+        "name": "Stockholm",
+        "minPrice": 88,
+        "offerCount": 1018
+      },
+      {
+        "code": "GDN",
+        "name": "Gdansk",
+        "minPrice": 37,
+        "offerCount": 280
+      },
+      {
+        "code": "CPH",
+        "name": "Copenhagen",
+        "minPrice": 145,
+        "offerCount": 279
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 63,
+        "offerCount": 105
+      },
+      {
+        "code": "BOO",
+        "name": "Bodø",
+        "minPrice": 43,
+        "offerCount": 89
+      },
+      {
+        "code": "HEL",
+        "name": "Helsinki",
+        "minPrice": 187,
+        "offerCount": 60
+      },
+      {
+        "code": "RIX",
+        "name": "Riga",
+        "minPrice": 80,
+        "offerCount": 55
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 84,
+        "offerCount": 34
+      },
+      {
+        "code": "AES",
+        "name": "Ålesund",
+        "minPrice": 113,
+        "offerCount": 29
+      }
+    ],
+    "AYT": [],
+    "ESB": [],
+    "IEV": [],
+    "ODS": [],
+    "KIV": [
+      {
+        "code": "IST",
+        "name": "Istanbul",
+        "minPrice": 91,
+        "offerCount": 1191
+      },
+      {
+        "code": "WAW",
+        "name": "Warsaw",
+        "minPrice": 179,
+        "offerCount": 82
+      },
+      {
+        "code": "BLQ",
+        "name": "Bologna",
+        "minPrice": 155,
+        "offerCount": 39
+      },
+      {
+        "code": "BER",
+        "name": "Berlin",
+        "minPrice": 110,
+        "offerCount": 33
+      },
+      {
+        "code": "WRO",
+        "name": "Wroclaw",
+        "minPrice": 71,
+        "offerCount": 30
+      },
+      {
+        "code": "VCE",
+        "name": "Venice",
+        "minPrice": 164,
+        "offerCount": 29
+      },
+      {
+        "code": "PRG",
+        "name": "Prague",
+        "minPrice": 111,
+        "offerCount": 27
+      },
+      {
+        "code": "AYT",
+        "name": "Antalya",
+        "minPrice": 189,
+        "offerCount": 24
+      },
+      {
+        "code": "ATH",
+        "name": "Athens",
+        "minPrice": 136,
+        "offerCount": 19
+      },
+      {
+        "code": "ROM",
+        "name": "Rome",
+        "minPrice": 159,
+        "offerCount": 16
+      },
+      {
+        "code": "TBS",
+        "name": "TBS",
+        "minPrice": 156,
+        "offerCount": 15
+      },
+      {
+        "code": "BRU",
+        "name": "Brussels",
+        "minPrice": 111,
+        "offerCount": 13
+      }
+    ]
+  }
+}

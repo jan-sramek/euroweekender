@@ -4,22 +4,19 @@ import { getCachedHubScores, getCities, getHubScores } from '../services/api';
 import {
   findCityByCode,
   rankNearbyCities,
-  rankPopularHubCities,
   selectDefaultCityCodes,
   selectFallbackCityCodes
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
-function updateHubSuggestions(
+function updateNearbySuggestions(
   cities: City[],
   scores: HubScore[],
   anchorCity: City
-): { nearby: CityWithDistance[]; popular: CityWithDistance[] } {
+): CityWithDistance[] {
   const anchor = { latitude: anchorCity.latitude, longitude: anchorCity.longitude };
-  const nearby = rankNearbyCities(cities, anchor, scores);
-  const popular = rankPopularHubCities(cities, anchor, scores, nearby);
-  return { nearby, popular };
+  return rankNearbyCities(cities, anchor, scores);
 }
 
 function sameCodeList(a: string[], b: string[]): boolean {
@@ -42,7 +39,6 @@ export function useDeparturePrefill(options?: {
     .join('|');
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
-  const [popularHubCities, setPopularHubCities] = useState<CityWithDistance[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>(() =>
     preferredKey ? preferredKey.split('|') : []
   );
@@ -57,13 +53,10 @@ export function useDeparturePrefill(options?: {
     const anchorCity = findCityByCode(cities, primaryCode);
     if (!anchorCity) {
       setNearbyCities([]);
-      setPopularHubCities([]);
       return;
     }
 
-    const { nearby, popular } = updateHubSuggestions(cities, scores, anchorCity);
-    setNearbyCities(nearby);
-    setPopularHubCities(popular);
+    setNearbyCities(updateNearbySuggestions(cities, scores, anchorCity));
   }, []);
 
   const primaryCode = selectedCodes[0] ?? '';
@@ -187,7 +180,6 @@ export function useDeparturePrefill(options?: {
   return {
     allCities,
     nearbyCities,
-    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,

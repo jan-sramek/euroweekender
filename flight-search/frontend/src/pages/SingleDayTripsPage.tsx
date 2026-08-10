@@ -52,7 +52,6 @@ export function SingleDayTripsPage() {
   const {
     allCities,
     nearbyCities,
-    popularHubCities,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -175,7 +174,6 @@ export function SingleDayTripsPage() {
                   <DeparturePicker
                     allCities={allCities}
                     nearbyCities={nearbyCities}
-                    popularHubCities={popularHubCities}
                     selectedCodes={selectedCodes}
                     locating={locating}
                     locationLabel={locationLabel}

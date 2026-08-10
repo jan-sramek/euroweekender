@@ -3,7 +3,6 @@ import {
   findCityByCode,
   rankCitiesByDistance,
   rankNearbyCities,
-  rankPopularHubCities,
   selectDefaultCityCodes,
   selectFallbackCityCodes
 } from '../services/locationPrefill';
@@ -161,14 +160,4 @@ describe('locationPrefill', () => {
     expect(findCityByCode(cities, 'prg')?.code).toBe('PRG');
   });
 
-  it('ranks popular hubs outside nearby airports by offer count within max distance', () => {
-    const anchor = { latitude: 50.1, longitude: 14.26 };
-    const nearby = rankNearbyCities(cities, anchor, hubScores, 10, 350);
-    const popular = rankPopularHubCities(cities, anchor, hubScores, nearby, 10, 50, 1000);
-
-    expect(nearby.map(city => city.code)).toContain('PRG');
-    expect(popular.map(city => city.code)).not.toContain('PRG');
-    expect(popular.map(city => city.code)).toEqual(['WAW', 'KRK']);
-    expect(popular.every(city => city.distanceKm <= 1000)).toBe(true);
-  });
 });

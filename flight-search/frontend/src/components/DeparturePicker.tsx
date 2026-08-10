@@ -15,7 +15,6 @@ import './DeparturePicker.css';
 interface DeparturePickerProps {
   allCities: City[];
   nearbyCities: CityWithDistance[];
-  popularHubCities: CityWithDistance[];
   selectedCodes: string[];
   locating: boolean;
   locationLabel: string;
@@ -27,17 +26,11 @@ interface DeparturePickerProps {
   reserveChipSlot?: boolean;
   /** Show the nearby airport chip row under the search field. */
   showNearbyAirports?: boolean;
-  /** Show the popular hubs further away chip row. */
-  showPopularHubs?: boolean;
 }
 
 function formatNearby(city: CityWithDistance, language: string): string {
   const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
   return `${getCityDisplayName(city, language)} (${city.code}) · ${distance} km`;
-}
-
-function formatPopularHub(city: CityWithDistance, offerCount: string): string {
-  return `${city.code} · ${offerCount}`;
 }
 
 function formatCity(city: City, language: string): string {
@@ -51,7 +44,6 @@ function displayName(city: City & { localizedName?: string }, language: string):
 export function DeparturePicker({
   allCities,
   nearbyCities,
-  popularHubCities,
   selectedCodes,
   locating,
   locationLabel,
@@ -59,8 +51,7 @@ export function DeparturePicker({
   onAddCity,
   singleSelect = false,
   reserveChipSlot = false,
-  showNearbyAirports = true,
-  showPopularHubs = true
+  showNearbyAirports = true
 }: DeparturePickerProps) {
   const { t, i18n } = useTranslation();
   const language = i18n.language || 'en';
@@ -107,19 +98,9 @@ export function DeparturePicker({
     });
   }, [allCities, nearbyNotSelected, selectedCities, selectedCodes]);
 
-  const popularHubsNotSelected = useMemo(
-    () => popularHubCities.filter(city => !selectedCodes.includes(city.code)),
-    [popularHubCities, selectedCodes]
-  );
-
   const trimmedQuery = query.trim();
   const showSearchResults = open && trimmedQuery.length >= 1;
   const showNearbySuggestions = open && trimmedQuery.length < 1 && nearbyByDistance.length > 0;
-
-  const offerCountFormatter = useMemo(
-    () => new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }),
-    []
-  );
 
   const { results: searchResults, isSearching } = useCityTypeahead({
     allCities,
@@ -285,33 +266,6 @@ export function DeparturePicker({
                 onClick={() => selectCode(city.code)}
               >
                 + <CountryFlag country={city.country} /> {formatNearby(city, language)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {showPopularHubs && popularHubsNotSelected.length > 0 && (
-        <div className="popular-hubs-section">
-          <p className="nearby-label">{t('search.popularHubAirports')}</p>
-          <div
-            className="airport-chips airport-chips-inline"
-            role="group"
-            aria-label={t('search.popularHubAirports')}
-          >
-            {popularHubsNotSelected.map(city => (
-              <button
-                key={city.code}
-                type="button"
-                className="chip chip-add chip-popular chip-compact"
-                aria-label={t('search.addPopularHub', {
-                  name: getCityDisplayName(city, language),
-                  count: offerCountFormatter.format(city.offerCount)
-                })}
-                onClick={() => selectCode(city.code)}
-              >
-                + <CountryFlag country={city.country} />{' '}
-                {formatPopularHub(city, offerCountFormatter.format(city.offerCount))}
               </button>
             ))}
           </div>

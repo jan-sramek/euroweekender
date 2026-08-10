@@ -225,7 +225,6 @@ export function CheapestWeekendPage({
                   <DeparturePicker
                     allCities={allCities}
                     nearbyCities={[]}
-                    popularHubCities={[]}
                     selectedCodes={selectedCodes.slice(0, 1)}
                     locating={locating}
                     locationLabel={locationLabel}
@@ -234,7 +233,6 @@ export function CheapestWeekendPage({
                     singleSelect
                     reserveChipSlot
                     showNearbyAirports={false}
-                    showPopularHubs={false}
                   />
                 </div>
 

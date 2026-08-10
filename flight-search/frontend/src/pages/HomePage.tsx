@@ -16,6 +16,7 @@ import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
+  DEFAULT_WEEKEND_MONTHS,
   findMatchingWeekendIds,
   formatWeekendsLabel,
   getWeekendIdsForMonths,
@@ -60,6 +61,7 @@ export function HomePage() {
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedWeekendIds, setSelectedWeekendIds] = useState<string[]>([]);
+  const [selectedRangeMonths, setSelectedRangeMonths] = useState<number | null>(DEFAULT_WEEKEND_MONTHS);
 
   const selectedPattern = useMemo(
     () => (selectedPatternId ? getWeekendPattern(selectedPatternId) : null),
@@ -115,8 +117,13 @@ export function HomePage() {
   } = useFlightTextFilter(visibleFlights, resultsResetKey);
 
   useEffect(() => {
-    setSelectedWeekendIds(prev => findMatchingWeekendIds(weekends, prev));
-  }, [weekends]);
+    setSelectedWeekendIds(prev => {
+      if (selectedRangeMonths != null) {
+        return getWeekendIdsForMonths(weekends, selectedRangeMonths);
+      }
+      return findMatchingWeekendIds(weekends, prev);
+    });
+  }, [weekends, selectedRangeMonths]);
 
   const locationLabel = useMemo(
     () => buildLocationLabel(allCities, selectedCodes, i18n.language, t),
@@ -136,6 +143,7 @@ export function HomePage() {
   const showFilteredCount = hasLegFilter || hasTextFilter;
 
   const handleWeekendToggle = (weekendId: string) => {
+    setSelectedRangeMonths(null);
     setSelectedWeekendIds(prev => {
       if (prev.includes(weekendId)) {
         return prev.filter(id => id !== weekendId);
@@ -152,10 +160,12 @@ export function HomePage() {
   };
 
   const handleClearWeekends = () => {
+    setSelectedRangeMonths(null);
     setSelectedWeekendIds([]);
   };
 
   const handleSelectWeekendMonths = (months: number) => {
+    setSelectedRangeMonths(months);
     setSelectedWeekendIds(getWeekendIdsForMonths(weekends, months));
   };
 
@@ -223,6 +233,7 @@ export function HomePage() {
                     onPassengerCountChange={setPassengerCount}
                     weekends={weekends}
                     selectedWeekendIds={selectedWeekendIds}
+                    selectedRangeMonths={selectedRangeMonths}
                     onWeekendToggle={handleWeekendToggle}
                     onClearWeekends={handleClearWeekends}
                     onSelectWeekendMonths={handleSelectWeekendMonths}

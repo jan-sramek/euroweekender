@@ -18,6 +18,8 @@ interface WeekendPickerProps {
   onPassengerCountChange: (count: number) => void;
   weekends?: WeekendOption[];
   selectedWeekendIds?: string[];
+  /** Explicit range preset (1/3/6). Survives trip-type remaps that change weekend ids. */
+  selectedRangeMonths?: number | null;
   onWeekendToggle?: (id: string) => void;
   onClearWeekends?: () => void;
   onSelectWeekendMonths?: (months: number) => void;
@@ -71,6 +73,7 @@ export function WeekendPicker({
   onPassengerCountChange,
   weekends = [],
   selectedWeekendIds = [],
+  selectedRangeMonths,
   onWeekendToggle,
   onClearWeekends,
   onSelectWeekendMonths,
@@ -80,7 +83,7 @@ export function WeekendPicker({
   const scrollRef = useRef<HTMLDivElement>(null);
   const selectedPattern = patterns.find(p => p.id === selectedPatternId);
 
-  const activeRangeMonths = useMemo(() => {
+  const inferredRangeMonths = useMemo(() => {
     if (selectedWeekendIds.length === 0) return null;
     const selected = new Set(selectedWeekendIds);
     for (const months of WEEKEND_RANGE_PRESETS) {
@@ -90,6 +93,9 @@ export function WeekendPicker({
     }
     return null;
   }, [weekends, selectedWeekendIds]);
+
+  const activeRangeMonths =
+    selectedRangeMonths !== undefined ? selectedRangeMonths : inferredRangeMonths;
 
   const scroll = (direction: 'left' | 'right') => {
     scrollRef.current?.scrollBy({

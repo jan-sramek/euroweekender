@@ -29,7 +29,7 @@ public static class CrawlWorkPlanner
 
             foreach (var cityCode in cityCodes)
             {
-                crawlStates.TryGetValue((cityCode, weekend.DepartureFrom), out var state);
+                crawlStates.TryGetValue((cityCode, weekend.WeekendStart), out var state);
                 var hoursOverdue = ComputeHoursOverdue(state, maxAge, utcNow);
                 if (hoursOverdue is null)
                     continue;

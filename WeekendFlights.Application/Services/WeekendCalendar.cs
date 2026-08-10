@@ -4,6 +4,10 @@ namespace WeekendFlights.Application.Services;
 
 public static class WeekendCalendar
 {
+    /// <summary>
+    /// Upcoming search windows wide enough for all UI trip patterns:
+    /// Wed–Sat outbound and Sun–Tue return (covers Wed–Sun through Fri–Tue).
+    /// </summary>
     public static IReadOnlyList<WeekendDates> GetUpcomingWeekends(int upcomingWeeks, DateTime? referenceUtc = null)
     {
         if (upcomingWeeks <= 0)
@@ -15,17 +19,19 @@ public static class WeekendCalendar
 
         for (var i = 0; i < upcomingWeeks; i++)
         {
-            var departureFrom = AsUtcDate(thursday.AddDays(i * 7));
-            var saturday = AsUtcDate(departureFrom.AddDays(2));
-            var sunday = AsUtcDate(departureFrom.AddDays(3));
-            var monday = AsUtcDate(departureFrom.AddDays(4));
+            var weekendStart = AsUtcDate(thursday.AddDays(i * 7));
+            var departureFrom = AsUtcDate(weekendStart.AddDays(-1)); // Wednesday
+            var saturday = AsUtcDate(weekendStart.AddDays(2));
+            var sunday = AsUtcDate(weekendStart.AddDays(3));
+            var tuesday = AsUtcDate(weekendStart.AddDays(5));
 
             weekends.Add(new WeekendDates
             {
+                WeekendStart = weekendStart,
                 DepartureFrom = departureFrom,
                 DepartureTo = saturday,
                 ReturnFrom = sunday,
-                ReturnTo = monday
+                ReturnTo = tuesday
             });
         }
 

@@ -84,7 +84,7 @@ public class CrawlWorkPlannerTests
     public void Plan_SkipsFreshNearTermPairs()
     {
         var weekends = WeekendCalendar.GetUpcomingWeekends(1, Now);
-        var weekendStart = weekends[0].DepartureFrom;
+        var weekendStart = weekends[0].WeekendStart;
         var cities = new[] { "PRG" };
         var offerCounts = new Dictionary<string, int> { ["PRG"] = 50 };
         var states = new Dictionary<(string, DateTime), CityWeekendCrawlSnapshot>
@@ -111,17 +111,17 @@ public class CrawlWorkPlannerTests
         var offerCounts = new Dictionary<string, int> { ["PRG"] = 20 };
         var states = new Dictionary<(string, DateTime), CityWeekendCrawlSnapshot>
         {
-            [("PRG", weekends[0].DepartureFrom)] = new CityWeekendCrawlSnapshot
+            [("PRG", weekends[0].WeekendStart)] = new CityWeekendCrawlSnapshot
             {
                 CityCode = "PRG",
-                WeekendStart = weekends[0].DepartureFrom,
+                WeekendStart = weekends[0].WeekendStart,
                 LastCrawledUtc = Now.AddHours(-1),
                 LastOfferCount = 20
             },
-            [("PRG", weekends[15].DepartureFrom)] = new CityWeekendCrawlSnapshot
+            [("PRG", weekends[15].WeekendStart)] = new CityWeekendCrawlSnapshot
             {
                 CityCode = "PRG",
-                WeekendStart = weekends[15].DepartureFrom,
+                WeekendStart = weekends[15].WeekendStart,
                 LastCrawledUtc = Now.AddDays(-20),
                 LastOfferCount = 3
             }
@@ -132,10 +132,10 @@ public class CrawlWorkPlannerTests
             if (i == 15)
                 continue;
 
-            states[("PRG", weekends[i].DepartureFrom)] = new CityWeekendCrawlSnapshot
+            states[("PRG", weekends[i].WeekendStart)] = new CityWeekendCrawlSnapshot
             {
                 CityCode = "PRG",
-                WeekendStart = weekends[i].DepartureFrom,
+                WeekendStart = weekends[i].WeekendStart,
                 LastCrawledUtc = Now.AddHours(-1),
                 LastOfferCount = 1
             };

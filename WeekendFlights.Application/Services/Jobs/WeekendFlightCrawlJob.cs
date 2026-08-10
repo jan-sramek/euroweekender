@@ -37,7 +37,7 @@ public class WeekendFlightCrawlJob(
             return;
         }
 
-        var horizonStart = weekends[0].DepartureFrom;
+        var horizonStart = weekends[0].WeekendStart;
         var crawlStates = await crawlStateRepository.GetStatesFromAsync(horizonStart, cancellationToken);
         var stateLookup = crawlStates.ToDictionary(
             s => (s.CityCode, s.WeekendStart),
@@ -79,7 +79,7 @@ public class WeekendFlightCrawlJob(
             var offerCount = await ProcessCityForWeekendAsync(item.CityCode, item.Weekend, cancellationToken);
             await crawlStateRepository.UpsertAsync(
                 item.CityCode,
-                item.Weekend.DepartureFrom,
+                item.Weekend.WeekendStart,
                 DateTime.UtcNow,
                 offerCount,
                 cancellationToken);
@@ -120,13 +120,13 @@ public class WeekendFlightCrawlJob(
             await flightRepository.UpsertFlightsAsync(flights.ToList());
             logger.LogInformation(
                 "City {CityCode} weekend {WeekendStart:yyyy-MM-dd}: imported {Count} flights",
-                cityCode, weekend.DepartureFrom, flights.Count);
+                cityCode, weekend.WeekendStart, flights.Count);
             return flights.Count;
         }
         catch (Exception ex)
         {
             logger.LogError(ex, "Error processing city {CityCode} for weekend {WeekendStart:yyyy-MM-dd}",
-                cityCode, weekend.DepartureFrom);
+                cityCode, weekend.WeekendStart);
             return 0;
         }
     }

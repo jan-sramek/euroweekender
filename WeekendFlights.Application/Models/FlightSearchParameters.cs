@@ -16,7 +16,7 @@ public sealed record FlightSearchParameters
     public decimal PriceTo { get; init; } = 300;
     public decimal MaxStopOvers { get; init; } = 2;
     public string Currency { get; init; } = "EUR";
-    public int Limit { get; init; } = 200;
+    public int Limit { get; init; } = 300;
     /// <summary>Outbound depart time window start hour (0–24), inclusive. Null = any.</summary>
     public int? DepartTimeFromHour { get; init; }
     /// <summary>Outbound depart time window end hour (0–24), inclusive. Null = any.</summary>

@@ -1,5 +1,12 @@
 ﻿import { describe, expect, it } from 'vitest';
-import { chunkWeekendWindows, getWeekendSearchRange } from './weekend';
+import {
+  chunkWeekendWindows,
+  getDefaultWeekendIds,
+  getWeekendIdsForMonths,
+  getWeekendOptions,
+  getWeekendSearchRange,
+  WEEKEND_OPTIONS_COUNT
+} from './weekend';
 
 function windowAt(daysFromToday: number) {
   const departFrom = new Date();
@@ -46,5 +53,16 @@ describe('getWeekendSearchRange', () => {
     const range = getWeekendSearchRange(weekends);
     expect(range?.departFrom.getTime()).toBe(weekends[0].departFrom.getTime());
     expect(range?.departTo.getTime()).toBe(weekends[1].departTo.getTime());
+  });
+});
+
+describe('getDefaultWeekendIds', () => {
+  it('matches the next-6-months preset selection', () => {
+    const weekends = getWeekendOptions(null, WEEKEND_OPTIONS_COUNT);
+    const defaults = getDefaultWeekendIds(weekends);
+    const sixMonths = getWeekendIdsForMonths(weekends, 6);
+    expect(defaults).toEqual(sixMonths);
+    expect(defaults.length).toBeGreaterThan(0);
+    expect(defaults.length).toBeLessThan(weekends.length);
   });
 });

@@ -177,15 +177,7 @@ export const DEFAULT_WEEKEND_MONTHS = 6;
 export const WEEKEND_OPTIONS_MONTHS = 12;
 /** Roughly four weekends per month in the travel strip. */
 export const WEEKENDS_PER_MONTH = 4;
-export const DEFAULT_WEEKEND_COUNT = DEFAULT_WEEKEND_MONTHS * WEEKENDS_PER_MONTH;
 export const WEEKEND_OPTIONS_COUNT = WEEKEND_OPTIONS_MONTHS * WEEKENDS_PER_MONTH;
-
-export function getDefaultWeekendIds(
-  weekends: WeekendOption[],
-  count = DEFAULT_WEEKEND_COUNT
-): string[] {
-  return weekends.slice(0, count).map(weekend => weekend.id);
-}
 
 /** Select weekends whose outbound date falls within the next `months` calendar months. */
 export function getWeekendIdsForMonths(
@@ -204,6 +196,13 @@ export function getWeekendIdsForMonths(
       return depart >= today && depart < until;
     })
     .map(weekend => weekend.id);
+}
+
+export function getDefaultWeekendIds(
+  weekends: WeekendOption[],
+  months = DEFAULT_WEEKEND_MONTHS
+): string[] {
+  return getWeekendIdsForMonths(weekends, months);
 }
 
 export function getWeekendOptions(

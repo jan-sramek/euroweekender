@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   findCityByCode,
   rankCitiesByDistance,
+  rankCitiesForDestinationSuggest,
   selectDefaultCityCodes,
   selectFallbackCityCodes
 } from '../services/locationPrefill';
@@ -159,4 +160,40 @@ describe('locationPrefill', () => {
     expect(findCityByCode(cities, 'prg')?.code).toBe('PRG');
   });
 
+  it('ranks empty destination suggestions alphabetically when no popularity data exists', () => {
+    const ranked = rankCitiesForDestinationSuggest(cities, {
+      excludeCodes: ['PRG'],
+      limit: 4
+    });
+
+    expect(ranked.map(city => city.code)).toEqual(['BER', 'BRQ', 'KTW', 'KRK']);
+    expect(ranked.every(city => city.minPrice == null)).toBe(true);
+  });
+
+  it('puts cheapest origin destinations first, then popular codes, then A–Z', () => {
+    const ranked = rankCitiesForDestinationSuggest(cities, {
+      excludeCodes: ['PRG'],
+      originDestinations: [
+        { code: 'LON', minPrice: 97, offerCount: 215 },
+        { code: 'BER', minPrice: 46, offerCount: 80 }
+      ],
+      popularCodes: ['VIE', 'WAW'],
+      limit: 6
+    });
+
+    expect(ranked.map(city => city.code)).toEqual(['BER', 'LON', 'VIE', 'WAW', 'BRQ', 'KTW']);
+    expect(ranked[0].minPrice).toBe(46);
+    expect(ranked[1].minPrice).toBe(97);
+    expect(ranked[2].minPrice).toBeNull();
+  });
+
+  it('sorts remaining destination cities by localized display name', () => {
+    const ranked = rankCitiesForDestinationSuggest(cities, {
+      excludeCodes: ['PRG', 'OSR', 'KTW', 'KRK', 'WAW', 'LON'],
+      nameForSort: city => (city.code === 'VIE' ? 'Wien' : city.name),
+      limit: 3
+    });
+
+    expect(ranked.map(city => city.code)).toEqual(['BER', 'BRQ', 'VIE']);
+  });
 });

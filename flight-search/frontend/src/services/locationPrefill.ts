@@ -1,4 +1,4 @@
-import type { City, CityWithDistance, HubScore } from '../types/city';
+import type { City, CityWithDistance, DestinationSuggestCity, HubScore } from '../types/city';
 import type { GeoPosition } from './geolocation';
 import { computeEffectiveScore, hubScoresByCode } from './hubScore';
 
@@ -10,7 +10,7 @@ export const DEFAULT_ANCHOR_CODE = 'PRG';
 export const DEFAULT_SELECTED_RADIUS_KM = 120;
 /** Cap on auto-selected origins; usually just the home airport plus a close neighbour. */
 export const DEFAULT_SELECTED_CITIES = 3;
-/** Empty destination dropdown: European cities closest to the chosen origin. */
+/** Empty destination dropdown: priced/popular cities first, then A–Z. */
 export const DESTINATION_SUGGEST_MAX_CITIES = 100;
 
 const DEFAULT_FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'BCN'];
@@ -195,4 +195,87 @@ export function rankNearbyCities(
       return a.distanceKm - b.distanceKm;
     })
     .slice(0, limit);
+}
+
+export interface DestinationSuggestOptions {
+  excludeCodes?: string[];
+  filter?: (city: City) => boolean;
+  limit?: number;
+  /** Origin-specific dests from the deal snapshot (price + offer volume). */
+  originDestinations?: Array<{ code: string; minPrice?: number; offerCount?: number }>;
+  /** Static popular destination codes used when origin dests are missing. */
+  popularCodes?: string[];
+  nameForSort?: (city: City) => string;
+}
+
+function compareDestinationNames(
+  a: City,
+  b: City,
+  nameForSort?: (city: City) => string
+): number {
+  const left = nameForSort?.(a) ?? a.name;
+  const right = nameForSort?.(b) ?? b.name;
+  return left.localeCompare(right, undefined, { sensitivity: 'base' });
+}
+
+/**
+ * Empty destination dropdown: cheapest/popular cities for the origin first, then A–Z.
+ * Distance ranking is a poor default here — nearby airports are rarely useful destinations.
+ */
+export function rankCitiesForDestinationSuggest(
+  cities: City[],
+  options?: DestinationSuggestOptions
+): DestinationSuggestCity[] {
+  const exclude = new Set((options?.excludeCodes ?? []).map(code => code.trim().toUpperCase()));
+  const limit = options?.limit ?? DESTINATION_SUGGEST_MAX_CITIES;
+  const filter = options?.filter;
+  const nameForSort = options?.nameForSort;
+
+  const eligible = cities.filter(city => {
+    if (exclude.has(city.code.toUpperCase())) return false;
+    if (filter && !filter(city)) return false;
+    return true;
+  });
+  const byCode = new Map(eligible.map(city => [city.code.toUpperCase(), city]));
+
+  const priceByCode = new Map<string, number>();
+  const originOrdered: City[] = [];
+  const originSeen = new Set<string>();
+
+  const originDests = [...(options?.originDestinations ?? [])].sort((a, b) => {
+    const aPrice = a.minPrice && a.minPrice > 0 ? a.minPrice : Number.POSITIVE_INFINITY;
+    const bPrice = b.minPrice && b.minPrice > 0 ? b.minPrice : Number.POSITIVE_INFINITY;
+    if (aPrice !== bPrice) return aPrice - bPrice;
+    return (b.offerCount ?? 0) - (a.offerCount ?? 0);
+  });
+
+  for (const dest of originDests) {
+    const code = dest.code.trim().toUpperCase();
+    const city = byCode.get(code);
+    if (!city || originSeen.has(code)) continue;
+    originSeen.add(code);
+    originOrdered.push(city);
+    if (dest.minPrice && dest.minPrice > 0) {
+      priceByCode.set(code, dest.minPrice);
+    }
+  }
+
+  const popularOrdered: City[] = [];
+  const popularSeen = new Set(originSeen);
+  for (const raw of options?.popularCodes ?? []) {
+    const code = raw.trim().toUpperCase();
+    const city = byCode.get(code);
+    if (!city || popularSeen.has(code)) continue;
+    popularSeen.add(code);
+    popularOrdered.push(city);
+  }
+
+  const rest = eligible
+    .filter(city => !popularSeen.has(city.code.toUpperCase()))
+    .sort((a, b) => compareDestinationNames(a, b, nameForSort));
+
+  return [...originOrdered, ...popularOrdered, ...rest].slice(0, limit).map(city => ({
+    ...city,
+    minPrice: priceByCode.get(city.code.toUpperCase()) ?? null
+  }));
 }

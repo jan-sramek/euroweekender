@@ -11,7 +11,7 @@ import { getCityDisplayName } from '../utils/cityDisplayName';
 
 let snapshotPromise: Promise<SeoDealSnapshot | null> | null = null;
 
-function loadDealSnapshot(): Promise<SeoDealSnapshot | null> {
+export function loadDealSnapshot(): Promise<SeoDealSnapshot | null> {
   if (!snapshotPromise) {
     snapshotPromise = fetch('/seo-deal-snapshot.json')
       .then(response => (response.ok ? response.json() : null))

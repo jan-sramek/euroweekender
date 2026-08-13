@@ -1,19 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City } from '../types/city';
+import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
 import { useCityTypeahead } from '../hooks/useCityTypeahead';
+import { loadDealSnapshot } from '../hooks/useEmptyStateDeals';
 import {
   DESTINATION_SUGGEST_MAX_CITIES,
-  rankCitiesByDistance
+  rankCitiesForDestinationSuggest
 } from '../services/locationPrefill';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { isEuropeanCity } from '../utils/europe';
 import { CountryFlag } from './CountryFlag';
 import './DeparturePicker.css';
 
+const POPULAR_DESTINATION_CODES = SEO_POPULAR_DESTINATIONS.map(city => city.code);
+
 interface DestinationPickerProps {
   allCities: City[];
-  /** Rank empty-query suggestions by distance from this origin. */
+  /** Used to rank empty-query suggestions by fares from this origin. */
   originCity?: City | null;
   excludeCode?: string | null;
   selectedCode: string | null;
@@ -42,6 +46,9 @@ export function DestinationPicker({
   const language = i18n.language || 'en';
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
+  const [originDestinations, setOriginDestinations] = useState<
+    Array<{ code: string; minPrice?: number; offerCount?: number }>
+  >([]);
   const searchRef = useRef<HTMLDivElement>(null);
 
   const europeanCities = useMemo(
@@ -62,14 +69,37 @@ export function DestinationPicker({
     [selectedCode, excludeCode]
   );
 
-  const nearbyByDistance = useMemo(() => {
-    if (!originCity) return [];
-    return rankCitiesByDistance(allCities, originCity, {
-      excludeCodes,
-      filter: isEuropeanCity,
-      limit: DESTINATION_SUGGEST_MAX_CITIES
+  const originCode = originCity?.code.trim().toUpperCase() ?? '';
+
+  useEffect(() => {
+    if (!originCode) {
+      setOriginDestinations(prev => (prev.length === 0 ? prev : []));
+      return;
+    }
+
+    let cancelled = false;
+    void loadDealSnapshot().then(snapshot => {
+      if (cancelled) return;
+      const dests = snapshot?.destinationsByOrigin?.[originCode] ?? [];
+      setOriginDestinations(dests);
     });
-  }, [allCities, excludeCodes, originCity]);
+    return () => {
+      cancelled = true;
+    };
+  }, [originCode]);
+
+  const suggestedCities = useMemo(
+    () =>
+      rankCitiesForDestinationSuggest(allCities, {
+        excludeCodes,
+        filter: isEuropeanCity,
+        limit: DESTINATION_SUGGEST_MAX_CITIES,
+        originDestinations,
+        popularCodes: POPULAR_DESTINATION_CODES,
+        nameForSort: city => getCityDisplayName(city, language)
+      }),
+    [allCities, excludeCodes, language, originDestinations]
+  );
 
   const { results: searchResults, isSearching } = useCityTypeahead({
     allCities,
@@ -81,7 +111,7 @@ export function DestinationPicker({
 
   const trimmedQuery = query.trim();
   const showSearchResults = open && trimmedQuery.length >= 1;
-  const showNearbySuggestions = open && trimmedQuery.length < 1 && nearbyByDistance.length > 0;
+  const showEmptySuggestions = open && trimmedQuery.length < 1 && suggestedCities.length > 0;
 
   useEffect(() => {
     if (selectedCode && excludeCode && selectedCode === excludeCode) {
@@ -149,7 +179,7 @@ export function DestinationPicker({
           aria-label={t('search.searchDestinations')}
           autoComplete="off"
         />
-        {(showSearchResults || showNearbySuggestions) && (
+        {(showSearchResults || showEmptySuggestions) && (
           <ul className="airport-search-results" role="listbox">
             {showSearchResults ? (
               searchResults.length === 0 ? (
@@ -175,22 +205,24 @@ export function DestinationPicker({
                 ))
               )
             ) : (
-              nearbyByDistance.map(city => {
-                const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
-                return (
-                  <li key={city.code}>
-                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                      <CountryFlag country={city.country} />
-                      <span className="airport-search-item-text">
-                        <strong>{displayName(city, language)}</strong>
-                        <span>
-                          {city.code} · {city.country} · {distance} km
-                        </span>
+              suggestedCities.map(city => (
+                <li key={city.code}>
+                  <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                    <CountryFlag country={city.country} />
+                    <span className="airport-search-item-text">
+                      <strong>{displayName(city, language)}</strong>
+                      <span>
+                        {city.code} · {city.country}
+                        {city.minPrice != null
+                          ? ` · ${t('weekendFlightsFrom.destinationPrice', {
+                              price: Math.round(city.minPrice)
+                            })}`
+                          : ''}
                       </span>
-                    </button>
-                  </li>
-                );
-              })
+                    </span>
+                  </button>
+                </li>
+              ))
             )}
           </ul>
         )}

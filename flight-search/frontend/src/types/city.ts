@@ -40,3 +40,8 @@ export interface CityWithDistance extends City {
   offerCount: number;
   minPrice: number | null;
 }
+
+/** Empty destination dropdown row: city plus an optional known weekend fare. */
+export interface DestinationSuggestCity extends City {
+  minPrice: number | null;
+}

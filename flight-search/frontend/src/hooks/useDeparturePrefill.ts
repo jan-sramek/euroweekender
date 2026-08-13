@@ -121,13 +121,14 @@ export function useDeparturePrefill(options?: {
   }, []);
 
   const primaryCode = selectedCodes[0] ?? '';
-  const codesToLocalize = [
-    ...selectedCodes,
-    ...(localizeKey ? localizeKey.split('|') : []),
-    ...extraLocalizeCodes
-  ];
 
-  useResolveCityDisplayNames(allCities, setAllCities, codesToLocalize, locale);
+  useResolveCityDisplayNames(
+    allCities,
+    setAllCities,
+    [...selectedCodes, ...(localizeKey ? localizeKey.split('|') : [])],
+    extraLocalizeCodes,
+    locale
+  );
 
   useEffect(() => {
     if (allCities.length === 0 || !primaryCode) return;

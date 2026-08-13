@@ -2,24 +2,57 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LOCALES, type LocaleCode } from '../config/locales';
+import {
+  beginLanguageSwitch,
+  endLanguageSwitch,
+  useCityNameLoading
+} from '../hooks/useCityNameLoading';
+import { useLocale } from '../hooks/useLocale';
+import { LoadingIndicator } from './LoadingIndicator';
 import './LanguageSwitcher.css';
 
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const urlLocale = useLocale();
+  const { namesLoading, pendingLocale, busy } = useCityNameLoading();
   const [open, setOpen] = useState(false);
+  const sawPriorityLoad = useRef(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const current = LOCALES.find(locale => locale.code === i18n.language) ?? LOCALES[0];
+  const displayLocale = pendingLocale ?? urlLocale;
+  const current = LOCALES.find(locale => locale.code === displayLocale) ?? LOCALES[0];
+
+  useEffect(() => {
+    if (namesLoading) sawPriorityLoad.current = true;
+  }, [namesLoading]);
+
+  useEffect(() => {
+    if (!pendingLocale || urlLocale !== pendingLocale) return;
+    if (namesLoading) return;
+    const waitMs = sawPriorityLoad.current ? 150 : 600;
+    const timer = window.setTimeout(() => {
+      sawPriorityLoad.current = false;
+      endLanguageSwitch();
+    }, waitMs);
+    return () => window.clearTimeout(timer);
+  }, [namesLoading, pendingLocale, urlLocale]);
 
   const selectLocale = (nextLocale: LocaleCode) => {
+    if (nextLocale === urlLocale) {
+      setOpen(false);
+      return;
+    }
+
     const segments = location.pathname.split('/').filter(Boolean);
     const rest = isLocaleInPath(segments[0]) ? segments.slice(1) : segments;
     const nextPath = `/${nextLocale}${rest.length ? `/${rest.join('/')}` : ''}${location.search}${location.hash}`;
+    sawPriorityLoad.current = false;
+    beginLanguageSwitch(nextLocale);
+    setOpen(false);
     void i18n.changeLanguage(nextLocale);
     navigate(nextPath);
-    setOpen(false);
   };
 
   useEffect(() => {
@@ -47,11 +80,15 @@ export function LanguageSwitcher() {
     <div className="language-switcher" ref={rootRef}>
       <button
         type="button"
-        className={`language-switcher-trigger${open ? ' language-switcher-trigger-open' : ''}`}
+        className={`language-switcher-trigger${open ? ' language-switcher-trigger-open' : ''}${busy ? ' language-switcher-trigger-busy' : ''}`}
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label={t('common.language')}
-        onClick={() => setOpen(prev => !prev)}
+        aria-busy={busy}
+        aria-label={busy ? t('common.changingLanguage') : t('common.language')}
+        onClick={() => {
+          if (busy) return;
+          setOpen(prev => !prev);
+        }}
       >
         <span className="language-flag" aria-hidden="true">
           <img
@@ -67,7 +104,11 @@ export function LanguageSwitcher() {
         </span>
         <span className="language-trigger-label">{current.nativeLabel}</span>
         <span className="language-trigger-code">{current.code.toUpperCase()}</span>
-        <span className="language-chevron" aria-hidden="true" />
+        {busy ? (
+          <LoadingIndicator size="sm" className="language-switcher-spinner" />
+        ) : (
+          <span className="language-chevron" aria-hidden="true" />
+        )}
       </button>
 
       {open ? (

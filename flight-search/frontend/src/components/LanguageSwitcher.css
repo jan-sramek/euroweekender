@@ -30,10 +30,19 @@
   box-shadow: 0 4px 14px rgba(4, 191, 171, 0.12);
 }
 
-.language-switcher-trigger:focus {
-  outline: none;
-  border-color: #04bfab;
-  box-shadow: 0 0 0 3px rgba(4, 191, 171, 0.16);
+.language-switcher-trigger-busy {
+  cursor: progress;
+}
+
+.language-switcher-spinner {
+  margin-left: 0.1rem;
+  color: #04bfab;
+}
+
+.language-switcher-spinner .loading-indicator-spinner {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-width: 2px;
 }
 
 .language-flag {

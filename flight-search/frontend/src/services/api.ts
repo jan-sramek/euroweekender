@@ -182,7 +182,7 @@ export async function getLocalizedCityNames(
     else missing.push(code);
   }
 
-  const chunkSize = 80;
+  const chunkSize = 12;
   for (let i = 0; i < missing.length; i += chunkSize) {
     const chunk = missing.slice(i, i + chunkSize);
     const params = new URLSearchParams({

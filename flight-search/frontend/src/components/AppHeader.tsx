@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useCityNameLoading } from '../hooks/useCityNameLoading';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { LocalizedLink, LocalizedNavLink } from './LocalizedLink';
 import { SiteBrand } from './SiteBrand';
@@ -6,6 +7,7 @@ import './AppHeader.css';
 
 export function AppHeader() {
   const { t } = useTranslation();
+  const { busy } = useCityNameLoading();
 
   return (
     <header className="site-header">
@@ -29,6 +31,9 @@ export function AppHeader() {
           <LanguageSwitcher />
         </div>
       </nav>
+      {busy ? (
+        <div className="site-header-progress" role="progressbar" aria-label={t('common.changingLanguage')} />
+      ) : null}
     </header>
   );
 }

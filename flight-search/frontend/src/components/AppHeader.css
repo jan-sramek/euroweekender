@@ -58,6 +58,34 @@
   margin-left: 0.15rem;
 }
 
+.site-header-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(4, 191, 171, 0.18);
+}
+
+.site-header-progress::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: #04bfab;
+  animation: site-header-progress-slide 0.9s ease-in-out infinite;
+}
+
+@keyframes site-header-progress-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(280%);
+  }
+}
+
 @media (max-width: 1100px) {
   .nav-links {
     gap: 0.65rem 0.85rem;

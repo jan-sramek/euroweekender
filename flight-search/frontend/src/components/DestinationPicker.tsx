@@ -111,7 +111,7 @@ export function DestinationPicker({
 
   useEffect(() => {
     if (!open || !onLocalizeCodes || suggestedCities.length === 0) return;
-    onLocalizeCodes(suggestedCities.map(city => city.code));
+    onLocalizeCodes(suggestedCities.slice(0, 12).map(city => city.code));
   }, [onLocalizeCodes, open, suggestedCities]);
 
   const { results: searchResults, isSearching } = useCityTypeahead({

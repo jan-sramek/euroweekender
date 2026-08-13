@@ -6,6 +6,7 @@ import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SeoPopularRoutes } from '../components/SeoPopularRoutes';
 import { HomeSeoExtras } from '../components/HomeSeoExtras';
@@ -291,8 +292,13 @@ export function HomePage() {
               <LoadingIndicator size="md" label={t('home.loading')} />
             </div>
           ) : flights.length === 0 ? (
-            <div className="state-box">
+            <div className="state-box state-box-empty">
               <p>{t('home.noFlights')}</p>
+              <HomeEmptyDeals
+                allCities={allCities}
+                language={i18n.language}
+                originCodes={selectedCodes}
+              />
               <p className="state-box-hint">{t('home.emptyExplore')}</p>
               <SeoHubLinks allCities={allCities} language={i18n.language} limit={8} />
             </div>

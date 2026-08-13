@@ -87,6 +87,8 @@
     "tryAgain": "Zkusit znovu",
     "loading": "Hledáme nejlepší nabídky…",
     "noFlights": "Pro vybrané víkendy zatím nebyly nalezeny žádné lety. Zkuste jiná data, typy cest nebo přidejte další odletová letiště.",
+    "emptyExplore": "Mezitím se podívejte na víkendové lety z oblíbených měst:",
+    "emptyDealsTitle": "Zkuste tyto víkendové nabídky",
     "noLegMatch": "Žádné lety neodpovídají vybraným odletovým a zpátečním úsekům.",
     "clearLegFilters": "Zrušit filtry úseků",
     "dealsShown": "Zobrazeno {{shown}} z {{total}} nabídek",

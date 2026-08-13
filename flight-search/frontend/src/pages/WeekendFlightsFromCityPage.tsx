@@ -6,6 +6,7 @@ import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
 import { SeoDestinationLinks } from '../components/SeoDestinationLinks';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SiteFooter } from '../components/SiteFooter';
@@ -405,7 +406,14 @@ export function WeekendFlightsFromCityPage() {
               <LoadingIndicator size="md" label={t('home.loading')} />
             </div>
           ) : flights.length === 0 ? (
-            <div className="state-box">{t('home.noFlights')}</div>
+            <div className="state-box state-box-empty">
+              <p>{t('home.noFlights')}</p>
+              <HomeEmptyDeals
+                allCities={allCities}
+                language={i18n.language}
+                originCodes={[city.code]}
+              />
+            </div>
           ) : visibleFlights.length === 0 ? (
             <div className="state-box">
               {t('home.noLegMatch')}{' '}

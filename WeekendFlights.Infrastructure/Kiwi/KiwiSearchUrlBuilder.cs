@@ -18,12 +18,15 @@ public static class KiwiSearchUrlBuilder
             $"adults={parameters.Adults}",
             $"children={parameters.Children}",
             $"infants={parameters.Infants}",
-            $"price_to={(int)parameters.PriceTo}",
+            $"price_to={(int)decimal.Ceiling(parameters.PriceTo)}",
             $"curr={parameters.Currency}",
             $"max_stopovers={(int)parameters.MaxStopOvers}",
             "sort=price",
             $"limit={parameters.Limit}"
         };
+
+        if (parameters.PriceFrom > 0)
+            query.Add($"price_from={(int)decimal.Floor(parameters.PriceFrom)}");
 
         if (parameters.ReturnFrom != default && parameters.ReturnTo != default)
         {

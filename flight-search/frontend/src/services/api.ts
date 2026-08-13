@@ -1,13 +1,20 @@
 import type { City, CitySuggestion, HubScore, OriginDestination } from '../types/city';
 import type { Flight, FlightPage } from '../types/flight';
+import {
+  CHEAP_BAND_PAGE_SIZE,
+  extraPriceBands,
+  keepCheapCoverage,
+  maxFlightPrice,
+  mergeFlightsById
+} from '../utils/cheapFlightCoverage';
 import { withLocalizedName } from '../utils/cityDisplayName';
-import { getPerPersonPrice } from '../utils/flightPrice';
 import { normalizeHubScore, normalizeOriginDestination } from './hubScore';
 import { chunkWeekendWindows, getWeekendSearchRange } from './weekend';
 
 const API_BASE = '/api';
 const FLIGHTS_PER_CITY = 200;
 const MAX_SEARCH_FLIGHTS = 1000;
+const MAX_COVERAGE_FLIGHTS = 1600;
 /** Single continuous-range request can drown weekend deals in midweek fares. */
 const SINGLE_CITY_PAGE_SIZE = 1000;
 /** ~1 month of Thu–Mon windows per request so each month keeps its own cheap-flight budget. */
@@ -30,21 +37,7 @@ function chunkPageSize(cityCount: number, chunkCount: number): number {
 }
 
 function mergeFlightPages(pages: Flight[][]): Flight[] {
-  const byId = new Map<number | string, Flight>();
-
-  for (const items of pages) {
-    for (const flight of items) {
-      const key = flight.id;
-      const existing = byId.get(key);
-      if (!existing || getPerPersonPrice(flight) < getPerPersonPrice(existing)) {
-        byId.set(key, flight);
-      }
-    }
-  }
-
-  return [...byId.values()]
-    .sort((a, b) => getPerPersonPrice(a) - getPerPersonPrice(b))
-    .slice(0, MAX_SEARCH_FLIGHTS);
+  return keepCheapCoverage(mergeFlightsById(pages), MAX_SEARCH_FLIGHTS, MAX_COVERAGE_FLIGHTS);
 }
 
 export interface FlightSearchParams {
@@ -56,6 +49,8 @@ export interface FlightSearchParams {
   page?: number;
   pageSize?: number;
   includeTotal?: boolean;
+  priceFrom?: number;
+  priceTo?: number;
   signal?: AbortSignal;
 }
 
@@ -69,7 +64,8 @@ export async function searchFlightsForWeekends(
   weekends: WeekendFlightSearchWindow[],
   signal?: AbortSignal,
   cityCodeTo?: string,
-  nightsInDest?: number
+  nightsInDest?: number,
+  onPartial?: (flights: Flight[]) => void
 ): Promise<Flight[]> {
   if (weekends.length === 0 || cityCodeFrom.length === 0) {
     return [];
@@ -83,27 +79,72 @@ export async function searchFlightsForWeekends(
 
   const pageSize = chunkPageSize(uniqueCities.length, chunks.length);
 
-  const pages = await Promise.all(
-    chunks.map(async chunk => {
-      const range = getWeekendSearchRange(chunk);
-      if (!range) return [] as Flight[];
-
-      const page = await searchFlights({
-        cityCodeFrom: uniqueCities,
-        cityCodeTo,
-        departFromUtc: range.departFrom,
-        departToUtc: range.departTo,
-        nightsInDest,
-        page: 1,
-        pageSize,
-        includeTotal: false,
-        signal
-      });
-      return page.items;
-    })
+  const firstPages = await Promise.all(
+    chunks.map(chunk => fetchWeekendChunk(uniqueCities, chunk, cityCodeTo, nightsInDest, pageSize, signal))
   );
 
-  return mergeFlightPages(pages);
+  let merged = mergeFlightPages(firstPages);
+  onPartial?.(merged);
+
+  if (merged.length === 0) return merged;
+
+  const bands = extraPriceBands(maxFlightPrice(merged));
+  if (bands.length === 0) return merged;
+
+  try {
+    const extraPages = await Promise.all(
+      chunks.flatMap(chunk =>
+        bands.map(band =>
+          fetchWeekendChunk(
+            uniqueCities,
+            chunk,
+            cityCodeTo,
+            nightsInDest,
+            CHEAP_BAND_PAGE_SIZE,
+            signal,
+            band.from,
+            band.to
+          )
+        )
+      )
+    );
+
+    merged = mergeFlightPages([...firstPages, ...extraPages]);
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') throw error;
+    return merged;
+  }
+
+  return merged;
+}
+
+async function fetchWeekendChunk(
+  uniqueCities: string[],
+  chunk: WeekendFlightSearchWindow[],
+  cityCodeTo: string | undefined,
+  nightsInDest: number | undefined,
+  pageSize: number,
+  signal: AbortSignal | undefined,
+  priceFrom?: number,
+  priceTo?: number
+): Promise<Flight[]> {
+  const range = getWeekendSearchRange(chunk);
+  if (!range) return [];
+
+  const page = await searchFlights({
+    cityCodeFrom: uniqueCities,
+    cityCodeTo,
+    departFromUtc: range.departFrom,
+    departToUtc: range.departTo,
+    nightsInDest,
+    page: 1,
+    pageSize,
+    includeTotal: false,
+    priceFrom,
+    priceTo,
+    signal
+  });
+  return page.items;
 }
 
 export async function getCities(): Promise<City[]> {
@@ -393,6 +434,14 @@ export async function searchFlights(params: FlightSearchParams): Promise<FlightP
 
   if (params.nightsInDest !== undefined) {
     query.set('nightsInDest', String(params.nightsInDest));
+  }
+
+  if (params.priceFrom !== undefined) {
+    query.set('priceFrom', String(params.priceFrom));
+  }
+
+  if (params.priceTo !== undefined) {
+    query.set('priceTo', String(params.priceTo));
   }
 
   const response = await fetch(`${API_BASE}/flights?${query}`, { signal: params.signal });

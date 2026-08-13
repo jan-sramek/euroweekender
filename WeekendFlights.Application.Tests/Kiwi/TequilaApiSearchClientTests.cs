@@ -43,4 +43,41 @@ public class TequilaApiSearchClientTests
         Assert.Contains("nights_in_dst_to=4", url);
         Assert.DoesNotContain("return_from", url);
     }
+
+    [Fact]
+    public void BuildSearchUrl_OmitsPriceFrom_WhenZero()
+    {
+        var parameters = new FlightSearchParameters
+        {
+            From = "BCN",
+            DateFrom = new DateTime(2026, 7, 9),
+            DateTo = new DateTime(2026, 7, 11),
+            PriceTo = 300
+        };
+
+        var url = KiwiSearchUrlBuilder.BuildSearchUrl(parameters);
+
+        Assert.Contains("price_to=300", url);
+        Assert.DoesNotContain("price_from", url);
+    }
+
+    [Fact]
+    public void BuildSearchUrl_IncludesPriceFrom_ForHigherCheapBands()
+    {
+        var parameters = new FlightSearchParameters
+        {
+            From = "BCN",
+            DateFrom = new DateTime(2026, 7, 9),
+            DateTo = new DateTime(2026, 7, 11),
+            PriceFrom = 90,
+            PriceTo = 120,
+            Limit = 400
+        };
+
+        var url = KiwiSearchUrlBuilder.BuildSearchUrl(parameters);
+
+        Assert.Contains("price_from=90", url);
+        Assert.Contains("price_to=120", url);
+        Assert.Contains("limit=400", url);
+    }
 }

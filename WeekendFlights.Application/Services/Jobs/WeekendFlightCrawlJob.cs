@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Application.Models;
+using WeekendFlights.Application.Services;
 using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Application.Services.Jobs;
@@ -115,7 +116,7 @@ public class WeekendFlightCrawlJob(
         try
         {
             var parameters = FlightSearchParameters.ForWeekendCrawl(cityCode, weekend);
-            var flights = await searchApiClient.SearchFlightsAsync(parameters, cancellationToken);
+            var flights = await SearchWithCheapCoverageAsync(parameters, cancellationToken);
 
             await flightRepository.UpsertFlightsAsync(flights.ToList());
             logger.LogInformation(
@@ -129,5 +130,49 @@ public class WeekendFlightCrawlJob(
                 cityCode, weekend.WeekendStart);
             return 0;
         }
+    }
+
+    private async Task<IReadOnlyList<Flight>> SearchWithCheapCoverageAsync(
+        FlightSearchParameters parameters,
+        CancellationToken cancellationToken)
+    {
+        var first = await searchApiClient.SearchFlightsAsync(parameters, cancellationToken);
+        var byKiwiId = new Dictionary<string, Flight>(StringComparer.Ordinal);
+        foreach (var flight in first)
+            byKiwiId.TryAdd(flight.KiwiId, flight);
+
+        var maxPrice = byKiwiId.Count == 0
+            ? 0
+            : byKiwiId.Values.Max(f => CheapFlightCoverage.DisplayPrice(f.FareAdults, f.Price));
+
+        if (!CheapFlightCoverage.NeedsHigherBands(byKiwiId.Count, parameters.Limit, maxPrice))
+            return byKiwiId.Values.ToList();
+
+        foreach (var band in CheapFlightCoverage.ExtraBands(maxPrice))
+        {
+            await Task.Delay(crawlOptions.Value.RequestDelayMs, cancellationToken);
+
+            var extra = await searchApiClient.SearchFlightsAsync(
+                parameters with
+                {
+                    PriceFrom = band.From,
+                    PriceTo = band.To,
+                    Limit = CheapFlightCoverage.BandLimit
+                },
+                cancellationToken);
+
+            var added = 0;
+            foreach (var flight in extra)
+            {
+                if (byKiwiId.TryAdd(flight.KiwiId, flight))
+                    added++;
+            }
+
+            logger.LogInformation(
+                "City {CityCode}: cheap-coverage band {PriceFrom}-{PriceTo} added {Added} flights",
+                parameters.From, band.From, band.To, added);
+        }
+
+        return byKiwiId.Values.ToList();
     }
 }

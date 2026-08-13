@@ -89,7 +89,12 @@ export function useFlightSearch({
           })),
           signal,
           undefined,
-          selectedPattern?.nightsInDest
+          selectedPattern?.nightsInDest,
+          partial => {
+            if (generation !== searchGeneration.current) return;
+            setRawFlights(partial);
+            setLoadingFlights(false);
+          }
         );
         if (generation !== searchGeneration.current) return;
         setRawFlights(items);

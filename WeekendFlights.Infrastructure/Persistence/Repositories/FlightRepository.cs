@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Application.Models;
+using WeekendFlights.Application.Services;
 using WeekendFlights.Domain.Entities;
 
 namespace WeekendFlights.Infrastructure.Persistence.Repositories;
@@ -64,29 +65,36 @@ public class FlightRepository(
         int take,
         bool includeTotal = true,
         int? nightsInDest = null,
+        double? priceFrom = null,
+        double? priceTo = null,
         CancellationToken cancellationToken = default)
     {
         take = Math.Clamp(take, 1, 1000);
         skip = Math.Max(0, skip);
 
         var cityCodes = ParseCityCodes(cityCodeFrom);
+        var hasPriceFilter = priceFrom.HasValue || priceTo.HasValue;
         if (cityCodes.Length > 1 && skip == 0)
         {
             return await GetFlightsPerCityAsync(
-                cityCodes, cityCodeTo, departFromUtc, departToUtc, take, nightsInDest, cancellationToken);
+                cityCodes, cityCodeTo, departFromUtc, departToUtc, take, nightsInDest,
+                priceFrom, priceTo, cancellationToken);
         }
 
         var query = BuildFlightSearchQuery(cityCodes, cityCodeTo, departFromUtc, departToUtc, nightsInDest);
+        query = ApplyPriceFilter(query, priceFrom, priceTo);
 
         var totalCount = includeTotal
             ? await query.CountAsync(cancellationToken)
             : 0;
 
-        // Prefer FareAdults (what the UI shows) so low display fares are not truncated
-        // when Price and FareAdults diverge.
-        var flights = await ProjectSearchResults(query)
-            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
-            .ThenBy(f => f.UtcDeparture)
+        if (skip == 0 && !hasPriceFilter)
+        {
+            var covered = await LoadCheapCoverageAsync(query, take, cancellationToken);
+            return (covered, totalCount);
+        }
+
+        var flights = await ProjectOrdered(query)
             .Skip(skip)
             .Take(take)
             .ToListAsync(cancellationToken);
@@ -95,7 +103,8 @@ public class FlightRepository(
     }
 
     private const int PerCityFlightLimit = 200;
-    private const int MaxMultiCityFlights = 1000;
+    private const int MaxMultiCityFlights = 1600;
+    private const int CheapBandTake = 200;
 
     private async Task<(IReadOnlyList<FlightListItem> Flights, int TotalCount)> GetFlightsPerCityAsync(
         string[] cityCodes,
@@ -104,12 +113,12 @@ public class FlightRepository(
         DateTime? departToUtc,
         int take,
         int? nightsInDest,
+        double? priceFrom,
+        double? priceTo,
         CancellationToken cancellationToken)
     {
-        var maxFlights = Math.Min(MaxMultiCityFlights, Math.Max(take, PerCityFlightLimit * cityCodes.Length));
-
         var cityTasks = cityCodes.Select(code => LoadCityFlightsAsync(
-            code, cityCodeTo, departFromUtc, departToUtc, nightsInDest, cancellationToken));
+            code, cityCodeTo, departFromUtc, departToUtc, nightsInDest, priceFrom, priceTo, cancellationToken));
 
         var cityResults = await Task.WhenAll(cityTasks);
         var byId = new Dictionary<int, FlightListItem>();
@@ -120,11 +129,9 @@ public class FlightRepository(
                 byId.TryAdd(flight.Id, flight);
         }
 
-        var merged = byId.Values
-            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
-            .ThenBy(f => f.UtcDeparture)
-            .Take(maxFlights)
-            .ToList();
+        var merged = KeepCheapCoverage(
+            byId.Values,
+            Math.Min(MaxMultiCityFlights, Math.Max(take, PerCityFlightLimit * cityCodes.Length)));
 
         return (merged, 0);
     }
@@ -135,16 +142,131 @@ public class FlightRepository(
         DateTime? departFromUtc,
         DateTime? departToUtc,
         int? nightsInDest,
+        double? priceFrom,
+        double? priceTo,
         CancellationToken cancellationToken)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+        var query = BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc, nightsInDest);
+        query = ApplyPriceFilter(query, priceFrom, priceTo);
 
-        return await ProjectSearchResults(
-                BuildFlightSearchQuery(context, [cityCode], cityCodeTo, departFromUtc, departToUtc, nightsInDest))
-            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
-            .ThenBy(f => f.UtcDeparture)
-            .Take(PerCityFlightLimit)
+        if (priceFrom.HasValue || priceTo.HasValue)
+        {
+            return await ProjectOrdered(query)
+                .Take(PerCityFlightLimit)
+                .ToListAsync(cancellationToken);
+        }
+
+        return await LoadCheapCoverageAsync(query, PerCityFlightLimit, cancellationToken);
+    }
+
+    private async Task<List<FlightListItem>> LoadCheapCoverageAsync(
+        IQueryable<Flight> query,
+        int take,
+        CancellationToken cancellationToken)
+    {
+        var cheapest = await ProjectOrdered(query)
+            .Take(take)
             .ToListAsync(cancellationToken);
+
+        var maxPrice = cheapest.Count == 0 ? 0 : cheapest.Max(DisplayPrice);
+        if (!CheapFlightCoverage.NeedsHigherBands(cheapest.Count, take, (decimal)maxPrice))
+            return cheapest;
+
+        var mid = await ProjectOrdered(ApplyPriceFilter(
+                query,
+                (double)CheapFlightCoverage.LowBandEur,
+                (double)CheapFlightCoverage.MidBandEur))
+            .Take(CheapBandTake)
+            .ToListAsync(cancellationToken);
+
+        var high = await ProjectOrdered(ApplyPriceFilter(
+                query,
+                (double)CheapFlightCoverage.MidBandEur,
+                (double)CheapFlightCoverage.TargetEur))
+            .Take(CheapBandTake)
+            .ToListAsync(cancellationToken);
+
+        return MergeById(cheapest, mid, high);
+    }
+
+    private static IQueryable<Flight> ApplyPriceFilter(IQueryable<Flight> query, double? priceFrom, double? priceTo)
+    {
+        if (priceFrom is double from)
+            query = query.Where(f => (f.FareAdults > 0 ? (double)f.FareAdults : f.Price) >= from);
+
+        if (priceTo is double to)
+            query = query.Where(f => (f.FareAdults > 0 ? (double)f.FareAdults : f.Price) <= to);
+
+        return query;
+    }
+
+    private static IQueryable<FlightListItem> ProjectOrdered(IQueryable<Flight> query) =>
+        ProjectSearchResults(query)
+            .OrderBy(f => f.FareAdults > 0 ? (double)f.FareAdults : f.Price)
+            .ThenBy(f => f.UtcDeparture);
+
+    private static double DisplayPrice(FlightListItem flight) =>
+        flight.FareAdults > 0 ? (double)flight.FareAdults : flight.Price;
+
+    private static List<FlightListItem> MergeById(params IEnumerable<FlightListItem>[] pages)
+    {
+        var byId = new Dictionary<int, FlightListItem>();
+        foreach (var page in pages)
+        {
+            foreach (var flight in page)
+                byId.TryAdd(flight.Id, flight);
+        }
+
+        return byId.Values
+            .OrderBy(DisplayPrice)
+            .ThenBy(f => f.UtcDeparture)
+            .ToList();
+    }
+
+    private static List<FlightListItem> KeepCheapCoverage(IEnumerable<FlightListItem> flights, int maxKeep)
+    {
+        var sorted = flights.OrderBy(DisplayPrice).ThenBy(f => f.UtcDeparture).ToList();
+        var kept = new Dictionary<int, FlightListItem>();
+
+        TakeBand(sorted, kept, 0, (double)CheapFlightCoverage.LowBandEur, CheapBandTake);
+        TakeBand(sorted, kept, (double)CheapFlightCoverage.LowBandEur, (double)CheapFlightCoverage.MidBandEur, CheapBandTake);
+        TakeBand(sorted, kept, (double)CheapFlightCoverage.MidBandEur, (double)CheapFlightCoverage.TargetEur, CheapBandTake);
+
+        foreach (var flight in sorted)
+        {
+            if (kept.Count >= maxKeep)
+                break;
+            kept.TryAdd(flight.Id, flight);
+        }
+
+        return kept.Values
+            .OrderBy(DisplayPrice)
+            .ThenBy(f => f.UtcDeparture)
+            .Take(maxKeep)
+            .ToList();
+    }
+
+    private static void TakeBand(
+        List<FlightListItem> sorted,
+        Dictionary<int, FlightListItem> kept,
+        double fromExclusive,
+        double toInclusive,
+        int limit)
+    {
+        var taken = 0;
+        foreach (var flight in sorted)
+        {
+            if (taken >= limit)
+                break;
+
+            var price = DisplayPrice(flight);
+            if (price <= fromExclusive || price > toInclusive)
+                continue;
+
+            if (kept.TryAdd(flight.Id, flight))
+                taken++;
+        }
     }
 
     private static IQueryable<FlightListItem> ProjectSearchResults(IQueryable<Flight> query) =>

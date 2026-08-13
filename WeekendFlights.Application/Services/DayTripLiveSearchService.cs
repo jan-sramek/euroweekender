@@ -99,7 +99,7 @@ public sealed class DayTripLiveSearchService(
             take: 500,
             includeTotal: false,
             nightsInDest: 0,
-            cancellationToken);
+            cancellationToken: cancellationToken);
 
         return items.Where(f =>
         {

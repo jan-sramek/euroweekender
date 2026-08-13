@@ -17,6 +17,8 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
         [FromQuery] DateTime? departFromUtc,
         [FromQuery] DateTime? departToUtc,
         [FromQuery] int? nightsInDest = null,
+        [FromQuery] double? priceFrom = null,
+        [FromQuery] double? priceTo = null,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 20,
         [FromQuery] bool includeTotal = false,
@@ -35,6 +37,8 @@ public class FlightsController(IFlightRepository flightRepository) : ControllerB
             pageSize,
             includeTotal,
             nightsInDest,
+            priceFrom,
+            priceTo,
             cancellationToken);
 
         var dtos = items.Select(ToDto).ToList();

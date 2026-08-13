@@ -13,6 +13,7 @@ public sealed record FlightSearchParameters
     public int Adults { get; init; } = 1;
     public int Children { get; init; }
     public int Infants { get; init; }
+    public decimal PriceFrom { get; init; }
     public decimal PriceTo { get; init; } = 300;
     public decimal MaxStopOvers { get; init; } = 2;
     public string Currency { get; init; } = "EUR";

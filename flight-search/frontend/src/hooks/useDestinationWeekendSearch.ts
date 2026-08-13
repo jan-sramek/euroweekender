@@ -118,7 +118,12 @@ export function useDestinationWeekendSearch({
           })),
           signal,
           destination,
-          selectedPattern?.nightsInDest
+          selectedPattern?.nightsInDest,
+          partial => {
+            if (generation !== searchGeneration.current) return;
+            setRawFlights(partial);
+            setLoadingFlights(false);
+          }
         );
         if (generation !== searchGeneration.current) return;
         setRawFlights(items);

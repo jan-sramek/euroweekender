@@ -7,7 +7,7 @@ import { SiteFooter } from '../components/SiteFooter';
 import { LocalizedLink } from '../components/LocalizedLink';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { useLocalizedPath } from '../hooks/useLocale';
+import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { findCityByCode } from '../services/locationPrefill';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import {
@@ -23,7 +23,8 @@ import { NotFoundPage } from './NotFoundPage';
 import '../layouts/ContentPageLayout.css';
 
 export function WeekendFlightsOdPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const locale = useLocale();
   const { odSlug } = useParams<{ odSlug: string }>();
   const { path } = useLocalizedPath();
   const parsed = parseOdSlugs(odSlug);
@@ -42,8 +43,8 @@ export function WeekendFlightsOdPage() {
     [allCities, parsed]
   );
 
-  const fromLabel = fromCity ? getCityDisplayName(fromCity, i18n.language) : '';
-  const toLabel = toCity ? getCityDisplayName(toCity, i18n.language) : '';
+  const fromLabel = fromCity ? getCityDisplayName(fromCity, locale) : '';
+  const toLabel = toCity ? getCityDisplayName(toCity, locale) : '';
   const routeFacts = useMemo(
     () => computeRouteFactsFromCities(fromCity, toCity),
     [fromCity, toCity]

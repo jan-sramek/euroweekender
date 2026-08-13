@@ -6,22 +6,52 @@ export function getCityDisplayName(
   city: Pick<City, 'name' | 'namesByLocale'> & { localizedName?: string },
   language: string | undefined
 ): string {
-  const tequilaLocale = toTequilaLocale(language);
-  const byLocale = city.namesByLocale;
-
-  if (byLocale) {
-    const exact = byLocale[tequilaLocale];
-    if (exact?.trim()) return exact.trim();
-
-    const base = (language ?? 'en').toLowerCase().split('-')[0] ?? 'en';
-    const fuzzy = Object.entries(byLocale).find(([locale]) =>
-      locale.toLowerCase().startsWith(`${base}-`)
-    );
-    if (fuzzy?.[1]?.trim()) return fuzzy[1].trim();
-  }
-
+  const fromMap = lookupLocalizedName(city.namesByLocale, language);
+  if (fromMap) return fromMap;
   if (city.localizedName?.trim()) return city.localizedName.trim();
   return city.name;
+}
+
+function lookupLocalizedName(
+  byLocale: Record<string, string> | undefined,
+  language: string | undefined
+): string | undefined {
+  if (!byLocale) return undefined;
+
+  const tequilaLocale = toTequilaLocale(language);
+  const exact = byLocale[tequilaLocale] ?? byLocale[tequilaLocale.toLowerCase()];
+  if (exact?.trim()) return exact.trim();
+
+  const base = (language ?? 'en').toLowerCase().split('-')[0] ?? 'en';
+  const fuzzy = Object.entries(byLocale).find(([locale]) => {
+    const key = locale.toLowerCase();
+    return key === base || key.startsWith(`${base}-`);
+  });
+  return fuzzy?.[1]?.trim() || undefined;
+}
+
+export function applyLocalizedNames(
+  cities: City[],
+  namesByCode: Record<string, string>,
+  language: string
+): City[] {
+  const byCode = new Map<string, string>();
+  for (const [code, name] of Object.entries(namesByCode)) {
+    const trimmed = name.trim();
+    if (!trimmed) continue;
+    byCode.set(code.trim().toUpperCase(), trimmed);
+  }
+  if (byCode.size === 0) return cities;
+
+  let changed = false;
+  const next = cities.map(city => {
+    const localized = byCode.get(city.code.toUpperCase());
+    if (!localized) return city;
+    if (getCityDisplayName(city, language) === localized) return city;
+    changed = true;
+    return withLocalizedName(city, language, localized);
+  });
+  return changed ? next : cities;
 }
 
 export function indexCitiesByCode(cities: City[]): Map<string, City> {

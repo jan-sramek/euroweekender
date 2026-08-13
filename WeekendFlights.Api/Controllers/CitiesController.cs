@@ -137,7 +137,94 @@ public class CitiesController(
                 suggestion.Name));
         }
 
+        var learned = dtos
+            .Where(d => !string.IsNullOrWhiteSpace(d.LocalizedName))
+            .GroupBy(d => d.Code, StringComparer.OrdinalIgnoreCase)
+            .ToDictionary(g => g.Key, g => g.First().LocalizedName, StringComparer.OrdinalIgnoreCase);
+        if (learned.Count > 0)
+        {
+            await cityRepository.MergeLocalizedNamesAsync(learned, tequilaLocale, cancellationToken);
+        }
+
         return Ok(dtos);
+    }
+
+    /// <summary>
+    /// Localized display names for the given IATA codes (from stored Kiwi names, else Tequila).
+    /// </summary>
+    [HttpGet("localized-names")]
+    [ProducesResponseType(typeof(IReadOnlyDictionary<string, string>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyDictionary<string, string>>> GetLocalizedNamesAsync(
+        [FromQuery] string? locale = null,
+        [FromQuery] string? codes = null,
+        CancellationToken cancellationToken = default)
+    {
+        var tequilaLocale = TequilaLocaleMapper.ToTequilaLocale(locale);
+        var requested = (codes ?? string.Empty)
+            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Select(code => code.ToUpperInvariant())
+            .Where(code => code.Length > 0)
+            .Distinct()
+            .Take(80)
+            .ToList();
+
+        if (requested.Count == 0)
+            return Ok(new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase));
+
+        var cities = await cityRepository.GetCitiesByCodesAsync(requested);
+        var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var missing = new List<string>();
+
+        foreach (var city in cities)
+        {
+            if (TryLocalizedName(city, tequilaLocale, out var stored))
+                result[city.Code] = stored;
+            else
+                missing.Add(city.Code);
+        }
+
+        if (missing.Count > 0)
+        {
+            var fetched = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            using var gate = new SemaphoreSlim(6);
+            await Task.WhenAll(missing.Select(async code =>
+            {
+                await gate.WaitAsync(cancellationToken);
+                try
+                {
+                    var suggestions = await tequilaLocationClient.SuggestCitiesAsync(
+                        code,
+                        tequilaLocale,
+                        5,
+                        cancellationToken);
+                    var match = suggestions.FirstOrDefault(item =>
+                                   item.Code.Equals(code, StringComparison.OrdinalIgnoreCase))
+                               ?? suggestions.FirstOrDefault();
+                    var name = match?.Name?.Trim();
+                    if (string.IsNullOrWhiteSpace(name))
+                        return;
+
+                    lock (fetched)
+                    {
+                        fetched[code] = name;
+                    }
+                }
+                finally
+                {
+                    gate.Release();
+                }
+            }));
+
+            foreach (var pair in fetched)
+                result[pair.Key] = pair.Value;
+
+            if (fetched.Count > 0)
+            {
+                await cityRepository.MergeLocalizedNamesAsync(fetched, tequilaLocale, cancellationToken);
+            }
+        }
+
+        return Ok(result);
     }
 
     [HttpGet]
@@ -169,6 +256,33 @@ public class CitiesController(
             return NotFound();
 
         return Ok(ToCityDto(city));
+    }
+
+    private static bool TryLocalizedName(City city, string tequilaLocale, out string name)
+    {
+        name = string.Empty;
+        var names = city.NamesByLocale;
+        if (names is null || names.Count == 0)
+            return false;
+
+        if (names.TryGetValue(tequilaLocale, out var exact) && !string.IsNullOrWhiteSpace(exact))
+        {
+            name = exact.Trim();
+            return true;
+        }
+
+        var prefix = tequilaLocale.Split('-', 2)[0] + "-";
+        foreach (var (locale, value) in names)
+        {
+            if (locale.StartsWith(prefix, StringComparison.OrdinalIgnoreCase) &&
+                !string.IsNullOrWhiteSpace(value))
+            {
+                name = value.Trim();
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static CityDto ToCityDto(City city) => new(

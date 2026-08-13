@@ -7,6 +7,13 @@ export function LocaleLayout() {
   const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
 
+  if (isLocaleCode(lang) && i18n.language !== lang) {
+    void i18n.changeLanguage(lang);
+  }
+  if (isLocaleCode(lang) && typeof document !== 'undefined') {
+    document.documentElement.lang = lang;
+  }
+
   useEffect(() => {
     if (isLocaleCode(lang) && i18n.language !== lang) {
       void i18n.changeLanguage(lang);

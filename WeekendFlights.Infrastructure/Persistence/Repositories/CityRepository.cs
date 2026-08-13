@@ -64,6 +64,47 @@ public class CityRepository(WeekendFlightsDbContext db) : ICityRepository
             .ToDictionary(r => r.Code, r => r.BestRank!.Value, StringComparer.OrdinalIgnoreCase);
     }
 
+    public async Task MergeLocalizedNamesAsync(
+        IReadOnlyDictionary<string, string> namesByCode,
+        string locale,
+        CancellationToken cancellationToken = default)
+    {
+        if (namesByCode.Count == 0 || string.IsNullOrWhiteSpace(locale))
+            return;
+
+        var codes = namesByCode.Keys
+            .Select(code => code.Trim().ToUpperInvariant())
+            .Where(code => code.Length > 0)
+            .Distinct()
+            .ToList();
+        if (codes.Count == 0)
+            return;
+
+        var cities = await db.Cities
+            .Where(c => codes.Contains(c.Code))
+            .ToListAsync(cancellationToken);
+
+        foreach (var city in cities)
+        {
+            if (!namesByCode.TryGetValue(city.Code, out var name))
+                continue;
+
+            var trimmed = name.Trim();
+            if (string.IsNullOrWhiteSpace(trimmed))
+                continue;
+
+            var next = new Dictionary<string, string>(
+                city.NamesByLocale ?? new Dictionary<string, string>(),
+                StringComparer.OrdinalIgnoreCase)
+            {
+                [locale] = trimmed
+            };
+            city.NamesByLocale = next;
+        }
+
+        await db.SaveChangesAsync(cancellationToken);
+    }
+
     public async Task AddCityAsync(City city)
     {
         await db.Cities.AddAsync(city);

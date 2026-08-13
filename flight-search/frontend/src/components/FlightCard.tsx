@@ -208,13 +208,12 @@ export function FlightCard({
   onDepartureSelect,
   onReturnSelect
 }: FlightCardProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const locale = useLocale();
   const { path } = useLocalizedPath();
   const location = useLocation();
-  const language = i18n.language || 'en';
-  const cityFrom = getCityNameByCode(citiesByCode, flight.cityCodeFrom, language, flight.cityFrom);
-  const cityTo = getCityNameByCode(citiesByCode, flight.cityCodeTo, language, flight.cityTo);
+  const cityFrom = getCityNameByCode(citiesByCode, flight.cityCodeFrom, locale, flight.cityFrom);
+  const cityTo = getCityNameByCode(citiesByCode, flight.cityCodeTo, locale, flight.cityTo);
   const bookingUrl = localizeKiwiDeepLink(flight.deepLink, locale);
   const outbound = getOutboundLeg(flight, cityFrom, cityTo);
   const returnLeg = getReturnLeg(flight, cityFrom, cityTo);

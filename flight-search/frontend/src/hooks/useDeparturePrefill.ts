@@ -9,6 +9,7 @@ import {
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 import { indexCitiesByCode } from '../utils/cityDisplayName';
+import { useLocale } from './useLocale';
 import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
 const SELECTED_ORIGINS_KEY = 'ew.selectedOrigins';
@@ -68,11 +69,13 @@ export function useDeparturePrefill(options?: {
     .map(code => code.trim().toUpperCase())
     .filter(Boolean)
     .join('|');
+  const locale = useLocale();
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>(() =>
     preferredKey ? preferredKey.split('|') : []
   );
+  const [extraLocalizeCodes, setExtraLocalizeCodes] = useState<string[]>([]);
   const [locating, setLocating] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -101,13 +104,30 @@ export function useDeparturePrefill(options?: {
     [refreshHubSuggestions]
   );
 
+  const localizeCityCodes = useCallback((codes: string[]) => {
+    const incoming = codes.map(code => code.trim().toUpperCase()).filter(Boolean);
+    if (incoming.length === 0) return;
+    setExtraLocalizeCodes(prev => {
+      const next = new Set(prev);
+      let changed = false;
+      for (const code of incoming) {
+        if (!next.has(code)) {
+          next.add(code);
+          changed = true;
+        }
+      }
+      return changed ? [...next] : prev;
+    });
+  }, []);
+
   const primaryCode = selectedCodes[0] ?? '';
   const codesToLocalize = [
     ...selectedCodes,
-    ...(localizeKey ? localizeKey.split('|') : [])
+    ...(localizeKey ? localizeKey.split('|') : []),
+    ...extraLocalizeCodes
   ];
 
-  useResolveCityDisplayNames(allCities, setAllCities, codesToLocalize);
+  useResolveCityDisplayNames(allCities, setAllCities, codesToLocalize, locale);
 
   useEffect(() => {
     if (allCities.length === 0 || !primaryCode) return;
@@ -226,6 +246,7 @@ export function useDeparturePrefill(options?: {
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
+    localizeCityCodes,
     locating,
     errorMessage
   };

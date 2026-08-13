@@ -15,6 +15,7 @@ import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
@@ -56,6 +57,7 @@ function buildLocationLabel(
 
 export function HomePage() {
   const { t, i18n } = useTranslation();
+  const locale = useLocale();
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(t('meta.home.title'), t('meta.home.description'), '/');
@@ -92,6 +94,7 @@ export function HomePage() {
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
+    localizeCityCodes,
     locating,
     errorMessage
   } = useDeparturePrefill();
@@ -128,6 +131,10 @@ export function HomePage() {
   } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   useEffect(() => {
+    localizeCityCodes(visibleFlights.flatMap(flight => [flight.cityCodeFrom, flight.cityCodeTo]));
+  }, [localizeCityCodes, visibleFlights]);
+
+  useEffect(() => {
     setSelectedWeekendIds(prev => {
       if (selectedRangeMonths != null) {
         return getWeekendIdsForMonths(weekends, selectedRangeMonths);
@@ -137,8 +144,8 @@ export function HomePage() {
   }, [weekends, selectedRangeMonths]);
 
   const locationLabel = useMemo(
-    () => buildLocationLabel(allCities, selectedCodes, i18n.language, t),
-    [allCities, selectedCodes, i18n.language, t]
+    () => buildLocationLabel(allCities, selectedCodes, locale, t),
+    [allCities, selectedCodes, locale, t]
   );
 
   const weekendsLabel = useMemo(() => {

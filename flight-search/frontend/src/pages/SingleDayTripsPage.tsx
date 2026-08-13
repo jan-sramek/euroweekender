@@ -10,6 +10,7 @@ import { SiteFooter } from '../components/SiteFooter';
 import { useDayTripSearch } from '../hooks/useDayTripSearch';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
+import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import {
   DAY_TRIP_OPTIONS_MONTHS,
@@ -26,6 +27,7 @@ import './HomePage.css';
 
 export function SingleDayTripsPage() {
   const { t, i18n } = useTranslation();
+  const locale = useLocale();
 
   usePageMeta(
     t('meta.singleDayTrips.title'),
@@ -55,6 +57,7 @@ export function SingleDayTripsPage() {
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
+    localizeCityCodes,
     locating,
     errorMessage
   } = useDeparturePrefill();
@@ -88,19 +91,23 @@ export function SingleDayTripsPage() {
     hasTextFilter
   } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
+  useEffect(() => {
+    localizeCityCodes(visibleFlights.flatMap(flight => [flight.cityCodeFrom, flight.cityCodeTo]));
+  }, [localizeCityCodes, visibleFlights]);
+
   const locationLabel = useMemo(() => {
     const active = selectedCodes
       .map(code => allCities.find(c => c.code === code))
       .filter((c): c is City => c !== undefined);
     if (active.length === 0) return '';
     if (active.length === 1) {
-      return `${getCityDisplayName(active[0], i18n.language)} (${active[0].code})`;
+      return `${getCityDisplayName(active[0], locale)} (${active[0].code})`;
     }
     return t('home.moreAirports', {
-      name: getCityDisplayName(active[0], i18n.language),
+      name: getCityDisplayName(active[0], locale),
       count: active.length - 1
     });
-  }, [allCities, selectedCodes, i18n.language, t]);
+  }, [allCities, selectedCodes, locale, t]);
 
   const daysLabel = useMemo(() => {
     if (selectedDays.length === 0) return '';

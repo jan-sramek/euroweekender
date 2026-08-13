@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getCityDisplayName, getCityNameByCode, indexCitiesByCode } from './cityDisplayName';
+import { applyLocalizedNames, getCityDisplayName, getCityNameByCode, indexCitiesByCode } from './cityDisplayName';
 import type { City } from '../types/city';
 
 const prague: City = {
@@ -35,5 +35,11 @@ describe('cityDisplayName', () => {
     expect(getCityNameByCode(byCode, 'prg', 'cs', 'Prague')).toBe('Praha');
     expect(getCityNameByCode(byCode, 'BCN', 'cs', 'Barcelona')).toBe('Barcelona');
     expect(getCityNameByCode(undefined, 'PRG', 'cs', 'Prague')).toBe('Prague');
+  });
+
+  it('merges a localized name map onto cities', () => {
+    const berlin = { ...prague, code: 'BER', name: 'Berlin', namesByLocale: {} };
+    const next = applyLocalizedNames([berlin], { BER: 'Berlín' }, 'cs');
+    expect(getCityDisplayName(next[0], 'cs')).toBe('Berlín');
   });
 });

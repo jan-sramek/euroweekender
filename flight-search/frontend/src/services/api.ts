@@ -18,7 +18,7 @@ const MAX_COVERAGE_FLIGHTS = 1600;
 const SINGLE_CITY_PAGE_SIZE = 1000;
 /** ~1 month of Thu–Mon windows per request so each month keeps its own cheap-flight budget. */
 const WEEKEND_SEARCH_CHUNK_SIZE = 4;
-const CITIES_CACHE_KEY = 'ew:cities:v4';
+const CITIES_CACHE_KEY = 'ew:cities:v5';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
@@ -162,6 +162,68 @@ export async function getCities(): Promise<City[]> {
   const cities = ((await response.json()) as Record<string, unknown>[]).map(normalizeCity);
   writeCitiesCache(cities);
   return cities;
+}
+
+const LOCALIZED_NAMES_CACHE_PREFIX = 'ew:city-names:v1:';
+
+export async function getLocalizedCityNames(
+  locale: string,
+  codes: string[],
+  signal?: AbortSignal
+): Promise<Record<string, string>> {
+  const unique = [...new Set(codes.map(code => code.trim().toUpperCase()).filter(Boolean))];
+  if (unique.length === 0) return {};
+
+  const merged: Record<string, string> = {};
+  const missing: string[] = [];
+  for (const code of unique) {
+    const cached = readLocalizedNameCache(locale, code);
+    if (cached) merged[code] = cached;
+    else missing.push(code);
+  }
+
+  const chunkSize = 80;
+  for (let i = 0; i < missing.length; i += chunkSize) {
+    const chunk = missing.slice(i, i + chunkSize);
+    const params = new URLSearchParams({
+      locale,
+      codes: chunk.join(',')
+    });
+    const response = await fetch(`${API_BASE}/cities/localized-names?${params}`, { signal });
+    if (!response.ok) {
+      throw new Error(`Failed to load localized city names (${response.status})`);
+    }
+    const payload = (await response.json()) as Record<string, string>;
+    for (const [code, name] of Object.entries(payload)) {
+      const trimmed = name?.trim();
+      if (!trimmed) continue;
+      const key = code.trim().toUpperCase();
+      merged[key] = trimmed;
+      writeLocalizedNameCache(locale, key, trimmed);
+    }
+  }
+
+  return merged;
+}
+
+function localizedNameCacheKey(locale: string, code: string): string {
+  return `${LOCALIZED_NAMES_CACHE_PREFIX}${locale}:${code}`;
+}
+
+function readLocalizedNameCache(locale: string, code: string): string | null {
+  try {
+    return sessionStorage.getItem(localizedNameCacheKey(locale, code));
+  } catch {
+    return null;
+  }
+}
+
+function writeLocalizedNameCache(locale: string, code: string, name: string): void {
+  try {
+    sessionStorage.setItem(localizedNameCacheKey(locale, code), name);
+  } catch {
+    // Ignore quota or private-mode storage errors.
+  }
 }
 
 export async function suggestCities(

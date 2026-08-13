@@ -10,6 +10,7 @@ import {
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { CountryFlag } from './CountryFlag';
 import { LoadingIndicator } from './LoadingIndicator';
+import { useLocale } from '../hooks/useLocale';
 import './DeparturePicker.css';
 
 interface DeparturePickerProps {
@@ -53,8 +54,8 @@ export function DeparturePicker({
   reserveChipSlot = false,
   showNearbyAirports = true
 }: DeparturePickerProps) {
-  const { t, i18n } = useTranslation();
-  const language = i18n.language || 'en';
+  const { t } = useTranslation();
+  const language = useLocale();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);

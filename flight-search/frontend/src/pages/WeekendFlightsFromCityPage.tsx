@@ -16,7 +16,7 @@ import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { useLocalizedPath } from '../hooks/useLocale';
+import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
@@ -70,6 +70,7 @@ function buildLocationLabel(
 
 export function WeekendFlightsFromCityPage() {
   const { t, i18n } = useTranslation();
+  const locale = useLocale();
   const { citySlug } = useParams<{ citySlug: string }>();
   const { path } = useLocalizedPath();
   const weekendPatterns = useWeekendPatterns();
@@ -85,6 +86,7 @@ export function WeekendFlightsFromCityPage() {
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
+    localizeCityCodes,
     locating,
     errorMessage
   } = useDeparturePrefill({ preferredCodes });
@@ -94,7 +96,7 @@ export function WeekendFlightsFromCityPage() {
     [allCities, parsedCode]
   );
 
-  const cityLabel = city ? getCityDisplayName(city, i18n.language) : '';
+  const cityLabel = city ? getCityDisplayName(city, locale) : '';
   const metaCity = cityLabel || parsedCode || '';
 
   usePageMeta(
@@ -181,6 +183,10 @@ export function WeekendFlightsFromCityPage() {
   } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   useEffect(() => {
+    localizeCityCodes(visibleFlights.flatMap(flight => [flight.cityCodeFrom, flight.cityCodeTo]));
+  }, [localizeCityCodes, visibleFlights]);
+
+  useEffect(() => {
     setSelectedWeekendIds(prev => {
       if (selectedRangeMonths != null) {
         return getWeekendIdsForMonths(weekends, selectedRangeMonths);
@@ -190,8 +196,8 @@ export function WeekendFlightsFromCityPage() {
   }, [weekends, selectedRangeMonths]);
 
   const locationLabel = useMemo(
-    () => buildLocationLabel(allCities, selectedCodes, i18n.language, t),
-    [allCities, selectedCodes, i18n.language, t]
+    () => buildLocationLabel(allCities, selectedCodes, locale, t),
+    [allCities, selectedCodes, locale, t]
   );
 
   const weekendsLabel = useMemo(() => {

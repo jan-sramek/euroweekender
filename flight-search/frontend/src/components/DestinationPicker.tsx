@@ -10,6 +10,7 @@ import {
 } from '../services/locationPrefill';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { isEuropeanCity } from '../utils/europe';
+import { useLocale } from '../hooks/useLocale';
 import { CountryFlag } from './CountryFlag';
 import './DeparturePicker.css';
 
@@ -24,6 +25,8 @@ interface DestinationPickerProps {
   onSelectedCodeChange: (code: string | null) => void;
   /** Keep a chip-row height even when nothing is selected so paired fields stay aligned. */
   reserveChipSlot?: boolean;
+  /** Ask the parent to resolve Kiwi names for these destination suggestions. */
+  onLocalizeCodes?: (codes: string[]) => void;
 }
 
 function formatCity(city: City, language: string): string {
@@ -40,15 +43,17 @@ export function DestinationPicker({
   excludeCode,
   selectedCode,
   onSelectedCodeChange,
-  reserveChipSlot = false
+  reserveChipSlot = false,
+  onLocalizeCodes
 }: DestinationPickerProps) {
-  const { t, i18n } = useTranslation();
-  const language = i18n.language || 'en';
+  const { t } = useTranslation();
+  const language = useLocale();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [originDestinations, setOriginDestinations] = useState<
     Array<{ code: string; minPrice?: number; offerCount?: number }>
   >([]);
+  const [originDestinationsReady, setOriginDestinationsReady] = useState(!originCity);
   const searchRef = useRef<HTMLDivElement>(null);
 
   const europeanCities = useMemo(
@@ -74,14 +79,17 @@ export function DestinationPicker({
   useEffect(() => {
     if (!originCode) {
       setOriginDestinations(prev => (prev.length === 0 ? prev : []));
+      setOriginDestinationsReady(true);
       return;
     }
 
+    setOriginDestinationsReady(false);
     let cancelled = false;
     void loadDealSnapshot().then(snapshot => {
       if (cancelled) return;
       const dests = snapshot?.destinationsByOrigin?.[originCode] ?? [];
       setOriginDestinations(dests);
+      setOriginDestinationsReady(true);
     });
     return () => {
       cancelled = true;
@@ -101,6 +109,11 @@ export function DestinationPicker({
     [allCities, excludeCodes, language, originDestinations]
   );
 
+  useEffect(() => {
+    if (!open || !onLocalizeCodes || suggestedCities.length === 0) return;
+    onLocalizeCodes(suggestedCities.map(city => city.code));
+  }, [onLocalizeCodes, open, suggestedCities]);
+
   const { results: searchResults, isSearching } = useCityTypeahead({
     allCities,
     query,
@@ -111,7 +124,8 @@ export function DestinationPicker({
 
   const trimmedQuery = query.trim();
   const showSearchResults = open && trimmedQuery.length >= 1;
-  const showEmptySuggestions = open && trimmedQuery.length < 1 && suggestedCities.length > 0;
+  const showEmptySuggestions =
+    open && trimmedQuery.length < 1 && originDestinationsReady && suggestedCities.length > 0;
 
   useEffect(() => {
     if (selectedCode && excludeCode && selectedCode === excludeCode) {

@@ -14,6 +14,7 @@ import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useDestinationWeekendSearch } from '../hooks/useDestinationWeekendSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
+import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
@@ -75,6 +76,7 @@ export function CheapestWeekendPage({
   extraSeoContent
 }: CheapestWeekendPageProps = {}) {
   const { t, i18n } = useTranslation();
+  const locale = useLocale();
   const [searchParams] = useSearchParams();
   const weekendPatterns = useWeekendPatterns();
 
@@ -127,6 +129,7 @@ export function CheapestWeekendPage({
     citiesByCode,
     selectedCodes,
     setSelectedCodes,
+    localizeCityCodes,
     locating,
     errorMessage
   } = useDeparturePrefill({
@@ -194,6 +197,10 @@ export function CheapestWeekendPage({
     hasTextFilter
   } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
+  useEffect(() => {
+    localizeCityCodes(visibleFlights.flatMap(flight => [flight.cityCodeFrom, flight.cityCodeTo]));
+  }, [localizeCityCodes, visibleFlights]);
+
   const fromCity = useMemo(
     () => (fromCode ? allCities.find(city => city.code === fromCode) ?? null : null),
     [allCities, fromCode]
@@ -205,7 +212,7 @@ export function CheapestWeekendPage({
   );
 
   const locationLabel = fromCity
-    ? `${getCityDisplayName(fromCity, i18n.language)} (${fromCity.code})`
+    ? `${getCityDisplayName(fromCity, locale)} (${fromCity.code})`
     : '';
 
   const handleAddCity = (city: City) => {
@@ -221,8 +228,8 @@ export function CheapestWeekendPage({
   const canSearch = Boolean(fromCode && destinationCode);
   const totalCount = flights.length;
   const isOdLanding = Boolean(forcedFrom && forcedTo);
-  const fromLabel = fromCity ? getCityDisplayName(fromCity, i18n.language) : '';
-  const toLabel = toCity ? getCityDisplayName(toCity, i18n.language) : '';
+  const fromLabel = fromCity ? getCityDisplayName(fromCity, locale) : '';
+  const toLabel = toCity ? getCityDisplayName(toCity, locale) : '';
   const routeFacts = useMemo(
     () => (isOdLanding ? computeRouteFactsFromCities(fromCity, toCity) : null),
     [isOdLanding, fromCity, toCity]
@@ -277,6 +284,7 @@ export function CheapestWeekendPage({
                       setSelectedWeekendId(null);
                     }}
                     reserveChipSlot
+                    onLocalizeCodes={localizeCityCodes}
                   />
                 </div>
 
@@ -314,8 +322,8 @@ export function CheapestWeekendPage({
                 {fromCity && toCity ? (
                   <p className="offers-subtitle cheapest-route">
                     {t('cheapestWeekend.routeSummary', {
-                      from: `${getCityDisplayName(fromCity, i18n.language)} (${fromCity.code})`,
-                      to: `${getCityDisplayName(toCity, i18n.language)} (${toCity.code})`
+                      from: `${getCityDisplayName(fromCity, locale)} (${fromCity.code})`,
+                      to: `${getCityDisplayName(toCity, locale)} (${toCity.code})`
                     })}
                     {' · '}
                     {passengerCount}{' '}

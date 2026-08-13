@@ -3,9 +3,8 @@ import type { Flight, FlightPage } from '../types/flight';
 import {
   CHEAP_BAND_PAGE_SIZE,
   extraPriceBands,
-  keepCheapCoverage,
   maxFlightPrice,
-  mergeFlightsById
+  mergeSearchFlights
 } from '../utils/cheapFlightCoverage';
 import { withLocalizedName } from '../utils/cityDisplayName';
 import { normalizeHubScore, normalizeOriginDestination } from './hubScore';
@@ -36,8 +35,8 @@ function chunkPageSize(cityCount: number, chunkCount: number): number {
   return Math.min(500, Math.max(150, Math.ceil(MAX_SEARCH_FLIGHTS / chunkCount)));
 }
 
-function mergeFlightPages(pages: Flight[][]): Flight[] {
-  return keepCheapCoverage(mergeFlightsById(pages), MAX_SEARCH_FLIGHTS, MAX_COVERAGE_FLIGHTS);
+function mergeFlightPages(pages: Flight[][], destinationSearch = false): Flight[] {
+  return mergeSearchFlights(pages, MAX_SEARCH_FLIGHTS, MAX_COVERAGE_FLIGHTS, destinationSearch);
 }
 
 export interface FlightSearchParams {
@@ -78,15 +77,18 @@ export async function searchFlightsForWeekends(
   if (chunks.length === 0) return [];
 
   const pageSize = chunkPageSize(uniqueCities.length, chunks.length);
+  const destinationSearch = Boolean(cityCodeTo);
 
   const firstPages = await Promise.all(
     chunks.map(chunk => fetchWeekendChunk(uniqueCities, chunk, cityCodeTo, nightsInDest, pageSize, signal))
   );
 
-  let merged = mergeFlightPages(firstPages);
+  let merged = mergeFlightPages(firstPages, destinationSearch);
   onPartial?.(merged);
 
-  if (merged.length === 0) return merged;
+  // Destination queries are already route-filtered. Extra cheap bands (and the
+  // cheap-N merge) would drop nearer, pricier weekends in favour of later months.
+  if (destinationSearch || merged.length === 0) return merged;
 
   const bands = extraPriceBands(maxFlightPrice(merged));
   if (bands.length === 0) return merged;
@@ -109,7 +111,7 @@ export async function searchFlightsForWeekends(
       )
     );
 
-    merged = mergeFlightPages([...firstPages, ...extraPages]);
+    merged = mergeFlightPages([...firstPages, ...extraPages], destinationSearch);
   } catch (error) {
     if (error instanceof DOMException && error.name === 'AbortError') throw error;
     return merged;

@@ -1,19 +1,17 @@
 import type { Flight } from '../types/flight';
-import { normalizeSearchText } from './citySearch';
+import { normalizeSearchText, textMatchesQuery } from './citySearch';
 
 function flightSearchBlob(flight: Flight): string {
-  return normalizeSearchText(
-    [
-      flight.cityFrom,
-      flight.cityTo,
-      flight.cityCodeFrom,
-      flight.cityCodeTo,
-      flight.countryFrom ?? '',
-      flight.countryTo,
-      flight.flyFrom,
-      flight.flyTo
-    ].join(' ')
-  );
+  return [
+    flight.cityFrom,
+    flight.cityTo,
+    flight.cityCodeFrom,
+    flight.cityCodeTo,
+    flight.countryFrom ?? '',
+    flight.countryTo,
+    flight.flyFrom,
+    flight.flyTo
+  ].join(' ');
 }
 
 /** Match flights by destination/origin city, country, or IATA (space-separated AND). */
@@ -27,6 +25,6 @@ export function filterFlightsByTextQuery(flights: Flight[], query: string): Flig
 
   return flights.filter(flight => {
     const blob = flightSearchBlob(flight);
-    return tokens.every(token => blob.includes(token));
+    return tokens.every(token => textMatchesQuery(blob, token));
   });
 }

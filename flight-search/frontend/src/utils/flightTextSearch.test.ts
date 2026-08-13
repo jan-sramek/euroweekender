@@ -66,4 +66,15 @@ describe('filterFlightsByTextQuery', () => {
     expect(filterFlightsByTextQuery(flights, 'prague spain').map(f => f.id)).toEqual([1]);
     expect(filterFlightsByTextQuery(flights, 'barcelona austria')).toHaveLength(0);
   });
+
+  it('matches Milano to stored Milan', () => {
+    const milan = flight({
+      id: 4,
+      cityTo: 'Milan',
+      cityCodeTo: 'MIL',
+      countryTo: 'Italy',
+      flyTo: 'MXP'
+    });
+    expect(filterFlightsByTextQuery([milan], 'milano').map(f => f.id)).toEqual([4]);
+  });
 });

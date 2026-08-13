@@ -4,7 +4,8 @@ import {
   extraPriceBands,
   keepCheapCoverage,
   maxFlightPrice,
-  mergeFlightsById
+  mergeFlightsById,
+  mergeSearchFlights
 } from './cheapFlightCoverage';
 
 function flight(id: number, price: number): Flight {
@@ -69,5 +70,19 @@ describe('mergeFlightsById', () => {
     const merged = mergeFlightsById([[flight(1, 90)], [flight(1, 70), flight(2, 80)]]);
     expect(merged).toHaveLength(2);
     expect(merged[0].fareAdults).toBe(70);
+  });
+});
+
+describe('mergeSearchFlights', () => {
+  it('keeps nearer expensive destination weekends instead of later cheap months', () => {
+    const laterCheap = Array.from({ length: 1200 }, (_, i) => flight(i + 1, 62));
+    const thisWeekend = [flight(9001, 136), flight(9002, 153)];
+
+    const originOnly = mergeSearchFlights([laterCheap, thisWeekend], 1000, 1600, false);
+    expect(originOnly.map(item => item.id)).not.toContain(9001);
+
+    const destination = mergeSearchFlights([laterCheap, thisWeekend], 1000, 1600, true);
+    expect(destination.map(item => item.id)).toEqual(expect.arrayContaining([9001, 9002]));
+    expect(destination).toHaveLength(1202);
   });
 });

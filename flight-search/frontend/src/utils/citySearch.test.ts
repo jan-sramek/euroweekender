@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { City } from '../types/city';
-import { cityMatchesQuery, normalizeSearchText, rankCityMatch } from './citySearch';
+import { cityMatchesQuery, normalizeSearchText, rankCityMatch, textMatchesQuery } from './citySearch';
 
 const vienna: City = {
   id: '1',
@@ -53,5 +53,12 @@ describe('citySearch', () => {
   it('ranks IATA and prefix matches higher', () => {
     expect(rankCityMatch(vienna, 'VIE')).toBeLessThan(rankCityMatch(vienna, 'ien'));
     expect(rankCityMatch(vienna, 'Wien')).toBeLessThan(rankCityMatch(vienna, 'ena'));
+  });
+
+  it('matches Italian/local suffixes of English city names', () => {
+    const milan: City = { ...vienna, id: '3', code: 'MIL', name: 'Milan', country: 'Italy', aliases: [] };
+    expect(textMatchesQuery('Milan', 'Milano')).toBe(true);
+    expect(cityMatchesQuery(milan, 'Milano')).toBe(true);
+    expect(textMatchesQuery('Rome', 'Romania')).toBe(false);
   });
 });

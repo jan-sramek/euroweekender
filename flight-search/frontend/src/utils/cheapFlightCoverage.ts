@@ -52,6 +52,21 @@ export function mergeFlightsById(pages: Flight[][]): Flight[] {
 }
 
 /**
+ * Origin-only search keeps cheap price bands. Destination search must keep every
+ * month's results — later cheap weekends would otherwise crowd out nearer dates.
+ */
+export function mergeSearchFlights(
+  pages: Flight[][],
+  minKeep: number,
+  maxKeep: number,
+  destinationSearch = false
+): Flight[] {
+  const merged = mergeFlightsById(pages);
+  if (destinationSearch) return merged;
+  return keepCheapCoverage(merged, minKeep, maxKeep);
+}
+
+/**
  * Keep cheapest deals, but do not let ultra-cheap routes crowd out €60–€120 tickets.
  */
 export function keepCheapCoverage(flights: Flight[], minKeep: number, maxKeep: number): Flight[] {

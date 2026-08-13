@@ -8,16 +8,31 @@ export function normalizeSearchText(value: string): string {
     .toLowerCase();
 }
 
-export function cityMatchesQuery(city: City & { localizedName?: string }, query: string): boolean {
+/**
+ * True when `query` matches `haystack`, including local spellings that only add
+ * a short suffix ("milano" → "milan").
+ */
+export function textMatchesQuery(haystack: string, query: string): boolean {
+  const hay = normalizeSearchText(haystack);
   const q = normalizeSearchText(query.trim());
   if (!q) return false;
+  if (hay.includes(q)) return true;
 
-  if (normalizeSearchText(city.code).includes(q)) return true;
-  if (normalizeSearchText(city.name).includes(q)) return true;
-  if (city.localizedName && normalizeSearchText(city.localizedName).includes(q)) return true;
-  if (normalizeSearchText(city.country).includes(q)) return true;
+  return hay.split(/[^a-z0-9]+/).some(
+    word => word.length >= 4 && q.startsWith(word) && q.length <= word.length + 2
+  );
+}
 
-  return (city.aliases ?? []).some(alias => normalizeSearchText(alias).includes(q));
+export function cityMatchesQuery(city: City & { localizedName?: string }, query: string): boolean {
+  const q = query.trim();
+  if (!q) return false;
+
+  if (textMatchesQuery(city.code, q)) return true;
+  if (textMatchesQuery(city.name, q)) return true;
+  if (city.localizedName && textMatchesQuery(city.localizedName, q)) return true;
+  if (textMatchesQuery(city.country, q)) return true;
+
+  return (city.aliases ?? []).some(alias => textMatchesQuery(alias, q));
 }
 
 /** Prefer IATA / name prefix matches, then shorter names. */

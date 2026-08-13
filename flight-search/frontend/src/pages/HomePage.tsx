@@ -14,6 +14,7 @@ import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
@@ -28,6 +29,7 @@ import {
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { getCityDisplayName } from '../utils/cityDisplayName';
+import { faqPageJsonLd } from '../utils/seoSchema';
 import type { City } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import './HomePage.css';
@@ -57,6 +59,13 @@ export function HomePage() {
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(t('meta.home.title'), t('meta.home.description'), '/');
+
+  const homeFaqItems = useMemo(() => {
+    const items = t('faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
+    return Array.isArray(items) ? items.slice(0, 3) : [];
+  }, [t, i18n.language]);
+
+  useJsonLd(homeFaqItems.length > 0 ? faqPageJsonLd(homeFaqItems) : null);
 
   const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);

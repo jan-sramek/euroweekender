@@ -19,6 +19,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
+import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
 import { getHubScores, getTopDestinations } from '../services/api';
 import { findCityByCode } from '../services/locationPrefill';
 import {
@@ -39,6 +40,7 @@ import {
   weekendFlightsFromPath
 } from '../utils/citySlug';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import { typicalHopRange } from '../utils/routeFacts';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
 import type { City, HubScore, OriginDestination } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
@@ -262,6 +264,15 @@ export function WeekendFlightsFromCityPage() {
     }>) ?? [];
   }, [cityLabel, t]);
 
+  const hopRange = useMemo(() => {
+    if (!city) return null;
+    const fromApi = topDestinations
+      .map(dest => findCityByCode(allCities, dest.code))
+      .filter((item): item is City => item != null);
+    const destCities = fromApi.length > 0 ? fromApi : SEO_POPULAR_DESTINATIONS;
+    return typicalHopRange(city, destCities);
+  }, [city, topDestinations, allCities]);
+
   useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
 
   const breadcrumbJsonLd = useMemo(() => {
@@ -478,6 +489,20 @@ export function WeekendFlightsFromCityPage() {
             {t('weekendFlightsFrom.seoTitle', { city: cityLabel })}
           </h2>
           <p className="home-seo-text">{t('weekendFlightsFrom.seoBlock', { city: cityLabel })}</p>
+          {hopRange ? (
+            <p className="home-seo-text">
+              {hopRange.minMinutes === hopRange.maxMinutes
+                ? t('weekendFlightsFrom.hopHintSingle', {
+                    city: cityLabel,
+                    duration: hopRange.minDurationLabel
+                  })
+                : t('weekendFlightsFrom.hopHintRange', {
+                    city: cityLabel,
+                    durationMin: hopRange.minDurationLabel,
+                    durationMax: hopRange.maxDurationLabel
+                  })}
+            </p>
+          ) : null}
 
           <SeoDestinationLinks
             fromCity={city}

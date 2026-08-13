@@ -116,6 +116,79 @@ function t(lang, dotPath, vars = {}) {
   return interpolate(value ?? '', vars);
 }
 
+// Keep in sync with src/utils/geo.ts + src/utils/routeFacts.ts
+const EARTH_RADIUS_KM = 6371;
+const CRUISE_KMH = 780;
+const BLOCK_OVERHEAD_MINUTES = 40;
+const MIN_DURATION_MINUTES = 45;
+
+function coordsFor(coords, code) {
+  const pair = coords[String(code).trim().toUpperCase()];
+  if (!Array.isArray(pair) || pair.length < 2) return null;
+  return { latitude: pair[0], longitude: pair[1] };
+}
+
+function haversineKm(from, to) {
+  const toRad = deg => (deg * Math.PI) / 180;
+  const dLat = toRad(to.latitude - from.latitude);
+  const dLon = toRad(to.longitude - from.longitude);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(from.latitude)) * Math.cos(toRad(to.latitude)) * Math.sin(dLon / 2) ** 2;
+  return EARTH_RADIUS_KM * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function estimateFlightDurationMinutes(distanceKm) {
+  const cruiseMinutes = (distanceKm / CRUISE_KMH) * 60;
+  const total = cruiseMinutes + BLOCK_OVERHEAD_MINUTES;
+  return Math.max(MIN_DURATION_MINUTES, Math.round(total / 5) * 5);
+}
+
+function roundDistanceKm(distanceKm) {
+  if (distanceKm < 100) return Math.max(1, Math.round(distanceKm / 5) * 5);
+  return Math.round(distanceKm / 10) * 10;
+}
+
+function formatDurationLabel(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  if (hours === 0) return `${rest}min`;
+  if (rest === 0) return `${hours}h`;
+  return `${hours}h ${rest}min`;
+}
+
+function computeRouteFacts(coords, fromCode, toCode) {
+  const from = coordsFor(coords, fromCode);
+  const to = coordsFor(coords, toCode);
+  if (!from || !to) return null;
+  if (String(fromCode).toUpperCase() === String(toCode).toUpperCase()) return null;
+  const distance = haversineKm(from, to);
+  if (!Number.isFinite(distance) || distance < 1) return null;
+  const durationMinutes = estimateFlightDurationMinutes(distance);
+  return {
+    distanceKm: roundDistanceKm(distance),
+    durationMinutes,
+    durationLabel: formatDurationLabel(durationMinutes)
+  };
+}
+
+function hopRangeFromDestinations(coords, fromCode, destinations) {
+  const minutes = [];
+  for (const dest of destinations) {
+    const facts = computeRouteFacts(coords, fromCode, dest.code);
+    if (facts) minutes.push(facts.durationMinutes);
+  }
+  if (minutes.length === 0) return null;
+  const minMinutes = Math.min(...minutes);
+  const maxMinutes = Math.max(...minutes);
+  return {
+    minMinutes,
+    maxMinutes,
+    minDurationLabel: formatDurationLabel(minMinutes),
+    maxDurationLabel: formatDurationLabel(maxMinutes)
+  };
+}
+
 // --- HTML helpers ---
 
 function escapeHtml(value) {
@@ -137,7 +210,10 @@ function buildHreflangLinks(routePath) {
 function buildJsonLdScripts(jsonLdBlocks) {
   return jsonLdBlocks
     .filter(Boolean)
-    .map(data => `<script type="application/ld+json">${JSON.stringify(data)}</script>`)
+    .map(data => {
+      const type = data['@type'] || 'page';
+      return `<script type="application/ld+json" data-json-ld="${escapeHtml(type)}">${JSON.stringify(data)}</script>`;
+    })
     .join('\n    ');
 }
 
@@ -525,6 +601,7 @@ async function main() {
   const popularDestinations = JSON.parse(
     fs.readFileSync(path.join(publicDir, 'seo-popular-destinations.json'), 'utf8')
   );
+  const cityCoords = JSON.parse(fs.readFileSync(path.join(publicDir, 'seo-city-coords.json'), 'utf8'));
 
   let pageCount = 0;
 
@@ -733,6 +810,21 @@ async function main() {
           })
         );
       }
+      const hops = hopRangeFromDestinations(cityCoords, hub.code, dests);
+      if (hops) {
+        paragraphs.push(
+          hops.minMinutes === hops.maxMinutes
+            ? t(locale, 'weekendFlightsFrom.hopHintSingle', {
+                city: hub.name,
+                duration: hops.minDurationLabel
+              })
+            : t(locale, 'weekendFlightsFrom.hopHintRange', {
+                city: hub.name,
+                durationMin: hops.minDurationLabel,
+                durationMax: hops.maxDurationLabel
+              })
+        );
+      }
 
       const html = renderPage(template, {
         locale,
@@ -832,7 +924,13 @@ async function main() {
       const dests = originDestinations(dealSnapshot, hub.code, popularDestinations);
 
       for (const locale of OD_PRERENDER_LOCALES) {
-        const vars = { from: hub.name, to: destination.name };
+        const facts = computeRouteFacts(cityCoords, hub.code, destination.code);
+        const vars = {
+          from: hub.name,
+          to: destination.name,
+          duration: facts?.durationLabel ?? '',
+          distanceKm: facts?.distanceKm ?? ''
+        };
         const paragraphs = [];
         if (routeMin != null) {
           paragraphs.push(
@@ -843,6 +941,11 @@ async function main() {
             })
           );
         }
+        if (facts) {
+          paragraphs.push(t(locale, 'weekendFlightsOd.durationHint', vars));
+          paragraphs.push(t(locale, 'weekendFlightsOd.weekendPatternHint', vars));
+        }
+        const faqItems = t(locale, 'weekendFlightsOd.faq', vars);
 
         const html = renderPage(template, {
           locale,
@@ -850,8 +953,10 @@ async function main() {
           title: t(locale, 'meta.weekendFlightsOd.title', vars),
           description: t(locale, 'meta.weekendFlightsOd.description', vars),
           h1: t(locale, 'weekendFlightsOd.title', vars),
-          lead: t(locale, 'weekendFlightsOd.seoBlock', vars),
+          lead: t(locale, 'weekendFlightsOd.lead', vars),
           paragraphs,
+          faqTitle: t(locale, 'weekendFlightsOd.faqTitle', vars),
+          faqItems: Array.isArray(faqItems) ? faqItems : [],
           linkGroupsHtml: [
             renderLinkGroup(t(locale, 'footer.explore'), [
               {
@@ -876,7 +981,8 @@ async function main() {
                 name: t(locale, 'weekendFlightsOd.title', vars),
                 url: `${SITE_URL}${localizedPath(locale, routePath)}`
               }
-            ])
+            ]),
+            faqPageJsonLd(faqItems)
           ]
         });
         writePage(`${locale}${routePath}`, html);

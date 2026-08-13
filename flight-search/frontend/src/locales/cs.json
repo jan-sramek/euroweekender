@@ -419,6 +419,8 @@
     "lead": "Porovnejte víkendové lety tam a zpět z {{city}} po Evropě — odlet v pátek večer, návrat v neděli.",
     "seoTitle": "Najděte víkendové letecké nabídky z {{city}}",
     "seoBlock": "Hledejte levné víkendové lety z {{city}} do evropských měst. Filtrujte pá–ne a další krátké vzory, porovnávejte ceny a rezervujte na Kiwi.com.",
+    "hopHintRange": "Z {{city}} jsou typické víkendové destinace asi {{durationMin}}–{{durationMax}} daleko. Odleťte v pátek večer a pořád máte celou sobotu a neděli v jiném evropském městě.",
+    "hopHintSingle": "Z {{city}} jsou typické víkendové destinace asi {{duration}} daleko. Odleťte v pátek večer a pořád máte celou sobotu a neděli v jiném evropském městě.",
     "popularHubsTitle": "Oblíbená odletová města",
     "seeAlsoCheapest": "Najděte nejlevnější víkend do destinace",
     "seeAlsoDayTrips": "Jednodenní výlety",
@@ -473,7 +475,31 @@
   },
   "weekendFlightsOd": {
     "title": "Nejlevnější víkendové lety {{from}} → {{to}}",
+    "tagline": "{{from}} → {{to}}",
+    "subtitle": "V pátek večer tam, v neděli zpět — bez dovolené",
+    "lead": "Porovnejte víkendové lety tam a zpět z {{from}} do {{to}}. Odlet po práci v pátek, návrat v neděli.",
+    "seoTitle": "Víkendové lety z {{from}} do {{to}}",
     "seoBlock": "Porovnejte ceny víkendových letů z {{from}} do {{to}} v měsíčním kalendáři. Najděte nejnižší pá–ne tarif, otevřete víkend pro podrobnosti o letu a rezervujte bezpečně na Kiwi.com.",
-    "seeAlsoFromCity": "Víkendové lety z {{city}}"
+    "priceHint": "Víkendové tarify z {{from}} do {{to}} často začínají kolem {{minPrice}} €.",
+    "factsTitle": "O této víkendové trase",
+    "durationHint": "Typický let z {{from}} do {{to}} trvá asi {{duration}} ({{distanceKm}} km).",
+    "weekendPatternHint": "Obvyklý vzor je páteční večerní odlet z {{from}} a nedělní návrat z {{to}} — city break bez čerpání dovolené.",
+    "cheapestMonthHint": "V kalendáři teď ukazuje nejnižší víkendové ceny z {{from}} do {{to}} měsíc {{month}}.",
+    "seeAlsoFromCity": "Víkendové lety z {{city}}",
+    "faqTitle": "FAQ: víkendové lety {{from}} → {{to}}",
+    "faq": [
+      {
+        "q": "Jak dlouho trvá let z {{from}} do {{to}}?",
+        "a": "Typický hop z {{from}} do {{to}} trvá asi {{duration}} ({{distanceKm}} km). Přesné časy závisí na aerolince a na tom, zda jde o přímý let."
+      },
+      {
+        "q": "Mohu letět z {{from}} do {{to}} na víkend bez dovolené?",
+        "a": "Ano — odleťte z {{from}} v pátek večer po práci a vraťte se z {{to}} v neděli. Filtr večerních odletů zobrazí odlety po 17:00."
+      },
+      {
+        "q": "Kdy je nejlevnější víkend z {{from}} do {{to}}?",
+        "a": "Použijte cenový kalendář na této stránce k porovnání nadcházejících víkendů pá–ne (i jiných krátkých výletů) z {{from}} do {{to}} a otevřete nejlevnější víkend pro detaily letu."
+      }
+    ]
   }
 }

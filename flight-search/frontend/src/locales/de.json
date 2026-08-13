@@ -424,6 +424,8 @@
     "lead": "Vergleichen Sie Hin- und Rückflüge fürs Wochenende ab {{city}} in ganz Europa — Freitagabend los, Sonntag zurück.",
     "seoTitle": "Wochenend-Flugangebote ab {{city}} finden",
     "seoBlock": "Suchen Sie günstige Wochenendflüge ab {{city}} in europäische Städte. Filtern Sie Fr–So und andere Kurzmuster, vergleichen Sie Preise und buchen Sie auf Kiwi.com.",
+    "hopHintRange": "Ab {{city}} dauern typische Wochenendziele etwa {{durationMin}}–{{durationMax}}. Freitagabend los — und Sie haben trotzdem einen vollen Samstag und Sonntag in einer anderen europäischen Stadt.",
+    "hopHintSingle": "Ab {{city}} dauern typische Wochenendziele etwa {{duration}}. Freitagabend los — und Sie haben trotzdem einen vollen Samstag und Sonntag in einer anderen europäischen Stadt.",
     "popularHubsTitle": "Beliebte Abflugstädte",
     "seeAlsoCheapest": "Günstigstes Wochenende zu einem Ziel finden",
     "seeAlsoDayTrips": "Eintägige Städtetrips",
@@ -478,8 +480,31 @@
   },
   "weekendFlightsOd": {
     "title": "Günstigste Wochenendflüge {{from}} → {{to}}",
+    "tagline": "{{from}} → {{to}}",
+    "subtitle": "Freitagabend hin, Sonntag zurück — ohne Urlaubstage",
+    "lead": "Vergleichen Sie Wochenend-Hin- und Rückflüge von {{from}} nach {{to}}. Freitag nach der Arbeit los, Sonntag zurück.",
+    "seoTitle": "Wochenendflüge von {{from}} nach {{to}}",
     "seoBlock": "Vergleichen Sie Wochenend-Flugpreise von {{from}} nach {{to}} in einem monatlichen Kalender. Finden Sie den günstigsten Fr–So-Tarif, öffnen Sie ein Wochenende für Flugdetails und buchen Sie sicher über Kiwi.com.",
     "priceHint": "Wochenendtarife von {{from}} nach {{to}} starten oft ab ca. €{{minPrice}}.",
-    "seeAlsoFromCity": "Wochenendflüge ab {{city}}"
+    "factsTitle": "Zu dieser Wochenendstrecke",
+    "durationHint": "Ein typischer Flug von {{from}} nach {{to}} dauert etwa {{duration}} ({{distanceKm}} km).",
+    "weekendPatternHint": "Das übliche Muster ist Freitagabend ab {{from}} und Sonntagrückflug ab {{to}} — eine Städtereise ohne Urlaubstage.",
+    "cheapestMonthHint": "Im Kalender zeigt derzeit {{month}} die niedrigsten Wochenendpreise von {{from}} nach {{to}}.",
+    "seeAlsoFromCity": "Wochenendflüge ab {{city}}",
+    "faqTitle": "FAQ: Wochenendflüge {{from}} → {{to}}",
+    "faq": [
+      {
+        "q": "Wie lange dauert der Flug von {{from}} nach {{to}}?",
+        "a": "Ein typischer Hop von {{from}} nach {{to}} dauert etwa {{duration}} ({{distanceKm}} km). Die genaue Zeit hängt von Airline und Nonstop vs. Umstieg ab."
+      },
+      {
+        "q": "Kann ich von {{from}} nach {{to}} am Wochenende ohne Urlaubstage fliegen?",
+        "a": "Ja — starten Sie Freitagabend nach der Arbeit in {{from}} und kehren Sie am Sonntag aus {{to}} zurück. Der Abendabflug-Filter zeigt Hinflüge ab 17:00 Uhr."
+      },
+      {
+        "q": "Wann ist das günstigste Wochenende von {{from}} nach {{to}}?",
+        "a": "Nutzen Sie den Preiskalender auf dieser Seite, um kommende Fr–So- (und andere Kurztrip-) Wochenenden von {{from}} nach {{to}} zu vergleichen, und öffnen Sie das günstigste Wochenende für Flugdetails."
+      }
+    ]
   }
 }

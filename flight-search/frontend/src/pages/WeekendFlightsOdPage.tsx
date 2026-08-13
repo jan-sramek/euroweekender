@@ -16,9 +16,11 @@ import {
   weekendFlightsFromPath,
   weekendFlightsOdPath
 } from '../utils/citySlug';
-import { breadcrumbListJsonLd } from '../utils/seoSchema';
+import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
+import { computeRouteFactsFromCities } from '../utils/routeFacts';
 import { CheapestWeekendPage } from './CheapestWeekendPage';
 import { NotFoundPage } from './NotFoundPage';
+import '../layouts/ContentPageLayout.css';
 
 export function WeekendFlightsOdPage() {
   const { t, i18n } = useTranslation();
@@ -42,6 +44,24 @@ export function WeekendFlightsOdPage() {
 
   const fromLabel = fromCity ? getCityDisplayName(fromCity, i18n.language) : '';
   const toLabel = toCity ? getCityDisplayName(toCity, i18n.language) : '';
+  const routeFacts = useMemo(
+    () => computeRouteFactsFromCities(fromCity, toCity),
+    [fromCity, toCity]
+  );
+
+  const faqItems = useMemo(() => {
+    if (!fromLabel || !toLabel) return [];
+    const items = t('weekendFlightsOd.faq', {
+      from: fromLabel,
+      to: toLabel,
+      duration: routeFacts?.durationLabel ?? '',
+      distanceKm: routeFacts?.distanceKm ?? '',
+      returnObjects: true
+    }) as Array<{ q: string; a: string }>;
+    return Array.isArray(items) ? items : [];
+  }, [fromLabel, toLabel, routeFacts, t]);
+
+  useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
 
   const breadcrumbJsonLd = useMemo(() => {
     if (!fromCity || !toCity) return null;
@@ -93,6 +113,17 @@ export function WeekendFlightsOdPage() {
       <p className="home-seo-text">
         {t('weekendFlightsOd.seoBlock', { from: fromLabel, to: toLabel })}
       </p>
+      {faqItems.length > 0 ? (
+        <div className="faq-list">
+          <h3 className="home-seo-title">{t('weekendFlightsOd.faqTitle', { from: fromLabel, to: toLabel })}</h3>
+          {faqItems.map(item => (
+            <section key={item.q} className="faq-item">
+              <h2>{item.q}</h2>
+              <p>{item.a}</p>
+            </section>
+          ))}
+        </div>
+      ) : null}
       <p className="home-seo-links">
         <LocalizedLink to={weekendFlightsFromPath(fromCity)}>
           {t('weekendFlightsOd.seeAlsoFromCity', { city: fromLabel })}
@@ -118,6 +149,11 @@ export function WeekendFlightsOdPage() {
       routePath={canonicalPath}
       metaTitle={t('meta.weekendFlightsOd.title', { from: fromLabel, to: toLabel })}
       metaDescription={t('meta.weekendFlightsOd.description', { from: fromLabel, to: toLabel })}
+      pageTagline={t('weekendFlightsOd.tagline', { from: fromLabel, to: toLabel })}
+      pageTitle={t('weekendFlightsOd.title', { from: fromLabel, to: toLabel })}
+      pageSubtitle={t('weekendFlightsOd.subtitle')}
+      pageLead={t('weekendFlightsOd.lead', { from: fromLabel, to: toLabel })}
+      seoHeading={t('weekendFlightsOd.seoTitle', { from: fromLabel, to: toLabel })}
       extraSeoContent={extraSeoContent}
     />
   );

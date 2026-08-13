@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink } from '../components/LocalizedLink';
 import { IMAGES } from '../config/images';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ContentPageLayout } from '../layouts/ContentPageLayout';
+import { faqPageJsonLd } from '../utils/seoSchema';
 import '../layouts/ContentPageLayout.css';
 
 export function FaqPage() {
@@ -11,27 +12,7 @@ export function FaqPage() {
   const items = t('faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
 
   usePageMeta(t('meta.faq.title'), t('meta.faq.description'), '/faq');
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: items.map(item => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.a
-        }
-      }))
-    });
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [items]);
+  useJsonLd(Array.isArray(items) && items.length > 0 ? faqPageJsonLd(items) : null);
 
   return (
     <ContentPageLayout

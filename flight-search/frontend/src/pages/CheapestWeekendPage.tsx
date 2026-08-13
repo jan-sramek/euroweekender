@@ -9,6 +9,7 @@ import { WeekendPriceCalendar } from '../components/WeekendPriceCalendar';
 import { FlightCard } from '../components/FlightCard';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { RouteSeoFacts } from '../components/RouteSeoFacts';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useDestinationWeekendSearch } from '../hooks/useDestinationWeekendSearch';
@@ -24,6 +25,11 @@ import {
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import {
+  cheapestMonthFromWeekendPrices,
+  computeRouteFactsFromCities,
+  formatMonthName
+} from '../utils/routeFacts';
 import type { City } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import './HomePage.css';
@@ -46,6 +52,11 @@ interface CheapestWeekendPageProps {
   routePath?: string;
   metaTitle?: string;
   metaDescription?: string;
+  pageTagline?: string;
+  pageTitle?: string;
+  pageSubtitle?: string;
+  pageLead?: string;
+  seoHeading?: string;
   /** Extra SEO content (links, breadcrumbs, etc.) rendered inside the SEO section. */
   extraSeoContent?: ReactNode;
 }
@@ -56,6 +67,11 @@ export function CheapestWeekendPage({
   routePath,
   metaTitle,
   metaDescription,
+  pageTagline,
+  pageTitle,
+  pageSubtitle,
+  pageLead,
+  seoHeading,
   extraSeoContent
 }: CheapestWeekendPageProps = {}) {
   const { t, i18n } = useTranslation();
@@ -203,6 +219,18 @@ export function CheapestWeekendPage({
 
   const canSearch = Boolean(fromCode && destinationCode);
   const totalCount = flights.length;
+  const isOdLanding = Boolean(forcedFrom && forcedTo);
+  const fromLabel = fromCity ? getCityDisplayName(fromCity, i18n.language) : '';
+  const toLabel = toCity ? getCityDisplayName(toCity, i18n.language) : '';
+  const routeFacts = useMemo(
+    () => (isOdLanding ? computeRouteFactsFromCities(fromCity, toCity) : null),
+    [isOdLanding, fromCity, toCity]
+  );
+  const cheapestMonth = useMemo(() => {
+    if (!isOdLanding) return null;
+    const month = cheapestMonthFromWeekendPrices(yearWeekends, pricesByWeekendId);
+    return month ? formatMonthName(month, i18n.language) : null;
+  }, [isOdLanding, yearWeekends, pricesByWeekendId, i18n.language]);
 
   return (
     <>
@@ -211,10 +239,10 @@ export function CheapestWeekendPage({
       <section className="home-intro">
         <div className="intro-overlay">
           <div className="container container-wide intro-copy">
-            <p className="intro-eyebrow">{t('cheapestWeekend.tagline')}</p>
-            <h1>{t('cheapestWeekend.title')}</h1>
-            <p className="intro-subtitle">{t('cheapestWeekend.subtitle')}</p>
-            <p className="intro-lead">{t('cheapestWeekend.lead')}</p>
+            <p className="intro-eyebrow">{pageTagline ?? t('cheapestWeekend.tagline')}</p>
+            <h1>{pageTitle ?? t('cheapestWeekend.title')}</h1>
+            <p className="intro-subtitle">{pageSubtitle ?? t('cheapestWeekend.subtitle')}</p>
+            <p className="intro-lead">{pageLead ?? t('cheapestWeekend.lead')}</p>
           </div>
 
           <div className="search-home">
@@ -398,9 +426,17 @@ export function CheapestWeekendPage({
       <section className="home-seo" aria-labelledby="cheapest-seo-title">
         <div className="container container-wide">
           <h2 id="cheapest-seo-title" className="home-seo-title">
-            {t('cheapestWeekend.seoTitle')}
+            {seoHeading ?? t('cheapestWeekend.seoTitle')}
           </h2>
-          <p className="home-seo-text">{t('cheapestWeekend.seoBlock')}</p>
+          {isOdLanding && routeFacts && fromLabel && toLabel ? (
+            <RouteSeoFacts
+              fromLabel={fromLabel}
+              toLabel={toLabel}
+              facts={routeFacts}
+              cheapestMonth={cheapestMonth}
+            />
+          ) : null}
+          {isOdLanding ? null : <p className="home-seo-text">{t('cheapestWeekend.seoBlock')}</p>}
           {extraSeoContent}
         </div>
       </section>

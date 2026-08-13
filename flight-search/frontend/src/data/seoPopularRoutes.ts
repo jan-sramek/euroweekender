@@ -6,8 +6,10 @@ export interface SeoRoutePair {
   to: SeoHubCity;
 }
 
+export const SEO_POPULAR_DESTINATIONS: SeoHubCity[] = popularDestinations as SeoHubCity[];
+
 const DEST_BY_CODE = new Map(
-  (popularDestinations as SeoHubCity[]).map(city => [city.code.toUpperCase(), city])
+  SEO_POPULAR_DESTINATIONS.map(city => [city.code.toUpperCase(), city])
 );
 
 const HUB_BY_CODE = new Map(SEO_HUB_CITIES.map(city => [city.code.toUpperCase(), city]));

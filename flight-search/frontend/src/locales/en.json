@@ -166,6 +166,8 @@
     "priceHint": "Weekend deals from {{city}} often start around €{{minPrice}} across {{destinationCount}} destinations.",
     "seoTitle": "Find weekend flight deals from {{city}}",
     "seoBlock": "Search cheap weekend flights from {{city}} to cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices, and book on Kiwi.com.",
+    "hopHintRange": "From {{city}}, typical weekend destinations are about {{durationMin}}–{{durationMax}} away. Leave Friday evening and you can still have a full Saturday and Sunday in another European city.",
+    "hopHintSingle": "From {{city}}, typical weekend destinations are about {{duration}} away. Leave Friday evening and you can still have a full Saturday and Sunday in another European city.",
     "topDestinationsTitle": "Popular destinations from {{city}}",
     "destinationPrice": "from €{{price}}",
     "popularHubsTitle": "Popular departure cities",
@@ -219,9 +221,32 @@
   },
   "weekendFlightsOd": {
     "title": "Cheapest weekend flights {{from}} → {{to}}",
+    "tagline": "{{from}} → {{to}}",
+    "subtitle": "Friday evening out, Sunday back — no vacation days",
+    "lead": "Compare round-trip weekend fares from {{from}} to {{to}}. Leave after work on Friday, return Sunday.",
+    "seoTitle": "Weekend flights from {{from}} to {{to}}",
     "seoBlock": "Compare weekend flight prices from {{from}} to {{to}} on a monthly calendar. Spot the cheapest Fri–Sun fare, open a weekend for flight details, and book securely through Kiwi.com.",
     "priceHint": "Weekend fares from {{from}} to {{to}} often start around €{{minPrice}}.",
-    "seeAlsoFromCity": "Weekend flights from {{city}}"
+    "factsTitle": "About this weekend route",
+    "durationHint": "A typical flight from {{from}} to {{to}} takes about {{duration}} ({{distanceKm}} km).",
+    "weekendPatternHint": "The usual pattern is Friday evening outbound from {{from}} and Sunday return from {{to}} — a city break without using vacation days.",
+    "cheapestMonthHint": "On the calendar, {{month}} currently shows the lowest weekend fares from {{from}} to {{to}}.",
+    "seeAlsoFromCity": "Weekend flights from {{city}}",
+    "faqTitle": "FAQ: {{from}} to {{to}} weekend flights",
+    "faq": [
+      {
+        "q": "How long is the flight from {{from}} to {{to}}?",
+        "a": "A typical hop from {{from}} to {{to}} takes about {{duration}} ({{distanceKm}} km). Exact times depend on the airline and whether the trip is nonstop."
+      },
+      {
+        "q": "Can I fly {{from}} to {{to}} for a weekend without vacation days?",
+        "a": "Yes — leave {{from}} on Friday evening after work and return from {{to}} on Sunday. Use the evening-departure filter if you need outbound flights after 17:00."
+      },
+      {
+        "q": "When is the cheapest weekend from {{from}} to {{to}}?",
+        "a": "Use the price calendar on this page to compare upcoming Fri–Sun (and other short-trip) weekends from {{from}} to {{to}}, then open the cheapest weekend to see flight details."
+      }
+    ]
   },
   "search": {
     "travelWeekend": "Travel weekend",

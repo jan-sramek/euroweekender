@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getCityDisplayName } from './cityDisplayName';
+import { getCityDisplayName, getCityNameByCode, indexCitiesByCode } from './cityDisplayName';
 import type { City } from '../types/city';
 
 const prague: City = {
@@ -28,5 +28,12 @@ describe('cityDisplayName', () => {
 
   it('falls back to English name when locale is missing', () => {
     expect(getCityDisplayName({ ...prague, namesByLocale: {} }, 'cs')).toBe('Prague');
+  });
+
+  it('looks up a localized name by IATA code', () => {
+    const byCode = indexCitiesByCode([prague]);
+    expect(getCityNameByCode(byCode, 'prg', 'cs', 'Prague')).toBe('Praha');
+    expect(getCityNameByCode(byCode, 'BCN', 'cs', 'Barcelona')).toBe('Barcelona');
+    expect(getCityNameByCode(undefined, 'PRG', 'cs', 'Prague')).toBe('Prague');
   });
 });

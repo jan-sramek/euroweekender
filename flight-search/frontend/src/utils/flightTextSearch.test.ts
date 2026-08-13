@@ -77,4 +77,21 @@ describe('filterFlightsByTextQuery', () => {
     });
     expect(filterFlightsByTextQuery([milan], 'milano').map(f => f.id)).toEqual([4]);
   });
+
+  it('matches localized city names from the city map', () => {
+    const vienna = {
+      id: '2',
+      code: 'VIE',
+      name: 'Vienna',
+      country: 'Austria',
+      region: null,
+      continent: 'EU',
+      latitude: 48,
+      longitude: 16,
+      isActive: true,
+      namesByLocale: { 'cs-CZ': 'Viden' }
+    };
+    const byCode = new Map([['VIE', vienna]]);
+    expect(filterFlightsByTextQuery(flights, 'viden', byCode).map(f => f.id)).toEqual([2]);
+  });
 });

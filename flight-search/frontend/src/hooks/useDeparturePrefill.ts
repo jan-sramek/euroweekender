@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCachedHubScores, getCities, getHubScores } from '../services/api';
 import {
@@ -8,6 +8,7 @@ import {
   selectFallbackCityCodes
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
+import { indexCitiesByCode } from '../utils/cityDisplayName';
 import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
 const SELECTED_ORIGINS_KEY = 'ew.selectedOrigins';
@@ -217,8 +218,11 @@ export function useDeparturePrefill(options?: {
     };
   }, [preferredKey, refreshHubSuggestions, applyDefaults]);
 
+  const citiesByCode = useMemo(() => indexCitiesByCode(allCities), [allCities]);
+
   return {
     allCities,
+    citiesByCode,
     nearbyCities,
     selectedCodes,
     setSelectedCodes,

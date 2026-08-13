@@ -124,6 +124,7 @@ export function CheapestWeekendPage({
 
   const {
     allCities,
+    citiesByCode,
     selectedCodes,
     setSelectedCodes,
     locating,
@@ -191,7 +192,7 @@ export function CheapestWeekendPage({
     setQuery: setResultsQuery,
     filteredFlights,
     hasTextFilter
-  } = useFlightTextFilter(visibleFlights, resultsResetKey);
+  } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   const fromCity = useMemo(
     () => (fromCode ? allCities.find(city => city.code === fromCode) ?? null : null),
@@ -408,6 +409,7 @@ export function CheapestWeekendPage({
                       <FlightCard
                         key={flight.id}
                         flight={flight}
+                        citiesByCode={citiesByCode}
                         passengerCount={passengerCount}
                         departureSelected={departureLegFilter === getDepartureLegKey(flight)}
                         returnSelected={returnLegFilter === getReturnLegKey(flight)}

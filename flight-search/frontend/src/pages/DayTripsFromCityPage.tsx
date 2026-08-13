@@ -59,6 +59,7 @@ export function DayTripsFromCityPage() {
 
   const {
     allCities,
+    citiesByCode,
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
@@ -107,7 +108,7 @@ export function DayTripsFromCityPage() {
     setQuery: setResultsQuery,
     filteredFlights,
     hasTextFilter
-  } = useFlightTextFilter(visibleFlights, resultsResetKey);
+  } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   const locationLabel = useMemo(() => {
     const active = selectedCodes
@@ -425,6 +426,7 @@ export function DayTripsFromCityPage() {
                 <FlightCard
                   key={flight.id}
                   flight={flight}
+                  citiesByCode={citiesByCode}
                   passengerCount={passengerCount}
                   departureSelected={departureLegFilter === getDepartureLegKey(flight)}
                   returnSelected={returnLegFilter === getReturnLegKey(flight)}

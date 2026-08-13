@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import type { City } from '../types/city';
 import type { Flight } from '../types/flight';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import {
@@ -9,6 +10,7 @@ import {
 } from '../utils/flightTime';
 import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
+import { getCityNameByCode } from '../utils/cityDisplayName';
 import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
 import { CountryFlag } from './CountryFlag';
 import './FlightCard.css';
@@ -46,6 +48,7 @@ function BookIcon() {
 
 interface FlightCardProps {
   flight: Flight;
+  citiesByCode?: Map<string, City>;
   passengerCount: number;
   departureSelected: boolean;
   returnSelected: boolean;
@@ -78,15 +81,15 @@ function formatDuration(minutes: number): string {
   return `${h}h ${m}m`;
 }
 
-function getOutboundLeg(flight: Flight): LegDisplay {
+function getOutboundLeg(flight: Flight, cityFrom: string, cityTo: string): LegDisplay {
   return {
     dateIso: flight.localDeparture,
     departTimeLabel: formatApiLocalTime(flight.localDeparture),
-    departCity: flight.cityFrom,
+    departCity: cityFrom,
     departCode: flight.flyFrom,
     departCountry: flight.countryFrom ?? '',
     arriveTimeLabel: formatApiLocalTime(flight.localArrival),
-    arriveCity: flight.cityTo,
+    arriveCity: cityTo,
     arriveCode: flight.flyTo,
     arriveCountry: flight.countryTo,
     durationMinutes: Math.round(flight.durationDeparture),
@@ -95,7 +98,7 @@ function getOutboundLeg(flight: Flight): LegDisplay {
   };
 }
 
-function getReturnLeg(flight: Flight): LegDisplay {
+function getReturnLeg(flight: Flight, cityFrom: string, cityTo: string): LegDisplay {
   const hasStoredReturnTimes = Boolean(flight.localReturnDeparture && flight.localReturnArrival);
   const returnDepartIso =
     flight.localReturnDeparture ?? formatLocalDateTimeIso(getReturnDepartDate(flight));
@@ -105,11 +108,11 @@ function getReturnLeg(flight: Flight): LegDisplay {
   return {
     dateIso: returnDepartIso,
     departTimeLabel: hasStoredReturnTimes ? formatApiLocalTime(returnDepartIso) : '—',
-    departCity: flight.cityTo,
+    departCity: cityTo,
     departCode: flight.flyTo,
     departCountry: flight.countryTo,
     arriveTimeLabel: hasStoredReturnTimes ? formatApiLocalTime(returnArriveIso) : '—',
-    arriveCity: flight.cityFrom,
+    arriveCity: cityFrom,
     arriveCode: flight.flyFrom,
     arriveCountry: flight.countryFrom ?? '',
     durationMinutes: Math.round(flight.durationReturn),
@@ -198,19 +201,23 @@ function FlightLegRow({
 
 export function FlightCard({
   flight,
+  citiesByCode,
   passengerCount,
   departureSelected,
   returnSelected,
   onDepartureSelect,
   onReturnSelect
 }: FlightCardProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const locale = useLocale();
   const { path } = useLocalizedPath();
   const location = useLocation();
+  const language = i18n.language || 'en';
+  const cityFrom = getCityNameByCode(citiesByCode, flight.cityCodeFrom, language, flight.cityFrom);
+  const cityTo = getCityNameByCode(citiesByCode, flight.cityCodeTo, language, flight.cityTo);
   const bookingUrl = localizeKiwiDeepLink(flight.deepLink, locale);
-  const outbound = getOutboundLeg(flight);
-  const returnLeg = getReturnLeg(flight);
+  const outbound = getOutboundLeg(flight, cityFrom, cityTo);
+  const returnLeg = getReturnLeg(flight, cityFrom, cityTo);
   const tripDays = flight.nightsInDest + 1;
   const totalPrice = getTripPrice(flight, passengerCount);
   const perPersonPrice = getPerPersonPrice(flight);
@@ -230,7 +237,7 @@ export function FlightCard({
       <div className="result-destination-banner">
         <CountryFlag country={flight.countryTo} />
         <span className="result-destination-name">
-          {flight.cityTo}
+          {cityTo}
           <span className="result-destination-country">{flight.countryTo}</span>
         </span>
         <span className="badge badge-destination">{flight.cityCodeTo}</span>

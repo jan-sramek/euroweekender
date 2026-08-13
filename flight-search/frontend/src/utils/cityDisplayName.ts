@@ -24,6 +24,28 @@ export function getCityDisplayName(
   return city.name;
 }
 
+export function indexCitiesByCode(cities: City[]): Map<string, City> {
+  const map = new Map<string, City>();
+  for (const city of cities) {
+    const code = city.code.trim().toUpperCase();
+    if (code) map.set(code, city);
+  }
+  return map;
+}
+
+/** Localized city name for an IATA code, or `fallback` when the city is unknown. */
+export function getCityNameByCode(
+  citiesByCode: Map<string, City> | undefined,
+  code: string | undefined,
+  language: string | undefined,
+  fallback = ''
+): string {
+  const key = code?.trim().toUpperCase();
+  if (!key) return fallback;
+  const city = citiesByCode?.get(key);
+  return city ? getCityDisplayName(city, language) : fallback;
+}
+
 export function withLocalizedName(
   city: City,
   language: string | undefined,

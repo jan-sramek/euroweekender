@@ -51,6 +51,7 @@ export function SingleDayTripsPage() {
 
   const {
     allCities,
+    citiesByCode,
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
@@ -85,7 +86,7 @@ export function SingleDayTripsPage() {
     setQuery: setResultsQuery,
     filteredFlights,
     hasTextFilter
-  } = useFlightTextFilter(visibleFlights, resultsResetKey);
+  } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   const locationLabel = useMemo(() => {
     const active = selectedCodes
@@ -356,6 +357,7 @@ export function SingleDayTripsPage() {
                 <FlightCard
                   key={flight.id}
                   flight={flight}
+                  citiesByCode={citiesByCode}
                   passengerCount={passengerCount}
                   departureSelected={departureLegFilter === getDepartureLegKey(flight)}
                   returnSelected={returnLegFilter === getReturnLegKey(flight)}

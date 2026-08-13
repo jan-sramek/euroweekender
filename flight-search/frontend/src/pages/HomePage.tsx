@@ -88,6 +88,7 @@ export function HomePage() {
 
   const {
     allCities,
+    citiesByCode,
     nearbyCities,
     selectedCodes,
     setSelectedCodes,
@@ -124,7 +125,7 @@ export function HomePage() {
     setQuery: setResultsQuery,
     filteredFlights,
     hasTextFilter
-  } = useFlightTextFilter(visibleFlights, resultsResetKey);
+  } = useFlightTextFilter(visibleFlights, resultsResetKey, citiesByCode);
 
   useEffect(() => {
     setSelectedWeekendIds(prev => {
@@ -356,6 +357,7 @@ export function HomePage() {
                   <FlightCard
                     key={flight.id}
                     flight={flight}
+                    citiesByCode={citiesByCode}
                     passengerCount={passengerCount}
                     departureSelected={departureLegFilter === getDepartureLegKey(flight)}
                     returnSelected={returnLegFilter === getReturnLegKey(flight)}

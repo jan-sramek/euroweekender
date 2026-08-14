@@ -196,7 +196,9 @@
     "changes_one": "1 átszállás",
     "changes_other": "{{count}} átszállás",
     "outbound": "Odaút",
-    "return": "Visszaút"
+    "return": "Visszaút",
+    "from": "Honnan",
+    "to": "Hová"
   },
   "about": {
     "heroTitle": "Az euroweekender.com-ról",

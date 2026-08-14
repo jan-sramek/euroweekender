@@ -196,7 +196,9 @@
     "changes_one": "1 αλλαγή",
     "changes_other": "{{count}} αλλαγές",
     "outbound": "Μετάβαση",
-    "return": "Επιστροφή"
+    "return": "Επιστροφή",
+    "from": "Από",
+    "to": "Προς"
   },
   "about": {
     "heroTitle": "Σχετικά με το euroweekender.com",

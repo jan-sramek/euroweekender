@@ -196,7 +196,9 @@
     "changes_one": "1 escale",
     "changes_other": "{{count}} escales",
     "outbound": "Aller",
-    "return": "Retour"
+    "return": "Retour",
+    "from": "De",
+    "to": "Vers"
   },
   "about": {
     "heroTitle": "À propos d'euroweekender.com",

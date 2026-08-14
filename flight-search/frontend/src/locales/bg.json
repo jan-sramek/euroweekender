@@ -196,7 +196,9 @@
     "changes_one": "1 прекачване",
     "changes_other": "{{count}} прекачвания",
     "outbound": "Заминаване",
-    "return": "Връщане"
+    "return": "Връщане",
+    "from": "От",
+    "to": "До"
   },
   "about": {
     "heroTitle": "За euroweekender.com",

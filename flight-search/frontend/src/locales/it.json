@@ -196,7 +196,9 @@
     "changes_one": "1 scalo",
     "changes_other": "{{count}} scali",
     "outbound": "Andata",
-    "return": "Ritorno"
+    "return": "Ritorno",
+    "from": "Da",
+    "to": "A"
   },
   "about": {
     "heroTitle": "Chi è euroweekender.com",

@@ -196,7 +196,9 @@
     "changes_one": "1 persėdimas",
     "changes_other": "{{count}} persėdimų",
     "outbound": "Į ten",
-    "return": "Atgal"
+    "return": "Atgal",
+    "from": "Iš",
+    "to": "Į"
   },
   "about": {
     "heroTitle": "Apie euroweekender.com",

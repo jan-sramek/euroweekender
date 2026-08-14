@@ -196,7 +196,9 @@
     "changes_one": "1 przesiadka",
     "changes_other": "{{count}} przesiadek",
     "outbound": "Wylot",
-    "return": "Powrót"
+    "return": "Powrót",
+    "from": "Z",
+    "to": "Do"
   },
   "about": {
     "heroTitle": "O euroweekender.com",

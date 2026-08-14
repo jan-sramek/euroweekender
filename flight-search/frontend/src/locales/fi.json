@@ -196,7 +196,9 @@
     "changes_one": "1 vaihto",
     "changes_other": "{{count}} vaihtoa",
     "outbound": "Meno",
-    "return": "Paluu"
+    "return": "Paluu",
+    "from": "Mistä",
+    "to": "Mihin"
   },
   "about": {
     "heroTitle": "Tietoa euroweekender.comista",

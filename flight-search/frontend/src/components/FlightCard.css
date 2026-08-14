@@ -34,12 +34,46 @@
 
 .result-destination-banner {
   display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  margin: 0 0 0.45rem;
+  padding: 0 0 0.45rem;
+  border-bottom: 1px solid #eef2f5;
+}
+
+.result-route-end {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.result-route-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8c959c;
+}
+
+.result-route-end-to .result-route-label {
+  color: #04bfab;
+}
+
+.result-route-place {
+  display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.3rem 0.45rem;
-  margin: 0 0 0.45rem;
-  padding: 0 0 0.4rem;
-  border-bottom: 1px solid #eef2f5;
+  gap: 0.3rem 0.4rem;
+}
+
+.result-route-arrow {
+  align-self: center;
+  margin-bottom: 0.15rem;
+  color: #8c959c;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .result-destination-name {
@@ -51,6 +85,10 @@
   font-weight: 700;
   line-height: 1.2;
   color: #192c39;
+}
+
+.result-route-end-to .result-destination-name {
+  color: #04bfab;
 }
 
 .result-destination-country {
@@ -170,6 +208,17 @@
 
 .result-leg-date {
   min-width: 0;
+}
+
+.result-leg-direction {
+  display: block;
+  margin: 0 0 0.12rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8c959c;
+  line-height: 1.2;
 }
 
 .leg-date-label {

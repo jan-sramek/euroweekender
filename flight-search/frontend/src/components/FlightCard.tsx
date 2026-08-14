@@ -148,12 +148,14 @@ function Endpoint({
 
 function FlightLegRow({
   leg,
+  directionLabel,
   inputId,
   checked,
   onCheckedChange,
   formatStops
 }: {
   leg: LegDisplay;
+  directionLabel: string;
   inputId: string;
   checked: boolean;
   onCheckedChange: (selected: boolean) => void;
@@ -162,6 +164,7 @@ function FlightLegRow({
   return (
     <div className={`result-leg-row${checked ? ' result-leg-row-selected' : ''}`}>
       <div className="result-leg-date">
+        <span className="result-leg-direction">{directionLabel}</span>
         <label className="leg-date-label" htmlFor={inputId}>
           <input
             type="checkbox"
@@ -233,13 +236,32 @@ export function FlightCard({
 
   return (
     <article className="block-result">
-      <div className="result-destination-banner">
-        <CountryFlag country={flight.countryTo} />
-        <span className="result-destination-name">
-          {cityTo}
-          <span className="result-destination-country">{flight.countryTo}</span>
+      <div
+        className="result-destination-banner"
+        aria-label={`${t('flights.from')} ${cityFrom}, ${t('flights.to')} ${cityTo}`}
+      >
+        <span className="result-route-end">
+          <span className="result-route-label">{t('flights.from')}</span>
+          <span className="result-route-place">
+            <CountryFlag country={flight.countryFrom} />
+            <span className="result-destination-name">{cityFrom}</span>
+            <span className="badge">{flight.cityCodeFrom}</span>
+          </span>
         </span>
-        <span className="badge badge-destination">{flight.cityCodeTo}</span>
+        <span className="result-route-arrow" aria-hidden="true">
+          →
+        </span>
+        <span className="result-route-end result-route-end-to">
+          <span className="result-route-label">{t('flights.to')}</span>
+          <span className="result-route-place">
+            <CountryFlag country={flight.countryTo} />
+            <span className="result-destination-name">
+              {cityTo}
+              <span className="result-destination-country">{flight.countryTo}</span>
+            </span>
+            <span className="badge badge-destination">{flight.cityCodeTo}</span>
+          </span>
+        </span>
       </div>
 
       <div className="result-grid">
@@ -256,6 +278,7 @@ export function FlightCard({
         <div className="result-legs">
           <FlightLegRow
             leg={outbound}
+            directionLabel={t('flights.outbound')}
             inputId={`out-${flight.id}`}
             checked={departureSelected}
             onCheckedChange={onDepartureSelect}
@@ -263,6 +286,7 @@ export function FlightCard({
           />
           <FlightLegRow
             leg={returnLeg}
+            directionLabel={t('flights.return')}
             inputId={`ret-${flight.id}`}
             checked={returnSelected}
             onCheckedChange={onReturnSelect}

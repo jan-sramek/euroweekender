@@ -196,7 +196,9 @@
     "changes_one": "1 skift",
     "changes_other": "{{count}} skift",
     "outbound": "Udrejse",
-    "return": "Hjemrejse"
+    "return": "Hjemrejse",
+    "from": "Fra",
+    "to": "Til"
   },
   "about": {
     "heroTitle": "Om euroweekender.com",

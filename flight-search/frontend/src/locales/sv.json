@@ -196,7 +196,9 @@
     "changes_one": "1 byte",
     "changes_other": "{{count}} byten",
     "outbound": "Utresa",
-    "return": "Hemresa"
+    "return": "Hemresa",
+    "from": "Från",
+    "to": "Till"
   },
   "about": {
     "heroTitle": "Om euroweekender.com",

@@ -198,7 +198,9 @@
     "changes_one": "1 přestup",
     "changes_other": "{{count}} přestupů",
     "outbound": "Tam",
-    "return": "Zpět"
+    "return": "Zpět",
+    "from": "Odkud",
+    "to": "Kam"
   },
   "about": {
     "heroTitle": "O euroweekender.com",

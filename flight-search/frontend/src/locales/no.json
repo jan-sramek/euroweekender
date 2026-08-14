@@ -196,7 +196,9 @@
     "changes_one": "1 bytte",
     "changes_other": "{{count}} bytter",
     "outbound": "Utreise",
-    "return": "Hjemreise"
+    "return": "Hjemreise",
+    "from": "Fra",
+    "to": "Til"
   },
   "about": {
     "heroTitle": "Om euroweekender.com",

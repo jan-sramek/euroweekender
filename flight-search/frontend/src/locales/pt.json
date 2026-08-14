@@ -59,7 +59,7 @@
     "about": "Sobre",
     "faq": "FAQ",
     "contact": "Contacto",
-    "cheapestWeekend": "Melhor preço de fim de semana",
+    "cheapestWeekend": "Comparar fins de semana",
     "singleDayTrips": "Viagens de um dia"
   },
   "footer": {
@@ -101,7 +101,7 @@
     "flightsCounterSearching": "A procurar voos…",
     "subtitle": "A sua próxima escapadinha urbana começa sexta à noite",
     "seoTitle": "Encontre voos de fim de semana e escapadas de um dia na Europa",
-    "seoBlock": "Pesquise e compare voos de fim de semana baratos a partir de Praga, Viena, Berlim, Munique, Londres, Barcelona e dezenas de aeroportos europeus. Filtre sex–dom, qui–dom e qua–dom, adicione partidas noturnas ou mude para escapadas de sábado e domingo no mesmo dia — e descubra pausas sem usar férias. Use Melhor preço de fim de semana para comparar tarifas para um destino num calendário.",
+    "seoBlock": "Pesquise e compare voos de fim de semana baratos a partir de Praga, Viena, Berlim, Munique, Londres, Barcelona e dezenas de aeroportos europeus. Filtre sex–dom, qui–dom e qua–dom, adicione partidas noturnas ou mude para escapadas de sábado e domingo no mesmo dia — e descubra pausas sem usar férias. Use Comparar fins de semana para comparar tarifas para um destino num calendário.",
     "resultsSearchLabel": "Filtrar resultados",
     "resultsSearchPlaceholder": "Filtrar por cidade, aeroporto ou país…",
     "clearResultsSearch": "Limpar pesquisa",
@@ -249,7 +249,7 @@
     "cta": "Começar a pesquisar",
     "heroImageAlt": "Viajante com bagagem pronto para uma viagem de fim de semana",
     "weekendImageAlt": "Rua de calçada europeia à luz quente da noite",
-    "tip5": "Abra Melhor preço de fim de semana para comparar cada fim de semana próximo para uma cidade, ou Viagens de um dia para regressos no mesmo dia sábado/domingo."
+    "tip5": "Abra Comparar fins de semana para comparar cada fim de semana próximo para uma cidade, ou Viagens de um dia para regressos no mesmo dia sábado/domingo."
   },
   "faq": {
     "heroTitle": "Perguntas frequentes",
@@ -265,8 +265,8 @@
         "a": "Uma ida e volta no mesmo dia: sai de manhã, passa o dia noutra cidade europeia e volta na mesma noite — sem hotel nem pernoita. No euroweekender.com, as escapadas de um dia focam-se em sábados e domingos."
       },
       {
-        "q": "O que é «Melhor preço de fim de semana»?",
-        "a": "Melhor preço de fim de semana é um calendário de destino. Escolha um aeroporto de partida e uma cidade europeia e compare tarifas dos próximos fins de semana numa vista mensal para encontrar o mais barato."
+        "q": "Como comparo preços de fim de semana para uma cidade?",
+        "a": "Abra Comparar fins de semana. Escolha um aeroporto de partida e uma cidade europeia e compare tarifas dos próximos fins de semana numa vista mensal para encontrar o mais barato."
       },
       {
         "q": "É seguro reservar através da Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

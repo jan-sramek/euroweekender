@@ -59,7 +59,7 @@
     "about": "O nás",
     "faq": "Časté otázky",
     "contact": "Kontakt",
-    "cheapestWeekend": "Najlepšia víkendová cena",
+    "cheapestWeekend": "Porovnať víkendy",
     "singleDayTrips": "Jednodňové výlety"
   },
   "footer": {
@@ -101,7 +101,7 @@
     "flightsCounterSearching": "Hľadanie letov…",
     "subtitle": "Váš ďalší city break začína v piatok večer",
     "seoTitle": "Nájdite lacné víkendové lety a jednodňové výlety po Európe",
-    "seoBlock": "Hľadajte a porovnávajte lacné víkendové lety z Prahy, Viedne, Berlína, Mníchova, Londýna, Barcelony a desiatok európskych letísk. Filtrujte pia–ne, št–ne a st–ne, pridajte večerné odlety alebo prepnite na sobotné a nedeľné jednodňové výlety — a objavte prestávky bez dovolenky. Použite Najlepšiu víkendovú cenu na porovnanie taríf do jedného mesta v kalendári.",
+    "seoBlock": "Hľadajte a porovnávajte lacné víkendové lety z Prahy, Viedne, Berlína, Mníchova, Londýna, Barcelony a desiatok európskych letísk. Filtrujte pia–ne, št–ne a st–ne, pridajte večerné odlety alebo prepnite na sobotné a nedeľné jednodňové výlety — a objavte prestávky bez dovolenky. Použite Porovnať víkendy na porovnanie taríf do jedného mesta v kalendári.",
     "resultsSearchLabel": "Filtrovať výsledky",
     "resultsSearchPlaceholder": "Filtrovať podľa mesta, letiska alebo krajiny…",
     "clearResultsSearch": "Vymazať hľadanie",
@@ -249,7 +249,7 @@
     "cta": "Začať hľadať",
     "heroImageAlt": "Cestujúci s batožinou pripravený na víkendový výlet",
     "weekendImageAlt": "Európska dláždená ulica v teplom večernom svetle",
-    "tip5": "Otvorte Najlepšiu víkendovú cenu na porovnanie každého nadchádzajúceho víkendu do jedného mesta, alebo Jednodňové výlety pre sobotné/nedeľné návraty v ten istý deň."
+    "tip5": "Otvorte Porovnať víkendy na porovnanie každého nadchádzajúceho víkendu do jedného mesta, alebo Jednodňové výlety pre sobotné/nedeľné návraty v ten istý deň."
   },
   "faq": {
     "heroTitle": "Často kladené otázky",
@@ -265,8 +265,8 @@
         "a": "Let tam a späť v ten istý deň: ráno odlet, deň v inom európskom meste a návrat večer — bez hotela a bez prenocovania. Na euroweekender.com sa jednodňové výlety zameriavajú na soboty a nedele."
       },
       {
-        "q": "Čo je „Najlepšia víkendová cena“?",
-        "a": "Najlepšia víkendová cena je kalendár destinácie. Vyberte odletové letisko a európske mesto a porovnajte nadchádzajúce víkendové tarify v mesačnom prehľade, aby ste našli najlacnejší víkend."
+        "q": "Ako porovnám víkendové ceny do jedného mesta?",
+        "a": "Otvorte Porovnať víkendy. Vyberte odletové letisko a európske mesto a porovnajte nadchádzajúce víkendové tarify v mesačnom prehľade, aby ste našli najlacnejší víkend."
       },
       {
         "q": "Je bezpečné rezervovať cez Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

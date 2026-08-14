@@ -59,7 +59,7 @@
     "about": "Om oss",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "cheapestWeekend": "Beste helgepris",
+    "cheapestWeekend": "Sammenlign helger",
     "singleDayTrips": "Dagsreiser"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Start søket",
     "heroImageAlt": "Reisende med bagasje klar for en helgetur",
     "weekendImageAlt": "Europeisk brosteinsgate i varmt kveldslys",
-    "tip5": "Open Beste helgepris to compare every upcoming weekend to one city, or Dagsreiser for same-day Saturday/Sunday returns."
+    "tip5": "Open Sammenlign helger to compare every upcoming weekend to one city, or Dagsreiser for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Ofte stilte spørsmål",
@@ -265,8 +265,8 @@
         "a": "Tur-retur samme dag: ut om morgenen, dagen i en annen europeisk by og hjem samme kveld — uten hotell og uten overnatting. På euroweekender.com fokuserer dagsreiser på lørdager og søndager."
       },
       {
-        "q": "Hva er „Beste helgepris”?",
-        "a": "Beste helgepris er en destinasjonskalender. Velg en avreiseflyplass og en europeisk by, og sammenlign kommende helgepriser i månedsvisning for å finne den billigste helgen."
+        "q": "Hva er „Sammenlign helger”?",
+        "a": "Sammenlign helger er en destinasjonskalender. Velg en avreiseflyplass og en europeisk by, og sammenlign kommende helgepriser i månedsvisning for å finne den billigste helgen."
       },
       {
         "q": "Er det trygt å booke via Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

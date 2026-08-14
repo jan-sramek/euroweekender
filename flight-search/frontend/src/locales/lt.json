@@ -59,7 +59,7 @@
     "about": "Apie mus",
     "faq": "DUK",
     "contact": "Kontaktai",
-    "cheapestWeekend": "Geriausia savaitgalio kaina",
+    "cheapestWeekend": "Palyginti savaitgalius",
     "singleDayTrips": "Vienos dienos kelionės"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Pradėti paiešką",
     "heroImageAlt": "Keliautojas su bagažu pasiruošęs savaitgalio kelionei",
     "weekendImageAlt": "Europos grįdintos akmenys gatvė šiltame vakaro šviesoje",
-    "tip5": "Open Geriausia savaitgalio kaina to compare every upcoming weekend to one city, or Vienos dienos kelionės for same-day Saturday/Sunday returns."
+    "tip5": "Open Palyginti savaitgalius to compare every upcoming weekend to one city, or Vienos dienos kelionės for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Dažniausiai užduodami klausimai",
@@ -265,8 +265,8 @@
         "a": "Į abi puses tą pačią dieną: ryte išskridimas, diena kitame Europos mieste ir grįžimas vakare — be viešbučio ir be nakvynės. euroweekender.com vienos dienos kelionės orientuotos į šeštadienius ir sekmadienius."
       },
       {
-        "q": "Kas yra „Geriausia savaitgalio kaina“?",
-        "a": "Geriausia savaitgalio kaina yra paskirties kalendorius. Pasirinkite išvykimo oro uostą ir Europos miestą, tada palyginkite artėjančius savaitgalio tarifus mėnesio rodinyje, kad rastumėte pigiausią savaitgalį."
+        "q": "Kas yra „Palyginti savaitgalius“?",
+        "a": "Palyginti savaitgalius yra paskirties kalendorius. Pasirinkite išvykimo oro uostą ir Europos miestą, tada palyginkite artėjančius savaitgalio tarifus mėnesio rodinyje, kad rastumėte pigiausią savaitgalį."
       },
       {
         "q": "Ar saugu rezervuoti per Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

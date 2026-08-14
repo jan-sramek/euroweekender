@@ -59,7 +59,7 @@
     "about": "Um okkur",
     "faq": "Algengar spurningar",
     "contact": "Hafa samband",
-    "cheapestWeekend": "Besta helgarverðið",
+    "cheapestWeekend": "Berðu saman helgar",
     "singleDayTrips": "Dagsferðir"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Byrja leit",
     "heroImageAlt": "Ferðamaður með farangur tilbúinn í helgarferð",
     "weekendImageAlt": "Evrópskur götusteinn í hlýju kvöldljósi",
-    "tip5": "Open Besta helgarverðið to compare every upcoming weekend to one city, or Dagsferðir for same-day Saturday/Sunday returns."
+    "tip5": "Open Berðu saman helgar to compare every upcoming weekend to one city, or Dagsferðir for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Algengar spurningar",
@@ -265,8 +265,8 @@
         "a": "Út og heim sama dag: út að morgni, dagur í annarri evrópskri borg og heim sama kvöld — án hótels og án gistingar. Á euroweekender.com einbeita dagsferðir sér að laugardögum og sunnudögum."
       },
       {
-        "q": "Hvað er „Besta helgarverðið”?",
-        "a": "Besta helgarverðið er áfangastaðsdagatal. Veldu brottfararflugvöll og evrópska borg, berðu síðan saman væntanleg helgarverð í mánaðaryfirliti til að finna ódýrustu helgina."
+        "q": "Hvað er „Berðu saman helgar”?",
+        "a": "Berðu saman helgar er áfangastaðsdagatal. Veldu brottfararflugvöll og evrópska borg, berðu síðan saman væntanleg helgarverð í mánaðaryfirliti til að finna ódýrustu helgina."
       },
       {
         "q": "Er öruggt að bóka í gegnum Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

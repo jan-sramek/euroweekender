@@ -59,7 +59,7 @@
     "about": "Über uns",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "cheapestWeekend": "Bester Wochenendpreis",
+    "cheapestWeekend": "Wochenenden vergleichen",
     "singleDayTrips": "Tagesausflüge"
   },
   "footer": {
@@ -101,7 +101,7 @@
     "flightsCounterSearching": "Flüge werden gesucht…",
     "subtitle": "Ihr nächster Städtetrip beginnt am Freitagabend",
     "seoTitle": "Günstige Wochenendflüge und Tagestrips in Europa finden",
-    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So-, Do–So- und Mi–So-Muster, aktivieren Sie Abendabflüge oder wechseln Sie zu eintägigen Samstags- und Sonntags-Städtetrips — und entdecken Sie Auszeiten ohne Urlaubstage. Nutzen Sie „Bester Wochenendpreis“, um Tarife zu einem Ziel im Kalender zu vergleichen.",
+    "seoBlock": "Suchen und vergleichen Sie günstige Wochenendflüge ab Prag, Wien, Berlin, München, London, Barcelona und Dutzenden europäischer Flughäfen. Filtern Sie Fr–So-, Do–So- und Mi–So-Muster, aktivieren Sie Abendabflüge oder wechseln Sie zu eintägigen Samstags- und Sonntags-Städtetrips — und entdecken Sie Auszeiten ohne Urlaubstage. Nutzen Sie „Wochenenden vergleichen“, um Tarife zu einem Ziel im Kalender zu vergleichen.",
     "popularRoutesTitle": "Beliebte Wochenendstrecken",
     "popularRouteLabel": "{{from}} → {{to}}",
     "howItWorksTitle": "So funktionieren Wochenendflüge",
@@ -256,7 +256,7 @@
     "cta": "Suche starten",
     "heroImageAlt": "Reisender mit Gepäck bereit für einen Wochenendtrip",
     "weekendImageAlt": "Europäische Kopfsteinpflasterstraße im warmen Abendlicht",
-    "tip5": "Öffnen Sie „Bester Wochenendpreis“, um jedes kommende Wochenende zu einer Stadt zu vergleichen, oder „Tagesausflüge“ für Same-Day-Rückflüge an Samstag/Sonntag."
+    "tip5": "Öffnen Sie „Wochenenden vergleichen“, um jedes kommende Wochenende zu einer Stadt zu vergleichen, oder „Tagesausflüge“ für Same-Day-Rückflüge an Samstag/Sonntag."
   },
   "faq": {
     "heroTitle": "Häufig gestellte Fragen",
@@ -272,8 +272,8 @@
         "a": "Ein Same-Day-Rückflug: morgens hin, den Tag in einer anderen europäischen Stadt verbringen und am selben Abend zurück — ohne Hotel und ohne Übernachtung. Auf euroweekender.com konzentrieren sich Tagestrips auf Samstage und Sonntage."
       },
       {
-        "q": "Was ist „Bester Wochenendpreis“?",
-        "a": "„Bester Wochenendpreis“ ist ein Zielkalender. Wählen Sie einen Abflughafen und eine europäische Stadt und vergleichen Sie kommende Wochenendpreise in einer Monatsansicht, um das günstigste Wochenende zu finden."
+        "q": "Wie vergleiche ich Wochenendpreise zu einer Stadt?",
+        "a": "Öffnen Sie „Wochenenden vergleichen“. Wählen Sie einen Abflughafen und eine europäische Stadt und vergleichen Sie kommende Wochenendpreise in einer Monatsansicht, um das günstigste Wochenende zu finden."
       },
       {
         "q": "Ist die Buchung über Kiwi.com sicher?",
@@ -454,7 +454,7 @@
       },
       {
         "q": "Was ist das günstigste Wochenende, um von {{city}} in eine bestimmte Stadt zu fliegen?",
-        "a": "Öffnen Sie „Bester Wochenendpreis“ und wählen Sie {{city}} als Abflughafen sowie eine europäische Stadt als Ziel, um Tarife über kommende Wochenenden im Kalender zu vergleichen."
+        "a": "Öffnen Sie „Wochenenden vergleichen“ und wählen Sie {{city}} als Abflughafen sowie eine europäische Stadt als Ziel, um Tarife über kommende Wochenenden im Kalender zu vergleichen."
       }
     ]
   },

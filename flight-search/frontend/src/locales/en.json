@@ -55,7 +55,7 @@
   },
   "nav": {
     "home": "Home",
-    "cheapestWeekend": "Best weekend price",
+    "cheapestWeekend": "Compare weekends",
     "singleDayTrips": "Single day trips",
     "howItWorks": "How it works",
     "about": "About",
@@ -77,7 +77,7 @@
     "subtitle": "Your next city break starts Friday evening",
     "lead": "Compare round-trip weekend flights across Europe — leave after work on Friday, return Sunday, no vacation days needed.",
     "seoTitle": "Find cheap weekend flights and day trips across Europe",
-    "seoBlock": "Search and compare cheap weekend flights from Prague, Vienna, Berlin, Munich, London, Barcelona, and dozens of European airports. Filter Fri–Sun, Thu–Sun, and Wed–Sun trip patterns, add evening departure times, or switch to same-day Saturday and Sunday city trips — and discover breaks you can take without using annual leave. Use Best weekend price to compare fares to one destination on a calendar.",
+    "seoBlock": "Search and compare cheap weekend flights from Prague, Vienna, Berlin, Munich, London, Barcelona, and dozens of European airports. Filter Fri–Sun, Thu–Sun, and Wed–Sun trip patterns, add evening departure times, or switch to same-day Saturday and Sunday city trips — and discover breaks you can take without using annual leave. Open Compare weekends to see fares to one destination on a calendar.",
     "popularRoutesTitle": "Popular weekend routes",
     "popularRouteLabel": "{{from}} → {{to}}",
     "howItWorksTitle": "How weekend flights work",
@@ -190,7 +190,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },
@@ -372,7 +372,7 @@
     "tip2": "Select several weekends to spot the cheapest departure day in a month.",
     "tip3": "Use evening filters if you want to leave after work on Friday.",
     "tip4": "Book soon after finding a fare; weekend seats at low prices sell out quickly.",
-    "tip5": "Open Best weekend price to compare every upcoming weekend to one city, or Single day trips for same-day Saturday/Sunday returns.",
+    "tip5": "Open Compare weekends to compare every upcoming weekend to one city, or Single day trips for same-day Saturday/Sunday returns.",
     "cta": "Start searching",
     "heroImageAlt": "Traveler with luggage ready for a weekend trip",
     "weekendImageAlt": "European cobblestone street in warm evening light"
@@ -391,8 +391,8 @@
         "a": "A same-day return: fly out in the morning, spend the day in another European city, and fly home the same evening — no hotel and no overnight stay. On euroweekender.com, single-day trips focus on Saturdays and Sundays."
       },
       {
-        "q": "What is “Best weekend price”?",
-        "a": "Best weekend price is a destination calendar. Pick one departure airport and one European city, then compare upcoming weekend fares on a monthly view so you can spot the cheapest weekend to fly there."
+        "q": "How do I compare weekend prices to one city?",
+        "a": "Open Compare weekends. Pick one departure airport and one European city, then compare upcoming weekend fares on a monthly calendar to spot the cheapest weekend to fly there."
       },
       {
         "q": "Is it safe to book through Kiwi.com?",

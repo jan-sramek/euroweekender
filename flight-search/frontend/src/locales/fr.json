@@ -59,7 +59,7 @@
     "about": "À propos",
     "faq": "FAQ",
     "contact": "Contact",
-    "cheapestWeekend": "Meilleur prix week-end",
+    "cheapestWeekend": "Comparer les week-ends",
     "singleDayTrips": "Excursions d'une journée"
   },
   "footer": {
@@ -101,7 +101,7 @@
     "flightsCounterSearching": "Recherche de vols…",
     "subtitle": "Votre prochain city break commence vendredi soir",
     "seoTitle": "Trouvez des vols week-end et escapades d’une journée en Europe",
-    "seoBlock": "Recherchez et comparez des vols week-end économiques depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez les départs du soir, ou passez aux escapades samedi et dimanche le jour même — et découvrez des pauses sans utiliser de congés. Utilisez Meilleur prix week-end pour comparer les tarifs vers une destination sur un calendrier.",
+    "seoBlock": "Recherchez et comparez des vols week-end économiques depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez les départs du soir, ou passez aux escapades samedi et dimanche le jour même — et découvrez des pauses sans utiliser de congés. Utilisez Comparer les week-ends pour comparer les tarifs vers une destination sur un calendrier.",
     "resultsSearchLabel": "Filtrer les résultats",
     "resultsSearchPlaceholder": "Filtrer par ville, aéroport ou pays…",
     "clearResultsSearch": "Effacer la recherche",
@@ -249,7 +249,7 @@
     "cta": "Commencer la recherche",
     "heroImageAlt": "Voyageur avec des bagages prêt pour un week-end",
     "weekendImageAlt": "Rue pavée européenne dans une lumière chaude du soir",
-    "tip5": "Ouvrez Meilleur prix week-end pour comparer chaque week-end à venir vers une ville, ou Excursions d’une journée pour des retours le jour même le samedi/dimanche."
+    "tip5": "Ouvrez Comparer les week-ends pour comparer chaque week-end à venir vers une ville, ou Excursions d’une journée pour des retours le jour même le samedi/dimanche."
   },
   "faq": {
     "heroTitle": "Questions fréquentes",
@@ -265,8 +265,8 @@
         "a": "Un aller-retour le jour même : départ le matin, journée dans une autre ville européenne, retour le même soir — sans hôtel ni nuitée. Sur euroweekender.com, ces escapades se concentrent sur les samedis et dimanches."
       },
       {
-        "q": "Qu’est-ce que « Meilleur prix week-end » ?",
-        "a": "Meilleur prix week-end est un calendrier de destination. Choisissez un aéroport de départ et une ville européenne, puis comparez les tarifs des week-ends à venir sur une vue mensuelle pour repérer le week-end le moins cher."
+        "q": "Comment comparer les prix week-end vers une ville ?",
+        "a": "Ouvrez Comparer les week-ends. Choisissez un aéroport de départ et une ville européenne, puis comparez les tarifs des week-ends à venir sur une vue mensuelle pour repérer le week-end le moins cher."
       },
       {
         "q": "Est-il sûr de réserver via Kiwi.com ?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "Quel est le week-end le moins cher pour voler de {{city}} vers une ville précise ?",
-        "a": "Ouvrez « Meilleur prix week-end » et choisissez {{city}} comme aéroport de départ et n’importe quelle ville européenne comme destination pour comparer les tarifs des prochains week-ends sur un calendrier."
+        "a": "Ouvrez « Comparer les week-ends » et choisissez {{city}} comme aéroport de départ et n’importe quelle ville européenne comme destination pour comparer les tarifs des prochains week-ends sur un calendrier."
       }
     ]
   },

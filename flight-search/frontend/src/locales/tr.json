@@ -59,7 +59,7 @@
     "about": "Hakkında",
     "faq": "SSS",
     "contact": "İletişim",
-    "cheapestWeekend": "En iyi hafta sonu fiyatı",
+    "cheapestWeekend": "Hafta sonlarını karşılaştır",
     "singleDayTrips": "Tek günlük geziler"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Aramaya başla",
     "heroImageAlt": "Hafta sonu seyahatine hazır bagajlı gezgin",
     "weekendImageAlt": "Sıcak akşam ışığında Avrupa arnavut kaldırımlı sokak",
-    "tip5": "Open En iyi hafta sonu fiyatı to compare every upcoming weekend to one city, or Tek günlük geziler for same-day Saturday/Sunday returns."
+    "tip5": "Open Hafta sonlarını karşılaştır to compare every upcoming weekend to one city, or Tek günlük geziler for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Sık sorulan sorular",
@@ -265,8 +265,8 @@
         "a": "Aynı gün gidiş-dönüş: sabah uçuş, günü başka bir Avrupa şehrinde geçirme ve aynı akşam dönüş — otel ve geceleme yok. euroweekender.com’da tek günlük geziler Cumartesi ve Pazar’a odaklanır."
       },
       {
-        "q": "“En iyi hafta sonu fiyatı” nedir?",
-        "a": "En iyi hafta sonu fiyatı bir destinasyon takvimidir. Bir kalkış havalimanı ve bir Avrupa şehri seçin, ardından en ucuz hafta sonunu bulmak için yaklaşan hafta sonu ücretlerini aylık görünümde karşılaştırın."
+        "q": "“Hafta sonlarını karşılaştır” nedir?",
+        "a": "Hafta sonlarını karşılaştır bir destinasyon takvimidir. Bir kalkış havalimanı ve bir Avrupa şehri seçin, ardından en ucuz hafta sonunu bulmak için yaklaşan hafta sonu ücretlerini aylık görünümde karşılaştırın."
       },
       {
         "q": "Kiwi.com üzerinden rezervasyon yapmak güvenli mi?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

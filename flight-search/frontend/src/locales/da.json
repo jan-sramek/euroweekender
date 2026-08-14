@@ -59,7 +59,7 @@
     "about": "Om os",
     "faq": "Ofte stillede spørgsmål",
     "contact": "Kontakt",
-    "cheapestWeekend": "Bedste weekendpris",
+    "cheapestWeekend": "Sammenlign weekender",
     "singleDayTrips": "Dagsrejser"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Begynd at søge",
     "heroImageAlt": "Rejsende med bagage klar til en weekendtur",
     "weekendImageAlt": "Europæisk brostensgade i varmt aftenlys",
-    "tip5": "Open Bedste weekendpris to compare every upcoming weekend to one city, or Dagsrejser for same-day Saturday/Sunday returns."
+    "tip5": "Open Sammenlign weekender to compare every upcoming weekend to one city, or Dagsrejser for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Ofte stillede spørgsmål",
@@ -265,8 +265,8 @@
         "a": "Tur-retur samme dag: ud om morgenen, dagen i en anden europæisk by og hjem samme aften — uden hotel og uden overnatning. På euroweekender.com fokuserer dagsrejser på lørdage og søndage."
       },
       {
-        "q": "Hvad er „Bedste weekendpris”?",
-        "a": "Bedste weekendpris er en destinationskalender. Vælg en afrejselufthavn og en europæisk by, og sammenlign kommende weekendpriser i månedsvisning for at finde den billigste weekend."
+        "q": "Hvad er „Sammenlign weekender”?",
+        "a": "Sammenlign weekender er en destinationskalender. Vælg en afrejselufthavn og en europæisk by, og sammenlign kommende weekendpriser i månedsvisning for at finde den billigste weekend."
       },
       {
         "q": "Er det sikkert at booke via Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

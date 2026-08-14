@@ -59,7 +59,7 @@
     "about": "За нас",
     "faq": "ЧЗВ",
     "contact": "Контакт",
-    "cheapestWeekend": "Най-добра уикенд цена",
+    "cheapestWeekend": "Сравни уикенди",
     "singleDayTrips": "Еднодневни пътувания"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Започнете търсенето",
     "heroImageAlt": "Пътник с багаж, готов за уикенд пътуване",
     "weekendImageAlt": "Европейска калдъръмена улица в топла вечерна светлина",
-    "tip5": "Open Най-добра уикенд цена to compare every upcoming weekend to one city, or Еднодневни пътувания for same-day Saturday/Sunday returns."
+    "tip5": "Open Сравни уикенди to compare every upcoming weekend to one city, or Еднодневни пътувания for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Често задавани въпроси",
@@ -265,8 +265,8 @@
         "a": "Отиване и връщане в същия ден: сутрин излет, ден в друг европейски град и връщане вечер — без хотел и без нощувка. В euroweekender.com еднодневните пътувания се фокусират върху съботи и недели."
       },
       {
-        "q": "Какво е „Най-добра уикенд цена“?",
-        "a": "Най-добра уикенд цена е календар на дестинация. Изберете летище за излитане и европейски град, след това сравнете предстоящите уикенд тарифи в месечен изглед, за да намерите най-евтиния уикенд."
+        "q": "Какво е „Сравни уикенди“?",
+        "a": "Сравни уикенди е календар на дестинация. Изберете летище за излитане и европейски град, след това сравнете предстоящите уикенд тарифи в месечен изглед, за да намерите най-евтиния уикенд."
       },
       {
         "q": "Безопасно ли е да резервирам чрез Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

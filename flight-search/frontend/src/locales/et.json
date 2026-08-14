@@ -59,7 +59,7 @@
     "about": "Meist",
     "faq": "KKK",
     "contact": "Kontakt",
-    "cheapestWeekend": "Parim nädalavahetuse hind",
+    "cheapestWeekend": "Võrdle nädalavahetusi",
     "singleDayTrips": "Ühepäevareisid"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Alusta otsimist",
     "heroImageAlt": "Reisija pagasiga nädalavahetuse reisiks valmis",
     "weekendImageAlt": "Euroopa munakivis tänav soojas õhtuvalguses",
-    "tip5": "Open Parim nädalavahetuse hind to compare every upcoming weekend to one city, or Ühepäevareisid for same-day Saturday/Sunday returns."
+    "tip5": "Open Võrdle nädalavahetusi to compare every upcoming weekend to one city, or Ühepäevareisid for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Korduma kippuvad küsimused",
@@ -265,8 +265,8 @@
         "a": "Edasi-tagasi samal päeval: hommikul väljalend, päev teises Euroopa linnas ja naasmine õhtul — ilma hotellita ja ilma ööbimata. euroweekender.com ühepäevareisid keskenduvad laupäevadele ja pühapäevadele."
       },
       {
-        "q": "Mis on „Parim nädalavahetuse hind”?",
-        "a": "Parim nädalavahetuse hind on sihtkoha kalender. Valige väljalennu lennujaam ja Euroopa linn, seejärel võrrelge eelseisvaid nädalavahetuse hindu kuukuvas, et leida odavaim nädalavahetus."
+        "q": "Mis on „Võrdle nädalavahetusi”?",
+        "a": "Võrdle nädalavahetusi on sihtkoha kalender. Valige väljalennu lennujaam ja Euroopa linn, seejärel võrrelge eelseisvaid nädalavahetuse hindu kuukuvas, et leida odavaim nädalavahetus."
       },
       {
         "q": "Kas Kiwi.com kaudu broneerimine on turvaline?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

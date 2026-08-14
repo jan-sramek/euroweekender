@@ -59,7 +59,7 @@
     "about": "O nas",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "cheapestWeekend": "Najlepsza cena weekendu",
+    "cheapestWeekend": "Porównaj weekendy",
     "singleDayTrips": "Wycieczki jednodniowe"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Zacznij szukać",
     "heroImageAlt": "Podróżny z bagażem gotowy na weekendowy wyjazd",
     "weekendImageAlt": "Europejska brukowana ulica w ciepłym wieczornym świetle",
-    "tip5": "Otwórz Najlepszą cenę weekendu, by porównać każdy nadchodzący weekend do jednego miasta, albo Wycieczki jednodniowe na sobotnio-niedzielne powroty tego samego dnia."
+    "tip5": "Otwórz Porównaj weekendy, by porównać każdy nadchodzący weekend do jednego miasta, albo Wycieczki jednodniowe na sobotnio-niedzielne powroty tego samego dnia."
   },
   "faq": {
     "heroTitle": "Najczęściej zadawane pytania",
@@ -265,8 +265,8 @@
         "a": "Lot w obie strony tego samego dnia: rano wylot, dzień w innym europejskim mieście i powrót wieczorem — bez hotelu i bez noclegu. Na euroweekender.com wycieczki jednodniowe obejmują soboty i niedziele."
       },
       {
-        "q": "Czym jest „Najlepsza cena weekendu”?",
-        "a": "Najlepsza cena weekendu to kalendarz destynacji. Wybierz lotnisko wylotu i europejskie miasto, potem porównaj nadchodzące ceny weekendowe w widoku miesiąca, by znaleźć najtańszy weekend."
+        "q": "Jak porównać ceny weekendowe do jednego miasta?",
+        "a": "Otwórz Porównaj weekendy. Wybierz lotnisko wylotu i europejskie miasto, potem porównaj nadchodzące ceny weekendowe w widoku miesiąca, by znaleźć najtańszy weekend."
       },
       {
         "q": "Czy rezerwacja przez Kiwi.com jest bezpieczna?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "Jaki jest najtańszy weekend na lot z {{city}} do konkretnego miasta?",
-        "a": "Otwórz „Najlepszą cenę weekendu” i wybierz {{city}} jako lotnisko wylotu oraz dowolne europejskie miasto jako cel, aby porównać taryfy nadchodzących weekendów w kalendarzu."
+        "a": "Otwórz „Porównaj weekendy” i wybierz {{city}} jako lotnisko wylotu oraz dowolne europejskie miasto jako cel, aby porównać taryfy nadchodzących weekendów w kalendarzu."
       }
     ]
   },

@@ -59,7 +59,7 @@
     "about": "Over ons",
     "faq": "FAQ",
     "contact": "Contact",
-    "cheapestWeekend": "Beste weekendprijs",
+    "cheapestWeekend": "Weekenden vergelijken",
     "singleDayTrips": "Eendaagse trips"
   },
   "footer": {
@@ -101,7 +101,7 @@
     "flightsCounterSearching": "Vluchten zoeken…",
     "subtitle": "Je volgende citytrip begint vrijdagavond",
     "seoTitle": "Vind goedkope weekendvluchten en dagtrips door Europa",
-    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanaf Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe of schakel over naar zaterdag- en zondagtrips op dezelfde dag — en ontdek breaks zonder vakantiedagen. Gebruik Beste weekendprijs om tarieven naar één bestemming op een kalender te vergelijken.",
+    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanaf Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe of schakel over naar zaterdag- en zondagtrips op dezelfde dag — en ontdek breaks zonder vakantiedagen. Gebruik Weekenden vergelijken om tarieven naar één bestemming op een kalender te vergelijken.",
     "resultsSearchLabel": "Resultaten filteren",
     "resultsSearchPlaceholder": "Filter op stad, luchthaven of land…",
     "clearResultsSearch": "Zoekopdracht wissen",
@@ -249,7 +249,7 @@
     "cta": "Begin met zoeken",
     "heroImageAlt": "Reiziger met bagage klaar voor een weekendtrip",
     "weekendImageAlt": "Europese kasseienstraat in warm avondlicht",
-    "tip5": "Open Beste weekendprijs om elk komend weekend naar één stad te vergelijken, of Eendaagse trips voor same-day retour op zaterdag/zondag."
+    "tip5": "Open Weekenden vergelijken om elk komend weekend naar één stad te vergelijken, of Eendaagse trips voor same-day retour op zaterdag/zondag."
   },
   "faq": {
     "heroTitle": "Veelgestelde vragen",
@@ -265,8 +265,8 @@
         "a": "Een same-day retour: ’s ochtends heen, de dag in een andere Europese stad doorbrengen en dezelfde avond terug — zonder hotel of overnachting. Op euroweekender.com focussen dagtrips op zaterdagen en zondagen."
       },
       {
-        "q": "Wat is „Beste weekendprijs”?",
-        "a": "Beste weekendprijs is een bestemmingskalender. Kies één vertrekluchthaven en één Europese stad, en vergelijk komende weekendtarieven in een maandweergave om het goedkoopste weekend te spotten."
+        "q": "Hoe vergelijk ik weekendprijzen naar één stad?",
+        "a": "Open Weekenden vergelijken. Kies één vertrekluchthaven en één Europese stad, en vergelijk komende weekendtarieven in een maandweergave om het goedkoopste weekend te vinden."
       },
       {
         "q": "Is het veilig om te boeken via Kiwi.com?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "Wat is het goedkoopste weekend om van {{city}} naar een specifieke stad te vliegen?",
-        "a": "Open \"Beste weekendprijs\" en kies {{city}} als vertrekluchthaven en een Europese stad als bestemming om tarieven van komende weekenden op een kalender te vergelijken."
+        "a": "Open \"Weekenden vergelijken\" en kies {{city}} als vertrekluchthaven en een Europese stad als bestemming om tarieven van komende weekenden op een kalender te vergelijken."
       }
     ]
   },

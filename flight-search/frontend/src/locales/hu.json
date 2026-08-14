@@ -59,7 +59,7 @@
     "about": "Rólunk",
     "faq": "GYIK",
     "contact": "Kapcsolat",
-    "cheapestWeekend": "Legjobb hétvégi ár",
+    "cheapestWeekend": "Hétvégék összehasonlítása",
     "singleDayTrips": "Egynapos utak"
   },
   "footer": {
@@ -249,7 +249,7 @@
     "cta": "Kezdd el a keresést",
     "heroImageAlt": "Utazó csomaggal, készen a hétvégi útra",
     "weekendImageAlt": "Európai macskaköves utca meleg esti fényben",
-    "tip5": "Open Legjobb hétvégi ár to compare every upcoming weekend to one city, or Egynapos utak for same-day Saturday/Sunday returns."
+    "tip5": "Open Hétvégék összehasonlítása to compare every upcoming weekend to one city, or Egynapos utak for same-day Saturday/Sunday returns."
   },
   "faq": {
     "heroTitle": "Gyakran ismételt kérdések",
@@ -265,8 +265,8 @@
         "a": "Ugyanaznapi oda-vissza: reggel indulás, nap egy másik európai városban, este vissza — szálloda és éjszakázás nélkül. Az euroweekender.com-on az egynapos utak szombatra és vasárnapra fókuszálnak."
       },
       {
-        "q": "Mi a „Legjobb hétvégi ár”?",
-        "a": "A Legjobb hétvégi ár egy célállomás-naptár. Válasszon egy induló reptéri és egy európai várost, majd hasonlítsa össze a közelgő hétvégi díjakat havi nézetben, hogy megtalálja a legolcsóbb hétvégét."
+        "q": "Mi a „Hétvégék összehasonlítása”?",
+        "a": "A Hétvégék összehasonlítása egy célállomás-naptár. Válasszon egy induló reptéri és egy európai várost, majd hasonlítsa össze a közelgő hétvégi díjakat havi nézetben, hogy megtalálja a legolcsóbb hétvégét."
       },
       {
         "q": "Biztonságos a Kiwi.com-on keresztül foglalni?",
@@ -444,7 +444,7 @@
       },
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
-        "a": "Open \"Best weekend price\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+        "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
       }
     ]
   },

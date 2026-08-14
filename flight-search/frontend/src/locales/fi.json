@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Etsitään lentoja…",
     "subtitle": "Seuraava kaupunkilomasi alkaa perjantai-iltana",
     "seoTitle": "Löydä halvat viikonloppulennot Euroopassa",
-    "seoBlock": "Etsi ja vertaile halpoja viikonloppulentoja Praha, Wien, Berliini, München, Lontoo, Barcelona ja kymmenistä eurooppalaisista lentokentistä. Suodata pe–su, to–su ja ke–su, lisää iltalähdöt ja löydä kaupunkilomia ilman vuosilomaa."
+    "seoBlock": "Etsi ja vertaile halpoja viikonloppulentoja Praha, Wien, Berliini, München, Lontoo, Barcelona ja kymmenistä eurooppalaisista lentokentistä. Suodata pe–su, to–su ja ke–su, lisää iltalähdöt ja löydä kaupunkilomia ilman vuosilomaa.",
+    "resultsSearchLabel": "Suodata tuloksia",
+    "resultsSearchPlaceholder": "Suodata kaupungin, lentoaseman tai maan mukaan…",
+    "clearResultsSearch": "Tyhjennä haku",
+    "noTextMatch": "Mikään lento ei vastaa hakuasi."
   },
   "singleDayTrips": {
     "tagline": "Aamulla mennen · illalla takaisin",

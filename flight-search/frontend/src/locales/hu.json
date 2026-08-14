@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Járatok keresése…",
     "subtitle": "A következő városlátogatása péntek este kezdődik",
     "seoTitle": "Találjon olcsó hétvégi repülőjáratokat Európában",
-    "seoBlock": "Keressen és hasonlítson össze olcsó hétvégi repülőjáratokat Prága, Bécs, Berlin, München, London, Barcelona és tucatnyi európai repülőtérről. Szűrjön p–v, cs–v és sze–v utakra, adjon hozzá esti indulásokat, és fedezze fel a városlátogatásokat szabadság felhasználása nélkül."
+    "seoBlock": "Keressen és hasonlítson össze olcsó hétvégi repülőjáratokat Prága, Bécs, Berlin, München, London, Barcelona és tucatnyi európai repülőtérről. Szűrjön p–v, cs–v és sze–v utakra, adjon hozzá esti indulásokat, és fedezze fel a városlátogatásokat szabadság felhasználása nélkül.",
+    "resultsSearchLabel": "Eredmények szűrése",
+    "resultsSearchPlaceholder": "Szűrés város, reptér vagy ország szerint…",
+    "clearResultsSearch": "Keresés törlése",
+    "noTextMatch": "Nincs a keresésnek megfelelő járat."
   },
   "singleDayTrips": {
     "tagline": "Reggel oda · este vissza",

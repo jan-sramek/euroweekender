@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Leita að flugum…",
     "subtitle": "Næsta borgarferð byrjar á föstudagskvöldi",
     "seoTitle": "Finndu ódýr helgarflug í Evrópu",
-    "seoBlock": "Leitaðu og berðu saman ódýr helgarflug frá Prag, Vín, Berlín, München, London, Barcelona og tugum evrópskra flugvalla. Síaðu fös–sun, fim–sun og mið–sun, bættu við kvöldbrottförum og uppgötvaðu borgarferðir án ársfrís."
+    "seoBlock": "Leitaðu og berðu saman ódýr helgarflug frá Prag, Vín, Berlín, München, London, Barcelona og tugum evrópskra flugvalla. Síaðu fös–sun, fim–sun og mið–sun, bættu við kvöldbrottförum og uppgötvaðu borgarferðir án ársfrís.",
+    "resultsSearchLabel": "Sía niðurstöður",
+    "resultsSearchPlaceholder": "Sía eftir borg, flugvelli eða landi…",
+    "clearResultsSearch": "Hreinsa leit",
+    "noTextMatch": "Engin flug passa við leitina."
   },
   "singleDayTrips": {
     "tagline": "Út að morgni · heim að kvöldi",

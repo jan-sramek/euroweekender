@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Wyszukiwanie lotów…",
     "subtitle": "Twój kolejny city break zaczyna się w piątek wieczorem",
     "seoTitle": "Znajdź tanie loty weekendowe i wycieczki jednodniowe po Europie",
-    "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, cz–nd i śr–nd, dodaj wieczorne odloty lub przejdź do sobotnich i niedzielnych wycieczek jednodniowych — i odkrywaj przerwy bez urlopu. Użyj Najlepszej ceny weekendu, by porównać taryfy do jednego miasta w kalendarzu."
+    "seoBlock": "Szukaj i porównuj tanie loty weekendowe z Pragi, Wiednia, Berlina, Monachium, Londynu, Barcelony i dziesiątek europejskich lotnisk. Filtruj pt–nd, cz–nd i śr–nd, dodaj wieczorne odloty lub przejdź do sobotnich i niedzielnych wycieczek jednodniowych — i odkrywaj przerwy bez urlopu. Użyj Najlepszej ceny weekendu, by porównać taryfy do jednego miasta w kalendarzu.",
+    "resultsSearchLabel": "Filtruj wyniki",
+    "resultsSearchPlaceholder": "Filtruj według miasta, lotniska lub kraju…",
+    "clearResultsSearch": "Wyczyść wyszukiwanie",
+    "noTextMatch": "Żadne loty nie pasują do wyszukiwania."
   },
   "singleDayTrips": {
     "tagline": "Rano tam · wieczorem z powrotem",

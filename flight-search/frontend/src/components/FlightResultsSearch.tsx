@@ -24,7 +24,7 @@ export function FlightResultsSearch({ value, onChange }: FlightResultsSearchProp
         <input
           id="flight-results-search"
           className="results-search-input"
-          type="search"
+          type="text"
           value={value}
           onChange={event => onChange(event.target.value)}
           placeholder={t('home.resultsSearchPlaceholder')}

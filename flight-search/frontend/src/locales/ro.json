@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Se caută zboruri…",
     "subtitle": "Următorul tău city break începe vineri seara",
     "seoTitle": "Găsește zboruri ieftine de weekend în Europa",
-    "seoBlock": "Caută și compară zboruri ieftine de weekend din Praga, Viena, Berlin, München, Londra, Barcelona și zeci de aeroporturi europene. Filtrează vin–dum, joi–dum și mie–dum, adaugă plecări seara și descoperă city break-uri fără concediu anual."
+    "seoBlock": "Caută și compară zboruri ieftine de weekend din Praga, Viena, Berlin, München, Londra, Barcelona și zeci de aeroporturi europene. Filtrează vin–dum, joi–dum și mie–dum, adaugă plecări seara și descoperă city break-uri fără concediu anual.",
+    "resultsSearchLabel": "Filtrează rezultatele",
+    "resultsSearchPlaceholder": "Filtrează după oraș, aeroport sau țară…",
+    "clearResultsSearch": "Șterge căutarea",
+    "noTextMatch": "Niciun zbor nu corespunde căutării."
   },
   "singleDayTrips": {
     "tagline": "Dimineața dus · seara întors",

@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Uçuşlar aranıyor…",
     "subtitle": "Bir sonraki şehir kaçamağınız cuma akşamı başlar",
     "seoTitle": "Avrupa'da ucuz hafta sonu uçuşları bulun",
-    "seoBlock": "Prag, Viyana, Berlin, Münih, Londra, Barselona ve onlarca Avrupa havalimanından ucuz hafta sonu uçuşlarını arayın ve karşılaştırın. Cuma–pazar, perşembe–pazar ve çarşamba–pazar filtreleyin, akşam kalkışları ekleyin ve yıllık izin kullanmadan şehir kaçamakları keşfedin."
+    "seoBlock": "Prag, Viyana, Berlin, Münih, Londra, Barselona ve onlarca Avrupa havalimanından ucuz hafta sonu uçuşlarını arayın ve karşılaştırın. Cuma–pazar, perşembe–pazar ve çarşamba–pazar filtreleyin, akşam kalkışları ekleyin ve yıllık izin kullanmadan şehir kaçamakları keşfedin.",
+    "resultsSearchLabel": "Sonuçları filtrele",
+    "resultsSearchPlaceholder": "Şehir, havalimanı veya ülkeye göre filtrele…",
+    "clearResultsSearch": "Aramayı temizle",
+    "noTextMatch": "Aramanızla eşleşen uçuş yok."
   },
   "singleDayTrips": {
     "tagline": "Sabah gidiş · akşam dönüş",

@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Lende otsitakse…",
     "subtitle": "Sinu järgmine linnapuhkus algab reedel õhtul",
     "seoTitle": "Leia odavad nädalalõpu lennud Euroopas",
-    "seoBlock": "Otsi ja võrdle odavaid nädalalõpu lende Praha, Viin, Berliin, München, London, Barcelona ja paljudest Euroopa lennujaamadest. Filtreeri re–p, nel–p ja kol–p, lisa õhtused väljumised ja avasta linnapuhkusi ilma aastapuhkuseta."
+    "seoBlock": "Otsi ja võrdle odavaid nädalalõpu lende Praha, Viin, Berliin, München, London, Barcelona ja paljudest Euroopa lennujaamadest. Filtreeri re–p, nel–p ja kol–p, lisa õhtused väljumised ja avasta linnapuhkusi ilma aastapuhkuseta.",
+    "resultsSearchLabel": "Filtreeri tulemusi",
+    "resultsSearchPlaceholder": "Filtreeri linna, lennujaama või riigi järgi…",
+    "clearResultsSearch": "Tühjenda otsing",
+    "noTextMatch": "Ükski lend ei vasta otsingule."
   },
   "singleDayTrips": {
     "tagline": "Hommikul välja · õhtul tagasi",

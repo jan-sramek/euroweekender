@@ -108,7 +108,11 @@
     "faqTeaserTitle": "FAQ zu Wochenendflügen",
     "faqTeaserMore": "Weitere häufige Fragen",
     "emptyExplore": "Schauen Sie sich inzwischen Wochenendflüge ab beliebten Städten an:",
-    "emptyDealsTitle": "Diese Wochenend-Angebote ansehen"
+    "emptyDealsTitle": "Diese Wochenend-Angebote ansehen",
+    "resultsSearchLabel": "Ergebnisse filtern",
+    "resultsSearchPlaceholder": "Nach Stadt, Flughafen oder Land filtern…",
+    "clearResultsSearch": "Suche zurücksetzen",
+    "noTextMatch": "Keine Flüge entsprechen Ihrer Suche."
   },
   "singleDayTrips": {
     "tagline": "Morgens hin · abends zurück",

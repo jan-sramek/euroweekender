@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Vluchten zoeken…",
     "subtitle": "Je volgende citytrip begint vrijdagavond",
     "seoTitle": "Vind goedkope weekendvluchten en dagtrips door Europa",
-    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanaf Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe of schakel over naar zaterdag- en zondagtrips op dezelfde dag — en ontdek breaks zonder vakantiedagen. Gebruik Beste weekendprijs om tarieven naar één bestemming op een kalender te vergelijken."
+    "seoBlock": "Zoek en vergelijk goedkope weekendvluchten vanaf Praag, Wenen, Berlijn, München, Londen, Barcelona en tientallen Europese luchthavens. Filter vr–zo, do–zo en wo–zo, voeg avondvertrekken toe of schakel over naar zaterdag- en zondagtrips op dezelfde dag — en ontdek breaks zonder vakantiedagen. Gebruik Beste weekendprijs om tarieven naar één bestemming op een kalender te vergelijken.",
+    "resultsSearchLabel": "Resultaten filteren",
+    "resultsSearchPlaceholder": "Filter op stad, luchthaven of land…",
+    "clearResultsSearch": "Zoekopdracht wissen",
+    "noTextMatch": "Geen vluchten komen overeen met je zoekopdracht."
   },
   "singleDayTrips": {
     "tagline": "’s Ochtends heen · ’s avonds terug",

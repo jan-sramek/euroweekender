@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Recherche de vols…",
     "subtitle": "Votre prochain city break commence vendredi soir",
     "seoTitle": "Trouvez des vols week-end et escapades d’une journée en Europe",
-    "seoBlock": "Recherchez et comparez des vols week-end économiques depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez les départs du soir, ou passez aux escapades samedi et dimanche le jour même — et découvrez des pauses sans utiliser de congés. Utilisez Meilleur prix week-end pour comparer les tarifs vers une destination sur un calendrier."
+    "seoBlock": "Recherchez et comparez des vols week-end économiques depuis Prague, Vienne, Berlin, Munich, Londres, Barcelone et des dizaines d’aéroports européens. Filtrez ven–dim, jeu–dim et mer–dim, ajoutez les départs du soir, ou passez aux escapades samedi et dimanche le jour même — et découvrez des pauses sans utiliser de congés. Utilisez Meilleur prix week-end pour comparer les tarifs vers une destination sur un calendrier.",
+    "resultsSearchLabel": "Filtrer les résultats",
+    "resultsSearchPlaceholder": "Filtrer par ville, aéroport ou pays…",
+    "clearResultsSearch": "Effacer la recherche",
+    "noTextMatch": "Aucun vol ne correspond à votre recherche."
   },
   "singleDayTrips": {
     "tagline": "Départ matin · retour soir",

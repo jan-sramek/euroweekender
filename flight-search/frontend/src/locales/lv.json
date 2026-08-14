@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Meklē lidojumus…",
     "subtitle": "Jūsu nākamais pilsētas brauciens sākas piektdienas vakarā",
     "seoTitle": "Atrodiet lētus nedēļas nogales lidojumus Eiropā",
-    "seoBlock": "Meklējiet un salīdziniet lētus nedēļas nogales lidojumus no Prāgas, Vīnes, Berlīnes, Minhenes, Londonas, Barselonas un desmitiem Eiropas lidostu. Filtrējiet pk–sv, ce–sv un tr–sv, pievienojiet vakara izlidošanas un atklājiet pilsētu braucienus bez gada atvaļinājuma."
+    "seoBlock": "Meklējiet un salīdziniet lētus nedēļas nogales lidojumus no Prāgas, Vīnes, Berlīnes, Minhenes, Londonas, Barselonas un desmitiem Eiropas lidostu. Filtrējiet pk–sv, ce–sv un tr–sv, pievienojiet vakara izlidošanas un atklājiet pilsētu braucienus bez gada atvaļinājuma.",
+    "resultsSearchLabel": "Filtrēt rezultātus",
+    "resultsSearchPlaceholder": "Filtrēt pēc pilsētas, lidostas vai valsts…",
+    "clearResultsSearch": "Notīrīt meklēšanu",
+    "noTextMatch": "Neviens reiss neatbilst jūsu meklēšanai."
   },
   "singleDayTrips": {
     "tagline": "No rīta turp · vakarā atpakaļ",

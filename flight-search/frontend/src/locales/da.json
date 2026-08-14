@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Søger fly…",
     "subtitle": "Din næste storbyweekend starter fredag aften",
     "seoTitle": "Find billige weekendfly i Europa",
-    "seoBlock": "Søg og sammenlign billige weekendfly fra Prag, Wien, Berlin, München, London, Barcelona og dusinvis af europæiske lufthavne. Filtrer fre–søn, tor–søn og ons–søn, tilføj aftenafgange og find storbyweekender uden at bruge ferie."
+    "seoBlock": "Søg og sammenlign billige weekendfly fra Prag, Wien, Berlin, München, London, Barcelona og dusinvis af europæiske lufthavne. Filtrer fre–søn, tor–søn og ons–søn, tilføj aftenafgange og find storbyweekender uden at bruge ferie.",
+    "resultsSearchLabel": "Filtrer resultater",
+    "resultsSearchPlaceholder": "Filtrer efter by, lufthavn eller land…",
+    "clearResultsSearch": "Ryd søgning",
+    "noTextMatch": "Ingen fly matcher din søgning."
   },
   "singleDayTrips": {
     "tagline": "Ud om morgenen · hjem om aftenen",

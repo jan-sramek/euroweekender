@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Ieškoma skrydžių…",
     "subtitle": "Jūsų kitas miesto savaitgalis prasideda penktadienio vakarą",
     "seoTitle": "Raskite pigius savaitgalio skrydžius Europoje",
-    "seoBlock": "Ieškokite ir palyginkite pigius savaitgalio skrydžius iš Prahos, Vienos, Berlyno, Miuncheno, Londono, Barselonos ir dešimčių Europos oro uostų. Filtruokite pn–sk, kt–sk ir tr–sk, pridėkite vakaro išvykimus ir atraskite miesto keliones be metinių atostogų."
+    "seoBlock": "Ieškokite ir palyginkite pigius savaitgalio skrydžius iš Prahos, Vienos, Berlyno, Miuncheno, Londono, Barselonos ir dešimčių Europos oro uostų. Filtruokite pn–sk, kt–sk ir tr–sk, pridėkite vakaro išvykimus ir atraskite miesto keliones be metinių atostogų.",
+    "resultsSearchLabel": "Filtruoti rezultatus",
+    "resultsSearchPlaceholder": "Filtruoti pagal miestą, oro uostą arba šalį…",
+    "clearResultsSearch": "Išvalyti paiešką",
+    "noTextMatch": "Jokių skrydžių neatitinka jūsų paieškos."
   },
   "singleDayTrips": {
     "tagline": "Ryte ten · vakare atgal",

@@ -101,7 +101,11 @@
     "flightsCounterSearching": "A procurar voos…",
     "subtitle": "A sua próxima escapadinha urbana começa sexta à noite",
     "seoTitle": "Encontre voos de fim de semana e escapadas de um dia na Europa",
-    "seoBlock": "Pesquise e compare voos de fim de semana baratos a partir de Praga, Viena, Berlim, Munique, Londres, Barcelona e dezenas de aeroportos europeus. Filtre sex–dom, qui–dom e qua–dom, adicione partidas noturnas ou mude para escapadas de sábado e domingo no mesmo dia — e descubra pausas sem usar férias. Use Melhor preço de fim de semana para comparar tarifas para um destino num calendário."
+    "seoBlock": "Pesquise e compare voos de fim de semana baratos a partir de Praga, Viena, Berlim, Munique, Londres, Barcelona e dezenas de aeroportos europeus. Filtre sex–dom, qui–dom e qua–dom, adicione partidas noturnas ou mude para escapadas de sábado e domingo no mesmo dia — e descubra pausas sem usar férias. Use Melhor preço de fim de semana para comparar tarifas para um destino num calendário.",
+    "resultsSearchLabel": "Filtrar resultados",
+    "resultsSearchPlaceholder": "Filtrar por cidade, aeroporto ou país…",
+    "clearResultsSearch": "Limpar pesquisa",
+    "noTextMatch": "Nenhum voo corresponde à sua pesquisa."
   },
   "singleDayTrips": {
     "tagline": "Saída manhã · regresso noite",

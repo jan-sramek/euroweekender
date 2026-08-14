@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Ricerca voli…",
     "subtitle": "Il tuo prossimo city break inizia venerdì sera",
     "seoTitle": "Trova voli weekend e gite di un giorno in Europa",
-    "seoBlock": "Cerca e confronta voli weekend economici da Praga, Vienna, Berlino, Monaco, Londra, Barcellona e decine di aeroporti europei. Filtra ven–dom, gio–dom e mer–dom, aggiungi partenze serali o passa alle gite sabato e domenica lo stesso giorno — e scopri pause senza usare ferie. Usa Miglior prezzo weekend per confrontare le tariffe verso una destinazione su un calendario."
+    "seoBlock": "Cerca e confronta voli weekend economici da Praga, Vienna, Berlino, Monaco, Londra, Barcellona e decine di aeroporti europei. Filtra ven–dom, gio–dom e mer–dom, aggiungi partenze serali o passa alle gite sabato e domenica lo stesso giorno — e scopri pause senza usare ferie. Usa Miglior prezzo weekend per confrontare le tariffe verso una destinazione su un calendario.",
+    "resultsSearchLabel": "Filtra risultati",
+    "resultsSearchPlaceholder": "Filtra per città, aeroporto o paese…",
+    "clearResultsSearch": "Cancella ricerca",
+    "noTextMatch": "Nessun volo corrisponde alla ricerca."
   },
   "singleDayTrips": {
     "tagline": "Partenza mattina · ritorno sera",

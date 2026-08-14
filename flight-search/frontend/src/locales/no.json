@@ -101,7 +101,11 @@
     "flightsCounterSearching": "Søker etter fly…",
     "subtitle": "Din neste storbyweekend starter fredag kveld",
     "seoTitle": "Finn billige helgefly i Europa",
-    "seoBlock": "Søk og sammenlign billige helgefly fra Praha, Wien, Berlin, München, London, Barcelona og dusinvis av europeiske flyplasser. Filtrer fre–søn, tor–søn og ons–søn, legg til kveldavreiser og oppdag storbyweekender uten å bruke ferie."
+    "seoBlock": "Søk og sammenlign billige helgefly fra Praha, Wien, Berlin, München, London, Barcelona og dusinvis av europeiske flyplasser. Filtrer fre–søn, tor–søn og ons–søn, legg til kveldavreiser og oppdag storbyweekender uten å bruke ferie.",
+    "resultsSearchLabel": "Filtrer resultater",
+    "resultsSearchPlaceholder": "Filtrer etter by, flyplass eller land…",
+    "clearResultsSearch": "Tøm søk",
+    "noTextMatch": "Ingen fly samsvarer med søket ditt."
   },
   "singleDayTrips": {
     "tagline": "Ut om morgenen · hjem om kvelden",

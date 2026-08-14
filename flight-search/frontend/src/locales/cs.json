@@ -103,7 +103,11 @@
     "flightsCounterSearching": "Hledání letů…",
     "subtitle": "Váš další city break začíná v pátek večer",
     "seoTitle": "Najděte levné víkendové lety a jednodenní výlety po Evropě",
-    "seoBlock": "Hledejte a porovnávejte levné víkendové lety z Prahy, Vídně, Berlína, Mnichova, Londýna, Barcelony a desítek evropských letišť. Filtrujte pá–ne, čt–ne a st–ne, přidejte večerní odlety nebo přepněte na sobotní a nedělní jednodenní výlety — a objevte pauzy bez dovolené. Použijte Nejlepší víkendovou cenu k porovnání tarifů do jednoho města v kalendáři."
+    "seoBlock": "Hledejte a porovnávejte levné víkendové lety z Prahy, Vídně, Berlína, Mnichova, Londýna, Barcelony a desítek evropských letišť. Filtrujte pá–ne, čt–ne a st–ne, přidejte večerní odlety nebo přepněte na sobotní a nedělní jednodenní výlety — a objevte pauzy bez dovolené. Použijte Nejlepší víkendovou cenu k porovnání tarifů do jednoho města v kalendáři.",
+    "resultsSearchLabel": "Filtrovat výsledky",
+    "resultsSearchPlaceholder": "Filtrovat podle města, letiště nebo země…",
+    "clearResultsSearch": "Vymazat hledání",
+    "noTextMatch": "Žádné lety neodpovídají vašemu hledání."
   },
   "singleDayTrips": {
     "tagline": "Ráno tam · večer zpět",

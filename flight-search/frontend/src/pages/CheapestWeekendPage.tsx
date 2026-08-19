@@ -19,8 +19,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendId,
+  formatTripTypesLabel,
   getWeekendOptions,
-  getWeekendPattern,
+  getWeekendPatterns,
   getWeekendsForMonth
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
@@ -93,36 +94,36 @@ export function CheapestWeekendPage({
   const now = new Date();
   const [viewYear, setViewYear] = useState(now.getFullYear());
   const [viewMonth, setViewMonth] = useState(now.getMonth());
-  const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
+  const [selectedPatternIds, setSelectedPatternIds] = useState<WeekendPatternId[]>([]);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);
   const [destinationCode, setDestinationCode] = useState<string | null>(toParam);
   const [selectedWeekendId, setSelectedWeekendId] = useState<string | null>(null);
   const [singleOriginReady, setSingleOriginReady] = useState(false);
 
-  const selectedPattern = useMemo(
-    () => (selectedPatternId ? getWeekendPattern(selectedPatternId) : null),
-    [selectedPatternId]
+  const selectedPatterns = useMemo(
+    () => getWeekendPatterns(selectedPatternIds),
+    [selectedPatternIds]
   );
-  const translatedSelectedPattern = useMemo(
-    () => weekendPatterns.find(pattern => pattern.id === selectedPatternId) ?? null,
-    [weekendPatterns, selectedPatternId]
+  const translatedSelectedPatterns = useMemo(
+    () => weekendPatterns.filter(pattern => selectedPatternIds.includes(pattern.id)),
+    [weekendPatterns, selectedPatternIds]
   );
 
   const yearWeekends = useMemo(
-    () => getWeekendOptions(selectedPatternId, CALENDAR_PRICE_HORIZON_WEEKENDS),
-    [selectedPatternId]
+    () => getWeekendOptions(selectedPatternIds, CALENDAR_PRICE_HORIZON_WEEKENDS),
+    [selectedPatternIds]
   );
 
   const nextViewMonth = viewMonth === 11 ? 0 : viewMonth + 1;
   const nextViewYear = viewMonth === 11 ? viewYear + 1 : viewYear;
 
   const weekends = useMemo(() => {
-    const first = getWeekendsForMonth(selectedPatternId, viewYear, viewMonth);
-    const second = getWeekendsForMonth(selectedPatternId, nextViewYear, nextViewMonth);
+    const first = getWeekendsForMonth(selectedPatternIds, viewYear, viewMonth);
+    const second = getWeekendsForMonth(selectedPatternIds, nextViewYear, nextViewMonth);
     const seen = new Set(first.map(weekend => weekend.id));
     return [...first, ...second.filter(weekend => !seen.has(weekend.id))];
-  }, [selectedPatternId, viewYear, viewMonth, nextViewYear, nextViewMonth]);
+  }, [selectedPatternIds, viewYear, viewMonth, nextViewYear, nextViewMonth]);
 
   const {
     allCities,
@@ -183,7 +184,7 @@ export function CheapestWeekendPage({
     toCode: destinationCode,
     weekends: yearWeekends,
     selectedWeekendId,
-    selectedPattern,
+    selectedPatterns,
     eveningFilters,
     passengerCount,
     locating: locating || !singleOriginReady
@@ -291,8 +292,8 @@ export function CheapestWeekendPage({
                 <div className="search-field search-dates">
                   <WeekendPicker
                     patterns={weekendPatterns}
-                    selectedPatternId={selectedPatternId}
-                    onSelectedPatternIdChange={setSelectedPatternId}
+                    selectedPatternIds={selectedPatternIds}
+                    onSelectedPatternIdsChange={setSelectedPatternIds}
                     eveningFilters={eveningFilters}
                     onEveningFiltersChange={setEveningFilters}
                     passengerCount={passengerCount}
@@ -329,9 +330,7 @@ export function CheapestWeekendPage({
                     {passengerCount}{' '}
                     {passengerCount === 1 ? t('home.person') : t('home.persons')}
                     {' · '}
-                    {translatedSelectedPattern
-                      ? translatedSelectedPattern.label
-                      : t('home.allTripTypes')}
+                    {formatTripTypesLabel(translatedSelectedPatterns, t('home.allTripTypes'))}
                     {eveningFilters.outboundEvening ? ` · ${t('home.thereEvening')}` : ''}
                     {eveningFilters.returnEvening ? ` · ${t('home.backEvening')}` : ''}
                   </p>

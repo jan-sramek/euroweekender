@@ -1,5 +1,6 @@
 import type { Flight } from '../types/flight';
 import type { WeekendOption, WeekendPattern } from '../types/weekend';
+import { alignWeekendToPattern } from './weekend';
 import {
   EVENING_DEPART_HOUR,
   getReturnDepartDate,
@@ -115,17 +116,22 @@ export function filterFlightsByWeekend(flights: Flight[], weekend: WeekendOption
 export function filterFlightsBySelection(
   flights: Flight[],
   weekend: WeekendOption,
-  pattern: WeekendPattern | null,
+  patterns: readonly WeekendPattern[],
   eveningFilters: EveningFlightFilters = NO_EVENING_FILTERS
 ): Flight[] {
-  const byWeek = pattern ? filterFlightsByWeekend(flights, weekend) : filterFlightsByWeekRange(flights, weekend);
+  const byWeek =
+    patterns.length === 0
+      ? filterFlightsByWeekRange(flights, weekend)
+      : flights.filter(flight =>
+          patterns.some(pattern => matchesWeekendPattern(flight, alignWeekendToPattern(weekend, pattern)))
+        );
   return filterFlightsByEvening(byWeek, eveningFilters);
 }
 
 export function filterFlightsByWeekends(
   flights: Flight[],
   weekends: WeekendOption[],
-  pattern: WeekendPattern | null,
+  patterns: readonly WeekendPattern[],
   eveningFilters: EveningFlightFilters = NO_EVENING_FILTERS
 ): Flight[] {
   if (weekends.length === 0) return [];
@@ -134,7 +140,7 @@ export function filterFlightsByWeekends(
   const matched: Flight[] = [];
 
   for (const weekend of weekends) {
-    for (const flight of filterFlightsBySelection(flights, weekend, pattern, eveningFilters)) {
+    for (const flight of filterFlightsBySelection(flights, weekend, patterns, eveningFilters)) {
       if (seen.has(flight.id)) continue;
       seen.add(flight.id);
       matched.push(flight);

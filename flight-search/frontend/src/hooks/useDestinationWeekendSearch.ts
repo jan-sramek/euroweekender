@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { searchFlightsForWeekends } from '../services/api';
 import { filterFlightsByWeekends, type EveningFlightFilters } from '../services/weekendFilter';
+import { sharedNightsInDest } from '../services/weekend';
 import { filterFlightsByLegSelection, getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { getTripPrice, hasEnoughSeats } from '../utils/flightPrice';
 import type { Flight } from '../types/flight';
@@ -14,7 +15,7 @@ interface UseDestinationWeekendSearchOptions {
   toCode: string | null;
   weekends: WeekendOption[];
   selectedWeekendId: string | null;
-  selectedPattern: WeekendPattern | null;
+  selectedPatterns: WeekendPattern[];
   eveningFilters: EveningFlightFilters;
   passengerCount: number;
   locating: boolean;
@@ -25,7 +26,7 @@ export function useDestinationWeekendSearch({
   toCode,
   weekends,
   selectedWeekendId,
-  selectedPattern,
+  selectedPatterns,
   eveningFilters,
   passengerCount,
   locating
@@ -43,17 +44,19 @@ export function useDestinationWeekendSearch({
     [weekends]
   );
 
+  const patternKey = selectedPatterns.map(pattern => pattern.id).join(',');
+
   const searchKey = useMemo(() => {
     if (!fromCode || !toCode || !weekendKey) return '';
-    return `${fromCode}|${toCode}|${weekendKey}`;
-  }, [fromCode, toCode, weekendKey]);
+    return `${fromCode}|${toCode}|${weekendKey}|${patternKey}`;
+  }, [fromCode, toCode, weekendKey, patternKey]);
 
   const filteredAll = useMemo(() => {
     if (weekends.length === 0) return [];
-    return filterFlightsByWeekends(rawFlights, weekends, selectedPattern, eveningFilters)
+    return filterFlightsByWeekends(rawFlights, weekends, selectedPatterns, eveningFilters)
       .filter(flight => hasEnoughSeats(flight, passengerCount))
       .sort((a, b) => getTripPrice(a, passengerCount) - getTripPrice(b, passengerCount));
-  }, [rawFlights, weekends, selectedPattern, eveningFilters, passengerCount]);
+  }, [rawFlights, weekends, selectedPatterns, eveningFilters, passengerCount]);
 
   const pricesByWeekendId = useMemo(() => {
     const map = new Map<string, number | null>();
@@ -61,7 +64,7 @@ export function useDestinationWeekendSearch({
       const weekendFlights = filterFlightsByWeekends(
         filteredAll,
         [weekend],
-        selectedPattern,
+        selectedPatterns,
         eveningFilters
       );
       if (weekendFlights.length === 0) {
@@ -74,7 +77,7 @@ export function useDestinationWeekendSearch({
       );
     }
     return map;
-  }, [weekends, filteredAll, selectedPattern, eveningFilters, passengerCount]);
+  }, [weekends, filteredAll, selectedPatterns, eveningFilters, passengerCount]);
 
   const selectedWeekend = useMemo(
     () => weekends.find(weekend => weekend.id === selectedWeekendId) ?? null,
@@ -86,10 +89,10 @@ export function useDestinationWeekendSearch({
     return filterFlightsByWeekends(
       filteredAll,
       [selectedWeekend],
-      selectedPattern,
+      selectedPatterns,
       eveningFilters
     ).sort((a, b) => getTripPrice(a, passengerCount) - getTripPrice(b, passengerCount));
-  }, [filteredAll, selectedWeekend, selectedPattern, eveningFilters, passengerCount]);
+  }, [filteredAll, selectedWeekend, selectedPatterns, eveningFilters, passengerCount]);
 
   const visibleFlights = useMemo(
     () => filterFlightsByLegSelection(flights, departureLegFilter, returnLegFilter),
@@ -118,7 +121,7 @@ export function useDestinationWeekendSearch({
           })),
           signal,
           destination,
-          selectedPattern?.nightsInDest,
+          sharedNightsInDest(selectedPatterns),
           partial => {
             if (generation !== searchGeneration.current) return;
             setRawFlights(partial);
@@ -140,7 +143,7 @@ export function useDestinationWeekendSearch({
         }
       }
     },
-    [t, selectedPattern]
+    [t, selectedPatterns]
   );
 
   const loadFlights = useCallback(async () => {

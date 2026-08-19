@@ -21,10 +21,11 @@ import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   DEFAULT_WEEKEND_MONTHS,
   findMatchingWeekendIds,
+  formatTripTypesLabel,
   formatWeekendsLabel,
   getWeekendIdsForMonths,
   getWeekendOptions,
-  getWeekendPattern,
+  getWeekendPatterns,
   WEEKEND_OPTIONS_COUNT
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
@@ -69,23 +70,23 @@ export function HomePage() {
 
   useJsonLd(homeFaqItems.length > 0 ? faqPageJsonLd(homeFaqItems) : null);
 
-  const [selectedPatternId, setSelectedPatternId] = useState<WeekendPatternId | null>(null);
+  const [selectedPatternIds, setSelectedPatternIds] = useState<WeekendPatternId[]>([]);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedWeekendIds, setSelectedWeekendIds] = useState<string[]>([]);
   const [selectedRangeMonths, setSelectedRangeMonths] = useState<number | null>(DEFAULT_WEEKEND_MONTHS);
 
-  const selectedPattern = useMemo(
-    () => (selectedPatternId ? getWeekendPattern(selectedPatternId) : null),
-    [selectedPatternId]
+  const selectedPatterns = useMemo(
+    () => getWeekendPatterns(selectedPatternIds),
+    [selectedPatternIds]
   );
-  const translatedSelectedPattern = useMemo(
-    () => weekendPatterns.find(pattern => pattern.id === selectedPatternId) ?? null,
-    [weekendPatterns, selectedPatternId]
+  const translatedSelectedPatterns = useMemo(
+    () => weekendPatterns.filter(pattern => selectedPatternIds.includes(pattern.id)),
+    [weekendPatterns, selectedPatternIds]
   );
   const weekends = useMemo(
-    () => getWeekendOptions(selectedPatternId, WEEKEND_OPTIONS_COUNT),
-    [selectedPatternId]
+    () => getWeekendOptions(selectedPatternIds, WEEKEND_OPTIONS_COUNT),
+    [selectedPatternIds]
   );
 
   const {
@@ -116,7 +117,7 @@ export function HomePage() {
     selectedCodes,
     weekends,
     selectedWeekendIds,
-    selectedPattern,
+    selectedPatterns,
     eveningFilters,
     passengerCount,
     locating
@@ -243,8 +244,8 @@ export function HomePage() {
                 <div className="search-field search-dates">
                   <WeekendPicker
                     patterns={weekendPatterns}
-                    selectedPatternId={selectedPatternId}
-                    onSelectedPatternIdChange={setSelectedPatternId}
+                    selectedPatternIds={selectedPatternIds}
+                    onSelectedPatternIdsChange={setSelectedPatternIds}
                     eveningFilters={eveningFilters}
                     onEveningFiltersChange={setEveningFilters}
                     passengerCount={passengerCount}
@@ -284,7 +285,7 @@ export function HomePage() {
                 })}{' '}
                 · {passengerCount}{' '}
                 {passengerCount === 1 ? t('home.person') : t('home.persons')} ·{' '}
-                {translatedSelectedPattern ? translatedSelectedPattern.label : t('home.allTripTypes')}
+                {formatTripTypesLabel(translatedSelectedPatterns, t('home.allTripTypes'))}
                 {eveningFilters.outboundEvening ? ` · ${t('home.thereEvening')}` : ''}
                 {eveningFilters.returnEvening ? ` · ${t('home.backEvening')}` : ''} · {weekendsLabel}
               </p>

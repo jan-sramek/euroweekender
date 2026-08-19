@@ -10,8 +10,8 @@ const WEEKEND_RANGE_PRESETS = [1, 3, 6] as const;
 
 interface WeekendPickerProps {
   patterns: WeekendPattern[];
-  selectedPatternId: WeekendPatternId | null;
-  onSelectedPatternIdChange: (id: WeekendPatternId | null) => void;
+  selectedPatternIds: WeekendPatternId[];
+  onSelectedPatternIdsChange: (ids: WeekendPatternId[]) => void;
   eveningFilters: EveningFlightFilters;
   onEveningFiltersChange: (filters: EveningFlightFilters) => void;
   passengerCount: number;
@@ -65,8 +65,8 @@ function EveningToggle({ active, title, label, onClick }: EveningToggleProps) {
 
 export function WeekendPicker({
   patterns,
-  selectedPatternId,
-  onSelectedPatternIdChange,
+  selectedPatternIds,
+  onSelectedPatternIdsChange,
   eveningFilters,
   onEveningFiltersChange,
   passengerCount,
@@ -81,7 +81,9 @@ export function WeekendPicker({
 }: WeekendPickerProps) {
   const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const selectedPattern = patterns.find(p => p.id === selectedPatternId);
+  const selectedPatterns = patterns.filter(pattern => selectedPatternIds.includes(pattern.id));
+  const weekendSubLabel =
+    selectedPatterns.length === 1 ? selectedPatterns[0].shortLabel : '';
 
   const inferredRangeMonths = useMemo(() => {
     if (selectedWeekendIds.length === 0) return null;
@@ -105,7 +107,11 @@ export function WeekendPicker({
   };
 
   const handlePatternClick = (patternId: WeekendPatternId) => {
-    onSelectedPatternIdChange(selectedPatternId === patternId ? null : patternId);
+    onSelectedPatternIdsChange(
+      selectedPatternIds.includes(patternId)
+        ? selectedPatternIds.filter(id => id !== patternId)
+        : [...selectedPatternIds, patternId]
+    );
   };
 
   const rangeLabel = (months: (typeof WEEKEND_RANGE_PRESETS)[number]) => {
@@ -166,8 +172,8 @@ export function WeekendPicker({
                     onClick={() => onWeekendToggle(weekend.id)}
                   >
                     <span className="weekend-range">{weekend.shortLabel}</span>
-                    <span className={`weekend-sub${selectedPattern ? '' : ' weekend-sub-placeholder'}`}>
-                      {selectedPattern ? selectedPattern.shortLabel : '\u00A0'}
+                    <span className={`weekend-sub${weekendSubLabel ? '' : ' weekend-sub-placeholder'}`}>
+                      {weekendSubLabel || '\u00A0'}
                     </span>
                   </button>
                 );
@@ -201,16 +207,15 @@ export function WeekendPicker({
           <span className="weekend-section-hint">{t('search.tripTypeHint')}</span>
         </div>
 
-        <div className="pattern-track" role="tablist" aria-label={t('search.selectTripType')}>
+        <div className="pattern-track" role="group" aria-label={t('search.selectTripType')}>
           {patterns.map(pattern => {
-            const active = pattern.id === selectedPatternId;
+            const active = selectedPatternIds.includes(pattern.id);
             return (
               <button
                 key={pattern.id}
                 type="button"
                 className={`pattern-pill${active ? ' pattern-pill-active' : ''}`}
-                role="tab"
-                aria-selected={active}
+                aria-pressed={active}
                 title={pattern.label}
                 onClick={() => handlePatternClick(pattern.id)}
               >

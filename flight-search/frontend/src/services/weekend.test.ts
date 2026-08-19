@@ -1,10 +1,15 @@
 ﻿import { describe, expect, it } from 'vitest';
 import {
   chunkWeekendWindows,
+  alignWeekendToPattern,
+  formatTripTypesLabel,
   getDefaultWeekendIds,
   getWeekendIdsForMonths,
   getWeekendOptions,
+  getWeekendPattern,
+  getWeekendPatterns,
   getWeekendSearchRange,
+  sharedNightsInDest,
   WEEKEND_OPTIONS_COUNT
 } from './weekend';
 
@@ -58,11 +63,58 @@ describe('getWeekendSearchRange', () => {
 
 describe('getDefaultWeekendIds', () => {
   it('matches the next-6-months preset selection', () => {
-    const weekends = getWeekendOptions(null, WEEKEND_OPTIONS_COUNT);
+    const weekends = getWeekendOptions([], WEEKEND_OPTIONS_COUNT);
     const defaults = getDefaultWeekendIds(weekends);
     const sixMonths = getWeekendIdsForMonths(weekends, 6);
     expect(defaults).toEqual(sixMonths);
     expect(defaults.length).toBeGreaterThan(0);
     expect(defaults.length).toBeLessThan(weekends.length);
+  });
+});
+
+describe('getWeekendOptions', () => {
+  it('uses pattern-specific ids for a single trip type', () => {
+    const weekends = getWeekendOptions(['fri-sun'], 4);
+    expect(weekends.length).toBe(4);
+    expect(weekends.every(weekend => weekend.id.startsWith('fri-sun-'))).toBe(true);
+    expect(weekends.every(weekend => weekend.nightsInDest === 2)).toBe(true);
+  });
+
+  it('keeps calendar-week ids when multiple trip types are selected', () => {
+    const none = getWeekendOptions([], 4);
+    const multi = getWeekendOptions(['fri-sun', 'wed-sun'], 4);
+    expect(multi.map(weekend => weekend.id)).toEqual(none.map(weekend => weekend.id));
+  });
+
+  it('widens the search window to cover every selected pattern', () => {
+    const multi = getWeekendOptions(['fri-sun', 'wed-sun'], 1)[0];
+    const alignedFri = alignWeekendToPattern(multi, getWeekendPattern('fri-sun'));
+    const alignedWed = alignWeekendToPattern(multi, getWeekendPattern('wed-sun'));
+    expect(multi.departFrom.getTime()).toBe(
+      Math.min(alignedFri.departFrom.getTime(), alignedWed.departFrom.getTime())
+    );
+    expect(multi.departTo.getTime()).toBe(
+      Math.max(alignedFri.departTo.getTime(), alignedWed.departTo.getTime())
+    );
+  });
+});
+
+describe('sharedNightsInDest', () => {
+  it('returns undefined when patterns disagree or none are selected', () => {
+    expect(sharedNightsInDest([])).toBeUndefined();
+    expect(sharedNightsInDest(getWeekendPatterns(['fri-sun', 'fri-mon']))).toBeUndefined();
+  });
+
+  it('returns the shared night count', () => {
+    expect(sharedNightsInDest(getWeekendPatterns(['thu-sun', 'fri-mon']))).toBe(3);
+  });
+});
+
+describe('formatTripTypesLabel', () => {
+  it('joins selected labels and falls back to the all-types copy', () => {
+    expect(formatTripTypesLabel([], 'all trip types')).toBe('all trip types');
+    expect(formatTripTypesLabel(getWeekendPatterns(['fri-sun', 'fri-mon']), 'all trip types')).toBe(
+      'Friday – Sunday, Friday – Monday'
+    );
   });
 });

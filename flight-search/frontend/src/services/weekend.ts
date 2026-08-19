@@ -58,6 +58,27 @@ export function getWeekendPattern(id: WeekendPatternId): WeekendPattern {
   return WEEKEND_PATTERNS.find(p => p.id === id) ?? WEEKEND_PATTERNS[0];
 }
 
+export function getWeekendPatterns(ids: readonly WeekendPatternId[]): WeekendPattern[] {
+  if (ids.length === 0) return [];
+  const selected = new Set(ids);
+  return WEEKEND_PATTERNS.filter(pattern => selected.has(pattern.id));
+}
+
+/** Pass a single nights filter to the API only when every selected pattern agrees. */
+export function sharedNightsInDest(patterns: readonly WeekendPattern[]): number | undefined {
+  if (patterns.length === 0) return undefined;
+  const nights = patterns[0].nightsInDest;
+  return patterns.every(pattern => pattern.nightsInDest === nights) ? nights : undefined;
+}
+
+export function formatTripTypesLabel(
+  patterns: readonly Pick<WeekendPattern, 'label'>[],
+  allLabel: string
+): string {
+  if (patterns.length === 0) return allLabel;
+  return patterns.map(pattern => pattern.label).join(', ');
+}
+
 function startOfDay(date: Date): Date {
   const copy = new Date(date);
   copy.setHours(0, 0, 0, 0);
@@ -205,13 +226,44 @@ export function getDefaultWeekendIds(
   return getWeekendIdsForMonths(weekends, months);
 }
 
+/** Align a travel-week pill to a specific stay pattern (depart/return days and nights). */
+export function alignWeekendToPattern(weekend: WeekendOption, pattern: WeekendPattern): WeekendOption {
+  const weekStart = travelWeekStart(weekend.departDate);
+  const departDate = nextWeekday(weekStart, pattern.departWeekday);
+  return toWeekendOption(pattern, departDate);
+}
+
+function expandWeekendForPatterns(weekend: WeekendOption, patterns: WeekendPattern[]): WeekendOption {
+  if (patterns.length === 0) return weekend;
+
+  const aligned = patterns.map(pattern => alignWeekendToPattern(weekend, pattern));
+  const departFrom = new Date(Math.min(...aligned.map(item => item.departFrom.getTime())));
+  const departTo = new Date(Math.max(...aligned.map(item => item.departTo.getTime())));
+  const departDate = new Date(Math.min(...aligned.map(item => item.departDate.getTime())));
+  const returnDate = new Date(Math.max(...aligned.map(item => item.returnDate.getTime())));
+
+  return {
+    ...weekend,
+    departFrom,
+    departTo,
+    departDate,
+    returnDate,
+    nightsInDest: 0
+  };
+}
+
 export function getWeekendOptions(
-  patternId: WeekendPatternId | null,
+  patternIds: readonly WeekendPatternId[] = [],
   count = WEEKEND_OPTIONS_COUNT
 ): WeekendOption[] {
-  return patternId
-    ? getUpcomingWeekends(getWeekendPattern(patternId), count)
-    : getUpcomingCalendarWeeks(count);
+  if (patternIds.length === 1) {
+    return getUpcomingWeekends(getWeekendPattern(patternIds[0]), count);
+  }
+
+  const calendarWeeks = getUpcomingCalendarWeeks(count);
+  if (patternIds.length === 0) return calendarWeeks;
+
+  return calendarWeeks.map(week => expandWeekendForPatterns(week, getWeekendPatterns(patternIds)));
 }
 
 function overlapsMonth(weekend: WeekendOption, year: number, month: number): boolean {
@@ -250,17 +302,21 @@ function getWeekendsFromCursor(
 
 /** Weekends whose trip days overlap the given calendar month (0-based month). */
 export function getWeekendsForMonth(
-  patternId: WeekendPatternId | null,
+  patternIds: readonly WeekendPatternId[] = [],
   year: number,
   month: number
 ): WeekendOption[] {
-  const pattern = patternId ? getWeekendPattern(patternId) : null;
+  const pattern = patternIds.length === 1 ? getWeekendPattern(patternIds[0]) : null;
   // Start a week before the month so trips that begin in the previous month still appear.
   const from = addDays(new Date(year, month, 1), -7);
   const until = new Date(year, month + 1, 7);
-  return getWeekendsFromCursor(pattern, from, until).filter(weekend =>
+  const weekends = getWeekendsFromCursor(pattern, from, until).filter(weekend =>
     overlapsMonth(weekend, year, month)
   );
+
+  if (patternIds.length <= 1) return weekends;
+
+  return weekends.map(weekend => expandWeekendForPatterns(weekend, getWeekendPatterns(patternIds)));
 }
 
 /** Inclusive list of calendar days from depart through return for a weekend trip. */

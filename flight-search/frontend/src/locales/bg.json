@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Пътуващ уикенд",
     "travelWeekendHint": "Изберете един или повече периода",
+    "isoWeek": "с{{week}}",
     "clearWeekends": "Премахни избора",
     "weekendNextMonth": "Следващия месец",
     "weekendNext3Months": "Следващите 3 месеца",

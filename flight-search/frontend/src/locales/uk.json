@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Вихідні для подорожі",
     "travelWeekendHint": "Оберіть один або кілька діапазонів дат",
+    "isoWeek": "тижд. {{week}}",
     "clearWeekends": "Зняти вибір",
     "weekendNextMonth": "Наступний місяць",
     "weekendNext3Months": "Наступні 3 місяці",

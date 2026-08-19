@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Weekend di viaggio",
     "travelWeekendHint": "Scegli uno o più intervalli di date",
+    "isoWeek": "S{{week}}",
     "clearWeekends": "Deseleziona tutto",
     "weekendNextMonth": "Prossimo mese",
     "weekendNext3Months": "Prossimi 3 mesi",

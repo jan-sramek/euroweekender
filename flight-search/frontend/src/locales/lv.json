@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
     "travelWeekendHint": "Izvēlies vienu vai vairākus datumu intervālus",
+    "isoWeek": "n. {{week}}",
     "clearWeekends": "Noņemt atlasi",
     "weekendNextMonth": "Nākamais mēnesis",
     "weekendNext3Months": "Nākamie 3 mēneši",

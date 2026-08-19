@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Kelionės savaitgalis",
     "travelWeekendHint": "Pasirinkite vieną ar daugiau datų intervalų",
+    "isoWeek": "sav. {{week}}",
     "clearWeekends": "Atžymėti viską",
     "weekendNextMonth": "Kitas mėnuo",
     "weekendNext3Months": "Ateinantys 3 mėn.",

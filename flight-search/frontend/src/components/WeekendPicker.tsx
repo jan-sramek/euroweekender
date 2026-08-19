@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PassengerPicker } from './PassengerPicker';
-import { getWeekendIdsForMonths } from '../services/weekend';
+import { getIsoWeekNumber, getWeekendIdsForMonths } from '../services/weekend';
 import type { EveningFlightFilters } from '../services/weekendFilter';
 import type { WeekendOption, WeekendPattern, WeekendPatternId } from '../types/weekend';
 import './WeekendPicker.css';
@@ -163,14 +163,17 @@ export function WeekendPicker({
             <div className="weekend-track" ref={scrollRef} role="group" aria-label={t('search.selectWeekends')}>
               {weekends.map(weekend => {
                 const active = selectedWeekendIds.includes(weekend.id);
+                const weekLabel = t('search.isoWeek', { week: getIsoWeekNumber(weekend.departDate) });
                 return (
                   <button
                     key={weekend.id}
                     type="button"
                     className={`weekend-pill${active ? ' weekend-pill-active' : ''}`}
                     aria-pressed={active}
+                    aria-label={`${weekLabel}, ${weekend.shortLabel}`}
                     onClick={() => onWeekendToggle(weekend.id)}
                   >
+                    <span className="weekend-week">{weekLabel}</span>
                     <span className="weekend-range">{weekend.shortLabel}</span>
                     <span className={`weekend-sub${weekendSubLabel ? '' : ' weekend-sub-placeholder'}`}>
                       {weekendSubLabel || '\u00A0'}

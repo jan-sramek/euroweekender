@@ -130,6 +130,15 @@ function formatRange(from: Date, to: Date): string {
   return `${from.getDate()} ${month} – ${to.getDate()} ${toMonth}`;
 }
 
+/** ISO-8601 week number (Monday-start; week 1 contains the year's first Thursday). */
+export function getIsoWeekNumber(date: Date): number {
+  const utc = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const weekday = utc.getUTCDay() || 7;
+  utc.setUTCDate(utc.getUTCDate() + 4 - weekday);
+  const yearStart = new Date(Date.UTC(utc.getUTCFullYear(), 0, 1));
+  return Math.ceil(((utc.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
+}
+
 function toWeekendOption(pattern: WeekendPattern | null, departDate: Date): WeekendOption {
   const nightsInDest = pattern?.nightsInDest ?? 0;
   const calendarEnd = addDays(departDate, 3);

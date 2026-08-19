@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Reisehelg",
     "travelWeekendHint": "Velg ett eller flere datointervaller",
+    "isoWeek": "uke {{week}}",
     "clearWeekends": "Fjern alle",
     "weekendNextMonth": "Neste måned",
     "weekendNext3Months": "Neste 3 måneder",

@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Σαββατοκύριακο ταξιδιού",
     "travelWeekendHint": "Επιλέξτε ένα ή περισσότερα εύρη ημερομηνιών",
+    "isoWeek": "Ε{{week}}",
     "clearWeekends": "Αποεπιλογή όλων",
     "weekendNextMonth": "Επόμενος μήνας",
     "weekendNext3Months": "Επόμενοι 3 μήνες",

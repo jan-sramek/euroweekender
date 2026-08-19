@@ -251,6 +251,7 @@
   "search": {
     "travelWeekend": "Travel weekend",
     "travelWeekendHint": "Pick one or more date ranges",
+    "isoWeek": "W{{week}}",
     "clearWeekends": "Unselect all",
     "weekendNextMonth": "Next month",
     "weekendNext3Months": "Next 3 months",

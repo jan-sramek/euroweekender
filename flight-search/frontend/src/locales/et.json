@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Reisinädalavahetus",
     "travelWeekendHint": "Vali üks või mitu kuupäevavahemikku",
+    "isoWeek": "n{{week}}",
     "clearWeekends": "Tühista valik",
     "weekendNextMonth": "Järgmine kuu",
     "weekendNext3Months": "Järgmised 3 kuud",

@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Weekend de călătorie",
     "travelWeekendHint": "Alegeți unul sau mai multe intervale de date",
+    "isoWeek": "S{{week}}",
     "clearWeekends": "Deselectează tot",
     "weekendNextMonth": "Luna viitoare",
     "weekendNext3Months": "Următoarele 3 luni",

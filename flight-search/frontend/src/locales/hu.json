@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Utazási hétvége",
     "travelWeekendHint": "Válassz egy vagy több dátumtartományt",
+    "isoWeek": "{{week}}. hét",
     "clearWeekends": "Összes törlése",
     "weekendNextMonth": "Következő hónap",
     "weekendNext3Months": "Következő 3 hónap",

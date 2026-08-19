@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Ferðahelgi",
     "travelWeekendHint": "Veldu eitt eða fleiri dagsetningabil",
+    "isoWeek": "v. {{week}}",
     "clearWeekends": "Afvelja allt",
     "weekendNextMonth": "Næsti mánuður",
     "weekendNext3Months": "Næstu 3 mánuðir",

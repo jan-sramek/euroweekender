@@ -127,6 +127,7 @@
   "search": {
     "travelWeekend": "Cestovní víkend",
     "travelWeekendHint": "Vyberte jeden nebo více termínů",
+    "isoWeek": "T{{week}}",
     "clearWeekends": "Zrušit výběr",
     "weekendNextMonth": "Příští měsíc",
     "weekendNext3Months": "Příští 3 měsíce",

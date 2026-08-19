@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Reshelg",
     "travelWeekendHint": "Välj ett eller flera datumintervall",
+    "isoWeek": "v. {{week}}",
     "clearWeekends": "Avmarkera alla",
     "weekendNextMonth": "Nästa månad",
     "weekendNext3Months": "Nästa 3 månader",

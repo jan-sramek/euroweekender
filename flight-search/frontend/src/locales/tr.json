@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Seyahat hafta sonu",
     "travelWeekendHint": "Bir veya daha fazla tarih aralığı seçin",
+    "isoWeek": "{{week}}. hf",
     "clearWeekends": "Tümünü kaldır",
     "weekendNextMonth": "Sonraki ay",
     "weekendNext3Months": "Sonraki 3 ay",

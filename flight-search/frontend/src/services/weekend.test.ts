@@ -9,6 +9,7 @@ import {
   getWeekendPattern,
   getWeekendPatterns,
   getWeekendSearchRange,
+  getIsoWeekNumber,
   nightsInDestSearchValues,
   WEEKEND_OPTIONS_COUNT
 } from './weekend';
@@ -118,5 +119,17 @@ describe('formatTripTypesLabel', () => {
     expect(formatTripTypesLabel(getWeekendPatterns(['fri-sun', 'fri-mon']), 'all trip types')).toBe(
       'Friday – Sunday, Friday – Monday'
     );
+  });
+});
+
+describe('getIsoWeekNumber', () => {
+  it('uses the Thursday of the ISO week as the week-numbering day', () => {
+    expect(getIsoWeekNumber(new Date(2026, 0, 1))).toBe(1);
+    expect(getIsoWeekNumber(new Date(2026, 7, 20))).toBe(34);
+    expect(getIsoWeekNumber(new Date(2026, 7, 21))).toBe(34);
+  });
+
+  it('places 31 Dec 2020 in ISO week 53', () => {
+    expect(getIsoWeekNumber(new Date(2020, 11, 31))).toBe(53);
   });
 });

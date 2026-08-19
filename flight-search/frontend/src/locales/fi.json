@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Matkaviikonloppu",
     "travelWeekendHint": "Valitse yksi tai useampi ajanjakso",
+    "isoWeek": "vk {{week}}",
     "clearWeekends": "Poista valinnat",
     "weekendNextMonth": "Seuraava kuukausi",
     "weekendNext3Months": "Seuraavat 3 kk",

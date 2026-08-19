@@ -125,6 +125,7 @@
   "search": {
     "travelWeekend": "Выходные для поездки",
     "travelWeekendHint": "Выберите один или несколько диапазонов дат",
+    "isoWeek": "нед. {{week}}",
     "clearWeekends": "Снять выбор",
     "weekendNextMonth": "Следующий месяц",
     "weekendNext3Months": "Следующие 3 месяца",

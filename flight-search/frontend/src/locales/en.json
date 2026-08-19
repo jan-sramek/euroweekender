@@ -434,7 +434,7 @@
       },
       {
         "q": "Is my location stored?",
-        "a": "Geolocation is used only in your browser to suggest nearby airports. We do not store your GPS coordinates on our servers. See our privacy policy for details."
+        "a": "Browser location is used on your device to suggest nearby airports. If GPS is unavailable we approximate your city from your IP address. We do not store GPS or IP-derived coordinates. See our privacy policy for details."
       }
     ],
     "heroImageAlt": "Travel map and planning notes on a desk",
@@ -462,7 +462,7 @@
     "usageLabel": "Usage data:",
     "usage": "Standard server logs (IP address, browser type, pages viewed) may be collected by our hosting provider for security and performance.",
     "locationLabel": "Location:",
-    "location": "If you allow browser geolocation, coordinates are used locally to suggest nearby airports. We do not persist GPS data on our servers.",
+    "location": "If you allow browser geolocation, coordinates are used locally to suggest nearby airports. If GPS is unavailable, we approximate your city from your IP address for the same purpose. We do not persist GPS or IP-derived coordinates.",
     "searchPrefsLabel": "Search preferences:",
     "searchPrefs": "Airport and weekend selections are kept in your browser session only and are not linked to a user account.",
     "thirdPartyTitle": "Third-party services",

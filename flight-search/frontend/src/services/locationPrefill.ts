@@ -5,15 +5,12 @@ import { computeEffectiveScore, hubScoresByCode } from './hubScore';
 const EARTH_RADIUS_KM = 6371;
 export const NEARBY_RADIUS_KM = 350;
 export const NEARBY_MAX_CITIES = 100;
-export const DEFAULT_ANCHOR_CODE = 'PRG';
 /** Only auto-select airports within this drive of the anchor (e.g. Ostrava + Katowice). */
 export const DEFAULT_SELECTED_RADIUS_KM = 120;
 /** Cap on auto-selected origins; usually just the home airport plus a close neighbour. */
 export const DEFAULT_SELECTED_CITIES = 3;
 /** Empty destination dropdown: priced/popular cities first, then A–Z. */
 export const DESTINATION_SUGGEST_MAX_CITIES = 100;
-
-const DEFAULT_FALLBACK_CODES = ['PRG', 'VIE', 'BER', 'MUC', 'BCN'];
 
 export function findCityByCode(cities: City[], code: string): City | undefined {
   const normalized = code.trim().toUpperCase();
@@ -35,27 +32,15 @@ function takeTopCityCodes(orderedCodes: string[], count = DEFAULT_SELECTED_CITIE
   return unique;
 }
 
-function resolveAnchorCity(cities: City[], anchorCode: string): City | undefined {
-  return (
-    findCityByCode(cities, anchorCode) ??
-    DEFAULT_FALLBACK_CODES.map(code => findCityByCode(cities, code)).find(
-      (city): city is City => city !== undefined
-    )
-  );
-}
-
 /** Pick default departure airports: the anchor plus only very close neighbours. */
 export function selectDefaultCityCodes(
   cities: City[],
   hubScores: HubScore[],
-  anchorCode = DEFAULT_ANCHOR_CODE,
+  anchorCode: string,
   count = DEFAULT_SELECTED_CITIES
 ): string[] {
-  const anchorCity = resolveAnchorCity(cities, anchorCode);
-
-  if (!anchorCity) {
-    return cities[0] ? [cities[0].code.toUpperCase()] : [];
-  }
+  const anchorCity = findCityByCode(cities, anchorCode);
+  if (!anchorCity) return [];
 
   const anchorCodeUpper = anchorCity.code.toUpperCase();
   const close = rankCitiesByDistance(
@@ -91,6 +76,27 @@ export function selectDefaultCityCodes(
   return takeTopCityCodes(ordered, count);
 }
 
+/** Nearest city to a GPS or IP fix; undefined when location is missing. */
+export function selectAnchorCodeFromPosition(
+  cities: City[],
+  position: GeoPosition | null | undefined
+): string | undefined {
+  if (!position) return undefined;
+  return rankCitiesByDistance(cities, position, { limit: 1 })[0]?.code.toUpperCase();
+}
+
+/** Default origins from a location fix (Ostrava → OSR + Katowice). Empty when unknown. */
+export function selectDefaultCityCodesFromPosition(
+  cities: City[],
+  hubScores: HubScore[],
+  position: GeoPosition | null | undefined,
+  count = DEFAULT_SELECTED_CITIES
+): string[] {
+  const anchor = selectAnchorCodeFromPosition(cities, position);
+  if (!anchor) return [];
+  return selectDefaultCityCodes(cities, hubScores, anchor, count);
+}
+
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const toRad = (deg: number) => (deg * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
@@ -99,19 +105,6 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
     Math.sin(dLat / 2) ** 2 +
     Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
   return EARTH_RADIUS_KM * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
-
-/** Static fallback origin used before hub scores are ready — just the default anchor. */
-export function selectFallbackCityCodes(
-  cities: City[],
-  count = 1
-): string[] {
-  const anchor = resolveAnchorCity(cities, DEFAULT_ANCHOR_CODE);
-  if (anchor) {
-    return takeTopCityCodes([anchor.code], count);
-  }
-
-  return cities[0] ? [cities[0].code.toUpperCase()] : [];
 }
 
 /** Closest cities by haversine distance (for empty-query airport dropdowns). */

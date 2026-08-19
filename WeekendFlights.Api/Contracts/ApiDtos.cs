@@ -43,6 +43,8 @@ public record OriginDestinationDto(
     int OfferCount,
     double MinPrice);
 
+public record IpGeoPositionDto(double Latitude, double Longitude);
+
 public record FlightSearchDto(
     int Id,
     string CountryTo,

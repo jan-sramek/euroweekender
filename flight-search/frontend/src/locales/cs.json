@@ -310,7 +310,7 @@
       },
       {
         "q": "Ukládá se moje poloha?",
-        "a": "Geolokace se používá pouze ve vašem prohlížeči k navržení blízkých letišť. GPS souřadnice na našich serverech neukládáme. Podrobnosti najdete v našich zásadách ochrany osobních údajů."
+        "a": "Poloha z prohlížeče se používá na vašem zařízení k navržení blízkých letišť. Pokud GPS není k dispozici, odhadneme město z vaší IP adresy. GPS ani souřadnice z IP na serverech neukládáme. Podrobnosti najdete v našich zásadách ochrany osobních údajů."
       }
     ],
     "heroImageAlt": "Cestovní mapa a poznámky k plánování na stole",
@@ -338,7 +338,7 @@
     "usageLabel": "Údaje o využití:",
     "usage": "Standardní serverové logy (IP adresa, typ prohlížeče, zobrazené stránky) může shromažďovat náš hostingový poskytovatel kvůli bezpečnosti a výkonu.",
     "locationLabel": "Poloha:",
-    "location": "Pokud povolíte geolokaci v prohlížeči, souřadnice se používají lokálně k navržení blízkých letišť. GPS data na našich serverech neukládáme.",
+    "location": "Pokud povolíte geolokaci v prohlížeči, souřadnice se používají lokálně k navržení blízkých letišť. Pokud GPS není k dispozici, odhadneme město z vaší IP adresy. GPS ani souřadnice z IP neukládáme.",
     "searchPrefsLabel": "Předvolby vyhledávání:",
     "searchPrefs": "Výběr letišť a víkendů je uchováván pouze v relaci prohlížeče a není propojen s uživatelským účtem.",
     "thirdPartyTitle": "Služby třetích stran",

@@ -3,8 +3,9 @@ import {
   findCityByCode,
   rankCitiesByDistance,
   rankCitiesForDestinationSuggest,
+  selectAnchorCodeFromPosition,
   selectDefaultCityCodes,
-  selectFallbackCityCodes
+  selectDefaultCityCodesFromPosition
 } from '../services/locationPrefill';
 import type { City, HubScore } from '../types/city';
 
@@ -124,7 +125,7 @@ const cities: City[] = [
 
 describe('locationPrefill', () => {
   it('defaults to the anchor only when no other airports are really close', () => {
-    const defaults = selectDefaultCityCodes(cities, hubScores);
+    const defaults = selectDefaultCityCodes(cities, hubScores, 'PRG');
 
     expect(defaults).toEqual(['PRG']);
     expect(defaults).not.toContain('VIE');
@@ -142,8 +143,18 @@ describe('locationPrefill', () => {
     expect(defaults).not.toContain('WAW');
   });
 
-  it('uses only the default anchor before hub scores are available', () => {
-    expect(selectFallbackCityCodes(cities)).toEqual(['PRG']);
+  it('picks Ostrava from a GPS fix in the city, not Prague or Brno', () => {
+    const ostravaCenter = { latitude: 49.8209, longitude: 18.2625 };
+
+    expect(selectAnchorCodeFromPosition(cities, ostravaCenter)).toBe('OSR');
+    expect(selectDefaultCityCodesFromPosition(cities, hubScores, ostravaCenter)).toEqual(
+      selectDefaultCityCodes(cities, hubScores, 'OSR')
+    );
+  });
+
+  it('does not fall back to Prague when location is unknown', () => {
+    expect(selectAnchorCodeFromPosition(cities, null)).toBeUndefined();
+    expect(selectDefaultCityCodesFromPosition(cities, hubScores, null)).toEqual([]);
   });
 
   it('ranks cities by distance from an origin for empty dropdown suggestions', () => {

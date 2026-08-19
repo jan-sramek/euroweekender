@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCachedHubScores, getCities, getHubScores } from '../services/api';
+import { resolveUserPosition } from '../services/geolocation';
 import {
   findCityByCode,
   rankNearbyCities,
-  selectDefaultCityCodes,
-  selectFallbackCityCodes
+  selectDefaultCityCodesFromPosition
 } from '../services/locationPrefill';
 import type { City, CityWithDistance, HubScore } from '../types/city';
 import { indexCitiesByCode } from '../utils/cityDisplayName';
@@ -94,12 +94,11 @@ export function useDeparturePrefill(options?: {
 
   const applyDefaults = useCallback(
     (cities: City[], codes: string[], scores: HubScore[]) => {
-      const next = codes.length > 0 ? codes : selectFallbackCityCodes(cities);
-      setSelectedCodes(next);
+      setSelectedCodes(codes);
       defaultsInitializedRef.current = true;
       setLocating(false);
-      refreshHubSuggestions(cities, scores, next[0] ?? '');
-      writeStoredOrigins(next);
+      refreshHubSuggestions(cities, scores, codes[0] ?? '');
+      writeStoredOrigins(codes);
     },
     [refreshHubSuggestions]
   );
@@ -151,6 +150,12 @@ export function useDeparturePrefill(options?: {
         scores => ({ scores, error: false as const }),
         () => ({ scores: [] as HubScore[], error: true as const })
       );
+      // Start GPS immediately unless this tab already chose origins (avoids a second prompt on F5).
+      const storedHint = preferredKey ? null : readStoredOrigins();
+      const positionPromise =
+        !preferredKey && !(storedHint && storedHint.length > 0)
+          ? resolveUserPosition()
+          : null;
 
       try {
         const cities = await getCities();
@@ -196,10 +201,13 @@ export function useDeparturePrefill(options?: {
           return;
         }
 
+        const position = await (positionPromise ?? resolveUserPosition());
+        if (cancelled) return;
+
         const cachedScores = getCachedHubScores();
         if (cachedScores && cachedScores.length > 0) {
           hubScoresRef.current = cachedScores;
-          const defaults = selectDefaultCityCodes(cities, cachedScores);
+          const defaults = selectDefaultCityCodesFromPosition(cities, cachedScores, position);
           applyDefaults(cities, defaults, cachedScores);
 
           void scoresPromise.then(result => {
@@ -210,17 +218,21 @@ export function useDeparturePrefill(options?: {
           return;
         }
 
-        // Keep locating=true until scores arrive so flights do not search provisional Prague first.
+        // Keep locating=true until GPS/IP + scores arrive so flights do not search a guessed city first.
         const result = await scoresPromise;
         if (cancelled) return;
         if (result.error) {
           setErrorMessage(i18n.t('home.hubRankingWarning'));
-          applyDefaults(cities, selectFallbackCityCodes(cities), []);
+          applyDefaults(cities, selectDefaultCityCodesFromPosition(cities, [], position), []);
           return;
         }
 
         hubScoresRef.current = result.scores;
-        applyDefaults(cities, selectDefaultCityCodes(cities, result.scores), result.scores);
+        applyDefaults(
+          cities,
+          selectDefaultCityCodesFromPosition(cities, result.scores, position),
+          result.scores
+        );
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using WeekendFlights.Application;
 using WeekendFlights.Application.Interfaces;
+using WeekendFlights.Infrastructure.Geo;
 using WeekendFlights.Infrastructure.Kiwi;
 using WeekendFlights.Infrastructure.Persistence;
 using WeekendFlights.Infrastructure.Persistence.Repositories;
@@ -49,6 +50,14 @@ public static class Startup
             {
                 sp.GetRequiredService<TequilaApiSearchClientConfigurator>().Configure(client);
             });
+
+        services.AddHttpClient<IIpGeolocationClient, GeoJsIpGeolocationClient>(client =>
+        {
+            client.BaseAddress = new Uri("https://get.geojs.io/");
+            client.Timeout = TimeSpan.FromSeconds(3);
+            client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json");
+            client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "euroweekender/1.0");
+        });
 
         services.AddSingleton<TequilaApiSearchClientConfigurator>();
 

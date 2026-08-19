@@ -150,7 +150,7 @@ export function DeparturePicker({
   };
 
   const placeholder = locating
-    ? t('search.loadingAirports')
+    ? t('search.detectingLocation')
     : singleSelect
       ? selectedCities.length > 0
         ? t('search.changeDepartureAirport')
@@ -172,7 +172,7 @@ export function DeparturePicker({
         >
           {locating ? (
             <div className="departure-picker-locating" role="status" aria-live="polite">
-              <LoadingIndicator size="sm" label={t('search.loadingAirports')} />
+              <LoadingIndicator size="sm" label={t('search.detectingLocation')} />
             </div>
           ) : (
             selectedCities.map(city => (

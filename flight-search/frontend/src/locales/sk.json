@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Cestovný víkend",
-    "travelWeekendHint": "Vyberte jeden alebo viac termínov",
+    "travelWeekendHint": "Ťahajte v kalendári, alebo použite predvoľbu",
     "isoWeek": "T{{week}}",
     "clearWeekends": "Zrušiť výber",
     "weekendNextMonth": "Budúci mesiac",
@@ -143,6 +143,9 @@
     "prevWeekends": "Predchádzajúce víkendy",
     "nextWeekends": "Ďalšie víkendy",
     "selectWeekends": "Vybrať víkendy",
+    "openWeekendCalendar": "Otvoriť kalendár víkendov",
+    "weekendCalendarLabel": "Kalendár víkendov",
+    "weekendCalendarHint": "Ťahajte cez víkendy pre výber",
     "selectTripType": "Typ cesty (voliteľné)",
     "eveningDepartures": "Večerné odlety (voliteľné)",
     "detectingLocation": "Zisťujeme vašu polohu…",

@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Вихідні для подорожі",
-    "travelWeekendHint": "Оберіть один або кілька діапазонів дат",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "тижд. {{week}}",
     "clearWeekends": "Зняти вибір",
     "weekendNextMonth": "Наступний місяць",
@@ -143,6 +143,9 @@
     "prevWeekends": "Попередні вихідні",
     "nextWeekends": "Наступні вихідні",
     "selectWeekends": "Оберіть вихідні",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Тип подорожі (необов'язково)",
     "eveningDepartures": "Вечірні вильоти (необов'язково)",
     "detectingLocation": "Визначаємо ваше місцезнаходження…",

@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Выходные для поездки",
-    "travelWeekendHint": "Выберите один или несколько диапазонов дат",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "нед. {{week}}",
     "clearWeekends": "Снять выбор",
     "weekendNextMonth": "Следующий месяц",
@@ -143,6 +143,9 @@
     "prevWeekends": "Предыдущие выходные",
     "nextWeekends": "Следующие выходные",
     "selectWeekends": "Выберите выходные",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Тип поездки (необязательно)",
     "eveningDepartures": "Вечерние вылеты (необязательно)",
     "detectingLocation": "Определяем ваше местоположение…",

@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Utazási hétvége",
-    "travelWeekendHint": "Válassz egy vagy több dátumtartományt",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "{{week}}. hét",
     "clearWeekends": "Összes törlése",
     "weekendNextMonth": "Következő hónap",
@@ -143,6 +143,9 @@
     "prevWeekends": "Előző hétvégék",
     "nextWeekends": "Következő hétvégék",
     "selectWeekends": "Hétvégék kiválasztása",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Utazástípus (opcionális)",
     "eveningDepartures": "Esti indulások (opcionális)",
     "detectingLocation": "Helymeghatározás…",

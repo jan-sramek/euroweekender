@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Reisweekend",
-    "travelWeekendHint": "Kies een of meer datumbereiken",
+    "travelWeekendHint": "Sleep over de kalender, of kies een periode",
     "isoWeek": "wk {{week}}",
     "clearWeekends": "Alles deselecteren",
     "weekendNextMonth": "Volgende maand",
@@ -143,6 +143,9 @@
     "prevWeekends": "Vorige weekenden",
     "nextWeekends": "Volgende weekenden",
     "selectWeekends": "Weekenden selecteren",
+    "openWeekendCalendar": "Weekendkalender openen",
+    "weekendCalendarLabel": "Weekendkalender",
+    "weekendCalendarHint": "Sleep over weekenden om te selecteren",
     "selectTripType": "Reistype (optioneel)",
     "eveningDepartures": "Avondvluchten (optioneel)",
     "detectingLocation": "Uw locatie wordt bepaald…",

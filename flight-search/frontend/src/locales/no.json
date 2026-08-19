@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Reisehelg",
-    "travelWeekendHint": "Velg ett eller flere datointervaller",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "uke {{week}}",
     "clearWeekends": "Fjern alle",
     "weekendNextMonth": "Neste måned",
@@ -143,6 +143,9 @@
     "prevWeekends": "Forrige helger",
     "nextWeekends": "Neste helger",
     "selectWeekends": "Velg helger",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Reisetype (valgfritt)",
     "eveningDepartures": "Kveldsavganger (valgfritt)",
     "detectingLocation": "Finner posisjonen din…",

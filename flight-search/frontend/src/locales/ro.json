@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Weekend de călătorie",
-    "travelWeekendHint": "Alegeți unul sau mai multe intervale de date",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "S{{week}}",
     "clearWeekends": "Deselectează tot",
     "weekendNextMonth": "Luna viitoare",
@@ -143,6 +143,9 @@
     "prevWeekends": "Weekendurile anterioare",
     "nextWeekends": "Weekendurile următoare",
     "selectWeekends": "Selectează weekenduri",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Tip de călătorie (opțional)",
     "eveningDepartures": "Plecări de seară (opțional)",
     "detectingLocation": "Se detectează locația dvs.…",

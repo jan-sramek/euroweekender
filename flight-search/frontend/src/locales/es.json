@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Fin de semana de viaje",
-    "travelWeekendHint": "Elige uno o más rangos de fechas",
+    "travelWeekendHint": "Arrastra en el calendario, o usa un acceso directo",
     "isoWeek": "S{{week}}",
     "clearWeekends": "Deseleccionar todo",
     "weekendNextMonth": "Próximo mes",
@@ -143,6 +143,9 @@
     "prevWeekends": "Fines de semana anteriores",
     "nextWeekends": "Próximos fines de semana",
     "selectWeekends": "Seleccionar fines de semana",
+    "openWeekendCalendar": "Abrir calendario de fines de semana",
+    "weekendCalendarLabel": "Calendario de fines de semana",
+    "weekendCalendarHint": "Arrastra por los fines de semana para seleccionarlos",
     "selectTripType": "Tipo de viaje (opcional)",
     "eveningDepartures": "Salidas nocturnas (opcional)",
     "detectingLocation": "Detectando tu ubicación…",

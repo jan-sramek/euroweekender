@@ -11,6 +11,7 @@ import {
   getWeekendSearchRange,
   getIsoWeekNumber,
   nightsInDestSearchValues,
+  formatWeekendRange,
   WEEKEND_OPTIONS_COUNT
 } from './weekend';
 
@@ -119,6 +120,25 @@ describe('formatTripTypesLabel', () => {
     expect(formatTripTypesLabel(getWeekendPatterns(['fri-sun', 'fri-mon']), 'all trip types')).toBe(
       'Friday – Sunday, Friday – Monday'
     );
+  });
+});
+
+describe('formatWeekendRange', () => {
+  it('localizes short month names', () => {
+    const from = new Date(2026, 7, 14);
+    const to = new Date(2026, 7, 16);
+    const en = formatWeekendRange(from, to, 'en');
+    const cs = formatWeekendRange(from, to, 'cs');
+    expect(en).toBe('14–16 Aug');
+    expect(cs).toMatch(/^14–16 srp/i);
+  });
+
+  it('includes both month names when the range crosses months', () => {
+    const from = new Date(2026, 7, 28);
+    const to = new Date(2026, 8, 1);
+    expect(formatWeekendRange(from, to, 'en')).toBe('28 Aug – 1 Sep');
+    expect(formatWeekendRange(from, to, 'cs')).toMatch(/srp/i);
+    expect(formatWeekendRange(from, to, 'cs')).toMatch(/zář/i);
   });
 });
 

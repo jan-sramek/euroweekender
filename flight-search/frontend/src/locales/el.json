@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Σαββατοκύριακο ταξιδιού",
-    "travelWeekendHint": "Επιλέξτε ένα ή περισσότερα εύρη ημερομηνιών",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "Ε{{week}}",
     "clearWeekends": "Αποεπιλογή όλων",
     "weekendNextMonth": "Επόμενος μήνας",
@@ -143,6 +143,9 @@
     "prevWeekends": "Προηγούμενα σαββατοκύριακα",
     "nextWeekends": "Επόμενα σαββατοκύριακα",
     "selectWeekends": "Επιλογή σαββατοκύριακων",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Τύπος ταξιδιού (προαιρετικό)",
     "eveningDepartures": "Βραδινές αναχωρήσεις (προαιρετικό)",
     "detectingLocation": "Εντοπισμός της τοποθεσίας σας…",

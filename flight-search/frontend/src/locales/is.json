@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Ferðahelgi",
-    "travelWeekendHint": "Veldu eitt eða fleiri dagsetningabil",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "v. {{week}}",
     "clearWeekends": "Afvelja allt",
     "weekendNextMonth": "Næsti mánuður",
@@ -143,6 +143,9 @@
     "prevWeekends": "Fyrri helgar",
     "nextWeekends": "Næstu helgar",
     "selectWeekends": "Velja helgar",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Ferðategund (valfrjálst)",
     "eveningDepartures": "Kvöldbrottfarir (valfrjálst)",
     "detectingLocation": "Greini staðsetningu þína…",

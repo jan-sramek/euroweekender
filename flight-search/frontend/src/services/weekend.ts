@@ -118,10 +118,15 @@ function nextWeekday(from: Date, weekday: number): Date {
   return addDays(date, delta);
 }
 
-function formatRange(from: Date, to: Date): string {
+function dateLocale(locale: string): string {
+  return locale === 'no' ? 'nb' : locale;
+}
+
+export function formatWeekendRange(from: Date, to: Date, locale = 'en'): string {
   const sameMonth = from.getMonth() === to.getMonth();
-  const month = from.toLocaleDateString('en-GB', { month: 'short' });
-  const toMonth = to.toLocaleDateString('en-GB', { month: 'short' });
+  const resolved = dateLocale(locale);
+  const month = from.toLocaleDateString(resolved, { month: 'short' });
+  const toMonth = to.toLocaleDateString(resolved, { month: 'short' });
 
   if (sameMonth) {
     return `${from.getDate()}–${to.getDate()} ${month}`;
@@ -139,19 +144,22 @@ export function getIsoWeekNumber(date: Date): number {
   return Math.ceil(((utc.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
 }
 
-function toWeekendOption(pattern: WeekendPattern | null, departDate: Date): WeekendOption {
+function toWeekendOption(
+  pattern: WeekendPattern | null,
+  departDate: Date,
+  locale = 'en'
+): WeekendOption {
   const nightsInDest = pattern?.nightsInDest ?? 0;
   const calendarEnd = addDays(departDate, 3);
   const returnDate = pattern ? addDays(departDate, nightsInDest) : calendarEnd;
   const monday = addDays(departDate, 4);
+  const range = formatWeekendRange(departDate, pattern ? returnDate : calendarEnd, locale);
 
   return {
     id: `${pattern?.id ?? 'week'}-${departDate.toISOString().slice(0, 10)}`,
     patternId: pattern?.id ?? null,
-    label: pattern
-      ? `${pattern.shortLabel} · ${formatRange(departDate, returnDate)}`
-      : `${formatRange(departDate, calendarEnd)} weekend`,
-    shortLabel: formatRange(departDate, pattern ? returnDate : calendarEnd),
+    label: pattern ? `${pattern.shortLabel} · ${range}` : `${range} weekend`,
+    shortLabel: range,
     departDate,
     departFrom: startOfDay(departDate),
     departTo: pattern ? patternDepartTo(departDate, pattern.outboundSpillHours) : endOfDay(monday),
@@ -167,7 +175,7 @@ function toWeekendOption(pattern: WeekendPattern | null, departDate: Date): Week
 }
 
 /** Calendar weeks (Thu–Sun label) without trip-type filtering. */
-export function getUpcomingCalendarWeeks(count = 12): WeekendOption[] {
+export function getUpcomingCalendarWeeks(count = 12, locale = 'en'): WeekendOption[] {
   const weekends: WeekendOption[] = [];
   const today = startOfDay(new Date());
   let cursor = new Date(today);
@@ -176,7 +184,7 @@ export function getUpcomingCalendarWeeks(count = 12): WeekendOption[] {
     const thursday = nextWeekday(cursor, 4);
 
     if (thursday >= today) {
-      weekends.push(toWeekendOption(null, thursday));
+      weekends.push(toWeekendOption(null, thursday, locale));
     }
 
     cursor = addDays(thursday, 7);
@@ -185,7 +193,11 @@ export function getUpcomingCalendarWeeks(count = 12): WeekendOption[] {
   return weekends;
 }
 
-export function getUpcomingWeekends(pattern: WeekendPattern, count = 12): WeekendOption[] {
+export function getUpcomingWeekends(
+  pattern: WeekendPattern,
+  count = 12,
+  locale = 'en'
+): WeekendOption[] {
   const weekends: WeekendOption[] = [];
   const today = startOfDay(new Date());
   let cursor = new Date(today);
@@ -194,7 +206,7 @@ export function getUpcomingWeekends(pattern: WeekendPattern, count = 12): Weeken
     const departDate = nextWeekday(cursor, pattern.departWeekday);
 
     if (departDate >= today) {
-      weekends.push(toWeekendOption(pattern, departDate));
+      weekends.push(toWeekendOption(pattern, departDate, locale));
     }
 
     cursor = addDays(departDate, 7);
@@ -237,10 +249,14 @@ export function getDefaultWeekendIds(
 }
 
 /** Align a travel-week pill to a specific stay pattern (depart/return days and nights). */
-export function alignWeekendToPattern(weekend: WeekendOption, pattern: WeekendPattern): WeekendOption {
+export function alignWeekendToPattern(
+  weekend: WeekendOption,
+  pattern: WeekendPattern,
+  locale = 'en'
+): WeekendOption {
   const weekStart = travelWeekStart(weekend.departDate);
   const departDate = nextWeekday(weekStart, pattern.departWeekday);
-  return toWeekendOption(pattern, departDate);
+  return toWeekendOption(pattern, departDate, locale);
 }
 
 function expandWeekendForPatterns(weekend: WeekendOption, patterns: WeekendPattern[]): WeekendOption {
@@ -264,13 +280,14 @@ function expandWeekendForPatterns(weekend: WeekendOption, patterns: WeekendPatte
 
 export function getWeekendOptions(
   patternIds: readonly WeekendPatternId[] = [],
-  count = WEEKEND_OPTIONS_COUNT
+  count = WEEKEND_OPTIONS_COUNT,
+  locale = 'en'
 ): WeekendOption[] {
   if (patternIds.length === 1) {
-    return getUpcomingWeekends(getWeekendPattern(patternIds[0]), count);
+    return getUpcomingWeekends(getWeekendPattern(patternIds[0]), count, locale);
   }
 
-  const calendarWeeks = getUpcomingCalendarWeeks(count);
+  const calendarWeeks = getUpcomingCalendarWeeks(count, locale);
   if (patternIds.length === 0) return calendarWeeks;
 
   return calendarWeeks.map(week => expandWeekendForPatterns(week, getWeekendPatterns(patternIds)));
@@ -285,7 +302,8 @@ function overlapsMonth(weekend: WeekendOption, year: number, month: number): boo
 function getWeekendsFromCursor(
   pattern: WeekendPattern | null,
   from: Date,
-  until: Date
+  until: Date,
+  locale = 'en'
 ): WeekendOption[] {
   const weekends: WeekendOption[] = [];
   const today = startOfDay(new Date());
@@ -301,7 +319,7 @@ function getWeekendsFromCursor(
     if (departDate > end) break;
 
     if (departDate >= today) {
-      weekends.push(toWeekendOption(pattern, departDate));
+      weekends.push(toWeekendOption(pattern, departDate, locale));
     }
 
     cursor = addDays(departDate, 7);
@@ -314,13 +332,14 @@ function getWeekendsFromCursor(
 export function getWeekendsForMonth(
   patternIds: readonly WeekendPatternId[] = [],
   year: number,
-  month: number
+  month: number,
+  locale = 'en'
 ): WeekendOption[] {
   const pattern = patternIds.length === 1 ? getWeekendPattern(patternIds[0]) : null;
   // Start a week before the month so trips that begin in the previous month still appear.
   const from = addDays(new Date(year, month, 1), -7);
   const until = new Date(year, month + 1, 7);
-  const weekends = getWeekendsFromCursor(pattern, from, until).filter(weekend =>
+  const weekends = getWeekendsFromCursor(pattern, from, until, locale).filter(weekend =>
     overlapsMonth(weekend, year, month)
   );
 
@@ -390,10 +409,13 @@ export function chunkWeekendWindows<T extends Pick<WeekendOption, 'departFrom' |
   return chunks;
 }
 
-export function formatWeekendsLabel(weekends: WeekendOption[]): string {
+export function formatWeekendsLabel(weekends: WeekendOption[], locale = 'en'): string {
   if (weekends.length === 0) return '';
-  if (weekends.length === 1) return weekends[0].shortLabel;
-  if (weekends.length <= 3) return weekends.map(weekend => weekend.shortLabel).join(', ');
+  const labels = weekends.map(weekend =>
+    formatWeekendRange(weekend.departDate, weekend.returnDate, locale)
+  );
+  if (labels.length === 1) return labels[0];
+  if (labels.length <= 3) return labels.join(', ');
   return `${weekends.length} weekends`;
 }
 

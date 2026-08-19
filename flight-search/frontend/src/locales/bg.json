@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Пътуващ уикенд",
-    "travelWeekendHint": "Изберете един или повече периода",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "с{{week}}",
     "clearWeekends": "Премахни избора",
     "weekendNextMonth": "Следващия месец",
@@ -143,6 +143,9 @@
     "prevWeekends": "Предишни уикенди",
     "nextWeekends": "Следващи уикенди",
     "selectWeekends": "Изберете уикенди",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Тип пътуване (незадължително)",
     "eveningDepartures": "Вечерни заминавания (незадължително)",
     "detectingLocation": "Определяме местоположението ви…",

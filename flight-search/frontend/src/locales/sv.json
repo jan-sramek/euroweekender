@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Reshelg",
-    "travelWeekendHint": "Välj ett eller flera datumintervall",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "v. {{week}}",
     "clearWeekends": "Avmarkera alla",
     "weekendNextMonth": "Nästa månad",
@@ -143,6 +143,9 @@
     "prevWeekends": "Föregående helger",
     "nextWeekends": "Nästa helger",
     "selectWeekends": "Välj helger",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Resetyp (valfritt)",
     "eveningDepartures": "Kvällsavgångar (valfritt)",
     "detectingLocation": "Identifierar din plats…",

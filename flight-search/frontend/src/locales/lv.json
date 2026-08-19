@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Ceļojuma nedēļas nogale",
-    "travelWeekendHint": "Izvēlies vienu vai vairākus datumu intervālus",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "n. {{week}}",
     "clearWeekends": "Noņemt atlasi",
     "weekendNextMonth": "Nākamais mēnesis",
@@ -143,6 +143,9 @@
     "prevWeekends": "Iepriekšējās nedēļas nogales",
     "nextWeekends": "Nākamās nedēļas nogales",
     "selectWeekends": "Izvēlēties nedēļas nogales",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Ceļojuma veids (neobligāti)",
     "eveningDepartures": "Vakara izlidošanas (neobligāti)",
     "detectingLocation": "Nosakām tavu atrašanās vietu…",

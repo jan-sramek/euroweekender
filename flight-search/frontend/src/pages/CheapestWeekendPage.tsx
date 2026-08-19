@@ -20,6 +20,7 @@ import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendId,
   formatTripTypesLabel,
+  formatWeekendRange,
   getWeekendOptions,
   getWeekendPatterns,
   getWeekendsForMonth
@@ -111,19 +112,19 @@ export function CheapestWeekendPage({
   );
 
   const yearWeekends = useMemo(
-    () => getWeekendOptions(selectedPatternIds, CALENDAR_PRICE_HORIZON_WEEKENDS),
-    [selectedPatternIds]
+    () => getWeekendOptions(selectedPatternIds, CALENDAR_PRICE_HORIZON_WEEKENDS, locale),
+    [selectedPatternIds, locale]
   );
 
   const nextViewMonth = viewMonth === 11 ? 0 : viewMonth + 1;
   const nextViewYear = viewMonth === 11 ? viewYear + 1 : viewYear;
 
   const weekends = useMemo(() => {
-    const first = getWeekendsForMonth(selectedPatternIds, viewYear, viewMonth);
-    const second = getWeekendsForMonth(selectedPatternIds, nextViewYear, nextViewMonth);
+    const first = getWeekendsForMonth(selectedPatternIds, viewYear, viewMonth, locale);
+    const second = getWeekendsForMonth(selectedPatternIds, nextViewYear, nextViewMonth, locale);
     const seen = new Set(first.map(weekend => weekend.id));
     return [...first, ...second.filter(weekend => !seen.has(weekend.id))];
-  }, [selectedPatternIds, viewYear, viewMonth, nextViewYear, nextViewMonth]);
+  }, [selectedPatternIds, viewYear, viewMonth, nextViewYear, nextViewMonth, locale]);
 
   const {
     allCities,
@@ -395,7 +396,11 @@ export function CheapestWeekendPage({
                           })
                         : t('home.dealsFound', { count: totalCount })}
                       {' · '}
-                      {selectedWeekend.shortLabel}
+                      {formatWeekendRange(
+                        selectedWeekend.departDate,
+                        selectedWeekend.returnDate,
+                        locale
+                      )}
                     </p>
                     {hasLegFilter && (
                       <button

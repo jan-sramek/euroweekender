@@ -149,8 +149,8 @@ export function WeekendFlightsFromCityPage() {
     [weekendPatterns, selectedPatternIds]
   );
   const weekends = useMemo(
-    () => getWeekendOptions(selectedPatternIds, WEEKEND_OPTIONS_COUNT),
-    [selectedPatternIds]
+    () => getWeekendOptions(selectedPatternIds, WEEKEND_OPTIONS_COUNT, locale),
+    [selectedPatternIds, locale]
   );
 
   const {
@@ -207,26 +207,14 @@ export function WeekendFlightsFromCityPage() {
     if (selectedWeekends.length > 3) {
       return t('home.weekendsCount', { count: selectedWeekends.length });
     }
-    return formatWeekendsLabel(selectedWeekends);
-  }, [selectedWeekends, t]);
+    return formatWeekendsLabel(selectedWeekends, locale);
+  }, [selectedWeekends, locale, t]);
 
   const totalCount = flights.length;
 
-  const handleWeekendToggle = (weekendId: string) => {
+  const handleSelectedWeekendIdsChange = (ids: string[]) => {
     setSelectedRangeMonths(null);
-    setSelectedWeekendIds(prev => {
-      if (prev.includes(weekendId)) {
-        return prev.filter(id => id !== weekendId);
-      }
-
-      const next = [...prev, weekendId];
-      next.sort((a, b) => {
-        const weekendA = weekends.find(weekend => weekend.id === a);
-        const weekendB = weekends.find(weekend => weekend.id === b);
-        return (weekendA?.departDate.getTime() ?? 0) - (weekendB?.departDate.getTime() ?? 0);
-      });
-      return next;
-    });
+    setSelectedWeekendIds(ids);
   };
 
   const handleClearWeekends = () => {
@@ -369,7 +357,7 @@ export function WeekendFlightsFromCityPage() {
                     weekends={weekends}
                     selectedWeekendIds={selectedWeekendIds}
                     selectedRangeMonths={selectedRangeMonths}
-                    onWeekendToggle={handleWeekendToggle}
+                    onSelectedWeekendIdsChange={handleSelectedWeekendIdsChange}
                     onClearWeekends={handleClearWeekends}
                     onSelectWeekendMonths={handleSelectWeekendMonths}
                   />

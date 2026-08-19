@@ -124,7 +124,7 @@
   },
   "search": {
     "travelWeekend": "Reisinädalavahetus",
-    "travelWeekendHint": "Vali üks või mitu kuupäevavahemikku",
+    "travelWeekendHint": "Drag on the calendar, or use a preset",
     "isoWeek": "n{{week}}",
     "clearWeekends": "Tühista valik",
     "weekendNextMonth": "Järgmine kuu",
@@ -143,6 +143,9 @@
     "prevWeekends": "Eelmised nädalavahetused",
     "nextWeekends": "Järgmised nädalavahetused",
     "selectWeekends": "Vali nädalavahetused",
+    "openWeekendCalendar": "Open weekend calendar",
+    "weekendCalendarLabel": "Weekend calendar",
+    "weekendCalendarHint": "Drag across weekends to select",
     "selectTripType": "Reisitüüp (valikuline)",
     "eveningDepartures": "Õhtused väljumised (valikuline)",
     "detectingLocation": "Tuvastame sinu asukohta…",

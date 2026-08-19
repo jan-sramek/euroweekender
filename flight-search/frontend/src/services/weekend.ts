@@ -64,11 +64,12 @@ export function getWeekendPatterns(ids: readonly WeekendPatternId[]): WeekendPat
   return WEEKEND_PATTERNS.filter(pattern => selected.has(pattern.id));
 }
 
-/** Pass a single nights filter to the API only when every selected pattern agrees. */
-export function sharedNightsInDest(patterns: readonly WeekendPattern[]): number | undefined {
+/** Pass nights filters to the API; omit when no trip type is selected. */
+export function nightsInDestSearchValues(
+  patterns: readonly WeekendPattern[]
+): number[] | undefined {
   if (patterns.length === 0) return undefined;
-  const nights = patterns[0].nightsInDest;
-  return patterns.every(pattern => pattern.nightsInDest === nights) ? nights : undefined;
+  return [...new Set(patterns.map(pattern => pattern.nightsInDest))];
 }
 
 export function formatTripTypesLabel(

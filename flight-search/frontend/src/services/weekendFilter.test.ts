@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Flight } from '../types/flight';
 import { getWeekendOptions, getWeekendPattern, getWeekendPatterns, alignWeekendToPattern } from './weekend';
-import { filterFlightsByWeekends, NO_EVENING_FILTERS } from './weekendFilter';
+import { filterFlightsByWeekends, indexFlightsByWeekend, NO_EVENING_FILTERS } from './weekendFilter';
 
 function pad(value: number): string {
   return String(value).padStart(2, '0');
@@ -75,5 +75,22 @@ describe('filterFlightsByWeekends', () => {
     );
 
     expect(matched.map(item => item.id)).toEqual([1]);
+  });
+
+  it('indexes matching flights onto their travel week once', () => {
+    const weekend = getWeekendOptions(['fri-sun', 'fri-mon'], 1)[0];
+    const friday = alignWeekendToPattern(weekend, getWeekendPattern('fri-sun')).departDate;
+    const friSun = flight(1, friday, 2);
+    const friMon = flight(2, friday, 3);
+
+    const indexed = indexFlightsByWeekend(
+      [friSun, friMon],
+      [weekend],
+      getWeekendPatterns(['fri-sun', 'fri-mon']),
+      NO_EVENING_FILTERS
+    );
+
+    expect(indexed.flights.map(item => item.id).sort()).toEqual([1, 2]);
+    expect(indexed.byWeekendId.get(weekend.id)?.map(item => item.id).sort()).toEqual([1, 2]);
   });
 });

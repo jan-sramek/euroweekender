@@ -9,7 +9,7 @@ import {
   getWeekendPattern,
   getWeekendPatterns,
   getWeekendSearchRange,
-  sharedNightsInDest,
+  nightsInDestSearchValues,
   WEEKEND_OPTIONS_COUNT
 } from './weekend';
 
@@ -99,14 +99,16 @@ describe('getWeekendOptions', () => {
   });
 });
 
-describe('sharedNightsInDest', () => {
-  it('returns undefined when patterns disagree or none are selected', () => {
-    expect(sharedNightsInDest([])).toBeUndefined();
-    expect(sharedNightsInDest(getWeekendPatterns(['fri-sun', 'fri-mon']))).toBeUndefined();
+describe('nightsInDestSearchValues', () => {
+  it('returns undefined when no trip type is selected', () => {
+    expect(nightsInDestSearchValues([])).toBeUndefined();
   });
 
-  it('returns the shared night count', () => {
-    expect(sharedNightsInDest(getWeekendPatterns(['thu-sun', 'fri-mon']))).toBe(3);
+  it('returns unique night counts for the selected patterns', () => {
+    expect(nightsInDestSearchValues(getWeekendPatterns(['fri-sun']))).toEqual([2]);
+    expect(nightsInDestSearchValues(getWeekendPatterns(['fri-sun', 'fri-mon', 'thu-sun']))).toEqual([
+      2, 3
+    ]);
   });
 });
 

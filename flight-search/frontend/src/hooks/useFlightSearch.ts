@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { searchFlightsForWeekends } from '../services/api';
 import { filterFlightsByWeekends, type EveningFlightFilters } from '../services/weekendFilter';
-import { sharedNightsInDest } from '../services/weekend';
+import { nightsInDestSearchValues } from '../services/weekend';
 import { filterFlightsByLegSelection, getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { getTripPrice, hasEnoughSeats } from '../utils/flightPrice';
 import type { Flight } from '../types/flight';
@@ -92,7 +92,7 @@ export function useFlightSearch({
           })),
           signal,
           undefined,
-          sharedNightsInDest(selectedPatterns),
+          nightsInDestSearchValues(selectedPatterns),
           partial => {
             if (generation !== searchGeneration.current) return;
             setRawFlights(partial);

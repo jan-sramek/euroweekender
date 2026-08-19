@@ -58,12 +58,21 @@ export interface WeekendFlightSearchWindow {
   departTo: Date;
 }
 
+function normalizeNightsFilters(
+  nightsInDest?: number | readonly number[]
+): Array<number | undefined> {
+  if (nightsInDest == null) return [undefined];
+  if (typeof nightsInDest === 'number') return [nightsInDest];
+  if (nightsInDest.length === 0) return [undefined];
+  return [...new Set(nightsInDest)];
+}
+
 export async function searchFlightsForWeekends(
   cityCodeFrom: string[],
   weekends: WeekendFlightSearchWindow[],
   signal?: AbortSignal,
   cityCodeTo?: string,
-  nightsInDest?: number,
+  nightsInDest?: number | readonly number[],
   onPartial?: (flights: Flight[]) => void
 ): Promise<Flight[]> {
   if (weekends.length === 0 || cityCodeFrom.length === 0) {
@@ -76,11 +85,16 @@ export async function searchFlightsForWeekends(
   const chunks = chunkWeekendWindows(weekends, WEEKEND_SEARCH_CHUNK_SIZE);
   if (chunks.length === 0) return [];
 
+  const nightFilters = normalizeNightsFilters(nightsInDest);
   const pageSize = chunkPageSize(uniqueCities.length, chunks.length);
   const destinationSearch = Boolean(cityCodeTo);
 
   const firstPages = await Promise.all(
-    chunks.map(chunk => fetchWeekendChunk(uniqueCities, chunk, cityCodeTo, nightsInDest, pageSize, signal))
+    chunks.flatMap(chunk =>
+      nightFilters.map(nights =>
+        fetchWeekendChunk(uniqueCities, chunk, cityCodeTo, nights, pageSize, signal)
+      )
+    )
   );
 
   let merged = mergeFlightPages(firstPages, destinationSearch);
@@ -96,16 +110,18 @@ export async function searchFlightsForWeekends(
   try {
     const extraPages = await Promise.all(
       chunks.flatMap(chunk =>
-        bands.map(band =>
-          fetchWeekendChunk(
-            uniqueCities,
-            chunk,
-            cityCodeTo,
-            nightsInDest,
-            CHEAP_BAND_PAGE_SIZE,
-            signal,
-            band.from,
-            band.to
+        nightFilters.flatMap(nights =>
+          bands.map(band =>
+            fetchWeekendChunk(
+              uniqueCities,
+              chunk,
+              cityCodeTo,
+              nights,
+              CHEAP_BAND_PAGE_SIZE,
+              signal,
+              band.from,
+              band.to
+            )
           )
         )
       )

@@ -7,8 +7,8 @@ import { DestinationPicker } from '../components/DestinationPicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { WeekendPriceCalendar } from '../components/WeekendPriceCalendar';
 import { FlightCard } from '../components/FlightCard';
+import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
-import { LoadingIndicator } from '../components/LoadingIndicator';
 import { RouteSeoFacts } from '../components/RouteSeoFacts';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
@@ -360,9 +360,7 @@ export function CheapestWeekendPage({
               {!selectedWeekend ? (
                 <div className="state-box">{t('cheapestWeekend.selectWeekend')}</div>
               ) : loadingFlights && flights.length === 0 ? (
-                <div className="state-box state-box-loading">
-                  <LoadingIndicator size="md" label={t('home.loading')} />
-                </div>
+                <FlightListSkeleton label={t('home.loading')} />
               ) : flights.length === 0 ? (
                 <div className="state-box">{t('cheapestWeekend.noFlights')}</div>
               ) : visibleFlights.length === 0 ? (
@@ -383,12 +381,10 @@ export function CheapestWeekendPage({
                   </div>
                 </div>
               ) : (
-                <div className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}>
-                  {loadingFlights ? (
-                    <div className="results-loading-overlay" aria-hidden="true">
-                      <LoadingIndicator size="md" label={t('home.flightsCounterSearching')} />
-                    </div>
-                  ) : null}
+                <div
+                  className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}
+                  aria-busy={loadingFlights}
+                >
                   <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
                   <div className="results-toolbar">
                     <p className="results-count">

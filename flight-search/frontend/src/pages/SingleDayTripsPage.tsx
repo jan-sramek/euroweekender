@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
+import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
-import { LoadingIndicator } from '../components/LoadingIndicator';
 import { PassengerPicker } from '../components/PassengerPicker';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDayTripSearch } from '../hooks/useDayTripSearch';
@@ -318,9 +318,7 @@ export function SingleDayTripsPage() {
               </button>
             </div>
           ) : loadingFlights && flights.length === 0 ? (
-            <div className="state-box state-box-loading">
-              <LoadingIndicator size="md" label={t('home.loading')} />
-            </div>
+            <FlightListSkeleton label={t('home.loading')} />
           ) : flights.length === 0 ? (
             <div className="state-box">{t('singleDayTrips.noFlights')}</div>
           ) : visibleFlights.length === 0 ? (

@@ -1,0 +1,205 @@
+.flight-list-skeleton,
+.results-panel-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-list-skeleton::after,
+.results-panel-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 35%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.18) 65%,
+    transparent 100%
+  );
+  animation: flight-skeleton-sweep 1.45s ease-in-out infinite;
+}
+
+.results-panel-loading .results-toolbar,
+.results-panel-loading .results-list {
+  opacity: 0.5;
+  filter: grayscale(0.85);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease;
+}
+
+.flight-skeleton-card {
+  background: #f7f9fb;
+  border-color: #e4eaef;
+}
+
+.flight-skeleton-card::before {
+  background: #d5dee5;
+}
+
+.flight-skeleton-card:hover {
+  border-color: #e4eaef;
+  background: #f7f9fb;
+}
+
+.flight-skeleton-bone {
+  display: inline-block;
+  flex-shrink: 0;
+  background: #dce4ea;
+  border-radius: 0.2rem;
+}
+
+.flight-skeleton-search {
+  margin-bottom: 0.85rem;
+}
+
+.flight-skeleton-search-bar {
+  display: block;
+  width: 100%;
+  height: 2.55rem;
+  border-radius: 0.25rem;
+}
+
+.flight-skeleton-count {
+  width: 11rem;
+  height: 0.9rem;
+}
+
+.flight-skeleton-label {
+  width: 2.1rem;
+  height: 0.5rem;
+}
+
+.flight-skeleton-flag {
+  width: 1.05rem;
+  height: 0.75rem;
+  border-radius: 0.12rem;
+}
+
+.flight-skeleton-city {
+  width: 6.5rem;
+  height: 0.9rem;
+}
+
+.flight-skeleton-city-to {
+  width: 7.25rem;
+}
+
+.flight-skeleton-city-sm {
+  width: 4.5rem;
+  height: 0.7rem;
+}
+
+.flight-skeleton-code {
+  width: 2.1rem;
+  height: 0.85rem;
+}
+
+.flight-skeleton-arrow {
+  color: #c5d0d8;
+}
+
+.flight-skeleton-price {
+  display: block;
+  width: 4.75rem;
+  height: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.flight-skeleton-sub {
+  display: block;
+  width: 5.5rem;
+  height: 0.55rem;
+}
+
+.flight-skeleton-direction {
+  display: block;
+  width: 3.4rem;
+  height: 0.5rem;
+  margin-bottom: 0.28rem;
+}
+
+.flight-skeleton-date {
+  width: 5.25rem;
+  height: 0.7rem;
+}
+
+.flight-skeleton-time {
+  width: 2.4rem;
+  height: 0.8rem;
+}
+
+.flight-skeleton-meta {
+  width: 4.5rem;
+  height: 0.6rem;
+  justify-self: center;
+}
+
+.flight-skeleton-btn {
+  display: block;
+  width: 100%;
+  height: 1.85rem;
+  border-radius: 0.25rem;
+}
+
+.flight-skeleton-card:nth-child(2) .flight-skeleton-city {
+  width: 5.1rem;
+}
+
+.flight-skeleton-card:nth-child(2) .flight-skeleton-city-to {
+  width: 8rem;
+}
+
+.flight-skeleton-card:nth-child(3) .flight-skeleton-city {
+  width: 7.4rem;
+}
+
+.flight-skeleton-card:nth-child(3) .flight-skeleton-city-to {
+  width: 4.8rem;
+}
+
+.flight-skeleton-card:nth-child(4) .flight-skeleton-city {
+  width: 4.6rem;
+}
+
+.flight-skeleton-card:nth-child(5) .flight-skeleton-city-to {
+  width: 6.1rem;
+}
+
+.flight-skeleton-card:nth-child(even) .flight-skeleton-price {
+  width: 4.1rem;
+}
+
+.flight-skeleton-card:nth-child(odd) .flight-skeleton-date {
+  width: 4.6rem;
+}
+
+@keyframes flight-skeleton-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(280%);
+  }
+}
+
+@media (max-width: 767px) {
+  .flight-skeleton-meta {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flight-list-skeleton::after,
+  .results-panel-loading::after {
+    animation: none;
+    opacity: 0;
+  }
+}

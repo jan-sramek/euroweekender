@@ -4,6 +4,7 @@ import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
+import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
@@ -306,9 +307,7 @@ export function HomePage() {
               </button>
             </div>
           ) : loadingFlights && flights.length === 0 ? (
-            <div className="state-box state-box-loading">
-              <LoadingIndicator size="md" label={t('home.loading')} />
-            </div>
+            <FlightListSkeleton label={t('home.loading')} />
           ) : flights.length === 0 ? (
             <div className="state-box state-box-empty">
               <p>{t('home.noFlights')}</p>
@@ -338,12 +337,10 @@ export function HomePage() {
               </div>
             </div>
           ) : (
-            <div className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}>
-              {loadingFlights ? (
-                <div className="results-loading-overlay" aria-hidden="true">
-                  <LoadingIndicator size="md" label={t('home.flightsCounterSearching')} />
-                </div>
-              ) : null}
+            <div
+              className={`results-panel${loadingFlights ? ' results-panel-loading' : ''}`}
+              aria-busy={loadingFlights}
+            >
               <FlightResultsSearch value={resultsQuery} onChange={setResultsQuery} />
               <div className="results-toolbar">
                 <p className="results-count">

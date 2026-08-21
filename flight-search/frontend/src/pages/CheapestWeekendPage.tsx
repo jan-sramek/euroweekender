@@ -28,6 +28,7 @@ import {
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import { parseYearMonthParam } from '../utils/flightTime';
 import {
   cheapestMonthFromWeekendPrices,
   computeRouteFactsFromCities,
@@ -91,10 +92,11 @@ export function CheapestWeekendPage({
   const fromParam = forcedFrom?.trim().toUpperCase() || readAirportParam(searchParams.get('from'));
   const toParam = forcedTo?.trim().toUpperCase() || readAirportParam(searchParams.get('to'));
   const preferredCodes = useMemo(() => (fromParam ? [fromParam] : null), [fromParam]);
+  const focusedMonth = parseYearMonthParam(searchParams.get('month'));
 
   const now = new Date();
-  const [viewYear, setViewYear] = useState(now.getFullYear());
-  const [viewMonth, setViewMonth] = useState(now.getMonth());
+  const [viewYear, setViewYear] = useState(() => focusedMonth?.year ?? now.getFullYear());
+  const [viewMonth, setViewMonth] = useState(() => focusedMonth?.month ?? now.getMonth());
   const [selectedPatternIds, setSelectedPatternIds] = useState<WeekendPatternId[]>([]);
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);

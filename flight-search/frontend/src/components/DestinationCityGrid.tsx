@@ -5,10 +5,11 @@ import type { Flight } from '../types/flight';
 import { useCityPhoto } from '../hooks/useCityPhoto';
 import { useLocale } from '../hooks/useLocale';
 import { getCityNameByCode } from '../utils/cityDisplayName';
-import { weekendFlightsOdPath } from '../utils/citySlug';
+import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
 import { groupFlightsByDestination } from '../utils/destinationGroups';
 import { formatEur, getTripPrice } from '../utils/flightPrice';
 import { getFallbackCityPhoto, CITY_PHOTO_SIZES, cityPhotoSrcSet } from '../utils/cityPhotos';
+import { monthParamFromApiLocal } from '../utils/flightTime';
 import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
 import './DestinationCityGrid.css';
@@ -36,6 +37,7 @@ export function DestinationCityGrid({
             country={group.country}
             fromCode={group.fromCode}
             fromCity={group.fromCity}
+            cheapestDeparture={group.cheapestFlight.localDeparture}
             minPrice={getTripPrice(group.cheapestFlight, passengerCount)}
             offerCount={group.offerCount}
             citiesByCode={citiesByCode}
@@ -54,6 +56,7 @@ interface DestinationCityCardProps {
   country: string;
   fromCode: string;
   fromCity: string;
+  cheapestDeparture: string;
   minPrice: number;
   offerCount: number;
   citiesByCode: Map<string, City>;
@@ -67,6 +70,7 @@ function DestinationCityCard({
   country,
   fromCode,
   fromCity,
+  cheapestDeparture,
   minPrice,
   offerCount,
   citiesByCode,
@@ -84,10 +88,12 @@ function DestinationCityCard({
 
   const from = citiesByCode.get(fromCode.trim().toUpperCase());
   const to = citiesByCode.get(cityCode);
-  const href =
+  const href = withQuery(
     from && to
       ? weekendFlightsOdPath(from, to)
-      : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(cityCode)}`;
+      : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(cityCode)}`,
+    { month: monthParamFromApiLocal(cheapestDeparture) }
+  );
 
   const priceLabel = formatEur(minPrice);
 

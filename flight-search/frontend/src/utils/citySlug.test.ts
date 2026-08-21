@@ -8,7 +8,8 @@ import {
   slugifyCityName,
   weekendFlightsFromPath,
   weekendFlightsFromPathByCode,
-  weekendFlightsOdPath
+  weekendFlightsOdPath,
+  withQuery
 } from './citySlug';
 
 describe('slugifyCityName', () => {
@@ -118,5 +119,25 @@ describe('parseOdSlugs', () => {
     expect(parseOdSlugs('')).toBeNull();
     expect(parseOdSlugs('prague-prg')).toBeNull();
     expect(parseOdSlugs('prague-to-barcelona')).toBeNull();
+  });
+});
+
+describe('withQuery', () => {
+  it('appends params to a path', () => {
+    expect(withQuery('/weekend-flights/prague-prg-to-barcelona-bcn', { month: '2026-10' })).toBe(
+      '/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10'
+    );
+  });
+
+  it('merges onto an existing query string', () => {
+    expect(withQuery('/cheapest-weekend?from=PRG&to=BCN', { month: '2026-10' })).toBe(
+      '/cheapest-weekend?from=PRG&to=BCN&month=2026-10'
+    );
+  });
+
+  it('skips empty values', () => {
+    expect(withQuery('/weekend-flights/prague-prg-to-barcelona-bcn', { month: null })).toBe(
+      '/weekend-flights/prague-prg-to-barcelona-bcn'
+    );
   });
 });

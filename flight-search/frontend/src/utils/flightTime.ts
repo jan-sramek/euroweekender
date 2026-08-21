@@ -49,3 +49,24 @@ export function formatLocalDateTimeIso(date: Date): string {
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:00`;
 }
+
+/** `YYYY-MM` from a Kiwi local timestamp, ignoring timezone suffixes. */
+export function monthParamFromApiLocal(iso: string): string | null {
+  const match = iso.trim().match(/^(\d{4})-(\d{2})/);
+  if (!match) return null;
+  const month = Number(match[2]);
+  if (month < 1 || month > 12) return null;
+  return `${match[1]}-${match[2]}`;
+}
+
+/** Parse `YYYY-MM` into calendar year + 0-based month. */
+export function parseYearMonthParam(
+  value: string | null | undefined
+): { year: number; month: number } | null {
+  const match = value?.trim().match(/^(\d{4})-(\d{2})$/);
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = Number(match[2]) - 1;
+  if (!Number.isFinite(year) || month < 0 || month > 11) return null;
+  return { year, month };
+}

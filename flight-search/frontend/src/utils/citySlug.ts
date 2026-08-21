@@ -79,3 +79,12 @@ export function parseOdSlugs(
 
   return { fromCode, toCode };
 }
+
+/** Append or merge query params onto a site-relative path. */
+export function withQuery(path: string, params: Record<string, string | null | undefined>): string {
+  const url = new URL(path, 'https://euroweekender.invalid');
+  for (const [key, value] of Object.entries(params)) {
+    if (value) url.searchParams.set(key, value);
+  }
+  return `${url.pathname}${url.search}`;
+}

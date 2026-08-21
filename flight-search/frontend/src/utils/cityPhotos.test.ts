@@ -49,7 +49,8 @@ describe('cityPhotos', () => {
   });
 
   it('exposes a fallback city image', () => {
-    expect(getFallbackCityPhoto()).toContain('unsplash.com');
+    expect(getFallbackCityPhoto()).toContain('1763089001562-6dc947e37d0d');
+    expect(getFallbackCityPhoto()).not.toContain('1555881400-74d7acaacd8b');
   });
 
   it('versions wikipedia cache keys so stale photos can be busted', () => {

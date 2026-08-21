@@ -43,7 +43,7 @@ const WIKI_TITLES: Record<string, string> = {
 const CACHE_VERSION = 'v4';
 const WIKI_PHOTO_WIDTH = 500;
 
-export const FALLBACK_CITY_PHOTO = unsplash('1555881400-74d7acaacd8b');
+export const FALLBACK_CITY_PHOTO = unsplash('1763089001562-6dc947e37d0d');
 export const CITY_PHOTO_SIZES = '(max-width: 575px) calc(100vw - 2rem), (max-width: 991px) calc(50vw - 2rem), 360px';
 
 export function getCuratedCityPhoto(cityCode: string | undefined): string | null {

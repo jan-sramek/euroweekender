@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrează rezultatele",
     "resultsSearchPlaceholder": "Filtrează după oraș, aeroport sau țară…",
     "clearResultsSearch": "Șterge căutarea",
-    "noTextMatch": "Niciun zbor nu corespunde căutării."
+    "noTextMatch": "Niciun zbor nu corespunde căutării.",
+    "resultsViewLabel": "Afișarea rezultatelor",
+    "viewList": "Zboruri",
+    "viewCities": "Orașe",
+    "viewListAria": "Afișează rezultatele ca listă de zboruri",
+    "viewCitiesAria": "Grupează rezultatele după orașul de destinație",
+    "cityCardAria": "Compară weekendurile spre {{city}}, de la {{price}}",
+    "cityOffers_one": "{{count}} ofertă",
+    "cityOffers_other": "{{count}} oferte"
   },
   "singleDayTrips": {
     "tagline": "Dimineața dus · seara întors",

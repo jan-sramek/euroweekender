@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtruoti rezultatus",
     "resultsSearchPlaceholder": "Filtruoti pagal miestą, oro uostą arba šalį…",
     "clearResultsSearch": "Išvalyti paiešką",
-    "noTextMatch": "Jokių skrydžių neatitinka jūsų paieškos."
+    "noTextMatch": "Jokių skrydžių neatitinka jūsų paieškos.",
+    "resultsViewLabel": "Rezultatų vaizdas",
+    "viewList": "Skrydžiai",
+    "viewCities": "Miestai",
+    "viewListAria": "Rodyti rezultatus kaip skrydžių sąrašą",
+    "viewCitiesAria": "Grupuoti rezultatus pagal paskirties miestą",
+    "cityCardAria": "Palyginti savaitgalius į {{city}}, nuo {{price}}",
+    "cityOffers_one": "{{count}} pasiūlymas",
+    "cityOffers_other": "{{count}} pasiūlymai"
   },
   "singleDayTrips": {
     "tagline": "Ryte ten · vakare atgal",

@@ -112,7 +112,15 @@
     "resultsSearchLabel": "Ergebnisse filtern",
     "resultsSearchPlaceholder": "Nach Stadt, Flughafen oder Land filtern…",
     "clearResultsSearch": "Suche zurücksetzen",
-    "noTextMatch": "Keine Flüge entsprechen Ihrer Suche."
+    "noTextMatch": "Keine Flüge entsprechen Ihrer Suche.",
+    "resultsViewLabel": "Ergebnisdarstellung",
+    "viewList": "Flüge",
+    "viewCities": "Städte",
+    "viewListAria": "Ergebnisse als Flugliste anzeigen",
+    "viewCitiesAria": "Ergebnisse nach Zielstadt gruppieren",
+    "cityCardAria": "Wochenenden nach {{city}} vergleichen, ab {{price}}",
+    "cityOffers_one": "{{count}} Angebot",
+    "cityOffers_other": "{{count}} Angebote"
   },
   "singleDayTrips": {
     "tagline": "Morgens hin · abends zurück",

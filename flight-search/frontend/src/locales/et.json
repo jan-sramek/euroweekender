@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtreeri tulemusi",
     "resultsSearchPlaceholder": "Filtreeri linna, lennujaama või riigi järgi…",
     "clearResultsSearch": "Tühjenda otsing",
-    "noTextMatch": "Ükski lend ei vasta otsingule."
+    "noTextMatch": "Ükski lend ei vasta otsingule.",
+    "resultsViewLabel": "Tulemuste vaade",
+    "viewList": "Lennud",
+    "viewCities": "Linnad",
+    "viewListAria": "Näita tulemusi lennuloendina",
+    "viewCitiesAria": "Rühmita tulemused sihtlinna järgi",
+    "cityCardAria": "Võrdle nädalavahetusi sihtkohta {{city}}, alates {{price}}",
+    "cityOffers_one": "{{count}} pakkumine",
+    "cityOffers_other": "{{count}} pakkumist"
   },
   "singleDayTrips": {
     "tagline": "Hommikul välja · õhtul tagasi",

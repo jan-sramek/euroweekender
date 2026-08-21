@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrer les résultats",
     "resultsSearchPlaceholder": "Filtrer par ville, aéroport ou pays…",
     "clearResultsSearch": "Effacer la recherche",
-    "noTextMatch": "Aucun vol ne correspond à votre recherche."
+    "noTextMatch": "Aucun vol ne correspond à votre recherche.",
+    "resultsViewLabel": "Affichage des résultats",
+    "viewList": "Vols",
+    "viewCities": "Villes",
+    "viewListAria": "Afficher les résultats en liste de vols",
+    "viewCitiesAria": "Grouper les résultats par ville de destination",
+    "cityCardAria": "Comparer les week-ends vers {{city}}, dès {{price}}",
+    "cityOffers_one": "{{count}} offre",
+    "cityOffers_other": "{{count}} offres"
   },
   "singleDayTrips": {
     "tagline": "Départ matin · retour soir",

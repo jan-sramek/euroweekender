@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Фильтровать результаты",
     "resultsSearchPlaceholder": "Фильтровать по городу, аэропорту или стране…",
     "clearResultsSearch": "Очистить поиск",
-    "noTextMatch": "Нет рейсов, соответствующих поиску."
+    "noTextMatch": "Нет рейсов, соответствующих поиску.",
+    "resultsViewLabel": "Вид результатов",
+    "viewList": "Рейсы",
+    "viewCities": "Города",
+    "viewListAria": "Показать результаты списком рейсов",
+    "viewCitiesAria": "Группировать результаты по городу назначения",
+    "cityCardAria": "Сравнить уикенды в {{city}}, от {{price}}",
+    "cityOffers_one": "{{count}} предложение",
+    "cityOffers_other": "{{count}} предложений"
   },
   "singleDayTrips": {
     "tagline": "Утром туда · вечером обратно",

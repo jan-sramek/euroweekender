@@ -4,9 +4,11 @@ import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { FlightCard } from '../components/FlightCard';
+import { DestinationCityGrid } from '../components/DestinationCityGrid';
 import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { LoadingIndicator } from '../components/LoadingIndicator';
+import { ResultsViewToggle } from '../components/ResultsViewToggle';
 import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SeoPopularRoutes } from '../components/SeoPopularRoutes';
@@ -18,6 +20,7 @@ import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   DEFAULT_WEEKEND_MONTHS,
@@ -76,6 +79,7 @@ export function HomePage() {
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedWeekendIds, setSelectedWeekendIds] = useState<string[]>([]);
   const [selectedRangeMonths, setSelectedRangeMonths] = useState<number | null>(DEFAULT_WEEKEND_MONTHS);
+  const [resultsView, setResultsView] = useResultsViewMode();
 
   const selectedPatterns = useMemo(
     () => getWeekendPatterns(selectedPatternIds),
@@ -339,26 +343,37 @@ export function HomePage() {
                       })
                     : t('home.dealsFound', { count: totalCount })}
                 </p>
-                {hasLegFilter && (
-                  <button type="button" className="btn btn-secondary btn-sm" onClick={clearLegFilters}>
-                    {t('home.clearLegFiltersBtn')}
-                  </button>
-                )}
+                <div className="results-toolbar-actions">
+                  {hasLegFilter && (
+                    <button type="button" className="btn btn-secondary btn-sm" onClick={clearLegFilters}>
+                      {t('home.clearLegFiltersBtn')}
+                    </button>
+                  )}
+                  <ResultsViewToggle value={resultsView} onChange={setResultsView} />
+                </div>
               </div>
-              <div className="flight-list results-list">
-                {filteredFlights.map(flight => (
-                  <FlightCard
-                    key={flight.id}
-                    flight={flight}
-                    citiesByCode={citiesByCode}
-                    passengerCount={passengerCount}
-                    departureSelected={departureLegFilter === getDepartureLegKey(flight)}
-                    returnSelected={returnLegFilter === getReturnLegKey(flight)}
-                    onDepartureSelect={selected => handleDepartureLegSelect(flight, selected)}
-                    onReturnSelect={selected => handleReturnLegSelect(flight, selected)}
-                  />
-                ))}
-              </div>
+              {resultsView === 'cities' ? (
+                <DestinationCityGrid
+                  flights={filteredFlights}
+                  citiesByCode={citiesByCode}
+                  passengerCount={passengerCount}
+                />
+              ) : (
+                <div className="flight-list results-list">
+                  {filteredFlights.map(flight => (
+                    <FlightCard
+                      key={flight.id}
+                      flight={flight}
+                      citiesByCode={citiesByCode}
+                      passengerCount={passengerCount}
+                      departureSelected={departureLegFilter === getDepartureLegKey(flight)}
+                      returnSelected={returnLegFilter === getReturnLegKey(flight)}
+                      onDepartureSelect={selected => handleDepartureLegSelect(flight, selected)}
+                      onReturnSelect={selected => handleReturnLegSelect(flight, selected)}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

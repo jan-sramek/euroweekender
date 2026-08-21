@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrēt rezultātus",
     "resultsSearchPlaceholder": "Filtrēt pēc pilsētas, lidostas vai valsts…",
     "clearResultsSearch": "Notīrīt meklēšanu",
-    "noTextMatch": "Neviens reiss neatbilst jūsu meklēšanai."
+    "noTextMatch": "Neviens reiss neatbilst jūsu meklēšanai.",
+    "resultsViewLabel": "Rezultātu skats",
+    "viewList": "Lidojumi",
+    "viewCities": "Pilsētas",
+    "viewListAria": "Rādīt rezultātus kā lidojumu sarakstu",
+    "viewCitiesAria": "Grupēt rezultātus pēc galamērķa pilsētas",
+    "cityCardAria": "Salīdzināt nedēļas nogales uz {{city}}, no {{price}}",
+    "cityOffers_one": "{{count}} piedāvājums",
+    "cityOffers_other": "{{count}} piedāvājumi"
   },
   "singleDayTrips": {
     "tagline": "No rīta turp · vakarā atpakaļ",

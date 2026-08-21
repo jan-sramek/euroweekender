@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrera resultat",
     "resultsSearchPlaceholder": "Filtrera efter stad, flygplats eller land…",
     "clearResultsSearch": "Rensa sökning",
-    "noTextMatch": "Inga flyg matchar din sökning."
+    "noTextMatch": "Inga flyg matchar din sökning.",
+    "resultsViewLabel": "Resultatvy",
+    "viewList": "Flyg",
+    "viewCities": "Städer",
+    "viewListAria": "Visa resultat som flyglista",
+    "viewCitiesAria": "Gruppera resultat efter destinationsstad",
+    "cityCardAria": "Jämför helger till {{city}}, från {{price}}",
+    "cityOffers_one": "{{count}} erbjudande",
+    "cityOffers_other": "{{count}} erbjudanden"
   },
   "singleDayTrips": {
     "tagline": "Ut på morgonen · hem på kvällen",

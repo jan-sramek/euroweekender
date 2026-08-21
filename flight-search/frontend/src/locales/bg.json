@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Филтрирай резултатите",
     "resultsSearchPlaceholder": "Филтрирай по град, летище или държава…",
     "clearResultsSearch": "Изчисти търсенето",
-    "noTextMatch": "Няма полети, които да съответстват на търсенето."
+    "noTextMatch": "Няма полети, които да съответстват на търсенето.",
+    "resultsViewLabel": "Изглед на резултатите",
+    "viewList": "Полети",
+    "viewCities": "Градове",
+    "viewListAria": "Показване на резултатите като списък с полети",
+    "viewCitiesAria": "Групиране на резултатите по град на дестинация",
+    "cityCardAria": "Сравни уикендите до {{city}}, от {{price}}",
+    "cityOffers_one": "{{count}} оферта",
+    "cityOffers_other": "{{count}} оферти"
   },
   "singleDayTrips": {
     "tagline": "Сутрин навън · вечер обратно",

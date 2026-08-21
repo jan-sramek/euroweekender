@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtruj wyniki",
     "resultsSearchPlaceholder": "Filtruj według miasta, lotniska lub kraju…",
     "clearResultsSearch": "Wyczyść wyszukiwanie",
-    "noTextMatch": "Żadne loty nie pasują do wyszukiwania."
+    "noTextMatch": "Żadne loty nie pasują do wyszukiwania.",
+    "resultsViewLabel": "Układ wyników",
+    "viewList": "Loty",
+    "viewCities": "Miasta",
+    "viewListAria": "Pokaż wyniki jako listę lotów",
+    "viewCitiesAria": "Grupuj wyniki według miasta docelowego",
+    "cityCardAria": "Porównaj weekendy do {{city}}, od {{price}}",
+    "cityOffers_one": "{{count}} oferta",
+    "cityOffers_other": "{{count}} oferty"
   },
   "singleDayTrips": {
     "tagline": "Rano tam · wieczorem z powrotem",

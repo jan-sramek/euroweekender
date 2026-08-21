@@ -1,0 +1,109 @@
+.destination-city-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-city-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #192c39;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(25, 44, 57, 0.12);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.destination-city-card:hover,
+.destination-city-card:focus-visible {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(25, 44, 57, 0.2);
+}
+
+.destination-city-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #2a4152;
+  transition: transform 0.35s ease;
+}
+
+.destination-city-card:hover img {
+  transform: scale(1.04);
+}
+
+.destination-city-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+}
+
+.destination-city-card-place {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+  margin: 0;
+}
+
+.destination-city-card-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.destination-city-card-code {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #04bfab;
+}
+
+.destination-city-card-price {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.destination-city-card-meta {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.destination-city-card-cta {
+  margin-top: 0.45rem;
+  align-self: flex-start;
+  padding: 0.28rem 0.65rem 0.22rem;
+  border-radius: 0.25rem;
+  background: #04bfab;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.destination-city-card:hover .destination-city-card-cta {
+  background: #03a896;
+}
+
+@media (max-width: 991px) {
+  .destination-city-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .destination-city-grid {
+    grid-template-columns: 1fr;
+  }
+}

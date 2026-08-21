@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Φιλτράρισμα αποτελεσμάτων",
     "resultsSearchPlaceholder": "Φιλτράρισμα κατά πόλη, αεροδρόμιο ή χώρα…",
     "clearResultsSearch": "Καθαρισμός αναζήτησης",
-    "noTextMatch": "Καμία πτήση δεν αντιστοιχεί στην αναζήτησή σας."
+    "noTextMatch": "Καμία πτήση δεν αντιστοιχεί στην αναζήτησή σας.",
+    "resultsViewLabel": "Διάταξη αποτελεσμάτων",
+    "viewList": "Πτήσεις",
+    "viewCities": "Πόλεις",
+    "viewListAria": "Εμφάνιση αποτελεσμάτων ως λίστα πτήσεων",
+    "viewCitiesAria": "Ομαδοποίηση αποτελεσμάτων ανά πόλη προορισμού",
+    "cityCardAria": "Σύγκριση σαββατοκύριακων προς {{city}}, από {{price}}",
+    "cityOffers_one": "{{count}} προσφορά",
+    "cityOffers_other": "{{count}} προσφορές"
   },
   "singleDayTrips": {
     "tagline": "Πρωί αναχώρηση · βράδυ επιστροφή",

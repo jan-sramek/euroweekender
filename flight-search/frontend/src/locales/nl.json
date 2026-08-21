@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Resultaten filteren",
     "resultsSearchPlaceholder": "Filter op stad, luchthaven of land…",
     "clearResultsSearch": "Zoekopdracht wissen",
-    "noTextMatch": "Geen vluchten komen overeen met je zoekopdracht."
+    "noTextMatch": "Geen vluchten komen overeen met je zoekopdracht.",
+    "resultsViewLabel": "Weergave van resultaten",
+    "viewList": "Vluchten",
+    "viewCities": "Steden",
+    "viewListAria": "Toon resultaten als vluchtenlijst",
+    "viewCitiesAria": "Groepeer resultaten per bestemmingsstad",
+    "cityCardAria": "Vergelijk weekenden naar {{city}}, vanaf {{price}}",
+    "cityOffers_one": "{{count}} aanbieding",
+    "cityOffers_other": "{{count}} aanbiedingen"
   },
   "singleDayTrips": {
     "tagline": "’s Ochtends heen · ’s avonds terug",

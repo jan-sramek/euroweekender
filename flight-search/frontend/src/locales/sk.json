@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrovať výsledky",
     "resultsSearchPlaceholder": "Filtrovať podľa mesta, letiska alebo krajiny…",
     "clearResultsSearch": "Vymazať hľadanie",
-    "noTextMatch": "Žiadne lety nezodpovedajú vášmu hľadaniu."
+    "noTextMatch": "Žiadne lety nezodpovedajú vášmu hľadaniu.",
+    "resultsViewLabel": "Zobrazenie výsledkov",
+    "viewList": "Lety",
+    "viewCities": "Mestá",
+    "viewListAria": "Zobraziť výsledky ako zoznam letov",
+    "viewCitiesAria": "Zoskupiť výsledky podľa cieľového mesta",
+    "cityCardAria": "Porovnať víkendy do destinácie {{city}}, od {{price}}",
+    "cityOffers_one": "{{count}} ponuka",
+    "cityOffers_other": "{{count}} ponúk"
   },
   "singleDayTrips": {
     "tagline": "Ráno tam · večer späť",

@@ -281,6 +281,15 @@
   margin-bottom: 1rem;
 }
 
+.results-toolbar-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
 .link-button {
   border: 0;
   padding: 0;

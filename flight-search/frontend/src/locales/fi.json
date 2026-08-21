@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Suodata tuloksia",
     "resultsSearchPlaceholder": "Suodata kaupungin, lentoaseman tai maan mukaan…",
     "clearResultsSearch": "Tyhjennä haku",
-    "noTextMatch": "Mikään lento ei vastaa hakuasi."
+    "noTextMatch": "Mikään lento ei vastaa hakuasi.",
+    "resultsViewLabel": "Tulosten asettelu",
+    "viewList": "Lennot",
+    "viewCities": "Kaupungit",
+    "viewListAria": "Näytä tulokset lentolistana",
+    "viewCitiesAria": "Ryhmittele tulokset kohdekaupungin mukaan",
+    "cityCardAria": "Vertaa viikonloppuja kohteeseen {{city}}, alkaen {{price}}",
+    "cityOffers_one": "{{count}} tarjous",
+    "cityOffers_other": "{{count}} tarjousta"
   },
   "singleDayTrips": {
     "tagline": "Aamulla mennen · illalla takaisin",

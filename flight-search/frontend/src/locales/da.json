@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrer resultater",
     "resultsSearchPlaceholder": "Filtrer efter by, lufthavn eller land…",
     "clearResultsSearch": "Ryd søgning",
-    "noTextMatch": "Ingen fly matcher din søgning."
+    "noTextMatch": "Ingen fly matcher din søgning.",
+    "resultsViewLabel": "Resultatvisning",
+    "viewList": "Fly",
+    "viewCities": "Byer",
+    "viewListAria": "Vis resultater som flyliste",
+    "viewCitiesAria": "Gruppér resultater efter destinationsby",
+    "cityCardAria": "Sammenlign weekender til {{city}}, fra {{price}}",
+    "cityOffers_one": "{{count}} tilbud",
+    "cityOffers_other": "{{count}} tilbud"
   },
   "singleDayTrips": {
     "tagline": "Ud om morgenen · hjem om aftenen",

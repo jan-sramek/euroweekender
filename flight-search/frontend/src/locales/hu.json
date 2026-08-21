@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Eredmények szűrése",
     "resultsSearchPlaceholder": "Szűrés város, reptér vagy ország szerint…",
     "clearResultsSearch": "Keresés törlése",
-    "noTextMatch": "Nincs a keresésnek megfelelő járat."
+    "noTextMatch": "Nincs a keresésnek megfelelő járat.",
+    "resultsViewLabel": "Eredmények nézete",
+    "viewList": "Járatok",
+    "viewCities": "Városok",
+    "viewListAria": "Eredmények megjelenítése járatlistaként",
+    "viewCitiesAria": "Eredmények csoportosítása célváros szerint",
+    "cityCardAria": "Hétvégék összehasonlítása ide: {{city}}, {{price}} ártól",
+    "cityOffers_one": "{{count}} ajánlat",
+    "cityOffers_other": "{{count}} ajánlat"
   },
   "singleDayTrips": {
     "tagline": "Reggel oda · este vissza",

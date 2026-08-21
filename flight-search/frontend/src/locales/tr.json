@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Sonuçları filtrele",
     "resultsSearchPlaceholder": "Şehir, havalimanı veya ülkeye göre filtrele…",
     "clearResultsSearch": "Aramayı temizle",
-    "noTextMatch": "Aramanızla eşleşen uçuş yok."
+    "noTextMatch": "Aramanızla eşleşen uçuş yok.",
+    "resultsViewLabel": "Sonuç görünümü",
+    "viewList": "Uçuşlar",
+    "viewCities": "Şehirler",
+    "viewListAria": "Sonuçları uçuş listesi olarak göster",
+    "viewCitiesAria": "Sonuçları varış şehrine göre grupla",
+    "cityCardAria": "{{city}} için hafta sonlarını karşılaştır, {{price}} itibarıyla",
+    "cityOffers_one": "{{count}} fırsat",
+    "cityOffers_other": "{{count}} fırsat"
   },
   "singleDayTrips": {
     "tagline": "Sabah gidiş · akşam dönüş",

@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Фільтрувати результати",
     "resultsSearchPlaceholder": "Фільтрувати за містом, аеропортом або країною…",
     "clearResultsSearch": "Очистити пошук",
-    "noTextMatch": "Жоден рейс не відповідає вашому пошуку."
+    "noTextMatch": "Жоден рейс не відповідає вашому пошуку.",
+    "resultsViewLabel": "Вигляд результатів",
+    "viewList": "Рейси",
+    "viewCities": "Міста",
+    "viewListAria": "Показати результати списком рейсів",
+    "viewCitiesAria": "Групувати результати за містом призначення",
+    "cityCardAria": "Порівняти вікенди до {{city}}, від {{price}}",
+    "cityOffers_one": "{{count}} пропозиція",
+    "cityOffers_other": "{{count}} пропозицій"
   },
   "singleDayTrips": {
     "tagline": "Вранці туди · ввечері назад",

@@ -114,7 +114,15 @@
     "selectedAirports": "selected airports",
     "moreAirports_one": "{{name}} + {{count}} more airport",
     "moreAirports_other": "{{name}} + {{count}} more airports",
-    "weekendsCount": "{{count}} weekends"
+    "weekendsCount": "{{count}} weekends",
+    "resultsViewLabel": "Results layout",
+    "viewList": "Flights",
+    "viewCities": "Cities",
+    "viewListAria": "Show results as a flight list",
+    "viewCitiesAria": "Group results by destination city",
+    "cityCardAria": "Compare weekends to {{city}}, from {{price}}",
+    "cityOffers_one": "{{count}} deal",
+    "cityOffers_other": "{{count}} deals"
   },
   "cheapestWeekend": {
     "tagline": "One city · every weekend",

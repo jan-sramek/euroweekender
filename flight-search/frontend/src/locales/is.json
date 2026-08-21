@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Sía niðurstöður",
     "resultsSearchPlaceholder": "Sía eftir borg, flugvelli eða landi…",
     "clearResultsSearch": "Hreinsa leit",
-    "noTextMatch": "Engin flug passa við leitina."
+    "noTextMatch": "Engin flug passa við leitina.",
+    "resultsViewLabel": "Framsetning niðurstaðna",
+    "viewList": "Flug",
+    "viewCities": "Borgir",
+    "viewListAria": "Sýna niðurstöður sem fluglista",
+    "viewCitiesAria": "Hópa niðurstöður eftir áfangastað",
+    "cityCardAria": "Bera saman helgar til {{city}}, frá {{price}}",
+    "cityOffers_one": "{{count}} tilboð",
+    "cityOffers_other": "{{count}} tilboð"
   },
   "singleDayTrips": {
     "tagline": "Út að morgni · heim að kvöldi",

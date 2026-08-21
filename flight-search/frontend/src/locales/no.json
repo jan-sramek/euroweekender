@@ -105,7 +105,15 @@
     "resultsSearchLabel": "Filtrer resultater",
     "resultsSearchPlaceholder": "Filtrer etter by, flyplass eller land…",
     "clearResultsSearch": "Tøm søk",
-    "noTextMatch": "Ingen fly samsvarer med søket ditt."
+    "noTextMatch": "Ingen fly samsvarer med søket ditt.",
+    "resultsViewLabel": "Resultatvisning",
+    "viewList": "Fly",
+    "viewCities": "Byer",
+    "viewListAria": "Vis resultater som flyliste",
+    "viewCitiesAria": "Grupper resultater etter destinasjonsby",
+    "cityCardAria": "Sammenlign helger til {{city}}, fra {{price}}",
+    "cityOffers_one": "{{count}} tilbud",
+    "cityOffers_other": "{{count}} tilbud"
   },
   "singleDayTrips": {
     "tagline": "Ut om morgenen · hjem om kvelden",

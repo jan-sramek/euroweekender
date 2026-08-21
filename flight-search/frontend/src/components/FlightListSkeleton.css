@@ -26,7 +26,8 @@
 }
 
 .results-panel-loading .results-toolbar,
-.results-panel-loading .results-list {
+.results-panel-loading .results-list,
+.results-panel-loading .destination-city-grid {
   opacity: 0.5;
   filter: grayscale(0.85);
   pointer-events: none;

@@ -63,7 +63,7 @@ async function resolveCityPhoto(cityCode: string, cityName: string, country: str
   const request = (async () => {
     await acquireSlot();
     try {
-      const wiki = await fetchWikipediaCityPhoto(cityName, country);
+      const wiki = await fetchWikipediaCityPhoto(cityName, country, cityCode);
       const url = wiki || getFallbackCityPhoto();
       memoryCache.set(cityCode, url);
       if (wiki) writeSessionCache(cityCode, url);

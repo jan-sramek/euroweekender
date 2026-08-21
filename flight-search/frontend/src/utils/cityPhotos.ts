@@ -4,31 +4,45 @@ function unsplash(photoId: string, width = 640) {
   return `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&w=${width}&q=80`;
 }
 
-/** Curated cityscape photos keyed by Tequila city IATA code. */
+/** Curated cityscape photos keyed by Tequila city IATA code. IDs must 200 on images.unsplash.com. */
 const CITY_PHOTOS: Record<string, string> = {
   AMS: unsplash('1534351590666-13e3e96b5017'),
-  ATH: unsplash('1555993539-01211fe16b17'),
   BCN: unsplash('1583422409516-2895a77efded'),
   BER: unsplash('1560969184-10fe8719e047'),
-  BUD: unsplash('1541343672885-9be56228564b'),
-  CPH: unsplash('1513628195603-e407618327d4'),
-  DUB: unsplash('1549918864-48ce0c19cbf1'),
-  EDI: unsplash('1506377249807-8c16d0b17977'),
+  CPH: unsplash('1579126219016-fbc7f8670d6a'),
+  FCO: unsplash('1552832230-c0197dd311b5'),
   IST: unsplash('1524231757912-21f4fe3a7200'),
   LIS: unsplash('1555881400-74d7acaacd8b'),
   LON: unsplash('1513635269975-59663e0ac1ad'),
-  MAD: unsplash('1539037116277-4afd29ba1f7c0'),
-  MIL: unsplash('1513581168082-2adf65d8692c'),
-  NCE: unsplash('1533105079780-fdcd5f5d1e1b'),
+  MLA: unsplash('1685621425871-ff24a376026b'),
   PAR: unsplash('1502602898657-3e91760cbb34'),
-  PMI: unsplash('1533106418989-88806c4facfb'),
   PRG: unsplash('1551882547-ff40c63fe5fa'),
-  FCO: unsplash('1502920917128-1aa500764cbd'),
-  ROM: unsplash('1502920917128-1aa500764cbd'),
-  STO: unsplash('1509356843151-3e7d96281d0b'),
-  VCE: unsplash('1523906834658-6dcfd4c3a64b'),
-  VIE: unsplash('1609851638187-8b4f15de1eb0')
+  ROM: unsplash('1552832230-c0197dd311b5'),
+  STO: unsplash('1509356843151-3e7d96241e11')
 };
+
+/** Wikipedia page titles when the city name is a country, adjective, or ambiguous. */
+const WIKI_TITLES: Record<string, string> = {
+  ACE: 'Arrecife',
+  AGP: 'Málaga',
+  CIA: 'Rome',
+  FAO: 'Faro, Portugal',
+  FCO: 'Rome',
+  FUE: 'Puerto del Rosario',
+  GVA: 'Geneva',
+  IBZ: 'Ibiza',
+  KRK: 'Kraków',
+  LPA: 'Las Palmas',
+  MLA: 'Valletta',
+  NCE: 'Nice, France',
+  OPO: 'Porto',
+  PMI: 'Palma de Mallorca',
+  REK: 'Reykjavík',
+  ROM: 'Rome',
+  TFS: 'Santa Cruz de Tenerife'
+};
+
+const CACHE_VERSION = 'v2';
 
 export const FALLBACK_CITY_PHOTO = IMAGES.cityBreak;
 
@@ -42,43 +56,52 @@ export function getFallbackCityPhoto(): string {
   return FALLBACK_CITY_PHOTO;
 }
 
-export function wikipediaPhotoCacheKey(cityCode: string): string {
-  return `ew-city-photo:${cityCode.trim().toUpperCase()}`;
+export function wikipediaTitleForCity(cityCode: string, cityName: string): string {
+  const override = WIKI_TITLES[cityCode.trim().toUpperCase()];
+  return override ?? cityName.trim();
 }
 
-interface WikiQueryResponse {
-  query?: {
-    pages?: Record<string, { thumbnail?: { source?: string } }>;
-  };
+export function wikipediaPhotoCacheKey(cityCode: string): string {
+  return `ew-city-photo:${CACHE_VERSION}:${cityCode.trim().toUpperCase()}`;
+}
+
+export function isUsableWikiPhoto(url: string | undefined): url is string {
+  if (!url?.trim()) return false;
+  const lower = url.toLowerCase();
+  if (lower.includes('.svg')) return false;
+  if (lower.includes('flag_of') || lower.includes('coat_of_arms')) return false;
+  if (lower.includes('logo') || lower.includes('icon_of')) return false;
+  return true;
+}
+
+interface WikiSummary {
+  type?: string;
+  originalimage?: { source?: string };
+  thumbnail?: { source?: string };
 }
 
 export async function fetchWikipediaCityPhoto(
   cityName: string,
-  country: string
+  country: string,
+  cityCode = ''
 ): Promise<string | null> {
-  const search = [cityName.trim(), country.trim()].filter(Boolean).join(' ');
-  if (!search) return null;
+  const titles = [
+    wikipediaTitleForCity(cityCode, cityName),
+    cityName.trim(),
+    [cityName.trim(), country.trim()].filter(Boolean).join(', ')
+  ].filter((title, index, all) => title.length > 0 && all.indexOf(title) === index);
 
-  const params = new URLSearchParams({
-    action: 'query',
-    format: 'json',
-    origin: '*',
-    prop: 'pageimages',
-    piprop: 'thumbnail',
-    pithumbsize: '640',
-    generator: 'search',
-    gsrsearch: search,
-    gsrlimit: '1'
-  });
+  for (const title of titles) {
+    const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replaceAll(' ', '_'))}`;
+    const response = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!response.ok) continue;
 
-  const response = await fetch(`https://en.wikipedia.org/w/api.php?${params}`);
-  if (!response.ok) return null;
+    const data = (await response.json()) as WikiSummary;
+    if (data.type === 'disambiguation') continue;
 
-  const data = (await response.json()) as WikiQueryResponse;
-  const pages = data.query?.pages;
-  if (!pages) return null;
+    const photo = data.originalimage?.source || data.thumbnail?.source;
+    if (isUsableWikiPhoto(photo)) return photo.split('?')[0];
+  }
 
-  const first = Object.values(pages)[0];
-  const source = first?.thumbnail?.source?.trim();
-  return source || null;
+  return null;
 }

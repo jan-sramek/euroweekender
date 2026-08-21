@@ -15,7 +15,7 @@ export const IMAGES = {
   destinations: [
     { name: 'Barcelona', code: 'BCN', image: unsplash('1583422409516-2895a77efded', 500) },
     { name: 'Prague', code: 'PRG', image: unsplash('1551882547-ff40c63fe5fa', 500) },
-    { name: 'Rome', code: 'FCO', image: unsplash('1502920917128-1aa500764cbd', 500) },
+    { name: 'Rome', code: 'FCO', image: unsplash('1552832230-c0197dd311b5', 500) },
     { name: 'Amsterdam', code: 'AMS', image: unsplash('1534351590666-13e3e96b5017', 500) },
     { name: 'Vienna', code: 'VIE', image: unsplash('1502602898657-3e91760cbb34', 500) }
   ]

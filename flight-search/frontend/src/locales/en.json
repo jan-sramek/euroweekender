@@ -69,7 +69,8 @@
     "searchFlights": "Search flights",
     "privacy": "Privacy policy",
     "terms": "Terms of use",
-    "copyright": "© {{year}} euroweekender.com"
+    "copyright": "© {{year}} euroweekender.com",
+    "facebook": "Facebook"
   },
   "home": {
     "tagline": "European weekend flight deals",

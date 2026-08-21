@@ -53,23 +53,23 @@ describe('cityPhotos', () => {
   });
 
   it('versions wikipedia cache keys so stale photos can be busted', () => {
-    expect(wikipediaPhotoCacheKey(' bcn ')).toBe('ew-city-photo:v3:BCN');
+    expect(wikipediaPhotoCacheKey(' bcn ')).toBe('ew-city-photo:v4:BCN');
   });
 
-  it('resizes Wikimedia originals and thumbs to a card-sized file', () => {
-    expect(
-      sizedWikiPhoto(
-        'https://upload.wikimedia.org/wikipedia/commons/7/7e/Trevi_Fountain%2C_Rome.jpg'
-      )
-    ).toBe(
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/640px-Trevi_Fountain%2C_Rome.jpg'
-    );
+  it('keeps Wikipedia thumbs as-is and only downsizes originals', () => {
     expect(
       sizedWikiPhoto(
         'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/330px-Trevi_Fountain%2C_Rome.jpg'
       )
     ).toBe(
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/640px-Trevi_Fountain%2C_Rome.jpg'
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/330px-Trevi_Fountain%2C_Rome.jpg'
+    );
+    expect(
+      sizedWikiPhoto(
+        'https://upload.wikimedia.org/wikipedia/commons/7/7e/Trevi_Fountain%2C_Rome.jpg'
+      )
+    ).toBe(
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Trevi_Fountain%2C_Rome.jpg?width=500'
     );
   });
 

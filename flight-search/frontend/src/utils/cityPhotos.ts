@@ -40,8 +40,8 @@ const WIKI_TITLES: Record<string, string> = {
   TFS: 'Santa Cruz de Tenerife'
 };
 
-const CACHE_VERSION = 'v3';
-const WIKI_PHOTO_WIDTH = 640;
+const CACHE_VERSION = 'v4';
+const WIKI_PHOTO_WIDTH = 500;
 
 export const FALLBACK_CITY_PHOTO = unsplash('1555881400-74d7acaacd8b');
 export const CITY_PHOTO_SIZES = '(max-width: 575px) calc(100vw - 2rem), (max-width: 991px) calc(50vw - 2rem), 360px';
@@ -70,22 +70,24 @@ export function isUsableWikiPhoto(url: string | undefined): url is string {
   const lower = url.toLowerCase();
   if (lower.includes('.svg')) return false;
   if (lower.includes('flag_of') || lower.includes('coat_of_arms')) return false;
-  if (lower.includes('logo') || lower.includes('icon_of')) return false;
   return true;
 }
 
-/** Prefer a ~640px Commons thumb over a multi-megabyte original. */
+/**
+ * Keep Wikipedia thumbnails as-is. Upsizing them (330px → 640px) 404s when the
+ * original is smaller than the requested width, which made almost every card
+ * fall back to the default photo.
+ */
 export function sizedWikiPhoto(url: string, width = WIKI_PHOTO_WIDTH): string {
-  const resizedThumb = url.replace(/\/(\d+)px-([^/?#]+)$/, `/${width}px-$2`);
-  if (resizedThumb !== url) return resizedThumb;
+  if (/\/\d+px-[^/?#]+$/.test(url)) return url;
 
   const original = url.match(
     /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/[^/]+)\/([0-9a-f])\/([0-9a-f]{2})\/([^/?#]+)/i
   );
   if (!original) return url;
 
-  const [, base, a, b, file] = original;
-  return `${base}/thumb/${a}/${b}/${file}/${width}px-${file}`;
+  const file = original[4];
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${file}?width=${width}`;
 }
 
 export function cityPhotoSrcSet(url: string): string | undefined {

@@ -1,4 +1,6 @@
 .block-result {
+  container-type: inline-size;
+  container-name: flight-card;
   position: relative;
   padding: 0.55rem 0.75rem 0.6rem;
   margin: 0;
@@ -301,21 +303,33 @@
   }
 
   .result-legs {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
     grid-column: 1 / -1;
     grid-row: 2;
-    gap: 0.25rem;
+    column-gap: 0.5rem;
+    row-gap: 0.25rem;
     padding-top: 0.35rem;
     border-top: 1px solid #eef2f5;
   }
 
   .result-leg-row {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-column: auto;
-    gap: 0.2rem;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    gap: 0.2rem 0.5rem;
     padding: 0.35rem 0;
+    align-items: center;
+  }
+
+  .result-leg-direction {
+    grid-column: 1;
+  }
+
+  .result-leg-date,
+  .result-endpoint,
+  .result-leg-meta {
+    grid-column: 2;
   }
 
   .result-leg-meta {
@@ -329,6 +343,19 @@
 
   .result-leg-meta::before {
     content: '/ ';
+  }
+
+  @container flight-card (max-width: 17.5rem) {
+    .result-legs {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .result-leg-direction,
+    .result-leg-date,
+    .result-endpoint,
+    .result-leg-meta {
+      grid-column: 1;
+    }
   }
 }
 

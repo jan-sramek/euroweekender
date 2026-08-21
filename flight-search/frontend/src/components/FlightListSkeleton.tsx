@@ -58,7 +58,7 @@ function FlightSkeletonCard() {
 function FlightSkeletonLeg() {
   return (
     <div className="result-leg-row">
-      <SkeletonBone className="flight-skeleton-direction" />
+      <SkeletonBone className="result-leg-direction flight-skeleton-direction" />
       <div className="result-leg-date">
         <SkeletonBone className="flight-skeleton-date" />
       </div>

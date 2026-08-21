@@ -9,7 +9,7 @@ import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
 import { groupFlightsByDestination } from '../utils/destinationGroups';
 import { formatEur, getTripPrice } from '../utils/flightPrice';
 import { getFallbackCityPhoto, CITY_PHOTO_SIZES, cityPhotoSrcSet } from '../utils/cityPhotos';
-import { monthParamFromApiLocal } from '../utils/flightTime';
+import { weekendFlightsFocusParams } from '../utils/flightTime';
 import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
 import './DestinationCityGrid.css';
@@ -92,7 +92,7 @@ function DestinationCityCard({
     from && to
       ? weekendFlightsOdPath(from, to)
       : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(cityCode)}`,
-    { month: monthParamFromApiLocal(cheapestDeparture) }
+    weekendFlightsFocusParams(cheapestDeparture)
   );
 
   const priceLabel = formatEur(minPrice);

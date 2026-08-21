@@ -59,6 +59,27 @@ export function monthParamFromApiLocal(iso: string): string | null {
   return `${match[1]}-${match[2]}`;
 }
 
+/** `YYYY-MM-DD` from a Kiwi local timestamp, ignoring timezone suffixes. */
+export function dateParamFromApiLocal(iso: string): string | null {
+  const match = iso.trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) return null;
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+  return `${match[1]}-${match[2]}-${match[3]}`;
+}
+
+/** Calendar month + outbound date used to open the matching weekend on compare pages. */
+export function weekendFlightsFocusParams(localDeparture: string): {
+  month: string | null;
+  weekend: string | null;
+} {
+  return {
+    month: monthParamFromApiLocal(localDeparture),
+    weekend: dateParamFromApiLocal(localDeparture)
+  };
+}
+
 /** Parse `YYYY-MM` into calendar year + 0-based month. */
 export function parseYearMonthParam(
   value: string | null | undefined
@@ -69,4 +90,19 @@ export function parseYearMonthParam(
   const month = Number(match[2]) - 1;
   if (!Number.isFinite(year) || month < 0 || month > 11) return null;
   return { year, month };
+}
+
+/** Parse `YYYY-MM-DD` into a local calendar date. */
+export function parseIsoDateParam(value: string | null | undefined): Date | null {
+  const match = value?.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = Number(match[2]) - 1;
+  const day = Number(match[3]);
+  if (!Number.isFinite(year) || month < 0 || month > 11 || day < 1 || day > 31) return null;
+  const date = new Date(year, month, day);
+  if (date.getFullYear() !== year || date.getMonth() !== month || date.getDate() !== day) {
+    return null;
+  }
+  return date;
 }

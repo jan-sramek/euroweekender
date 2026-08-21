@@ -12,6 +12,7 @@ import {
   getIsoWeekNumber,
   nightsInDestSearchValues,
   formatWeekendRange,
+  findWeekendIdForDate,
   WEEKEND_OPTIONS_COUNT
 } from './weekend';
 
@@ -139,6 +140,30 @@ describe('formatWeekendRange', () => {
     expect(formatWeekendRange(from, to, 'en')).toBe('28 Aug – 1 Sep');
     expect(formatWeekendRange(from, to, 'cs')).toMatch(/srp/i);
     expect(formatWeekendRange(from, to, 'cs')).toMatch(/zář/i);
+  });
+});
+
+describe('findWeekendIdForDate', () => {
+  it('selects the calendar week that contains the outbound date', () => {
+    const weekends = getWeekendOptions([], WEEKEND_OPTIONS_COUNT);
+    const weekend = weekends[3];
+    const friday = new Date(weekend.departDate);
+    friday.setDate(friday.getDate() + 1);
+    expect(findWeekendIdForDate(weekends, friday)).toBe(weekend.id);
+  });
+
+  it('falls back to the same travel week when the date is just outside the trip', () => {
+    const weekends = getWeekendOptions([], WEEKEND_OPTIONS_COUNT);
+    const weekend = weekends[3];
+    const monday = new Date(weekend.departDate);
+    monday.setDate(monday.getDate() + 4);
+    expect(findWeekendIdForDate(weekends, monday)).toBe(weekend.id);
+  });
+
+  it('returns null when no upcoming weekend matches', () => {
+    const weekends = getWeekendOptions([], 4);
+    expect(findWeekendIdForDate(weekends, new Date(2020, 0, 15))).toBeNull();
+    expect(findWeekendIdForDate(weekends, null)).toBeNull();
   });
 });
 

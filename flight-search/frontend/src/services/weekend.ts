@@ -433,6 +433,33 @@ export function findMatchingWeekendIds(
   return matched.length > 0 ? matched : getDefaultWeekendIds(weekends);
 }
 
+/** Weekend whose trip covers `date`, else the same Thursday-start travel week. */
+export function findWeekendIdForDate(
+  weekends: WeekendOption[],
+  date: Date | null
+): string | null {
+  if (!date || weekends.length === 0) return null;
+
+  const day = startOfDay(date);
+  const covering = weekends.filter(weekend => {
+    const from = startOfDay(weekend.departDate);
+    const to = startOfDay(weekend.returnDate);
+    return day.getTime() >= from.getTime() && day.getTime() <= to.getTime();
+  });
+  const candidates =
+    covering.length > 0
+      ? covering
+      : weekends.filter(weekend => isSameTravelWeek(weekend.departDate, day));
+
+  if (candidates.length === 0) return null;
+
+  return candidates.reduce((closest, weekend) => {
+    const distance = Math.abs(startOfDay(weekend.departDate).getTime() - day.getTime());
+    const closestDistance = Math.abs(startOfDay(closest.departDate).getTime() - day.getTime());
+    return distance < closestDistance ? weekend : closest;
+  }).id;
+}
+
 /** Keep the same travel week when switching trip-type filters. */
 export function findMatchingWeekendId(
   weekends: WeekendOption[],

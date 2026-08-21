@@ -7,7 +7,7 @@ import {
   formatApiLocalTime,
   formatApiLocalTripDate,
   formatLocalDateTimeIso,
-  monthParamFromApiLocal
+  weekendFlightsFocusParams
 } from '../utils/flightTime';
 import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
@@ -236,7 +236,7 @@ export function FlightCard({
       ? weekendFlightsOdPath(fromCityRecord, toCityRecord)
       : `/cheapest-weekend?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
   const bestWeekendPriceTo = path(
-    withQuery(comparePath, { month: monthParamFromApiLocal(flight.localDeparture) })
+    withQuery(comparePath, weekendFlightsFocusParams(flight.localDeparture))
   );
 
   const formatStops = (stops: number) => {

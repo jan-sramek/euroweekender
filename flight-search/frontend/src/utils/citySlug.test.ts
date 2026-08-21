@@ -124,9 +124,12 @@ describe('parseOdSlugs', () => {
 
 describe('withQuery', () => {
   it('appends params to a path', () => {
-    expect(withQuery('/weekend-flights/prague-prg-to-barcelona-bcn', { month: '2026-10' })).toBe(
-      '/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10'
-    );
+    expect(
+      withQuery('/weekend-flights/prague-prg-to-barcelona-bcn', {
+        month: '2026-10',
+        weekend: '2026-10-16'
+      })
+    ).toBe('/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10&weekend=2026-10-16');
   });
 
   it('merges onto an existing query string', () => {

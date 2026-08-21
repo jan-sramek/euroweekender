@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
@@ -19,6 +19,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendId,
+  findWeekendIdForDate,
   formatTripTypesLabel,
   formatWeekendRange,
   getWeekendOptions,
@@ -28,7 +29,7 @@ import {
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
-import { parseYearMonthParam } from '../utils/flightTime';
+import { parseIsoDateParam, parseYearMonthParam } from '../utils/flightTime';
 import {
   cheapestMonthFromWeekendPrices,
   computeRouteFactsFromCities,
@@ -92,7 +93,12 @@ export function CheapestWeekendPage({
   const fromParam = forcedFrom?.trim().toUpperCase() || readAirportParam(searchParams.get('from'));
   const toParam = forcedTo?.trim().toUpperCase() || readAirportParam(searchParams.get('to'));
   const preferredCodes = useMemo(() => (fromParam ? [fromParam] : null), [fromParam]);
-  const focusedMonth = parseYearMonthParam(searchParams.get('month'));
+  const focusedWeekendDate = parseIsoDateParam(searchParams.get('weekend'));
+  const focusedMonth =
+    parseYearMonthParam(searchParams.get('month')) ??
+    (focusedWeekendDate
+      ? { year: focusedWeekendDate.getFullYear(), month: focusedWeekendDate.getMonth() }
+      : null);
 
   const now = new Date();
   const [viewYear, setViewYear] = useState(() => focusedMonth?.year ?? now.getFullYear());
@@ -101,8 +107,14 @@ export function CheapestWeekendPage({
   const [eveningFilters, setEveningFilters] = useState(NO_EVENING_FILTERS);
   const [passengerCount, setPassengerCount] = useState(1);
   const [destinationCode, setDestinationCode] = useState<string | null>(toParam);
-  const [selectedWeekendId, setSelectedWeekendId] = useState<string | null>(null);
+  const [selectedWeekendId, setSelectedWeekendId] = useState<string | null>(() =>
+    findWeekendIdForDate(
+      getWeekendOptions([], CALENDAR_PRICE_HORIZON_WEEKENDS, locale),
+      focusedWeekendDate
+    )
+  );
   const [singleOriginReady, setSingleOriginReady] = useState(false);
+  const appliedFocusWeekend = useRef(false);
 
   const selectedPatterns = useMemo(
     () => getWeekendPatterns(selectedPatternIds),
@@ -162,11 +174,21 @@ export function CheapestWeekendPage({
 
   useEffect(() => {
     setSelectedWeekendId(prev => {
-      if (!prev) return null;
-      const matched = findMatchingWeekendId(weekends, prev);
-      return weekends.some(weekend => weekend.id === matched) ? matched : null;
+      if (prev) {
+        appliedFocusWeekend.current = true;
+        const matched = findMatchingWeekendId(yearWeekends, prev);
+        return yearWeekends.some(weekend => weekend.id === matched) ? matched : null;
+      }
+      if (!appliedFocusWeekend.current && focusedWeekendDate) {
+        const fromUrl = findWeekendIdForDate(yearWeekends, focusedWeekendDate);
+        if (fromUrl) {
+          appliedFocusWeekend.current = true;
+          return fromUrl;
+        }
+      }
+      return null;
     });
-  }, [weekends]);
+  }, [yearWeekends, focusedWeekendDate]);
 
   const {
     flights,

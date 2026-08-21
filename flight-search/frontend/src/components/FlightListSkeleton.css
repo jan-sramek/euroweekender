@@ -120,10 +120,8 @@
 }
 
 .flight-skeleton-direction {
-  display: block;
   width: 3.4rem;
   height: 0.5rem;
-  margin-bottom: 0.28rem;
 }
 
 .flight-skeleton-date {
@@ -191,6 +189,11 @@
 }
 
 @media (max-width: 767px) {
+  .flight-skeleton-direction {
+    display: block;
+    margin-bottom: 0.12rem;
+  }
+
   .flight-skeleton-meta {
     justify-self: start;
   }

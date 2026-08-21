@@ -163,8 +163,8 @@ function FlightLegRow({
 }) {
   return (
     <div className={`result-leg-row${checked ? ' result-leg-row-selected' : ''}`}>
+      <span className="result-leg-direction">{directionLabel}</span>
       <div className="result-leg-date">
-        <span className="result-leg-direction">{directionLabel}</span>
         <label className="leg-date-label" htmlFor={inputId}>
           <input
             type="checkbox"

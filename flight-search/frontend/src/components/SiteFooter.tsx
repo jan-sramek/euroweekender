@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FACEBOOK_URL } from '../config/site';
+import { FACEBOOK_URL, INSTAGRAM_URL } from '../config/site';
 import { LocalizedLink } from './LocalizedLink';
 import { SiteBrand } from './SiteBrand';
 import './SiteFooter.css';
@@ -52,6 +52,11 @@ export function SiteFooter() {
             </li>
             <li>
               <LocalizedLink to="/terms">{t('footer.terms')}</LocalizedLink>
+            </li>
+            <li>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+                {t('footer.instagram')}
+              </a>
             </li>
             <li>
               <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">

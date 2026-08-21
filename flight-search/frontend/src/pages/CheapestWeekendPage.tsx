@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
@@ -93,7 +93,8 @@ export function CheapestWeekendPage({
   const fromParam = forcedFrom?.trim().toUpperCase() || readAirportParam(searchParams.get('from'));
   const toParam = forcedTo?.trim().toUpperCase() || readAirportParam(searchParams.get('to'));
   const preferredCodes = useMemo(() => (fromParam ? [fromParam] : null), [fromParam]);
-  const focusedWeekendDate = parseIsoDateParam(searchParams.get('weekend'));
+  const weekendParam = searchParams.get('weekend');
+  const focusedWeekendDate = useMemo(() => parseIsoDateParam(weekendParam), [weekendParam]);
   const focusedMonth =
     parseYearMonthParam(searchParams.get('month')) ??
     (focusedWeekendDate
@@ -114,7 +115,6 @@ export function CheapestWeekendPage({
     )
   );
   const [singleOriginReady, setSingleOriginReady] = useState(false);
-  const appliedFocusWeekend = useRef(false);
 
   const selectedPatterns = useMemo(
     () => getWeekendPatterns(selectedPatternIds),
@@ -174,21 +174,12 @@ export function CheapestWeekendPage({
 
   useEffect(() => {
     setSelectedWeekendId(prev => {
-      if (prev) {
-        appliedFocusWeekend.current = true;
-        const matched = findMatchingWeekendId(yearWeekends, prev);
-        return yearWeekends.some(weekend => weekend.id === matched) ? matched : null;
-      }
-      if (!appliedFocusWeekend.current && focusedWeekendDate) {
-        const fromUrl = findWeekendIdForDate(yearWeekends, focusedWeekendDate);
-        if (fromUrl) {
-          appliedFocusWeekend.current = true;
-          return fromUrl;
-        }
-      }
-      return null;
+      if (!prev) return null;
+      if (yearWeekends.some(weekend => weekend.id === prev)) return prev;
+      const matched = findMatchingWeekendId(yearWeekends, prev);
+      return yearWeekends.some(weekend => weekend.id === matched) ? matched : null;
     });
-  }, [yearWeekends, focusedWeekendDate]);
+  }, [yearWeekends]);
 
   const {
     flights,

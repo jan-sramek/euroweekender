@@ -6,11 +6,13 @@ import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import {
   formatApiLocalTime,
   formatApiLocalTripDate,
-  formatLocalDateTimeIso
+  formatLocalDateTimeIso,
+  monthParamFromApiLocal
 } from '../utils/flightTime';
 import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
 import { getCityNameByCode } from '../utils/cityDisplayName';
+import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
 import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
 import { CountryFlag } from './CountryFlag';
 import './FlightCard.css';
@@ -225,8 +227,17 @@ export function FlightCard({
   const perPersonPrice = getPerPersonPrice(flight);
   const showBestWeekendPriceLink =
     !location.pathname.includes('/cheapest-weekend') &&
+    !location.pathname.includes('/weekend-flights/') &&
     !location.pathname.includes('/single-day-trips');
-  const bestWeekendPriceTo = `${path('/cheapest-weekend')}?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
+  const fromCityRecord = citiesByCode?.get(flight.cityCodeFrom.trim().toUpperCase());
+  const toCityRecord = citiesByCode?.get(flight.cityCodeTo.trim().toUpperCase());
+  const comparePath =
+    fromCityRecord && toCityRecord
+      ? weekendFlightsOdPath(fromCityRecord, toCityRecord)
+      : `/cheapest-weekend?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
+  const bestWeekendPriceTo = path(
+    withQuery(comparePath, { month: monthParamFromApiLocal(flight.localDeparture) })
+  );
 
   const formatStops = (stops: number) => {
     if (stops === 0) return t('flights.changes_zero');

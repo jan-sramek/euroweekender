@@ -10,21 +10,25 @@ const memoryCache = new Map<string, string>();
 const inflight = new Map<string, Promise<string>>();
 let activeFetches = 0;
 const waiters: Array<() => void> = [];
-const MAX_CONCURRENT = 4;
+const MAX_CONCURRENT = 8;
 
-function readSessionCache(code: string): string | null {
+function readStoredPhoto(code: string): string | null {
   try {
-    return sessionStorage.getItem(wikipediaPhotoCacheKey(code));
+    return sessionStorage.getItem(wikipediaPhotoCacheKey(code)) ?? localStorage.getItem(wikipediaPhotoCacheKey(code));
   } catch {
     return null;
   }
 }
 
-function writeSessionCache(code: string, url: string) {
+function writeStoredPhoto(code: string, url: string) {
   try {
-    sessionStorage.setItem(wikipediaPhotoCacheKey(code), url);
+    localStorage.setItem(wikipediaPhotoCacheKey(code), url);
   } catch {
-    /* quota / private mode */
+    try {
+      sessionStorage.setItem(wikipediaPhotoCacheKey(code), url);
+    } catch {
+      /* quota / private mode */
+    }
   }
 }
 
@@ -51,7 +55,7 @@ async function resolveCityPhoto(cityCode: string, cityName: string, country: str
   const curated = getCuratedCityPhoto(cityCode);
   if (curated) return curated;
 
-  const cached = memoryCache.get(cityCode) ?? readSessionCache(cityCode);
+  const cached = memoryCache.get(cityCode) ?? readStoredPhoto(cityCode);
   if (cached) {
     memoryCache.set(cityCode, cached);
     return cached;
@@ -66,7 +70,7 @@ async function resolveCityPhoto(cityCode: string, cityName: string, country: str
       const wiki = await fetchWikipediaCityPhoto(cityName, country, cityCode);
       const url = wiki || getFallbackCityPhoto();
       memoryCache.set(cityCode, url);
-      if (wiki) writeSessionCache(cityCode, url);
+      if (wiki) writeStoredPhoto(cityCode, url);
       return url;
     } catch {
       return getFallbackCityPhoto();
@@ -80,10 +84,14 @@ async function resolveCityPhoto(cityCode: string, cityName: string, country: str
   return request;
 }
 
-export function useCityPhoto(cityCode: string, cityName: string, country: string): string {
+export function useCityPhoto(
+  cityCode: string,
+  cityName: string,
+  country: string
+): { url: string; ready: boolean } {
   const curated = getCuratedCityPhoto(cityCode);
-  const initial = curated ?? memoryCache.get(cityCode) ?? readSessionCache(cityCode) ?? getFallbackCityPhoto();
-  const [url, setUrl] = useState(initial);
+  const stored = curated ?? memoryCache.get(cityCode) ?? readStoredPhoto(cityCode);
+  const [url, setUrl] = useState(stored ?? '');
 
   useEffect(() => {
     if (curated) {
@@ -91,7 +99,7 @@ export function useCityPhoto(cityCode: string, cityName: string, country: string
       return;
     }
 
-    const cached = memoryCache.get(cityCode) ?? readSessionCache(cityCode);
+    const cached = memoryCache.get(cityCode) ?? readStoredPhoto(cityCode);
     if (cached) {
       setUrl(cached);
       return;
@@ -107,5 +115,5 @@ export function useCityPhoto(cityCode: string, cityName: string, country: string
     };
   }, [cityCode, cityName, country, curated]);
 
-  return url;
+  return { url, ready: url.length > 0 };
 }

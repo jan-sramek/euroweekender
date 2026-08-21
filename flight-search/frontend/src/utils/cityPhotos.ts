@@ -1,7 +1,5 @@
-import { IMAGES } from '../config/images';
-
-function unsplash(photoId: string, width = 640) {
-  return `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&w=${width}&q=80`;
+function unsplash(photoId: string, width = 480) {
+  return `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&w=${width}&q=70`;
 }
 
 /** Curated cityscape photos keyed by Tequila city IATA code. IDs must 200 on images.unsplash.com. */
@@ -42,9 +40,11 @@ const WIKI_TITLES: Record<string, string> = {
   TFS: 'Santa Cruz de Tenerife'
 };
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
+const WIKI_PHOTO_WIDTH = 640;
 
-export const FALLBACK_CITY_PHOTO = IMAGES.cityBreak;
+export const FALLBACK_CITY_PHOTO = unsplash('1555881400-74d7acaacd8b');
+export const CITY_PHOTO_SIZES = '(max-width: 575px) calc(100vw - 2rem), (max-width: 991px) calc(50vw - 2rem), 360px';
 
 export function getCuratedCityPhoto(cityCode: string | undefined): string | null {
   const code = cityCode?.trim().toUpperCase();
@@ -74,6 +74,25 @@ export function isUsableWikiPhoto(url: string | undefined): url is string {
   return true;
 }
 
+/** Prefer a ~640px Commons thumb over a multi-megabyte original. */
+export function sizedWikiPhoto(url: string, width = WIKI_PHOTO_WIDTH): string {
+  const resizedThumb = url.replace(/\/(\d+)px-([^/?#]+)$/, `/${width}px-$2`);
+  if (resizedThumb !== url) return resizedThumb;
+
+  const original = url.match(
+    /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/[^/]+)\/([0-9a-f])\/([0-9a-f]{2})\/([^/?#]+)/i
+  );
+  if (!original) return url;
+
+  const [, base, a, b, file] = original;
+  return `${base}/thumb/${a}/${b}/${file}/${width}px-${file}`;
+}
+
+export function cityPhotoSrcSet(url: string): string | undefined {
+  if (!url.includes('images.unsplash.com') || !/[?&]w=\d+/.test(url)) return undefined;
+  return `${url.replace(/([?&])w=\d+/, '$1w=400')} 400w, ${url.replace(/([?&])w=\d+/, '$1w=800')} 800w`;
+}
+
 interface WikiSummary {
   type?: string;
   originalimage?: { source?: string };
@@ -99,8 +118,9 @@ export async function fetchWikipediaCityPhoto(
     const data = (await response.json()) as WikiSummary;
     if (data.type === 'disambiguation') continue;
 
-    const photo = data.originalimage?.source || data.thumbnail?.source;
-    if (isUsableWikiPhoto(photo)) return photo.split('?')[0];
+    const candidates = [data.thumbnail?.source, data.originalimage?.source];
+    const photo = candidates.find(isUsableWikiPhoto);
+    if (photo) return sizedWikiPhoto(photo.split('?')[0]);
   }
 
   return null;

@@ -28,12 +28,17 @@
   box-shadow: 0 14px 34px rgba(25, 44, 57, 0.2);
 }
 
-.destination-city-card img {
+.destination-city-card-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #2a4152;
+}
+
+.destination-city-card-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
-  background: #2a4152;
   transition: transform 0.35s ease;
 }
 

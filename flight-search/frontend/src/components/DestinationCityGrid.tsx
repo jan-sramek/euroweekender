@@ -8,7 +8,7 @@ import { getCityNameByCode } from '../utils/cityDisplayName';
 import { weekendFlightsOdPath } from '../utils/citySlug';
 import { groupFlightsByDestination } from '../utils/destinationGroups';
 import { formatEur, getTripPrice } from '../utils/flightPrice';
-import { getFallbackCityPhoto } from '../utils/cityPhotos';
+import { getFallbackCityPhoto, CITY_PHOTO_SIZES, cityPhotoSrcSet } from '../utils/cityPhotos';
 import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
 import './DestinationCityGrid.css';
@@ -28,7 +28,7 @@ export function DestinationCityGrid({
 
   return (
     <ul className="destination-city-grid">
-      {groups.map(group => (
+      {groups.map((group, index) => (
         <li key={group.cityCode}>
           <DestinationCityCard
             cityCode={group.cityCode}
@@ -39,6 +39,8 @@ export function DestinationCityGrid({
             minPrice={getTripPrice(group.cheapestFlight, passengerCount)}
             offerCount={group.offerCount}
             citiesByCode={citiesByCode}
+            eager={index < 6}
+            priority={index < 3}
           />
         </li>
       ))}
@@ -55,6 +57,8 @@ interface DestinationCityCardProps {
   minPrice: number;
   offerCount: number;
   citiesByCode: Map<string, City>;
+  eager: boolean;
+  priority: boolean;
 }
 
 function DestinationCityCard({
@@ -65,15 +69,18 @@ function DestinationCityCard({
   fromCity,
   minPrice,
   offerCount,
-  citiesByCode
+  citiesByCode,
+  eager,
+  priority
 }: DestinationCityCardProps) {
   const { t } = useTranslation();
   const locale = useLocale();
   const displayName = getCityNameByCode(citiesByCode, cityCode, locale, cityName);
   const fromDisplay = getCityNameByCode(citiesByCode, fromCode, locale, fromCity);
-  const photoUrl = useCityPhoto(cityCode, cityName, country);
+  const { url: photoUrl, ready } = useCityPhoto(cityCode, cityName, country);
   const [failed, setFailed] = useState(false);
   const imageSrc = failed ? getFallbackCityPhoto() : photoUrl;
+  const srcSet = !failed ? cityPhotoSrcSet(imageSrc) : undefined;
 
   const from = citiesByCode.get(fromCode.trim().toUpperCase());
   const to = citiesByCode.get(cityCode);
@@ -91,13 +98,24 @@ function DestinationCityCard({
       data-umami-event="destination_city_compare_weekends"
       aria-label={t('home.cityCardAria', { city: displayName, price: priceLabel })}
     >
-      <img
-        src={imageSrc}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(true)}
-      />
+      <div className="destination-city-card-photo">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            srcSet={srcSet}
+            sizes={srcSet ? CITY_PHOTO_SIZES : undefined}
+            alt=""
+            width={480}
+            height={360}
+            loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            decoding="async"
+            onError={() => {
+              if (ready) setFailed(true);
+            }}
+          />
+        ) : null}
+      </div>
       <div className="destination-city-card-body">
         <p className="destination-city-card-place">
           <CountryFlag country={country} />

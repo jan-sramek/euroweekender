@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
+  cityPhotoSrcSet,
   getCuratedCityPhoto,
   getFallbackCityPhoto,
   isUsableWikiPhoto,
+  sizedWikiPhoto,
   wikipediaPhotoCacheKey,
   wikipediaTitleForCity
 } from './cityPhotos';
@@ -51,6 +53,30 @@ describe('cityPhotos', () => {
   });
 
   it('versions wikipedia cache keys so stale photos can be busted', () => {
-    expect(wikipediaPhotoCacheKey(' bcn ')).toBe('ew-city-photo:v2:BCN');
+    expect(wikipediaPhotoCacheKey(' bcn ')).toBe('ew-city-photo:v3:BCN');
+  });
+
+  it('resizes Wikimedia originals and thumbs to a card-sized file', () => {
+    expect(
+      sizedWikiPhoto(
+        'https://upload.wikimedia.org/wikipedia/commons/7/7e/Trevi_Fountain%2C_Rome.jpg'
+      )
+    ).toBe(
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/640px-Trevi_Fountain%2C_Rome.jpg'
+    );
+    expect(
+      sizedWikiPhoto(
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/330px-Trevi_Fountain%2C_Rome.jpg'
+      )
+    ).toBe(
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome.jpg/640px-Trevi_Fountain%2C_Rome.jpg'
+    );
+  });
+
+  it('builds an Unsplash srcset from the card URL', () => {
+    const url = getCuratedCityPhoto('ROM');
+    expect(url).toContain('w=480');
+    expect(cityPhotoSrcSet(url ?? '')).toContain('400w');
+    expect(cityPhotoSrcSet(url ?? '')).toContain('800w');
   });
 });

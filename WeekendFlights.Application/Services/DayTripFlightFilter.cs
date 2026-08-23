@@ -10,28 +10,38 @@ public static class DayTripFlightFilter
     public const int MorningFromHour = 5;
     public const int MorningToHour = 12;
     public const int EveningFromHour = 16;
+    public const int MinStayHours = 6;
 
-    public static bool Matches(Flight flight)
+    public static bool Matches(Flight flight) =>
+        Matches(flight.NightsInDest, flight.LocalDeparture, flight.LocalArrival, flight.LocalReturnDeparture);
+
+    public static bool Matches(
+        int nightsInDest,
+        DateTime localDeparture,
+        DateTime localArrival,
+        DateTime? localReturnDeparture)
     {
-        if (flight.NightsInDest != 0)
+        if (nightsInDest != 0)
             return false;
 
-        if (flight.LocalReturnDeparture is not DateTime returnDepart)
+        if (localReturnDeparture is not DateTime returnDepart)
             return false;
 
-        var outbound = flight.LocalDeparture;
-        if (outbound.Year != returnDepart.Year
-            || outbound.Month != returnDepart.Month
-            || outbound.Day != returnDepart.Day)
+        if (localDeparture.Year != returnDepart.Year
+            || localDeparture.Month != returnDepart.Month
+            || localDeparture.Day != returnDepart.Day)
         {
             return false;
         }
 
-        var outMinutes = outbound.Hour * 60 + outbound.Minute;
+        var outMinutes = localDeparture.Hour * 60 + localDeparture.Minute;
         if (outMinutes < MorningFromHour * 60 || outMinutes >= MorningToHour * 60)
             return false;
 
         var backMinutes = returnDepart.Hour * 60 + returnDepart.Minute;
-        return backMinutes >= EveningFromHour * 60;
+        if (backMinutes < EveningFromHour * 60)
+            return false;
+
+        return returnDepart - localArrival >= TimeSpan.FromHours(MinStayHours);
     }
 }

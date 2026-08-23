@@ -5,6 +5,7 @@ import {
   mondayFirstIndex,
   type DayTripOption
 } from '../services/dayTrip';
+import { paintDayTripPull } from '../services/dayTripCalendar';
 import './DayTripCalendar.css';
 
 interface DayTripCalendarProps {
@@ -47,35 +48,6 @@ function sameDay(a: Date, b: Date): boolean {
 function nextMonth(year: number, month: number): { year: number; month: number } {
   if (month === 11) return { year: year + 1, month: 0 };
   return { year, month: month + 1 };
-}
-
-function sortDayIds(ids: string[], days: DayTripOption[]): string[] {
-  const order = new Map(days.map((day, index) => [day.id, index]));
-  return [...ids].sort((a, b) => (order.get(a) ?? 0) - (order.get(b) ?? 0));
-}
-
-function idsBetween(days: DayTripOption[], fromId: string, toId: string): string[] {
-  const fromIndex = days.findIndex(day => day.id === fromId);
-  const toIndex = days.findIndex(day => day.id === toId);
-  if (fromIndex < 0 || toIndex < 0) return [];
-  const [lo, hi] = fromIndex <= toIndex ? [fromIndex, toIndex] : [toIndex, fromIndex];
-  return days.slice(lo, hi + 1).map(day => day.id);
-}
-
-/** Paint every day from `fromId` to `toId` (inclusive) onto the current selection. */
-function paintPull(
-  days: DayTripOption[],
-  currentIds: string[],
-  fromId: string,
-  toId: string,
-  mode: 'add' | 'remove'
-): string[] {
-  const next = new Set(currentIds);
-  for (const id of idsBetween(days, fromId, toId)) {
-    if (mode === 'add') next.add(id);
-    else next.delete(id);
-  }
-  return sortDayIds([...next], days);
 }
 
 function dayIdFromPoint(clientX: number, clientY: number): string | null {
@@ -259,7 +231,7 @@ export function DayTripCalendar({
     const drag = dragRef.current;
     if (!drag || dayId === drag.lastId) return;
 
-    const painted = paintPull(
+    const painted = paintDayTripPull(
       daysRef.current,
       draftIdsRef.current ?? selectedRef.current,
       drag.lastId,
@@ -309,7 +281,7 @@ export function DayTripCalendar({
 
     const base = selectedRef.current;
     const mode: 'add' | 'remove' = new Set(base).has(dayId) ? 'remove' : 'add';
-    const painted = paintPull(daysRef.current, base, dayId, dayId, mode);
+    const painted = paintDayTripPull(daysRef.current, base, dayId, dayId, mode);
 
     dragRef.current = {
       mode,

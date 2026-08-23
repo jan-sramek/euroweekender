@@ -101,21 +101,9 @@ public sealed class DayTripLiveSearchService(
             nightsInDest: 0,
             cancellationToken: cancellationToken);
 
-        return items.Where(f =>
-        {
-            if (f.LocalReturnDeparture is not DateTime ret)
-                return false;
-            if (f.LocalDeparture.Date != ret.Date)
-                return false;
-            var outMinutes = f.LocalDeparture.Hour * 60 + f.LocalDeparture.Minute;
-            if (outMinutes < DayTripFlightFilter.MorningFromHour * 60
-                || outMinutes >= DayTripFlightFilter.MorningToHour * 60)
-            {
-                return false;
-            }
-
-            var backMinutes = ret.Hour * 60 + ret.Minute;
-            return backMinutes >= DayTripFlightFilter.EveningFromHour * 60;
-        }).ToList();
+        return items
+            .Where(f => DayTripFlightFilter.Matches(
+                f.NightsInDest, f.LocalDeparture, f.LocalArrival, f.LocalReturnDeparture))
+            .ToList();
     }
 }

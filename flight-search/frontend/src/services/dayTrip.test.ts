@@ -120,4 +120,22 @@ describe('dayTrip filters', () => {
     expect(isMorningDeparture(new Date(2026, 7, 10, 11, 59))).toBe(true);
     expect(isMorningDeparture(new Date(2026, 7, 10, 12, 0))).toBe(false);
   });
+
+  it('accepts a stay of at least 6 hours at the destination', () => {
+    const f = flight({
+      localDeparture: '2026-08-10T07:30:00',
+      localArrival: '2026-08-10T10:00:00',
+      localReturnDeparture: '2026-08-10T16:00:00'
+    });
+    expect(matchesDayTrip(f)).toBe(true);
+  });
+
+  it('rejects a stay shorter than 6 hours', () => {
+    const f = flight({
+      localDeparture: '2026-08-10T07:30:00',
+      localArrival: '2026-08-10T12:30:00',
+      localReturnDeparture: '2026-08-10T18:00:00'
+    });
+    expect(matchesDayTrip(f)).toBe(false);
+  });
 });

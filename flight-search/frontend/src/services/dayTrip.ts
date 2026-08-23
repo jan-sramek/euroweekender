@@ -8,6 +8,8 @@ export const MORNING_DEPART_HOUR_FROM = 5;
 export const MORNING_DEPART_HOUR_TO = 12;
 /** Matches crawl `ReturnDepartTimeFromHour` (evening return). */
 export const DAY_TRIP_EVENING_HOUR_FROM = 16;
+/** Minimum time on the ground between arrival and return departure. */
+export const DAY_TRIP_MIN_STAY_HOURS = 6;
 
 export const DAY_TRIP_RANGE_PRESETS = [1, 3, 6] as const;
 
@@ -142,7 +144,13 @@ export function isSameDayRoundTrip(flight: Flight): boolean {
   return sameCalendarDay(outboundDepart, returnDepart);
 }
 
-/** Out morning, back evening, same calendar day. */
+export function dayTripStayMs(flight: Flight): number {
+  const arrival = parseApiLocalDateTime(flight.localArrival);
+  const returnDepart = getReturnDepartDate(flight);
+  return returnDepart.getTime() - arrival.getTime();
+}
+
+/** Out morning, back evening, same calendar day, with enough time on the ground. */
 export function matchesDayTrip(flight: Flight): boolean {
   if (!isSameDayRoundTrip(flight)) return false;
 
@@ -150,9 +158,11 @@ export function matchesDayTrip(flight: Flight): boolean {
   const returnDepart = getReturnDepartDate(flight);
 
   if (!isMorningDeparture(outboundDepart)) return false;
-  return (
-    returnDepart.getHours() * 60 + returnDepart.getMinutes() >= DAY_TRIP_EVENING_HOUR_FROM * 60
-  );
+  if (returnDepart.getHours() * 60 + returnDepart.getMinutes() < DAY_TRIP_EVENING_HOUR_FROM * 60) {
+    return false;
+  }
+
+  return dayTripStayMs(flight) >= DAY_TRIP_MIN_STAY_HOURS * 60 * 60 * 1000;
 }
 
 export function filterFlightsByDayTrip(

@@ -17,6 +17,7 @@ interface UseDayTripSearchOptions {
   selectedDayIds: string[];
   passengerCount: number;
   locating: boolean;
+  longDay?: boolean;
 }
 
 function mergeFlights(existing: Flight[], incoming: Flight[]): Flight[] {
@@ -31,7 +32,8 @@ export function useDayTripSearch({
   days,
   selectedDayIds,
   passengerCount,
-  locating
+  locating,
+  longDay = false
 }: UseDayTripSearchOptions) {
   const { t } = useTranslation();
   const [loadingFlights, setLoadingFlights] = useState(false);
@@ -66,10 +68,10 @@ export function useDayTripSearch({
 
   const flights = useMemo(() => {
     if (selectedDays.length === 0) return [];
-    return filterFlightsByDayTrip(rawFlights, selectedDays)
+    return filterFlightsByDayTrip(rawFlights, selectedDays, { longDay })
       .filter(flight => hasEnoughSeats(flight, passengerCount))
       .sort((a, b) => getTripPrice(a, passengerCount) - getTripPrice(b, passengerCount));
-  }, [rawFlights, selectedDays, passengerCount]);
+  }, [rawFlights, selectedDays, passengerCount, longDay]);
 
   const visibleFlights = useMemo(
     () => filterFlightsByLegSelection(flights, departureLegFilter, returnLegFilter),

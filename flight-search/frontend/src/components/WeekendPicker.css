@@ -284,6 +284,42 @@
   visibility: hidden;
 }
 
+.day-trip-long-day {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.day-trip-long-day input {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0.12rem 0 0;
+  accent-color: #04bfab;
+  flex-shrink: 0;
+}
+
+.day-trip-long-day-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.day-trip-long-day-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #192c39;
+}
+
+.day-trip-long-day-hint {
+  font-size: 0.7rem;
+  line-height: 1.3;
+  color: #8c959c;
+}
+
 @media (max-width: 767px) {
   .weekend-section {
     padding: 0.65rem 0.7rem 0.75rem;

@@ -50,6 +50,7 @@ export function DayTripsFromCityPage() {
   const [selectedRangeMonths, setSelectedRangeMonths] = useState<number | null>(
     DAY_TRIP_OPTIONS_MONTHS
   );
+  const [longDay, setLongDay] = useState(false);
   const [resultsView, setResultsView] = useResultsViewMode();
   const defaultsApplied = useRef(false);
 
@@ -107,7 +108,8 @@ export function DayTripsFromCityPage() {
     days,
     selectedDayIds,
     passengerCount,
-    locating
+    locating,
+    longDay
   });
 
   const resultsResetKey = `${selectedCodes.slice().sort().join(',')}|${selectedDayIds.slice().sort().join('|')}`;
@@ -269,6 +271,8 @@ export function DayTripsFromCityPage() {
                     onSelectMonths={handleSelectMonths}
                     passengerCount={passengerCount}
                     onPassengerCountChange={setPassengerCount}
+                    longDay={longDay}
+                    onLongDayChange={setLongDay}
                   />
                 </div>
               </div>
@@ -298,7 +302,8 @@ export function DayTripsFromCityPage() {
                 })}{' '}
                 · {passengerCount}{' '}
                 {passengerCount === 1 ? t('home.person') : t('home.persons')} ·{' '}
-                {t('singleDayTrips.scheduleSummary')} · {daysLabel}
+                {t('singleDayTrips.scheduleSummary')}
+                {longDay ? ` · ${t('singleDayTrips.longDaySummary')}` : ''} · {daysLabel}
               </p>
             </div>
           )}

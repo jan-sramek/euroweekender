@@ -138,4 +138,33 @@ describe('dayTrip filters', () => {
     });
     expect(matchesDayTrip(f)).toBe(false);
   });
+
+  it('keeps late-morning trips unless long-day is on', () => {
+    const f = flight({
+      localDeparture: '2026-08-10T10:30:00',
+      localArrival: '2026-08-10T12:00:00',
+      localReturnDeparture: '2026-08-10T20:00:00'
+    });
+    expect(matchesDayTrip(f)).toBe(true);
+    expect(matchesDayTrip(f, { longDay: true })).toBe(false);
+  });
+
+  it('keeps early-out late-back trips when long-day is on', () => {
+    const f = flight({
+      localDeparture: '2026-08-10T07:00:00',
+      localArrival: '2026-08-10T09:00:00',
+      localReturnDeparture: '2026-08-10T18:00:00'
+    });
+    expect(matchesDayTrip(f, { longDay: true })).toBe(true);
+  });
+
+  it('rejects a 16:00 return when long-day is on', () => {
+    const f = flight({
+      localDeparture: '2026-08-10T07:30:00',
+      localArrival: '2026-08-10T10:00:00',
+      localReturnDeparture: '2026-08-10T16:00:00'
+    });
+    expect(matchesDayTrip(f)).toBe(true);
+    expect(matchesDayTrip(f, { longDay: true })).toBe(false);
+  });
 });

@@ -19,6 +19,8 @@ interface DayTripPickerProps {
   onSelectMonths?: (months: number) => void;
   passengerCount: number;
   onPassengerCountChange: (count: number) => void;
+  longDay?: boolean;
+  onLongDayChange?: (longDay: boolean) => void;
 }
 
 export function DayTripPicker({
@@ -29,7 +31,9 @@ export function DayTripPicker({
   onClearDays,
   onSelectMonths,
   passengerCount,
-  onPassengerCountChange
+  onPassengerCountChange,
+  longDay = false,
+  onLongDayChange
 }: DayTripPickerProps) {
   const { t } = useTranslation();
 
@@ -105,6 +109,20 @@ export function DayTripPicker({
           summaryLabel={calendarSummary}
           onSelectedDayIdsChange={onSelectedDayIdsChange}
         />
+
+        {onLongDayChange ? (
+          <label className="day-trip-long-day">
+            <input
+              type="checkbox"
+              checked={longDay}
+              onChange={event => onLongDayChange(event.target.checked)}
+            />
+            <span className="day-trip-long-day-copy">
+              <span className="day-trip-long-day-label">{t('singleDayTrips.longDay')}</span>
+              <span className="day-trip-long-day-hint">{t('singleDayTrips.longDayHint')}</span>
+            </span>
+          </label>
+        ) : null}
       </div>
 
       <div className="weekend-section">

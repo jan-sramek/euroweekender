@@ -10,6 +10,9 @@ export const MORNING_DEPART_HOUR_TO = 12;
 export const DAY_TRIP_EVENING_HOUR_FROM = 16;
 /** Minimum time on the ground between arrival and return departure. */
 export const DAY_TRIP_MIN_STAY_HOURS = 6;
+/** Optional “long day” filter: out before this hour, back from this hour. */
+export const LONG_DAY_MORNING_TO = 9;
+export const LONG_DAY_EVENING_FROM = 18;
 
 export const DAY_TRIP_RANGE_PRESETS = [1, 3, 6] as const;
 
@@ -126,10 +129,21 @@ export function getDefaultDayTripIds(
   return getDayTripIdsForMonths(days, months);
 }
 
+function minutesOfDay(date: Date): number {
+  return date.getHours() * 60 + date.getMinutes();
+}
+
 export function isMorningDeparture(date: Date): boolean {
-  const minutes = date.getHours() * 60 + date.getMinutes();
+  const minutes = minutesOfDay(date);
   return (
     minutes >= MORNING_DEPART_HOUR_FROM * 60 && minutes < MORNING_DEPART_HOUR_TO * 60
+  );
+}
+
+export function isLongDaySchedule(outboundDepart: Date, returnDepart: Date): boolean {
+  return (
+    minutesOfDay(outboundDepart) < LONG_DAY_MORNING_TO * 60 &&
+    minutesOfDay(returnDepart) >= LONG_DAY_EVENING_FROM * 60
   );
 }
 
@@ -150,31 +164,44 @@ export function dayTripStayMs(flight: Flight): number {
   return returnDepart.getTime() - arrival.getTime();
 }
 
+interface DayTripMatchOptions {
+  longDay?: boolean;
+}
+
 /** Out morning, back evening, same calendar day, with enough time on the ground. */
-export function matchesDayTrip(flight: Flight): boolean {
+export function matchesDayTrip(flight: Flight, options: DayTripMatchOptions = {}): boolean {
   if (!isSameDayRoundTrip(flight)) return false;
 
   const outboundDepart = parseApiLocalDateTime(flight.localDeparture);
   const returnDepart = getReturnDepartDate(flight);
 
   if (!isMorningDeparture(outboundDepart)) return false;
-  if (returnDepart.getHours() * 60 + returnDepart.getMinutes() < DAY_TRIP_EVENING_HOUR_FROM * 60) {
+  if (minutesOfDay(returnDepart) < DAY_TRIP_EVENING_HOUR_FROM * 60) {
     return false;
   }
 
-  return dayTripStayMs(flight) >= DAY_TRIP_MIN_STAY_HOURS * 60 * 60 * 1000;
+  if (dayTripStayMs(flight) < DAY_TRIP_MIN_STAY_HOURS * 60 * 60 * 1000) {
+    return false;
+  }
+
+  if (options.longDay && !isLongDaySchedule(outboundDepart, returnDepart)) {
+    return false;
+  }
+
+  return true;
 }
 
 export function filterFlightsByDayTrip(
   flights: Flight[],
-  days: DayTripOption[]
+  days: DayTripOption[],
+  options: DayTripMatchOptions = {}
 ): Flight[] {
   if (days.length === 0) return [];
 
   const dayStarts = days.map(day => startOfDay(day.date).getTime());
 
   return flights.filter(flight => {
-    if (!matchesDayTrip(flight)) return false;
+    if (!matchesDayTrip(flight, options)) return false;
     const depart = startOfDay(parseApiLocalDateTime(flight.localDeparture)).getTime();
     return dayStarts.includes(depart);
   });

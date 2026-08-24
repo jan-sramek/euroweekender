@@ -60,8 +60,8 @@ services:
 
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: flight-search/frontend/Dockerfile
       args:
         VITE_UMAMI_SCRIPT_URL: ${VITE_UMAMI_SCRIPT_URL:-https://analytics.${SITE_DOMAIN:-euroweekender.com}/script.js}
         VITE_UMAMI_WEBSITE_ID: ${VITE_UMAMI_WEBSITE_ID:-9b63db18-fc14-4972-9cd4-022e4621d053}

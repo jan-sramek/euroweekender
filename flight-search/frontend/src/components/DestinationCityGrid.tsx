@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City } from '../types/city';
 import type { Flight } from '../types/flight';
+import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useCityPhoto } from '../hooks/useCityPhoto';
 import { useLocale } from '../hooks/useLocale';
 import { getCityNameByCode } from '../utils/cityDisplayName';
@@ -100,6 +101,11 @@ function DestinationCityCard({
   return (
     <LocalizedLink
       className="destination-city-card"
+      locale={
+        from
+          ? preferredIndexableLocale(locale, from.code, from.country)
+          : undefined
+      }
       to={href}
       data-umami-event="destination_city_compare_weekends"
       aria-label={t('home.cityCardAria', { city: displayName, price: priceLabel })}

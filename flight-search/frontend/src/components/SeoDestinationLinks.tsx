@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { preferredIndexableLocale } from '../config/cityIndexLocales';
+import { useLocale } from '../hooks/useLocale';
 import { findCityByCode } from '../services/locationPrefill';
 import type { City, OriginDestination } from '../types/city';
 import { getCityDisplayName } from '../utils/cityDisplayName';
@@ -22,6 +24,7 @@ export function SeoDestinationLinks({
   limit = 12
 }: SeoDestinationLinksProps) {
   const { t } = useTranslation();
+  const locale = useLocale();
   const visible = destinations.slice(0, limit);
 
   if (visible.length === 0) return null;
@@ -41,7 +44,10 @@ export function SeoDestinationLinks({
             : `/cheapest-weekend?from=${encodeURIComponent(fromCity.code)}&to=${encodeURIComponent(destination.code)}`;
           return (
             <li key={destination.code}>
-              <LocalizedLink to={to}>
+              <LocalizedLink
+                locale={preferredIndexableLocale(locale, fromCity.code, fromCity.country)}
+                to={to}
+              >
                 {label}
                 {destination.minPrice > 0
                   ? ` · ${t('weekendFlightsFrom.destinationPrice', { price: Math.round(destination.minPrice) })}`

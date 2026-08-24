@@ -150,3 +150,18 @@ export function indexableLocalesForOrigin(
   const local = override ?? (country ? COUNTRY_LOCAL_LOCALES[country] : undefined) ?? [];
   return uniqueLocales(['en', ...local]);
 }
+
+/**
+ * Locale to use in internal SEO links to a city origin page.
+ * Keeps the current UI language when that URL is indexed; otherwise the
+ * local language, then English.
+ */
+export function preferredIndexableLocale(
+  current: LocaleCode,
+  iataCode?: string | null,
+  countryHint?: string | null
+): LocaleCode {
+  const allowed = indexableLocalesForOrigin(iataCode, countryHint);
+  if (allowed.includes(current)) return current;
+  return allowed.find(code => code !== 'en') ?? 'en';
+}

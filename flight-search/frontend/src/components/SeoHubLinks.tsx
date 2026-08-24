@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next';
+import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { SEO_HUB_CITIES } from '../data/seoHubCities';
+import { useLocale } from '../hooks/useLocale';
+import { findCityByCode } from '../services/locationPrefill';
 import type { City } from '../types/city';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { dayTripsFromPath, weekendFlightsFromPath } from '../utils/citySlug';
-import { findCityByCode } from '../services/locationPrefill';
 import { LocalizedLink } from './LocalizedLink';
 
 interface SeoHubLinksProps {
@@ -23,6 +25,7 @@ export function SeoHubLinks({
   variant = 'weekend'
 }: SeoHubLinksProps) {
   const { t } = useTranslation();
+  const locale = useLocale();
   const excluded = excludeCode?.trim().toUpperCase();
 
   const hubs = SEO_HUB_CITIES.filter(hub => hub.code.toUpperCase() !== excluded).slice(
@@ -46,7 +49,12 @@ export function SeoHubLinks({
           const label = getCityDisplayName(city, language);
           return (
             <li key={hub.code}>
-              <LocalizedLink to={buildPath(city)}>{t(linkLabelKey, { city: label })}</LocalizedLink>
+              <LocalizedLink
+                locale={preferredIndexableLocale(locale, hub.code, hub.country)}
+                to={buildPath(city)}
+              >
+                {t(linkLabelKey, { city: label })}
+              </LocalizedLink>
             </li>
           );
         })}

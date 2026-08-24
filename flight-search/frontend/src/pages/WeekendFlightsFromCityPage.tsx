@@ -19,7 +19,7 @@ import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { indexableLocalesForOrigin } from '../config/cityIndexLocales';
+import { indexableLocalesForOrigin, preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
@@ -533,7 +533,10 @@ export function WeekendFlightsFromCityPage() {
             {' · '}
             <LocalizedLink to="/single-day-trips">{t('weekendFlightsFrom.seeAlsoDayTrips')}</LocalizedLink>
             {' · '}
-            <LocalizedLink to={dayTripsFromPath(city)}>
+            <LocalizedLink
+              locale={preferredIndexableLocale(locale, city.code, city.country)}
+              to={dayTripsFromPath(city)}
+            >
               {t('weekendFlightsFrom.seeAlsoDayTripsFromCity', { city: cityLabel })}
             </LocalizedLink>
           </p>

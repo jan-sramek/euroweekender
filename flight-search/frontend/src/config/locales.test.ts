@@ -3,6 +3,7 @@ import { localizedPath } from './locales';
 import {
   indexableLocalesForOrigin,
   isStaticIndexableLocale,
+  preferredIndexableLocale,
   STATIC_INDEXABLE_LOCALE_CODES
 } from './cityIndexLocales';
 
@@ -66,5 +67,24 @@ describe('indexableLocalesForOrigin', () => {
 
   it('uses a country name hint when the IATA code is unknown', () => {
     expect(indexableLocalesForOrigin('XXX', 'Poland')).toEqual(['en', 'pl']);
+  });
+});
+
+describe('preferredIndexableLocale', () => {
+  it('keeps the current locale when that city page is indexed', () => {
+    expect(preferredIndexableLocale('cs', 'PRG')).toBe('cs');
+    expect(preferredIndexableLocale('en', 'PRG')).toBe('en');
+    expect(preferredIndexableLocale('de', 'BER')).toBe('de');
+  });
+
+  it('switches to the local language instead of a non-indexable UI locale', () => {
+    expect(preferredIndexableLocale('cs', 'BER')).toBe('de');
+    expect(preferredIndexableLocale('lv', 'PRG')).toBe('cs');
+    expect(preferredIndexableLocale('de', 'BRU')).toBe('fr');
+  });
+
+  it('falls back to English when the city has no other indexed locale', () => {
+    expect(preferredIndexableLocale('de', 'LON')).toBe('en');
+    expect(preferredIndexableLocale('cs', 'ZAG')).toBe('en');
   });
 });

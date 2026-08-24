@@ -5,6 +5,7 @@ import {
   type LinkProps,
   type NavLinkProps
 } from 'react-router-dom';
+import { localizedPath, type LocaleCode } from '../config/locales';
 import { useLocalizedPath } from '../hooks/useLocale';
 
 /** nginx serves locale homes as `/en/` while client links use `/en`. */
@@ -22,9 +23,13 @@ function pathIsActive(pathname: string, target: string, end?: boolean): boolean 
   return current === dest || current.startsWith(`${dest}/`);
 }
 
-export function LocalizedLink({ to, ...props }: LinkProps & { to: string }) {
+export function LocalizedLink({
+  to,
+  locale: localeOverride,
+  ...props
+}: LinkProps & { to: string; locale?: LocaleCode }) {
   const { path } = useLocalizedPath();
-  return <Link to={path(to)} {...props} />;
+  return <Link to={localeOverride ? localizedPath(localeOverride, to) : path(to)} {...props} />;
 }
 
 export function LocalizedNavLink({

@@ -12,7 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { LOCALES, STATIC_INDEXABLE_LOCALES } from '../../../scripts/seo-locales.mjs';
-import { indexableLocalesForHub } from '../../../scripts/seo-city-locales.mjs';
+import { indexableLocalesForHub, preferredIndexableLocaleForHub } from '../../../scripts/seo-city-locales.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const frontendDir = path.join(__dirname, '..');
@@ -286,7 +286,7 @@ function destinationLinks(locale, fromHub, destinations, { limit = DEST_LINK_LIM
           : name;
       return {
         href: `${SITE_URL}${localizedPath(
-          locale,
+          preferredIndexableLocaleForHub(locale, fromHub),
           `/weekend-flights/${buildCitySlug(fromHub)}-to-${buildCitySlug({
             code: dest.code,
             name
@@ -323,7 +323,10 @@ function hubLinks(
             })}`
           : base;
       return {
-        href: `${SITE_URL}${localizedPath(locale, `${pathPrefix}/${buildCitySlug(hub)}`)}`,
+        href: `${SITE_URL}${localizedPath(
+          preferredIndexableLocaleForHub(locale, hub),
+          `${pathPrefix}/${buildCitySlug(hub)}`
+        )}`,
         label
       };
     });
@@ -420,7 +423,7 @@ function popularRouteLinks(locale, hubs, destinations, dealSnapshot = null) {
     return [
       {
         href: `${SITE_URL}${localizedPath(
-          locale,
+          preferredIndexableLocaleForHub(locale, from),
           `/weekend-flights/${buildCitySlug(from)}-to-${buildCitySlug(to)}`
         )}`,
         label
@@ -830,7 +833,10 @@ async function main() {
           hubLinks(locale, hubs, { excludeCode: hub.code, dealSnapshot }),
           renderLinkGroup(t(locale, 'footer.explore'), [
             {
-              href: `${SITE_URL}${localizedPath(locale, `/day-trips-from/${slug}`)}`,
+              href: `${SITE_URL}${localizedPath(
+                preferredIndexableLocaleForHub(locale, hub),
+                `/day-trips-from/${slug}`
+              )}`,
               label: t(locale, 'weekendFlightsFrom.seeAlsoDayTripsFromCity', vars)
             },
             {
@@ -878,7 +884,10 @@ async function main() {
           hubLinks(locale, hubs, { excludeCode: hub.code, variant: 'dayTrips' }),
           renderLinkGroup(t(locale, 'footer.explore'), [
             {
-              href: `${SITE_URL}${localizedPath(locale, `/weekend-flights-from/${slug}`)}`,
+              href: `${SITE_URL}${localizedPath(
+                preferredIndexableLocaleForHub(locale, hub),
+                `/weekend-flights-from/${slug}`
+              )}`,
               label: t(locale, 'dayTripsFrom.seeAlsoWeekendFromCity', vars)
             },
             {
@@ -953,12 +962,32 @@ async function main() {
           linkGroupsHtml: [
             renderLinkGroup(t(locale, 'footer.explore'), [
               {
-                href: `${SITE_URL}${localizedPath(locale, `/weekend-flights-from/${buildCitySlug(hub)}`)}`,
-                label: t(locale, 'weekendFlightsFrom.tagline', { city: hub.name })
+                href: `${SITE_URL}${localizedPath(
+                  preferredIndexableLocaleForHub(locale, hub),
+                  `/weekend-flights-from/${buildCitySlug(hub)}`
+                )}`,
+                label: t(locale, 'weekendFlightsOd.seeAlsoFromCity', { city: hub.name })
+              },
+              {
+                href: `${SITE_URL}${localizedPath(
+                  preferredIndexableLocaleForHub(
+                    locale,
+                    cityByCode(hubs, popularDestinations, destination.code) || destination
+                  ),
+                  `/weekend-flights-from/${buildCitySlug(destination)}`
+                )}`,
+                label: t(locale, 'weekendFlightsOd.seeAlsoFromCity', { city: destination.name })
+              },
+              {
+                href: `${SITE_URL}${localizedPath(
+                  preferredIndexableLocaleForHub(locale, hub),
+                  `/day-trips-from/${buildCitySlug(hub)}`
+                )}`,
+                label: t(locale, 'weekendFlightsFrom.seeAlsoDayTripsFromCity', { city: hub.name })
               },
               {
                 href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
-                label: t(locale, 'nav.cheapestWeekend')
+                label: t(locale, 'weekendFlightsFrom.seeAlsoCheapest')
               }
             ]),
             destinationLinks(locale, hub, dests)
@@ -968,7 +997,10 @@ async function main() {
               { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
               {
                 name: t(locale, 'weekendFlightsFrom.tagline', { city: hub.name }),
-                url: `${SITE_URL}${localizedPath(locale, `/weekend-flights-from/${buildCitySlug(hub)}`)}`
+                url: `${SITE_URL}${localizedPath(
+                  preferredIndexableLocaleForHub(locale, hub),
+                  `/weekend-flights-from/${buildCitySlug(hub)}`
+                )}`
               },
               {
                 name: t(locale, 'weekendFlightsOd.title', vars),

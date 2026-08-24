@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useEmptyStateDeals } from '../hooks/useEmptyStateDeals';
+import { useLocale } from '../hooks/useLocale';
 import type { City } from '../types/city';
 import { weekendFlightsOdPath } from '../utils/citySlug';
 import { LocalizedLink } from './LocalizedLink';
@@ -14,6 +16,7 @@ interface HomeEmptyDealsProps {
 /** Cached weekend deals shown when live search returns nothing. */
 export function HomeEmptyDeals({ allCities, language, originCodes }: HomeEmptyDealsProps) {
   const { t } = useTranslation();
+  const locale = useLocale();
   const deals = useEmptyStateDeals(originCodes, allCities, language, true);
 
   if (deals.length === 0) return null;
@@ -26,6 +29,7 @@ export function HomeEmptyDeals({ allCities, language, originCodes }: HomeEmptyDe
           <li key={`${deal.from.code}-${deal.to.code}`}>
             <LocalizedLink
               className="home-empty-deal"
+              locale={preferredIndexableLocale(locale, deal.from.code)}
               to={weekendFlightsOdPath(deal.from, deal.to)}
             >
               <span className="home-empty-deal-route">

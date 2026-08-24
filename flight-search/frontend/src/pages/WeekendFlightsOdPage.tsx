@@ -5,7 +5,8 @@ import { AppHeader } from '../components/AppHeader';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SiteFooter } from '../components/SiteFooter';
 import { LocalizedLink } from '../components/LocalizedLink';
-import { indexableLocalesForOrigin } from '../config/cityIndexLocales';
+import { indexableLocalesForOrigin, preferredIndexableLocale } from '../config/cityIndexLocales';
+import { localizedPath } from '../config/locales';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
@@ -75,14 +76,17 @@ export function WeekendFlightsOdPage() {
       { name: t('nav.home'), path: path('/') },
       {
         name: t('weekendFlightsFrom.tagline', { city: fromLabel }),
-        path: path(weekendFlightsFromPath(fromCity))
+        path: localizedPath(
+          preferredIndexableLocale(locale, fromCity.code, fromCity.country),
+          weekendFlightsFromPath(fromCity)
+        )
       },
       {
         name: t('weekendFlightsOd.title', { from: fromLabel, to: toLabel }),
         path: path(weekendFlightsOdPath(fromCity, toCity))
       }
     ]);
-  }, [fromCity, toCity, fromLabel, toLabel, path, t]);
+  }, [fromCity, toCity, fromLabel, toLabel, locale, path, t]);
 
   useJsonLd(breadcrumbJsonLd);
 
@@ -131,15 +135,24 @@ export function WeekendFlightsOdPage() {
         </div>
       ) : null}
       <p className="home-seo-links">
-        <LocalizedLink to={weekendFlightsFromPath(fromCity)}>
+        <LocalizedLink
+          locale={preferredIndexableLocale(locale, fromCity.code, fromCity.country)}
+          to={weekendFlightsFromPath(fromCity)}
+        >
           {t('weekendFlightsOd.seeAlsoFromCity', { city: fromLabel })}
         </LocalizedLink>
         {' · '}
-        <LocalizedLink to={weekendFlightsFromPath(toCity)}>
+        <LocalizedLink
+          locale={preferredIndexableLocale(locale, toCity.code, toCity.country)}
+          to={weekendFlightsFromPath(toCity)}
+        >
           {t('weekendFlightsOd.seeAlsoFromCity', { city: toLabel })}
         </LocalizedLink>
         {' · '}
-        <LocalizedLink to={dayTripsFromPath(fromCity)}>
+        <LocalizedLink
+          locale={preferredIndexableLocale(locale, fromCity.code, fromCity.country)}
+          to={dayTripsFromPath(fromCity)}
+        >
           {t('weekendFlightsFrom.seeAlsoDayTripsFromCity', { city: fromLabel })}
         </LocalizedLink>
         {' · '}

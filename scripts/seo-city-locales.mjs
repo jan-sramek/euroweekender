@@ -63,3 +63,10 @@ export function indexableLocalesForHub(hub) {
   const local = override ?? COUNTRY_LOCAL_LOCALES[country] ?? [];
   return uniqueLocales(['en', ...local]);
 }
+
+/** Current UI locale if indexed for this hub, else local language, else English. */
+export function preferredIndexableLocaleForHub(current, hub) {
+  const allowed = indexableLocalesForHub(hub);
+  if (allowed.includes(current)) return current;
+  return allowed.find(code => code !== 'en') ?? 'en';
+}

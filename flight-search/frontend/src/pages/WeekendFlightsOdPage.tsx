@@ -5,6 +5,7 @@ import { AppHeader } from '../components/AppHeader';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SiteFooter } from '../components/SiteFooter';
 import { LocalizedLink } from '../components/LocalizedLink';
+import { indexableLocalesForOrigin } from '../config/cityIndexLocales';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
@@ -41,6 +42,10 @@ export function WeekendFlightsOdPage() {
   const toCity = useMemo(
     () => (parsed ? findCityByCode(allCities, parsed.toCode) : undefined),
     [allCities, parsed]
+  );
+  const indexLocales = useMemo(
+    () => indexableLocalesForOrigin(parsed?.fromCode, fromCity?.country),
+    [parsed?.fromCode, fromCity?.country]
   );
 
   const fromLabel = fromCity ? getCityDisplayName(fromCity, locale) : '';
@@ -156,6 +161,7 @@ export function WeekendFlightsOdPage() {
       pageLead={t('weekendFlightsOd.lead', { from: fromLabel, to: toLabel })}
       seoHeading={t('weekendFlightsOd.seoTitle', { from: fromLabel, to: toLabel })}
       extraSeoContent={extraSeoContent}
+      indexLocales={indexLocales}
     />
   );
 }

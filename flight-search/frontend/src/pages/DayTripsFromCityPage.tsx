@@ -18,6 +18,7 @@ import { useDayTripSearch } from '../hooks/useDayTripSearch';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { indexableLocalesForOrigin } from '../config/cityIndexLocales';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
@@ -83,11 +84,16 @@ export function DayTripsFromCityPage() {
 
   const cityLabel = city ? getCityDisplayName(city, locale) : '';
   const metaCity = cityLabel || parsedCode || '';
+  const indexLocales = useMemo(
+    () => indexableLocalesForOrigin(parsedCode, city?.country),
+    [parsedCode, city?.country]
+  );
 
   usePageMeta(
     t('meta.dayTripsFrom.title', { city: metaCity }),
     t('meta.dayTripsFrom.description', { city: metaCity }),
-    city ? dayTripsFromPath(city) : '/404'
+    city ? dayTripsFromPath(city) : '/404',
+    { indexLocales }
   );
 
   const {

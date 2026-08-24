@@ -10,6 +10,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { LOCALES, STATIC_INDEXABLE_LOCALES } from './seo-locales.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const sitemapPath = path.join(
@@ -22,34 +23,6 @@ const sitemapPath = path.join(
 );
 
 const SITE = 'https://euroweekender.com';
-
-const LOCALES = [
-  'en',
-  'de',
-  'fr',
-  'es',
-  'it',
-  'pl',
-  'nl',
-  'ro',
-  'tr',
-  'pt',
-  'cs',
-  'hu',
-  'el',
-  'sv',
-  'uk',
-  'ru',
-  'bg',
-  'da',
-  'fi',
-  'sk',
-  'no',
-  'lt',
-  'lv',
-  'et',
-  'is'
-];
 
 /** Routes that prerender-seo.mjs writes as static shells (excluding programmatic landings). */
 const PATHS = [
@@ -68,8 +41,19 @@ function locFor(locale, routePath) {
   return routePath ? `${SITE}/${locale}/${routePath}` : `${SITE}/${locale}`;
 }
 
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function stripUrlBlock(xml, loc) {
+  return xml.replace(
+    new RegExp(`\\s*<url>\\s*\\n\\s*<loc>${escapeRegex(loc)}</loc>[\\s\\S]*?</url>`, 'g'),
+    ''
+  );
+}
+
 function alternateLinks(routePath) {
-  const lines = LOCALES.map(
+  const lines = STATIC_INDEXABLE_LOCALES.map(
     code => `    <xhtml:link rel="alternate" hreflang="${code}" href="${locFor(code, routePath)}" />`
   );
   lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${locFor('en', routePath)}" />`);
@@ -86,23 +70,20 @@ ${alternateLinks(routePath)}
 }
 
 let xml = fs.readFileSync(sitemapPath, 'utf8');
-const blocks = [];
-let skipped = 0;
 
-for (const { path: routePath, changefreq, priority } of PATHS) {
+// Rebuild static entries so non-indexable locales leave the sitemap
+// and remaining hreflang graphs no longer point at them.
+for (const { path: routePath } of PATHS) {
   for (const locale of LOCALES) {
-    const needle = `<loc>${locFor(locale, routePath)}</loc>`;
-    if (xml.includes(needle)) {
-      skipped += 1;
-      continue;
-    }
-    blocks.push(urlBlock(locale, routePath, changefreq, priority));
+    xml = stripUrlBlock(xml, locFor(locale, routePath));
   }
 }
 
-if (blocks.length === 0) {
-  console.log(`ensure-static-sitemap: all ${skipped} static URL entries already present`);
-  process.exit(0);
+const blocks = [];
+for (const { path: routePath, changefreq, priority } of PATHS) {
+  for (const locale of STATIC_INDEXABLE_LOCALES) {
+    blocks.push(urlBlock(locale, routePath, changefreq, priority));
+  }
 }
 
 if (!xml.trimEnd().endsWith('</urlset>')) {
@@ -111,4 +92,6 @@ if (!xml.trimEnd().endsWith('</urlset>')) {
 
 xml = xml.replace(/\s*<\/urlset>\s*$/, `\n${blocks.join('\n')}\n</urlset>\n`);
 fs.writeFileSync(sitemapPath, xml);
-console.log(`ensure-static-sitemap: added ${blocks.length} url entries (${skipped} already present)`);
+console.log(
+  `ensure-static-sitemap: wrote ${blocks.length} static url entries (${STATIC_INDEXABLE_LOCALES.length} locales)`
+);

@@ -19,6 +19,7 @@ import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightSearch } from '../hooks/useFlightSearch';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { indexableLocalesForOrigin } from '../config/cityIndexLocales';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
@@ -103,11 +104,16 @@ export function WeekendFlightsFromCityPage() {
 
   const cityLabel = city ? getCityDisplayName(city, locale) : '';
   const metaCity = cityLabel || parsedCode || '';
+  const indexLocales = useMemo(
+    () => indexableLocalesForOrigin(parsedCode, city?.country),
+    [parsedCode, city?.country]
+  );
 
   usePageMeta(
     t('meta.weekendFlightsFrom.title', { city: metaCity }),
     t('meta.weekendFlightsFrom.description', { city: metaCity }),
-    city ? weekendFlightsFromPath(city) : '/404'
+    city ? weekendFlightsFromPath(city) : '/404',
+    { indexLocales }
   );
 
   const [hubScore, setHubScore] = useState<HubScore | null>(null);

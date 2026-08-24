@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { LOCALE_CODES, localizedPath } from '../config/locales';
+import { STATIC_INDEXABLE_LOCALE_CODES } from '../config/cityIndexLocales';
+import { localizedPath, type LocaleCode } from '../config/locales';
 import { OG_IMAGE, SITE_TITLE, SITE_URL } from '../config/site';
 import { useLocale } from './useLocale';
 
@@ -27,10 +28,10 @@ function clearHreflangLinks() {
   document.querySelectorAll('link[data-page-meta="hreflang"]').forEach(element => element.remove());
 }
 
-function addHreflangLinks(routePath: string) {
+function addHreflangLinks(routePath: string, locales: readonly LocaleCode[]) {
   clearHreflangLinks();
 
-  for (const code of LOCALE_CODES) {
+  for (const code of locales) {
     const link = document.createElement('link');
     link.rel = 'alternate';
     link.hreflang = code;
@@ -50,6 +51,11 @@ function addHreflangLinks(routePath: string) {
 export type PageMetaOptions = {
   /** Tell crawlers not to index this URL (404s, etc.). */
   noindex?: boolean;
+  /**
+   * Locales that should be indexed / listed in hreflang for this URL.
+   * Defaults to the static (non-city) allowlist.
+   */
+  indexLocales?: readonly LocaleCode[];
 };
 
 function clearRobotsMeta() {
@@ -65,7 +71,9 @@ export function usePageMeta(
   const locale = useLocale();
   const fullTitle = title.endsWith(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
   const canonicalUrl = `${SITE_URL}${localizedPath(locale, routePath)}`;
-  const noindex = options.noindex === true;
+  const indexLocales: readonly LocaleCode[] =
+    options.indexLocales ?? STATIC_INDEXABLE_LOCALE_CODES;
+  const noindex = options.noindex === true || !indexLocales.includes(locale);
 
   useEffect(() => {
     document.title = fullTitle;
@@ -90,12 +98,12 @@ export function usePageMeta(
       clearRobotsMeta();
       upsertCanonical(canonicalUrl);
       upsertMeta('property', 'og:url', canonicalUrl);
-      addHreflangLinks(routePath);
+      addHreflangLinks(routePath, indexLocales);
     }
 
     return () => {
       clearHreflangLinks();
       if (noindex) clearRobotsMeta();
     };
-  }, [canonicalUrl, description, fullTitle, noindex, routePath]);
+  }, [canonicalUrl, description, fullTitle, indexLocales, noindex, routePath]);
 }

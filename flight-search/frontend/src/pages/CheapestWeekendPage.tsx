@@ -16,6 +16,7 @@ import { useDestinationWeekendSearch } from '../hooks/useDestinationWeekendSearc
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
+import type { LocaleCode } from '../config/locales';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import {
   findMatchingWeekendId,
@@ -64,6 +65,8 @@ interface CheapestWeekendPageProps {
   seoHeading?: string;
   /** Extra SEO content (links, breadcrumbs, etc.) rendered inside the SEO section. */
   extraSeoContent?: ReactNode;
+  /** Indexed locales for this landing. Tools default to the static allowlist. */
+  indexLocales?: readonly LocaleCode[];
 }
 
 export function CheapestWeekendPage({
@@ -77,7 +80,8 @@ export function CheapestWeekendPage({
   pageSubtitle,
   pageLead,
   seoHeading,
-  extraSeoContent
+  extraSeoContent,
+  indexLocales
 }: CheapestWeekendPageProps = {}) {
   const { t, i18n } = useTranslation();
   const locale = useLocale();
@@ -87,7 +91,8 @@ export function CheapestWeekendPage({
   usePageMeta(
     metaTitle ?? t('meta.cheapestWeekend.title'),
     metaDescription ?? t('meta.cheapestWeekend.description'),
-    routePath ?? '/cheapest-weekend'
+    routePath ?? '/cheapest-weekend',
+    { indexLocales }
   );
 
   const fromParam = forcedFrom?.trim().toUpperCase() || readAirportParam(searchParams.get('from'));

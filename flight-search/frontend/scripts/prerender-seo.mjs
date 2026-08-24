@@ -11,6 +11,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { LOCALES, STATIC_INDEXABLE_LOCALES } from '../../../scripts/seo-locales.mjs';
+import { indexableLocalesForHub } from '../../../scripts/seo-city-locales.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const frontendDir = path.join(__dirname, '..');
@@ -28,37 +30,8 @@ const OG_IMAGE =
 // Keep in sync with scripts/generate-seo-sitemap.mjs at the repo root.
 const OD_HUB_LIMIT = 40;
 const OD_DESTINATION_LIMIT = 12;
-const OD_PRERENDER_LOCALES = ['en', 'de', 'fr', 'es', 'it', 'pl', 'nl', 'cs'];
 const HUB_LINK_LIMIT = 12;
 const DEST_LINK_LIMIT = 12;
-
-const LOCALES = [
-  'en',
-  'de',
-  'fr',
-  'es',
-  'it',
-  'pl',
-  'nl',
-  'ro',
-  'tr',
-  'pt',
-  'cs',
-  'hu',
-  'el',
-  'sv',
-  'uk',
-  'ru',
-  'bg',
-  'da',
-  'fi',
-  'sk',
-  'no',
-  'lt',
-  'lv',
-  'et',
-  'is'
-];
 
 function slugifyCityName(name) {
   return name
@@ -199,8 +172,8 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
-function buildHreflangLinks(routePath) {
-  const links = LOCALES.map(
+function buildHreflangLinks(routePath, locales = STATIC_INDEXABLE_LOCALES) {
+  const links = locales.map(
     code => `<link rel="alternate" hreflang="${code}" href="${SITE_URL}${localizedPath(code, routePath)}" />`
   );
   links.push(`<link rel="alternate" hreflang="x-default" href="${SITE_URL}${localizedPath('en', routePath)}" />`);
@@ -533,30 +506,44 @@ function renderPage(
     faqItems,
     linkGroupsHtml,
     jsonLdBlocks,
-    ogImage = OG_IMAGE
+    ogImage = OG_IMAGE,
+    indexLocales = STATIC_INDEXABLE_LOCALES
   }
 ) {
   const fullTitle = title.endsWith(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
   const canonicalUrl = `${SITE_URL}${localizedPath(locale, routePath)}`;
+  const noindex = !indexLocales.includes(locale);
 
   let html = template;
   html = html.replace(/<html lang="[^"]*"/, `<html lang="${locale}"`);
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(fullTitle)}</title>`);
   html = upsertMeta(html, 'name', 'description', description);
-  html = html.replace(
-    /<link rel="canonical"[\s\S]*?\/>/,
-    `<link rel="canonical" href="${canonicalUrl}" />`
-  );
+  // Drop bootstrap hreflang so we emit a single consistent set (or none when noindex).
+  html = html.replace(/\s*<link rel="alternate"[^>]*hreflang="[^"]*"[^>]*\/?>/gi, '');
   html = upsertMeta(html, 'property', 'og:title', fullTitle);
   html = upsertMeta(html, 'property', 'og:description', description);
-  html = upsertMeta(html, 'property', 'og:url', canonicalUrl);
   html = upsertMeta(html, 'property', 'og:image', ogImage);
   html = upsertMeta(html, 'name', 'twitter:title', fullTitle);
   html = upsertMeta(html, 'name', 'twitter:description', description);
   html = upsertMeta(html, 'name', 'twitter:image', ogImage);
   html = upsertMeta(html, 'name', 'twitter:card', 'summary_large_image');
 
-  const headExtras = [buildHreflangLinks(routePath), buildJsonLdScripts(jsonLdBlocks ?? [])]
+  if (noindex) {
+    html = upsertMeta(html, 'name', 'robots', 'noindex, follow');
+    html = html.replace(/<link rel="canonical"[\s\S]*?\/>\n?/, '');
+    html = html.replace(/\s*<meta property="og:url"[^>]*>/, '');
+  } else {
+    html = html.replace(
+      /<link rel="canonical"[\s\S]*?\/>/,
+      `<link rel="canonical" href="${canonicalUrl}" />`
+    );
+    html = upsertMeta(html, 'property', 'og:url', canonicalUrl);
+  }
+
+  const headExtras = [
+    noindex ? '' : buildHreflangLinks(routePath, indexLocales),
+    buildJsonLdScripts(jsonLdBlocks ?? [])
+  ]
     .filter(Boolean)
     .join('\n    ');
   html = html.replace('</head>', `    ${headExtras}\n  </head>`);
@@ -790,12 +777,13 @@ async function main() {
     pageCount += 1;
   }
 
-  // weekend-flights-from: all hubs x all locales.
+  // weekend-flights-from: all hubs × all UI locales (non-local languages are noindex).
   for (const hub of hubs) {
     const slug = buildCitySlug(hub);
     const routePath = `/weekend-flights-from/${slug}`;
     const deal = hubDeal(dealSnapshot, hub.code);
     const dests = originDestinations(dealSnapshot, hub.code, popularDestinations);
+    const indexLocales = indexableLocalesForHub(hub);
 
     for (const locale of LOCALES) {
       const vars = { city: hub.name };
@@ -836,6 +824,7 @@ async function main() {
         paragraphs,
         faqTitle: t(locale, 'weekendFlightsFrom.faqTitle', vars),
         faqItems: Array.isArray(faqItems) ? faqItems : [],
+        indexLocales,
         linkGroupsHtml: [
           destinationLinks(locale, hub, dests),
           hubLinks(locale, hubs, { excludeCode: hub.code, dealSnapshot }),
@@ -866,10 +855,11 @@ async function main() {
     }
   }
 
-  // day-trips-from: all hubs x all locales.
+  // day-trips-from: all hubs × all UI locales (non-local languages are noindex).
   for (const hub of hubs) {
     const slug = buildCitySlug(hub);
     const routePath = `/day-trips-from/${slug}`;
+    const indexLocales = indexableLocalesForHub(hub);
     for (const locale of LOCALES) {
       const vars = { city: hub.name };
       const faqItems = t(locale, 'dayTripsFrom.faq', vars);
@@ -883,6 +873,7 @@ async function main() {
         paragraphs: [t(locale, 'dayTripsFrom.seoBlock', vars)],
         faqTitle: t(locale, 'dayTripsFrom.faqTitle', vars),
         faqItems: Array.isArray(faqItems) ? faqItems : [],
+        indexLocales,
         linkGroupsHtml: [
           hubLinks(locale, hubs, { excludeCode: hub.code, variant: 'dayTrips' }),
           renderLinkGroup(t(locale, 'footer.explore'), [
@@ -923,7 +914,8 @@ async function main() {
       const routeMin = odMinPrice(dealSnapshot, hub.code, destination.code);
       const dests = originDestinations(dealSnapshot, hub.code, popularDestinations);
 
-      for (const locale of OD_PRERENDER_LOCALES) {
+      const indexLocales = indexableLocalesForHub(hub);
+      for (const locale of LOCALES) {
         const facts = computeRouteFacts(cityCoords, hub.code, destination.code);
         const vars = {
           from: hub.name,
@@ -957,6 +949,7 @@ async function main() {
           paragraphs,
           faqTitle: t(locale, 'weekendFlightsOd.faqTitle', vars),
           faqItems: Array.isArray(faqItems) ? faqItems : [],
+          indexLocales,
           linkGroupsHtml: [
             renderLinkGroup(t(locale, 'footer.explore'), [
               {

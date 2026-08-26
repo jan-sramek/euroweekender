@@ -13,7 +13,7 @@ import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
 import { getCityNameByCode } from '../utils/cityDisplayName';
 import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
-import { trackGoogleAdsPurchase } from '../utils/googleAds';
+import { trackGoogleAdsBookingClick } from '../utils/googleAds';
 import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
 import { CountryFlag } from './CountryFlag';
 import './FlightCard.css';
@@ -324,7 +324,7 @@ export function FlightCard({
               target="_blank"
               rel="noopener noreferrer"
               data-umami-event="booking_click"
-              onClick={() => trackGoogleAdsPurchase(`${flight.id}-${Date.now()}`)}
+              onClick={() => trackGoogleAdsBookingClick(`${flight.id}-${Date.now()}`)}
             >
               <BookIcon />
               {t('flights.book')}

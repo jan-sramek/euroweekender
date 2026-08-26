@@ -10,6 +10,8 @@ interface ImportMeta {
 }
 
 interface Window {
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
   umami?: {
     track: (
       event?: string | ((props: Record<string, string>) => Record<string, string>),

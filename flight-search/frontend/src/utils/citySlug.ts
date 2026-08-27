@@ -88,3 +88,11 @@ export function withQuery(path: string, params: Record<string, string | null | u
   }
   return `${url.pathname}${url.search}`;
 }
+
+/** Anchor for calendar + flight results on compare-weekends pages. */
+export const WEEKEND_CALENDAR_ID = 'weekend-calendar';
+
+/** Point a compare-weekends URL at the calendar instead of the filter. */
+export function withWeekendCalendarHash(path: string): string {
+  return `${path.split('#')[0]}#${WEEKEND_CALENDAR_ID}`;
+}

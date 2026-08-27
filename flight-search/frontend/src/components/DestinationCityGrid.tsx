@@ -6,7 +6,7 @@ import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useCityPhoto } from '../hooks/useCityPhoto';
 import { useLocale } from '../hooks/useLocale';
 import { getCityNameByCode } from '../utils/cityDisplayName';
-import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
+import { weekendFlightsOdPath, withQuery, withWeekendCalendarHash } from '../utils/citySlug';
 import { groupFlightsByDestination } from '../utils/destinationGroups';
 import { formatEur, getTripPrice } from '../utils/flightPrice';
 import { getFallbackCityPhoto, CITY_PHOTO_SIZES, cityPhotoSrcSet } from '../utils/cityPhotos';
@@ -89,11 +89,13 @@ function DestinationCityCard({
 
   const from = citiesByCode.get(fromCode.trim().toUpperCase());
   const to = citiesByCode.get(cityCode);
-  const href = withQuery(
-    from && to
-      ? weekendFlightsOdPath(from, to)
-      : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(cityCode)}`,
-    weekendFlightsFocusParams(cheapestDeparture)
+  const href = withWeekendCalendarHash(
+    withQuery(
+      from && to
+        ? weekendFlightsOdPath(from, to)
+        : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(cityCode)}`,
+      weekendFlightsFocusParams(cheapestDeparture)
+    )
   );
 
   const priceLabel = formatEur(minPrice);

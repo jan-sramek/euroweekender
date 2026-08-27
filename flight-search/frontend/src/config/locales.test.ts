@@ -17,6 +17,15 @@ describe('localizedPath', () => {
     expect(localizedPath('es', '/about')).toBe('/es/about');
     expect(localizedPath('de', 'faq')).toBe('/de/faq');
   });
+
+  it('keeps query strings and hashes after the locale prefix', () => {
+    expect(
+      localizedPath(
+        'en',
+        '/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10#weekend-calendar'
+      )
+    ).toBe('/en/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10#weekend-calendar');
+  });
 });
 
 describe('static indexable locales', () => {

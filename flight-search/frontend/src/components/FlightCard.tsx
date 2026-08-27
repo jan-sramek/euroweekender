@@ -12,7 +12,7 @@ import {
 import { getReturnArriveDate, getReturnDepartDate } from '../utils/flightLeg';
 import { formatEur, getPerPersonPrice, getTripPrice } from '../utils/flightPrice';
 import { getCityNameByCode } from '../utils/cityDisplayName';
-import { weekendFlightsOdPath, withQuery } from '../utils/citySlug';
+import { weekendFlightsOdPath, withQuery, withWeekendCalendarHash } from '../utils/citySlug';
 import { trackGoogleAdsBookingClick } from '../utils/googleAds';
 import { localizeKiwiDeepLink } from '../utils/kiwiDeepLink';
 import { CountryFlag } from './CountryFlag';
@@ -237,7 +237,9 @@ export function FlightCard({
       ? weekendFlightsOdPath(fromCityRecord, toCityRecord)
       : `/cheapest-weekend?from=${encodeURIComponent(flight.cityCodeFrom)}&to=${encodeURIComponent(flight.cityCodeTo)}`;
   const bestWeekendPriceTo = path(
-    withQuery(comparePath, weekendFlightsFocusParams(flight.localDeparture))
+    withWeekendCalendarHash(
+      withQuery(comparePath, weekendFlightsFocusParams(flight.localDeparture))
+    )
   );
 
   const formatStops = (stops: number) => {

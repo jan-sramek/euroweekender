@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { DestinationPicker } from '../components/DestinationPicker';
@@ -29,6 +29,7 @@ import {
 } from '../services/weekend';
 import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
+import { WEEKEND_CALENDAR_ID } from '../utils/citySlug';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { parseIsoDateParam, parseYearMonthParam } from '../utils/flightTime';
 import {
@@ -43,6 +44,13 @@ import './CheapestWeekendPage.css';
 
 /** Horizon used for flight search + calendar heat-scale (independent of visible month). */
 const CALENDAR_PRICE_HORIZON_WEEKENDS = 52;
+
+function scrollBelowStickyHeader(element: HTMLElement) {
+  const header = document.querySelector('.site-header');
+  const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+  const top = window.scrollY + element.getBoundingClientRect().top - headerHeight;
+  window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+}
 
 function readAirportParam(value: string | null): string | null {
   const code = value?.trim().toUpperCase() ?? '';
@@ -85,7 +93,9 @@ export function CheapestWeekendPage({
 }: CheapestWeekendPageProps = {}) {
   const { t, i18n } = useTranslation();
   const locale = useLocale();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
+  const resultsRef = useRef<HTMLElement>(null);
   const weekendPatterns = useWeekendPatterns();
 
   usePageMeta(
@@ -248,6 +258,24 @@ export function CheapestWeekendPage({
   };
 
   const canSearch = Boolean(fromCode && destinationCode);
+  const shouldFocusResults =
+    location.hash === `#${WEEKEND_CALENDAR_ID}` ||
+    Boolean(searchParams.get('month') || searchParams.get('weekend'));
+
+  useEffect(() => {
+    if (!shouldFocusResults) return;
+
+    const scrollToResults = () => {
+      const el =
+        document.getElementById(WEEKEND_CALENDAR_ID) ?? resultsRef.current;
+      if (el instanceof HTMLElement) scrollBelowStickyHeader(el);
+    };
+
+    scrollToResults();
+    const frame = window.requestAnimationFrame(scrollToResults);
+    return () => window.cancelAnimationFrame(frame);
+  }, [shouldFocusResults, canSearch]);
+
   const totalCount = flights.length;
   const isOdLanding = Boolean(forcedFrom && forcedTo);
   const fromLabel = fromCity ? getCityDisplayName(fromCity, locale) : '';
@@ -328,7 +356,7 @@ export function CheapestWeekendPage({
         </div>
       </section>
 
-      <section className="offers-home cheapest-offers">
+      <section ref={resultsRef} className="offers-home cheapest-offers">
         <div className="container container-wide">
           {errorMessage ? (
             <div className="alert alert-warning" role="status">
@@ -340,7 +368,7 @@ export function CheapestWeekendPage({
             <div className="state-box">{t('cheapestWeekend.pickAirports')}</div>
           ) : (
             <>
-              <div className="cheapest-calendar-wrap">
+              <div id={WEEKEND_CALENDAR_ID} className="cheapest-calendar-wrap">
                 {fromCity && toCity ? (
                   <p className="offers-subtitle cheapest-route">
                     {t('cheapestWeekend.routeSummary', {

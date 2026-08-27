@@ -6,10 +6,12 @@ import {
   parseCityCodeFromSlug,
   parseOdSlugs,
   slugifyCityName,
+  WEEKEND_CALENDAR_ID,
   weekendFlightsFromPath,
   weekendFlightsFromPathByCode,
   weekendFlightsOdPath,
-  withQuery
+  withQuery,
+  withWeekendCalendarHash
 } from './citySlug';
 
 describe('slugifyCityName', () => {
@@ -141,6 +143,24 @@ describe('withQuery', () => {
   it('skips empty values', () => {
     expect(withQuery('/weekend-flights/prague-prg-to-barcelona-bcn', { month: null })).toBe(
       '/weekend-flights/prague-prg-to-barcelona-bcn'
+    );
+  });
+});
+
+describe('withWeekendCalendarHash', () => {
+  it('appends the calendar fragment', () => {
+    expect(
+      withWeekendCalendarHash(
+        '/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10&weekend=2026-10-16'
+      )
+    ).toBe(
+      `/weekend-flights/prague-prg-to-barcelona-bcn?month=2026-10&weekend=2026-10-16#${WEEKEND_CALENDAR_ID}`
+    );
+  });
+
+  it('replaces an existing fragment', () => {
+    expect(withWeekendCalendarHash('/cheapest-weekend#old')).toBe(
+      `/cheapest-weekend#${WEEKEND_CALENDAR_ID}`
     );
   });
 });

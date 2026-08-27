@@ -42,7 +42,7 @@ import type { WeekendPatternId } from '../types/weekend';
 import './HomePage.css';
 import './CheapestWeekendPage.css';
 
-/** Horizon used for flight search + calendar heat-scale (independent of visible month). */
+/** Horizon used for flight search (independent of visible month). */
 const CALENDAR_PRICE_HORIZON_WEEKENDS = 52;
 
 function scrollBelowStickyHeader(element: HTMLElement) {

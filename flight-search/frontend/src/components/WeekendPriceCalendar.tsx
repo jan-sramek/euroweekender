@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getWeekendTripDays } from '../services/weekend';
 import { formatEur } from '../utils/flightPrice';
+import { PRICE_HEAT_STOPS, priceHeatColor } from '../utils/priceHeat';
 import type { WeekendOption } from '../types/weekend';
 import './WeekendPriceCalendar.css';
 
@@ -41,18 +42,6 @@ function startOfDay(date: Date): Date {
 /** Monday-first index: Mon=0 … Sun=6 */
 function mondayFirstIndex(date: Date): number {
   return (date.getDay() + 6) % 7;
-}
-
-function priceHeatColor(price: number, min: number, max: number): string {
-  if (max <= min) {
-    return 'hsl(142, 55%, 42%)';
-  }
-
-  const t = Math.min(1, Math.max(0, (price - min) / (max - min)));
-  // green (142) → yellow (48) → red (4)
-  const hue = t < 0.5 ? 142 - (142 - 48) * (t * 2) : 48 - (48 - 4) * ((t - 0.5) * 2);
-  const lightness = 42 + t * 6;
-  return `hsl(${hue.toFixed(1)}, 58%, ${lightness.toFixed(1)}%)`;
 }
 
 function buildMonthGrid(
@@ -109,8 +98,6 @@ interface MonthGridProps {
   month: number;
   cells: CalendarDay[];
   weekdayLabels: string[];
-  minPrice: number;
-  maxPrice: number;
   today: Date;
   onWeekendSelect: (weekendId: string) => void;
 }
@@ -120,8 +107,6 @@ function MonthGrid({
   month,
   cells,
   weekdayLabels,
-  minPrice,
-  maxPrice,
   today,
   onWeekendSelect
 }: MonthGridProps) {
@@ -151,7 +136,7 @@ function MonthGrid({
           const hasDeal = cell.weekendId != null && cell.price != null;
           const style =
             hasDeal && cell.price != null
-              ? { backgroundColor: priceHeatColor(cell.price, minPrice, maxPrice) }
+              ? { backgroundColor: priceHeatColor(cell.price) }
               : undefined;
 
           if (cell.weekendId && hasDeal) {
@@ -216,18 +201,6 @@ export function WeekendPriceCalendar({
   const { t, i18n } = useTranslation();
   const second = nextMonth(year, month);
 
-  const pricedValues = useMemo(() => {
-    // Scale against the full price map (typically ~1 year), not only the visible months.
-    const values: number[] = [];
-    for (const price of pricesByWeekendId.values()) {
-      if (price != null) values.push(price);
-    }
-    return values;
-  }, [pricesByWeekendId]);
-
-  const minPrice = pricedValues.length > 0 ? Math.min(...pricedValues) : 0;
-  const maxPrice = pricedValues.length > 0 ? Math.max(...pricedValues) : 0;
-
   const firstCells = useMemo(
     () => buildMonthGrid(year, month, weekends, pricesByWeekendId, selectedWeekendId),
     [year, month, weekends, pricesByWeekendId, selectedWeekendId]
@@ -282,9 +255,11 @@ export function WeekendPriceCalendar({
       </div>
 
       <div className="wpc-legend" aria-hidden="true">
-        <span className="wpc-legend-cheap">{t('cheapestWeekend.legendCheap')}</span>
+        <span className="wpc-legend-cheap">{formatEur(PRICE_HEAT_STOPS[0].price)}</span>
         <span className="wpc-legend-bar" />
-        <span className="wpc-legend-expensive">{t('cheapestWeekend.legendExpensive')}</span>
+        <span className="wpc-legend-expensive">
+          {formatEur(PRICE_HEAT_STOPS[PRICE_HEAT_STOPS.length - 1].price)}
+        </span>
       </div>
 
       <div className="wpc-months">
@@ -293,8 +268,6 @@ export function WeekendPriceCalendar({
           month={month}
           cells={firstCells}
           weekdayLabels={weekdayLabels}
-          minPrice={minPrice}
-          maxPrice={maxPrice}
           today={today}
           onWeekendSelect={onWeekendSelect}
         />
@@ -303,8 +276,6 @@ export function WeekendPriceCalendar({
           month={second.month}
           cells={secondCells}
           weekdayLabels={weekdayLabels}
-          minPrice={minPrice}
-          maxPrice={maxPrice}
           today={today}
           onWeekendSelect={onWeekendSelect}
         />

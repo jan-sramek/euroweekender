@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Meny",
     "home": "Hjem",
     "howItWorks": "Slik fungerer det",
     "about": "Om oss",

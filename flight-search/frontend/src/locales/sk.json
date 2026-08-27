@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menu",
     "home": "Domov",
     "howItWorks": "Ako to funguje",
     "about": "O nás",

@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Valikko",
     "home": "Etusivu",
     "howItWorks": "Näin se toimii",
     "about": "Tietoa",

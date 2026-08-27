@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Izvēlne",
     "home": "Sākums",
     "howItWorks": "Kā tas darbojas",
     "about": "Par mums",

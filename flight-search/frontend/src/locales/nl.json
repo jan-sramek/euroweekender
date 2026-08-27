@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menu",
     "home": "Home",
     "howItWorks": "Hoe het werkt",
     "about": "Over ons",

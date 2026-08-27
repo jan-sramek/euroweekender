@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Meniu",
     "home": "Pradžia",
     "howItWorks": "Kaip tai veikia",
     "about": "Apie mus",

@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menü",
     "home": "Ana Sayfa",
     "howItWorks": "Nasıl çalışır",
     "about": "Hakkında",

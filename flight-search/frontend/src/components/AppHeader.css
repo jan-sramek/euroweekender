@@ -58,6 +58,10 @@
   margin-left: 0.15rem;
 }
 
+.nav-menu-toggle {
+  display: none;
+}
+
 .site-header-progress {
   position: absolute;
   left: 0;
@@ -97,15 +101,116 @@
 }
 
 @media (max-width: 767px) {
-  .nav-links a:not(:first-child) {
-    display: none;
+  .navbar-inner {
+    position: relative;
+  }
+
+  .nav-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: auto;
+    padding: 0;
+    flex-shrink: 0;
+    border: 1px solid #d6dee7;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #fff 0%, #f4f8fa 100%);
+    box-shadow: 0 1px 2px rgba(25, 44, 57, 0.05);
+    cursor: pointer;
+  }
+
+  .nav-menu-toggle:hover,
+  .nav-menu-toggle-open {
+    border-color: #b8e8e2;
+    background: linear-gradient(180deg, #fff 0%, #eefaf8 100%);
+  }
+
+  .nav-menu-toggle-bars,
+  .nav-menu-toggle-bars::before,
+  .nav-menu-toggle-bars::after {
+    display: block;
+    width: 1.05rem;
+    height: 2px;
+    border-radius: 1px;
+    background: #192c39;
+    transition:
+      transform 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  .nav-menu-toggle-bars {
+    position: relative;
+  }
+
+  .nav-menu-toggle-bars::before,
+  .nav-menu-toggle-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .nav-menu-toggle-bars::before {
+    top: -5px;
+  }
+
+  .nav-menu-toggle-bars::after {
+    top: 5px;
+  }
+
+  .nav-menu-toggle-open .nav-menu-toggle-bars {
+    background: transparent;
+  }
+
+  .nav-menu-toggle-open .nav-menu-toggle-bars::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav-menu-toggle-open .nav-menu-toggle-bars::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 
   .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    left: 0;
+    right: 0;
+    z-index: 120;
+    flex-direction: column;
+    align-items: stretch;
     justify-content: flex-start;
+    gap: 0.15rem;
+    padding: 0.35rem;
+    border: 1px solid #e2e9ef;
+    border-radius: 0.85rem;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 10px 30px rgba(25, 44, 57, 0.12),
+      0 2px 8px rgba(25, 44, 57, 0.06);
+  }
+
+  .nav-links-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: flex;
+    padding: 0.7rem 0.75rem;
+    border-radius: 0.6rem;
+    white-space: normal;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: #e8f9f6;
   }
 
   .navbar-inner > .language-switcher {
-    margin-left: auto;
+    margin-left: 0.35rem;
   }
 }

@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Valmynd",
     "home": "Heim",
     "howItWorks": "Hvernig það virkar",
     "about": "Um okkur",

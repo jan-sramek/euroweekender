@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menu",
     "home": "Home",
     "cheapestWeekend": "Compare weekends",
     "singleDayTrips": "Single day trips",

@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menu",
     "home": "Domů",
     "cheapestWeekend": "Porovnat víkendy",
     "singleDayTrips": "Jednodenní výlety",

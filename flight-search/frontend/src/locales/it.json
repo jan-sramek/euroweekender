@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menu",
     "home": "Home",
     "howItWorks": "Come funziona",
     "about": "Chi siamo",

@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Meniu",
     "home": "Acasă",
     "howItWorks": "Cum funcționează",
     "about": "Despre noi",

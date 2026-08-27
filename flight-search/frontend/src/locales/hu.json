@@ -54,6 +54,7 @@
     }
   },
   "nav": {
+    "menu": "Menü",
     "home": "Főoldal",
     "howItWorks": "Hogyan működik",
     "about": "Rólunk",

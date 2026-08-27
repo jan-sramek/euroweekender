@@ -180,6 +180,12 @@ button.wpc-day:hover {
   }
 }
 
+@media (max-width: 767px) {
+  .wpc-month-next {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .wpc-day {
     min-height: 3.1rem;

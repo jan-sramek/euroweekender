@@ -95,6 +95,7 @@ function nextMonth(year: number, month: number): { year: number; month: number }
 }
 
 interface MonthGridProps {
+  className?: string;
   year: number;
   month: number;
   cells: CalendarDay[];
@@ -104,6 +105,7 @@ interface MonthGridProps {
 }
 
 function MonthGrid({
+  className,
   year,
   month,
   cells,
@@ -123,7 +125,7 @@ function MonthGrid({
   );
 
   return (
-    <div className="wpc-month">
+    <div className={className ? `wpc-month ${className}` : 'wpc-month'}>
       <h3 className="wpc-month-title">{monthLabel}</h3>
       <div className="wpc-grid" role="grid" aria-label={monthLabel}>
         {weekdayLabels.map(label => (
@@ -282,6 +284,7 @@ export function WeekendPriceCalendar({
           onWeekendSelect={onWeekendSelect}
         />
         <MonthGrid
+          className="wpc-month-next"
           year={second.year}
           month={second.month}
           cells={secondCells}

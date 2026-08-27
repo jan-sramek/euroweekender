@@ -38,6 +38,7 @@ export function useDestinationWeekendSearch({
   const [returnLegFilter, setReturnLegFilter] = useState<string | null>(null);
   const [flightError, setFlightError] = useState('');
   const searchGeneration = useRef(0);
+  const hasSearched = useRef(false);
 
   const weekendKey = useMemo(
     () => weekends.map(weekend => weekend.id).join('|'),
@@ -146,10 +147,16 @@ export function useDestinationWeekendSearch({
   useEffect(() => {
     if (locating || !searchKey || !fromCode || !toCode || weekends.length === 0) return;
 
+    setLoadingFlights(true);
+    setFlightError('');
+
     const controller = new AbortController();
+    const delay = hasSearched.current ? SEARCH_DEBOUNCE_MS : 0;
+
     const timer = window.setTimeout(() => {
+      hasSearched.current = true;
       void runSearch(fromCode, toCode, weekends, controller.signal);
-    }, SEARCH_DEBOUNCE_MS);
+    }, delay);
 
     return () => {
       window.clearTimeout(timer);

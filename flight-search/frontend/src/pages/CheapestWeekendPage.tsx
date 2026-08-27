@@ -258,6 +258,9 @@ export function CheapestWeekendPage({
   };
 
   const canSearch = Boolean(fromCode && destinationCode);
+  const awaitingSearch = locating || !singleOriginReady;
+  const showCalendar = canSearch || Boolean((fromParam || toParam) && awaitingSearch);
+  const calendarLoading = loadingFlights || awaitingSearch;
   const shouldFocusResults =
     location.hash === `#${WEEKEND_CALENDAR_ID}` ||
     Boolean(searchParams.get('month') || searchParams.get('weekend'));
@@ -274,7 +277,7 @@ export function CheapestWeekendPage({
     scrollToResults();
     const frame = window.requestAnimationFrame(scrollToResults);
     return () => window.cancelAnimationFrame(frame);
-  }, [shouldFocusResults, canSearch]);
+  }, [shouldFocusResults, showCalendar]);
 
   const totalCount = flights.length;
   const isOdLanding = Boolean(forcedFrom && forcedTo);
@@ -364,7 +367,7 @@ export function CheapestWeekendPage({
             </div>
           ) : null}
 
-          {!canSearch ? (
+          {!showCalendar ? (
             <div className="state-box">{t('cheapestWeekend.pickAirports')}</div>
           ) : (
             <>
@@ -393,7 +396,7 @@ export function CheapestWeekendPage({
                   selectedWeekendId={selectedWeekendId}
                   onMonthChange={handleMonthChange}
                   onWeekendSelect={setSelectedWeekendId}
-                  loading={loadingFlights}
+                  loading={calendarLoading}
                 />
               </div>
 
@@ -408,7 +411,7 @@ export function CheapestWeekendPage({
 
               {!selectedWeekend ? (
                 <div className="state-box">{t('cheapestWeekend.selectWeekend')}</div>
-              ) : loadingFlights && flights.length === 0 ? (
+              ) : calendarLoading && flights.length === 0 ? (
                 <FlightListSkeleton label={t('home.loading')} />
               ) : flights.length === 0 ? (
                 <div className="state-box">{t('cheapestWeekend.noFlights')}</div>

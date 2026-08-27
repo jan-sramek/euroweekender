@@ -8,8 +8,16 @@
   box-shadow: 0 0 15px rgba(25, 44, 57, 0.08);
 }
 
-.weekend-price-calendar-loading {
+.weekend-price-calendar-loading .wpc-months {
   opacity: 0.72;
+}
+
+.wpc-loading {
+  display: flex;
+  justify-content: center;
+  color: #192c39;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .wpc-header {

@@ -4,6 +4,7 @@ import { getWeekendTripDays } from '../services/weekend';
 import { formatEur } from '../utils/flightPrice';
 import { PRICE_HEAT_STOPS, priceHeatColor } from '../utils/priceHeat';
 import type { WeekendOption } from '../types/weekend';
+import { LoadingIndicator } from './LoadingIndicator';
 import './WeekendPriceCalendar.css';
 
 interface WeekendPriceCalendarProps {
@@ -237,7 +238,10 @@ export function WeekendPriceCalendar({
   };
 
   return (
-    <div className={`weekend-price-calendar${loading ? ' weekend-price-calendar-loading' : ''}`}>
+    <div
+      className={`weekend-price-calendar${loading ? ' weekend-price-calendar-loading' : ''}`}
+      aria-busy={loading}
+    >
       <div className="wpc-header">
         <button
           type="button"
@@ -261,6 +265,12 @@ export function WeekendPriceCalendar({
           {formatEur(PRICE_HEAT_STOPS[PRICE_HEAT_STOPS.length - 1].price)}
         </span>
       </div>
+
+      {loading ? (
+        <div className="wpc-loading">
+          <LoadingIndicator size="sm" label={t('home.loading')} />
+        </div>
+      ) : null}
 
       <div className="wpc-months">
         <MonthGrid

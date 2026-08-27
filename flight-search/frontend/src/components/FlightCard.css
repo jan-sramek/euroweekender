@@ -273,15 +273,15 @@
 }
 
 .result-leg-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2rem 0.3rem;
   color: #8c959c;
   font-size: 0.68rem;
   line-height: 1.25;
   text-align: center;
-  white-space: nowrap;
-}
-
-.result-leg-meta-sep {
-  display: inline;
 }
 
 @media (max-width: 767px) {
@@ -332,16 +332,8 @@
   }
 
   .result-leg-meta {
+    justify-content: flex-start;
     text-align: left;
-    white-space: normal;
-  }
-
-  .result-leg-meta-sep {
-    display: none;
-  }
-
-  .result-leg-meta::before {
-    content: '/ ';
   }
 }
 
@@ -355,7 +347,4 @@
       minmax(6rem, 1fr);
   }
 
-  .result-leg-meta {
-    white-space: normal;
-  }
 }

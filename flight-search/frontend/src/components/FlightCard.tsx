@@ -189,9 +189,11 @@ function FlightLegRow({
       />
 
       <div className="result-leg-meta">
-        {formatDuration(leg.durationMinutes)}
-        <span className="result-leg-meta-sep"> / </span>
-        {formatStops(leg.stops)}
+        <span>{formatDuration(leg.durationMinutes)}</span>
+        <span className="result-leg-meta-sep" aria-hidden="true">
+          /
+        </span>
+        <span>{formatStops(leg.stops)}</span>
       </div>
 
       <Endpoint

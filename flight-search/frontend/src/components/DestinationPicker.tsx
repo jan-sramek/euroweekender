@@ -4,6 +4,7 @@ import type { City } from '../types/city';
 import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
 import { useCityTypeahead } from '../hooks/useCityTypeahead';
 import { loadDealSnapshot } from '../hooks/useEmptyStateDeals';
+import { getTopDestinations } from '../services/api';
 import {
   DESTINATION_SUGGEST_MAX_CITIES,
   rankCitiesForDestinationSuggest
@@ -51,7 +52,7 @@ export function DestinationPicker({
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [originDestinations, setOriginDestinations] = useState<
-    Array<{ code: string; minPrice?: number; offerCount?: number }>
+    Array<{ code: string; minPrice?: number; offerCount?: number; cheapOfferCount?: number }>
   >([]);
   const [originDestinationsReady, setOriginDestinationsReady] = useState(!originCity);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -85,12 +86,27 @@ export function DestinationPicker({
 
     setOriginDestinationsReady(false);
     let cancelled = false;
-    void loadDealSnapshot().then(snapshot => {
+    void (async () => {
+      let dests: Array<{
+        code: string;
+        minPrice?: number;
+        offerCount?: number;
+        cheapOfferCount?: number;
+      }> = [];
+      try {
+        dests = await getTopDestinations(originCode, 4, 50);
+      } catch {
+        dests = [];
+      }
       if (cancelled) return;
-      const dests = snapshot?.destinationsByOrigin?.[originCode] ?? [];
+      if (dests.length === 0) {
+        const snapshot = await loadDealSnapshot();
+        if (cancelled) return;
+        dests = snapshot?.destinationsByOrigin?.[originCode] ?? [];
+      }
       setOriginDestinations(dests);
       setOriginDestinationsReady(true);
-    });
+    })();
     return () => {
       cancelled = true;
     };

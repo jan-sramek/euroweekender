@@ -26,9 +26,11 @@ export function normalizeHubScore(raw: Record<string, unknown>): HubScore {
 }
 
 export function normalizeOriginDestination(raw: Record<string, unknown>): OriginDestination {
+  const cheapOfferCount = Number(raw.cheapOfferCount ?? raw.CheapOfferCount);
   return {
     code: String(raw.code ?? raw.Code ?? ''),
     offerCount: Number(raw.offerCount ?? raw.OfferCount ?? 0),
-    minPrice: Number(raw.minPrice ?? raw.MinPrice ?? 0)
+    minPrice: Number(raw.minPrice ?? raw.MinPrice ?? 0),
+    cheapOfferCount: Number.isFinite(cheapOfferCount) ? cheapOfferCount : undefined
   };
 }

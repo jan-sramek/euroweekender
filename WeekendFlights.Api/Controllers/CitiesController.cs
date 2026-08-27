@@ -47,21 +47,21 @@ public class CitiesController(
     }
 
     /// <summary>
-    /// Top destinations from an origin city by offer volume in the upcoming weeks.
+    /// Top destinations from an origin city by cheap-offer count in the upcoming weeks.
     /// </summary>
     [HttpGet("{code}/top-destinations")]
     [ProducesResponseType(typeof(IReadOnlyList<OriginDestinationDto>), StatusCodes.Status200OK)]
     public async Task<ActionResult<IReadOnlyList<OriginDestinationDto>>> GetTopDestinationsAsync(
         string code,
         [FromQuery] int weeks = WeekendHubIndex.DefaultWeeksAhead,
-        [FromQuery] int limit = 12,
+        [FromQuery] int limit = 30,
         CancellationToken cancellationToken = default)
     {
         weeks = Math.Clamp(weeks, 1, 12);
         limit = Math.Clamp(limit, 1, 50);
         Response.Headers.CacheControl = "public, max-age=300";
 
-        var cacheKey = $"cities:top-destinations:{code.Trim().ToUpperInvariant()}:{weeks}:{limit}";
+        var cacheKey = $"cities:top-destinations:v2:{code.Trim().ToUpperInvariant()}:{weeks}:{limit}";
         if (!memoryCache.TryGetValue(cacheKey, out IReadOnlyList<OriginDestinationDto>? dtos) || dtos is null)
         {
             var destinations = await hubScoreService.GetTopDestinationsAsync(
@@ -70,7 +70,7 @@ public class CitiesController(
                 limit,
                 cancellationToken);
             dtos = destinations
-                .Select(d => new OriginDestinationDto(d.CityCodeTo, d.OfferCount, d.MinPrice))
+                .Select(d => new OriginDestinationDto(d.CityCodeTo, d.OfferCount, d.MinPrice, d.CheapOfferCount))
                 .ToList();
             memoryCache.Set(cacheKey, dtos, HubScoresCacheDuration);
         }

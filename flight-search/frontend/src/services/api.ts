@@ -22,7 +22,7 @@ const CITIES_CACHE_KEY = 'ew:cities:v5';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
-const TOP_DESTINATIONS_CACHE_PREFIX = 'ew:top-destinations:v1:';
+const TOP_DESTINATIONS_CACHE_PREFIX = 'ew:top-destinations:v2:';
 const TOP_DESTINATIONS_CACHE_TTL_MS = 15 * 60 * 1000;
 
 function searchPageSize(cityCount: number): number {
@@ -443,11 +443,11 @@ function writeHubScoresCache(weeks: number, scores: HubScore[]): void {
   }
 }
 
-/** Top destinations from an origin city by upcoming offer volume (used for SEO destination links). */
+/** Top destinations from an origin, ranked by how many cheap fares they have. */
 export async function getTopDestinations(
   code: string,
   weeks = 4,
-  limit = 12
+  limit = 50
 ): Promise<OriginDestination[]> {
   const normalized = code.trim().toUpperCase();
   if (!normalized) return [];

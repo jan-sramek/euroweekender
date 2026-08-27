@@ -14,6 +14,7 @@ export interface SeoDealDestination {
   name: string;
   minPrice: number;
   offerCount?: number;
+  cheapOfferCount?: number;
 }
 
 export interface SeoDealSnapshot {

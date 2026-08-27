@@ -2,6 +2,8 @@
  * Fetches hub scores + top destinations from the public API and writes
  * public/seo-deal-snapshot.json for prerender (and optional client fallback).
  *
+ * Top destinations are ranked by how many cheap fares they have (not total volume).
+ *
  * Env:
  *   SEO_API_BASE  – default https://euroweekender.com/api
  *
@@ -19,7 +21,7 @@ const outPath = path.join(publicDir, 'seo-deal-snapshot.json');
 
 const API_BASE = (process.env.SEO_API_BASE || 'https://euroweekender.com/api').replace(/\/$/, '');
 const WEEKS = 4;
-const DEST_LIMIT = 12;
+const DEST_LIMIT = 30;
 const CONCURRENCY = 8;
 
 function sleep(ms) {
@@ -88,11 +90,13 @@ function normalizeDestination(raw, nameByCode) {
   if (!code) return null;
   const minPrice = Number(raw.minPrice ?? raw.MinPrice ?? 0);
   const offerCount = Number(raw.offerCount ?? raw.OfferCount ?? 0);
+  const cheapOfferCount = Number(raw.cheapOfferCount ?? raw.CheapOfferCount);
   return {
     code,
     name: nameByCode.get(code) || code,
     minPrice,
-    offerCount
+    offerCount,
+    ...(Number.isFinite(cheapOfferCount) ? { cheapOfferCount } : {})
   };
 }
 

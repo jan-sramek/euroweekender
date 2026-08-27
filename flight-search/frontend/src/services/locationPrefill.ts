@@ -9,7 +9,7 @@ export const NEARBY_MAX_CITIES = 100;
 export const DEFAULT_SELECTED_RADIUS_KM = 120;
 /** Cap on auto-selected origins; usually just the home airport plus a close neighbour. */
 export const DEFAULT_SELECTED_CITIES = 3;
-/** Empty destination dropdown: priced/popular cities first, then A–Z. */
+/** Empty destination dropdown: cities with the most cheap fares first, then A–Z. */
 export const DESTINATION_SUGGEST_MAX_CITIES = 100;
 
 export function findCityByCode(cities: City[], code: string): City | undefined {
@@ -194,8 +194,13 @@ export interface DestinationSuggestOptions {
   excludeCodes?: string[];
   filter?: (city: City) => boolean;
   limit?: number;
-  /** Origin-specific dests from the deal snapshot (price + offer volume). */
-  originDestinations?: Array<{ code: string; minPrice?: number; offerCount?: number }>;
+  /** Origin-specific dests ranked by cheap-offer count (live API) or snapshot fallback. */
+  originDestinations?: Array<{
+    code: string;
+    minPrice?: number;
+    offerCount?: number;
+    cheapOfferCount?: number;
+  }>;
   /** Static popular destination codes used when origin dests are missing. */
   popularCodes?: string[];
   nameForSort?: (city: City) => string;
@@ -211,8 +216,22 @@ function compareDestinationNames(
   return left.localeCompare(right, undefined, { sensitivity: 'base' });
 }
 
+function compareOriginDestinations(
+  a: { minPrice?: number; offerCount?: number; cheapOfferCount?: number },
+  b: { minPrice?: number; offerCount?: number; cheapOfferCount?: number }
+): number {
+  const aCheap = a.cheapOfferCount ?? 0;
+  const bCheap = b.cheapOfferCount ?? 0;
+  if (aCheap !== bCheap) return bCheap - aCheap;
+  const aPrice = a.minPrice && a.minPrice > 0 ? a.minPrice : Number.POSITIVE_INFINITY;
+  const bPrice = b.minPrice && b.minPrice > 0 ? b.minPrice : Number.POSITIVE_INFINITY;
+  if (aPrice !== bPrice) return aPrice - bPrice;
+  return (b.offerCount ?? 0) - (a.offerCount ?? 0);
+}
+
 /**
- * Empty destination dropdown: cheapest/popular cities for the origin first, then A–Z.
+ * Empty destination dropdown: cities with the most cheap fares for the origin first,
+ * then popular codes, then A–Z.
  * Distance ranking is a poor default here — nearby airports are rarely useful destinations.
  */
 export function rankCitiesForDestinationSuggest(
@@ -235,12 +254,7 @@ export function rankCitiesForDestinationSuggest(
   const originOrdered: City[] = [];
   const originSeen = new Set<string>();
 
-  const originDests = [...(options?.originDestinations ?? [])].sort((a, b) => {
-    const aPrice = a.minPrice && a.minPrice > 0 ? a.minPrice : Number.POSITIVE_INFINITY;
-    const bPrice = b.minPrice && b.minPrice > 0 ? b.minPrice : Number.POSITIVE_INFINITY;
-    if (aPrice !== bPrice) return aPrice - bPrice;
-    return (b.offerCount ?? 0) - (a.offerCount ?? 0);
-  });
+  const originDests = [...(options?.originDestinations ?? [])].sort(compareOriginDestinations);
 
   for (const dest of originDests) {
     const code = dest.code.trim().toUpperCase();

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { computeEffectiveScore, normalizeHubScore } from '../services/hubScore';
+import { computeEffectiveScore, normalizeHubScore, normalizeOriginDestination } from '../services/hubScore';
 
 describe('hubScore', () => {
   it('normalizes API payloads with camelCase or PascalCase keys', () => {
@@ -27,5 +27,21 @@ describe('hubScore', () => {
     const far = computeEffectiveScore(10, 500);
 
     expect(near).toBeGreaterThan(far);
+  });
+
+  it('reads cheap-offer counts from top-destination payloads', () => {
+    const dest = normalizeOriginDestination({
+      Code: 'SKP',
+      OfferCount: 48,
+      MinPrice: 32,
+      CheapOfferCount: 40
+    });
+
+    expect(dest).toEqual({
+      code: 'SKP',
+      offerCount: 48,
+      minPrice: 32,
+      cheapOfferCount: 40
+    });
   });
 });

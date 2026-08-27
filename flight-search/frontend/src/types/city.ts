@@ -31,6 +31,7 @@ export interface OriginDestination {
   code: string;
   offerCount: number;
   minPrice: number;
+  cheapOfferCount?: number;
 }
 
 export interface CityWithDistance extends City {

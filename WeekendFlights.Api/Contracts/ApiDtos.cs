@@ -41,7 +41,8 @@ public record OriginHubScoreDto(
 public record OriginDestinationDto(
     string Code,
     int OfferCount,
-    double MinPrice);
+    double MinPrice,
+    int CheapOfferCount);
 
 public record IpGeoPositionDto(double Latitude, double Longitude);
 

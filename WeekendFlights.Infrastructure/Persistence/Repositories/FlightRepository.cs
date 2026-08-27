@@ -400,6 +400,7 @@ public class FlightRepository(
         if (origin.Length == 0 || limit <= 0)
             return Array.Empty<OriginDestinationStats>();
 
+        var cheapMax = DestinationCheapRank.MaxPriceEur;
         return await db.Flights
             .AsNoTracking()
             .Where(f =>
@@ -412,10 +413,12 @@ public class FlightRepository(
                 CityCodeFrom = origin,
                 CityCodeTo = g.Key,
                 OfferCount = g.Count(),
+                CheapOfferCount = g.Count(f => f.Price > 0 && f.Price <= cheapMax),
                 MinPrice = g.Min(f => f.Price)
             })
-            .OrderByDescending(s => s.OfferCount)
+            .OrderByDescending(s => s.CheapOfferCount)
             .ThenBy(s => s.MinPrice)
+            .ThenByDescending(s => s.OfferCount)
             .Take(limit)
             .ToListAsync(cancellationToken);
     }

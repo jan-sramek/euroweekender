@@ -198,6 +198,20 @@ describe('locationPrefill', () => {
     expect(ranked[2].minPrice).toBeNull();
   });
 
+  it('ranks origin destinations by cheap-offer count before lowest fare', () => {
+    const ranked = rankCitiesForDestinationSuggest(cities, {
+      excludeCodes: ['PRG'],
+      originDestinations: [
+        { code: 'LON', minPrice: 29, offerCount: 20, cheapOfferCount: 4 },
+        { code: 'BER', minPrice: 46, offerCount: 80, cheapOfferCount: 40 },
+        { code: 'WAW', minPrice: 55, offerCount: 200, cheapOfferCount: 12 }
+      ],
+      limit: 3
+    });
+
+    expect(ranked.map(city => city.code)).toEqual(['BER', 'WAW', 'LON']);
+  });
+
   it('sorts remaining destination cities by localized display name', () => {
     const ranked = rankCitiesForDestinationSuggest(cities, {
       excludeCodes: ['PRG', 'OSR', 'KTW', 'KRK', 'WAW', 'LON'],

@@ -31,7 +31,8 @@ public static class Startup
             .AddScoped<IFlightRepository, FlightRepository>()
             .AddScoped<ILocationRepository, LocationRepository>()
             .AddScoped<IFlightsImportRepository, FlightsImportRepository>()
-            .AddScoped<ICityWeekendCrawlStateRepository, CityWeekendCrawlStateRepository>();
+            .AddScoped<ICityWeekendCrawlStateRepository, CityWeekendCrawlStateRepository>()
+            .AddScoped<ISeoPageContentRepository, SeoPageContentRepository>();
 
         services.AddHttpClient<IKiwiApiClient, KiwiApiClient>(client =>
         {

@@ -492,5 +492,10 @@
     "title": "Vols week-end les moins chers {{from}} → {{to}}",
     "seoBlock": "Comparez les prix des vols week-end de {{from}} vers {{to}} sur un calendrier mensuel. Repérez le tarif ven–dim le plus bas, ouvrez un week-end pour les détails du vol et réservez en toute sécurité via Kiwi.com.",
     "seeAlsoFromCity": "Vols week-end depuis {{city}}"
+  },
+  "seoUnique": {
+    "aboutTitle": "À propos de {{city}}",
+    "attribution": "Présentation de la ville adaptée de Wikipédia.",
+    "knownForQ": "Pourquoi {{city}} est-elle connue ?"
   }
 }

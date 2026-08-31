@@ -21,6 +21,7 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { indexableLocalesForOrigin, preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useSeoPageContent } from '../hooks/useSeoPageContent';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import {
   DAY_TRIP_OPTIONS_MONTHS,
@@ -32,6 +33,7 @@ import { findCityByCode } from '../services/locationPrefill';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import { buildCitySlug, dayTripsFromPath, parseCityCodeFromSlug, weekendFlightsFromPath } from '../utils/citySlug';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
+import { SEO_PAGE_TYPES } from '../utils/seoPageContent';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
 import type { City } from '../types/city';
 import { NotFoundPage } from './NotFoundPage';
@@ -88,10 +90,11 @@ export function DayTripsFromCityPage() {
     () => indexableLocalesForOrigin(parsedCode, city?.country),
     [parsedCode, city?.country]
   );
+  const uniqueContent = useSeoPageContent(SEO_PAGE_TYPES.dayTripsFrom, parsedCode, undefined, locale);
 
   usePageMeta(
     t('meta.dayTripsFrom.title', { city: metaCity }),
-    t('meta.dayTripsFrom.description', { city: metaCity }),
+    uniqueContent?.metaDescription || t('meta.dayTripsFrom.description', { city: metaCity }),
     city ? dayTripsFromPath(city) : '/404',
     { indexLocales }
   );
@@ -193,12 +196,13 @@ export function DayTripsFromCityPage() {
   ]);
 
   const faqItems = useMemo(() => {
+    if (uniqueContent?.faq?.length) return uniqueContent.faq;
     if (!cityLabel) return [];
     return (t('dayTripsFrom.faq', { city: cityLabel, returnObjects: true }) as Array<{
       q: string;
       a: string;
     }>) ?? [];
-  }, [cityLabel, t]);
+  }, [cityLabel, t, uniqueContent]);
 
   useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
 
@@ -249,7 +253,9 @@ export function DayTripsFromCityPage() {
             <p className="intro-eyebrow">{t('dayTripsFrom.tagline', { city: cityLabel })}</p>
             <h1>{t('dayTripsFrom.title', { city: cityLabel })}</h1>
             <p className="intro-subtitle">{t('dayTripsFrom.subtitle', { city: cityLabel })}</p>
-            <p className="intro-lead">{t('dayTripsFrom.lead', { city: cityLabel })}</p>
+            <p className="intro-lead">
+              {uniqueContent?.lead || t('dayTripsFrom.lead', { city: cityLabel })}
+            </p>
           </div>
 
           <div className="search-home">
@@ -413,9 +419,23 @@ export function DayTripsFromCityPage() {
       <section className="home-seo" aria-labelledby="day-trips-from-seo-title">
         <div className="container container-wide">
           <h2 id="day-trips-from-seo-title" className="home-seo-title">
-            {t('dayTripsFrom.seoTitle', { city: cityLabel })}
+            {uniqueContent?.heading || t('dayTripsFrom.seoTitle', { city: cityLabel })}
           </h2>
-          <p className="home-seo-text">{t('dayTripsFrom.seoBlock', { city: cityLabel })}</p>
+          {(uniqueContent?.paragraphs?.length
+            ? uniqueContent.paragraphs
+            : [t('dayTripsFrom.seoBlock', { city: cityLabel })]
+          ).map(text => (
+            <p key={text.slice(0, 48)} className="home-seo-text">
+              {text}
+            </p>
+          ))}
+          {uniqueContent?.sourceUrl ? (
+            <p className="home-seo-attribution">
+              <a href={uniqueContent.sourceUrl} rel="noopener noreferrer">
+                {t('seoUnique.attribution')}
+              </a>
+            </p>
+          ) : null}
 
           <SeoHubLinks
             allCities={allCities}

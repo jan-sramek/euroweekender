@@ -10,6 +10,7 @@ import { localizedPath } from '../config/locales';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
+import { useSeoPageContent } from '../hooks/useSeoPageContent';
 import { findCityByCode } from '../services/locationPrefill';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import {
@@ -18,6 +19,7 @@ import {
   weekendFlightsFromPath,
   weekendFlightsOdPath
 } from '../utils/citySlug';
+import { SEO_PAGE_TYPES } from '../utils/seoPageContent';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
 import { computeRouteFactsFromCities } from '../utils/routeFacts';
 import { CheapestWeekendPage } from './CheapestWeekendPage';
@@ -48,6 +50,12 @@ export function WeekendFlightsOdPage() {
     () => indexableLocalesForOrigin(parsed?.fromCode, fromCity?.country),
     [parsed?.fromCode, fromCity?.country]
   );
+  const uniqueContent = useSeoPageContent(
+    SEO_PAGE_TYPES.weekendOd,
+    parsed?.fromCode,
+    parsed?.toCode,
+    locale
+  );
 
   const fromLabel = fromCity ? getCityDisplayName(fromCity, locale) : '';
   const toLabel = toCity ? getCityDisplayName(toCity, locale) : '';
@@ -57,6 +65,7 @@ export function WeekendFlightsOdPage() {
   );
 
   const faqItems = useMemo(() => {
+    if (uniqueContent?.faq?.length) return uniqueContent.faq;
     if (!fromLabel || !toLabel) return [];
     const items = t('weekendFlightsOd.faq', {
       from: fromLabel,
@@ -66,7 +75,7 @@ export function WeekendFlightsOdPage() {
       returnObjects: true
     }) as Array<{ q: string; a: string }>;
     return Array.isArray(items) ? items : [];
-  }, [fromLabel, toLabel, routeFacts, t]);
+  }, [fromLabel, toLabel, routeFacts, t, uniqueContent]);
 
   useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
 
@@ -120,9 +129,21 @@ export function WeekendFlightsOdPage() {
 
   const extraSeoContent = (
     <>
-      <p className="home-seo-text">
-        {t('weekendFlightsOd.seoBlock', { from: fromLabel, to: toLabel })}
-      </p>
+      {(uniqueContent?.paragraphs?.length
+        ? uniqueContent.paragraphs
+        : [t('weekendFlightsOd.seoBlock', { from: fromLabel, to: toLabel })]
+      ).map(text => (
+        <p key={text.slice(0, 48)} className="home-seo-text">
+          {text}
+        </p>
+      ))}
+      {uniqueContent?.sourceUrl ? (
+        <p className="home-seo-attribution">
+          <a href={uniqueContent.sourceUrl} rel="noopener noreferrer">
+            {t('seoUnique.attribution')}
+          </a>
+        </p>
+      ) : null}
       {faqItems.length > 0 ? (
         <div className="faq-list">
           <h3 className="home-seo-title">{t('weekendFlightsOd.faqTitle', { from: fromLabel, to: toLabel })}</h3>
@@ -167,12 +188,15 @@ export function WeekendFlightsOdPage() {
       forcedTo={toCity.code}
       routePath={canonicalPath}
       metaTitle={t('meta.weekendFlightsOd.title', { from: fromLabel, to: toLabel })}
-      metaDescription={t('meta.weekendFlightsOd.description', { from: fromLabel, to: toLabel })}
+      metaDescription={
+        uniqueContent?.metaDescription ||
+        t('meta.weekendFlightsOd.description', { from: fromLabel, to: toLabel })
+      }
       pageTagline={t('weekendFlightsOd.tagline', { from: fromLabel, to: toLabel })}
       pageTitle={t('weekendFlightsOd.title', { from: fromLabel, to: toLabel })}
       pageSubtitle={t('weekendFlightsOd.subtitle')}
-      pageLead={t('weekendFlightsOd.lead', { from: fromLabel, to: toLabel })}
-      seoHeading={t('weekendFlightsOd.seoTitle', { from: fromLabel, to: toLabel })}
+      pageLead={uniqueContent?.lead || t('weekendFlightsOd.lead', { from: fromLabel, to: toLabel })}
+      seoHeading={uniqueContent?.heading || t('weekendFlightsOd.seoTitle', { from: fromLabel, to: toLabel })}
       extraSeoContent={extraSeoContent}
       indexLocales={indexLocales}
     />

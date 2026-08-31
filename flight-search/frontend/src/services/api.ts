@@ -1,4 +1,5 @@
 import type { City, CitySuggestion, HubScore, OriginDestination } from '../types/city';
+import { seoContentKey, type SeoPageContent } from '../utils/seoPageContent';
 import type { Flight, FlightPage } from '../types/flight';
 import {
   CHEAP_BAND_PAGE_SIZE,
@@ -561,4 +562,58 @@ export async function liveSearchDayTrips(
 
   const page = (await response.json()) as FlightPage;
   return page.items ?? [];
+}
+
+type SeoPageContentSnapshot = {
+  pages?: Record<string, SeoPageContent>;
+};
+
+let seoPageContentSnapshotPromise: Promise<Record<string, SeoPageContent>> | null = null;
+
+function loadSeoPageContentSnapshot(): Promise<Record<string, SeoPageContent>> {
+  if (!seoPageContentSnapshotPromise) {
+    seoPageContentSnapshotPromise = fetch('/seo-page-content.json')
+      .then(response => (response.ok ? response.json() : { pages: {} }))
+      .then((payload: SeoPageContentSnapshot) => payload.pages ?? {})
+      .catch(() => ({}));
+  }
+  return seoPageContentSnapshotPromise;
+}
+
+function normalizeSeoPageContent(raw: SeoPageContent | null | undefined): SeoPageContent | null {
+  if (!raw || !Array.isArray(raw.paragraphs) || raw.paragraphs.length === 0) return null;
+  return {
+    ...raw,
+    destinationCode: raw.destinationCode ?? '',
+    faq: Array.isArray(raw.faq) ? raw.faq.filter(item => item?.q && item?.a) : [],
+    paragraphs: raw.paragraphs.filter(Boolean)
+  };
+}
+
+export async function getSeoPageContent(
+  pageType: string,
+  originCode: string,
+  destinationCode: string | null | undefined,
+  locale: string
+): Promise<SeoPageContent | null> {
+  const params = new URLSearchParams({
+    pageType,
+    origin: originCode.trim().toUpperCase(),
+    locale: locale.trim().toLowerCase()
+  });
+  const destination = destinationCode?.trim().toUpperCase();
+  if (destination) params.set('destination', destination);
+
+  try {
+    const response = await fetch(`${API_BASE}/seo-content?${params}`);
+    if (response.ok) {
+      const fromApi = normalizeSeoPageContent((await response.json()) as SeoPageContent);
+      if (fromApi) return fromApi;
+    }
+  } catch {
+    // Fall through to the static snapshot used by prerender.
+  }
+
+  const pages = await loadSeoPageContentSnapshot();
+  return normalizeSeoPageContent(pages[seoContentKey(pageType, originCode, destination, locale)] ?? null);
 }

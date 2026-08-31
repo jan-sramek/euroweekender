@@ -31,6 +31,7 @@ services:
       - Cors__AllowedOrigins__0=https://${SITE_DOMAIN:-euroweekender.com}
       - Cors__AllowedOrigins__1=https://www.${SITE_DOMAIN:-euroweekender.com}
       - Cors__AllowedOrigins__2=http://localhost:4200
+      - SeoContent__ImportKey=${SEO_IMPORT_KEY:-}
     depends_on:
       db:
         condition: service_healthy

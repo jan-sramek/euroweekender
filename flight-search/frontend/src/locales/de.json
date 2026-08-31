@@ -526,5 +526,10 @@
         "a": "Nutzen Sie den Preiskalender auf dieser Seite, um kommende Fr–So- (und andere Kurztrip-) Wochenenden von {{from}} nach {{to}} zu vergleichen, und öffnen Sie das günstigste Wochenende für Flugdetails."
       }
     ]
+  },
+  "seoUnique": {
+    "aboutTitle": "Über {{city}}",
+    "attribution": "Städteinfos angelehnt an Wikipedia.",
+    "knownForQ": "Wofür ist {{city}} bekannt?"
   }
 }

@@ -492,5 +492,10 @@
     "title": "Vuelos de fin de semana más baratos {{from}} → {{to}}",
     "seoBlock": "Compara los precios de vuelos de fin de semana de {{from}} a {{to}} en un calendario mensual. Encuentra la tarifa vie–dom más baja, abre un fin de semana para ver los detalles del vuelo y reserva de forma segura en Kiwi.com.",
     "seeAlsoFromCity": "Vuelos de fin de semana desde {{city}}"
+  },
+  "seoUnique": {
+    "aboutTitle": "Sobre {{city}}",
+    "attribution": "Información de la ciudad adaptada de Wikipedia.",
+    "knownForQ": "¿Por qué es conocida {{city}}?"
   }
 }

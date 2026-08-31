@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using System.IO.Compression;
+using WeekendFlights.Api;
 using WeekendFlights.Api.Middleware;
+using WeekendFlights.Application.Interfaces;
 using WeekendFlights.Infrastructure;
 using WeekendFlights.Infrastructure.Persistence;
 
@@ -91,7 +93,25 @@ await using (var scope = app.Services.CreateAsyncScope())
 app.MapControllers();
 app.MapHealthChecks("/health");
 
+if (TryGetSeoImportPath(args, out var seoImportPath))
+{
+    await using var importScope = app.Services.CreateAsyncScope();
+    var repository = importScope.ServiceProvider.GetRequiredService<ISeoPageContentRepository>();
+    var count = await SeoContentJsonImporter.ImportFileAsync(repository, seoImportPath);
+    Console.WriteLine($"Imported {count} SEO page rows into Postgres.");
+    return;
+}
+
 app.Run();
+
+static bool TryGetSeoImportPath(string[] args, out string path)
+{
+    path = "";
+    var index = Array.IndexOf(args, "--import-seo-content");
+    if (index < 0 || index + 1 >= args.Length) return false;
+    path = args[index + 1];
+    return !string.IsNullOrWhiteSpace(path);
+}
 
 static bool IsDuplicateNamesByLocaleColumn(Exception ex)
 {

@@ -492,5 +492,10 @@
     "title": "Goedkoopste weekendvluchten {{from}} → {{to}}",
     "seoBlock": "Vergelijk weekendvluchtprijzen van {{from}} naar {{to}} op een maandelijkse kalender. Spot het laagste vr–zo-tarief, open een weekend voor vluchtdetails en boek veilig via Kiwi.com.",
     "seeAlsoFromCity": "Weekendvluchten vanuit {{city}}"
+  },
+  "seoUnique": {
+    "aboutTitle": "Over {{city}}",
+    "attribution": "Stadsachtergrond bewerkt naar Wikipedia.",
+    "knownForQ": "Waar is {{city}} bekend om?"
   }
 }

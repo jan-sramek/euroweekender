@@ -13,6 +13,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { LOCALES, STATIC_INDEXABLE_LOCALES } from '../../../scripts/seo-locales.mjs';
 import { indexableLocalesForHub, preferredIndexableLocaleForHub } from '../../../scripts/seo-city-locales.mjs';
+import { lookupSeoPageContent, SEO_PAGE_TYPES } from '../../../scripts/seo-page-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const frontendDir = path.join(__dirname, '..');
@@ -592,6 +593,10 @@ async function main() {
     fs.readFileSync(path.join(publicDir, 'seo-popular-destinations.json'), 'utf8')
   );
   const cityCoords = JSON.parse(fs.readFileSync(path.join(publicDir, 'seo-city-coords.json'), 'utf8'));
+  const pageContentPath = path.join(publicDir, 'seo-page-content.json');
+  const pageContentSnapshot = fs.existsSync(pageContentPath)
+    ? JSON.parse(fs.readFileSync(pageContentPath, 'utf8'))
+    : { pages: {} };
 
   let pageCount = 0;
 
@@ -790,8 +795,17 @@ async function main() {
 
     for (const locale of LOCALES) {
       const vars = { city: hub.name };
-      const faqItems = t(locale, 'weekendFlightsFrom.faq', vars);
-      const paragraphs = [t(locale, 'weekendFlightsFrom.seoBlock', vars)];
+      const unique = lookupSeoPageContent(
+        pageContentSnapshot,
+        SEO_PAGE_TYPES.weekendFrom,
+        hub.code,
+        '',
+        locale
+      );
+      const faqItems = unique?.faq?.length ? unique.faq : t(locale, 'weekendFlightsFrom.faq', vars);
+      const paragraphs = unique?.paragraphs?.length
+        ? [...unique.paragraphs]
+        : [t(locale, 'weekendFlightsFrom.seoBlock', vars)];
       if (deal && deal.minPrice > 0 && deal.destinationCount > 0) {
         paragraphs.unshift(
           t(locale, 'weekendFlightsFrom.priceHint', {
@@ -821,9 +835,9 @@ async function main() {
         locale,
         routePath,
         title: t(locale, 'meta.weekendFlightsFrom.title', vars),
-        description: t(locale, 'meta.weekendFlightsFrom.description', vars),
+        description: unique?.metaDescription || t(locale, 'meta.weekendFlightsFrom.description', vars),
         h1: t(locale, 'weekendFlightsFrom.title', vars),
-        lead: t(locale, 'weekendFlightsFrom.lead', vars),
+        lead: unique?.lead || t(locale, 'weekendFlightsFrom.lead', vars),
         paragraphs,
         faqTitle: t(locale, 'weekendFlightsFrom.faqTitle', vars),
         faqItems: Array.isArray(faqItems) ? faqItems : [],
@@ -868,15 +882,24 @@ async function main() {
     const indexLocales = indexableLocalesForHub(hub);
     for (const locale of LOCALES) {
       const vars = { city: hub.name };
-      const faqItems = t(locale, 'dayTripsFrom.faq', vars);
+      const unique = lookupSeoPageContent(
+        pageContentSnapshot,
+        SEO_PAGE_TYPES.dayTripsFrom,
+        hub.code,
+        '',
+        locale
+      );
+      const faqItems = unique?.faq?.length ? unique.faq : t(locale, 'dayTripsFrom.faq', vars);
       const html = renderPage(template, {
         locale,
         routePath,
         title: t(locale, 'meta.dayTripsFrom.title', vars),
-        description: t(locale, 'meta.dayTripsFrom.description', vars),
+        description: unique?.metaDescription || t(locale, 'meta.dayTripsFrom.description', vars),
         h1: t(locale, 'dayTripsFrom.title', vars),
-        lead: t(locale, 'dayTripsFrom.lead', vars),
-        paragraphs: [t(locale, 'dayTripsFrom.seoBlock', vars)],
+        lead: unique?.lead || t(locale, 'dayTripsFrom.lead', vars),
+        paragraphs: unique?.paragraphs?.length
+          ? unique.paragraphs
+          : [t(locale, 'dayTripsFrom.seoBlock', vars)],
         faqTitle: t(locale, 'dayTripsFrom.faqTitle', vars),
         faqItems: Array.isArray(faqItems) ? faqItems : [],
         indexLocales,
@@ -933,28 +956,39 @@ async function main() {
           distanceKm: facts?.distanceKm ?? ''
         };
         const paragraphs = [];
-        if (routeMin != null) {
-          paragraphs.push(
-            t(locale, 'weekendFlightsOd.priceHint', {
-              from: hub.name,
-              to: destination.name,
-              minPrice: Math.round(routeMin)
-            })
-          );
+        const unique = lookupSeoPageContent(
+          pageContentSnapshot,
+          SEO_PAGE_TYPES.weekendOd,
+          hub.code,
+          destination.code,
+          locale
+        );
+        if (unique?.paragraphs?.length) {
+          paragraphs.push(...unique.paragraphs);
+        } else {
+          if (routeMin != null) {
+            paragraphs.push(
+              t(locale, 'weekendFlightsOd.priceHint', {
+                from: hub.name,
+                to: destination.name,
+                minPrice: Math.round(routeMin)
+              })
+            );
+          }
+          if (facts) {
+            paragraphs.push(t(locale, 'weekendFlightsOd.durationHint', vars));
+            paragraphs.push(t(locale, 'weekendFlightsOd.weekendPatternHint', vars));
+          }
         }
-        if (facts) {
-          paragraphs.push(t(locale, 'weekendFlightsOd.durationHint', vars));
-          paragraphs.push(t(locale, 'weekendFlightsOd.weekendPatternHint', vars));
-        }
-        const faqItems = t(locale, 'weekendFlightsOd.faq', vars);
+        const faqItems = unique?.faq?.length ? unique.faq : t(locale, 'weekendFlightsOd.faq', vars);
 
         const html = renderPage(template, {
           locale,
           routePath,
           title: t(locale, 'meta.weekendFlightsOd.title', vars),
-          description: t(locale, 'meta.weekendFlightsOd.description', vars),
+          description: unique?.metaDescription || t(locale, 'meta.weekendFlightsOd.description', vars),
           h1: t(locale, 'weekendFlightsOd.title', vars),
-          lead: t(locale, 'weekendFlightsOd.lead', vars),
+          lead: unique?.lead || t(locale, 'weekendFlightsOd.lead', vars),
           paragraphs,
           faqTitle: t(locale, 'weekendFlightsOd.faqTitle', vars),
           faqItems: Array.isArray(faqItems) ? faqItems : [],
@@ -1019,6 +1053,9 @@ async function main() {
   console.log(`prerender-seo: wrote ${pageCount} static HTML shells under dist/`);
   if (dealSnapshot.fetchedAt) {
     console.log(`prerender-seo: deal snapshot from ${dealSnapshot.fetchedAt}`);
+  }
+  if (pageContentSnapshot.pageCount) {
+    console.log(`prerender-seo: unique page copy for ${pageContentSnapshot.pageCount} landings`);
   }
 
   // SPA 404 body: nginx serves this with HTTP 404 for unknown paths (see nginx.conf).

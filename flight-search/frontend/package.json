@@ -9,6 +9,7 @@
     "build:app": "tsc -b && vite build",
     "prerender": "node scripts/prerender-seo.mjs",
     "seo:snapshot": "node scripts/fetch-seo-deal-snapshot.mjs",
+    "seo:content": "node ../../scripts/generate-seo-page-content.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"

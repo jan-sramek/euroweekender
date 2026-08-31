@@ -75,3 +75,24 @@ public record PagedFlightsDto(
     int TotalCount,
     int Page,
     int PageSize);
+
+public record SeoFaqDto(string Q, string A);
+
+public record SeoPageContentDto(
+    string PageType,
+    string OriginCode,
+    string DestinationCode,
+    string Locale,
+    string Lead,
+    string Heading,
+    string MetaDescription,
+    IReadOnlyList<string> Paragraphs,
+    IReadOnlyList<SeoFaqDto> Faq,
+    string? SourceUrl,
+    string? SourceTitle,
+    DateTimeOffset GeneratedAt);
+
+public record SeoPageContentSnapshotDto(
+    DateTimeOffset GeneratedAt,
+    int PageCount,
+    IReadOnlyDictionary<string, SeoPageContentDto> Pages);

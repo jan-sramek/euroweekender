@@ -535,5 +535,10 @@
     "orRead": "or read the",
     "readyToPlan": "Ready to plan your next break?",
     "seeAlsoOur": "See also our"
+  },
+  "seoUnique": {
+    "aboutTitle": "About {{city}}",
+    "attribution": "City background adapted from Wikipedia.",
+    "knownForQ": "What is {{city}} known for?"
   }
 }

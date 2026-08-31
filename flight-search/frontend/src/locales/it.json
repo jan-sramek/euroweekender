@@ -492,5 +492,10 @@
     "title": "Voli weekend più economici {{from}} → {{to}}",
     "seoBlock": "Confronta i prezzi dei voli weekend da {{from}} verso {{to}} su un calendario mensile. Individua la tariffa ven–dom più bassa, apri un weekend per i dettagli del volo e prenota in sicurezza su Kiwi.com.",
     "seeAlsoFromCity": "Voli weekend da {{city}}"
+  },
+  "seoUnique": {
+    "aboutTitle": "Su {{city}}",
+    "attribution": "Scheda della città adattata da Wikipedia.",
+    "knownForQ": "Per cosa è conosciuta {{city}}?"
   }
 }

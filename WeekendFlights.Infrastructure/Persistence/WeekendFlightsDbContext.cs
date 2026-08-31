@@ -10,6 +10,7 @@ public class WeekendFlightsDbContext : DbContext
     public DbSet<Flight> Flights => Set<Flight>();
     public DbSet<FlightsImport> FlightsImports => Set<FlightsImport>();
     public DbSet<CityWeekendCrawlState> CityWeekendCrawlStates => Set<CityWeekendCrawlState>();
+    public DbSet<SeoPageContent> SeoPageContents => Set<SeoPageContent>();
     
     public WeekendFlightsDbContext(DbContextOptions<WeekendFlightsDbContext> options)
         : base(options)
@@ -25,6 +26,7 @@ public class WeekendFlightsDbContext : DbContext
         ConfigureFlights(modelBuilder);
         ConfigureFlightsImports(modelBuilder);
         ConfigureCityWeekendCrawlStates(modelBuilder);
+        ConfigureSeoPageContents(modelBuilder);
     }
     
     private static void ConfigureCities(ModelBuilder modelBuilder)
@@ -317,6 +319,67 @@ public class WeekendFlightsDbContext : DbContext
 
             entity.HasIndex(s => s.WeekendStart)
                 .HasDatabaseName("idx_city_weekend_crawl_states_weekend_start");
+        });
+    }
+
+    private static void ConfigureSeoPageContents(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SeoPageContent>(entity =>
+        {
+            entity.ToTable("seo_page_contents");
+
+            entity.HasKey(c => c.Id);
+
+            entity.Property(c => c.PageType)
+                .IsRequired()
+                .HasMaxLength(32);
+
+            entity.Property(c => c.OriginCode)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            entity.Property(c => c.DestinationCode)
+                .IsRequired()
+                .HasMaxLength(10)
+                .HasDefaultValue("");
+
+            entity.Property(c => c.Locale)
+                .IsRequired()
+                .HasMaxLength(8);
+
+            entity.Property(c => c.Lead)
+                .IsRequired()
+                .HasMaxLength(2000);
+
+            entity.Property(c => c.Heading)
+                .IsRequired()
+                .HasMaxLength(300);
+
+            entity.Property(c => c.MetaDescription)
+                .IsRequired()
+                .HasMaxLength(400);
+
+            entity.Property(c => c.Paragraphs)
+                .HasColumnType("jsonb")
+                .HasDefaultValueSql("'[]'::jsonb");
+
+            entity.Property(c => c.Faq)
+                .HasColumnType("jsonb")
+                .HasDefaultValueSql("'[]'::jsonb");
+
+            entity.Property(c => c.SourceUrl)
+                .HasMaxLength(500);
+
+            entity.Property(c => c.SourceTitle)
+                .HasMaxLength(300);
+
+            entity.Property(c => c.GeneratedAt)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone");
+
+            entity.HasIndex(c => new { c.PageType, c.OriginCode, c.DestinationCode, c.Locale })
+                .IsUnique()
+                .HasDatabaseName("idx_seo_page_contents_lookup");
         });
     }
 }

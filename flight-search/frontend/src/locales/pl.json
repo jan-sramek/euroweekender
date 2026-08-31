@@ -492,5 +492,10 @@
     "title": "Najtańsze loty weekendowe {{from}} → {{to}}",
     "seoBlock": "Porównaj ceny lotów weekendowych z {{from}} do {{to}} w miesięcznym kalendarzu. Znajdź najniższą taryfę pt–nd, otwórz weekend, aby zobaczyć szczegóły lotu, i rezerwuj bezpiecznie na Kiwi.com.",
     "seeAlsoFromCity": "Loty weekendowe z {{city}}"
+  },
+  "seoUnique": {
+    "aboutTitle": "O mieście {{city}}",
+    "attribution": "Opis miasta na podstawie Wikipedii.",
+    "knownForQ": "Z czego słynie {{city}}?"
   }
 }

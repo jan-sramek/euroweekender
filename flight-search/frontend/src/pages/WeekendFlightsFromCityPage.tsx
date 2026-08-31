@@ -25,6 +25,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
+import { useSeoPageContent } from '../hooks/useSeoPageContent';
 import { getHubScores, getTopDestinations } from '../services/api';
 import { findCityByCode } from '../services/locationPrefill';
 import {
@@ -47,6 +48,7 @@ import {
 } from '../utils/citySlug';
 import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { typicalHopRange } from '../utils/routeFacts';
+import { SEO_PAGE_TYPES } from '../utils/seoPageContent';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
 import type { City, HubScore, OriginDestination } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
@@ -108,10 +110,11 @@ export function WeekendFlightsFromCityPage() {
     () => indexableLocalesForOrigin(parsedCode, city?.country),
     [parsedCode, city?.country]
   );
+  const uniqueContent = useSeoPageContent(SEO_PAGE_TYPES.weekendFrom, parsedCode, undefined, locale);
 
   usePageMeta(
     t('meta.weekendFlightsFrom.title', { city: metaCity }),
-    t('meta.weekendFlightsFrom.description', { city: metaCity }),
+    uniqueContent?.metaDescription || t('meta.weekendFlightsFrom.description', { city: metaCity }),
     city ? weekendFlightsFromPath(city) : '/404',
     { indexLocales }
   );
@@ -264,12 +267,13 @@ export function WeekendFlightsFromCityPage() {
   ]);
 
   const faqItems = useMemo(() => {
+    if (uniqueContent?.faq?.length) return uniqueContent.faq;
     if (!cityLabel) return [];
     return (t('weekendFlightsFrom.faq', { city: cityLabel, returnObjects: true }) as Array<{
       q: string;
       a: string;
     }>) ?? [];
-  }, [cityLabel, t]);
+  }, [cityLabel, t, uniqueContent]);
 
   const hopRange = useMemo(() => {
     if (!city) return null;
@@ -329,7 +333,9 @@ export function WeekendFlightsFromCityPage() {
             <p className="intro-eyebrow">{t('weekendFlightsFrom.tagline', { city: cityLabel })}</p>
             <h1>{t('weekendFlightsFrom.title', { city: cityLabel })}</h1>
             <p className="intro-subtitle">{t('weekendFlightsFrom.subtitle', { city: cityLabel })}</p>
-            <p className="intro-lead">{t('weekendFlightsFrom.lead', { city: cityLabel })}</p>
+            <p className="intro-lead">
+              {uniqueContent?.lead || t('weekendFlightsFrom.lead', { city: cityLabel })}
+            </p>
             {hubScore && hubScore.minPrice > 0 && hubScore.destinationCount > 0 ? (
               <p className="intro-lead">
                 {t('weekendFlightsFrom.priceHint', {
@@ -501,9 +507,23 @@ export function WeekendFlightsFromCityPage() {
       <section className="home-seo" aria-labelledby="weekend-from-seo-title">
         <div className="container container-wide">
           <h2 id="weekend-from-seo-title" className="home-seo-title">
-            {t('weekendFlightsFrom.seoTitle', { city: cityLabel })}
+            {uniqueContent?.heading || t('weekendFlightsFrom.seoTitle', { city: cityLabel })}
           </h2>
-          <p className="home-seo-text">{t('weekendFlightsFrom.seoBlock', { city: cityLabel })}</p>
+          {(uniqueContent?.paragraphs?.length
+            ? uniqueContent.paragraphs
+            : [t('weekendFlightsFrom.seoBlock', { city: cityLabel })]
+          ).map(text => (
+            <p key={text.slice(0, 48)} className="home-seo-text">
+              {text}
+            </p>
+          ))}
+          {uniqueContent?.sourceUrl ? (
+            <p className="home-seo-attribution">
+              <a href={uniqueContent.sourceUrl} rel="noopener noreferrer">
+                {t('seoUnique.attribution')}
+              </a>
+            </p>
+          ) : null}
           {hopRange ? (
             <p className="home-seo-text">
               {hopRange.minMinutes === hopRange.maxMinutes

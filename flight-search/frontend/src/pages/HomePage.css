@@ -146,6 +146,18 @@
   margin-top: 0.85rem;
 }
 
+.home-seo-attribution {
+  margin: 0.75rem 0 0;
+  max-width: 52rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #7a858e;
+}
+
+.home-seo-attribution a {
+  color: inherit;
+}
+
 .home-seo .faq-list {
   margin-top: 1.5rem;
 }

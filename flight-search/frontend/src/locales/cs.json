@@ -521,5 +521,10 @@
         "a": "Použijte cenový kalendář na této stránce k porovnání nadcházejících víkendů pá–ne (i jiných krátkých výletů) z {{from}} do {{to}} a otevřete nejlevnější víkend pro detaily letu."
       }
     ]
+  },
+  "seoUnique": {
+    "aboutTitle": "O městě {{city}}",
+    "attribution": "Text o městě podle Wikipedie.",
+    "knownForQ": "Čím je {{city}} známé?"
   }
 }

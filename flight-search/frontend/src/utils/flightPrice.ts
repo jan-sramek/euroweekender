@@ -14,7 +14,9 @@ export function getTripPrice(flight: Flight, passengers: number): number {
 }
 
 export function hasEnoughSeats(flight: Flight, passengers: number): boolean {
-  if (flight.availabilitySeats == null) return true;
+  // Kiwi often omits availability; we historically stored that as 0.
+  // Treat null/0 as unknown — only enforce when a real positive seat count exists.
+  if (flight.availabilitySeats == null || flight.availabilitySeats <= 0) return true;
   return flight.availabilitySeats >= passengers;
 }
 

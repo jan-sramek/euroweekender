@@ -41,7 +41,8 @@ internal static class KiwiFlightMapper
             TechnicalStopsReturn = returnStops,
             ThrowAwayTicketing = data.ThrowAwayTicketing,
             HiddenCityTicketing = data.HiddenCityTicketing,
-            AvailabilitySeats = data.Availability?.Seats ?? 0,
+            // null when Kiwi omits availability — do not coerce to 0 (frontend treats 0 as unknown too)
+            AvailabilitySeats = data.Availability?.Seats,
             VirtualInterlining = data.VirtualInterlining,
             UtcArrival = data.UtcArrival,
             UtcDeparture = data.UtcDeparture,

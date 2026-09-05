@@ -7,9 +7,10 @@ export type ResultsViewMode = 'list' | 'cities';
 function readStoredView(): ResultsViewMode {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === 'cities' ? 'cities' : 'list';
+    if (stored === 'list') return 'list';
+    return 'cities';
   } catch {
-    return 'list';
+    return 'cities';
   }
 }
 

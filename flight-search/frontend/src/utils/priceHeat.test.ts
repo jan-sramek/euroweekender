@@ -1,8 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { PRICE_HEAT_STOPS, priceHeatColor } from './priceHeat';
+import { PRICE_HEAT_STOPS, priceHeatColor, priceHeatFillColor } from './priceHeat';
 
 function hueOf(color: string): number {
   const match = color.match(/^hsl\(([-\d.]+),/);
+  if (!match) throw new Error(`expected hsl color, got ${color}`);
+  return Number(match[1]);
+}
+
+function lightnessOf(color: string): number {
+  const match = color.match(/^hsl\([-\d.]+,\s*[-\d.]+%,\s*([-\d.]+)%\)$/);
   if (!match) throw new Error(`expected hsl color, got ${color}`);
   return Number(match[1]);
 }
@@ -30,5 +36,13 @@ describe('priceHeatColor', () => {
     const mid = hueOf(priceHeatColor(45));
     expect(mid).toBeGreaterThan(48);
     expect(mid).toBeLessThan(142);
+  });
+});
+
+describe('priceHeatFillColor', () => {
+  it('keeps the same hue scale as the border color but is much lighter', () => {
+    expect(hueOf(priceHeatFillColor(20))).toBe(hueOf(priceHeatColor(20)));
+    expect(hueOf(priceHeatFillColor(130))).toBe(hueOf(priceHeatColor(130)));
+    expect(lightnessOf(priceHeatFillColor(70))).toBeGreaterThan(lightnessOf(priceHeatColor(70)));
   });
 });

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getWeekendTripDays } from '../services/weekend';
 import { formatEur } from '../utils/flightPrice';
-import { PRICE_HEAT_STOPS, priceHeatColor } from '../utils/priceHeat';
+import { PRICE_HEAT_STOPS, priceHeatColor, priceHeatFillColor } from '../utils/priceHeat';
 import type { WeekendOption } from '../types/weekend';
 import { LoadingIndicator } from './LoadingIndicator';
 import './WeekendPriceCalendar.css';
@@ -139,7 +139,10 @@ function MonthGrid({
           const hasDeal = cell.weekendId != null && cell.price != null;
           const style =
             hasDeal && cell.price != null
-              ? { backgroundColor: priceHeatColor(cell.price) }
+              ? {
+                  backgroundColor: priceHeatFillColor(cell.price),
+                  borderColor: priceHeatColor(cell.price)
+                }
               : undefined;
 
           if (cell.weekendId && hasDeal) {
@@ -254,7 +257,10 @@ export function WeekendPriceCalendar({
         >
           ‹
         </button>
-        <h2 className="wpc-month-label">{t('cheapestWeekend.calendarLabel')}</h2>
+        <div className="wpc-header-copy">
+          <h2 className="wpc-month-label">{t('cheapestWeekend.calendarLabel')}</h2>
+          <p className="wpc-hint">{t('cheapestWeekend.selectWeekend')}</p>
+        </div>
         <button type="button" className="btn btn-secondary btn-sm" onClick={goNext} aria-label={t('cheapestWeekend.nextMonth')}>
           ›
         </button>

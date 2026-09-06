@@ -7,29 +7,43 @@ export const PRICE_HEAT_STOPS = [
   { price: 300, hue: 4, lightness: 36 }
 ] as const;
 
-const SATURATION = 58;
+const BORDER_SATURATION = 58;
+const FILL_SATURATION = 42;
+/** Lift each stop toward white for calendar cell backgrounds. */
+const FILL_LIGHTNESS_BOOST = 46;
 
-function hsl(hue: number, lightness: number): string {
-  return `hsl(${hue.toFixed(1)}, ${SATURATION}%, ${lightness.toFixed(1)}%)`;
+function hsl(hue: number, saturation: number, lightness: number): string {
+  return `hsl(${hue.toFixed(1)}, ${saturation}%, ${lightness.toFixed(1)}%)`;
 }
 
-/** Green at €20 → yellow at €70 → orange at €100 → red from €130, darker toward €300. */
-export function priceHeatColor(price: number): string {
+function interpolateHeat(price: number): { hue: number; lightness: number } {
   const first = PRICE_HEAT_STOPS[0];
   const last = PRICE_HEAT_STOPS[PRICE_HEAT_STOPS.length - 1];
-  if (price <= first.price) return hsl(first.hue, first.lightness);
-  if (price >= last.price) return hsl(last.hue, last.lightness);
+  if (price <= first.price) return { hue: first.hue, lightness: first.lightness };
+  if (price >= last.price) return { hue: last.hue, lightness: last.lightness };
 
   for (let i = 1; i < PRICE_HEAT_STOPS.length; i++) {
     const right = PRICE_HEAT_STOPS[i];
     const left = PRICE_HEAT_STOPS[i - 1];
     if (price > right.price) continue;
     const t = (price - left.price) / (right.price - left.price);
-    return hsl(
-      left.hue + (right.hue - left.hue) * t,
-      left.lightness + (right.lightness - left.lightness) * t
-    );
+    return {
+      hue: left.hue + (right.hue - left.hue) * t,
+      lightness: left.lightness + (right.lightness - left.lightness) * t
+    };
   }
 
-  return hsl(last.hue, last.lightness);
+  return { hue: last.hue, lightness: last.lightness };
+}
+
+/** Vivid heat color for borders / legend (green cheap → red expensive). */
+export function priceHeatColor(price: number): string {
+  const { hue, lightness } = interpolateHeat(price);
+  return hsl(hue, BORDER_SATURATION, lightness);
+}
+
+/** Soft tint for calendar cell fills — same hue scale, much lighter. */
+export function priceHeatFillColor(price: number): string {
+  const { hue, lightness } = interpolateHeat(price);
+  return hsl(hue, FILL_SATURATION, Math.min(94, lightness + FILL_LIGHTNESS_BOOST));
 }

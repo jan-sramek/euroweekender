@@ -175,12 +175,10 @@ button.wcp-day:hover {
   border-style: solid;
   border-color: #04bfab;
   color: #192c39;
-  outline: 2px solid #192c39;
-  outline-offset: 0;
 }
 
 .wcp-day-selected:hover {
-  outline: 2px solid #192c39;
+  outline: 2px solid #04bfab;
 }
 
 .wcp-day-number {

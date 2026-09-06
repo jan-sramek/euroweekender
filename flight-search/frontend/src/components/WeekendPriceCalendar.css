@@ -161,9 +161,8 @@ button.wpc-day:hover {
 }
 
 .wpc-day-selected {
-  outline: 2px solid #192c39;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+  border-color: #04bfab !important;
+  box-shadow: 0 0 0 2px rgba(4, 191, 171, 0.35);
 }
 
 .wpc-day-weekend-empty {

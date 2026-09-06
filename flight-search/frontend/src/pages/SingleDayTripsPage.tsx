@@ -3,14 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { DayTripPicker } from '../components/DayTripPicker';
-import { DestinationCityGrid } from '../components/DestinationCityGrid';
 import { FlightCard } from '../components/FlightCard';
 import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
 import { HomeSeoExtras } from '../components/HomeSeoExtras';
 import { LoadingIndicator } from '../components/LoadingIndicator';
-import { ResultsViewToggle } from '../components/ResultsViewToggle';
 import { SeoHubLinks } from '../components/SeoHubLinks';
 import { SeoPopularRoutes } from '../components/SeoPopularRoutes';
 import { SiteFooter } from '../components/SiteFooter';
@@ -19,7 +17,6 @@ import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
 import { useFlightTextFilter } from '../hooks/useFlightTextFilter';
 import { useLocale } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import {
   DAY_TRIP_OPTIONS_MONTHS,
   getDayTripIdsForMonths,
@@ -67,7 +64,6 @@ export function SingleDayTripsPage() {
     DAY_TRIP_OPTIONS_MONTHS
   );
   const [longDay, setLongDay] = useState(false);
-  const [resultsView, setResultsView] = useResultsViewMode();
   const defaultsApplied = useRef(false);
 
   const days = useMemo(
@@ -328,35 +324,26 @@ export function SingleDayTripsPage() {
                       {t('home.clearLegFiltersBtn')}
                     </button>
                   )}
-                  <ResultsViewToggle value={resultsView} onChange={setResultsView} />
                 </div>
               </div>
-              {resultsView === 'cities' ? (
-                <DestinationCityGrid
-                  flights={filteredFlights}
-                  citiesByCode={citiesByCode}
-                  passengerCount={passengerCount}
-                />
-              ) : (
-                <div className="flight-list results-list">
-                  {filteredFlights.map(flight => (
-                    <FlightCard
-                      key={flight.id}
-                      flight={flight}
-                      citiesByCode={citiesByCode}
-                      passengerCount={passengerCount}
-                      departureSelected={departureLegFilter === getDepartureLegKey(flight)}
-                      returnSelected={returnLegFilter === getReturnLegKey(flight)}
-                      onDepartureSelect={selected =>
-                        handleDepartureLegSelect(selected ? getDepartureLegKey(flight) : null)
-                      }
-                      onReturnSelect={selected =>
-                        handleReturnLegSelect(selected ? getReturnLegKey(flight) : null)
-                      }
-                    />
-                  ))}
-                </div>
-              )}
+              <div className="flight-list results-list">
+                {filteredFlights.map(flight => (
+                  <FlightCard
+                    key={flight.id}
+                    flight={flight}
+                    citiesByCode={citiesByCode}
+                    passengerCount={passengerCount}
+                    departureSelected={departureLegFilter === getDepartureLegKey(flight)}
+                    returnSelected={returnLegFilter === getReturnLegKey(flight)}
+                    onDepartureSelect={selected =>
+                      handleDepartureLegSelect(selected ? getDepartureLegKey(flight) : null)
+                    }
+                    onReturnSelect={selected =>
+                      handleReturnLegSelect(selected ? getReturnLegKey(flight) : null)
+                    }
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>

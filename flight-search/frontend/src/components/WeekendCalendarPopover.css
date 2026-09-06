@@ -170,9 +170,11 @@ button.wcp-day:hover {
 }
 
 .wcp-day-selected {
-  background: #04bfab;
+  background: #e6faf7;
+  border-width: 2px;
+  border-style: solid;
   border-color: #04bfab;
-  color: #fff;
+  color: #192c39;
   outline: 2px solid #192c39;
   outline-offset: 0;
 }

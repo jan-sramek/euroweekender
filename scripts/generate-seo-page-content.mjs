@@ -30,6 +30,7 @@ const publicDir = path.join(__dirname, '..', 'flight-search', 'frontend', 'publi
 const localesDir = path.join(__dirname, '..', 'flight-search', 'frontend', 'src', 'locales');
 const outPath = path.join(publicDir, 'seo-page-content.json');
 
+// Keep in sync with frontend src/data/seoPopularRoutes.ts.
 const OD_HUB_LIMIT = 40;
 const OD_DESTINATION_LIMIT = 12;
 const USER_AGENT = 'euroweekender-seo-content/1.0 (https://euroweekender.com; hello@euroweekender.com)';

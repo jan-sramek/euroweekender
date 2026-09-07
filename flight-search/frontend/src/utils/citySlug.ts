@@ -2,12 +2,24 @@ import type { City } from '../types/city';
 
 const IATA_SUFFIX = /-([a-z]{3})$/i;
 
+/** Letters NFKD does not fold to ASCII (ð, þ, ø, …). */
+const LATIN_LETTER_FOLDS: Array<[RegExp, string]> = [
+  [/ð/g, 'd'],
+  [/þ/g, 'th'],
+  [/ø/g, 'o'],
+  [/æ/g, 'ae'],
+  [/ł/g, 'l'],
+  [/ß/g, 'ss'],
+  [/œ/g, 'oe']
+];
+
 /** ASCII slug for URL path segments (English city name preferred). */
 export function slugifyCityName(name: string): string {
-  return name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
+  let value = name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  for (const [pattern, replacement] of LATIN_LETTER_FOLDS) {
+    value = value.replace(pattern, replacement);
+  }
+  return value
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');

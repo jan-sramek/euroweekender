@@ -1,4 +1,5 @@
 import popularDestinations from '../../public/seo-popular-destinations.json';
+import { weekendFlightsOdPath } from '../utils/citySlug';
 import { SEO_HUB_CITIES, type SeoHubCity } from './seoHubCities';
 
 export interface SeoRoutePair {
@@ -7,6 +8,37 @@ export interface SeoRoutePair {
 }
 
 export const SEO_POPULAR_DESTINATIONS: SeoHubCity[] = popularDestinations as SeoHubCity[];
+
+/** Keep in sync with prerender-seo.mjs and generate-seo-sitemap.mjs. */
+export const SEO_OD_HUB_LIMIT = 40;
+export const SEO_OD_DESTINATION_LIMIT = 12;
+
+const SEO_OD_HUB_CODES = new Set(
+  SEO_HUB_CITIES.slice(0, SEO_OD_HUB_LIMIT).map(city => city.code.toUpperCase())
+);
+const SEO_OD_DEST_CODES = new Set(
+  SEO_POPULAR_DESTINATIONS.slice(0, SEO_OD_DESTINATION_LIMIT).map(city => city.code.toUpperCase())
+);
+
+/** True when this pair has a prerendered /weekend-flights/{from}-to-{to} landing. */
+export function isPrerenderedOdPair(fromCode: string, toCode: string): boolean {
+  const from = fromCode.trim().toUpperCase();
+  const to = toCode.trim().toUpperCase();
+  return Boolean(from && to && from !== to && SEO_OD_HUB_CODES.has(from) && SEO_OD_DEST_CODES.has(to));
+}
+
+/** SEO OD path when prerendered; otherwise the compare-weekends tool with from/to. */
+export function weekendComparePath(
+  from: Pick<SeoHubCity, 'code' | 'name'>,
+  to: Pick<SeoHubCity, 'code' | 'name'>
+): string {
+  if (isPrerenderedOdPair(from.code, to.code)) {
+    return weekendFlightsOdPath(from, to);
+  }
+  const fromCode = from.code.trim().toUpperCase();
+  const toCode = to.code.trim().toUpperCase();
+  return `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(toCode)}`;
+}
 
 const DEST_BY_CODE = new Map(
   SEO_POPULAR_DESTINATIONS.map(city => [city.code.toUpperCase(), city])

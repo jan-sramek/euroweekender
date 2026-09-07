@@ -28,12 +28,19 @@ describe('slugifyCityName', () => {
   it('collapses repeated hyphens', () => {
     expect(slugifyCityName('foo---bar')).toBe('foo-bar');
   });
+
+  it('transliterates letters NFKD does not fold', () => {
+    expect(slugifyCityName('Ísafjörður')).toBe('isafjordur');
+    expect(slugifyCityName('Þórshöfn')).toBe('thorshofn');
+    expect(slugifyCityName('København')).toBe('kobenhavn');
+  });
 });
 
 describe('buildCitySlug', () => {
   it('builds canonical name-code slug', () => {
     expect(buildCitySlug({ code: 'PRG', name: 'Prague' })).toBe('prague-prg');
     expect(buildCitySlug({ code: 'VIE', name: 'Vienna' })).toBe('vienna-vie');
+    expect(buildCitySlug({ code: 'IFJ', name: 'Ísafjörður' })).toBe('isafjordur-ifj');
   });
 
   it('falls back to code when name slug is empty', () => {

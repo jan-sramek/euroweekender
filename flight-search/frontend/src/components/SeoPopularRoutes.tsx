@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { preferredIndexableLocale } from '../config/cityIndexLocales';
-import { SEO_POPULAR_ROUTES } from '../data/seoPopularRoutes';
+import { SEO_POPULAR_ROUTES, weekendComparePath } from '../data/seoPopularRoutes';
 import { useLocale } from '../hooks/useLocale';
 import { getCityDisplayName } from '../utils/cityDisplayName';
-import { weekendFlightsOdPath } from '../utils/citySlug';
 import { LocalizedLink } from './LocalizedLink';
 
 interface SeoPopularRoutesProps {
@@ -32,7 +31,7 @@ export function SeoPopularRoutes({ language, limit = 24 }: SeoPopularRoutesProps
             <li key={`${from.code}-${to.code}`}>
               <LocalizedLink
                 locale={preferredIndexableLocale(locale, from.code, from.country)}
-                to={weekendFlightsOdPath(from, to)}
+                to={weekendComparePath(from, to)}
               >
                 {t('home.popularRouteLabel', { from: fromLabel, to: toLabel })}
               </LocalizedLink>

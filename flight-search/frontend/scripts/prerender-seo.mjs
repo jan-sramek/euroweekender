@@ -28,17 +28,28 @@ const CONTACT_EMAIL = 'hello@euroweekender.com';
 const OG_IMAGE =
   'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80';
 
-// Keep in sync with scripts/generate-seo-sitemap.mjs at the repo root.
+// Keep in sync with frontend src/data/seoPopularRoutes.ts and generate-seo-sitemap.mjs.
 const OD_HUB_LIMIT = 40;
 const OD_DESTINATION_LIMIT = 12;
 const HUB_LINK_LIMIT = 12;
 const DEST_LINK_LIMIT = 12;
+let prerenderedOdHubCodes = new Set();
+let prerenderedOdDestCodes = new Set();
 
 function slugifyCityName(name) {
-  return name
+  let value = String(name)
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
+    .toLowerCase();
+  value = value
+    .replace(/ð/g, 'd')
+    .replace(/þ/g, 'th')
+    .replace(/ø/g, 'o')
+    .replace(/æ/g, 'ae')
+    .replace(/ł/g, 'l')
+    .replace(/ß/g, 'ss')
+    .replace(/œ/g, 'oe');
+  return value
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
@@ -273,29 +284,40 @@ ${items}
       </nav>`;
 }
 
+function isPrerenderedOdPair(fromCode, toCode) {
+  const from = String(fromCode).trim().toUpperCase();
+  const to = String(toCode).trim().toUpperCase();
+  return from && to && from !== to && prerenderedOdHubCodes.has(from) && prerenderedOdDestCodes.has(to);
+}
+
+function weekendCompareHref(locale, fromHub, toCity) {
+  const routePath = isPrerenderedOdPair(fromHub.code, toCity.code)
+    ? `/weekend-flights/${buildCitySlug(fromHub)}-to-${buildCitySlug(toCity)}`
+    : `/cheapest-weekend?from=${encodeURIComponent(String(fromHub.code).trim().toUpperCase())}&to=${encodeURIComponent(String(toCity.code).trim().toUpperCase())}`;
+  return `${SITE_URL}${localizedPath(preferredIndexableLocaleForHub(locale, fromHub), routePath)}`;
+}
+
 function destinationLinks(locale, fromHub, destinations, { limit = DEST_LINK_LIMIT } = {}) {
-  const links = destinations
-    .filter(dest => dest.code && dest.code.toUpperCase() !== fromHub.code.toUpperCase())
-    .slice(0, limit)
-    .map(dest => {
-      const name = dest.name || dest.code;
-      const label =
-        dest.minPrice > 0
-          ? `${name} · ${t(locale, 'weekendFlightsFrom.destinationPrice', {
-              price: Math.round(dest.minPrice)
-            })}`
-          : name;
-      return {
-        href: `${SITE_URL}${localizedPath(
-          preferredIndexableLocaleForHub(locale, fromHub),
-          `/weekend-flights/${buildCitySlug(fromHub)}-to-${buildCitySlug({
-            code: dest.code,
-            name
+  const eligible = destinations.filter(
+    dest => dest.code && dest.code.toUpperCase() !== fromHub.code.toUpperCase()
+  );
+  const ranked = [
+    ...eligible.filter(dest => isPrerenderedOdPair(fromHub.code, dest.code)),
+    ...eligible.filter(dest => !isPrerenderedOdPair(fromHub.code, dest.code))
+  ].slice(0, limit);
+  const links = ranked.map(dest => {
+    const name = dest.name || dest.code;
+    const label =
+      dest.minPrice > 0
+        ? `${name} · ${t(locale, 'weekendFlightsFrom.destinationPrice', {
+            price: Math.round(dest.minPrice)
           })}`
-        )}`,
-        label
-      };
-    });
+        : name;
+    return {
+      href: weekendCompareHref(locale, fromHub, { code: dest.code, name }),
+      label
+    };
+  });
 
   return renderLinkGroup(t(locale, 'weekendFlightsFrom.topDestinationsTitle', { city: fromHub.name }), links);
 }
@@ -423,10 +445,7 @@ function popularRouteLinks(locale, hubs, destinations, dealSnapshot = null) {
         : base;
     return [
       {
-        href: `${SITE_URL}${localizedPath(
-          preferredIndexableLocaleForHub(locale, from),
-          `/weekend-flights/${buildCitySlug(from)}-to-${buildCitySlug(to)}`
-        )}`,
+        href: weekendCompareHref(locale, from, to),
         label
       }
     ];
@@ -591,6 +610,12 @@ async function main() {
   const hubs = JSON.parse(fs.readFileSync(path.join(publicDir, 'seo-hub-cities.json'), 'utf8'));
   const popularDestinations = JSON.parse(
     fs.readFileSync(path.join(publicDir, 'seo-popular-destinations.json'), 'utf8')
+  );
+  prerenderedOdHubCodes = new Set(
+    hubs.slice(0, OD_HUB_LIMIT).map(hub => String(hub.code).trim().toUpperCase())
+  );
+  prerenderedOdDestCodes = new Set(
+    popularDestinations.slice(0, OD_DESTINATION_LIMIT).map(dest => String(dest.code).trim().toUpperCase())
   );
   const cityCoords = JSON.parse(fs.readFileSync(path.join(publicDir, 'seo-city-coords.json'), 'utf8'));
   const pageContentPath = path.join(publicDir, 'seo-page-content.json');

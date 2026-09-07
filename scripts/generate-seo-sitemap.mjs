@@ -21,15 +21,25 @@ const sitemapPath = path.join(publicDir, 'sitemap.xml');
 const hubsPath = path.join(publicDir, 'seo-hub-cities.json');
 const popularDestinationsPath = path.join(publicDir, 'seo-popular-destinations.json');
 
+// Keep in sync with frontend src/data/seoPopularRoutes.ts.
 const OD_HUB_LIMIT = 40;
 const OD_DESTINATION_LIMIT = 12;
 const SITE = 'https://euroweekender.com';
 
 function slugifyCityName(name) {
-  return name
+  let value = String(name)
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
+    .toLowerCase();
+  value = value
+    .replace(/ð/g, 'd')
+    .replace(/þ/g, 'th')
+    .replace(/ø/g, 'o')
+    .replace(/æ/g, 'ae')
+    .replace(/ł/g, 'l')
+    .replace(/ß/g, 'ss')
+    .replace(/œ/g, 'oe');
+  return value
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');

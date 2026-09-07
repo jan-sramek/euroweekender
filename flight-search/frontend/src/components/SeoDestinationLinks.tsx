@@ -3,8 +3,8 @@ import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useLocale } from '../hooks/useLocale';
 import { findCityByCode } from '../services/locationPrefill';
 import type { City, OriginDestination } from '../types/city';
+import { isPrerenderedOdPair, weekendComparePath } from '../data/seoPopularRoutes';
 import { getCityDisplayName } from '../utils/cityDisplayName';
-import { weekendFlightsOdPath } from '../utils/citySlug';
 import { LocalizedLink } from './LocalizedLink';
 
 interface SeoDestinationLinksProps {
@@ -25,7 +25,11 @@ export function SeoDestinationLinks({
 }: SeoDestinationLinksProps) {
   const { t } = useTranslation();
   const locale = useLocale();
-  const visible = destinations.slice(0, limit);
+  const ranked = [
+    ...destinations.filter(destination => isPrerenderedOdPair(fromCity.code, destination.code)),
+    ...destinations.filter(destination => !isPrerenderedOdPair(fromCity.code, destination.code))
+  ];
+  const visible = ranked.slice(0, limit);
 
   if (visible.length === 0) return null;
 
@@ -40,7 +44,7 @@ export function SeoDestinationLinks({
           const city = findCityByCode(allCities, destination.code);
           const label = city ? getCityDisplayName(city, language) : destination.code;
           const to = city
-            ? weekendFlightsOdPath(fromCity, city)
+            ? weekendComparePath(fromCity, city)
             : `/cheapest-weekend?from=${encodeURIComponent(fromCity.code)}&to=${encodeURIComponent(destination.code)}`;
           return (
             <li key={destination.code}>

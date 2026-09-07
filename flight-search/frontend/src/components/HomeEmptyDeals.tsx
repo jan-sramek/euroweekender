@@ -3,7 +3,7 @@ import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useEmptyStateDeals } from '../hooks/useEmptyStateDeals';
 import { useLocale } from '../hooks/useLocale';
 import type { City } from '../types/city';
-import { weekendFlightsOdPath } from '../utils/citySlug';
+import { weekendComparePath } from '../data/seoPopularRoutes';
 import { LocalizedLink } from './LocalizedLink';
 import './HomeEmptyDeals.css';
 
@@ -30,7 +30,7 @@ export function HomeEmptyDeals({ allCities, language, originCodes }: HomeEmptyDe
             <LocalizedLink
               className="home-empty-deal"
               locale={preferredIndexableLocale(locale, deal.from.code)}
-              to={weekendFlightsOdPath(deal.from, deal.to)}
+              to={weekendComparePath(deal.from, deal.to)}
             >
               <span className="home-empty-deal-route">
                 {t('home.popularRouteLabel', { from: deal.from.name, to: deal.to.name })}

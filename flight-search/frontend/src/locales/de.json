@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europäische Wochenendflug-Angebote",
     "title": "Günstige Wochenendflüge in Europa",
-    "lead": "Vergleichen Sie Hin- und Rückflüge fürs Wochenende in Europa — freitags nach der Arbeit los, sonntags zurück, ohne Urlaubstage.",
+    "lead": "Wählen Sie Ihren Abflughafen — darunter vergleichen Sie die günstigsten Ziele in Europa. Freitagabend los, Sonntag zurück, ohne Urlaubstage.",
     "fromSelectedAirports": "Ab {{airports}}",
     "person": "Person",
     "persons": "Personen",
@@ -121,7 +121,11 @@
     "viewCitiesAria": "Ergebnisse nach Zielstadt gruppieren",
     "cityCardAria": "Wochenenden nach {{city}} vergleichen, ab {{price}}",
     "cityOffers_one": "{{count}} Angebot",
-    "cityOffers_other": "{{count}} Angebote"
+    "cityOffers_other": "{{count}} Angebote",
+    "fromLabel": "Abflug",
+    "whenLabel": "Wochenenden",
+    "searchHint": "Nur Abflug — hier wählen Sie kein Ziel. Die günstigsten Destinationen erscheinen in der Liste darunter.",
+    "cheapestFrom": "Günstigste Ziele ab {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Morgens hin · abends zurück",
@@ -165,12 +169,12 @@
     "selectTripType": "Reiseart (optional)",
     "eveningDepartures": "Abendflüge (optional)",
     "detectingLocation": "Standort wird ermittelt…",
-    "fromLocationAdd": "Ab {{location}} — weiteren Flughafen hinzufügen…",
+    "fromLocationAdd": "Ab {{location}} — weiteren Abflug hinzufügen…",
     "addAirport": "Abflughafen hinzufügen…",
-    "searchAirports": "Flughäfen zum Hinzufügen suchen",
+    "searchAirports": "Abflughäfen zum Hinzufügen suchen",
     "noAirportsFound": "Keine Flughäfen gefunden",
-    "selectedAirports": "Ausgewählte Flughäfen",
-    "nearbyAirports": "Flughäfen in der Nähe",
+    "selectedAirports": "Gewählte Abflughäfen",
+    "nearbyAirports": "Abflughäfen in der Nähe",
     "removeAirport": "{{name}} entfernen",
     "traveler": "Reisender",
     "travelersCount": "Reisende",
@@ -183,7 +187,8 @@
     "chooseDestinationAirport": "Europäisches Ziel wählen…",
     "changeDestinationAirport": "Ziel ändern…",
     "searchDestinations": "Europäische Ziele suchen",
-    "selectedDestination": "Ausgewähltes Ziel"
+    "selectedDestination": "Ausgewähltes Ziel",
+    "departureSuggestions": "Abflughäfen in der Nähe — keine Ziele"
   },
   "patterns": {
     "fri-sun": {

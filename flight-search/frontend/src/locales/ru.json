@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Авиапредложения на выходные по Европе",
     "title": "Дешёвые weekend-рейсы по Европе",
-    "lead": "Сравните туда-обратно weekend-рейсы по Европе — вылет после работы в пятницу, возврат в воскресенье без отпуска.",
+    "lead": "Выберите аэропорт вылета — затем сравните самые дешёвые европейские направления ниже. Вылет в пятницу вечером, возврат в воскресенье, без отпуска.",
     "fromSelectedAirports": "Из {{airports}}",
     "person": "человек",
     "persons": "человек",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Группировать результаты по городу назначения",
     "cityCardAria": "Сравнить уикенды в {{city}}, от {{price}}",
     "cityOffers_one": "{{count}} предложение",
-    "cityOffers_other": "{{count}} предложений"
+    "cityOffers_other": "{{count}} предложений",
+    "fromLabel": "Вылет",
+    "whenLabel": "Выходные",
+    "searchHint": "Только вылет — здесь вы не выбираете направление. Самые дешёвые направления появятся в списке ниже.",
+    "cheapestFrom": "Самые дешёвые направления из {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Утром туда · вечером обратно",
@@ -158,12 +162,12 @@
     "selectTripType": "Тип поездки (необязательно)",
     "eveningDepartures": "Вечерние вылеты (необязательно)",
     "detectingLocation": "Определяем ваше местоположение…",
-    "fromLocationAdd": "Из {{location}} — добавить другой аэропорт…",
+    "fromLocationAdd": "Из {{location}} — добавить ещё один вылет…",
     "addAirport": "Добавить аэропорт вылета…",
-    "searchAirports": "Искать аэропорты для добавления",
+    "searchAirports": "Поиск аэропортов вылета",
     "noAirportsFound": "Аэропорты не найдены",
-    "selectedAirports": "Выбранные аэропорты",
-    "nearbyAirports": "Аэропорты рядом",
+    "selectedAirports": "Выбранные аэропорты вылета",
+    "nearbyAirports": "Ближайшие аэропорты вылета",
     "removeAirport": "Удалить {{name}}",
     "traveler": "путешественник",
     "travelersCount": "путешественников",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Выберите европейское направление…",
     "changeDestinationAirport": "Изменить направление…",
     "searchDestinations": "Поиск европейских направлений",
-    "selectedDestination": "Выбранное направление"
+    "selectedDestination": "Выбранное направление",
+    "departureSuggestions": "Ближайшие аэропорты вылета — не направления"
   },
   "patterns": {
     "fri-sun": {

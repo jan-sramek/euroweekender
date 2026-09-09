@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Európske víkendové letové ponuky",
     "title": "Lacné víkendové lety po Európe",
-    "lead": "Porovnajte spiatočné víkendové lety po Európe — odlet po práci v piatok, návrat v nedeľu bez čerpania dovolenky.",
+    "lead": "Vyberte odletové letisko — nižšie potom porovnajte najlacnejšie európske destinácie. Odlet v piatok večer, návrat v nedeľu, bez dovolenky.",
     "fromSelectedAirports": "Z {{airports}}",
     "person": "osoba",
     "persons": "osôb",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Zoskupiť výsledky podľa cieľového mesta",
     "cityCardAria": "Porovnať víkendy do destinácie {{city}}, od {{price}}",
     "cityOffers_one": "{{count}} ponuka",
-    "cityOffers_other": "{{count}} ponúk"
+    "cityOffers_other": "{{count}} ponúk",
+    "fromLabel": "Odlet",
+    "whenLabel": "Víkendy",
+    "searchHint": "Len odlet — tu nevyberáte destináciu. Najlacnejšie destinácie sa zobrazia v zozname nižšie.",
+    "cheapestFrom": "Najlacnejšie destinácie z {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Ráno tam · večer späť",
@@ -158,12 +162,12 @@
     "selectTripType": "Typ cesty (voliteľné)",
     "eveningDepartures": "Večerné odlety (voliteľné)",
     "detectingLocation": "Zisťujeme vašu polohu…",
-    "fromLocationAdd": "Z {{location}} — pridať ďalšie letisko…",
+    "fromLocationAdd": "Z {{location}} — pridať ďalší odlet…",
     "addAirport": "Pridať odletové letisko…",
-    "searchAirports": "Hľadať letiská na pridanie",
+    "searchAirports": "Hľadať odletové letiská",
     "noAirportsFound": "Nenašli sa žiadne letiská",
-    "selectedAirports": "Vybrané letiská",
-    "nearbyAirports": "Blízke letiská",
+    "selectedAirports": "Vybrané odletové letiská",
+    "nearbyAirports": "Blízke odletové letiská",
     "removeAirport": "Odstrániť {{name}}",
     "traveler": "cestujúci",
     "travelersCount": "cestujúcich",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Vyberte európsku destináciu…",
     "changeDestinationAirport": "Zmeniť destináciu…",
     "searchDestinations": "Hľadať európske destinácie",
-    "selectedDestination": "Vybraná destinácia"
+    "selectedDestination": "Vybraná destinácia",
+    "departureSuggestions": "Blízke odletové letiská — nie destinácie"
   },
   "patterns": {
     "fri-sun": {

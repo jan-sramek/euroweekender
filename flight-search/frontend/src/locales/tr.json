@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Avrupa hafta sonu uçuş fırsatları",
     "title": "Avrupa'da ucuz hafta sonu uçuşları",
-    "lead": "Avrupa'da gidiş-dönüş hafta sonu uçuşlarını karşılaştırın — cuma işten sonra kalkış, pazar dönüş, izin günü gerekmez.",
+    "lead": "Kalkış havalimanınızı seçin — ardından aşağıdaki en ucuz Avrupa destinasyonlarını karşılaştırın. Cuma akşamı gidin, Pazar dönün, izin günü harcamadan.",
     "fromSelectedAirports": "{{airports}} kalkışlı",
     "person": "kişi",
     "persons": "kişi",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Sonuçları varış şehrine göre grupla",
     "cityCardAria": "{{city}} için hafta sonlarını karşılaştır, {{price}} itibarıyla",
     "cityOffers_one": "{{count}} fırsat",
-    "cityOffers_other": "{{count}} fırsat"
+    "cityOffers_other": "{{count}} fırsat",
+    "fromLabel": "Kalkış",
+    "whenLabel": "Hafta sonları",
+    "searchHint": "Yalnızca kalkış — burada destinasyon seçmiyorsunuz. En ucuz destinasyonlar aşağıdaki listede görünür.",
+    "cheapestFrom": "{{airports}} kalkışlı en ucuz destinasyonlar"
   },
   "singleDayTrips": {
     "tagline": "Sabah gidiş · akşam dönüş",
@@ -158,12 +162,12 @@
     "selectTripType": "Seyahat türü (isteğe bağlı)",
     "eveningDepartures": "Akşam kalkışları (isteğe bağlı)",
     "detectingLocation": "Konumunuz algılanıyor…",
-    "fromLocationAdd": "{{location}} kalkışlı — başka havalimanı ekle…",
+    "fromLocationAdd": "{{location}} — başka kalkış ekle…",
     "addAirport": "Kalkış havalimanı ekle…",
-    "searchAirports": "Eklenecek havalimanlarını ara",
+    "searchAirports": "Kalkış havalimanı ara",
     "noAirportsFound": "Havalimanı bulunamadı",
-    "selectedAirports": "Seçili havalimanları",
-    "nearbyAirports": "Yakındaki havalimanları",
+    "selectedAirports": "Seçilen kalkış havalimanları",
+    "nearbyAirports": "Yakındaki kalkış havalimanları",
     "removeAirport": "{{name}} kaldır",
     "traveler": "yolcu",
     "travelersCount": "yolcu",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Avrupa destinasyonu seçin…",
     "changeDestinationAirport": "Destinasyonu değiştir…",
     "searchDestinations": "Avrupa destinasyonlarında ara",
-    "selectedDestination": "Seçilen destinasyon"
+    "selectedDestination": "Seçilen destinasyon",
+    "departureSuggestions": "Yakındaki kalkış havalimanları — destinasyon değil"
   },
   "patterns": {
     "fri-sun": {

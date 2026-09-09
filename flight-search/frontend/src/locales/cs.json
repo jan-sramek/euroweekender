@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Evropské víkendové lety za skvělé ceny",
     "title": "Levné víkendové lety po Evropě",
-    "lead": "Porovnejte zpáteční víkendové lety po Evropě — odlet po práci v pátek, návrat v neděli, bez čerpání dovolené.",
+    "lead": "Vyberte odletové letiště — níže pak porovnejte nejlevnější evropské destinace. Odlet v pátek večer, návrat v neděli, bez dovolené.",
     "fromSelectedAirports": "Z {{airports}}",
     "person": "osoba",
     "persons": "osob",
@@ -116,7 +116,11 @@
     "viewCitiesAria": "Seskupit výsledky podle cílového města",
     "cityCardAria": "Porovnat víkendy do destinace {{city}}, od {{price}}",
     "cityOffers_one": "{{count}} nabídka",
-    "cityOffers_other": "{{count}} nabídek"
+    "cityOffers_other": "{{count}} nabídek",
+    "fromLabel": "Odlet",
+    "whenLabel": "Víkendy",
+    "searchHint": "Jen odlet — zde nevybíráte destinaci. Nejlevnější destinace se zobrazí v seznamu níže.",
+    "cheapestFrom": "Nejlevnější destinace z {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Ráno tam · večer zpět",
@@ -160,12 +164,12 @@
     "selectTripType": "Typ cesty (volitelné)",
     "eveningDepartures": "Večerní odlety (volitelné)",
     "detectingLocation": "Zjišťujeme vaši polohu…",
-    "fromLocationAdd": "Z {{location}} — přidat další letiště…",
+    "fromLocationAdd": "Z {{location}} — přidat další odlet…",
     "addAirport": "Přidat odletové letiště…",
-    "searchAirports": "Hledat letiště k přidání",
+    "searchAirports": "Hledat odletová letiště",
     "noAirportsFound": "Žádná letiště nenalezena",
-    "selectedAirports": "Vybraná letiště",
-    "nearbyAirports": "Blízká letiště",
+    "selectedAirports": "Vybraná odletová letiště",
+    "nearbyAirports": "Blízká odletová letiště",
     "removeAirport": "Odebrat {{name}}",
     "traveler": "cestující",
     "travelersCount": "cestujících",
@@ -178,7 +182,8 @@
     "chooseDestinationAirport": "Vyberte evropskou destinaci…",
     "changeDestinationAirport": "Změnit destinaci…",
     "searchDestinations": "Hledat evropské destinace",
-    "selectedDestination": "Vybraná destinace"
+    "selectedDestination": "Vybraná destinace",
+    "departureSuggestions": "Blízká odletová letiště — ne destinace"
   },
   "patterns": {
     "fri-sun": {

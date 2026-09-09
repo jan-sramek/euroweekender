@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Eurooppalaiset viikonloppulentotarjoukset",
     "title": "Halvat viikonloppulennot Euroopassa",
-    "lead": "Vertaile meno-paluu-viikonloppulentoja Euroopassa — lähde perjantaina töiden jälkeen, palaa sunnuntaina ilman lomapäiviä.",
+    "lead": "Valitse lähtökenttä — vertaa sitten halvimpia eurooppalaisia kohteita alla. Perjantai-iltana lähtö, sunnuntaina takaisin, ilman lomapäiviä.",
     "fromSelectedAirports": "Lähtö: {{airports}}",
     "person": "henkilö",
     "persons": "henkilöä",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Ryhmittele tulokset kohdekaupungin mukaan",
     "cityCardAria": "Vertaa viikonloppuja kohteeseen {{city}}, alkaen {{price}}",
     "cityOffers_one": "{{count}} tarjous",
-    "cityOffers_other": "{{count}} tarjousta"
+    "cityOffers_other": "{{count}} tarjousta",
+    "fromLabel": "Lähtö",
+    "whenLabel": "Viikonloput",
+    "searchHint": "Vain lähtö — et valitse kohdetta tässä. Halvimmat kohteet näkyvät listassa alla.",
+    "cheapestFrom": "Halvimmat kohteet: {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Aamulla mennen · illalla takaisin",
@@ -158,12 +162,12 @@
     "selectTripType": "Matkatyyppi (valinnainen)",
     "eveningDepartures": "Iltalähdöt (valinnainen)",
     "detectingLocation": "Tunnistetaan sijaintiasi…",
-    "fromLocationAdd": "Lähtö: {{location}} — lisää toinen lentokenttä…",
+    "fromLocationAdd": "{{location}} — lisää toinen lähtö…",
     "addAirport": "Lisää lähtölentokenttä…",
-    "searchAirports": "Hae lisättäviä lentokenttiä",
+    "searchAirports": "Hae lähtölentokenttiä",
     "noAirportsFound": "Lentokenttiä ei löytynyt",
-    "selectedAirports": "Valitut lentokentät",
-    "nearbyAirports": "Lähellä olevat lentokentät",
+    "selectedAirports": "Valitut lähtölentokentät",
+    "nearbyAirports": "Lähellä olevat lähtölentokentät",
     "removeAirport": "Poista {{name}}",
     "traveler": "matkustaja",
     "travelersCount": "matkustajaa",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Valitse eurooppalainen kohde…",
     "changeDestinationAirport": "Vaihda kohde…",
     "searchDestinations": "Hae eurooppalaisia kohteita",
-    "selectedDestination": "Valittu kohde"
+    "selectedDestination": "Valittu kohde",
+    "departureSuggestions": "Lähellä olevat lähtölentokentät — ei kohteita"
   },
   "patterns": {
     "fri-sun": {

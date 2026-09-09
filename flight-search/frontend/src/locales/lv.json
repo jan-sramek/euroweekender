@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Eiropas nedēļas nogales lidojumu piedāvājumi",
     "title": "Lēti nedēļas nogales lidojumi Eiropā",
-    "lead": "Salīdziniet riņķa nedēļas nogales lidojumus Eiropā — izlidošana pēc darba piektdienā, atgriešanās svētdienā bez atvaļinājuma.",
+    "lead": "Izvēlieties izlidošanas lidostu — tad salīdziniet lētākos Eiropas galamērķus zemāk. Izlidošana piektdienas vakarā, atgriešanās svētdien, bez atvaļinājuma.",
     "fromSelectedAirports": "No {{airports}}",
     "person": "persona",
     "persons": "personas",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grupēt rezultātus pēc galamērķa pilsētas",
     "cityCardAria": "Salīdzināt nedēļas nogales uz {{city}}, no {{price}}",
     "cityOffers_one": "{{count}} piedāvājums",
-    "cityOffers_other": "{{count}} piedāvājumi"
+    "cityOffers_other": "{{count}} piedāvājumi",
+    "fromLabel": "Izlidošana",
+    "whenLabel": "Nedēļas nogales",
+    "searchHint": "Tikai izlidošana — šeit jūs neizvēlaties galamērķi. Lētākie galamērķi parādās sarakstā zemāk.",
+    "cheapestFrom": "Lētākie galamērķi no {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "No rīta turp · vakarā atpakaļ",
@@ -158,12 +162,12 @@
     "selectTripType": "Ceļojuma veids (neobligāti)",
     "eveningDepartures": "Vakara izlidošanas (neobligāti)",
     "detectingLocation": "Nosakām tavu atrašanās vietu…",
-    "fromLocationAdd": "No {{location}} — pievienot vēl vienu lidostu…",
+    "fromLocationAdd": "No {{location}} — pievienot vēl vienu izlidošanu…",
     "addAirport": "Pievienot izlidošanas lidostu…",
-    "searchAirports": "Meklēt pievienojamās lidostas",
+    "searchAirports": "Meklēt izlidošanas lidostas",
     "noAirportsFound": "Lidostas nav atrastas",
-    "selectedAirports": "Izvēlētās lidostas",
-    "nearbyAirports": "Tuvējās lidostas",
+    "selectedAirports": "Izvēlētās izlidošanas lidostas",
+    "nearbyAirports": "Tuvākās izlidošanas lidostas",
     "removeAirport": "Noņemt {{name}}",
     "traveler": "ceļotājs",
     "travelersCount": "ceļotāji",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Izvēlieties Eiropas galamērķi…",
     "changeDestinationAirport": "Mainīt galamērķi…",
     "searchDestinations": "Meklēt Eiropas galamērķus",
-    "selectedDestination": "Izvēlētais galamērķis"
+    "selectedDestination": "Izvēlētais galamērķis",
+    "departureSuggestions": "Tuvākās izlidošanas lidostas — ne galamērķi"
   },
   "patterns": {
     "fri-sun": {

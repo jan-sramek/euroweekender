@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Helgarflugtilboð í Evrópu",
     "title": "Ódýr helgarflug í Evrópu",
-    "lead": "Berðu saman fram og til baka helgarflug í Evrópu — brott eftir vinnu á föstudegi, heim á sunnudegi án frídaga.",
+    "lead": "Veldu brottfararflugvöll — berðu síðan saman ódýrustu evrópsku áfangastaðina hér að neðan. Föstudagskvöld út, sunnudag heim, án orlofsdaga.",
     "fromSelectedAirports": "Frá {{airports}}",
     "person": "manni",
     "persons": "mönnum",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Hópa niðurstöður eftir áfangastað",
     "cityCardAria": "Bera saman helgar til {{city}}, frá {{price}}",
     "cityOffers_one": "{{count}} tilboð",
-    "cityOffers_other": "{{count}} tilboð"
+    "cityOffers_other": "{{count}} tilboð",
+    "fromLabel": "Brottför",
+    "whenLabel": "Helgar",
+    "searchHint": "Aðeins brottför — hér velurðu ekki áfangastað. Ódýrustu áfangastaðirnir birtast á listanum hér að neðan.",
+    "cheapestFrom": "Ódýrustu áfangastaðir frá {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Út að morgni · heim að kvöldi",
@@ -158,12 +162,12 @@
     "selectTripType": "Ferðategund (valfrjálst)",
     "eveningDepartures": "Kvöldbrottfarir (valfrjálst)",
     "detectingLocation": "Greini staðsetningu þína…",
-    "fromLocationAdd": "Frá {{location}} — bæta við öðrum flugvelli…",
+    "fromLocationAdd": "Frá {{location}} — bæta við annarri brottför…",
     "addAirport": "Bæta við brottfararflugvelli…",
-    "searchAirports": "Leita að flugvöllum til að bæta við",
+    "searchAirports": "Leita að brottfararflugvöllum",
     "noAirportsFound": "Engir flugvellir fundust",
-    "selectedAirports": "Valdir flugvellir",
-    "nearbyAirports": "Nálægir flugvellir",
+    "selectedAirports": "Valdir brottfararflugvellir",
+    "nearbyAirports": "Nálægir brottfararflugvellir",
     "removeAirport": "Fjarlægja {{name}}",
     "traveler": "ferðamaður",
     "travelersCount": "ferðamenn",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Veldu evrópskan áfangastað…",
     "changeDestinationAirport": "Breyta áfangastað…",
     "searchDestinations": "Leita að evrópskum áfangastöðum",
-    "selectedDestination": "Valinn áfangastaður"
+    "selectedDestination": "Valinn áfangastaður",
+    "departureSuggestions": "Nálægir brottfararflugvellir — ekki áfangastaðir"
   },
   "patterns": {
     "fri-sun": {

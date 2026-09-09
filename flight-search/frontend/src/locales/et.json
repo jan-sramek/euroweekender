@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Euroopa nädalavahetuse lennipakkumised",
     "title": "Odavad nädalalõpu lennud Euroopas",
-    "lead": "Võrdle edasi-tagasi nädalalõpu lende Euroopas — väljumine pärast tööd reedel, tagasi pühapäeval, ilma puhkuseta.",
+    "lead": "Valige väljumislennujaam — seejärel võrrelge odavaimaid Euroopa sihtkohti allpool. Reede õhtul välja, pühapäeval tagasi, ilma puhkusepäevadeta.",
     "fromSelectedAirports": "Lähtekoht: {{airports}}",
     "person": "inimene",
     "persons": "inimest",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Rühmita tulemused sihtlinna järgi",
     "cityCardAria": "Võrdle nädalavahetusi sihtkohta {{city}}, alates {{price}}",
     "cityOffers_one": "{{count}} pakkumine",
-    "cityOffers_other": "{{count}} pakkumist"
+    "cityOffers_other": "{{count}} pakkumist",
+    "fromLabel": "Väljumine",
+    "whenLabel": "Nädalavahetused",
+    "searchHint": "Ainult väljumine — siin te ei vali sihtkohta. Odavaimad sihtkohad kuvatakse allolevas loendis.",
+    "cheapestFrom": "Odavaimad sihtkohad: {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Hommikul välja · õhtul tagasi",
@@ -158,12 +162,12 @@
     "selectTripType": "Reisitüüp (valikuline)",
     "eveningDepartures": "Õhtused väljumised (valikuline)",
     "detectingLocation": "Tuvastame sinu asukohta…",
-    "fromLocationAdd": "Lähtekoht {{location}} — lisa veel üks lennujaam…",
+    "fromLocationAdd": "{{location}} — lisa veel üks väljumine…",
     "addAirport": "Lisa väljumislennujaam…",
-    "searchAirports": "Otsi lisatavaid lennujaamu",
+    "searchAirports": "Otsi väljumislennujaamu",
     "noAirportsFound": "Lennujaamu ei leitud",
-    "selectedAirports": "Valitud lennujaamad",
-    "nearbyAirports": "Lähedased lennujaamad",
+    "selectedAirports": "Valitud väljumislennujaamad",
+    "nearbyAirports": "Lähedased väljumislennujaamad",
     "removeAirport": "Eemalda {{name}}",
     "traveler": "reisija",
     "travelersCount": "reisijat",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Valige Euroopa sihtkoht…",
     "changeDestinationAirport": "Muuda sihtkohta…",
     "searchDestinations": "Otsi Euroopa sihtkohti",
-    "selectedDestination": "Valitud sihtkoht"
+    "selectedDestination": "Valitud sihtkoht",
+    "departureSuggestions": "Lähedased väljumislennujaamad — mitte sihtkohad"
   },
   "patterns": {
     "fri-sun": {

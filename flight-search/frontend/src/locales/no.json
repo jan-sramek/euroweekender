@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europeiske helgeflytilbud",
     "title": "Billige helgefly i Europa",
-    "lead": "Sammenlign tur-retur-helgefly i Europa — avreise etter jobb fredag, hjem søndag uten feriedager.",
+    "lead": "Velg avreiseflyplass — sammenlign deretter de billigste europeiske destinasjonene nedenfor. Fredag kveld ut, søndag hjem, uten feriedager.",
     "fromSelectedAirports": "Fra {{airports}}",
     "person": "person",
     "persons": "personer",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grupper resultater etter destinasjonsby",
     "cityCardAria": "Sammenlign helger til {{city}}, fra {{price}}",
     "cityOffers_one": "{{count}} tilbud",
-    "cityOffers_other": "{{count}} tilbud"
+    "cityOffers_other": "{{count}} tilbud",
+    "fromLabel": "Avreise",
+    "whenLabel": "Helger",
+    "searchHint": "Kun avreise — her velger du ikke en destinasjon. De billigste destinasjonene vises i listen nedenfor.",
+    "cheapestFrom": "Billigste destinasjoner fra {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Ut om morgenen · hjem om kvelden",
@@ -158,12 +162,12 @@
     "selectTripType": "Reisetype (valgfritt)",
     "eveningDepartures": "Kveldsavganger (valgfritt)",
     "detectingLocation": "Finner posisjonen din…",
-    "fromLocationAdd": "Fra {{location}} — legg til en flyplass til…",
+    "fromLocationAdd": "Fra {{location}} — legg til enda en avreise…",
     "addAirport": "Legg til avreiseflyplass…",
-    "searchAirports": "Søk etter flyplasser å legge til",
+    "searchAirports": "Søk avreiseflyplasser",
     "noAirportsFound": "Ingen flyplasser funnet",
-    "selectedAirports": "Valgte flyplasser",
-    "nearbyAirports": "Nærliggende flyplasser",
+    "selectedAirports": "Valgte avreiseflyplasser",
+    "nearbyAirports": "Nærliggende avreiseflyplasser",
     "removeAirport": "Fjern {{name}}",
     "traveler": "reisende",
     "travelersCount": "reisende",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Velg europeisk destinasjon…",
     "changeDestinationAirport": "Bytt destinasjon…",
     "searchDestinations": "Søk europeiske destinasjoner",
-    "selectedDestination": "Valgt destinasjon"
+    "selectedDestination": "Valgt destinasjon",
+    "departureSuggestions": "Nærliggende avreiseflyplasser — ikke destinasjoner"
   },
   "patterns": {
     "fri-sun": {

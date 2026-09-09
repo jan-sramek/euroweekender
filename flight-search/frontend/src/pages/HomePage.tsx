@@ -223,6 +223,7 @@ export function HomePage() {
             <div className="container container-wide">
               <div className="searchbar">
                 <div className="search-field search-from">
+                  <p className="search-field-label">{t('home.fromLabel')}</p>
                   <DeparturePicker
                     allCities={allCities}
                     nearbyCities={nearbyCities}
@@ -235,6 +236,7 @@ export function HomePage() {
                 </div>
 
                 <div className="search-field search-dates">
+                  <p className="search-field-label">{t('home.whenLabel')}</p>
                   <WeekendPicker
                     patterns={weekendPatterns}
                     selectedPatternIds={selectedPatternIds}
@@ -252,6 +254,8 @@ export function HomePage() {
                   />
                 </div>
               </div>
+
+              <p className="search-compare-hint">{t('home.searchHint')}</p>
 
               {flightsCounterLabel ? (
                 <div
@@ -272,11 +276,13 @@ export function HomePage() {
         <div className="container">
           {selectedWeekends.length > 0 && (
             <div className="offers-header">
-              <p className="offers-subtitle">
-                {t('home.fromSelectedAirports', {
+              <h2 className="offers-title">
+                {t('home.cheapestFrom', {
                   airports: locationLabel || t('home.selectedAirports')
-                })}{' '}
-                · {passengerCount}{' '}
+                })}
+              </h2>
+              <p className="offers-subtitle">
+                {passengerCount}{' '}
                 {passengerCount === 1 ? t('home.person') : t('home.persons')} ·{' '}
                 {formatTripTypesLabel(translatedSelectedPatterns, t('home.allTripTypes'))}
                 {eveningFilters.outboundEvening ? ` · ${t('home.thereEvening')}` : ''}

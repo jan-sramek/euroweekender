@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Offres de vols de week-end en Europe",
     "title": "Vols pas chers pour le week-end en Europe",
-    "lead": "Comparez les vols aller-retour pour le week-end en Europe — partez vendredi après le travail, revenez dimanche, sans congés.",
+    "lead": "Choisissez votre aéroport de départ — puis comparez les destinations européennes les moins chères ci-dessous. Départ vendredi soir, retour dimanche, sans jours de congé.",
     "fromSelectedAirports": "Depuis {{airports}}",
     "person": "personne",
     "persons": "personnes",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grouper les résultats par ville de destination",
     "cityCardAria": "Comparer les week-ends vers {{city}}, dès {{price}}",
     "cityOffers_one": "{{count}} offre",
-    "cityOffers_other": "{{count}} offres"
+    "cityOffers_other": "{{count}} offres",
+    "fromLabel": "Départ",
+    "whenLabel": "Week-ends",
+    "searchHint": "Départ uniquement — vous ne choisissez pas de destination ici. Les destinations les moins chères apparaissent dans la liste ci-dessous.",
+    "cheapestFrom": "Destinations les moins chères depuis {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Départ matin · retour soir",
@@ -158,12 +162,12 @@
     "selectTripType": "Type de séjour (optionnel)",
     "eveningDepartures": "Départs en soirée (optionnel)",
     "detectingLocation": "Détection de votre position…",
-    "fromLocationAdd": "Depuis {{location}} — ajouter un autre aéroport…",
+    "fromLocationAdd": "Depuis {{location}} — ajouter un autre départ…",
     "addAirport": "Ajouter un aéroport de départ…",
-    "searchAirports": "Rechercher des aéroports à ajouter",
+    "searchAirports": "Rechercher des aéroports de départ",
     "noAirportsFound": "Aucun aéroport trouvé",
-    "selectedAirports": "Aéroports sélectionnés",
-    "nearbyAirports": "Aéroports à proximité",
+    "selectedAirports": "Aéroports de départ sélectionnés",
+    "nearbyAirports": "Aéroports de départ à proximité",
     "removeAirport": "Retirer {{name}}",
     "traveler": "voyageur",
     "travelersCount": "voyageurs",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Choisir une destination européenne…",
     "changeDestinationAirport": "Changer de destination…",
     "searchDestinations": "Rechercher des destinations européennes",
-    "selectedDestination": "Destination sélectionnée"
+    "selectedDestination": "Destination sélectionnée",
+    "departureSuggestions": "Aéroports de départ à proximité — pas des destinations"
   },
   "patterns": {
     "fri-sun": {

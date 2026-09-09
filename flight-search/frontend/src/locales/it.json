@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Offerte europee di voli per il weekend",
     "title": "Voli economici per il weekend in Europa",
-    "lead": "Confronta voli andata e ritorno per il weekend in Europa — partenza venerdì dopo il lavoro, ritorno domenica, senza ferie.",
+    "lead": "Scegli l'aeroporto di partenza — poi confronta le destinazioni europee più economiche qui sotto. Partenza venerdì sera, ritorno domenica, senza ferie.",
     "fromSelectedAirports": "Da {{airports}}",
     "person": "persona",
     "persons": "persone",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Raggruppa i risultati per città di destinazione",
     "cityCardAria": "Confronta i weekend per {{city}}, da {{price}}",
     "cityOffers_one": "{{count}} offerta",
-    "cityOffers_other": "{{count}} offerte"
+    "cityOffers_other": "{{count}} offerte",
+    "fromLabel": "Partenza",
+    "whenLabel": "Weekend",
+    "searchHint": "Solo partenza — qui non scegli una destinazione. Le destinazioni più economiche compaiono nell'elenco sotto.",
+    "cheapestFrom": "Destinazioni più economiche da {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Partenza mattina · ritorno sera",
@@ -158,12 +162,12 @@
     "selectTripType": "Tipo di viaggio (opzionale)",
     "eveningDepartures": "Partenze serali (opzionale)",
     "detectingLocation": "Rilevamento posizione…",
-    "fromLocationAdd": "Da {{location}} — aggiungi un altro aeroporto…",
+    "fromLocationAdd": "Da {{location}} — aggiungi un'altra partenza…",
     "addAirport": "Aggiungi aeroporto di partenza…",
-    "searchAirports": "Cerca aeroporti da aggiungere",
+    "searchAirports": "Cerca aeroporti di partenza",
     "noAirportsFound": "Nessun aeroporto trovato",
-    "selectedAirports": "Aeroporti selezionati",
-    "nearbyAirports": "Aeroporti vicini",
+    "selectedAirports": "Aeroporti di partenza selezionati",
+    "nearbyAirports": "Aeroporti di partenza vicini",
     "removeAirport": "Rimuovi {{name}}",
     "traveler": "viaggiatore",
     "travelersCount": "viaggiatori",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Scegli destinazione europea…",
     "changeDestinationAirport": "Cambia destinazione…",
     "searchDestinations": "Cerca destinazioni europee",
-    "selectedDestination": "Destinazione selezionata"
+    "selectedDestination": "Destinazione selezionata",
+    "departureSuggestions": "Aeroporti di partenza vicini — non destinazioni"
   },
   "patterns": {
     "fri-sun": {

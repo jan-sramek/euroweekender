@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Oferte de zboruri de weekend în Europa",
     "title": "Zboruri ieftine de weekend în Europa",
-    "lead": "Compară zboruri dus-întors de weekend în Europa — plecare vineri după muncă, întoarcere duminică, fără concediu.",
+    "lead": "Alegeți aeroportul de plecare — apoi comparați cele mai ieftine destinații europene mai jos. Plecare vineri seara, întoarcere duminică, fără zile de concediu.",
     "fromSelectedAirports": "De la {{airports}}",
     "person": "persoană",
     "persons": "persoane",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grupează rezultatele după orașul de destinație",
     "cityCardAria": "Compară weekendurile spre {{city}}, de la {{price}}",
     "cityOffers_one": "{{count}} ofertă",
-    "cityOffers_other": "{{count}} oferte"
+    "cityOffers_other": "{{count}} oferte",
+    "fromLabel": "Plecare",
+    "whenLabel": "Weekend-uri",
+    "searchHint": "Doar plecare — aici nu alegeți o destinație. Cele mai ieftine destinații apar în lista de mai jos.",
+    "cheapestFrom": "Cele mai ieftine destinații din {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Dimineața dus · seara întors",
@@ -158,12 +162,12 @@
     "selectTripType": "Tip de călătorie (opțional)",
     "eveningDepartures": "Plecări de seară (opțional)",
     "detectingLocation": "Se detectează locația dvs.…",
-    "fromLocationAdd": "De la {{location}} — adaugă alt aeroport…",
+    "fromLocationAdd": "Din {{location}} — adăugați altă plecare…",
     "addAirport": "Adaugă aeroport de plecare…",
-    "searchAirports": "Caută aeroporturi de adăugat",
+    "searchAirports": "Căutați aeroporturi de plecare",
     "noAirportsFound": "Niciun aeroport găsit",
-    "selectedAirports": "Aeroporturi selectate",
-    "nearbyAirports": "Aeroporturi din apropiere",
+    "selectedAirports": "Aeroporturi de plecare selectate",
+    "nearbyAirports": "Aeroporturi de plecare din apropiere",
     "removeAirport": "Elimină {{name}}",
     "traveler": "călător",
     "travelersCount": "călători",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Alege destinația europeană…",
     "changeDestinationAirport": "Schimbă destinația…",
     "searchDestinations": "Caută destinații europene",
-    "selectedDestination": "Destinație selectată"
+    "selectedDestination": "Destinație selectată",
+    "departureSuggestions": "Aeroporturi de plecare din apropiere — nu destinații"
   },
   "patterns": {
     "fri-sun": {

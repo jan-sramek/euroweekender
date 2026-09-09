@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Cheap European Weekend Flights",
-      "description": "Compare cheap weekend flights across Europe. Leave Friday evening, return Sunday, and find European city breaks without taking time off work."
+      "description": "Pick your departure airport and compare the cheapest European weekend destinations. Leave Friday evening, return Sunday — city breaks without taking time off work."
     },
     "about": {
       "title": "About EuroWeekender",
@@ -78,7 +78,10 @@
     "tagline": "European weekend flight deals",
     "title": "Cheap European weekend flights",
     "subtitle": "Your next city break starts Friday evening",
-    "lead": "Compare round-trip weekend flights across Europe — leave after work on Friday, return Sunday, no vacation days needed.",
+    "lead": "Pick where you fly from — then compare the cheapest European destinations below. Leave Friday evening, back Sunday, no vacation days needed.",
+    "fromLabel": "From",
+    "whenLabel": "Weekends",
+    "searchHint": "Departure only — you are not choosing a destination here. The cheapest destinations appear in the list below.",
     "seoTitle": "Find cheap weekend flights and day trips across Europe",
     "seoBlock": "Search and compare cheap weekend flights from Prague, Vienna, Berlin, Munich, London, Barcelona, and dozens of European airports. Filter Fri–Sun, Thu–Sun, and Wed–Sun trip patterns, add evening departure times, or switch to same-day Saturday and Sunday city trips — and discover breaks you can take without using annual leave. Open Compare weekends to see fares to one destination on a calendar.",
     "popularRoutesTitle": "Popular weekend routes",
@@ -89,6 +92,7 @@
     "emptyExplore": "Meanwhile, browse weekend flights from popular cities:",
     "emptyDealsTitle": "Try these weekend deals instead",
     "fromSelectedAirports": "From {{airports}}",
+    "cheapestFrom": "Cheapest destinations from {{airports}}",
     "person": "person",
     "persons": "persons",
     "allTripTypes": "all trip types",
@@ -291,7 +295,7 @@
     "eveningDepartures": "Evening departures (optional)",
     "detectingLocation": "Detecting your location…",
     "loadingAirports": "Loading airports…",
-    "fromLocationAdd": "From {{location}} — add another airport…",
+    "fromLocationAdd": "From {{location}} — add another departure…",
     "addAirport": "Add departure airport…",
     "chooseDepartureAirport": "Choose departure airport…",
     "changeDepartureAirport": "Change departure airport…",
@@ -299,10 +303,11 @@
     "changeDestinationAirport": "Change destination…",
     "searchDestinations": "Search European destinations",
     "selectedDestination": "Selected destination",
-    "searchAirports": "Search airports to add",
+    "searchAirports": "Search departure airports to add",
     "noAirportsFound": "No airports found",
-    "selectedAirports": "Selected airports",
-    "nearbyAirports": "Nearby airports",
+    "selectedAirports": "Selected departure airports",
+    "nearbyAirports": "Nearby departure airports",
+    "departureSuggestions": "Nearby departure airports — not destinations",
     "removeAirport": "Remove {{name}}",
     "traveler": "traveler",
     "travelersCount": "travelers",

@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europos savaitgalio skrydžių pasiūlymai",
     "title": "Pigūs savaitgalio skrydžiai Europoje",
-    "lead": "Palyginkite savaitgalio skrydžius į abi puses Europoje — išvykimas po darbo penktadienį, grįžimas sekmadienį be atostogų.",
+    "lead": "Pasirinkite išvykimo oro uostą — tada palyginkite pigiausias Europos kryptis žemiau. Išvykimas penktadienio vakarą, grįžimas sekmadienį, be atostogų.",
     "fromSelectedAirports": "Iš {{airports}}",
     "person": "asmuo",
     "persons": "asmenys",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grupuoti rezultatus pagal paskirties miestą",
     "cityCardAria": "Palyginti savaitgalius į {{city}}, nuo {{price}}",
     "cityOffers_one": "{{count}} pasiūlymas",
-    "cityOffers_other": "{{count}} pasiūlymai"
+    "cityOffers_other": "{{count}} pasiūlymai",
+    "fromLabel": "Išvykimas",
+    "whenLabel": "Savaitgaliai",
+    "searchHint": "Tik išvykimas — čia nerenkate krypties. Pigiausios kryptys rodomos sąraše žemiau.",
+    "cheapestFrom": "Pigiausios kryptys iš {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Ryte ten · vakare atgal",
@@ -158,12 +162,12 @@
     "selectTripType": "Kelionės tipas (neprivaloma)",
     "eveningDepartures": "Vakaro išvykimai (neprivaloma)",
     "detectingLocation": "Nustatome jūsų vietą…",
-    "fromLocationAdd": "Iš {{location}} — pridėti dar vieną oro uostą…",
+    "fromLocationAdd": "Iš {{location}} — pridėti dar vieną išvykimą…",
     "addAirport": "Pridėti išvykimo oro uostą…",
-    "searchAirports": "Ieškoti pridėtinų oro uostų",
+    "searchAirports": "Ieškoti išvykimo oro uostų",
     "noAirportsFound": "Oro uostų nerasta",
-    "selectedAirports": "Pasirinkti oro uostai",
-    "nearbyAirports": "Artimiausi oro uostai",
+    "selectedAirports": "Pasirinkti išvykimo oro uostai",
+    "nearbyAirports": "Artimiausi išvykimo oro uostai",
     "removeAirport": "Pašalinti {{name}}",
     "traveler": "keliautojas",
     "travelersCount": "keliautojai",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Pasirinkite Europos kelionės tikslą…",
     "changeDestinationAirport": "Keisti kelionės tikslą…",
     "searchDestinations": "Ieškoti Europos kelionių tikslų",
-    "selectedDestination": "Pasirinktas kelionės tikslas"
+    "selectedDestination": "Pasirinktas kelionės tikslas",
+    "departureSuggestions": "Artimiausi išvykimo oro uostai — ne kryptys"
   },
   "patterns": {
     "fri-sun": {

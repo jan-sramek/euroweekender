@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europejskie oferty weekendowych lotów",
     "title": "Tanie loty weekendowe w Europie",
-    "lead": "Porównaj loty weekendowe w obie strony w Europie — wylot po pracy w piątek, powrót w niedzielę bez urlopu.",
+    "lead": "Wybierz lotnisko wylotu — poniżej porównaj najtańsze europejskie destynacje. Wylot w piątek wieczorem, powrót w niedzielę, bez urlopu.",
     "fromSelectedAirports": "Z {{airports}}",
     "person": "osoba",
     "persons": "osób",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Grupuj wyniki według miasta docelowego",
     "cityCardAria": "Porównaj weekendy do {{city}}, od {{price}}",
     "cityOffers_one": "{{count}} oferta",
-    "cityOffers_other": "{{count}} oferty"
+    "cityOffers_other": "{{count}} oferty",
+    "fromLabel": "Wylot",
+    "whenLabel": "Weekendy",
+    "searchHint": "Tylko wylot — tutaj nie wybierasz destynacji. Najtańsze destynacje pojawią się na liście poniżej.",
+    "cheapestFrom": "Najtańsze destynacje z {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Rano tam · wieczorem z powrotem",
@@ -158,12 +162,12 @@
     "selectTripType": "Typ podróży (opcjonalnie)",
     "eveningDepartures": "Wieczorne wyloty (opcjonalnie)",
     "detectingLocation": "Wykrywanie lokalizacji…",
-    "fromLocationAdd": "Z {{location}} — dodaj kolejne lotnisko…",
+    "fromLocationAdd": "Z {{location}} — dodaj kolejny wylot…",
     "addAirport": "Dodaj lotnisko wylotu…",
-    "searchAirports": "Szukaj lotnisk do dodania",
+    "searchAirports": "Szukaj lotnisk wylotu",
     "noAirportsFound": "Nie znaleziono lotnisk",
-    "selectedAirports": "Wybrane lotniska",
-    "nearbyAirports": "Pobliskie lotniska",
+    "selectedAirports": "Wybrane lotniska wylotu",
+    "nearbyAirports": "Pobliskie lotniska wylotu",
     "removeAirport": "Usuń {{name}}",
     "traveler": "podróżny",
     "travelersCount": "podróżnych",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Wybierz europejski cel…",
     "changeDestinationAirport": "Zmień cel podróży…",
     "searchDestinations": "Szukaj europejskich celów",
-    "selectedDestination": "Wybrany cel"
+    "selectedDestination": "Wybrany cel",
+    "departureSuggestions": "Pobliskie lotniska wylotu — nie destynacje"
   },
   "patterns": {
     "fri-sun": {

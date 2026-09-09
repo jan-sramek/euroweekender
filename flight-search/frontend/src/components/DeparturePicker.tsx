@@ -234,22 +234,27 @@ export function DeparturePicker({
                 ))
               )
             ) : (
-              nearbyByDistance.map(city => {
-                const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
-                return (
-                  <li key={city.code}>
-                    <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
-                      <CountryFlag country={city.country} />
-                      <span className="airport-search-item-text">
-                        <strong>{displayName(city, language)}</strong>
-                        <span>
-                          {city.code} · {city.country} · {distance} km
+              <>
+                <li className="airport-search-hint" role="presentation">
+                  {t('search.departureSuggestions')}
+                </li>
+                {nearbyByDistance.map(city => {
+                  const distance = city.distanceKm < 10 ? '<10' : Math.round(city.distanceKm);
+                  return (
+                    <li key={city.code}>
+                      <button type="button" className="airport-search-item" onClick={() => pickCity(city)}>
+                        <CountryFlag country={city.country} />
+                        <span className="airport-search-item-text">
+                          <strong>{displayName(city, language)}</strong>
+                          <span>
+                            {city.code} · {city.country} · {distance} km
+                          </span>
                         </span>
-                      </span>
-                    </button>
-                  </li>
-                );
-              })
+                      </button>
+                    </li>
+                  );
+                })}
+              </>
             )}
           </ul>
         )}

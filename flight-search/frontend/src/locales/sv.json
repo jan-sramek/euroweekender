@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europeiska helgflygserbjudanden",
     "title": "Billiga helgflyg i Europa",
-    "lead": "Jämför tur-och-retur-helgflyg i Europa — åk iväg efter jobbet på fredag, hem på söndag utan semesterdagar.",
+    "lead": "Välj avreseflygplats — jämför sedan de billigaste europeiska destinationerna nedan. Fredag kväll ut, söndag hem, utan semesterdagar.",
     "fromSelectedAirports": "Från {{airports}}",
     "person": "person",
     "persons": "personer",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Gruppera resultat efter destinationsstad",
     "cityCardAria": "Jämför helger till {{city}}, från {{price}}",
     "cityOffers_one": "{{count}} erbjudande",
-    "cityOffers_other": "{{count}} erbjudanden"
+    "cityOffers_other": "{{count}} erbjudanden",
+    "fromLabel": "Avresa",
+    "whenLabel": "Helger",
+    "searchHint": "Endast avresa — här väljer du ingen destination. De billigaste destinationerna visas i listan nedan.",
+    "cheapestFrom": "Billigaste destinationer från {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Ut på morgonen · hem på kvällen",
@@ -158,12 +162,12 @@
     "selectTripType": "Resetyp (valfritt)",
     "eveningDepartures": "Kvällsavgångar (valfritt)",
     "detectingLocation": "Identifierar din plats…",
-    "fromLocationAdd": "Från {{location}} — lägg till en flygplats till…",
+    "fromLocationAdd": "Från {{location}} — lägg till en till avresa…",
     "addAirport": "Lägg till avgångsflygplats…",
-    "searchAirports": "Sök flygplatser att lägga till",
+    "searchAirports": "Sök avreseflygplatser",
     "noAirportsFound": "Inga flygplatser hittades",
-    "selectedAirports": "Valda flygplatser",
-    "nearbyAirports": "Närliggande flygplatser",
+    "selectedAirports": "Valda avreseflygplatser",
+    "nearbyAirports": "Närliggande avreseflygplatser",
     "removeAirport": "Ta bort {{name}}",
     "traveler": "resenär",
     "travelersCount": "resenärer",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Välj europeisk destination…",
     "changeDestinationAirport": "Byt destination…",
     "searchDestinations": "Sök europeiska destinationer",
-    "selectedDestination": "Vald destination"
+    "selectedDestination": "Vald destination",
+    "departureSuggestions": "Närliggande avreseflygplatser — inte destinationer"
   },
   "patterns": {
     "fri-sun": {

@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Авіапропозиції на вихідні по Європі",
     "title": "Дешеві вікенд-рейси по Європі",
-    "lead": "Порівняйте вікенд-рейси туди й назад по Європі — виліт після роботи у п'ятницю, повернення в неділю без відпустки.",
+    "lead": "Оберіть аеропорт вильоту — далі порівняйте найдешевші європейські напрямки нижче. Виліт у п'ятницю ввечері, повернення в неділю, без відпустки.",
     "fromSelectedAirports": "З {{airports}}",
     "person": "особа",
     "persons": "осіб",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Групувати результати за містом призначення",
     "cityCardAria": "Порівняти вікенди до {{city}}, від {{price}}",
     "cityOffers_one": "{{count}} пропозиція",
-    "cityOffers_other": "{{count}} пропозицій"
+    "cityOffers_other": "{{count}} пропозицій",
+    "fromLabel": "Виліт",
+    "whenLabel": "Вихідні",
+    "searchHint": "Лише виліт — тут ви не обираєте напрямок. Найдешевші напрямки з'являться в списку нижче.",
+    "cheapestFrom": "Найдешевші напрямки з {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Вранці туди · ввечері назад",
@@ -158,12 +162,12 @@
     "selectTripType": "Тип подорожі (необов'язково)",
     "eveningDepartures": "Вечірні вильоти (необов'язково)",
     "detectingLocation": "Визначаємо ваше місцезнаходження…",
-    "fromLocationAdd": "З {{location}} — додати інший аеропорт…",
+    "fromLocationAdd": "З {{location}} — додати ще один виліт…",
     "addAirport": "Додати аеропорт вильоту…",
-    "searchAirports": "Шукати аеропорти для додавання",
+    "searchAirports": "Пошук аеропортів вильоту",
     "noAirportsFound": "Аеропортів не знайдено",
-    "selectedAirports": "Обрані аеропорти",
-    "nearbyAirports": "Аеропорти поблизу",
+    "selectedAirports": "Обрані аеропорти вильоту",
+    "nearbyAirports": "Найближчі аеропорти вильоту",
     "removeAirport": "Видалити {{name}}",
     "traveler": "мандрівник",
     "travelersCount": "мандрівників",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Оберіть європейську дестинацію…",
     "changeDestinationAirport": "Змінити дестинацію…",
     "searchDestinations": "Пошук європейських дестинацій",
-    "selectedDestination": "Обрана дестинація"
+    "selectedDestination": "Обрана дестинація",
+    "departureSuggestions": "Найближчі аеропорти вильоту — не напрямки"
   },
   "patterns": {
     "fri-sun": {

@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Europese weekendvlucht-aanbiedingen",
     "title": "Goedkope weekendvluchten in Europa",
-    "lead": "Vergelijk retour-weekendvluchten in Europa — vertrek vrijdag na werk, terug zondag, zonder vakantiedagen.",
+    "lead": "Kies je vertrekvluchthaven — vergelijk daaronder de goedkoopste Europese bestemmingen. Vrijdagavond weg, zondag terug, zonder vakantiedagen.",
     "fromSelectedAirports": "Vanaf {{airports}}",
     "person": "persoon",
     "persons": "personen",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Groepeer resultaten per bestemmingsstad",
     "cityCardAria": "Vergelijk weekenden naar {{city}}, vanaf {{price}}",
     "cityOffers_one": "{{count}} aanbieding",
-    "cityOffers_other": "{{count}} aanbiedingen"
+    "cityOffers_other": "{{count}} aanbiedingen",
+    "fromLabel": "Vertrek",
+    "whenLabel": "Weekenden",
+    "searchHint": "Alleen vertrek — hier kies je geen bestemming. De goedkoopste bestemmingen verschijnen in de lijst eronder.",
+    "cheapestFrom": "Goedkoopste bestemmingen vanaf {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "’s Ochtends heen · ’s avonds terug",
@@ -158,12 +162,12 @@
     "selectTripType": "Reistype (optioneel)",
     "eveningDepartures": "Avondvluchten (optioneel)",
     "detectingLocation": "Uw locatie wordt bepaald…",
-    "fromLocationAdd": "Vanaf {{location}} — nog een luchthaven toevoegen…",
+    "fromLocationAdd": "Vanaf {{location}} — voeg nog een vertrek toe…",
     "addAirport": "Vertrekluchthaven toevoegen…",
-    "searchAirports": "Luchthavens zoeken om toe te voegen",
+    "searchAirports": "Zoek vertrekvluchthavens",
     "noAirportsFound": "Geen luchthavens gevonden",
-    "selectedAirports": "Geselecteerde luchthavens",
-    "nearbyAirports": "Luchthavens in de buurt",
+    "selectedAirports": "Geselecteerde vertrekvluchthavens",
+    "nearbyAirports": "Vertrekvluchthavens in de buurt",
     "removeAirport": "{{name}} verwijderen",
     "traveler": "reiziger",
     "travelersCount": "reizigers",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Kies Europese bestemming…",
     "changeDestinationAirport": "Wijzig bestemming…",
     "searchDestinations": "Zoek Europese bestemmingen",
-    "selectedDestination": "Geselecteerde bestemming"
+    "selectedDestination": "Geselecteerde bestemming",
+    "departureSuggestions": "Vertrekvluchthavens in de buurt — geen bestemmingen"
   },
   "patterns": {
     "fri-sun": {

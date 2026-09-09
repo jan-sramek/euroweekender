@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Európai hétvégi repülőjárat-ajánlatok",
     "title": "Olcsó hétvégi repülőjáratok Európában",
-    "lead": "Hasonlítsa össze a hétvégi oda-vissza repülőjáratokat Európában — indulás pénteken munka után, visszatérés vasárnap, szabadság nélkül.",
+    "lead": "Válassza ki az indulási reptérét — alább hasonlítsa össze a legolcsóbb európai úticélokat. Péntek este indulás, vasárnap vissza, szabadság nélkül.",
     "fromSelectedAirports": "Innen: {{airports}}",
     "person": "fő",
     "persons": "fő",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Eredmények csoportosítása célváros szerint",
     "cityCardAria": "Hétvégék összehasonlítása ide: {{city}}, {{price}} ártól",
     "cityOffers_one": "{{count}} ajánlat",
-    "cityOffers_other": "{{count}} ajánlat"
+    "cityOffers_other": "{{count}} ajánlat",
+    "fromLabel": "Indulás",
+    "whenLabel": "Hétvégék",
+    "searchHint": "Csak indulás — itt nem választ úticélt. A legolcsóbb úticélok a lista alatt jelennek meg.",
+    "cheapestFrom": "Legolcsóbb úticélok innen: {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Reggel oda · este vissza",
@@ -158,12 +162,12 @@
     "selectTripType": "Utazástípus (opcionális)",
     "eveningDepartures": "Esti indulások (opcionális)",
     "detectingLocation": "Helymeghatározás…",
-    "fromLocationAdd": "Innen: {{location}} — adj hozzá még egy repülőteret…",
+    "fromLocationAdd": "{{location}} — további indulás hozzáadása…",
     "addAirport": "Indulási repülőtér hozzáadása…",
-    "searchAirports": "Repülőterek keresése hozzáadáshoz",
+    "searchAirports": "Indulási repülőterek keresése",
     "noAirportsFound": "Nem található repülőtér",
-    "selectedAirports": "Kiválasztott repülőterek",
-    "nearbyAirports": "Közeli repülőterek",
+    "selectedAirports": "Kiválasztott indulási repülőterek",
+    "nearbyAirports": "Közeli indulási repülőterek",
     "removeAirport": "{{name}} eltávolítása",
     "traveler": "utas",
     "travelersCount": "utas",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Európai célállomás választása…",
     "changeDestinationAirport": "Célállomás módosítása…",
     "searchDestinations": "Európai célállomások keresése",
-    "selectedDestination": "Kiválasztott célállomás"
+    "selectedDestination": "Kiválasztott célállomás",
+    "departureSuggestions": "Közeli indulási repülőterek — nem úticélok"
   },
   "patterns": {
     "fri-sun": {

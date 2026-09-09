@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Ofertas europeias de voos de fim de semana",
     "title": "Voos baratos de fim de semana na Europa",
-    "lead": "Compare voos de ida e volta de fim de semana na Europa — partida sexta após o trabalho, regresso domingo, sem férias.",
+    "lead": "Escolha o aeroporto de partida — depois compare os destinos europeus mais baratos abaixo. Partida sexta à noite, regresso domingo, sem dias de férias.",
     "fromSelectedAirports": "De {{airports}}",
     "person": "pessoa",
     "persons": "pessoas",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Agrupar resultados por cidade de destino",
     "cityCardAria": "Comparar fins de semana para {{city}}, desde {{price}}",
     "cityOffers_one": "{{count}} oferta",
-    "cityOffers_other": "{{count}} ofertas"
+    "cityOffers_other": "{{count}} ofertas",
+    "fromLabel": "Partida",
+    "whenLabel": "Fins de semana",
+    "searchHint": "Apenas partida — aqui não escolhe um destino. Os destinos mais baratos aparecem na lista abaixo.",
+    "cheapestFrom": "Destinos mais baratos a partir de {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Saída manhã · regresso noite",
@@ -158,12 +162,12 @@
     "selectTripType": "Tipo de viagem (opcional)",
     "eveningDepartures": "Partidas à noite (opcional)",
     "detectingLocation": "A detetar a sua localização…",
-    "fromLocationAdd": "De {{location}} — adicionar outro aeroporto…",
+    "fromLocationAdd": "De {{location}} — adicionar outra partida…",
     "addAirport": "Adicionar aeroporto de partida…",
-    "searchAirports": "Pesquisar aeroportos para adicionar",
+    "searchAirports": "Pesquisar aeroportos de partida",
     "noAirportsFound": "Nenhum aeroporto encontrado",
-    "selectedAirports": "Aeroportos selecionados",
-    "nearbyAirports": "Aeroportos próximos",
+    "selectedAirports": "Aeroportos de partida selecionados",
+    "nearbyAirports": "Aeroportos de partida próximos",
     "removeAirport": "Remover {{name}}",
     "traveler": "viajante",
     "travelersCount": "viajantes",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Escolher destino europeu…",
     "changeDestinationAirport": "Alterar destino…",
     "searchDestinations": "Pesquisar destinos europeus",
-    "selectedDestination": "Destino selecionado"
+    "selectedDestination": "Destino selecionado",
+    "departureSuggestions": "Aeroportos de partida próximos — não destinos"
   },
   "patterns": {
     "fri-sun": {

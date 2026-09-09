@@ -75,7 +75,7 @@
   "home": {
     "tagline": "Европейски уикенд полетни оферти",
     "title": "Евтини уикенд полети в Европа",
-    "lead": "Сравнете двупосочни уикенд полети в Европа — тръгване след работа в петък, връщане в неделя, без нужда от отпуск.",
+    "lead": "Изберете летище за заминаване — след това сравнете най-евтините европейски дестинации отдолу. Петък вечер тръгване, неделя обратно, без отпуск.",
     "fromSelectedAirports": "От {{airports}}",
     "person": "човек",
     "persons": "души",
@@ -114,7 +114,11 @@
     "viewCitiesAria": "Групиране на резултатите по град на дестинация",
     "cityCardAria": "Сравни уикендите до {{city}}, от {{price}}",
     "cityOffers_one": "{{count}} оферта",
-    "cityOffers_other": "{{count}} оферти"
+    "cityOffers_other": "{{count}} оферти",
+    "fromLabel": "Заминаване",
+    "whenLabel": "Уикенди",
+    "searchHint": "Само заминаване — тук не избирате дестинация. Най-евтините дестинации се показват в списъка отдолу.",
+    "cheapestFrom": "Най-евтини дестинации от {{airports}}"
   },
   "singleDayTrips": {
     "tagline": "Сутрин навън · вечер обратно",
@@ -158,12 +162,12 @@
     "selectTripType": "Тип пътуване (незадължително)",
     "eveningDepartures": "Вечерни заминавания (незадължително)",
     "detectingLocation": "Определяме местоположението ви…",
-    "fromLocationAdd": "От {{location}} — добавете друго летище…",
+    "fromLocationAdd": "От {{location}} — добавете още едно заминаване…",
     "addAirport": "Добавете летище за заминаване…",
-    "searchAirports": "Търсете летища за добавяне",
+    "searchAirports": "Търсене на летища за заминаване",
     "noAirportsFound": "Няма намерени летища",
-    "selectedAirports": "Избрани летища",
-    "nearbyAirports": "Близки летища",
+    "selectedAirports": "Избрани летища за заминаване",
+    "nearbyAirports": "Близки летища за заминаване",
     "removeAirport": "Премахни {{name}}",
     "traveler": "пътник",
     "travelersCount": "пътници",
@@ -176,7 +180,8 @@
     "chooseDestinationAirport": "Изберете европейска дестинация…",
     "changeDestinationAirport": "Промяна на дестинацията…",
     "searchDestinations": "Търсене на европейски дестинации",
-    "selectedDestination": "Избрана дестинация"
+    "selectedDestination": "Избрана дестинация",
+    "departureSuggestions": "Близки летища за заминаване — не дестинации"
   },
   "patterns": {
     "fri-sun": {

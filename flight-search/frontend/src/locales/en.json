@@ -44,6 +44,10 @@
       "title": "Weekend Flights from {{city}}",
       "description": "Compare cheap European weekend flights from {{city}}. Fri–Sun city breaks without vacation days — find deals and book via Kiwi.com."
     },
+    "weekendFlightsTo": {
+      "title": "Weekend Flights to {{city}}",
+      "description": "Compare cheap European weekend flights into {{city}}. See top departure cities, Fri–Sun deals, and book via Kiwi.com."
+    },
     "dayTripsFrom": {
       "title": "Day Trips from {{city}}",
       "description": "Find same-day Saturday and Sunday city trips from {{city}} — morning outbound, evening return, no overnight stay. Compare deals and book via Kiwi.com."
@@ -193,6 +197,7 @@
     "seeAlsoCheapest": "Find the cheapest weekend to a destination",
     "seeAlsoDayTrips": "Same-day city trips",
     "seeAlsoDayTripsFromCity": "Day trips from {{city}}",
+    "seeAlsoFlightsToCity": "Weekend flights to {{city}}",
     "faqTitle": "FAQ: weekend flights from {{city}}",
     "faq": [
       {
@@ -210,6 +215,40 @@
       {
         "q": "What is the cheapest weekend to fly from {{city}} to a specific city?",
         "a": "Open \"Compare weekends\" and pick {{city}} as your departure airport and any European city as the destination to compare fares across upcoming weekends on a calendar."
+      }
+    ]
+  },
+  "weekendFlightsTo": {
+    "tagline": "Weekend flights to {{city}}",
+    "title": "Cheap weekend flights to {{city}}",
+    "subtitle": "City breaks into {{city}} without using vacation days",
+    "lead": "Compare round-trip weekend flights into {{city}} from cities across Europe — leave Friday evening, return Sunday.",
+    "priceHint": "Weekend deals into {{city}} often start around €{{minPrice}} from {{originCount}} departure cities.",
+    "seoTitle": "Find weekend flight deals to {{city}}",
+    "seoBlock": "Search cheap weekend flights to {{city}} from cities across Europe. Filter Fri–Sun and other short trip patterns, compare prices by origin, and book on Kiwi.com.",
+    "hopHintRange": "Typical weekend hops into {{city}} are about {{durationMin}}–{{durationMax}}. Leave Friday evening and you can still have a full Saturday and Sunday in {{city}}.",
+    "hopHintSingle": "Typical weekend hops into {{city}} are about {{duration}}. Leave Friday evening and you can still have a full Saturday and Sunday in {{city}}.",
+    "topOriginsTitle": "Popular departure cities to {{city}}",
+    "intoCity": "To {{city}}",
+    "allOrigins": "all departure cities",
+    "seeAlsoFromCity": "Weekend flights from {{city}}",
+    "faqTitle": "FAQ: weekend flights to {{city}}",
+    "faq": [
+      {
+        "q": "How much do weekend flights to {{city}} cost?",
+        "a": "Prices vary by departure city and season, but many Fri–Sun routes into {{city}} start from budget-friendly fares — use the origin grid and filters on this page to compare current offers."
+      },
+      {
+        "q": "Which cities fly to {{city}} for a weekend?",
+        "a": "This page lists the cheapest origins currently offering weekend returns into {{city}}. Open any origin to compare upcoming weekends on a price calendar."
+      },
+      {
+        "q": "Can I arrive in {{city}} on Friday evening?",
+        "a": "Use the evening departure filter to show outbound flights leaving after 17:00, so you can travel after work and still spend the full weekend in {{city}}."
+      },
+      {
+        "q": "What is the cheapest weekend to fly to {{city}} from a specific city?",
+        "a": "Open \"Compare weekends\", pick your departure airport and {{city}} as the destination, then scan the calendar for the lowest Fri–Sun fare."
       }
     ]
   },
@@ -299,6 +338,7 @@
     "addAirport": "Add departure airport…",
     "chooseDepartureAirport": "Choose departure airport…",
     "changeDepartureAirport": "Change departure airport…",
+    "filterDepartureOptional": "Filter by departure (optional)…",
     "chooseDestinationAirport": "Choose European destination…",
     "changeDestinationAirport": "Change destination…",
     "searchDestinations": "Search European destinations",

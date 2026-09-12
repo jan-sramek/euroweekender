@@ -55,6 +55,18 @@ export function weekendFlightsFromPathByCode(code: string, name?: string): strin
   return '/weekend-flights-from/' + normalized.toLowerCase();
 }
 
+export function weekendFlightsToPath(city: Pick<City, 'code' | 'name'>): string {
+  return '/weekend-flights-to/' + buildCitySlug(city);
+}
+
+export function weekendFlightsToPathByCode(code: string, name?: string): string {
+  const normalized = code.trim().toUpperCase();
+  if (name?.trim()) {
+    return weekendFlightsToPath({ code: normalized, name: name.trim() });
+  }
+  return '/weekend-flights-to/' + normalized.toLowerCase();
+}
+
 export function dayTripsFromPath(city: Pick<City, 'code' | 'name'>): string {
   return '/day-trips-from/' + buildCitySlug(city);
 }

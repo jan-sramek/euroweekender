@@ -60,6 +60,10 @@ export function useDeparturePrefill(options?: {
   preferredCodes?: string[] | null;
   /** Extra city codes to localize for the active UI language (e.g. destination). */
   localizeCodes?: string[] | null;
+  /** Skip GPS/session defaults — used on inbound destination hubs. */
+  disableAutoSelect?: boolean;
+  /** Anchor nearby suggestions on this city when no origin is selected. */
+  nearbyAnchorCode?: string | null;
 }) {
   const preferredKey = (options?.preferredCodes ?? [])
     .map(code => code.trim().toUpperCase())
@@ -69,6 +73,8 @@ export function useDeparturePrefill(options?: {
     .map(code => code.trim().toUpperCase())
     .filter(Boolean)
     .join('|');
+  const disableAutoSelect = Boolean(options?.disableAutoSelect);
+  const nearbyAnchorCode = (options?.nearbyAnchorCode ?? '').trim().toUpperCase();
   const locale = useLocale();
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
@@ -97,10 +103,12 @@ export function useDeparturePrefill(options?: {
       setSelectedCodes(codes);
       defaultsInitializedRef.current = true;
       setLocating(false);
-      refreshHubSuggestions(cities, scores, codes[0] ?? '');
-      writeStoredOrigins(codes);
+      refreshHubSuggestions(cities, scores, codes[0] ?? nearbyAnchorCode);
+      if (!disableAutoSelect) {
+        writeStoredOrigins(codes);
+      }
     },
-    [refreshHubSuggestions]
+    [refreshHubSuggestions, disableAutoSelect, nearbyAnchorCode]
   );
 
   const localizeCityCodes = useCallback((codes: string[]) => {
@@ -119,7 +127,7 @@ export function useDeparturePrefill(options?: {
     });
   }, []);
 
-  const primaryCode = selectedCodes[0] ?? '';
+  const primaryCode = selectedCodes[0] ?? nearbyAnchorCode;
 
   useResolveCityDisplayNames(
     allCities,
@@ -135,9 +143,9 @@ export function useDeparturePrefill(options?: {
   }, [allCities, primaryCode, refreshHubSuggestions]);
 
   useEffect(() => {
-    if (!defaultsInitializedRef.current || preferredKey) return;
+    if (!defaultsInitializedRef.current || preferredKey || disableAutoSelect) return;
     writeStoredOrigins(selectedCodes);
-  }, [selectedCodes, preferredKey]);
+  }, [selectedCodes, preferredKey, disableAutoSelect]);
 
   useEffect(() => {
     let cancelled = false;
@@ -145,15 +153,13 @@ export function useDeparturePrefill(options?: {
     async function init() {
       if (defaultsInitializedRef.current) return;
 
-      // Prefetch hub scores while cities load (often the slower call).
       const scoresPromise = getHubScores().then(
         scores => ({ scores, error: false as const }),
         () => ({ scores: [] as HubScore[], error: true as const })
       );
-      // Start GPS immediately unless this tab already chose origins (avoids a second prompt on F5).
-      const storedHint = preferredKey ? null : readStoredOrigins();
+      const storedHint = preferredKey || disableAutoSelect ? null : readStoredOrigins();
       const positionPromise =
-        !preferredKey && !(storedHint && storedHint.length > 0)
+        !preferredKey && !disableAutoSelect && !(storedHint && storedHint.length > 0)
           ? resolveUserPosition()
           : null;
 
@@ -178,11 +184,24 @@ export function useDeparturePrefill(options?: {
             return;
           }
           hubScoresRef.current = result.scores;
-          refreshHubSuggestions(cities, result.scores, preferred[0] ?? '');
+          refreshHubSuggestions(cities, result.scores, preferred[0] ?? nearbyAnchorCode);
           return;
         }
 
-        // Restore last origins from this tab session so F5 does not flash Prague → nearby.
+        if (disableAutoSelect) {
+          defaultsInitializedRef.current = true;
+          setLocating(false);
+          const result = await scoresPromise;
+          if (cancelled) return;
+          if (!result.error) {
+            hubScoresRef.current = result.scores;
+            if (nearbyAnchorCode) {
+              refreshHubSuggestions(cities, result.scores, nearbyAnchorCode);
+            }
+          }
+          return;
+        }
+
         const stored = resolveStoredOrigins(cities, readStoredOrigins());
         if (stored.length > 0) {
           setSelectedCodes(stored);
@@ -218,7 +237,6 @@ export function useDeparturePrefill(options?: {
           return;
         }
 
-        // Keep locating=true until GPS/IP + scores arrive so flights do not search a guessed city first.
         const result = await scoresPromise;
         if (cancelled) return;
         if (result.error) {
@@ -249,7 +267,7 @@ export function useDeparturePrefill(options?: {
     return () => {
       cancelled = true;
     };
-  }, [preferredKey, refreshHubSuggestions, applyDefaults]);
+  }, [preferredKey, refreshHubSuggestions, applyDefaults, disableAutoSelect, nearbyAnchorCode]);
 
   const citiesByCode = useMemo(() => indexCitiesByCode(allCities), [allCities]);
 

@@ -79,6 +79,38 @@ public class CitiesController(
     }
 
     /// <summary>
+    /// Top origin cities flying into a destination by cheap-offer count in the upcoming weeks.
+    /// </summary>
+    [HttpGet("{code}/top-origins")]
+    [ProducesResponseType(typeof(IReadOnlyList<OriginDestinationDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyList<OriginDestinationDto>>> GetTopOriginsAsync(
+        string code,
+        [FromQuery] int weeks = WeekendHubIndex.DefaultWeeksAhead,
+        [FromQuery] int limit = 30,
+        CancellationToken cancellationToken = default)
+    {
+        weeks = Math.Clamp(weeks, 1, 12);
+        limit = Math.Clamp(limit, 1, 50);
+        Response.Headers.CacheControl = "public, max-age=300";
+
+        var cacheKey = $"cities:top-origins:v1:{code.Trim().ToUpperInvariant()}:{weeks}:{limit}";
+        if (!memoryCache.TryGetValue(cacheKey, out IReadOnlyList<OriginDestinationDto>? dtos) || dtos is null)
+        {
+            var origins = await hubScoreService.GetTopOriginsAsync(
+                code,
+                weeks,
+                limit,
+                cancellationToken);
+            dtos = origins
+                .Select(d => new OriginDestinationDto(d.CityCodeFrom, d.OfferCount, d.MinPrice, d.CheapOfferCount))
+                .ToList();
+            memoryCache.Set(cacheKey, dtos, HubScoresCacheDuration);
+        }
+
+        return Ok(dtos);
+    }
+
+    /// <summary>
     /// Multilingual city typeahead via Tequila locations/query, mapped to our cities.
     /// </summary>
     [HttpGet("suggest")]

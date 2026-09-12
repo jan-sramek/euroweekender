@@ -12,6 +12,8 @@ const SEARCH_DEBOUNCE_MS = 800;
 
 interface UseFlightSearchOptions {
   selectedCodes: string[];
+  /** When set, always filter flights into this destination (inbound hub pages). */
+  destinationCode?: string | null;
   weekends: WeekendOption[];
   selectedWeekendIds: string[];
   selectedPatterns: WeekendPattern[];
@@ -22,6 +24,7 @@ interface UseFlightSearchOptions {
 
 export function useFlightSearch({
   selectedCodes,
+  destinationCode = null,
   weekends,
   selectedWeekendIds,
   selectedPatterns,
@@ -42,6 +45,8 @@ export function useFlightSearch({
     [selectedCodes]
   );
 
+  const destinationKey = (destinationCode ?? '').trim().toUpperCase();
+
   const selectedWeekends = useMemo(
     () =>
       weekends
@@ -58,9 +63,10 @@ export function useFlightSearch({
   const patternKey = selectedPatterns.map(pattern => pattern.id).join(',');
 
   const searchKey = useMemo(() => {
-    if (!selectedCodesKey || !selectedWeekendKey) return '';
-    return `${selectedCodesKey}|${selectedWeekendKey}|${patternKey}`;
-  }, [selectedCodesKey, selectedWeekendKey, patternKey]);
+    if (!selectedWeekendKey) return '';
+    if (!selectedCodesKey && !destinationKey) return '';
+    return `${selectedCodesKey || '*'}|${destinationKey}|${selectedWeekendKey}|${patternKey}`;
+  }, [selectedCodesKey, destinationKey, selectedWeekendKey, patternKey]);
 
   const flights = useMemo(() => {
     if (selectedWeekends.length === 0) return [];
@@ -91,7 +97,7 @@ export function useFlightSearch({
             departTo: weekend.departTo
           })),
           signal,
-          undefined,
+          destinationKey || undefined,
           nightsInDestSearchValues(selectedPatterns),
           partial => {
             if (generation !== searchGeneration.current) return;
@@ -114,19 +120,20 @@ export function useFlightSearch({
         }
       }
     },
-    [t, selectedPatterns]
+    [t, selectedPatterns, destinationKey]
   );
 
   const loadFlights = useCallback(async () => {
     if (!searchKey || selectedWeekends.length === 0) return;
-    await runSearch(selectedCodesKey.split(','), selectedWeekends, new AbortController().signal);
+    const codes = selectedCodesKey ? selectedCodesKey.split(',') : [];
+    await runSearch(codes, selectedWeekends, new AbortController().signal);
   }, [runSearch, searchKey, selectedCodesKey, selectedWeekends]);
 
   useEffect(() => {
     if (locating || !searchKey || selectedWeekends.length === 0) return;
 
     const controller = new AbortController();
-    const codes = selectedCodesKey.split(',');
+    const codes = selectedCodesKey ? selectedCodesKey.split(',') : [];
     const activeWeekends = selectedWeekends;
 
     const timer = window.setTimeout(() => {

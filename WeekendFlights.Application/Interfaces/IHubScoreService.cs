@@ -13,4 +13,10 @@ public interface IHubScoreService
         int weeksAhead,
         int limit,
         CancellationToken cancellationToken = default);
+
+    Task<IReadOnlyList<OriginDestinationStats>> GetTopOriginsAsync(
+        string cityCodeTo,
+        int weeksAhead,
+        int limit,
+        CancellationToken cancellationToken = default);
 }

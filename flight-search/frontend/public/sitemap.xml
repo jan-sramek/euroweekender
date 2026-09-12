@@ -2306,6 +2306,237 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/barcelona-bcn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/barcelona-bcn" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://euroweekender.com/es/weekend-flights-to/barcelona-bcn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/barcelona-bcn" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/es/weekend-flights-to/barcelona-bcn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/barcelona-bcn" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://euroweekender.com/es/weekend-flights-to/barcelona-bcn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/barcelona-bcn" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/madrid-mad</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/madrid-mad" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://euroweekender.com/es/weekend-flights-to/madrid-mad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/madrid-mad" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/es/weekend-flights-to/madrid-mad</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/madrid-mad" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://euroweekender.com/es/weekend-flights-to/madrid-mad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/madrid-mad" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/rome-rom</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/rome-rom" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/rome-rom" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/rome-rom" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/it/weekend-flights-to/rome-rom</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/rome-rom" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/rome-rom" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/rome-rom" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/milan-mil</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/milan-mil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/milan-mil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/milan-mil" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/it/weekend-flights-to/milan-mil</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/milan-mil" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/milan-mil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/milan-mil" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/paris-par</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/paris-par" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://euroweekender.com/fr/weekend-flights-to/paris-par" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/paris-par" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/fr/weekend-flights-to/paris-par</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/paris-par" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://euroweekender.com/fr/weekend-flights-to/paris-par" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/paris-par" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/london-lon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/london-lon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/london-lon" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/amsterdam-ams</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/amsterdam-ams" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://euroweekender.com/nl/weekend-flights-to/amsterdam-ams" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/amsterdam-ams" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/nl/weekend-flights-to/amsterdam-ams</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/amsterdam-ams" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://euroweekender.com/nl/weekend-flights-to/amsterdam-ams" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/amsterdam-ams" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/berlin-ber</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/berlin-ber" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://euroweekender.com/de/weekend-flights-to/berlin-ber" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/berlin-ber" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/de/weekend-flights-to/berlin-ber</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/berlin-ber" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://euroweekender.com/de/weekend-flights-to/berlin-ber" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/berlin-ber" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/vienna-vie</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/vienna-vie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://euroweekender.com/de/weekend-flights-to/vienna-vie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/vienna-vie" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/de/weekend-flights-to/vienna-vie</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/vienna-vie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://euroweekender.com/de/weekend-flights-to/vienna-vie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/vienna-vie" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/prague-prg</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/prague-prg" />
+    <xhtml:link rel="alternate" hreflang="cs" href="https://euroweekender.com/cs/weekend-flights-to/prague-prg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/prague-prg" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/cs/weekend-flights-to/prague-prg</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/prague-prg" />
+    <xhtml:link rel="alternate" hreflang="cs" href="https://euroweekender.com/cs/weekend-flights-to/prague-prg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/prague-prg" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/lisbon-lis</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/lisbon-lis" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://euroweekender.com/pt/weekend-flights-to/lisbon-lis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/lisbon-lis" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/pt/weekend-flights-to/lisbon-lis</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/lisbon-lis" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://euroweekender.com/pt/weekend-flights-to/lisbon-lis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/lisbon-lis" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/athens-ath</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/athens-ath" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://euroweekender.com/el/weekend-flights-to/athens-ath" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/athens-ath" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/el/weekend-flights-to/athens-ath</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/athens-ath" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://euroweekender.com/el/weekend-flights-to/athens-ath" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/athens-ath" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/budapest-bud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/budapest-bud" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://euroweekender.com/hu/weekend-flights-to/budapest-bud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/budapest-bud" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/hu/weekend-flights-to/budapest-bud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/budapest-bud" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://euroweekender.com/hu/weekend-flights-to/budapest-bud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/budapest-bud" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/warsaw-waw</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/warsaw-waw" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://euroweekender.com/pl/weekend-flights-to/warsaw-waw" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/warsaw-waw" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/pl/weekend-flights-to/warsaw-waw</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/warsaw-waw" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://euroweekender.com/pl/weekend-flights-to/warsaw-waw" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/warsaw-waw" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/en/weekend-flights-to/venice-vce</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/venice-vce" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/venice-vce" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/venice-vce" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://euroweekender.com/it/weekend-flights-to/venice-vce</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/weekend-flights-to/venice-vce" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://euroweekender.com/it/weekend-flights-to/venice-vce" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euroweekender.com/en/weekend-flights-to/venice-vce" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://euroweekender.com/en/day-trips-from/prague-prg</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://euroweekender.com/en/day-trips-from/prague-prg" />
     <xhtml:link rel="alternate" hreflang="cs" href="https://euroweekender.com/cs/day-trips-from/prague-prg" />

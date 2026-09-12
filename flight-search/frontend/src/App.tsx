@@ -16,6 +16,7 @@ import { SingleDayTripsPage } from './pages/SingleDayTripsPage';
 import { TermsPage } from './pages/TermsPage';
 import { WeekendFlightsFromCityPage } from './pages/WeekendFlightsFromCityPage';
 import { WeekendFlightsOdPage } from './pages/WeekendFlightsOdPage';
+import { WeekendFlightsToCityPage } from './pages/WeekendFlightsToCityPage';
 
 const LEGACY_REDIRECTS = [
   'about',
@@ -32,6 +33,13 @@ function LegacyWeekendFlightsRedirect() {
   const { citySlug } = useParams<{ citySlug: string }>();
   return (
     <Navigate to={`/${DEFAULT_LOCALE}/weekend-flights-from/${citySlug ?? ''}`} replace />
+  );
+}
+
+function LegacyWeekendFlightsToRedirect() {
+  const { citySlug } = useParams<{ citySlug: string }>();
+  return (
+    <Navigate to={`/${DEFAULT_LOCALE}/weekend-flights-to/${citySlug ?? ''}`} replace />
   );
 }
 
@@ -59,6 +67,7 @@ export default function App() {
           />
         ))}
         <Route path="/weekend-flights-from/:citySlug" element={<LegacyWeekendFlightsRedirect />} />
+        <Route path="/weekend-flights-to/:citySlug" element={<LegacyWeekendFlightsToRedirect />} />
         <Route path="/day-trips-from/:citySlug" element={<LegacyDayTripsFromRedirect />} />
         <Route path="/weekend-flights/:odSlug" element={<LegacyWeekendFlightsOdRedirect />} />
 
@@ -73,6 +82,7 @@ export default function App() {
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
           <Route path="weekend-flights-from/:citySlug" element={<WeekendFlightsFromCityPage />} />
+          <Route path="weekend-flights-to/:citySlug" element={<WeekendFlightsToCityPage />} />
           <Route path="day-trips-from/:citySlug" element={<DayTripsFromCityPage />} />
           <Route path="weekend-flights/:odSlug" element={<WeekendFlightsOdPage />} />
           <Route path="*" element={<NotFoundPage />} />

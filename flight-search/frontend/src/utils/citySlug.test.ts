@@ -10,6 +10,8 @@ import {
   weekendFlightsFromPath,
   weekendFlightsFromPathByCode,
   weekendFlightsOdPath,
+  weekendFlightsToPath,
+  weekendFlightsToPathByCode,
   withQuery,
   withWeekendCalendarHash
 } from './citySlug';
@@ -83,6 +85,26 @@ describe('weekendFlightsFromPathByCode', () => {
   it('builds canonical path when name is provided', () => {
     expect(weekendFlightsFromPathByCode('PRG', 'Prague')).toBe(
       '/weekend-flights-from/prague-prg'
+    );
+  });
+});
+
+describe('weekendFlightsToPath', () => {
+  it('builds route path from city', () => {
+    expect(weekendFlightsToPath({ code: 'BCN', name: 'Barcelona' })).toBe(
+      '/weekend-flights-to/barcelona-bcn'
+    );
+  });
+});
+
+describe('weekendFlightsToPathByCode', () => {
+  it('uses bare code when name is omitted', () => {
+    expect(weekendFlightsToPathByCode('BCN')).toBe('/weekend-flights-to/bcn');
+  });
+
+  it('builds canonical path when name is provided', () => {
+    expect(weekendFlightsToPathByCode('BCN', 'Barcelona')).toBe(
+      '/weekend-flights-to/barcelona-bcn'
     );
   });
 });

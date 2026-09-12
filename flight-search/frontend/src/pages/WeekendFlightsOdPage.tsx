@@ -17,7 +17,8 @@ import {
   dayTripsFromPath,
   parseOdSlugs,
   weekendFlightsFromPath,
-  weekendFlightsOdPath
+  weekendFlightsOdPath,
+  weekendFlightsToPath
 } from '../utils/citySlug';
 import { SEO_PAGE_TYPES } from '../utils/seoPageContent';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
@@ -168,6 +169,13 @@ export function WeekendFlightsOdPage() {
           to={weekendFlightsFromPath(toCity)}
         >
           {t('weekendFlightsOd.seeAlsoFromCity', { city: toLabel })}
+        </LocalizedLink>
+        {' · '}
+        <LocalizedLink
+          locale={preferredIndexableLocale(locale, toCity.code, toCity.country)}
+          to={weekendFlightsToPath(toCity)}
+        >
+          {t('weekendFlightsFrom.seeAlsoFlightsToCity', { city: toLabel })}
         </LocalizedLink>
         {' · '}
         <LocalizedLink

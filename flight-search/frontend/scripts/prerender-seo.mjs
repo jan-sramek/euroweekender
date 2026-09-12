@@ -879,6 +879,13 @@ async function main() {
               label: t(locale, 'weekendFlightsFrom.seeAlsoDayTripsFromCity', vars)
             },
             {
+              href: `${SITE_URL}${localizedPath(
+                preferredIndexableLocaleForHub(locale, hub),
+                `/weekend-flights-to/${slug}`
+              )}`,
+              label: t(locale, 'weekendFlightsFrom.seeAlsoFlightsToCity', vars)
+            },
+            {
               href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
               label: t(locale, 'weekendFlightsFrom.seeAlsoCheapest')
             }
@@ -889,6 +896,72 @@ async function main() {
             { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
             {
               name: t(locale, 'weekendFlightsFrom.tagline', vars),
+              url: `${SITE_URL}${localizedPath(locale, routePath)}`
+            }
+          ]),
+          faqPageJsonLd(faqItems)
+        ]
+      });
+      writePage(`${locale}${routePath}`, html);
+      pageCount += 1;
+    }
+  }
+
+  // weekend-flights-to: popular destinations × all UI locales (non-local languages are noindex).
+  const hubsByCode = new Map(hubs.map(hub => [hub.code.toUpperCase(), hub]));
+  for (const destination of popularDestinations) {
+    const hubMatch = hubsByCode.get(String(destination.code || '').toUpperCase());
+    const dest = hubMatch ? { ...destination, country: hubMatch.country } : destination;
+    const slug = buildCitySlug(dest);
+    const routePath = `/weekend-flights-to/${slug}`;
+    const indexLocales = indexableLocalesForHub(dest);
+
+    for (const locale of LOCALES) {
+      const vars = { city: dest.name };
+      const unique = lookupSeoPageContent(
+        pageContentSnapshot,
+        SEO_PAGE_TYPES.weekendTo,
+        dest.code,
+        '',
+        locale
+      );
+      const faqItems = unique?.faq?.length ? unique.faq : t(locale, 'weekendFlightsTo.faq', vars);
+      const paragraphs = unique?.paragraphs?.length
+        ? [...unique.paragraphs]
+        : [t(locale, 'weekendFlightsTo.seoBlock', vars)];
+
+      const html = renderPage(template, {
+        locale,
+        routePath,
+        title: t(locale, 'meta.weekendFlightsTo.title', vars),
+        description: unique?.metaDescription || t(locale, 'meta.weekendFlightsTo.description', vars),
+        h1: t(locale, 'weekendFlightsTo.title', vars),
+        lead: unique?.lead || t(locale, 'weekendFlightsTo.lead', vars),
+        paragraphs,
+        faqTitle: t(locale, 'weekendFlightsTo.faqTitle', vars),
+        faqItems: Array.isArray(faqItems) ? faqItems : [],
+        indexLocales,
+        linkGroupsHtml: [
+          hubLinks(locale, hubs, { excludeCode: dest.code, dealSnapshot }),
+          renderLinkGroup(t(locale, 'footer.explore'), [
+            {
+              href: `${SITE_URL}${localizedPath(
+                preferredIndexableLocaleForHub(locale, dest),
+                `/weekend-flights-from/${slug}`
+              )}`,
+              label: t(locale, 'weekendFlightsTo.seeAlsoFromCity', vars)
+            },
+            {
+              href: `${SITE_URL}${localizedPath(locale, '/cheapest-weekend')}`,
+              label: t(locale, 'weekendFlightsFrom.seeAlsoCheapest')
+            }
+          ])
+        ],
+        jsonLdBlocks: [
+          breadcrumbListJsonLd([
+            { name: t(locale, 'nav.home'), url: `${SITE_URL}${localizedPath(locale, '/')}` },
+            {
+              name: t(locale, 'weekendFlightsTo.tagline', vars),
               url: `${SITE_URL}${localizedPath(locale, routePath)}`
             }
           ]),

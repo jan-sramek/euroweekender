@@ -4,6 +4,7 @@
  */
 export const SEO_PAGE_TYPES = {
   weekendFrom: 'weekend-from',
+  weekendTo: 'weekend-to',
   dayTripsFrom: 'day-trips-from',
   weekendOd: 'weekend-od'
 };

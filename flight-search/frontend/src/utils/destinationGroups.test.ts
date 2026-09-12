@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Flight } from '../types/flight';
-import { groupFlightsByDestination } from './destinationGroups';
+import { groupFlightsByDestination, groupFlightsByOrigin } from './destinationGroups';
 
 function flight(overrides: Partial<Flight>): Flight {
   return {
@@ -57,5 +57,43 @@ describe('groupFlightsByDestination', () => {
 
   it('skips rows without a destination city code', () => {
     expect(groupFlightsByDestination([flight({ cityCodeTo: '  ' })])).toEqual([]);
+  });
+});
+
+describe('groupFlightsByOrigin', () => {
+  it('groups by origin city and keeps the cheapest fare', () => {
+    const groups = groupFlightsByOrigin([
+      flight({ id: 1, fareAdults: 90, price: 90 }),
+      flight({
+        id: 2,
+        fareAdults: 70,
+        price: 70,
+        flyFrom: 'VIE',
+        cityCodeFrom: 'VIE',
+        cityFrom: 'Vienna',
+        countryFrom: 'Austria'
+      }),
+      flight({
+        id: 3,
+        fareAdults: 120,
+        price: 120,
+        flyFrom: 'VIE',
+        cityCodeFrom: 'VIE',
+        cityFrom: 'Vienna',
+        countryFrom: 'Austria'
+      })
+    ]);
+
+    expect(groups).toHaveLength(2);
+    expect(groups[0]?.cityCode).toBe('VIE');
+    expect(groups[0]?.minPrice).toBe(70);
+    expect(groups[0]?.offerCount).toBe(2);
+    expect(groups[0]?.toCode).toBe('BCN');
+    expect(groups[1]?.cityCode).toBe('PRG');
+    expect(groups[1]?.offerCount).toBe(1);
+  });
+
+  it('skips rows without an origin city code', () => {
+    expect(groupFlightsByOrigin([flight({ cityCodeFrom: '  ' })])).toEqual([]);
   });
 });

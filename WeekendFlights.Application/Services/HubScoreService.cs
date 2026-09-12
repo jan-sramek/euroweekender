@@ -65,4 +65,26 @@ public sealed class HubScoreService(
             limit,
             cancellationToken);
     }
+
+    public async Task<IReadOnlyList<OriginDestinationStats>> GetTopOriginsAsync(
+        string cityCodeTo,
+        int weeksAhead,
+        int limit,
+        CancellationToken cancellationToken = default)
+    {
+        weeksAhead = Math.Clamp(weeksAhead, 1, 12);
+        limit = Math.Clamp(limit, 1, 50);
+        var code = cityCodeTo.Trim().ToUpperInvariant();
+        if (code.Length == 0)
+            return Array.Empty<OriginDestinationStats>();
+
+        var departFromUtc = DateTime.UtcNow;
+        var departToUtc = departFromUtc.AddDays(weeksAhead * 7);
+        return await flightRepository.GetTopOriginsIntoDestinationAsync(
+            code,
+            departFromUtc,
+            departToUtc,
+            limit,
+            cancellationToken);
+    }
 }

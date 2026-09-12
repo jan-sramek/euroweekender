@@ -3,15 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Navigate, useParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
-import { DestinationCityGrid } from '../components/DestinationCityGrid';
 import { FlightCard } from '../components/FlightCard';
 import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
 import { ResultsViewToggle } from '../components/ResultsViewToggle';
 import { LoadingIndicator } from '../components/LoadingIndicator';
-import { HomeEmptyDeals } from '../components/HomeEmptyDeals';
-import { SeoDestinationLinks } from '../components/SeoDestinationLinks';
+import { OriginCityGrid } from '../components/OriginCityGrid';
 import { SeoHubLinks } from '../components/SeoHubLinks';
+import { SeoOriginLinks } from '../components/SeoOriginLinks';
 import { SiteFooter } from '../components/SiteFooter';
 import { WeekendPicker } from '../components/WeekendPicker';
 import { LocalizedLink } from '../components/LocalizedLink';
@@ -24,9 +23,9 @@ import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
-import { SEO_POPULAR_DESTINATIONS } from '../data/seoPopularRoutes';
+import { SEO_HUB_CITIES } from '../data/seoHubCities';
 import { useSeoPageContent } from '../hooks/useSeoPageContent';
-import { getHubScores, getTopDestinations } from '../services/api';
+import { getTopOrigins } from '../services/api';
 import { findCityByCode } from '../services/locationPrefill';
 import {
   DEFAULT_WEEKEND_MONTHS,
@@ -42,7 +41,6 @@ import { NO_EVENING_FILTERS } from '../services/weekendFilter';
 import { getCityDisplayName } from '../utils/cityDisplayName';
 import {
   buildCitySlug,
-  dayTripsFromPath,
   parseCityCodeFromSlug,
   weekendFlightsFromPath,
   weekendFlightsToPath
@@ -51,7 +49,7 @@ import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
 import { typicalHopRange } from '../utils/routeFacts';
 import { SEO_PAGE_TYPES } from '../utils/seoPageContent';
 import { breadcrumbListJsonLd, faqPageJsonLd } from '../utils/seoSchema';
-import type { City, HubScore, OriginDestination } from '../types/city';
+import type { City, OriginDestination } from '../types/city';
 import type { WeekendPatternId } from '../types/weekend';
 import { NotFoundPage } from './NotFoundPage';
 import '../layouts/ContentPageLayout.css';
@@ -77,17 +75,13 @@ function buildLocationLabel(
   });
 }
 
-export function WeekendFlightsFromCityPage() {
+export function WeekendFlightsToCityPage() {
   const { t, i18n } = useTranslation();
   const locale = useLocale();
   const { citySlug } = useParams<{ citySlug: string }>();
   const { path } = useLocalizedPath();
   const weekendPatterns = useWeekendPatterns();
   const parsedCode = parseCityCodeFromSlug(citySlug);
-  const preferredCodes = useMemo(
-    () => (parsedCode ? [parsedCode] : null),
-    [parsedCode]
-  );
 
   const {
     allCities,
@@ -98,7 +92,11 @@ export function WeekendFlightsFromCityPage() {
     localizeCityCodes,
     locating,
     errorMessage
-  } = useDeparturePrefill({ preferredCodes });
+  } = useDeparturePrefill({
+    localizeCodes: parsedCode ? [parsedCode] : null,
+    disableAutoSelect: true,
+    nearbyAnchorCode: parsedCode
+  });
 
   const city = useMemo(
     () => (parsedCode ? findCityByCode(allCities, parsedCode) : undefined),
@@ -111,33 +109,24 @@ export function WeekendFlightsFromCityPage() {
     () => indexableLocalesForOrigin(parsedCode, city?.country),
     [parsedCode, city?.country]
   );
-  const uniqueContent = useSeoPageContent(SEO_PAGE_TYPES.weekendFrom, parsedCode, undefined, locale);
+  const uniqueContent = useSeoPageContent(SEO_PAGE_TYPES.weekendTo, parsedCode, undefined, locale);
 
   usePageMeta(
-    t('meta.weekendFlightsFrom.title', { city: metaCity }),
-    uniqueContent?.metaDescription || t('meta.weekendFlightsFrom.description', { city: metaCity }),
-    city ? weekendFlightsFromPath(city) : '/404',
+    t('meta.weekendFlightsTo.title', { city: metaCity }),
+    uniqueContent?.metaDescription || t('meta.weekendFlightsTo.description', { city: metaCity }),
+    city ? weekendFlightsToPath(city) : '/404',
     { indexLocales }
   );
 
-  const [hubScore, setHubScore] = useState<HubScore | null>(null);
-  const [topDestinations, setTopDestinations] = useState<OriginDestination[]>([]);
+  const [topOrigins, setTopOrigins] = useState<OriginDestination[]>([]);
 
   useEffect(() => {
     if (!parsedCode) return;
     let cancelled = false;
 
-    void getHubScores().then(
-      scores => {
-        if (cancelled) return;
-        setHubScore(scores.find(score => score.code.toUpperCase() === parsedCode) ?? null);
-      },
-      () => undefined
-    );
-
-    void getTopDestinations(parsedCode).then(
-      destinations => {
-        if (!cancelled) setTopDestinations(destinations);
+    void getTopOrigins(parsedCode).then(
+      origins => {
+        if (!cancelled) setTopOrigins(origins);
       },
       () => undefined
     );
@@ -182,6 +171,7 @@ export function WeekendFlightsFromCityPage() {
     returnLegFilter
   } = useFlightSearch({
     selectedCodes,
+    destinationCode: parsedCode,
     weekends,
     selectedWeekendIds,
     selectedPatterns,
@@ -190,7 +180,7 @@ export function WeekendFlightsFromCityPage() {
     locating
   });
 
-  const resultsResetKey = `${selectedCodes.slice().sort().join(',')}|${selectedWeekendIds.slice().sort().join('|')}`;
+  const resultsResetKey = `${parsedCode}|${selectedCodes.slice().sort().join(',')}|${selectedWeekendIds.slice().sort().join('|')}`;
   const {
     query: resultsQuery,
     setQuery: setResultsQuery,
@@ -226,6 +216,15 @@ export function WeekendFlightsFromCityPage() {
 
   const totalCount = flights.length;
 
+  const priceHint = useMemo(() => {
+    const priced = topOrigins.filter(origin => origin.minPrice > 0);
+    if (priced.length === 0) return null;
+    return {
+      minPrice: Math.min(...priced.map(origin => origin.minPrice)),
+      originCount: topOrigins.length
+    };
+  }, [topOrigins]);
+
   const handleSelectedWeekendIdsChange = (ids: string[]) => {
     setSelectedRangeMonths(null);
     setSelectedWeekendIds(ids);
@@ -260,7 +259,6 @@ export function WeekendFlightsFromCityPage() {
   }, [
     selectedWeekends.length,
     loadingFlights,
-    flights.length,
     hasLegFilter,
     visibleFlights.length,
     totalCount,
@@ -270,7 +268,7 @@ export function WeekendFlightsFromCityPage() {
   const faqItems = useMemo(() => {
     if (uniqueContent?.faq?.length) return uniqueContent.faq;
     if (!cityLabel) return [];
-    return (t('weekendFlightsFrom.faq', { city: cityLabel, returnObjects: true }) as Array<{
+    return (t('weekendFlightsTo.faq', { city: cityLabel, returnObjects: true }) as Array<{
       q: string;
       a: string;
     }>) ?? [];
@@ -278,12 +276,12 @@ export function WeekendFlightsFromCityPage() {
 
   const hopRange = useMemo(() => {
     if (!city) return null;
-    const fromApi = topDestinations
-      .map(dest => findCityByCode(allCities, dest.code))
+    const fromApi = topOrigins
+      .map(origin => findCityByCode(allCities, origin.code))
       .filter((item): item is City => item != null);
-    const destCities = fromApi.length > 0 ? fromApi : SEO_POPULAR_DESTINATIONS;
-    return typicalHopRange(city, destCities);
-  }, [city, topDestinations, allCities]);
+    const originCities = fromApi.length > 0 ? fromApi : SEO_HUB_CITIES;
+    return typicalHopRange(city, originCities);
+  }, [city, topOrigins, allCities]);
 
   useJsonLd(faqItems.length > 0 ? faqPageJsonLd(faqItems) : null);
 
@@ -291,7 +289,7 @@ export function WeekendFlightsFromCityPage() {
     if (!city) return null;
     return breadcrumbListJsonLd([
       { name: t('nav.home'), path: path('/') },
-      { name: t('weekendFlightsFrom.tagline', { city: cityLabel }), path: path(weekendFlightsFromPath(city)) }
+      { name: t('weekendFlightsTo.tagline', { city: cityLabel }), path: path(weekendFlightsToPath(city)) }
     ]);
   }, [city, cityLabel, path, t]);
 
@@ -321,7 +319,7 @@ export function WeekendFlightsFromCityPage() {
 
   const canonicalSlug = buildCitySlug(city);
   if (citySlug?.toLowerCase() !== canonicalSlug) {
-    return <Navigate to={path(weekendFlightsFromPath(city))} replace />;
+    return <Navigate to={path(weekendFlightsToPath(city))} replace />;
   }
 
   return (
@@ -331,18 +329,18 @@ export function WeekendFlightsFromCityPage() {
       <section className="home-intro">
         <div className="intro-overlay">
           <div className="container container-wide intro-copy">
-            <p className="intro-eyebrow">{t('weekendFlightsFrom.tagline', { city: cityLabel })}</p>
-            <h1>{t('weekendFlightsFrom.title', { city: cityLabel })}</h1>
-            <p className="intro-subtitle">{t('weekendFlightsFrom.subtitle', { city: cityLabel })}</p>
+            <p className="intro-eyebrow">{t('weekendFlightsTo.tagline', { city: cityLabel })}</p>
+            <h1>{t('weekendFlightsTo.title', { city: cityLabel })}</h1>
+            <p className="intro-subtitle">{t('weekendFlightsTo.subtitle', { city: cityLabel })}</p>
             <p className="intro-lead">
-              {uniqueContent?.lead || t('weekendFlightsFrom.lead', { city: cityLabel })}
+              {uniqueContent?.lead || t('weekendFlightsTo.lead', { city: cityLabel })}
             </p>
-            {hubScore && hubScore.minPrice > 0 && hubScore.destinationCount > 0 ? (
+            {priceHint ? (
               <p className="intro-lead">
-                {t('weekendFlightsFrom.priceHint', {
+                {t('weekendFlightsTo.priceHint', {
                   city: cityLabel,
-                  minPrice: Math.round(hubScore.minPrice),
-                  destinationCount: hubScore.destinationCount
+                  minPrice: Math.round(priceHint.minPrice),
+                  originCount: priceHint.originCount
                 })}
               </p>
             ) : null}
@@ -359,6 +357,8 @@ export function WeekendFlightsFromCityPage() {
                     locationLabel={locationLabel}
                     onSelectedCodesChange={setSelectedCodes}
                     onAddCity={handleAddCity}
+                    allowEmpty
+                    reserveChipSlot
                   />
                 </div>
 
@@ -401,9 +401,10 @@ export function WeekendFlightsFromCityPage() {
           {selectedWeekends.length > 0 && (
             <div className="offers-header">
               <p className="offers-subtitle">
-                {t('home.fromSelectedAirports', {
-                  airports: locationLabel || t('home.selectedAirports')
-                })}{' '}
+                {t('weekendFlightsTo.intoCity', { city: cityLabel })}
+                {locationLabel
+                  ? ` · ${t('home.fromSelectedAirports', { airports: locationLabel })}`
+                  : ` · ${t('weekendFlightsTo.allOrigins')}`}{' '}
                 · {passengerCount}{' '}
                 {passengerCount === 1 ? t('home.person') : t('home.persons')} ·{' '}
                 {formatTripTypesLabel(translatedSelectedPatterns, t('home.allTripTypes'))}
@@ -431,11 +432,6 @@ export function WeekendFlightsFromCityPage() {
           ) : flights.length === 0 ? (
             <div className="state-box state-box-empty">
               <p>{t('home.noFlights')}</p>
-              <HomeEmptyDeals
-                allCities={allCities}
-                language={i18n.language}
-                originCodes={[city.code]}
-              />
             </div>
           ) : visibleFlights.length === 0 ? (
             <div className="state-box">
@@ -479,7 +475,7 @@ export function WeekendFlightsFromCityPage() {
                 </div>
               </div>
               {resultsView === 'cities' ? (
-                <DestinationCityGrid
+                <OriginCityGrid
                   flights={filteredFlights}
                   citiesByCode={citiesByCode}
                   passengerCount={passengerCount}
@@ -505,14 +501,14 @@ export function WeekendFlightsFromCityPage() {
         </div>
       </section>
 
-      <section className="home-seo" aria-labelledby="weekend-from-seo-title">
+      <section className="home-seo" aria-labelledby="weekend-to-seo-title">
         <div className="container container-wide">
-          <h2 id="weekend-from-seo-title" className="home-seo-title">
-            {uniqueContent?.heading || t('weekendFlightsFrom.seoTitle', { city: cityLabel })}
+          <h2 id="weekend-to-seo-title" className="home-seo-title">
+            {uniqueContent?.heading || t('weekendFlightsTo.seoTitle', { city: cityLabel })}
           </h2>
           {(uniqueContent?.paragraphs?.length
             ? uniqueContent.paragraphs
-            : [t('weekendFlightsFrom.seoBlock', { city: cityLabel })]
+            : [t('weekendFlightsTo.seoBlock', { city: cityLabel })]
           ).map(text => (
             <p key={text.slice(0, 48)} className="home-seo-text">
               {text}
@@ -528,11 +524,11 @@ export function WeekendFlightsFromCityPage() {
           {hopRange ? (
             <p className="home-seo-text">
               {hopRange.minMinutes === hopRange.maxMinutes
-                ? t('weekendFlightsFrom.hopHintSingle', {
+                ? t('weekendFlightsTo.hopHintSingle', {
                     city: cityLabel,
                     duration: hopRange.minDurationLabel
                   })
-                : t('weekendFlightsFrom.hopHintRange', {
+                : t('weekendFlightsTo.hopHintRange', {
                     city: cityLabel,
                     durationMin: hopRange.minDurationLabel,
                     durationMax: hopRange.maxDurationLabel
@@ -540,9 +536,9 @@ export function WeekendFlightsFromCityPage() {
             </p>
           ) : null}
 
-          <SeoDestinationLinks
-            fromCity={city}
-            destinations={topDestinations}
+          <SeoOriginLinks
+            toCity={city}
+            origins={topOrigins}
             allCities={allCities}
             language={i18n.language}
           />
@@ -552,26 +548,17 @@ export function WeekendFlightsFromCityPage() {
           <p className="home-seo-links">
             <LocalizedLink to="/cheapest-weekend">{t('weekendFlightsFrom.seeAlsoCheapest')}</LocalizedLink>
             {' · '}
-            <LocalizedLink to="/single-day-trips">{t('weekendFlightsFrom.seeAlsoDayTrips')}</LocalizedLink>
-            {' · '}
             <LocalizedLink
               locale={preferredIndexableLocale(locale, city.code, city.country)}
-              to={dayTripsFromPath(city)}
+              to={weekendFlightsFromPath(city)}
             >
-              {t('weekendFlightsFrom.seeAlsoDayTripsFromCity', { city: cityLabel })}
-            </LocalizedLink>
-            {' · '}
-            <LocalizedLink
-              locale={preferredIndexableLocale(locale, city.code, city.country)}
-              to={weekendFlightsToPath(city)}
-            >
-              {t('weekendFlightsFrom.seeAlsoFlightsToCity', { city: cityLabel })}
+              {t('weekendFlightsTo.seeAlsoFromCity', { city: cityLabel })}
             </LocalizedLink>
           </p>
 
           {faqItems.length > 0 ? (
             <div className="faq-list">
-              <h3 className="home-seo-title">{t('weekendFlightsFrom.faqTitle', { city: cityLabel })}</h3>
+              <h3 className="home-seo-title">{t('weekendFlightsTo.faqTitle', { city: cityLabel })}</h3>
               {faqItems.map(item => (
                 <section key={item.q} className="faq-item">
                   <h2>{item.q}</h2>

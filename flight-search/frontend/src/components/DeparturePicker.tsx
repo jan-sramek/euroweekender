@@ -23,6 +23,8 @@ interface DeparturePickerProps {
   onAddCity: (city: City) => void;
   /** When true, selecting an airport replaces the current one (exactly one origin). */
   singleSelect?: boolean;
+  /** Allow clearing every selected airport (inbound destination hubs). */
+  allowEmpty?: boolean;
   /** Keep a chip-row height even when nothing is selected so paired fields stay aligned. */
   reserveChipSlot?: boolean;
   /** Show the nearby airport chip row under the search field. */
@@ -51,6 +53,7 @@ export function DeparturePicker({
   onSelectedCodesChange,
   onAddCity,
   singleSelect = false,
+  allowEmpty = false,
   reserveChipSlot = false,
   showNearbyAirports = true
 }: DeparturePickerProps) {
@@ -121,8 +124,8 @@ export function DeparturePicker({
   }, []);
 
   const removeCity = (code: string) => {
-    if (singleSelect) {
-      onSelectedCodesChange([]);
+    if (singleSelect || allowEmpty) {
+      onSelectedCodesChange(selectedCodes.filter(c => c !== code));
       return;
     }
     if (selectedCodes.length === 1) return;
@@ -155,9 +158,11 @@ export function DeparturePicker({
       ? selectedCities.length > 0
         ? t('search.changeDepartureAirport')
         : t('search.chooseDepartureAirport')
-      : locationLabel
-        ? t('search.fromLocationAdd', { location: locationLabel })
-        : t('search.addAirport');
+      : allowEmpty && selectedCities.length === 0
+        ? t('search.filterDepartureOptional')
+        : locationLabel
+          ? t('search.fromLocationAdd', { location: locationLabel })
+          : t('search.addAirport');
 
   return (
     <div className="departure-picker">
@@ -183,7 +188,7 @@ export function DeparturePicker({
                   type="button"
                   className="chip-remove"
                   aria-label={t('search.removeAirport', { name: getCityDisplayName(city, language) })}
-                  disabled={!singleSelect && selectedCodes.length === 1}
+                  disabled={!singleSelect && !allowEmpty && selectedCodes.length === 1}
                   onClick={() => removeCity(city.code)}
                 >
                   ×

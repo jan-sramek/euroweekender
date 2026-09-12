@@ -1,6 +1,7 @@
 /**
  * Regenerates the programmatic SEO sections of sitemap.xml (idempotent):
  *   - weekend-flights-from/{slug}   (hubs × English + local language)
+ *   - weekend-flights-to/{slug}     (popular destinations × English + local language)
  *   - day-trips-from/{slug}         (hubs × English + local language)
  *   - weekend-flights/{from-to-to}  (first 40 hubs × first 12 popular destinations,
  *                                    origin English + local language, from != to)
@@ -91,6 +92,7 @@ const popularDestinations = JSON.parse(fs.readFileSync(popularDestinationsPath, 
 let xml = fs.readFileSync(sitemapPath, 'utf8');
 
 xml = xml.replace(/\n\s*<url>\s*\n\s*<loc>[^<]*\/weekend-flights-from\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
+xml = xml.replace(/\n\s*<url>\s*\n\s*<loc>[^<]*\/weekend-flights-to\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
 xml = xml.replace(/\n\s*<url>\s*\n\s*<loc>[^<]*\/day-trips-from\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
 xml = xml.replace(/\n\s*<url>\s*\n\s*<loc>[^<]*\/weekend-flights\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
 
@@ -98,6 +100,14 @@ const blocks = [];
 
 const fromCount = addCityLocaleBlocks(blocks, hubs, 'weekend-flights-from');
 console.log('weekend-flights-from entries:', fromCount);
+
+const hubsByCode = new Map(hubs.map(hub => [hub.code.toUpperCase(), hub]));
+const inboundDestinations = popularDestinations.map(destination => {
+  const hub = hubsByCode.get(String(destination.code || '').toUpperCase());
+  return hub ? { ...destination, country: hub.country } : destination;
+});
+const toCount = addCityLocaleBlocks(blocks, inboundDestinations, 'weekend-flights-to');
+console.log('weekend-flights-to entries:', toCount);
 
 const dayCount = addCityLocaleBlocks(blocks, hubs, 'day-trips-from');
 console.log('day-trips-from entries:', dayCount);

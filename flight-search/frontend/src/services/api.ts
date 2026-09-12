@@ -24,9 +24,11 @@ const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
 const TOP_DESTINATIONS_CACHE_PREFIX = 'ew:top-destinations:v2:';
+const TOP_ORIGINS_CACHE_PREFIX = 'ew:top-origins:v1:';
 const TOP_DESTINATIONS_CACHE_TTL_MS = 15 * 60 * 1000;
 
 function searchPageSize(cityCount: number): number {
+  if (cityCount <= 0) return MAX_SEARCH_FLIGHTS;
   if (cityCount <= 1) return SINGLE_CITY_PAGE_SIZE;
   return Math.min(MAX_SEARCH_FLIGHTS, cityCount * FLIGHTS_PER_CITY);
 }
@@ -76,24 +78,25 @@ export async function searchFlightsForWeekends(
   nightsInDest?: number | readonly number[],
   onPartial?: (flights: Flight[]) => void
 ): Promise<Flight[]> {
-  if (weekends.length === 0 || cityCodeFrom.length === 0) {
+  if (weekends.length === 0) {
     return [];
   }
 
   const uniqueCities = [...new Set(cityCodeFrom.map(code => code.trim().toUpperCase()).filter(Boolean))];
-  if (uniqueCities.length === 0) return [];
+  const destination = cityCodeTo?.trim().toUpperCase() || undefined;
+  if (uniqueCities.length === 0 && !destination) return [];
 
   const chunks = chunkWeekendWindows(weekends, WEEKEND_SEARCH_CHUNK_SIZE);
   if (chunks.length === 0) return [];
 
   const nightFilters = normalizeNightsFilters(nightsInDest);
   const pageSize = chunkPageSize(uniqueCities.length, chunks.length);
-  const destinationSearch = Boolean(cityCodeTo);
+  const destinationSearch = Boolean(destination);
 
   const firstPages = await Promise.all(
     chunks.flatMap(chunk =>
       nightFilters.map(nights =>
-        fetchWeekendChunk(uniqueCities, chunk, cityCodeTo, nights, pageSize, signal)
+        fetchWeekendChunk(uniqueCities, chunk, destination, nights, pageSize, signal)
       )
     )
   );
@@ -116,7 +119,7 @@ export async function searchFlightsForWeekends(
             fetchWeekendChunk(
               uniqueCities,
               chunk,
-              cityCodeTo,
+              destination,
               nights,
               CHEAP_BAND_PAGE_SIZE,
               signal,
@@ -469,6 +472,31 @@ export async function getTopDestinations(
   return destinations;
 }
 
+/** Top origins flying into a destination, ranked by cheap-offer count. */
+export async function getTopOrigins(
+  code: string,
+  weeks = 4,
+  limit = 50
+): Promise<OriginDestination[]> {
+  const normalized = code.trim().toUpperCase();
+  if (!normalized) return [];
+
+  const cacheKey = `${TOP_ORIGINS_CACHE_PREFIX}${normalized}:${weeks}:${limit}`;
+  const cached = readTopDestinationsCache(cacheKey);
+  if (cached) return cached;
+
+  const response = await fetch(
+    `${API_BASE}/cities/${normalized}/top-origins?weeks=${weeks}&limit=${limit}`
+  );
+  if (!response.ok) {
+    throw new Error(`Failed to load top origins (${response.status})`);
+  }
+  const payload = (await response.json()) as Record<string, unknown>[];
+  const origins = payload.map(normalizeOriginDestination).filter(d => d.code.length > 0);
+  writeTopDestinationsCache(cacheKey, origins);
+  return origins;
+}
+
 function readTopDestinationsCache(cacheKey: string): OriginDestination[] | null {
   try {
     const raw = sessionStorage.getItem(cacheKey);
@@ -500,13 +528,17 @@ function writeTopDestinationsCache(cacheKey: string, destinations: OriginDestina
 
 export async function searchFlights(params: FlightSearchParams): Promise<FlightPage> {
   const query = new URLSearchParams({
-    cityCodeFrom: params.cityCodeFrom.join(','),
     departFromUtc: params.departFromUtc.toISOString(),
     departToUtc: params.departToUtc.toISOString(),
     page: String(params.page ?? 1),
     pageSize: String(params.pageSize ?? 50),
     includeTotal: String(params.includeTotal ?? false)
   });
+
+  const origins = params.cityCodeFrom.map(code => code.trim().toUpperCase()).filter(Boolean);
+  if (origins.length > 0) {
+    query.set('cityCodeFrom', origins.join(','));
+  }
 
   const destination = params.cityCodeTo?.trim().toUpperCase();
   if (destination) {

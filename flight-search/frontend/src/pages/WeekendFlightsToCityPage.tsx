@@ -93,7 +93,9 @@ export function WeekendFlightsToCityPage() {
     locating,
     errorMessage
   } = useDeparturePrefill({
-    localizeCodes: parsedCode ? [parsedCode] : null
+    localizeCodes: parsedCode ? [parsedCode] : null,
+    disableAutoSelect: true,
+    excludeNearbyCode: parsedCode
   });
 
   const city = useMemo(

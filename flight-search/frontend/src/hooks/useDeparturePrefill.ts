@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import i18n from '../i18n';
 import { getCachedHubScores, getCities, getHubScores } from '../services/api';
-import { resolveUserPosition } from '../services/geolocation';
+import { resolveUserPosition, type GeoPosition } from '../services/geolocation';
 import {
   findCityByCode,
   rankNearbyCities,
@@ -54,6 +54,18 @@ function updateNearbySuggestions(
   );
 }
 
+function nearbyFromPosition(
+  cities: City[],
+  scores: HubScore[],
+  position: GeoPosition,
+  excludeCode?: string
+): CityWithDistance[] {
+  const excluded = (excludeCode ?? '').trim().toUpperCase();
+  return rankNearbyCities(cities, position, scores).filter(
+    city => !excluded || city.code.toUpperCase() !== excluded
+  );
+}
+
 function resolveStoredOrigins(cities: City[], stored: string[] | null): string[] {
   if (!stored || stored.length === 0) return [];
   return stored.filter(code => Boolean(findCityByCode(cities, code)));
@@ -67,6 +79,8 @@ export function useDeparturePrefill(options?: {
   disableAutoSelect?: boolean;
   /** Anchor nearby suggestions on this city when no origin is selected. */
   nearbyAnchorCode?: string | null;
+  /** Exclude this city from nearby suggestions (e.g. the destination on inbound hubs). */
+  excludeNearbyCode?: string | null;
 }) {
   const preferredKey = (options?.preferredCodes ?? [])
     .map(code => code.trim().toUpperCase())
@@ -78,6 +92,7 @@ export function useDeparturePrefill(options?: {
     .join('|');
   const disableAutoSelect = Boolean(options?.disableAutoSelect);
   const nearbyAnchorCode = (options?.nearbyAnchorCode ?? '').trim().toUpperCase();
+  const excludeNearbyCode = (options?.excludeNearbyCode ?? '').trim().toUpperCase();
   const locale = useLocale();
   const [allCities, setAllCities] = useState<City[]>([]);
   const [nearbyCities, setNearbyCities] = useState<CityWithDistance[]>([]);
@@ -89,6 +104,7 @@ export function useDeparturePrefill(options?: {
   const [errorMessage, setErrorMessage] = useState('');
 
   const hubScoresRef = useRef<HubScore[]>([]);
+  const userPositionRef = useRef<GeoPosition | null>(null);
   const defaultsInitializedRef = useRef(false);
 
   const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
@@ -100,6 +116,17 @@ export function useDeparturePrefill(options?: {
 
     setNearbyCities(updateNearbySuggestions(cities, scores, anchorCity));
   }, []);
+
+  const refreshNearbyFromUserPosition = useCallback(
+    (cities: City[], scores: HubScore[], position: GeoPosition | null) => {
+      if (!position) {
+        setNearbyCities([]);
+        return;
+      }
+      setNearbyCities(nearbyFromPosition(cities, scores, position, excludeNearbyCode));
+    },
+    [excludeNearbyCode]
+  );
 
   const applyDefaults = useCallback(
     (cities: City[], codes: string[], scores: HubScore[]) => {
@@ -130,7 +157,7 @@ export function useDeparturePrefill(options?: {
     });
   }, []);
 
-  /** Prefer the page-city anchor (inbound hubs) over any selected origin filter. */
+  /** Prefer the page-city anchor when set; otherwise the first selected origin. */
   const nearbyPrimaryCode = nearbyAnchorCode || selectedCodes[0] || '';
 
   useResolveCityDisplayNames(
@@ -142,9 +169,23 @@ export function useDeparturePrefill(options?: {
   );
 
   useEffect(() => {
-    if (allCities.length === 0 || !nearbyPrimaryCode) return;
+    if (allCities.length === 0) return;
+
+    // Inbound hubs: keep nearby tied to the user's location, never auto-selected origins.
+    if (disableAutoSelect) {
+      refreshNearbyFromUserPosition(allCities, hubScoresRef.current, userPositionRef.current);
+      return;
+    }
+
+    if (!nearbyPrimaryCode) return;
     refreshHubSuggestions(allCities, hubScoresRef.current, nearbyPrimaryCode);
-  }, [allCities, nearbyPrimaryCode, refreshHubSuggestions]);
+  }, [
+    allCities,
+    nearbyPrimaryCode,
+    disableAutoSelect,
+    refreshHubSuggestions,
+    refreshNearbyFromUserPosition
+  ]);
 
   useEffect(() => {
     if (!defaultsInitializedRef.current || preferredKey || disableAutoSelect) return;
@@ -163,7 +204,7 @@ export function useDeparturePrefill(options?: {
       );
       const storedHint = preferredKey || disableAutoSelect ? null : readStoredOrigins();
       const positionPromise =
-        !preferredKey && !disableAutoSelect && !(storedHint && storedHint.length > 0)
+        !preferredKey && !(storedHint && storedHint.length > 0)
           ? resolveUserPosition()
           : null;
 
@@ -194,15 +235,20 @@ export function useDeparturePrefill(options?: {
 
         if (disableAutoSelect) {
           defaultsInitializedRef.current = true;
-          setLocating(false);
+          const position = await (positionPromise ?? resolveUserPosition());
+          if (cancelled) return;
+          userPositionRef.current = position;
+
           const result = await scoresPromise;
           if (cancelled) return;
-          if (!result.error) {
-            hubScoresRef.current = result.scores;
-            if (nearbyAnchorCode) {
-              refreshHubSuggestions(cities, result.scores, nearbyAnchorCode);
-            }
+          const scores = result.error ? [] : result.scores;
+          if (result.error) {
+            setErrorMessage(i18n.t('home.hubRankingWarning'));
+          } else {
+            hubScoresRef.current = scores;
           }
+          refreshNearbyFromUserPosition(cities, scores, position);
+          setLocating(false);
           return;
         }
 
@@ -226,6 +272,7 @@ export function useDeparturePrefill(options?: {
 
         const position = await (positionPromise ?? resolveUserPosition());
         if (cancelled) return;
+        userPositionRef.current = position;
 
         const cachedScores = getCachedHubScores();
         if (cachedScores && cachedScores.length > 0) {
@@ -271,7 +318,14 @@ export function useDeparturePrefill(options?: {
     return () => {
       cancelled = true;
     };
-  }, [preferredKey, refreshHubSuggestions, applyDefaults, disableAutoSelect, nearbyAnchorCode]);
+  }, [
+    preferredKey,
+    refreshHubSuggestions,
+    refreshNearbyFromUserPosition,
+    applyDefaults,
+    disableAutoSelect,
+    nearbyAnchorCode
+  ]);
 
   const citiesByCode = useMemo(() => indexCitiesByCode(allCities), [allCities]);
 

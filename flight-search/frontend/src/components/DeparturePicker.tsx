@@ -29,6 +29,8 @@ interface DeparturePickerProps {
   reserveChipSlot?: boolean;
   /** Show the nearby airport chip row under the search field. */
   showNearbyAirports?: boolean;
+  /** Geographic anchor for empty-query nearby suggestions (e.g. page city). */
+  nearbyAnchorCity?: City | null;
 }
 
 function formatNearby(city: CityWithDistance, language: string): string {
@@ -55,7 +57,8 @@ export function DeparturePicker({
   singleSelect = false,
   allowEmpty = false,
   reserveChipSlot = false,
-  showNearbyAirports = true
+  showNearbyAirports = true,
+  nearbyAnchorCity = null
 }: DeparturePickerProps) {
   const { t } = useTranslation();
   const language = useLocale();
@@ -84,7 +87,7 @@ export function DeparturePicker({
     [nearbyCities, selectedCodes]
   );
 
-  /** Empty-query dropdown: closest airports to the current origin first. */
+  /** Empty-query dropdown: closest airports to the page/selected city first. */
   const nearbyByDistance = useMemo(() => {
     if (nearbyNotSelected.length > 0) {
       return [...nearbyNotSelected].sort(
@@ -92,15 +95,20 @@ export function DeparturePicker({
       );
     }
 
-    const anchor = selectedCities[0];
+    const anchor = nearbyAnchorCity ?? selectedCities[0];
     if (!anchor) return [];
 
+    const excludeCodes = [
+      ...selectedCodes,
+      ...(nearbyAnchorCity ? [nearbyAnchorCity.code] : [])
+    ];
+
     return rankCitiesByDistance(allCities, anchor, {
-      excludeCodes: selectedCodes,
+      excludeCodes,
       limit: NEARBY_MAX_CITIES,
       radiusKm: NEARBY_RADIUS_KM
     });
-  }, [allCities, nearbyNotSelected, selectedCities, selectedCodes]);
+  }, [allCities, nearbyNotSelected, nearbyAnchorCity, selectedCities, selectedCodes]);
 
   const trimmedQuery = query.trim();
   const showSearchResults = open && trimmedQuery.length >= 1;

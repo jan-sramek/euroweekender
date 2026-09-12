@@ -48,7 +48,10 @@ function updateNearbySuggestions(
   anchorCity: City
 ): CityWithDistance[] {
   const anchor = { latitude: anchorCity.latitude, longitude: anchorCity.longitude };
-  return rankNearbyCities(cities, anchor, scores);
+  const anchorCode = anchorCity.code.toUpperCase();
+  return rankNearbyCities(cities, anchor, scores).filter(
+    city => city.code.toUpperCase() !== anchorCode
+  );
 }
 
 function resolveStoredOrigins(cities: City[], stored: string[] | null): string[] {
@@ -127,7 +130,8 @@ export function useDeparturePrefill(options?: {
     });
   }, []);
 
-  const primaryCode = selectedCodes[0] ?? nearbyAnchorCode;
+  /** Prefer the page-city anchor (inbound hubs) over any selected origin filter. */
+  const nearbyPrimaryCode = nearbyAnchorCode || selectedCodes[0] || '';
 
   useResolveCityDisplayNames(
     allCities,
@@ -138,9 +142,9 @@ export function useDeparturePrefill(options?: {
   );
 
   useEffect(() => {
-    if (allCities.length === 0 || !primaryCode) return;
-    refreshHubSuggestions(allCities, hubScoresRef.current, primaryCode);
-  }, [allCities, primaryCode, refreshHubSuggestions]);
+    if (allCities.length === 0 || !nearbyPrimaryCode) return;
+    refreshHubSuggestions(allCities, hubScoresRef.current, nearbyPrimaryCode);
+  }, [allCities, nearbyPrimaryCode, refreshHubSuggestions]);
 
   useEffect(() => {
     if (!defaultsInitializedRef.current || preferredKey || disableAutoSelect) return;

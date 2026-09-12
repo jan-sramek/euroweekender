@@ -359,6 +359,7 @@ export function WeekendFlightsToCityPage() {
                     onAddCity={handleAddCity}
                     allowEmpty
                     reserveChipSlot
+                    nearbyAnchorCity={city}
                   />
                 </div>
 

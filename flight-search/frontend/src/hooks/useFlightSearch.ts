@@ -130,7 +130,8 @@ export function useFlightSearch({
   }, [runSearch, searchKey, selectedCodesKey, selectedWeekends]);
 
   useEffect(() => {
-    if (locating || !searchKey || selectedWeekends.length === 0) return;
+    // Destination hubs can search with empty origins; don't wait on GPS/nearby.
+    if ((locating && !destinationKey) || !searchKey || selectedWeekends.length === 0) return;
 
     const controller = new AbortController();
     const codes = selectedCodesKey ? selectedCodesKey.split(',') : [];
@@ -145,7 +146,7 @@ export function useFlightSearch({
       controller.abort();
       searchGeneration.current += 1;
     };
-  }, [locating, searchKey, selectedCodesKey, selectedWeekends, runSearch]);
+  }, [locating, destinationKey, searchKey, selectedCodesKey, selectedWeekends, runSearch]);
 
   const handleDepartureLegSelect = (flight: Flight, selected: boolean) => {
     setDepartureLegFilter(selected ? getDepartureLegKey(flight) : null);

@@ -363,6 +363,10 @@ export function HomePage() {
                   flights={filteredFlights}
                   citiesByCode={citiesByCode}
                   passengerCount={passengerCount}
+                  departureLegFilter={departureLegFilter}
+                  returnLegFilter={returnLegFilter}
+                  onDepartureSelect={handleDepartureLegSelect}
+                  onReturnSelect={handleReturnLegSelect}
                 />
               ) : (
                 <div className="flight-list results-list">

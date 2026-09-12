@@ -21,7 +21,6 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { indexableLocalesForOrigin, preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useLocale, useLocalizedPath } from '../hooks/useLocale';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { useResultsViewMode } from '../hooks/useResultsViewMode';
 import { useWeekendPatterns } from '../hooks/useWeekendPatterns';
 import { SEO_HUB_CITIES } from '../data/seoHubCities';
 import { useSeoPageContent } from '../hooks/useSeoPageContent';
@@ -141,7 +140,7 @@ export function WeekendFlightsToCityPage() {
   const [passengerCount, setPassengerCount] = useState(1);
   const [selectedWeekendIds, setSelectedWeekendIds] = useState<string[]>([]);
   const [selectedRangeMonths, setSelectedRangeMonths] = useState<number | null>(DEFAULT_WEEKEND_MONTHS);
-  const [resultsView, setResultsView] = useResultsViewMode();
+  const [resultsView, setResultsView] = useState<'list' | 'cities'>('cities');
 
   const selectedPatterns = useMemo(
     () => getWeekendPatterns(selectedPatternIds),
@@ -479,6 +478,10 @@ export function WeekendFlightsToCityPage() {
                   flights={filteredFlights}
                   citiesByCode={citiesByCode}
                   passengerCount={passengerCount}
+                  departureLegFilter={departureLegFilter}
+                  returnLegFilter={returnLegFilter}
+                  onDepartureSelect={handleDepartureLegSelect}
+                  onReturnSelect={handleReturnLegSelect}
                 />
               ) : (
                 <div className="flight-list results-list">

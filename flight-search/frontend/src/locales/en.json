@@ -128,7 +128,7 @@
     "viewList": "Flights",
     "viewCities": "Cities",
     "viewListAria": "Show results as a flight list",
-    "viewCitiesAria": "Group results by destination city",
+    "viewCitiesAria": "Group results by city in expandable rows",
     "cityCardAria": "Compare weekends to {{city}}, from {{price}}",
     "cityOffers_one": "{{count}} deal",
     "cityOffers_other": "{{count}} deals"

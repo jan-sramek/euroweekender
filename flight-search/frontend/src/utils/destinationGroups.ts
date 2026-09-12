@@ -10,9 +10,10 @@ export interface DestinationGroup {
   minPrice: number;
   offerCount: number;
   cheapestFlight: Flight;
+  flights: Flight[];
 }
 
-/** One row per destination city, cheapest fare first. */
+/** One row per destination city, cheapest fare first; flights sorted by price. */
 export function groupFlightsByDestination(flights: Flight[]): DestinationGroup[] {
   const groups = new Map<string, DestinationGroup>();
 
@@ -31,12 +32,14 @@ export function groupFlightsByDestination(flights: Flight[]): DestinationGroup[]
         fromCity: flight.cityFrom,
         minPrice: price,
         offerCount: 1,
-        cheapestFlight: flight
+        cheapestFlight: flight,
+        flights: [flight]
       });
       continue;
     }
 
     existing.offerCount += 1;
+    existing.flights.push(flight);
     if (price < existing.minPrice) {
       existing.minPrice = price;
       existing.cityName = flight.cityTo;
@@ -47,10 +50,15 @@ export function groupFlightsByDestination(flights: Flight[]): DestinationGroup[]
     }
   }
 
-  return [...groups.values()].sort((a, b) => {
-    if (a.minPrice !== b.minPrice) return a.minPrice - b.minPrice;
-    return a.cityName.localeCompare(b.cityName);
-  });
+  return [...groups.values()]
+    .map(group => ({
+      ...group,
+      flights: [...group.flights].sort((a, b) => getPerPersonPrice(a) - getPerPersonPrice(b))
+    }))
+    .sort((a, b) => {
+      if (a.minPrice !== b.minPrice) return a.minPrice - b.minPrice;
+      return a.cityName.localeCompare(b.cityName);
+    });
 }
 
 export interface OriginGroup {
@@ -62,9 +70,10 @@ export interface OriginGroup {
   minPrice: number;
   offerCount: number;
   cheapestFlight: Flight;
+  flights: Flight[];
 }
 
-/** One row per origin city, cheapest fare first. */
+/** One row per origin city, cheapest fare first; flights sorted by price. */
 export function groupFlightsByOrigin(flights: Flight[]): OriginGroup[] {
   const groups = new Map<string, OriginGroup>();
 
@@ -83,12 +92,14 @@ export function groupFlightsByOrigin(flights: Flight[]): OriginGroup[] {
         toCity: flight.cityTo,
         minPrice: price,
         offerCount: 1,
-        cheapestFlight: flight
+        cheapestFlight: flight,
+        flights: [flight]
       });
       continue;
     }
 
     existing.offerCount += 1;
+    existing.flights.push(flight);
     if (price < existing.minPrice) {
       existing.minPrice = price;
       existing.cityName = flight.cityFrom;
@@ -99,8 +110,13 @@ export function groupFlightsByOrigin(flights: Flight[]): OriginGroup[] {
     }
   }
 
-  return [...groups.values()].sort((a, b) => {
-    if (a.minPrice !== b.minPrice) return a.minPrice - b.minPrice;
-    return a.cityName.localeCompare(b.cityName);
-  });
+  return [...groups.values()]
+    .map(group => ({
+      ...group,
+      flights: [...group.flights].sort((a, b) => getPerPersonPrice(a) - getPerPersonPrice(b))
+    }))
+    .sort((a, b) => {
+      if (a.minPrice !== b.minPrice) return a.minPrice - b.minPrice;
+      return a.cityName.localeCompare(b.cityName);
+    });
 }

@@ -263,6 +263,8 @@ public class WeekendFlightsDbContext : DbContext
         entity.HasIndex(f => new { f.CityCodeFrom, f.CityCodeTo });
         entity.HasIndex(f => f.UtcDeparture);
         entity.HasIndex(f => new { f.CityCodeFrom, f.UtcDeparture });
+        // Destination-only search (weekend-flights-to / top-origins).
+        entity.HasIndex(f => new { f.CityCodeTo, f.UtcDeparture });
     });
 }
     

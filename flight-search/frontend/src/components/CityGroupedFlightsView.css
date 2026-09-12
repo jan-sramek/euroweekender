@@ -1,0 +1,113 @@
+.city-grouped-flights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.city-grouped-item {
+  border-radius: 0.35rem;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(25, 44, 57, 0.08);
+  overflow: hidden;
+}
+
+.city-grouped-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border: 0;
+  background: transparent;
+  color: #192c39;
+  text-align: left;
+  cursor: pointer;
+}
+
+.city-grouped-row:hover,
+.city-grouped-row:focus-visible {
+  background: #f4f8f9;
+}
+
+.city-grouped-item.is-expanded .city-grouped-row {
+  border-bottom: 1px solid #e8eef2;
+}
+
+.city-grouped-row-place {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+  min-width: 0;
+}
+
+.city-grouped-row-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.city-grouped-row-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #04bfab;
+}
+
+.city-grouped-row-meta {
+  font-size: 0.8rem;
+  color: #8c959c;
+  white-space: nowrap;
+}
+
+.city-grouped-row-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #192c39;
+  white-space: nowrap;
+}
+
+.city-grouped-row-chevron {
+  width: 1rem;
+  color: #8c959c;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.city-grouped-flights-panel {
+  padding: 0.65rem 0.65rem 0.75rem;
+  background: #f7f9fb;
+}
+
+.city-grouped-flights-panel .results-list {
+  gap: 0.35rem;
+}
+
+@media (max-width: 575px) {
+  .city-grouped-row {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas:
+      'place price chevron'
+      'meta price chevron';
+  }
+
+  .city-grouped-row-place {
+    grid-area: place;
+  }
+
+  .city-grouped-row-meta {
+    grid-area: meta;
+  }
+
+  .city-grouped-row-price {
+    grid-area: price;
+  }
+
+  .city-grouped-row-chevron {
+    grid-area: chevron;
+  }
+}

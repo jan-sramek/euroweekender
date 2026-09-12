@@ -234,21 +234,25 @@ export function useDeparturePrefill(options?: {
         }
 
         if (disableAutoSelect) {
+          // Origins are optional — unblock the UI immediately and resolve nearby in the background.
           defaultsInitializedRef.current = true;
-          const position = await (positionPromise ?? resolveUserPosition());
-          if (cancelled) return;
-          userPositionRef.current = position;
-
-          const result = await scoresPromise;
-          if (cancelled) return;
-          const scores = result.error ? [] : result.scores;
-          if (result.error) {
-            setErrorMessage(i18n.t('home.hubRankingWarning'));
-          } else {
-            hubScoresRef.current = scores;
-          }
-          refreshNearbyFromUserPosition(cities, scores, position);
           setLocating(false);
+
+          void (async () => {
+            const position = await (positionPromise ?? resolveUserPosition());
+            if (cancelled) return;
+            userPositionRef.current = position;
+
+            const result = await scoresPromise;
+            if (cancelled) return;
+            const scores = result.error ? [] : result.scores;
+            if (result.error) {
+              setErrorMessage(i18n.t('home.hubRankingWarning'));
+            } else {
+              hubScoresRef.current = scores;
+            }
+            refreshNearbyFromUserPosition(cities, scores, position);
+          })();
           return;
         }
 

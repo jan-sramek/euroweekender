@@ -60,6 +60,9 @@ await using (var scope = app.Services.CreateAsyncScope())
             ADD COLUMN IF NOT EXISTS "NamesByLocale" jsonb NOT NULL DEFAULT '{{}}'::jsonb;
             """);
 
+        // Index builds on Flights can take minutes; don't abort MigrateAsync at 30s.
+        db.Database.SetCommandTimeout(TimeSpan.FromMinutes(30));
+
         try
         {
             await db.Database.MigrateAsync();

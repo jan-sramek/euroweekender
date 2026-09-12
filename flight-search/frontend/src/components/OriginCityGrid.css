@@ -1,0 +1,86 @@
+.origin-city-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.origin-city-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.35rem;
+  background: #fff;
+  color: #192c39;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(25, 44, 57, 0.08);
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.origin-city-row:hover,
+.origin-city-row:focus-visible {
+  color: #192c39;
+  background: #f4f8f9;
+  box-shadow: 0 0 16px rgba(25, 44, 57, 0.12);
+}
+
+.origin-city-row-place {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+  min-width: 0;
+}
+
+.origin-city-row-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.origin-city-row-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #04bfab;
+}
+
+.origin-city-row-meta {
+  font-size: 0.8rem;
+  color: #8c959c;
+  white-space: nowrap;
+}
+
+.origin-city-row-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #192c39;
+  white-space: nowrap;
+}
+
+@media (max-width: 575px) {
+  .origin-city-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'place price'
+      'meta price';
+  }
+
+  .origin-city-row-place {
+    grid-area: place;
+  }
+
+  .origin-city-row-meta {
+    grid-area: meta;
+  }
+
+  .origin-city-row-price {
+    grid-area: price;
+    align-self: center;
+  }
+}

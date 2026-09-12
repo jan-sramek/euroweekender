@@ -93,9 +93,7 @@ export function WeekendFlightsToCityPage() {
     locating,
     errorMessage
   } = useDeparturePrefill({
-    localizeCodes: parsedCode ? [parsedCode] : null,
-    disableAutoSelect: true,
-    nearbyAnchorCode: parsedCode
+    localizeCodes: parsedCode ? [parsedCode] : null
   });
 
   const city = useMemo(
@@ -359,7 +357,6 @@ export function WeekendFlightsToCityPage() {
                     onAddCity={handleAddCity}
                     allowEmpty
                     reserveChipSlot
-                    nearbyAnchorCity={city}
                   />
                 </div>
 

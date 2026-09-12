@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import type { City } from '../types/city';
@@ -13,7 +13,7 @@ import { formatEur, getTripPrice } from '../utils/flightPrice';
 import { weekendFlightsFocusParams } from '../utils/flightTime';
 import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
-import { rememberFlightsBack, type FlightsNavState } from './ResultsBackLink';
+import type { FlightsNavState } from './ResultsBackLink';
 import './CityGroupedFlightsView.css';
 
 export type { FlightsNavState };
@@ -49,12 +49,6 @@ export function CityGroupedFlightsView({
       backLabel: t('home.backToResults')
     };
   }, [location.pathname, location.search, location.hash, t]);
-
-  useEffect(() => {
-    if (backState.backTo) {
-      rememberFlightsBack(backState.backTo, backState.backLabel ?? '');
-    }
-  }, [backState]);
 
   if (groups.length === 0) return null;
 

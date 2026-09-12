@@ -78,7 +78,7 @@ export function groupFlightsByOrigin(flights: Flight[]): OriginGroup[] {
       groups.set(cityCode, {
         cityCode,
         cityName: flight.cityFrom,
-        country: flight.countryFrom,
+        country: flight.countryFrom ?? '',
         toCode: flight.cityCodeTo,
         toCity: flight.cityTo,
         minPrice: price,
@@ -92,7 +92,7 @@ export function groupFlightsByOrigin(flights: Flight[]): OriginGroup[] {
     if (price < existing.minPrice) {
       existing.minPrice = price;
       existing.cityName = flight.cityFrom;
-      existing.country = flight.countryFrom;
+      existing.country = flight.countryFrom ?? '';
       existing.toCode = flight.cityCodeTo;
       existing.toCity = flight.cityTo;
       existing.cheapestFlight = flight;

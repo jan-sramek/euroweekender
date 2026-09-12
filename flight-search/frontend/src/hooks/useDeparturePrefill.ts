@@ -13,6 +13,7 @@ import { useLocale } from './useLocale';
 import { useResolveCityDisplayNames } from './useResolveCityDisplayNames';
 
 const SELECTED_ORIGINS_KEY = 'ew.selectedOrigins';
+const NEARBY_FALLBACK_LIMIT = 12;
 
 function readStoredOrigins(): string[] | null {
   try {
@@ -66,6 +67,39 @@ function nearbyFromPosition(
   );
 }
 
+/** When GPS/IP is unavailable, still show useful departure chips from hub ranking. */
+function nearbyFromHubScores(
+  cities: City[],
+  scores: HubScore[],
+  excludeCode?: string,
+  limit = NEARBY_FALLBACK_LIMIT
+): CityWithDistance[] {
+  const excluded = (excludeCode ?? '').trim().toUpperCase();
+  const byCode = indexCitiesByCode(cities);
+
+  return [...scores]
+    .filter(score => {
+      const code = score.code.trim().toUpperCase();
+      return Boolean(code && code !== excluded && byCode.has(code) && (score.offerCount ?? 0) > 0);
+    })
+    .sort((a, b) => {
+      if (b.offerCount !== a.offerCount) return b.offerCount - a.offerCount;
+      return (a.minPrice ?? Number.POSITIVE_INFINITY) - (b.minPrice ?? Number.POSITIVE_INFINITY);
+    })
+    .slice(0, limit)
+    .map(score => {
+      const city = byCode.get(score.code.trim().toUpperCase())!;
+      return {
+        ...city,
+        distanceKm: 0,
+        hubScore: score.hubScore ?? 0,
+        effectiveScore: score.hubScore ?? 0,
+        offerCount: score.offerCount ?? 0,
+        minPrice: score.minPrice ?? null
+      };
+    });
+}
+
 function resolveStoredOrigins(cities: City[], stored: string[] | null): string[] {
   if (!stored || stored.length === 0) return [];
   return stored.filter(code => Boolean(findCityByCode(cities, code)));
@@ -105,7 +139,8 @@ export function useDeparturePrefill(options?: {
 
   const hubScoresRef = useRef<HubScore[]>([]);
   const userPositionRef = useRef<GeoPosition | null>(null);
-  const defaultsInitializedRef = useRef(false);
+  const allCitiesRef = useRef<City[]>([]);
+  allCitiesRef.current = allCities;
 
   const refreshHubSuggestions = useCallback((cities: City[], scores: HubScore[], primaryCode: string) => {
     const anchorCity = findCityByCode(cities, primaryCode);
@@ -117,25 +152,15 @@ export function useDeparturePrefill(options?: {
     setNearbyCities(updateNearbySuggestions(cities, scores, anchorCity));
   }, []);
 
-  const refreshNearbyFromUserPosition = useCallback(
+  const applyNearbyForInbound = useCallback(
     (cities: City[], scores: HubScore[], position: GeoPosition | null) => {
-      if (!position) return;
-      setNearbyCities(nearbyFromPosition(cities, scores, position, excludeNearbyCode));
+      if (position) {
+        setNearbyCities(nearbyFromPosition(cities, scores, position, excludeNearbyCode));
+        return;
+      }
+      setNearbyCities(nearbyFromHubScores(cities, scores, excludeNearbyCode));
     },
     [excludeNearbyCode]
-  );
-
-  const applyDefaults = useCallback(
-    (cities: City[], codes: string[], scores: HubScore[]) => {
-      setSelectedCodes(codes);
-      defaultsInitializedRef.current = true;
-      setLocating(false);
-      refreshHubSuggestions(cities, scores, codes[0] ?? nearbyAnchorCode);
-      if (!disableAutoSelect) {
-        writeStoredOrigins(codes);
-      }
-    },
-    [refreshHubSuggestions, disableAutoSelect, nearbyAnchorCode]
   );
 
   const localizeCityCodes = useCallback((codes: string[]) => {
@@ -154,7 +179,6 @@ export function useDeparturePrefill(options?: {
     });
   }, []);
 
-  /** Prefer the page-city anchor when set; otherwise the first selected origin. */
   const nearbyPrimaryCode = nearbyAnchorCode || selectedCodes[0] || '';
 
   useResolveCityDisplayNames(
@@ -171,7 +195,7 @@ export function useDeparturePrefill(options?: {
     refreshHubSuggestions(allCities, hubScoresRef.current, nearbyPrimaryCode);
   }, [allCities, nearbyPrimaryCode, disableAutoSelect, refreshHubSuggestions]);
 
-  // Inbound hubs: load GPS nearby in its own effect so init cleanup cannot cancel it forever.
+  // Inbound hubs: GPS nearby (with hub-score fallback). Own effect so init cleanup cannot strand it.
   useEffect(() => {
     if (!disableAutoSelect || allCities.length === 0) return;
 
@@ -179,45 +203,49 @@ export function useDeparturePrefill(options?: {
     const citiesSnapshot = allCities;
 
     void (async () => {
-      const scoresPromise =
-        hubScoresRef.current.length > 0
-          ? Promise.resolve({ scores: hubScoresRef.current, error: false as const })
-          : getHubScores().then(
-              scores => ({ scores, error: false as const }),
-              () => ({ scores: [] as HubScore[], error: true as const })
-            );
+      try {
+        const scores =
+          hubScoresRef.current.length > 0
+            ? hubScoresRef.current
+            : await getHubScores().catch(() => [] as HubScore[]);
+        if (cancelled) return;
+        hubScoresRef.current = scores;
 
-      const position = userPositionRef.current ?? (await resolveUserPosition());
-      if (cancelled) return;
-      userPositionRef.current = position;
-
-      const result = await scoresPromise;
-      if (cancelled) return;
-      if (result.error) {
-        setErrorMessage(i18n.t('home.hubRankingWarning'));
-      } else {
-        hubScoresRef.current = result.scores;
+        const position = userPositionRef.current ?? (await resolveUserPosition());
+        if (cancelled) return;
+        userPositionRef.current = position;
+        applyNearbyForInbound(citiesSnapshot, scores, position);
+      } catch {
+        if (!cancelled) {
+          applyNearbyForInbound(citiesSnapshot, hubScoresRef.current, null);
+        }
       }
-      refreshNearbyFromUserPosition(citiesSnapshot, hubScoresRef.current, position);
     })();
 
     return () => {
       cancelled = true;
     };
-    // Re-run when the city catalog first arrives, not on every localized-name refresh.
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: allCities.length
-  }, [disableAutoSelect, allCities.length, refreshNearbyFromUserPosition]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only when catalog arrives / exclude changes
+  }, [disableAutoSelect, allCities.length, excludeNearbyCode, applyNearbyForInbound]);
 
   useEffect(() => {
-    if (!defaultsInitializedRef.current || preferredKey || disableAutoSelect) return;
+    if (preferredKey || disableAutoSelect || allCities.length === 0) return;
+    if (selectedCodes.length === 0) return;
     writeStoredOrigins(selectedCodes);
-  }, [selectedCodes, preferredKey, disableAutoSelect]);
+  }, [selectedCodes, preferredKey, disableAutoSelect, allCities.length]);
+
+  // Keep preferred selection in sync when the URL city changes.
+  useEffect(() => {
+    if (!preferredKey) return;
+    setSelectedCodes(preferredKey.split('|'));
+  }, [preferredKey]);
 
   useEffect(() => {
     let cancelled = false;
 
     async function init() {
-      if (defaultsInitializedRef.current) return;
+      setLocating(true);
+      setErrorMessage('');
 
       const scoresPromise = getHubScores().then(
         scores => ({ scores, error: false as const }),
@@ -233,6 +261,7 @@ export function useDeparturePrefill(options?: {
         const cities = await getCities();
         if (cancelled) return;
         setAllCities(cities);
+        allCitiesRef.current = cities;
 
         const preferred = preferredKey
           .split('|')
@@ -240,7 +269,6 @@ export function useDeparturePrefill(options?: {
 
         if (preferred.length > 0) {
           setSelectedCodes(preferred);
-          defaultsInitializedRef.current = true;
           setLocating(false);
 
           const result = await scoresPromise;
@@ -255,12 +283,20 @@ export function useDeparturePrefill(options?: {
         }
 
         if (disableAutoSelect) {
-          // Origins optional — cities are ready for typeahead; nearby loads in the effect above.
-          defaultsInitializedRef.current = true;
+          setSelectedCodes([]);
           setLocating(false);
+          // Keep hub scores warm for the inbound nearby effect; never leave nearby stranded.
           void scoresPromise.then(result => {
-            if (cancelled || result.error) return;
-            hubScoresRef.current = result.scores;
+            if (cancelled) return;
+            if (!result.error) {
+              hubScoresRef.current = result.scores;
+            }
+            const position = userPositionRef.current;
+            applyNearbyForInbound(
+              cities,
+              hubScoresRef.current,
+              position
+            );
           });
           return;
         }
@@ -268,7 +304,6 @@ export function useDeparturePrefill(options?: {
         const stored = resolveStoredOrigins(cities, readStoredOrigins());
         if (stored.length > 0) {
           setSelectedCodes(stored);
-          defaultsInitializedRef.current = true;
           setLocating(false);
 
           const cachedScores = getCachedHubScores() ?? [];
@@ -291,12 +326,15 @@ export function useDeparturePrefill(options?: {
         if (cachedScores && cachedScores.length > 0) {
           hubScoresRef.current = cachedScores;
           const defaults = selectDefaultCityCodesFromPosition(cities, cachedScores, position);
-          applyDefaults(cities, defaults, cachedScores);
+          setSelectedCodes(defaults);
+          setLocating(false);
+          refreshHubSuggestions(cities, cachedScores, defaults[0] ?? nearbyAnchorCode);
+          writeStoredOrigins(defaults);
 
           void scoresPromise.then(result => {
             if (cancelled || result.error) return;
             hubScoresRef.current = result.scores;
-            refreshHubSuggestions(cities, result.scores, defaults[0] ?? '');
+            refreshHubSuggestions(cities, result.scores, defaults[0] ?? nearbyAnchorCode);
           });
           return;
         }
@@ -305,23 +343,27 @@ export function useDeparturePrefill(options?: {
         if (cancelled) return;
         if (result.error) {
           setErrorMessage(i18n.t('home.hubRankingWarning'));
-          applyDefaults(cities, selectDefaultCityCodesFromPosition(cities, [], position), []);
+          const defaults = selectDefaultCityCodesFromPosition(cities, [], position);
+          setSelectedCodes(defaults);
+          setLocating(false);
+          refreshHubSuggestions(cities, [], defaults[0] ?? nearbyAnchorCode);
+          writeStoredOrigins(defaults);
           return;
         }
 
         hubScoresRef.current = result.scores;
-        applyDefaults(
-          cities,
-          selectDefaultCityCodesFromPosition(cities, result.scores, position),
-          result.scores
-        );
+        const defaults = selectDefaultCityCodesFromPosition(cities, result.scores, position);
+        setSelectedCodes(defaults);
+        setLocating(false);
+        refreshHubSuggestions(cities, result.scores, defaults[0] ?? nearbyAnchorCode);
+        writeStoredOrigins(defaults);
       } catch {
         if (!cancelled) {
           setErrorMessage(i18n.t('home.apiError'));
           setLocating(false);
         }
       } finally {
-        if (!cancelled && !defaultsInitializedRef.current) {
+        if (!cancelled) {
           setLocating(false);
         }
       }
@@ -331,13 +373,9 @@ export function useDeparturePrefill(options?: {
     return () => {
       cancelled = true;
     };
-  }, [
-    preferredKey,
-    refreshHubSuggestions,
-    applyDefaults,
-    disableAutoSelect,
-    nearbyAnchorCode
-  ]);
+    // Intentionally narrow deps: callback identity changes must not cancel city loading.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- applyNearbyForInbound used only after cities settle
+  }, [preferredKey, disableAutoSelect, nearbyAnchorCode, refreshHubSuggestions]);
 
   const citiesByCode = useMemo(() => indexCitiesByCode(allCities), [allCities]);
 

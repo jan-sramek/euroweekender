@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { LoadingIndicator } from '../components/LoadingIndicator';
 import { SiteFooter } from '../components/SiteFooter';
@@ -31,6 +31,7 @@ export function WeekendFlightsOdPage() {
   const { t } = useTranslation();
   const locale = useLocale();
   const { odSlug } = useParams<{ odSlug: string }>();
+  const location = useLocation();
   const { path } = useLocalizedPath();
   const parsed = parseOdSlugs(odSlug);
 
@@ -118,6 +119,20 @@ export function WeekendFlightsOdPage() {
     );
   }
 
+  if (allCities.length === 0) {
+    return (
+      <>
+        <AppHeader />
+        <div className="container">
+          <div className="state-box">
+            <p>{t('home.apiError')}</p>
+          </div>
+        </div>
+        <SiteFooter />
+      </>
+    );
+  }
+
   if (!fromCity || !toCity) {
     return <NotFoundPage />;
   }
@@ -125,7 +140,7 @@ export function WeekendFlightsOdPage() {
   const canonicalPath = weekendFlightsOdPath(fromCity, toCity);
   const canonicalSlug = canonicalPath.split('/').pop();
   if (odSlug?.toLowerCase() !== canonicalSlug) {
-    return <Navigate to={path(canonicalPath)} replace />;
+    return <Navigate to={path(canonicalPath)} replace state={location.state} />;
   }
 
   const extraSeoContent = (

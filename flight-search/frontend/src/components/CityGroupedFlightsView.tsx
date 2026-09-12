@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import type { City } from '../types/city';
 import type { Flight } from '../types/flight';
 import { preferredIndexableLocale } from '../config/cityIndexLocales';
@@ -12,7 +13,10 @@ import { formatEur, getTripPrice } from '../utils/flightPrice';
 import { weekendFlightsFocusParams } from '../utils/flightTime';
 import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
+import { rememberFlightsBack, type FlightsNavState } from './ResultsBackLink';
 import './CityGroupedFlightsView.css';
+
+export type { FlightsNavState };
 
 interface CityGroupedFlightsViewProps {
   flights: Flight[];
@@ -31,11 +35,26 @@ export function CityGroupedFlightsView({
 }: CityGroupedFlightsViewProps) {
   const { t } = useTranslation();
   const locale = useLocale();
+  const location = useLocation();
 
   const groups = useMemo(
     () => (mode === 'origin' ? groupFlightsByOrigin(flights) : groupFlightsByDestination(flights)),
     [flights, mode]
   );
+
+  const backState = useMemo((): FlightsNavState => {
+    const backTo = `${location.pathname}${location.search}${location.hash}`;
+    return {
+      backTo,
+      backLabel: t('home.backToResults')
+    };
+  }, [location.pathname, location.search, location.hash, t]);
+
+  useEffect(() => {
+    if (backState.backTo) {
+      rememberFlightsBack(backState.backTo, backState.backLabel ?? '');
+    }
+  }, [backState]);
 
   if (groups.length === 0) return null;
 
@@ -68,18 +87,16 @@ export function CityGroupedFlightsView({
             weekendFlightsFocusParams(group.cheapestFlight.localDeparture)
           )
         );
-        const indexCity = from;
 
         return (
           <li key={group.cityCode} className="city-grouped-item">
             <LocalizedLink
               className="city-grouped-row"
               locale={
-                indexCity
-                  ? preferredIndexableLocale(locale, indexCity.code, indexCity.country)
-                  : undefined
+                from ? preferredIndexableLocale(locale, from.code, from.country) : undefined
               }
               to={href}
+              state={backState}
               data-umami-event={
                 mode === 'origin' ? 'origin_city_open_flights' : 'destination_city_open_flights'
               }

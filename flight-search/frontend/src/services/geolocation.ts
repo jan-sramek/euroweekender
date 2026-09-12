@@ -3,6 +3,8 @@ import { isValidLatLng, type LatLng } from '../utils/geo';
 export type GeoPosition = LatLng;
 
 const GEO_TIMEOUT_MS = 10000;
+/** Prefer a fast IP fix over waiting the full GPS timeout for airport chips. */
+const GEO_PREFER_IP_AFTER_MS = 2500;
 /** Reuse a recent fix so a new tab does not wait on GPS again. */
 const GEO_MAX_AGE_MS = 300000;
 
@@ -61,10 +63,25 @@ export async function getIpPosition(signal?: AbortSignal): Promise<GeoPosition |
   }
 }
 
-/** GPS first, IP second. Null if both fail — do not invent a city. */
+function delay(ms: number): Promise<null> {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(null), ms);
+  });
+}
+
+/**
+ * GPS first when it answers quickly; otherwise IP so airport chips are not stuck
+ * behind a full GPS timeout. Still upgrades to GPS if it arrives before IP.
+ */
 export async function resolveUserPosition(): Promise<GeoPosition | null> {
   const ipPromise = getIpPosition();
-  const gps = await getCurrentPosition();
-  if (gps) return gps;
-  return ipPromise;
+  const gpsPromise = getCurrentPosition();
+
+  const quickGps = await Promise.race([gpsPromise, delay(GEO_PREFER_IP_AFTER_MS)]);
+  if (quickGps) return quickGps;
+
+  const ip = await ipPromise;
+  if (ip) return ip;
+
+  return gpsPromise;
 }

@@ -1,0 +1,24 @@
+.results-back {
+  margin: 0 0 0.75rem;
+}
+
+.results-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #04bfab;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.results-back-link:hover,
+.results-back-link:focus-visible {
+  color: #03a896;
+  text-decoration: underline;
+}

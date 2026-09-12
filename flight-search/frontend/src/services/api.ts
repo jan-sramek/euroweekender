@@ -21,6 +21,8 @@ const SINGLE_CITY_PAGE_SIZE = 1000;
 const WEEKEND_SEARCH_CHUNK_SIZE = 4;
 const CITIES_CACHE_KEY = 'ew:cities:v5';
 const CITIES_CACHE_TTL_MS = 60 * 60 * 1000;
+/** In-process cache so SPA navigations skip sessionStorage JSON parse of the full catalog. */
+let citiesMemoryCache: { cachedAt: number; cities: City[] } | null = null;
 const HUB_SCORES_CACHE_KEY = 'ew:hub-scores:v1';
 const HUB_SCORES_CACHE_TTL_MS = 15 * 60 * 1000;
 const TOP_DESTINATIONS_CACHE_PREFIX = 'ew:top-destinations:v2:';
@@ -170,18 +172,38 @@ async function fetchWeekendChunk(
 }
 
 export async function getCities(): Promise<City[]> {
+  if (
+    citiesMemoryCache &&
+    Date.now() - citiesMemoryCache.cachedAt <= CITIES_CACHE_TTL_MS
+  ) {
+    return citiesMemoryCache.cities;
+  }
+
   const cached = readCitiesCache();
   if (cached) {
+    citiesMemoryCache = { cachedAt: Date.now(), cities: cached };
     return cached;
   }
 
-  const response = await fetch(`${API_BASE}/cities`);
-  if (!response.ok) {
-    throw new Error('Failed to load cities');
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const response = await fetch(`${API_BASE}/cities`);
+      if (!response.ok) {
+        throw new Error(`Failed to load cities (${response.status})`);
+      }
+      const cities = ((await response.json()) as Record<string, unknown>[]).map(normalizeCity);
+      writeCitiesCache(cities);
+      return cities;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0) {
+        await new Promise(resolve => setTimeout(resolve, 400));
+      }
+    }
   }
-  const cities = ((await response.json()) as Record<string, unknown>[]).map(normalizeCity);
-  writeCitiesCache(cities);
-  return cities;
+
+  throw lastError instanceof Error ? lastError : new Error('Failed to load cities');
 }
 
 const LOCALIZED_NAMES_CACHE_PREFIX = 'ew:city-names:v1:';
@@ -381,6 +403,7 @@ function readCitiesCache(): City[] | null {
 }
 
 function writeCitiesCache(cities: City[]): void {
+  citiesMemoryCache = { cachedAt: Date.now(), cities };
   try {
     sessionStorage.setItem(
       CITIES_CACHE_KEY,

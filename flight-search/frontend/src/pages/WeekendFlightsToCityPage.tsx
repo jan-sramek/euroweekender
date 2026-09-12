@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { AppHeader } from '../components/AppHeader';
 import { DeparturePicker } from '../components/DeparturePicker';
 import { FlightCard } from '../components/FlightCard';
@@ -78,6 +78,7 @@ export function WeekendFlightsToCityPage() {
   const { t, i18n } = useTranslation();
   const locale = useLocale();
   const { citySlug } = useParams<{ citySlug: string }>();
+  const location = useLocation();
   const { path } = useLocalizedPath();
   const weekendPatterns = useWeekendPatterns();
   const parsedCode = parseCityCodeFromSlug(citySlug);
@@ -312,13 +313,27 @@ export function WeekendFlightsToCityPage() {
     );
   }
 
+  if (allCities.length === 0) {
+    return (
+      <>
+        <AppHeader />
+        <div className="container">
+          <div className="state-box">
+            <p>{errorMessage || t('home.apiError')}</p>
+          </div>
+        </div>
+        <SiteFooter />
+      </>
+    );
+  }
+
   if (!city) {
     return <NotFoundPage />;
   }
 
   const canonicalSlug = buildCitySlug(city);
   if (citySlug?.toLowerCase() !== canonicalSlug) {
-    return <Navigate to={path(weekendFlightsToPath(city))} replace />;
+    return <Navigate to={path(weekendFlightsToPath(city))} replace state={location.state} />;
   }
 
   return (

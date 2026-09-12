@@ -9,6 +9,7 @@ public class CityRepository(WeekendFlightsDbContext db) : ICityRepository
     public async Task<List<City>> GetAllCitiesAsync()
     {
         return await db.Cities
+            .AsNoTracking()
             // .Include(c => c.Airports)
             .OrderBy(c => c.Name)
             .ToListAsync();
@@ -16,6 +17,7 @@ public class CityRepository(WeekendFlightsDbContext db) : ICityRepository
     public async Task<List<City>> GetActiveCitiesAsync()
     {
         return await db.Cities
+            .AsNoTracking()
             .Where(c => c.IsActive)
             // .Include(c => c.Airports.Where(a => a.IsActive))
             .OrderBy(c => c.Code)
@@ -24,6 +26,7 @@ public class CityRepository(WeekendFlightsDbContext db) : ICityRepository
     public async Task<List<City>> GetCitiesByCodesAsync(List<string> cityCodes)
     {
         return await db.Cities
+            .AsNoTracking()
             .Where(c => cityCodes.Contains(c.Code) && c.IsActive)
             // .Include(c => c.Airports.Where(a => a.IsActive))
             .ToListAsync();

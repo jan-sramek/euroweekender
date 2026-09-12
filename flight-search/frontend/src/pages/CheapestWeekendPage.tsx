@@ -9,6 +9,7 @@ import { WeekendPriceCalendar } from '../components/WeekendPriceCalendar';
 import { FlightCard } from '../components/FlightCard';
 import { FlightListSkeleton } from '../components/FlightListSkeleton';
 import { FlightResultsSearch } from '../components/FlightResultsSearch';
+import { ResultsBackLink } from '../components/ResultsBackLink';
 import { RouteSeoFacts } from '../components/RouteSeoFacts';
 import { SiteFooter } from '../components/SiteFooter';
 import { useDeparturePrefill } from '../hooks/useDeparturePrefill';
@@ -300,6 +301,7 @@ export function CheapestWeekendPage({
       <section className="home-intro">
         <div className="intro-overlay">
           <div className="container container-wide intro-copy">
+            <ResultsBackLink />
             <p className="intro-eyebrow">{pageTagline ?? t('cheapestWeekend.tagline')}</p>
             <h1>{pageTitle ?? t('cheapestWeekend.title')}</h1>
             <p className="intro-subtitle">{pageSubtitle ?? t('cheapestWeekend.subtitle')}</p>

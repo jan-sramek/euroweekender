@@ -16,6 +16,7 @@ public class CitiesController(
     IMemoryCache memoryCache) : ControllerBase
 {
     private static readonly TimeSpan HubScoresCacheDuration = TimeSpan.FromMinutes(5);
+    private static readonly TimeSpan CitiesListCacheDuration = TimeSpan.FromHours(1);
 
     [HttpGet("hub-scores")]
     [ProducesResponseType(typeof(IReadOnlyList<OriginHubScoreDto>), StatusCodes.Status200OK)]
@@ -267,11 +268,16 @@ public class CitiesController(
     {
         Response.Headers.CacheControl = "public, max-age=3600";
 
-        var list = activeOnly
-            ? await cityRepository.GetActiveCitiesAsync()
-            : await cityRepository.GetAllCitiesAsync();
+        var cacheKey = activeOnly ? "cities:list:active" : "cities:list:all";
+        if (!memoryCache.TryGetValue(cacheKey, out IReadOnlyList<CityDto>? dtos) || dtos is null)
+        {
+            var list = activeOnly
+                ? await cityRepository.GetActiveCitiesAsync()
+                : await cityRepository.GetAllCitiesAsync();
 
-        var dtos = list.Select(ToCityDto).ToList();
+            dtos = list.Select(ToCityDto).ToList();
+            memoryCache.Set(cacheKey, dtos, CitiesListCacheDuration);
+        }
 
         return Ok(dtos);
     }

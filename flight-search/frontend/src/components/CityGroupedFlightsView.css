@@ -26,16 +26,14 @@
   background: transparent;
   color: #192c39;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .city-grouped-row:hover,
 .city-grouped-row:focus-visible {
+  color: #192c39;
   background: #f4f8f9;
-}
-
-.city-grouped-item.is-expanded .city-grouped-row {
-  border-bottom: 1px solid #e8eef2;
 }
 
 .city-grouped-row-place {
@@ -74,17 +72,8 @@
 .city-grouped-row-chevron {
   width: 1rem;
   color: #8c959c;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   text-align: center;
-}
-
-.city-grouped-flights-panel {
-  padding: 0.65rem 0.65rem 0.75rem;
-  background: #f7f9fb;
-}
-
-.city-grouped-flights-panel .results-list {
-  gap: 0.35rem;
 }
 
 @media (max-width: 575px) {

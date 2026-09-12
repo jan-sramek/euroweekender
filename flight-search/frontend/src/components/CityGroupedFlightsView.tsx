@@ -1,13 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { City } from '../types/city';
 import type { Flight } from '../types/flight';
+import { preferredIndexableLocale } from '../config/cityIndexLocales';
 import { useLocale } from '../hooks/useLocale';
 import { getCityNameByCode } from '../utils/cityDisplayName';
+import { weekendComparePath } from '../data/seoPopularRoutes';
+import { withQuery, withWeekendCalendarHash } from '../utils/citySlug';
 import { groupFlightsByDestination, groupFlightsByOrigin } from '../utils/destinationGroups';
-import { getTripPrice } from '../utils/flightPrice';
-import { getDepartureLegKey, getReturnLegKey } from '../utils/flightLeg';
-import { FlightCard } from './FlightCard';
+import { formatEur, getTripPrice } from '../utils/flightPrice';
+import { weekendFlightsFocusParams } from '../utils/flightTime';
+import { LocalizedLink } from './LocalizedLink';
 import { CountryFlag } from './CountryFlag';
 import './CityGroupedFlightsView.css';
 
@@ -17,22 +20,14 @@ interface CityGroupedFlightsViewProps {
   passengerCount: number;
   /** Inbound hubs group by origin; outbound hubs group by destination. */
   mode: 'origin' | 'destination';
-  departureLegFilter: string | null;
-  returnLegFilter: string | null;
-  onDepartureSelect: (flight: Flight, selected: boolean) => void;
-  onReturnSelect: (flight: Flight, selected: boolean) => void;
 }
 
-/** Results grouped by city: one expandable row per city, flights nested underneath. */
+/** Cities view: one row per city; click opens the compare-weekends flights page. */
 export function CityGroupedFlightsView({
   flights,
   citiesByCode,
   passengerCount,
-  mode,
-  departureLegFilter,
-  returnLegFilter,
-  onDepartureSelect,
-  onReturnSelect
+  mode
 }: CityGroupedFlightsViewProps) {
   const { t } = useTranslation();
   const locale = useLocale();
@@ -41,13 +36,6 @@ export function CityGroupedFlightsView({
     () => (mode === 'origin' ? groupFlightsByOrigin(flights) : groupFlightsByDestination(flights)),
     [flights, mode]
   );
-
-  const groupKey = groups.map(group => group.cityCode).join('|');
-  const [expandedCode, setExpandedCode] = useState<string | null>(null);
-
-  useEffect(() => {
-    setExpandedCode(groups[0]?.cityCode ?? null);
-  }, [groupKey]);
 
   if (groups.length === 0) return null;
 
@@ -60,19 +48,42 @@ export function CityGroupedFlightsView({
           locale,
           group.cityName
         );
-        const expanded = expandedCode === group.cityCode;
+        const fromCode =
+          mode === 'origin'
+            ? group.cityCode
+            : group.cheapestFlight.cityCodeFrom.trim().toUpperCase();
+        const toCode =
+          mode === 'origin'
+            ? group.cheapestFlight.cityCodeTo.trim().toUpperCase()
+            : group.cityCode;
+        const from = citiesByCode.get(fromCode);
+        const to = citiesByCode.get(toCode);
         const minPrice = getTripPrice(group.cheapestFlight, passengerCount);
-        const panelId = `city-group-${group.cityCode}`;
+        const priceLabel = formatEur(minPrice);
+        const href = withWeekendCalendarHash(
+          withQuery(
+            from && to
+              ? weekendComparePath(from, to)
+              : `/cheapest-weekend?from=${encodeURIComponent(fromCode)}&to=${encodeURIComponent(toCode)}`,
+            weekendFlightsFocusParams(group.cheapestFlight.localDeparture)
+          )
+        );
+        const indexCity = from;
 
         return (
-          <li key={group.cityCode} className={`city-grouped-item${expanded ? ' is-expanded' : ''}`}>
-            <button
-              type="button"
+          <li key={group.cityCode} className="city-grouped-item">
+            <LocalizedLink
               className="city-grouped-row"
-              aria-expanded={expanded}
-              aria-controls={panelId}
-              onClick={() => setExpandedCode(expanded ? null : group.cityCode)}
-              data-umami-event="city_group_toggle"
+              locale={
+                indexCity
+                  ? preferredIndexableLocale(locale, indexCity.code, indexCity.country)
+                  : undefined
+              }
+              to={href}
+              data-umami-event={
+                mode === 'origin' ? 'origin_city_open_flights' : 'destination_city_open_flights'
+              }
+              aria-label={t('home.cityCardAria', { city: displayName, price: priceLabel })}
             >
               <span className="city-grouped-row-place">
                 <CountryFlag country={group.country} />
@@ -86,28 +97,9 @@ export function CityGroupedFlightsView({
                 {t('weekendFlightsFrom.destinationPrice', { price: Math.round(minPrice) })}
               </span>
               <span className="city-grouped-row-chevron" aria-hidden="true">
-                {expanded ? '▾' : '▸'}
+                →
               </span>
-            </button>
-
-            {expanded ? (
-              <div id={panelId} className="city-grouped-flights-panel">
-                <div className="flight-list results-list">
-                  {group.flights.map(flight => (
-                    <FlightCard
-                      key={flight.id}
-                      flight={flight}
-                      citiesByCode={citiesByCode}
-                      passengerCount={passengerCount}
-                      departureSelected={departureLegFilter === getDepartureLegKey(flight)}
-                      returnSelected={returnLegFilter === getReturnLegKey(flight)}
-                      onDepartureSelect={selected => onDepartureSelect(flight, selected)}
-                      onReturnSelect={selected => onReturnSelect(flight, selected)}
-                    />
-                  ))}
-                </div>
-              </div>
-            ) : null}
+            </LocalizedLink>
           </li>
         );
       })}

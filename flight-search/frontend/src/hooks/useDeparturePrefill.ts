@@ -119,10 +119,7 @@ export function useDeparturePrefill(options?: {
 
   const refreshNearbyFromUserPosition = useCallback(
     (cities: City[], scores: HubScore[], position: GeoPosition | null) => {
-      if (!position) {
-        setNearbyCities([]);
-        return;
-      }
+      if (!position) return;
       setNearbyCities(nearbyFromPosition(cities, scores, position, excludeNearbyCode));
     },
     [excludeNearbyCode]
@@ -169,23 +166,47 @@ export function useDeparturePrefill(options?: {
   );
 
   useEffect(() => {
-    if (allCities.length === 0) return;
-
-    // Inbound hubs: keep nearby tied to the user's location, never auto-selected origins.
-    if (disableAutoSelect) {
-      refreshNearbyFromUserPosition(allCities, hubScoresRef.current, userPositionRef.current);
-      return;
-    }
-
+    if (allCities.length === 0 || disableAutoSelect) return;
     if (!nearbyPrimaryCode) return;
     refreshHubSuggestions(allCities, hubScoresRef.current, nearbyPrimaryCode);
-  }, [
-    allCities,
-    nearbyPrimaryCode,
-    disableAutoSelect,
-    refreshHubSuggestions,
-    refreshNearbyFromUserPosition
-  ]);
+  }, [allCities, nearbyPrimaryCode, disableAutoSelect, refreshHubSuggestions]);
+
+  // Inbound hubs: load GPS nearby in its own effect so init cleanup cannot cancel it forever.
+  useEffect(() => {
+    if (!disableAutoSelect || allCities.length === 0) return;
+
+    let cancelled = false;
+    const citiesSnapshot = allCities;
+
+    void (async () => {
+      const scoresPromise =
+        hubScoresRef.current.length > 0
+          ? Promise.resolve({ scores: hubScoresRef.current, error: false as const })
+          : getHubScores().then(
+              scores => ({ scores, error: false as const }),
+              () => ({ scores: [] as HubScore[], error: true as const })
+            );
+
+      const position = userPositionRef.current ?? (await resolveUserPosition());
+      if (cancelled) return;
+      userPositionRef.current = position;
+
+      const result = await scoresPromise;
+      if (cancelled) return;
+      if (result.error) {
+        setErrorMessage(i18n.t('home.hubRankingWarning'));
+      } else {
+        hubScoresRef.current = result.scores;
+      }
+      refreshNearbyFromUserPosition(citiesSnapshot, hubScoresRef.current, position);
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+    // Re-run when the city catalog first arrives, not on every localized-name refresh.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: allCities.length
+  }, [disableAutoSelect, allCities.length, refreshNearbyFromUserPosition]);
 
   useEffect(() => {
     if (!defaultsInitializedRef.current || preferredKey || disableAutoSelect) return;
@@ -204,7 +225,7 @@ export function useDeparturePrefill(options?: {
       );
       const storedHint = preferredKey || disableAutoSelect ? null : readStoredOrigins();
       const positionPromise =
-        !preferredKey && !(storedHint && storedHint.length > 0)
+        !preferredKey && !disableAutoSelect && !(storedHint && storedHint.length > 0)
           ? resolveUserPosition()
           : null;
 
@@ -234,25 +255,13 @@ export function useDeparturePrefill(options?: {
         }
 
         if (disableAutoSelect) {
-          // Origins are optional — unblock the UI immediately and resolve nearby in the background.
+          // Origins optional — cities are ready for typeahead; nearby loads in the effect above.
           defaultsInitializedRef.current = true;
           setLocating(false);
-
-          void (async () => {
-            const position = await (positionPromise ?? resolveUserPosition());
-            if (cancelled) return;
-            userPositionRef.current = position;
-
-            const result = await scoresPromise;
-            if (cancelled) return;
-            const scores = result.error ? [] : result.scores;
-            if (result.error) {
-              setErrorMessage(i18n.t('home.hubRankingWarning'));
-            } else {
-              hubScoresRef.current = scores;
-            }
-            refreshNearbyFromUserPosition(cities, scores, position);
-          })();
+          void scoresPromise.then(result => {
+            if (cancelled || result.error) return;
+            hubScoresRef.current = result.scores;
+          });
           return;
         }
 
@@ -325,7 +334,6 @@ export function useDeparturePrefill(options?: {
   }, [
     preferredKey,
     refreshHubSuggestions,
-    refreshNearbyFromUserPosition,
     applyDefaults,
     disableAutoSelect,
     nearbyAnchorCode
